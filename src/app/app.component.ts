@@ -9,9 +9,15 @@ import { TranslateService } from "@ngx-translate/core";
 })
 export class AppComponent {
 
-  constructor(public oidcSecurityService: OidcSecurityService, private translateService: TranslateService) {
+  constructor(public oidcSecurityService: OidcSecurityService, 
+              private translateService: TranslateService) {
+
     translateService.setDefaultLang('en');
-    translateService.use('en'); // TODO: Setup component for selection lang
+
+    let browserLang = translateService.getBrowserLang();
+    if (browserLang) {
+      translateService.use(browserLang);
+    }
   }
 
   ngOnInit() {
