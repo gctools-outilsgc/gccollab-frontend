@@ -1,0 +1,10 @@
+{
+    "APP": {
+        "TITLE": "GCcollab"
+    },
+    "ROUTE": {
+        "HOME": "Accueil",
+        "LOGIN": "Connexion",
+        "SPLASH": "Splash fr"
+    }
+}

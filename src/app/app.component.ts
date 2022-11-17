@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: 'app-root',
@@ -7,9 +8,11 @@ import { OidcSecurityService } from 'angular-auth-oidc-client';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'GCcollab';
 
-  constructor(public oidcSecurityService: OidcSecurityService) {}
+  constructor(public oidcSecurityService: OidcSecurityService, private translateService: TranslateService) {
+    translateService.setDefaultLang('en');
+    translateService.use('en'); // TODO: Setup component for selection lang
+  }
 
   ngOnInit() {
     this.oidcSecurityService.checkAuth().subscribe(({ isAuthenticated, userData, accessToken, idToken }) => {

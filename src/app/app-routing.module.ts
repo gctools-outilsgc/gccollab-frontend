@@ -11,25 +11,25 @@ import { LoginGuard } from './core/guards/login.guard';
 const routes: Routes = [
   {
     path: '',
-    title: 'Home',
+    title: 'ROUTE.HOME',
     component: HomeComponent,
     canActivate: [AuthGuard]
   },
   {
     path: 'splash',
-    title: 'Splash',
+    title: 'ROUTE.SPLASH',
     component: SplashComponent,
     canActivate: [LoginGuard]
   },
   {
     path: 'login',
-    title: 'Login',
+    title: 'ROUTE.LOGIN',
     component: LoginComponent,
     canActivate: [LoginGuard]
   },
   {
     path: 'home',
-    title: 'Home',
+    title: 'ROUTE.HOME',
     component: HomeComponent,
     canActivate: [AuthGuard]
   },
