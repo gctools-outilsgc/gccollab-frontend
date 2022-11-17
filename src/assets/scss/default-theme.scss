@@ -1,5 +1,26 @@
-@use 'partials/colors';
+@import "./partials/colors";
 
 body {
-    background-color: $black;
+    background-color: $background;
+    color: $background-contrast;
+}
+
+.gc-primary {
+    background-color: $primary;
+    color: $primary-contrast;
+}
+
+.gc-secondary {
+    background-color: $secondary;
+    color: $secondary-contrast;
+}
+
+.gc-accent {
+    background-color: $accent;
+    color: $accent-contrast;
+}
+
+.gc-warn {
+    background-color: $warn;
+    color: $warn-contrast;
 }
