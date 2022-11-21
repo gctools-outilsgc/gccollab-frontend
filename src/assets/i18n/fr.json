@@ -4,8 +4,7 @@
     },
     "ROUTE": {
         "HOME": "Accueil",
-        "LOGIN": "Connexion",
-        "SPLASH": "Splash fr"
+        "LOGIN": "Connexion"
     },
     "LANGUAGE": {
         "LABEL": "Langue",
@@ -18,12 +17,6 @@
         },
         "LOGIN": {
             "TITLE": "Connexion"
-        },
-        "SPLASH": {
-            "TITLE": "Splash fr"
-        },
-        "ABOUT": {
-            "TITLE": "Sur"
         }
     }
 }

@@ -4,8 +4,7 @@
     },
     "ROUTE": {
         "HOME": "Home",
-        "LOGIN": "Login",
-        "SPLASH": "Splash"
+        "LOGIN": "Login"
     },
     "LANGUAGE": {
         "LABEL": "Language",
@@ -18,12 +17,6 @@
         },
         "LOGIN": {
             "TITLE": "Login"
-        },
-        "SPLASH": {
-            "TITLE": "Splash"
-        },
-        "ABOUT": {
-            "TITLE": "About"
         }
     }
 }

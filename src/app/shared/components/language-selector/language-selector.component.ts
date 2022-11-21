@@ -24,7 +24,12 @@ export class LanguageSelectorComponent implements OnInit {
   constructor(private translateService: TranslateService) { }
 
   ngOnInit(): void {
+    console.log("yoyo");
     let currLang = this.translateService.currentLang;
+    
+    if (currLang === undefined)
+      return;
+
     for (let i = 0; i < this.languages.length; i++) {
       if (currLang === this.languages[i].key) {
         this.selectedLanguage = this.languages[i].key;

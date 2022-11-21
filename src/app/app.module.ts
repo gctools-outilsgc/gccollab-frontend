@@ -4,9 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { PublicModule } from './public/public.module';
-import { PrivateModule } from './private/private.module';
-import { SharedModule } from './shared/shared.module';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -15,6 +12,7 @@ import { AuthInterceptor } from 'angular-auth-oidc-client';
 import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TitleService } from './core/services/title.service';
 import { TitleStrategy } from '@angular/router';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -24,17 +22,15 @@ import { TitleStrategy } from '@angular/router';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    PublicModule,
-    PrivateModule,
-    SharedModule,
     TranslateModule.forRoot({
-      defaultLanguage: 'en',
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
-      }
+      },
+      isolate: false
     }),
+    SharedModule.forRoot()
   ],
   providers: [
     { 
