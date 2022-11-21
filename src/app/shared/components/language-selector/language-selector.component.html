@@ -1,0 +1,6 @@
+<label for="language">{{ 'LANGUAGE.LABEL' | translate }}</label>
+<select [(ngModel)]="selectedLanguage" (ngModelChange)="update()" name="language">
+    <option *ngFor="let lang of languages" [value]="lang.key">
+        {{ lang.value | translate }}
+    </option>
+</select>

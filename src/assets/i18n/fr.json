@@ -6,5 +6,24 @@
         "HOME": "Accueil",
         "LOGIN": "Connexion",
         "SPLASH": "Splash fr"
+    },
+    "LANGUAGE": {
+        "LABEL": "Langue",
+        "ENGLISH": "Anglais",
+        "FRENCH": "Français"
+    },
+    "PAGE": {
+        "HOME": {
+            "TITLE": "Domicile"
+        },
+        "LOGIN": {
+            "TITLE": "Connexion"
+        },
+        "SPLASH": {
+            "TITLE": "Splash fr"
+        },
+        "ABOUT": {
+            "TITLE": "Sur"
+        }
     }
 }

@@ -6,5 +6,24 @@
         "HOME": "Home",
         "LOGIN": "Login",
         "SPLASH": "Splash"
+    },
+    "LANGUAGE": {
+        "LABEL": "Language",
+        "ENGLISH": "English",
+        "FRENCH": "French"
+    },
+    "PAGE": {
+        "HOME": {
+            "TITLE": "Home"
+        },
+        "LOGIN": {
+            "TITLE": "Login"
+        },
+        "SPLASH": {
+            "TITLE": "Splash"
+        },
+        "ABOUT": {
+            "TITLE": "About"
+        }
     }
 }
