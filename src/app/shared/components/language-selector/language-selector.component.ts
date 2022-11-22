@@ -1,15 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-
-type Language = {
-  key: string;
-  value: string;
-}
-
-const Languages: Language [] = [
-  {'key': 'en', 'value': 'LANGUAGE.ENGLISH'},
-  {'key': 'fr', 'value': 'LANGUAGE.FRENCH'},
-];
+import { Languages } from '../../models/languages';
 
 @Component({
   selector: 'app-language-selector',
@@ -24,7 +15,6 @@ export class LanguageSelectorComponent implements OnInit {
   constructor(private translateService: TranslateService) { }
 
   ngOnInit(): void {
-    console.log("yoyo");
     let currLang = this.translateService.currentLang;
     
     if (currLang === undefined)

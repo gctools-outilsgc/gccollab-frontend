@@ -20,7 +20,7 @@ export class TitleService extends TitleStrategy {
 
     this.translateService.get('APP.TITLE').subscribe((translatedTitle) => {
       appTitle = translatedTitle;
-    })
+    });
 
     if (title) {
       this.translateService.get(title).subscribe((translatedTitle) => {
