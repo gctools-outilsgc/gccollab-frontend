@@ -1,3 +1,3 @@
-export enum PrivateRoutes {
+export const enum PrivateRoutes {
     
 }

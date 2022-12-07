@@ -1,4 +1,11 @@
-export enum CoreRoutes {
+export const enum CoreRoutes {
     Home = 'home',
-    Login = 'login'
+    Login = 'login',
+    Register = 'register',
+    Terms = 'terms',
+    Splash = 'splash',
+    About = 'about',
+    Privacy = 'privacy',
+    Stats = 'stats',
+    Help = 'help'
 }

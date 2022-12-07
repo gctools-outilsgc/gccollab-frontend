@@ -4,7 +4,14 @@
     },
     "ROUTE": {
         "HOME": "Home",
-        "LOGIN": "Login"
+        "LOGIN": "Login",
+        "REGISTER": "Register",
+        "TERMS": "Terms",
+        "SPLASH": "Splash",
+        "ABOUT": "About",
+        "PRIVACY": "Privacy",
+        "STATS": "Stats",
+        "HELP": "Help"
     },
     "LANGUAGE": {
         "LABEL": "Language",

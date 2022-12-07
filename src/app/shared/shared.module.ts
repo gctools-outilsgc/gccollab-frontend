@@ -6,11 +6,13 @@ import { AppModule, HttpLoaderFactory } from '../app.module';
 import { HttpClient } from '@angular/common/http';
 
 import { FormsModule } from '@angular/forms';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 @NgModule({
   declarations: [
-    LanguageSelectorComponent
+    LanguageSelectorComponent,
+    NotFoundComponent
   ],
   imports: [
     CommonModule,

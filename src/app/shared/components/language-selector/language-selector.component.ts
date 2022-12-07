@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Languages } from '../../models/languages';
+import { ILanguage } from '../../models/language';
 
 @Component({
   selector: 'app-language-selector',
@@ -9,8 +9,11 @@ import { Languages } from '../../models/languages';
 })
 export class LanguageSelectorComponent implements OnInit {
   
-  languages = Languages;
-  selectedLanguage = Languages[0].key;
+  languages: ILanguage [] = [
+    {'key': 'en', 'value': 'LANGUAGE.ENGLISH'},
+    {'key': 'fr', 'value': 'LANGUAGE.FRENCH'},
+  ];
+  selectedLanguageKey: string = this.languages[0].key;
 
   constructor(private translateService: TranslateService) { }
 
@@ -20,16 +23,17 @@ export class LanguageSelectorComponent implements OnInit {
     if (currLang === undefined)
       return;
 
+    // TODO: Get the selected lang from localstorage instead
     for (let i = 0; i < this.languages.length; i++) {
       if (currLang === this.languages[i].key) {
-        this.selectedLanguage = this.languages[i].key;
+        this.selectedLanguageKey = this.languages[i].key;
         break;
       }
     }
   }
 
   update() {
-    this.translateService.use(this.selectedLanguage);
-    this.translateService.currentLang = this.selectedLanguage;
+    this.translateService.use(this.selectedLanguageKey);
+    this.translateService.currentLang = this.selectedLanguageKey;
   }
 }

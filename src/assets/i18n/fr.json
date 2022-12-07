@@ -4,7 +4,14 @@
     },
     "ROUTE": {
         "HOME": "Accueil",
-        "LOGIN": "Connexion"
+        "LOGIN": "Connexion",
+        "REGISTER": "S'inscrire",
+        "TERMS": "Conditions",
+        "SPLASH": "Éclaboussure",
+        "ABOUT": "À propos de",
+        "PRIVACY": "Intimité",
+        "STATS": "Statistiques",
+        "HELP": "Aider"
     },
     "LANGUAGE": {
         "LABEL": "Langue",
