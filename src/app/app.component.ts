@@ -2,6 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
 import { TranslateService } from "@ngx-translate/core";
 import { Subscription } from 'rxjs';
+import { LanguageStorageService } from './core/services/language-storage.service';
 
 @Component({
   selector: 'app-root',
@@ -10,21 +11,27 @@ import { Subscription } from 'rxjs';
 })
 export class AppComponent implements OnDestroy {
 
-  authSubscription!: Subscription;
+  checkAuthSub!: Subscription;
+  langChangeSub!: Subscription;
 
   constructor(public oidcSecurityService: OidcSecurityService, 
-              private translateService: TranslateService) {
+              private translateService: TranslateService,
+              private languageStorageService: LanguageStorageService) {
 
-    translateService.setDefaultLang('en');
-
-    let browserLang = translateService.getBrowserLang();
-    if (browserLang) {
-      translateService.use(browserLang);
-    }
   }
 
   ngOnInit() {
-    this.oidcSecurityService.checkAuth().subscribe(({ isAuthenticated, userData, accessToken, idToken }) => {
+    this.initAuthService();
+    this.initTranslationService();
+  }
+
+  ngOnDestroy(): void {
+    this.checkAuthSub.unsubscribe();
+    this.langChangeSub.unsubscribe();
+  }
+
+  initAuthService(): void {
+    this.checkAuthSub = this.oidcSecurityService.checkAuth().subscribe(({ isAuthenticated, userData, accessToken, idToken }) => {
       console.log("Authenticated: " + isAuthenticated);
       console.log("User Data: " + userData);
       console.log("Access Token: " + accessToken);
@@ -36,9 +43,30 @@ export class AppComponent implements OnDestroy {
     });
   }
 
-  ngOnDestroy(): void {
-    this.authSubscription.unsubscribe();
-  } 
+  initTranslationService(): void {
+    this.langChangeSub = this.translateService.onLangChange.subscribe(({lang, translations}) => {
+      this.languageStorageService.setLanguage(lang);
+    });
+
+    let savedLang = this.languageStorageService.getLanguage();
+
+    if (savedLang !== null && (savedLang == 'en' ||'fr')) {
+      this.translateService.setDefaultLang(savedLang);
+      this.translateService.use(savedLang);
+    }
+    else {
+      let browserLang = this.translateService.getBrowserLang();
+
+      if (browserLang && (browserLang == 'en' || 'fr')) {
+        this.translateService.setDefaultLang(browserLang);
+        this.translateService.use(browserLang);
+      }
+      else {
+        this.translateService.setDefaultLang('en');
+        this.translateService.use('en');
+      }
+    }
+  }
 
   login(): void {
     this.oidcSecurityService.authorize();
