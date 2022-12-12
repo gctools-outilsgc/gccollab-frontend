@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { StatsRoutingModule } from './stats-routing.module';
 import { StatsComponent } from './stats.component';
+import { PublicModule } from 'src/app/public/public.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { StatsComponent } from './stats.component';
   ],
   imports: [
     CommonModule,
-    StatsRoutingModule
+    StatsRoutingModule,
+    PublicModule
   ]
 })
 export class StatsModule { }

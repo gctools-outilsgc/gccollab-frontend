@@ -23,7 +23,6 @@ export class LanguageSelectorComponent implements OnInit {
     if (currLang === undefined)
       return;
 
-    // TODO: Get the selected lang from localstorage instead
     for (let i = 0; i < this.languages.length; i++) {
       if (currLang === this.languages[i].key) {
         this.selectedLanguageKey = this.languages[i].key;
