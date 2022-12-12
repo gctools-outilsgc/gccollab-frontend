@@ -1,29 +1,40 @@
 {
-    "APP": {
-        "TITLE": "GCcollab"
+    "app": {
+        "title": "GCcollab"
     },
-    "ROUTE": {
-        "HOME": "Home",
-        "LOGIN": "Login",
-        "REGISTER": "Register",
-        "TERMS": "Terms",
-        "SPLASH": "Splash",
-        "ABOUT": "About",
-        "PRIVACY": "Privacy",
-        "STATS": "Stats",
-        "HELP": "Help"
+    "routes": {
+        "home": "home",
+        "login": "login",
+        "register": "register",
+        "terms": "terms",
+        "splash": "splash",
+        "about": "about",
+        "privacy": "privacy",
+        "stats": "stats",
+        "help": "help"
     },
-    "LANGUAGE": {
-        "LABEL": "Language",
-        "ENGLISH": "English",
-        "FRENCH": "French"
+    "titles": {
+        "home": "Home",
+        "login": "Login",
+        "register": "Register",
+        "terms": "Terms",
+        "splash": "Splash",
+        "about": "About",
+        "privacy": "Privacy",
+        "stats": "Stats",
+        "help": "Help"
     },
-    "PAGE": {
-        "HOME": {
-            "TITLE": "Home"
+    "languages": {
+        "label": "Language",
+        "english": "English",
+        "french": "French"
+    },
+    "page": {
+        "home": {
+            "title": "Home"
         },
-        "LOGIN": {
-            "TITLE": "Login"
+        "login": {
+            "title": "Login"
         }
     }
 }

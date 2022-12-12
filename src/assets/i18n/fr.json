@@ -1,29 +1,40 @@
 {
-    "APP": {
-        "TITLE": "GCcollab"
+    "app": {
+        "title": "GCcollab"
     },
-    "ROUTE": {
-        "HOME": "Accueil",
-        "LOGIN": "Connexion",
-        "REGISTER": "S'inscrire",
-        "TERMS": "Conditions",
-        "SPLASH": "Éclaboussure",
-        "ABOUT": "À propos de",
-        "PRIVACY": "Intimité",
-        "STATS": "Statistiques",
-        "HELP": "Aider"
+    "routes": {
+        "home": "accueil",
+        "login": "connexion",
+        "register": "s'inscrire",
+        "terms": "conditions",
+        "splash": "éclaboussure",
+        "about": "à_propos_de",
+        "privacy": "intimité",
+        "stats": "statistiques",
+        "help": "aider"
     },
-    "LANGUAGE": {
-        "LABEL": "Langue",
-        "ENGLISH": "Anglais",
-        "FRENCH": "Français"
+    "titles": {
+        "home": "Accueil",
+        "login": "Connexion",
+        "register": "S'inscrire",
+        "terms": "Conditions",
+        "splash": "Éclaboussure",
+        "about": "À propos de",
+        "privacy": "Intimité",
+        "stats": "Statistiques",
+        "help": "Aider"
     },
-    "PAGE": {
-        "HOME": {
-            "TITLE": "Domicile"
+    "languages": {
+        "label": "Langue",
+        "english": "Anglais",
+        "french": "Français"
+    },
+    "page": {
+        "home": {
+            "title": "Domicile"
         },
-        "LOGIN": {
-            "TITLE": "Connexion"
+        "login": {
+            "title": "Connexion"
         }
     }
 }

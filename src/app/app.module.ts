@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NgxTranslateRoutesModule } from 'ngx-translate-routes';
 
 import { AuthInterceptor } from 'angular-auth-oidc-client';
 import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -23,12 +24,18 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     CoreModule,
     TranslateModule.forRoot({
+      defaultLanguage: 'en',
+      useDefaultLang: true,
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       },
       isolate: false
+    }),
+    NgxTranslateRoutesModule.forRoot({
+      enableRouteTranslate: true,
+      enableTitleTranslate: false
     }),
     SharedModule.forRoot()
   ],

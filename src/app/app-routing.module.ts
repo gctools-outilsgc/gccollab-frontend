@@ -15,50 +15,50 @@ const routes: Routes = [
   },
   {
     path: CoreRoutes.Login,
-    title: 'ROUTE.LOGIN',
+    title: 'titles.login',
     loadChildren: () => import('./features/login/login.module').then(m => m.LoginModule),
     canActivate: [LoginGuard]
   },
   {
     path: CoreRoutes.Home,
-    title: 'ROUTE.HOME',
+    title: 'titles.home',
     loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule),
     canActivate: [AuthGuard]
   },
   {
     path: CoreRoutes.Register,
-    title: 'ROUTE.REGISTER',
+    title: 'titles.register',
     loadChildren: () => import('./features/register/register.module').then(m => m.RegisterModule),
     canActivate: [LoginGuard],
   },
   {
     path: CoreRoutes.Terms,
-    title: 'ROUTE.TERMS',
+    title: 'titles.terms',
     loadChildren: () => import('./features/terms/terms.module').then(m => m.TermsModule),
   },
   {
     path: CoreRoutes.Splash,
-    title: 'ROUTE.SPLASH', 
+    title: 'titles.splash', 
     loadChildren: () => import('./features/splash/splash.module').then(m => m.SplashModule)
   },
   {
     path: CoreRoutes.About,
-    title: 'ROUTE.ABOUT', 
+    title: 'titles.about', 
     loadChildren: () => import('./features/about/about.module').then(m => m.AboutModule)
   },
   {
     path: CoreRoutes.Privacy,
-    title: 'ROUTE.PRIVACY',
+    title: 'titles.privacy',
     loadChildren: () => import('./features/privacy/privacy.module').then(m => m.PrivacyModule)
   },
   {
     path: CoreRoutes.Stats,
-    title: 'ROUTE.STATS',
+    title: 'titles.stats',
     loadChildren: () => import('./features/stats/stats.module').then(m => m.StatsModule)
   },
   {
     path: CoreRoutes.Help,
-    title: 'ROUTE.HELP',
+    title: 'titles.help',
     component: RedirectGuard,
     canActivate: [RedirectGuard],
     data: {

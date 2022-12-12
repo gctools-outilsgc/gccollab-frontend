@@ -10,8 +10,8 @@ import { ILanguage } from '../../models/language';
 export class LanguageSelectorComponent implements OnInit {
   
   languages: ILanguage [] = [
-    {'key': 'en', 'value': 'LANGUAGE.ENGLISH'},
-    {'key': 'fr', 'value': 'LANGUAGE.FRENCH'},
+    {'key': 'en', 'value': 'languages.english'},
+    {'key': 'fr', 'value': 'languages.french'},
   ];
   selectedLanguageKey: string = this.languages[0].key;
 

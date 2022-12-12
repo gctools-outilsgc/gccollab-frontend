@@ -61,10 +61,6 @@ export class AppComponent implements OnDestroy {
         this.translateService.setDefaultLang(browserLang);
         this.translateService.use(browserLang);
       }
-      else {
-        this.translateService.setDefaultLang('en');
-        this.translateService.use('en');
-      }
     }
   }
 

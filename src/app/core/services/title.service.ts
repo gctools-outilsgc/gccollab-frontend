@@ -18,7 +18,7 @@ export class TitleService extends TitleStrategy {
     const title = this.buildTitle(routerState);
     let appTitle: string = '';
 
-    this.translateService.get('APP.TITLE').subscribe((translatedTitle) => {
+    this.translateService.get('app.title').subscribe((translatedTitle) => {
       appTitle = translatedTitle;
     });
 
