@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TermsComponent } from './terms.component';
 import { TermsRoutingModule } from './terms-routing.module';
 import { PublicModule } from 'src/app/public/public.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { PublicModule } from 'src/app/public/public.module';
   imports: [
     CommonModule,
     TermsRoutingModule,
-    PublicModule
+    PublicModule,
+    SharedModule
   ]
 })
 export class TermsModule { }

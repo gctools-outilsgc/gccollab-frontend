@@ -66,6 +66,90 @@ const routes: Routes = [
     }
   },
   {
+    path: CoreRoutes.Blog,
+    title: 'titles.blog',
+    loadChildren: () => import('./features/blog/blog.module').then(m => m.BlogModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: CoreRoutes.Bookmarks,
+    title: 'titles.bookmarks',
+    loadChildren: () => import('./features/bookmarks/bookmarks.module').then(m => m.BookmarksModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: CoreRoutes.Dashboard,
+    title: 'titles.dashboard',
+    loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: CoreRoutes.Friends,
+    title: 'titles.friends',
+    loadChildren: () => import('./features/friends/friends.module').then(m => m.FriendsModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: CoreRoutes.Groups,
+    title: 'titles.groups',
+    loadChildren: () => import('./features/groups/groups.module').then(m => m.GroupsModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: CoreRoutes.Invite,
+    title: 'titles.invite',
+    loadChildren: () => import('./features/invite/invite.module').then(m => m.InviteModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: CoreRoutes.Members,
+    title: 'titles.members',
+    loadChildren: () => import('./features/members/members.module').then(m => m.MembersModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: CoreRoutes.Messages,
+    title: 'titles.messages',
+    loadChildren: () => import('./features/messages/messages.module').then(m => m.MessagesModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: CoreRoutes.Missions,
+    title: 'titles.missions',
+    loadChildren: () => import('./features/missions/missions.module').then(m => m.MissionsModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: CoreRoutes.NewsFeed,
+    title: 'titles.news-feed',
+    loadChildren: () => import('./features/news-feed/news-feed.module').then(m => m.NewsFeedModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: CoreRoutes.Profile,
+    title: 'titles.profile',
+    loadChildren: () => import('./features/profile/profile.module').then(m => m.ProfileModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: CoreRoutes.Search,
+    title: 'titles.search',
+    loadChildren: () => import('./features/search/search.module').then(m => m.SearchModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: CoreRoutes.Settings,
+    title: 'titles.settings',
+    loadChildren: () => import('./features/settings/settings.module').then(m => m.SettingsModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: CoreRoutes.TheWire,
+    title: 'titles.the-wire',
+    loadChildren: () => import('./features/the-wire/the-wire.module').then(m => m.TheWireModule),
+    canActivate: [AuthGuard]
+  },
+  {
     path: '**',
     component: NotFoundComponent
   }

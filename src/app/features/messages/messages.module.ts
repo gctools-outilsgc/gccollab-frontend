@@ -1,0 +1,18 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { MessagesRoutingModule } from './messages-routing.module';
+import { PrivateModule } from 'src/app/private/private.module';
+import { SharedModule } from 'src/app/shared/shared.module';
+
+
+@NgModule({
+  declarations: [],
+  imports: [
+    CommonModule,
+    MessagesRoutingModule,
+    PrivateModule,
+    SharedModule
+  ]
+})
+export class MessagesModule { }

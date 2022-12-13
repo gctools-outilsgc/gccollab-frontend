@@ -7,5 +7,19 @@ export const enum CoreRoutes {
     About = 'about',
     Privacy = 'privacy',
     Stats = 'stats',
-    Help = 'help'
+    Help = 'help',
+    Blog = 'blog',
+    Bookmarks = 'bookmarks',
+    Dashboard = 'dashboard',
+    Friends = 'friends',
+    Groups = 'groups',
+    Invite = 'invite',
+    Members = 'members',
+    Messages = 'messages',
+    Missions = 'missions',
+    NewsFeed = 'newsfeed',
+    Profile = 'profile',
+    Search = 'search',
+    Settings = 'settings',
+    TheWire = 'thewire'
 }

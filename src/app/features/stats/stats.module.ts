@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { StatsRoutingModule } from './stats-routing.module';
 import { StatsComponent } from './stats.component';
 import { PublicModule } from 'src/app/public/public.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { PublicModule } from 'src/app/public/public.module';
   imports: [
     CommonModule,
     StatsRoutingModule,
-    PublicModule
+    PublicModule,
+    SharedModule
   ]
 })
 export class StatsModule { }
