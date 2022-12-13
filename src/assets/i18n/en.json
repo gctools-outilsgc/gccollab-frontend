@@ -21,11 +21,11 @@
         "members": "members",
         "messages": "messages",
         "missions": "missions",
-        "news-feed": "newsfeed",
+        "newsfeed": "newsfeed",
         "profile": "profile",
         "search": "search",
         "settings": "settings",
-        "the-wire": "thewire"
+        "thewire": "thewire"
     },
     "titles": {
         "home": "Home",
@@ -46,11 +46,11 @@
         "members": "Members",
         "messages": "Messages",
         "missions": "Careers",
-        "news-feed": "News Feed",
+        "newsfeed": "News Feed",
         "profile": "Profile",
         "search": "Search",
         "settings": "Settings",
-        "the-wire": "The Wire"
+        "thewire": "The Wire"
     },
     "languages": {
         "label": "Language",

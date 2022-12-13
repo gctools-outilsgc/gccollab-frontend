@@ -121,7 +121,7 @@ const routes: Routes = [
   },
   {
     path: CoreRoutes.NewsFeed,
-    title: 'titles.news-feed',
+    title: 'titles.newsfeed',
     loadChildren: () => import('./features/news-feed/news-feed.module').then(m => m.NewsFeedModule),
     canActivate: [AuthGuard]
   },
@@ -145,7 +145,7 @@ const routes: Routes = [
   },
   {
     path: CoreRoutes.TheWire,
-    title: 'titles.the-wire',
+    title: 'titles.thewire',
     loadChildren: () => import('./features/the-wire/the-wire.module').then(m => m.TheWireModule),
     canActivate: [AuthGuard]
   },
