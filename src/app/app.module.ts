@@ -13,7 +13,6 @@ import { AuthInterceptor } from 'angular-auth-oidc-client';
 import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TitleService } from './core/services/title.service';
 import { TitleStrategy } from '@angular/router';
-import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -36,8 +35,7 @@ import { SharedModule } from './shared/shared.module';
     NgxTranslateRoutesModule.forRoot({
       enableRouteTranslate: true,
       enableTitleTranslate: false
-    }),
-    SharedModule.forRoot()
+    })
   ],
   providers: [
     { 

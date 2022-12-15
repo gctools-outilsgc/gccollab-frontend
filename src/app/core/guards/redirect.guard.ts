@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 
+/**
+   * A `CanActivate` route guard that redirects the user to the externalUrl.
+   * @returns false.
+   */
 @Injectable({
   providedIn: 'root'
 })

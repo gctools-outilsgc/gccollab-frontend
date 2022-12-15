@@ -4,6 +4,11 @@ import { OidcSecurityService } from 'angular-auth-oidc-client';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+/**
+   * A `CanActivate` route guard that ensured the user is authenticated.
+   * @remark If the user is not authenticated they will be re-routed to the login screen.
+   * @returns true if the user is authenticated.
+   */
 @Injectable({
   providedIn: 'root'
 })
@@ -15,12 +20,9 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       return this.oidcSecurityService.isAuthenticated$.pipe(
         map(({ isAuthenticated }) => {
-          // allow navigation if authenticated
           if (isAuthenticated) {
             return true;
           }
-  
-          // redirect if not authenticated
           return this.router.parseUrl('/login');
         })
       );

@@ -39,7 +39,7 @@ const routes: Routes = [
   {
     path: CoreRoutes.Splash,
     title: 'titles.splash', 
-    loadChildren: () => import('./features/splash/splash.module').then(m => m.SplashModule)
+    loadChildren: () => import('./features/splash/splash.module').then(m => m.SplashModule),
   },
   {
     path: CoreRoutes.About,

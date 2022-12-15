@@ -1,8 +1,11 @@
 import { Component, OnDestroy } from '@angular/core';
+import { NgIf } from '@angular/common';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
 import { TranslateService } from "@ngx-translate/core";
-import { Subscription } from 'rxjs';
+import { filter, Subscription } from 'rxjs';
 import { LanguageStorageService } from './core/services/language-storage.service';
+import { NavigationEnd, NavigationStart, Router, RouterEvent } from '@angular/router';
+import { CoreRoutes } from './core/models/routes';
 
 @Component({
   selector: 'app-root',
@@ -11,23 +14,28 @@ import { LanguageStorageService } from './core/services/language-storage.service
 })
 export class AppComponent implements OnDestroy {
 
-  checkAuthSub!: Subscription;
-  langChangeSub!: Subscription;
+  showHeaderFooter: boolean = true;
+  private checkAuthSub!: Subscription;
+  private langChangeSub!: Subscription;
+  private routeChangeSub!: Subscription;
 
   constructor(public oidcSecurityService: OidcSecurityService, 
               private translateService: TranslateService,
-              private languageStorageService: LanguageStorageService) {
+              private languageStorageService: LanguageStorageService,
+              private router: Router) {
 
   }
 
   ngOnInit() {
     this.initAuthService();
     this.initTranslationService();
+    this.initRouteChangeSubscription();
   }
 
   ngOnDestroy(): void {
     this.checkAuthSub.unsubscribe();
     this.langChangeSub.unsubscribe();
+    this.routeChangeSub.unsubscribe();
   }
 
   initAuthService(): void {
@@ -62,6 +70,15 @@ export class AppComponent implements OnDestroy {
         this.translateService.use(browserLang);
       }
     }
+  }
+
+  initRouteChangeSubscription(): void {
+    this.routeChangeSub = this.router.events.pipe(filter(e => e instanceof NavigationStart ||  e instanceof NavigationEnd)).subscribe((e) => { 
+      if ((e as RouterEvent).url === '/' + CoreRoutes.Splash) {
+        return this.showHeaderFooter = false;
+      }
+      return this.showHeaderFooter = true;
+     });
   }
 
   login(): void {
