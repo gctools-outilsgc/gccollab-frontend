@@ -25,7 +25,9 @@
         "profile": "profil",
         "search": "chercher",
         "settings": "réglages",
-        "thewire": "le_fil"
+        "thewire": "le_fil",
+        "unauthorized": "non_autorisé",
+        "forbidden": "interdit"
     },
     "titles": {
         "home": "Accueil",
@@ -50,7 +52,9 @@
         "profile": "Profil",
         "search": "Chercher",
         "settings": "Réglages",
-        "thewire": "Le fil"
+        "thewire": "Le fil",
+        "unauthorized": "Non autorisé",
+        "forbidden": "Interdit"
     },
     "languages": {
         "label": "Langue",

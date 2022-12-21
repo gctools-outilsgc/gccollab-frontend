@@ -7,12 +7,16 @@ import { HttpClient } from '@angular/common/http';
 
 import { FormsModule } from '@angular/forms';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
+import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 
 
 @NgModule({
   declarations: [
     LanguageSelectorComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    UnauthorizedComponent,
+    ForbiddenComponent
   ],
   imports: [
     CommonModule,

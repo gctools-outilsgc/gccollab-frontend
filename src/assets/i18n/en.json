@@ -25,7 +25,9 @@
         "profile": "profile",
         "search": "search",
         "settings": "settings",
-        "thewire": "thewire"
+        "thewire": "thewire",
+        "unauthorized": "unauthorized",
+        "forbidden": "forbidden"
     },
     "titles": {
         "home": "Home",
@@ -50,7 +52,9 @@
         "profile": "Profile",
         "search": "Search",
         "settings": "Settings",
-        "thewire": "The Wire"
+        "thewire": "The Wire",
+        "unauthorized": "Unauthorized",
+        "forbidden": "Forbidden"
     },
     "languages": {
         "label": "Language",

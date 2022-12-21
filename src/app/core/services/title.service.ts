@@ -1,29 +1,38 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { RouterStateSnapshot, TitleStrategy } from '@angular/router';
 import { CoreModule } from '../core.module';
 import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: CoreModule
 })
-export class TitleService extends TitleStrategy {
+export class TitleService extends TitleStrategy implements OnDestroy {
+
+  private appTitleSub!: Subscription;
+  private titleSub!: Subscription;
 
   constructor(private translateService: TranslateService,
               private readonly title: Title) {
     super();
   }
 
-  override updateTitle(routerState: RouterStateSnapshot) {
+  ngOnDestroy(): void {
+    this.appTitleSub.unsubscribe();
+    this.titleSub.unsubscribe();
+  }
+
+  override updateTitle(routerState: RouterStateSnapshot): void {
     const title = this.buildTitle(routerState);
     let appTitle: string = '';
 
-    this.translateService.get('app.title').subscribe((translatedTitle) => {
+    this.appTitleSub = this.translateService.get('app.title').subscribe((translatedTitle) => {
       appTitle = translatedTitle;
     });
 
     if (title) {
-      this.translateService.get(title).subscribe((translatedTitle) => {
+      this.titleSub = this.translateService.get(title).subscribe((translatedTitle) => {
         this.title.setTitle(appTitle + ' - ' + translatedTitle);
       })
     } else {

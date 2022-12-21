@@ -6,6 +6,8 @@ import { AuthGuard } from './core/guards/auth.guard';
 import { LoginGuard } from './core/guards/login.guard';
 import { RedirectGuard } from './core/guards/redirect.guard';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
+import { UnauthorizedComponent } from './shared/components/unauthorized/unauthorized.component';
+import { ForbiddenComponent } from './shared/components/forbidden/forbidden.component';
 
 const routes: Routes = [
   {
@@ -148,6 +150,16 @@ const routes: Routes = [
     title: 'titles.thewire',
     loadChildren: () => import('./features/the-wire/the-wire.module').then(m => m.TheWireModule),
     canActivate: [AuthGuard]
+  },
+  {
+    path: CoreRoutes.Unauthorized,
+    title: 'titles.unauthorized',
+    component: UnauthorizedComponent
+  },
+  {
+    path: CoreRoutes.Forbidden,
+    title: 'titles.forbidden',
+    component: ForbiddenComponent
   },
   {
     path: '**',
