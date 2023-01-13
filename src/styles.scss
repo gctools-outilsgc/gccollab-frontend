@@ -2,3 +2,5 @@
 
 // Default theme
 @import "../src/assets/scss/default-theme.scss";
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

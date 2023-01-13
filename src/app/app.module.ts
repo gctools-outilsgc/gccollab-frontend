@@ -13,6 +13,7 @@ import { AuthInterceptor } from 'angular-auth-oidc-client';
 import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TitleService } from './core/services/title.service';
 import { TitleStrategy } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { TitleStrategy } from '@angular/router';
     NgxTranslateRoutesModule.forRoot({
       enableRouteTranslate: true,
       enableTitleTranslate: false
-    })
+    }),
+    BrowserAnimationsModule
   ],
   providers: [
     { 
