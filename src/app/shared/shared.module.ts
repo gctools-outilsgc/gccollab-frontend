@@ -16,7 +16,7 @@ import { ForbiddenComponent } from './components/forbidden/forbidden.component';
     LanguageSelectorComponent,
     NotFoundComponent,
     UnauthorizedComponent,
-    ForbiddenComponent
+    ForbiddenComponent,
   ],
   imports: [
     CommonModule,

@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { AuthModule } from 'angular-auth-oidc-client';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
     imports: [AuthModule.forRoot({
         config: {
-            authority: 'https://dev.account.gccollab.ca/openid',
+            authority: environment.authUrl,
             redirectUrl: window.location.origin,
             postLogoutRedirectUri: window.location.origin,
             clientId: '429862',
@@ -18,7 +19,7 @@ import { AuthModule } from 'angular-auth-oidc-client';
             unauthorizedRoute: '/unauthorized',
             forbiddenRoute: '/forbidden',
             secureRoutes: [
-                'https://dev.account.gccollab.ca/api',
+                environment.baseUrl
             ]
         }
       })],

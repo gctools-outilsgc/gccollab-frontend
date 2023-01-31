@@ -1,1 +1,64 @@
-<p>footer works!</p>
+<footer>
+    <div class="footer-body">
+        <div class="footer-list">
+            <section>
+                <h3>{{ 'footer.title.about' | translate }}</h3>
+                <ul>
+                    <li>
+                        <a [routerLink]="[routes.About]">
+                            {{ 'footer.item.about' | translate }}
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="[routes.Privacy]">
+                            {{ 'footer.item.privacy' | translate }}
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="[routes.Terms]">
+                            {{ 'footer.item.terms' | translate }}
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="[routes.Stats]">
+                            {{ 'footer.item.stats' | translate }}
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>{{ 'footer.title.help' | translate }}</h3>
+                <ul>
+                    <li>
+                        <a href="https://support.gccollab.ca" target="none">
+                            {{ 'footer.item.faq' | translate }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://support.gccollab.ca" target="none">
+                            {{ 'footer.item.help' | translate }}
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>{{ 'footer.title.connect' | translate }}</h3>
+                <ul>
+                    <li>
+                        <a href="https://twitter.com/TBS_Canada" target="none">
+                            {{ 'footer.item.twitter' | translate }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/gctools-outilsgc/gccollab-frontend" target="none">
+                            {{ 'footer.item.github' | translate }}
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div>
+    <div class="footer-brand">
+        <img src="https://gccollab.ca//mod/gccollab_theme/graphics/wmms-blk.svg" aria-label="Symbol of the Government of Canada"/>
+    </div>
+</footer>

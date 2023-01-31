@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  baseUrl: "https://dev.account.gccollab.ca/api", //Devskim: ignore DS137138 
+  authUrl: "https://dev.account.gccollab.ca/openid",
 };
 
 /*

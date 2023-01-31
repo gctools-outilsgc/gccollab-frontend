@@ -61,12 +61,21 @@
         "english": "Anglais",
         "french": "Français"
     },
-    "page": {
-        "home": {
-            "title": "Domicile"
+    "footer": {
+        "title": {
+            "about": "Infos",
+            "help": "Aide",
+            "connect": "Restez branchés"
         },
-        "login": {
-            "title": "Connexion"
+        "item": {
+            "about": "Au sujet de GCcollab",
+            "privacy": "Politique de confidentialité",
+            "terms": "Conditions d'utilisation",
+            "stats": "Statistiques",
+            "faq": "Foire aux questions",
+            "help": "Aide / Contactez-nous",
+            "twitter": "Twitter",
+            "github": "GitHub"
         }
     }
 }

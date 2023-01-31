@@ -1,5 +1,8 @@
 <app-header *ngIf="showHeaderFooter"></app-header>
+<app-page-title *ngIf="showHeaderFooter"></app-page-title>
 
-<router-outlet></router-outlet>
+<div [ngClass]="{'gcc-main': showHeaderFooter}">
+    <router-outlet></router-outlet>
+</div>
 
 <app-footer *ngIf="showHeaderFooter"></app-footer>

@@ -61,12 +61,21 @@
         "english": "English",
         "french": "French"
     },
-    "page": {
-        "home": {
-            "title": "Home"
+    "footer": {
+        "title": {
+            "about": "About",
+            "help": "Help",
+            "connect": "Stay Connected"
         },
-        "login": {
-            "title": "Login"
+        "item": {
+            "about": "About GCCollab",
+            "privacy": "Privacy Policy",
+            "terms": "Terms and Conditions of Use",
+            "stats": "Statistics",
+            "faq": "Frequently Asked Questions",
+            "help": "Help / Contact Us",
+            "twitter": "Twitter",
+            "github": "GitHub"
         }
     }
 }

@@ -1,1 +1,41 @@
-<p>header works!</p>
+<mat-toolbar role="navigation" color="primary">
+  <div class="header-title">
+    <a [routerLink]="[routes.Home]">
+      <span>GC</span>Collab
+    </a>
+  </div>
+
+  <div class="header-search">
+    <!-- <mat-form-field appearance="outline">
+      <mat-label>Search GCCollab</mat-label>
+      <input matInput type="text">
+      <button matSuffix mat-icon-button aria-label="UPDATE_ME">
+        <mat-icon aria-hidden="false" aria-label="UPDATE_ME">search</mat-icon>
+      </button>
+    </mat-form-field> -->
+
+    <form>
+      <input type="text" placeholder="Search GCCollab" />
+      <button mat-icon-button aria-label="UPDATE_ME" color="primary">
+        <mat-icon aria-hidden="false" aria-label="UPDATE_ME">search</mat-icon>
+      </button>
+    </form>
+
+  </div>
+
+  <div class="header-actions">
+    <button mat-button>Invite</button>
+    <button mat-icon-button>
+      <mat-icon aria-hidden="false" aria-label="UPDATE_ME">bookmark</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon aria-hidden="false" aria-label="UPDATE_ME">people</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon aria-hidden="false" aria-label="UPDATE_ME">notifications</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon aria-hidden="false" aria-label="UPDATE_ME">account_circle</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>

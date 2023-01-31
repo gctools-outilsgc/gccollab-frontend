@@ -1,4 +1,4 @@
-export const enum CoreRoutes {
+export enum CoreRoutes {
     Home = 'home',
     Login = 'login',
     Register = 'register',

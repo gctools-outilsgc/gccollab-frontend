@@ -1,22 +1,55 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthConfigModule } from './auth/auth.module';
 
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { RouterModule } from '@angular/router';
+import { AppModule, HttpLoaderFactory } from '../app.module';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
+import { PageTitleComponent } from './components/page-title/page-title.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
+    PageTitleComponent
   ],
   imports: [
     CommonModule,
-    AuthConfigModule
+    AuthConfigModule,
+    RouterModule,
+    TranslateModule.forChild({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      },
+      isolate: false,
+      extend: true
+    }),
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatInputModule
   ],
   exports: [
+    TranslateModule,
     HeaderComponent,
     FooterComponent,
+    PageTitleComponent
   ]
 })
-export class CoreModule { }
+export class CoreModule {
+  static forRoot(): ModuleWithProviders<AppModule> {
+    return {
+      ngModule: CoreModule,
+      providers: [] // share state with providers (one instance)
+    }
+  }
+}
