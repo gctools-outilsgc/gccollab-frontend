@@ -33,6 +33,7 @@ mat-toolbar {
             height: 30px;
             border: 2px solid white;
             border-radius: 12px;
+            padding-left: 6px;
         }
 
         button {
@@ -43,6 +44,7 @@ mat-toolbar {
     .header-actions {
         justify-content: flex-end;
         display: inline-flex;
+        padding-left: 40px;
     }
 
     a {

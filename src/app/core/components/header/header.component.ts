@@ -3,6 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { CoreRoutes } from '../../models/routes';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',

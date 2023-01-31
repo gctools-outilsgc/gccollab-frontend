@@ -8,6 +8,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatMenuModule } from '@angular/material/menu';
 import { RouterModule } from '@angular/router';
 import { AppModule, HttpLoaderFactory } from '../app.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -36,7 +38,9 @@ import { PageTitleComponent } from './components/page-title/page-title.component
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    MatTooltipModule,
+    MatMenuModule
   ],
   exports: [
     TranslateModule,

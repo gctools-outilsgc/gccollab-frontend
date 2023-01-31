@@ -1,5 +1,68 @@
 <mat-toolbar role="navigation" color="primary">
   <div class="header-title">
+
+    <button mat-icon-button 
+            [matMenuTriggerFor]="menu" 
+            aria-label="UPDATE ME">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item 
+              attr.aria-label="{{ 'header.menu.home.aria' | translate }}" 
+              [routerLink]="[routes.Home]">
+        <mat-icon>home</mat-icon>
+        <span>{{ 'titles.home' | translate }}</span>
+      </button>
+      <button mat-menu-item 
+              attr.aria-label="{{ 'header.menu.communities.aria' | translate }}"
+              [routerLink]="[routes.Groups]">
+        <mat-icon>group_work</mat-icon>
+        <span>{{ 'titles.communities' | translate }}</span>
+      </button>
+      <button mat-menu-item 
+              attr.aria-label="{{ 'header.menu.thewire.aria' | translate }}"
+              [routerLink]="[routes.TheWire]">
+        <mat-icon>compare_arrows</mat-icon>
+        <span>{{ 'titles.thewire' | translate }}</span>
+      </button>
+      <button mat-menu-item 
+              attr.aria-label="{{ 'header.menu.groups.aria' | translate }}"
+              [routerLink]="[routes.Groups]">
+        <mat-icon>group</mat-icon>
+        <span>{{ 'titles.groups' | translate }}</span>
+      </button>
+      <button mat-menu-item 
+              attr.aria-label="{{ 'header.menu.members.aria' | translate }}"
+              [routerLink]="[routes.Members]">
+        <mat-icon>face</mat-icon>
+        <span>{{ 'titles.members' | translate }}</span>
+      </button>
+      <button mat-menu-item 
+              attr.aria-label="{{ 'header.menu.missions.aria' | translate }}"
+              [routerLink]="[routes.Missions]">
+        <mat-icon>work</mat-icon>
+        <span>{{ 'titles.missions' | translate }}</span>
+      </button>
+      <button mat-menu-item 
+              attr.aria-label="{{ 'header.menu.blogs.aria' | translate }}"
+              [routerLink]="[routes.Blog]">
+        <mat-icon>library_books</mat-icon>
+        <span>{{ 'titles.blogs' | translate }}</span>
+      </button>
+      <button mat-menu-item 
+              attr.aria-label="{{ 'header.menu.dashboards.aria' | translate }}"
+              [routerLink]="[routes.Dashboard]">
+        <mat-icon>dashboard</mat-icon>
+        <span>{{ 'titles.dashboards' | translate }}</span>
+      </button>
+      <button mat-menu-item 
+              attr.aria-label="{{ 'header.menu.help.aria' | translate }}"
+              [routerLink]="[routes.Help]">
+        <mat-icon>help</mat-icon>
+        <span>{{ 'titles.help' | translate }}</span>
+      </button>
+    </mat-menu>
+
     <a [routerLink]="[routes.Home]">
       <span>GC</span>Collab
     </a>
@@ -15,27 +78,51 @@
     </mat-form-field> -->
 
     <form>
-      <input type="text" placeholder="Search GCCollab" />
-      <button mat-icon-button aria-label="UPDATE_ME" color="primary">
-        <mat-icon aria-hidden="false" aria-label="UPDATE_ME">search</mat-icon>
+      <input type="text" placeholder="{{ 'header.search.title' | translate }}" />
+      <button mat-icon-button
+              color="primary" 
+              attr.aria-label="{{ 'header.search.aria' | translate }}">
+        <mat-icon aria-hidden="false"
+                  matTooltip="{{ 'header.search.button.tooltip' | translate }}"
+                  attr.aria-label="{{ 'header.search.button.aria' | translate }}">
+          search
+        </mat-icon>
       </button>
     </form>
 
   </div>
 
   <div class="header-actions">
-    <button mat-button>Invite</button>
-    <button mat-icon-button>
-      <mat-icon aria-hidden="false" aria-label="UPDATE_ME">bookmark</mat-icon>
+    <button mat-button>
+      {{ 'header.invite.title' | translate }}
     </button>
     <button mat-icon-button>
-      <mat-icon aria-hidden="false" aria-label="UPDATE_ME">people</mat-icon>
+      <mat-icon aria-hidden="false" 
+                matTooltip="{{ 'header.bookmark.tooltip' | translate }}" 
+                attr.aria-label="{{ 'header.bookmark.aria' | translate }}">
+        bookmark
+      </mat-icon>
     </button>
     <button mat-icon-button>
-      <mat-icon aria-hidden="false" aria-label="UPDATE_ME">notifications</mat-icon>
+      <mat-icon aria-hidden="false" 
+                matTooltip="{{ 'header.colleagues.tooltip' | translate }}" 
+                attr.aria-label="{{ 'header.colleagues.aria' | translate }}">
+        people
+      </mat-icon>
     </button>
     <button mat-icon-button>
-      <mat-icon aria-hidden="false" aria-label="UPDATE_ME">account_circle</mat-icon>
+      <mat-icon aria-hidden="false" 
+                matTooltip="{{ 'header.notifications.tooltip' | translate }}" 
+                attr.aria-label="{{ 'header.notifications.aria' | translate }}">
+        notifications
+      </mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon aria-hidden="false" 
+                matTooltip="{{ 'header.profile.tooltip' | translate }}" 
+                attr.aria-label="{{ 'header.profile.aria' | translate }}">
+        account_circle
+      </mat-icon>
     </button>
   </div>
 </mat-toolbar>
