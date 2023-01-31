@@ -93,34 +93,39 @@
   </div>
 
   <div class="header-actions">
-    <button mat-button>
+    <button mat-button
+            [routerLink]="[routes.Invite]">
       {{ 'header.invite.title' | translate }}
     </button>
     <button mat-icon-button>
       <mat-icon aria-hidden="false" 
                 matTooltip="{{ 'header.bookmark.tooltip' | translate }}" 
-                attr.aria-label="{{ 'header.bookmark.aria' | translate }}">
+                attr.aria-label="{{ 'header.bookmark.aria' | translate }}"
+                [routerLink]="[routes.Bookmarks]">
         bookmark
       </mat-icon>
     </button>
     <button mat-icon-button>
       <mat-icon aria-hidden="false" 
                 matTooltip="{{ 'header.colleagues.tooltip' | translate }}" 
-                attr.aria-label="{{ 'header.colleagues.aria' | translate }}">
+                attr.aria-label="{{ 'header.colleagues.aria' | translate }}"
+                [routerLink]="[routes.Members]">
         people
       </mat-icon>
     </button>
     <button mat-icon-button>
       <mat-icon aria-hidden="false" 
                 matTooltip="{{ 'header.notifications.tooltip' | translate }}" 
-                attr.aria-label="{{ 'header.notifications.aria' | translate }}">
+                attr.aria-label="{{ 'header.notifications.aria' | translate }}"
+                [routerLink]="[routes.Messages]">
         notifications
       </mat-icon>
     </button>
     <button mat-icon-button>
       <mat-icon aria-hidden="false" 
                 matTooltip="{{ 'header.profile.tooltip' | translate }}" 
-                attr.aria-label="{{ 'header.profile.aria' | translate }}">
+                attr.aria-label="{{ 'header.profile.aria' | translate }}"
+                [routerLink]="[routes.Profile]">
         account_circle
       </mat-icon>
     </button>
