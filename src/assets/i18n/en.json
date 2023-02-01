@@ -65,6 +65,7 @@
     },
     "header": {
         "menu": {
+            "aria": "Click to open the navigational menu",
             "home": {
                 "aria": "Click to go to the home page"
             },

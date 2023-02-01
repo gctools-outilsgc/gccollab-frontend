@@ -65,6 +65,7 @@
     },
     "header": {
         "menu": {
+            "aria": "Cliquez pour ouvrir le menu de navigation",
             "home": {
                 "aria": "Cliquez pour aller à la page d'accueil"
             },

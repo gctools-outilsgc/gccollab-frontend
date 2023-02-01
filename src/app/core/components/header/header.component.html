@@ -3,7 +3,7 @@
 
     <button mat-icon-button 
             [matMenuTriggerFor]="menu" 
-            aria-label="UPDATE ME">
+            attr.aria-label="{{ 'header.menu.aria' | translate }}">
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
@@ -69,14 +69,6 @@
   </div>
 
   <div class="header-search">
-    <!-- <mat-form-field appearance="outline">
-      <mat-label>Search GCCollab</mat-label>
-      <input matInput type="text">
-      <button matSuffix mat-icon-button aria-label="UPDATE_ME">
-        <mat-icon aria-hidden="false" aria-label="UPDATE_ME">search</mat-icon>
-      </button>
-    </mat-form-field> -->
-
     <form>
       <input type="text" placeholder="{{ 'header.search.title' | translate }}" />
       <button mat-icon-button
@@ -89,7 +81,6 @@
         </mat-icon>
       </button>
     </form>
-
   </div>
 
   <div class="header-actions">
