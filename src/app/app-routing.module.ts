@@ -111,11 +111,11 @@ const routes: Routes = [
   },
   {
     path: CoreRoutes.Dashboard,
-    title: 'titles.dashboard',
+    title: 'titles.dashboards',
     loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule),
     canActivate: [AuthGuard],
     data: {
-      breadcrumb: 'titles.dashboard'
+      breadcrumb: 'titles.dashboards'
     }
   },
   {
