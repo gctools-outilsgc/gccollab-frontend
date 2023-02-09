@@ -1,4 +1,4 @@
-export const enum CoreRoutes {
+export enum CoreRoutes {
     Home = 'home',
     Login = 'login',
     Register = 'register',
@@ -21,5 +21,7 @@ export const enum CoreRoutes {
     Profile = 'profile',
     Search = 'search',
     Settings = 'settings',
-    TheWire = 'thewire'
+    TheWire = 'thewire',
+    Unauthorized = 'unauthorized',
+    Forbidden = 'forbidden',
 }

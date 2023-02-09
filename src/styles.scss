@@ -2,3 +2,16 @@
 
 // Default theme
 @import "../src/assets/scss/default-theme.scss";
+html, body { height: 100%; }
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    display: flex;
+}
+
+app-root {
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    flex: 1;
+}

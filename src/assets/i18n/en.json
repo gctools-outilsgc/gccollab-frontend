@@ -25,7 +25,9 @@
         "profile": "profile",
         "search": "search",
         "settings": "settings",
-        "thewire": "thewire"
+        "thewire": "thewire",
+        "unauthorized": "unauthorized",
+        "forbidden": "forbidden"
     },
     "titles": {
         "home": "Home",
@@ -38,6 +40,7 @@
         "stats": "Stats",
         "help": "Help",
         "blog": "Blog",
+        "blogs": "Blogs",
         "bookmarks": "Bookmarks",
         "dashboards": "Dashboards",
         "friends": "Friends",
@@ -50,19 +53,91 @@
         "profile": "Profile",
         "search": "Search",
         "settings": "Settings",
-        "thewire": "The Wire"
+        "thewire": "The Wire",
+        "unauthorized": "Unauthorized",
+        "forbidden": "Forbidden",
+        "communities": "Communities"
     },
     "languages": {
         "label": "Language",
         "english": "English",
         "french": "French"
     },
-    "page": {
-        "home": {
-            "title": "Home"
+    "header": {
+        "menu": {
+            "aria": "Click to open the navigational menu",
+            "home": {
+                "aria": "Click to go to the home page"
+            },
+            "communities": {
+                "aria": "Click to go to the communities page"
+            },
+            "thewire": {
+                "aria": "Click to go to the wire"
+            },
+            "groups": {
+                "aria": "Click to go to the groups page"
+            },
+            "members": {
+                "aria": "Click to go to the members page"
+            },
+            "missions": {
+                "aria": "Click to go to the careers page"
+            },
+            "blogs": {
+                "aria": "Click to go to the blogs page"
+            },
+            "dashboards": {
+                "aria": "Click to go to the dashboards page"
+            },
+            "help": {
+                "aria": "Click to go to the help page"
+            }
         },
-        "login": {
-            "title": "Login"
+        "search": {
+            "title": "Search GCCollab",
+            "aria": "Start typing to search GCCollab",
+            "button": {
+                "tooltip": "Search",
+                "aria": "Click to start searching GCCollab"
+            }
+        },
+        "invite": {
+            "title": "Invite",
+            "aria": "Click to invite friends or colleagues to GCCollab"
+        },
+        "bookmark": {
+            "tooltip": "Bookmarks",
+            "aria": "Click to view your bookmarks"
+        },
+        "colleagues": {
+            "tooltip": "Colleagues",
+            "aria": "Click to view your colleagues"
+        },
+        "notifications": {
+            "tooltip": "Notifications",
+            "aria": "Click to view your notifications"
+        },
+        "profile": {
+            "tooltip": "Profile",
+            "aria": "Click to view your profile"
+        }
+    },
+    "footer": {
+        "title": {
+            "about": "About",
+            "help": "Help",
+            "connect": "Stay Connected"
+        },
+        "item": {
+            "about": "About GCCollab",
+            "privacy": "Privacy Policy",
+            "terms": "Terms and Conditions of Use",
+            "stats": "Statistics",
+            "faq": "Frequently Asked Questions",
+            "help": "Help / Contact Us",
+            "twitter": "Twitter",
+            "github": "GitHub"
         }
     }
 }

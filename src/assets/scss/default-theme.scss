@@ -3,6 +3,10 @@
 body {
     background-color: $background;
     color: $background-contrast;
+
+    a, a:visited {
+        color: $anchor;
+    }
 }
 
 .gc-primary {

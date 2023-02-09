@@ -1,5 +1,4 @@
 import { Component, OnDestroy } from '@angular/core';
-import { NgIf } from '@angular/common';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
 import { TranslateService } from "@ngx-translate/core";
 import { filter, Subscription } from 'rxjs';

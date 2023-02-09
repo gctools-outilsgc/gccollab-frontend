@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
+import { CoreModule } from '../core.module';
 import { LocalStorageRefService } from './local-storage-ref.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: CoreModule
 })
 export class LanguageStorageService {
 

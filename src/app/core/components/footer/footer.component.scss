@@ -1,0 +1,62 @@
+@import "../../../../assets/scss/partials/colors";
+
+footer {
+    background-color: $secondary;
+
+    .footer-body {
+        padding: 12px;
+
+        .footer-list {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            padding: 8px;
+
+            ul {
+                list-style: none;
+                padding-left: 0;
+                padding-right: 20px;
+            }
+
+            section {
+                flex-direction: column;
+
+                h3 {
+                    font-weight: bold;
+                }
+
+                li:not(:last-child) {
+                    padding-bottom: 12px;
+                }
+
+                a {
+                    display: flex;
+                    flex: 1;
+                    text-decoration: none;
+                    color: #0278a4;
+                }
+
+                a:visited {
+                    color: #0278a4;
+                }
+            }
+
+            section:nth-child(2) {
+                margin: 0 80px;
+            }
+        }
+    }
+
+    .footer-brand {
+        background: $secondary;
+        border-top: 4px solid $primary;
+        line-height: 30px;
+
+        img {
+            float: right;
+            height: 40px;
+            width: auto;
+            margin: 20px;
+        }
+    }
+}
