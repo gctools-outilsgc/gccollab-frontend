@@ -56,7 +56,8 @@
         "thewire": "Le fil",
         "unauthorized": "Non autorisé",
         "forbidden": "Interdit",
-        "communities": "Communautés"
+        "communities": "Communautés",
+        "notfound": "Pas trouvé"
     },
     "languages": {
         "label": "Langue",

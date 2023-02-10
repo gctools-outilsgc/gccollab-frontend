@@ -21,6 +21,7 @@ const routes: Routes = [
     loadChildren: () => import('./features/login/login.module').then(m => m.LoginModule),
     canActivate: [LoginGuard],
     data: {
+      title: 'titles.login',
       breadcrumb: 'titles.login'
     }
   },
@@ -30,6 +31,7 @@ const routes: Routes = [
     loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule),
     canActivate: [AuthGuard],
     data: {
+      title: 'titles.home',
       breadcrumb: 'titles.home'
     }
   },
@@ -39,6 +41,7 @@ const routes: Routes = [
     loadChildren: () => import('./features/register/register.module').then(m => m.RegisterModule),
     canActivate: [LoginGuard],
     data: {
+      title: 'titles.register',
       breadcrumb: 'titles.register'
     }
   },
@@ -47,6 +50,7 @@ const routes: Routes = [
     title: 'titles.terms',
     loadChildren: () => import('./features/terms/terms.module').then(m => m.TermsModule),
     data: {
+      title: 'titles.terms',
       breadcrumb: 'titles.terms'
     }
   },
@@ -55,6 +59,7 @@ const routes: Routes = [
     title: 'titles.splash', 
     loadChildren: () => import('./features/splash/splash.module').then(m => m.SplashModule),
     data: {
+      title: 'titles.splash',
       breadcrumb: 'titles.splash'
     }
   },
@@ -63,6 +68,7 @@ const routes: Routes = [
     title: 'titles.about', 
     loadChildren: () => import('./features/about/about.module').then(m => m.AboutModule),
     data: {
+      title: 'titles.about',
       breadcrumb: 'titles.about'
     }
   },
@@ -71,6 +77,7 @@ const routes: Routes = [
     title: 'titles.privacy',
     loadChildren: () => import('./features/privacy/privacy.module').then(m => m.PrivacyModule),
     data: {
+      title: 'titles.privacy',
       breadcrumb: 'titles.privacy'
     }
   },
@@ -79,6 +86,7 @@ const routes: Routes = [
     title: 'titles.stats',
     loadChildren: () => import('./features/stats/stats.module').then(m => m.StatsModule),
     data: {
+      title: 'titles.stats',
       breadcrumb: 'titles.stats'
     }
   },
@@ -97,6 +105,7 @@ const routes: Routes = [
     loadChildren: () => import('./features/blog/blog.module').then(m => m.BlogModule),
     canActivate: [AuthGuard],
     data: {
+      title: 'titles.blog',
       breadcrumb: 'titles.blog'
     }
   },
@@ -106,6 +115,7 @@ const routes: Routes = [
     loadChildren: () => import('./features/bookmarks/bookmarks.module').then(m => m.BookmarksModule),
     canActivate: [AuthGuard],
     data: {
+      title: 'titles.bookmarks',
       breadcrumb: 'titles.bookmarks'
     }
   },
@@ -115,6 +125,7 @@ const routes: Routes = [
     loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule),
     canActivate: [AuthGuard],
     data: {
+      title: 'titles.dashboards',
       breadcrumb: 'titles.dashboards'
     }
   },
@@ -124,6 +135,7 @@ const routes: Routes = [
     loadChildren: () => import('./features/friends/friends.module').then(m => m.FriendsModule),
     canActivate: [AuthGuard],
     data: {
+      title: 'titles.friends',
       breadcrumb: 'titles.friends'
     }
   },
@@ -133,6 +145,7 @@ const routes: Routes = [
     loadChildren: () => import('./features/groups/groups.module').then(m => m.GroupsModule),
     canActivate: [AuthGuard],
     data: {
+      title: 'titles.groups',
       breadcrumb: 'titles.groups'
     }
   },
@@ -142,6 +155,7 @@ const routes: Routes = [
     loadChildren: () => import('./features/invite/invite.module').then(m => m.InviteModule),
     canActivate: [AuthGuard],
     data: {
+      title: 'titles.invite',
       breadcrumb: 'titles.invite'
     }
   },
@@ -151,6 +165,7 @@ const routes: Routes = [
     loadChildren: () => import('./features/members/members.module').then(m => m.MembersModule),
     canActivate: [AuthGuard],
     data: {
+      title: 'titles.members',
       breadcrumb: 'titles.members'
     }
   },
@@ -160,6 +175,7 @@ const routes: Routes = [
     loadChildren: () => import('./features/messages/messages.module').then(m => m.MessagesModule),
     canActivate: [AuthGuard],
     data: {
+      title: 'titles.messages',
       breadcrumb: 'titles.messages'
     }
   },
@@ -169,6 +185,7 @@ const routes: Routes = [
     loadChildren: () => import('./features/missions/missions.module').then(m => m.MissionsModule),
     canActivate: [AuthGuard],
     data: {
+      title: 'titles.missions',
       breadcrumb: 'titles.missions'
     }
   },
@@ -178,6 +195,7 @@ const routes: Routes = [
     loadChildren: () => import('./features/news-feed/news-feed.module').then(m => m.NewsFeedModule),
     canActivate: [AuthGuard],
     data: {
+      title: 'titles.newsfeed',
       breadcrumb: 'titles.newsfeed'
     }
   },
@@ -187,6 +205,7 @@ const routes: Routes = [
     loadChildren: () => import('./features/profile/profile.module').then(m => m.ProfileModule),
     canActivate: [AuthGuard],
     data: {
+      title: 'titles.profile',
       breadcrumb: 'titles.profile'
     }
   },
@@ -196,6 +215,7 @@ const routes: Routes = [
     loadChildren: () => import('./features/search/search.module').then(m => m.SearchModule),
     canActivate: [AuthGuard],
     data: {
+      title: 'titles.search',
       breadcrumb: 'titles.search'
     }
   },
@@ -205,6 +225,7 @@ const routes: Routes = [
     loadChildren: () => import('./features/settings/settings.module').then(m => m.SettingsModule),
     canActivate: [AuthGuard],
     data: {
+      title: 'titles.settings',
       breadcrumb: 'titles.settings'
     }
   },
@@ -214,22 +235,35 @@ const routes: Routes = [
     loadChildren: () => import('./features/the-wire/the-wire.module').then(m => m.TheWireModule),
     canActivate: [AuthGuard],
     data: {
+      title: 'titles.thewire',
       breadcrumb: 'titles.thewire'
     }
   },
   {
     path: CoreRoutes.Unauthorized,
     title: 'titles.unauthorized',
-    component: UnauthorizedComponent
+    component: UnauthorizedComponent,
+    data: {
+      title: 'titles.unauthorized',
+      breadcrumb: 'titles.unauthorized'
+    }
   },
   {
     path: CoreRoutes.Forbidden,
     title: 'titles.forbidden',
-    component: ForbiddenComponent
+    component: ForbiddenComponent,
+    data: {
+      title: 'titles.forbidden',
+      breadcrumb: 'titles.forbidden'
+    }
   },
   {
     path: '**',
-    component: NotFoundComponent
+    component: NotFoundComponent,
+    data: {
+      title: 'titles.notfound',
+      breadcrumb: 'titles.notfound'
+    }
   }
 ];
 

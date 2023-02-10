@@ -56,7 +56,8 @@
         "thewire": "The Wire",
         "unauthorized": "Unauthorized",
         "forbidden": "Forbidden",
-        "communities": "Communities"
+        "communities": "Communities",
+        "notfound": "Not Found"
     },
     "languages": {
         "label": "Language",
