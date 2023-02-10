@@ -14,6 +14,7 @@ import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TitleService } from './core/services/title.service';
 import { TitleStrategy } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -56,5 +57,5 @@ export class AppModule { }
 
 // required for AOT compilation
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http);
+  return new TranslateHttpLoader(http, environment.i18nFolder, ".json");
 }
