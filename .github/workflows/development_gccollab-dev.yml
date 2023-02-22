@@ -1,0 +1,36 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Build and deploy Node.js app to Azure Web App - gccollab-dev
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+env:
+  AZURE_WEBAPP_NAME: gccollab-dev
+  AZURE_WEBAPP_PACKAGE_PATH: './dist/gccollab-frontend'
+  NODE_VERSION: '16.14.2'
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Use Node.js ${{ env.NODE_VERSION }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+    - name: npm install and build
+      run: |
+        npm install
+        npm run build -- --prod
+    - name: 'Deploy to Azure WebApp'
+      uses: azure/webapps-deploy@v1
+      with: 
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
