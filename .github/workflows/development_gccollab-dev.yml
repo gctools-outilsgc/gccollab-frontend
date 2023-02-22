@@ -4,9 +4,7 @@
 name: Build and deploy Node.js app to Azure Web App - gccollab-dev
 
 on:
-  push:
-    branches:
-      - development
+  [push]
   workflow_dispatch:
 
 env:
@@ -19,7 +17,7 @@ jobs:
     name: Build and Deploy
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@development
+    - uses: actions/checkout@master
     - name: Use Node.js ${{ env.NODE_VERSION }}
       uses: actions/setup-node@v1
       with:
