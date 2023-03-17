@@ -1,12 +1,11 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { RouterStateSnapshot, TitleStrategy } from '@angular/router';
-import { CoreModule } from '../core.module';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
 @Injectable({
-  providedIn: CoreModule
+  providedIn: 'root'
 })
 export class TitleService extends TitleStrategy implements OnDestroy {
 
