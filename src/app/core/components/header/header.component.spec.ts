@@ -9,8 +9,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { HeaderComponent } from './header.component';
 
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpLoaderFactory } from 'src/app/app.module';
+import { TranslateService } from '@ngx-translate/core';
+import { MatMenuModule } from '@angular/material/menu';
+
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
+  let translateService: TranslateService;
   let fixture: ComponentFixture<HeaderComponent>;
 
   beforeEach(waitForAsync(() => {
@@ -24,11 +31,22 @@ describe('HeaderComponent', () => {
         MatListModule,
         MatSidenavModule,
         MatToolbarModule,
-      ]
+        MatMenuModule,
+        TranslateModule.forRoot({
+          loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [ HttpClient ]
+          }
+        }),
+        HttpClientModule
+      ],
+      providers: [ TranslateService, HttpClient ]
     }).compileComponents();
   }));
 
   beforeEach(() => {
+    translateService = TestBed.inject(TranslateService);
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

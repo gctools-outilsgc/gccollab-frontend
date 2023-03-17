@@ -18,8 +18,11 @@ export class TitleService extends TitleStrategy implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.appTitleSub.unsubscribe();
-    this.titleSub.unsubscribe();
+    if (this.appTitleSub != null) 
+      this.appTitleSub.unsubscribe();
+      
+    if (this.titleSub != null) 
+      this.titleSub.unsubscribe();
   }
 
   override updateTitle(routerState: RouterStateSnapshot): void {
