@@ -15,8 +15,8 @@ env:
   NODE_VERSION: '16.14.2'
 
 jobs:
-  build-and-deploy:
-    name: Build and Deploy
+  build-test-and-deploy:
+    name: Build, Test and Deploy
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@master
@@ -28,6 +28,7 @@ jobs:
       run: |
         npm install
         npm run build --if-present
+        npm run test --if-present
     - name: 'Deploy to Azure WebApp'
       uses: azure/webapps-deploy@v1
       with: 
