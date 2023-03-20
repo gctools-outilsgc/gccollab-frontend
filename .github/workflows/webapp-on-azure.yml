@@ -18,17 +18,25 @@ jobs:
   build-test-and-deploy:
     name: Build, Test and Deploy
     runs-on: windows-latest
+
     steps:
     - uses: actions/checkout@master
     - name: Use Node.js ${{ env.NODE_VERSION }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ env.NODE_VERSION }}
-    - name: npm install and build
+
+    - name: npm install
+      run: npm install
+
+    - name: build
+      run: npm run build --if-present
+
+    - name: test
       run: |
-        npm install
-        npm run build --if-present
-        npm run test --if-present
+        npm run pre-test
+        npm run test --if-present -- --watch=false --browsers=ChromeHeadless
+
     - name: 'Deploy to Azure WebApp'
       uses: azure/webapps-deploy@v1
       with: 
