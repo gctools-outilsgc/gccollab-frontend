@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AboutComponent } from './about.component';
 import { AboutRoutingModule } from './about-routing.module';
-import { PublicModule } from 'src/app/public/public.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
@@ -12,7 +11,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     AboutRoutingModule,
-    PublicModule,
     SharedModule
   ]
 })

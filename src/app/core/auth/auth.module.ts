@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
-import { AuthModule } from 'angular-auth-oidc-client';
+import { AbstractSecurityStorage, AuthModule, LogLevel } from 'angular-auth-oidc-client';
 import { environment } from 'src/environments/environment';
+import { SessionStorageService } from '../services/session-storage.service';
 
 @NgModule({
     imports: [AuthModule.forRoot({
@@ -11,11 +12,12 @@ import { environment } from 'src/environments/environment';
             clientId: '429862',
             scope: 'openid profile token_introspection',
             responseType: 'id_token token',
-            silentRenew: true,
+            //silentRenew: true,
             useRefreshToken: true,
-            silentRenewUrl: window.location.origin + '/silent-renew.html',
-            renewTimeBeforeTokenExpiresInSeconds: 10,
-            postLoginRoute: '/home',
+            //silentRenewUrl: window.location.origin + '/silent-renew.html',
+            //renewTimeBeforeTokenExpiresInSeconds: 10,
+            triggerAuthorizationResultEvent: true,
+            //postLoginRoute: '/home',
             unauthorizedRoute: '/unauthorized',
             forbiddenRoute: '/forbidden',
             secureRoutes: [
@@ -23,6 +25,13 @@ import { environment } from 'src/environments/environment';
             ]
         }
       })],
+    providers: [
+        {
+            provide: AbstractSecurityStorage,
+            useClass: SessionStorageService
+        }
+    ],
     exports: [AuthModule],
+    
 })
 export class AuthConfigModule {}

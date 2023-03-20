@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SplashComponent } from './splash.component';
 import { SplashRoutingModule } from './splash-routing.module';
-import { PublicModule } from 'src/app/public/public.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
@@ -12,7 +11,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     SplashRoutingModule,
-    PublicModule,
     SharedModule
   ]
 })

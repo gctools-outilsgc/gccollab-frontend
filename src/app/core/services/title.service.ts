@@ -1,12 +1,11 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { RouterStateSnapshot, TitleStrategy } from '@angular/router';
-import { CoreModule } from '../core.module';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
 @Injectable({
-  providedIn: CoreModule
+  providedIn: 'root'
 })
 export class TitleService extends TitleStrategy implements OnDestroy {
 
@@ -19,8 +18,11 @@ export class TitleService extends TitleStrategy implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.appTitleSub.unsubscribe();
-    this.titleSub.unsubscribe();
+    if (this.appTitleSub != null) 
+      this.appTitleSub.unsubscribe();
+      
+    if (this.titleSub != null) 
+      this.titleSub.unsubscribe();
   }
 
   override updateTitle(routerState: RouterStateSnapshot): void {

@@ -1,17 +1,48 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, inject, TestBed } from '@angular/core/testing';
 
 import { PageTitleComponent } from './page-title.component';
+
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpLoaderFactory } from 'src/app/app.module';
+import { TranslateService } from '@ngx-translate/core';
+import { ActivatedRoute } from '@angular/router';
 
 describe('PageTitleComponent', () => {
   let component: PageTitleComponent;
   let fixture: ComponentFixture<PageTitleComponent>;
+  let translateService: TranslateService;
+
+  // TODO: Mock meaningful data
+  const fakeActivatedRoute = {
+    snapshot: { data: {  } }
+  } as ActivatedRoute;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageTitleComponent ]
+      declarations: [ PageTitleComponent ],
+      imports: [ 
+        TranslateModule.forRoot({
+          loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [ HttpClient ]
+          }
+        }),
+        HttpClientModule
+      ],
+      providers: [ 
+        TranslateService, 
+        HttpClient, 
+        {
+          provide: ActivatedRoute, 
+          useValue: fakeActivatedRoute
+        } 
+      ]
     })
     .compileComponents();
 
+    translateService = TestBed.inject(TranslateService);
     fixture = TestBed.createComponent(PageTitleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
