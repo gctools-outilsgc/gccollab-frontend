@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
+import { AuthConfigModule } from '../auth/auth.module';
 
 import { AuthGuard } from './auth.guard';
 
@@ -8,6 +9,9 @@ describe('AuthGuard', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [
+        AuthConfigModule
+      ],
       providers: [ OidcSecurityService ]
     });
     guard = TestBed.inject(AuthGuard);

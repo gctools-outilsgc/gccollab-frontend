@@ -23,7 +23,7 @@ import { environment } from 'src/environments/environment';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule.forRoot(),
+    CoreModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       useDefaultLang: true,
