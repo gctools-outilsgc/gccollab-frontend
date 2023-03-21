@@ -18,7 +18,9 @@ jobs:
   build-test-and-deploy:
     name: Build, Test and Deploy to Development
     runs-on: windows-latest
-    environment: Development
+    environment: 
+      name: Development
+      url: https://gccollab-dev.azurewebsites.net/
 
     steps:
     - uses: actions/checkout@v3
