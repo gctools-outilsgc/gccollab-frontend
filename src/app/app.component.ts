@@ -1,10 +1,14 @@
 import { Component, OnDestroy } from '@angular/core';
-import { OidcSecurityService } from 'angular-auth-oidc-client';
-import { TranslateService } from "@ngx-translate/core";
+import { NavigationEnd, NavigationStart, Router, RouterEvent }from '@angular/router';
 import { filter, Subscription } from 'rxjs';
-import { LanguageStorageService } from './core/services/language-storage.service';
-import { NavigationEnd, NavigationStart, Router, RouterEvent } from '@angular/router';
 import { CoreRoutes } from './core/models/routes';
+
+import { OidcSecurityService, PublicEventsService, EventTypes } from 'angular-auth-oidc-client';
+import { SessionStorageService } from './core/services/session-storage.service';
+
+import { TranslateService } from "@ngx-translate/core";
+import { LanguageStorageService } from './core/services/language-storage.service';
+
 
 @Component({
   selector: 'app-root',
@@ -15,13 +19,16 @@ export class AppComponent implements OnDestroy {
 
   showHeaderFooter: boolean = true;
   private checkAuthSub!: Subscription;
+  private authReturnSub!: Subscription;
   private langChangeSub!: Subscription;
   private routeChangeSub!: Subscription;
 
   constructor(public oidcSecurityService: OidcSecurityService, 
               private translateService: TranslateService,
               private languageStorageService: LanguageStorageService,
-              private router: Router) {
+              private router: Router,
+              private eventService: PublicEventsService,
+              private sessionStorageService: SessionStorageService) {
 
   }
 
@@ -32,12 +39,39 @@ export class AppComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.checkAuthSub.unsubscribe();
-    this.langChangeSub.unsubscribe();
-    this.routeChangeSub.unsubscribe();
+    if (this.checkAuthSub != null)
+      this.checkAuthSub.unsubscribe();
+
+    if (this.authReturnSub != null)
+      this.authReturnSub.unsubscribe();
+
+    if (this.langChangeSub != null)
+      this.langChangeSub.unsubscribe();
+
+    if (this.routeChangeSub != null)
+      this.routeChangeSub.unsubscribe();
   }
 
   initAuthService(): void {
+
+    this.authReturnSub = this.eventService.registerForEvents()
+    .pipe(filter((notification) => notification.type == EventTypes.NewAuthenticationResult))
+    .subscribe((value:any) => {
+
+      if (value["value"]["isRenewProcess"] === false &&
+          value["value"]["isAuthenticated"] === true) {
+
+        let retUrl = this.sessionStorageService.read('gccollab-retUrl');
+
+        if (retUrl) {
+          window.location.replace(retUrl);
+          this.sessionStorageService.remove('gccollab-retUrl');
+        }
+      } else {
+        this.router.navigateByUrl('/');
+      }
+    });
+    
     this.checkAuthSub = this.oidcSecurityService.checkAuth().subscribe(({ isAuthenticated, userData, accessToken, idToken }) => {
       console.log("Authenticated: " + isAuthenticated);
       console.log("User Data: " + userData);
@@ -45,6 +79,7 @@ export class AppComponent implements OnDestroy {
       console.log("ID Token: " + idToken);
 
       if (isAuthenticated !== true) {
+        this.sessionStorageService.write('gccollab-retUrl', window.location.href);
         this.login();
       }
     });
@@ -57,7 +92,7 @@ export class AppComponent implements OnDestroy {
 
     let savedLang = this.languageStorageService.getLanguage();
 
-    if (savedLang !== null && (savedLang == 'en' ||'fr')) {
+    if (savedLang !== null && (savedLang == 'en' || 'fr')) {
       this.translateService.setDefaultLang(savedLang);
       this.translateService.use(savedLang);
     }
