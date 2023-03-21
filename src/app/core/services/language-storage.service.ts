@@ -7,20 +7,21 @@ import { LocalStorageRefService } from './local-storage-ref.service';
 export class LanguageStorageService {
 
   private _localStorage: Storage;
+  private readonly _key: string = 'gccollab-lang'
   
   constructor(private _localStorageRefService: LocalStorageRefService) { 
     this._localStorage = _localStorageRefService.localStorage;
   }
 
   setLanguage(lang: string): void {
-    this._localStorage.setItem('gccollab-lang', lang);
+    this._localStorage.setItem(this._key, lang);
   }
 
   getLanguage(): string | null {
-    return this._localStorage.getItem('gccollab-lang');
+    return this._localStorage.getItem(this._key);
   }
 
   clearLanguage(): void {
-    this._localStorage.removeItem('gccollab-lang');
+    this._localStorage.removeItem(this._key);
   }
 }

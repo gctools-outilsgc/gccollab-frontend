@@ -9,7 +9,7 @@ import { SessionStorageService } from '../services/session-storage.service';
             authority: environment.authUrl,
             redirectUrl: window.location.origin,
             postLogoutRedirectUri: window.location.origin,
-            clientId: '429862',
+            clientId: environment.clientId,
             scope: 'openid profile token_introspection',
             responseType: 'id_token token',
             //silentRenew: true,
@@ -22,7 +22,8 @@ import { SessionStorageService } from '../services/session-storage.service';
             forbiddenRoute: '/forbidden',
             secureRoutes: [
                 environment.baseUrl
-            ]
+            ],
+            logLevel: environment.authLogLevel
         }
       })],
     providers: [
