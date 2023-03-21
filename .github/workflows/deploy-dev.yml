@@ -21,7 +21,7 @@ jobs:
     environment: Development
 
     steps:
-    - uses: actions/checkout@development
+    - uses: actions/checkout@v3
     - name: Use Node.js ${{ env.NODE_VERSION }}
       uses: actions/setup-node@v1
       with:
