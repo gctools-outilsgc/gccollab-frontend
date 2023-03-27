@@ -1,10 +1,13 @@
 import { Component, OnDestroy } from '@angular/core';
-import { OidcSecurityService } from 'angular-auth-oidc-client';
-import { TranslateService } from "@ngx-translate/core";
+import { NavigationEnd, NavigationStart, Router, RouterEvent }from '@angular/router';
 import { filter, Subscription } from 'rxjs';
+import { CoreRoutes } from './core/constants/routes.constants';
+
+import { OidcSecurityService } from 'angular-auth-oidc-client';
+
+import { TranslateService } from "@ngx-translate/core";
 import { LanguageStorageService } from './core/services/language-storage.service';
-import { NavigationEnd, NavigationStart, Router, RouterEvent } from '@angular/router';
-import { CoreRoutes } from './core/models/routes';
+
 
 @Component({
   selector: 'app-root',
@@ -32,9 +35,14 @@ export class AppComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.checkAuthSub.unsubscribe();
-    this.langChangeSub.unsubscribe();
-    this.routeChangeSub.unsubscribe();
+    if (this.checkAuthSub != null)
+      this.checkAuthSub.unsubscribe();
+
+    if (this.langChangeSub != null)
+      this.langChangeSub.unsubscribe();
+
+    if (this.routeChangeSub != null)
+      this.routeChangeSub.unsubscribe();
   }
 
   initAuthService(): void {
@@ -43,10 +51,6 @@ export class AppComponent implements OnDestroy {
       console.log("User Data: " + userData);
       console.log("Access Token: " + accessToken);
       console.log("ID Token: " + idToken);
-
-      if (isAuthenticated !== true) {
-        this.login();
-      }
     });
   }
 
@@ -57,7 +61,7 @@ export class AppComponent implements OnDestroy {
 
     let savedLang = this.languageStorageService.getLanguage();
 
-    if (savedLang !== null && (savedLang == 'en' ||'fr')) {
+    if (savedLang !== null && (savedLang == 'en' || 'fr')) {
       this.translateService.setDefaultLang(savedLang);
       this.translateService.use(savedLang);
     }
@@ -78,10 +82,6 @@ export class AppComponent implements OnDestroy {
       }
       return this.showHeaderFooter = true;
      });
-  }
-
-  login(): void {
-    this.oidcSecurityService.authorize();
   }
 
   logout(): void {
