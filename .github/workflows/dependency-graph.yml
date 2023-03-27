@@ -16,7 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       CI_COMMIT_MESSAGE: Updated dependency graph
-      CI_COMMIT_AUTHOR: Continuous Integration
       
     steps:
     - uses: actions/checkout@v3
@@ -37,5 +36,7 @@ jobs:
       
     - name: Commit
       run: |
+        git config --global user.email "shea.wow@hotmail.com"
+        git config --global user.name Shea Dougherty-Gill
         git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
         git push
