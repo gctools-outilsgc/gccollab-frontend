@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-unauthorized',
   templateUrl: './unauthorized.component.html',
-  styleUrls: ['./unauthorized.component.scss']
+  styleUrls: ['./unauthorized.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UnauthorizedComponent implements OnInit {
 

@@ -3,7 +3,7 @@ import { NavigationEnd, NavigationStart, Router, RouterEvent }from '@angular/rou
 import { filter, Subscription } from 'rxjs';
 import { CoreRoutes } from './core/models/routes';
 
-import { OidcSecurityService, PublicEventsService, EventTypes } from 'angular-auth-oidc-client';
+import { OidcSecurityService } from 'angular-auth-oidc-client';
 import { SessionStorageService } from './core/services/session-storage.service';
 
 import { TranslateService } from "@ngx-translate/core";
@@ -19,7 +19,6 @@ export class AppComponent implements OnDestroy {
 
   showHeaderFooter: boolean = true;
   private checkAuthSub!: Subscription;
-  private authReturnSub!: Subscription;
   private langChangeSub!: Subscription;
   private routeChangeSub!: Subscription;
 
@@ -27,7 +26,6 @@ export class AppComponent implements OnDestroy {
               private translateService: TranslateService,
               private languageStorageService: LanguageStorageService,
               private router: Router,
-              private eventService: PublicEventsService,
               private sessionStorageService: SessionStorageService) {
 
   }
@@ -42,9 +40,6 @@ export class AppComponent implements OnDestroy {
     if (this.checkAuthSub != null)
       this.checkAuthSub.unsubscribe();
 
-    if (this.authReturnSub != null)
-      this.authReturnSub.unsubscribe();
-
     if (this.langChangeSub != null)
       this.langChangeSub.unsubscribe();
 
@@ -53,35 +48,11 @@ export class AppComponent implements OnDestroy {
   }
 
   initAuthService(): void {
-
-    this.authReturnSub = this.eventService.registerForEvents()
-    .pipe(filter((notification) => notification.type == EventTypes.NewAuthenticationResult))
-    .subscribe((value:any) => {
-
-      if (value["value"]["isRenewProcess"] === false &&
-          value["value"]["isAuthenticated"] === true) {
-
-        let retUrl = this.sessionStorageService.read('gccollab-retUrl');
-
-        if (retUrl) {
-          window.location.replace(retUrl);
-          this.sessionStorageService.remove('gccollab-retUrl');
-        }
-      } else {
-        this.router.navigateByUrl('/');
-      }
-    });
-    
     this.checkAuthSub = this.oidcSecurityService.checkAuth().subscribe(({ isAuthenticated, userData, accessToken, idToken }) => {
       console.log("Authenticated: " + isAuthenticated);
       console.log("User Data: " + userData);
       console.log("Access Token: " + accessToken);
       console.log("ID Token: " + idToken);
-
-      if (isAuthenticated !== true) {
-        this.sessionStorageService.write('gccollab-retUrl', window.location.href);
-        this.login();
-      }
     });
   }
 
@@ -113,10 +84,6 @@ export class AppComponent implements OnDestroy {
       }
       return this.showHeaderFooter = true;
      });
-  }
-
-  login(): void {
-    this.oidcSecurityService.authorize();
   }
 
   logout(): void {
