@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { CoreRoutes } from '../../models/routes';
+import { CoreRoutes } from '../../constants/routes.constants';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({

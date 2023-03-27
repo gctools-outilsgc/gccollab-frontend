@@ -30,7 +30,10 @@ jobs:
         node-version: ${{ env.NODE_VERSION }}
 
     - name: Install
-      run: npm install
+      run: |
+        npm install
+        npm run install-graphviz
+        npm run depcruise
 
     - name: Build
       run: npm run build --if-present

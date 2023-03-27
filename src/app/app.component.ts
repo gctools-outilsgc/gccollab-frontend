@@ -1,10 +1,9 @@
 import { Component, OnDestroy } from '@angular/core';
 import { NavigationEnd, NavigationStart, Router, RouterEvent }from '@angular/router';
 import { filter, Subscription } from 'rxjs';
-import { CoreRoutes } from './core/models/routes';
+import { CoreRoutes } from './core/constants/routes.constants';
 
 import { OidcSecurityService } from 'angular-auth-oidc-client';
-import { SessionStorageService } from './core/services/session-storage.service';
 
 import { TranslateService } from "@ngx-translate/core";
 import { LanguageStorageService } from './core/services/language-storage.service';
@@ -25,8 +24,7 @@ export class AppComponent implements OnDestroy {
   constructor(public oidcSecurityService: OidcSecurityService, 
               private translateService: TranslateService,
               private languageStorageService: LanguageStorageService,
-              private router: Router,
-              private sessionStorageService: SessionStorageService) {
+              private router: Router) {
 
   }
 
