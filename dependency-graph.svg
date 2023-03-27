@@ -305,14 +305,10 @@
 <!-- src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/about/about.module.ts -->
 <g id="edge5" class="edge">
 <title>src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/about/about.module.ts</title>
-<g id="a_edge5"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M428.65,-1873.12C430.42,-1974.4 448.37,-2886.63 523,-2977 528.28,-2983.39 535.26,-2988.01 542.89,-2991.33"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="549.77,-2995.85 556.13,-2995.77 551.11,-2991.87 549.77,-2995.85"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="550.44,-2993.86 547.6,-2992.91 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="545.32" cy="-2992.14" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="424.44" y="-2429.7" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M428.65,-1873.12C430.42,-1974.4 448.37,-2886.63 523,-2977 528.28,-2983.39 535.26,-2988.01 542.89,-2991.33"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="549.77,-2995.85 556.13,-2995.77 551.11,-2991.87 549.77,-2995.85"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="550.44,-2993.86 547.6,-2992.91 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="545.32" cy="-2992.14" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/blog/blog.module.ts -->
 <g id="node7" class="node">
@@ -326,14 +322,10 @@
 <!-- src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/blog/blog.module.ts -->
 <g id="edge6" class="edge">
 <title>src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/blog/blog.module.ts</title>
-<g id="a_edge6"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M428.73,-1873.27C431.19,-1970.69 454.27,-2804.39 523,-2887 529.11,-2894.34 537.46,-2899.33 546.43,-2902.71"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="553.49,-2906.94 559.84,-2906.58 554.66,-2902.9 553.49,-2906.94"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="554.08,-2904.92 551.19,-2904.09 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="548.89" cy="-2903.42" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="426.97" y="-2385.59" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M428.73,-1873.27C431.19,-1970.69 454.27,-2804.39 523,-2887 529.11,-2894.34 537.46,-2899.33 546.43,-2902.71"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="553.49,-2906.94 559.84,-2906.58 554.66,-2902.9 553.49,-2906.94"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="554.08,-2904.92 551.19,-2904.09 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="548.89" cy="-2903.42" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/bookmarks/bookmarks.module.ts -->
 <g id="node8" class="node">
@@ -347,14 +339,10 @@
 <!-- src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/bookmarks/bookmarks.module.ts -->
 <g id="edge7" class="edge">
 <title>src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/bookmarks/bookmarks.module.ts</title>
-<g id="a_edge7"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M428.81,-1873.02C431.97,-1964.48 460.06,-2722.03 523,-2797 525.8,-2800.34 529.07,-2803.19 532.65,-2805.63"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="538.67,-2811.15 544.96,-2812.08 540.62,-2807.43 538.67,-2811.15"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="539.64,-2809.29 536.99,-2807.9 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="534.86" cy="-2806.79" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="429.26" y="-2337.69" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M428.81,-1873.02C431.97,-1964.48 460.06,-2722.03 523,-2797 525.8,-2800.34 529.07,-2803.19 532.65,-2805.63"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="538.67,-2811.15 544.96,-2812.08 540.62,-2807.43 538.67,-2811.15"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="539.64,-2809.29 536.99,-2807.9 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="534.86" cy="-2806.79" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/dashboard/dashboard.module.ts -->
 <g id="node9" class="node">
@@ -368,14 +356,10 @@
 <!-- src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/dashboard/dashboard.module.ts -->
 <g id="edge8" class="edge">
 <title>src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/dashboard/dashboard.module.ts</title>
-<g id="a_edge8"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M428.92,-1873.22C432.93,-1960.5 465.94,-2639.77 523,-2707 525.87,-2710.38 529.21,-2713.26 532.86,-2715.71"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="539.12,-2721.3 545.41,-2722.18 541.04,-2717.56 539.12,-2721.3"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="540.08,-2719.43 537.41,-2718.06 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="535.28" cy="-2716.96" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="431.8" y="-2293.2" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M428.92,-1873.22C432.93,-1960.5 465.94,-2639.77 523,-2707 525.87,-2710.38 529.21,-2713.26 532.86,-2715.71"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="539.12,-2721.3 545.41,-2722.18 541.04,-2717.56 539.12,-2721.3"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="540.08,-2719.43 537.41,-2718.06 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="535.28" cy="-2716.96" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/friends/friends.module.ts -->
 <g id="node10" class="node">
@@ -389,14 +373,10 @@
 <!-- src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/friends/friends.module.ts -->
 <g id="edge9" class="edge">
 <title>src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/friends/friends.module.ts</title>
-<g id="a_edge9"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M428.32,-1873.12C426.93,-1950.6 420.86,-2498.26 523,-2617 527.99,-2622.8 534.38,-2627.13 541.35,-2630.35"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="547.98,-2634.97 554.34,-2635.03 549.41,-2631.02 547.98,-2634.97"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="548.69,-2633 545.87,-2631.98 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="543.61" cy="-2631.17" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="414.46" y="-2251.27" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M428.32,-1873.12C426.93,-1950.6 420.86,-2498.26 523,-2617 527.99,-2622.8 534.38,-2627.13 541.35,-2630.35"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="547.98,-2634.97 554.34,-2635.03 549.41,-2631.02 547.98,-2634.97"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="548.69,-2633 545.87,-2631.98 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="543.61" cy="-2631.17" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/groups/groups.module.ts -->
 <g id="node11" class="node">
@@ -410,14 +390,10 @@
 <!-- src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/groups/groups.module.ts -->
 <g id="edge10" class="edge">
 <title>src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/groups/groups.module.ts</title>
-<g id="a_edge10"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M428.49,-1873.15C428.56,-1945.39 432.47,-2423.52 523,-2527 527.8,-2532.49 533.85,-2536.65 540.45,-2539.81"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="547.27,-2544.59 553.63,-2544.71 548.74,-2540.65 547.27,-2544.59"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="548,-2542.62 545.19,-2541.57 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="542.94" cy="-2540.74" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="419.64" y="-2206.47" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M428.49,-1873.15C428.56,-1945.39 432.47,-2423.52 523,-2527 527.8,-2532.49 533.85,-2536.65 540.45,-2539.81"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="547.27,-2544.59 553.63,-2544.71 548.74,-2540.65 547.27,-2544.59"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="548,-2542.62 545.19,-2541.57 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="542.94" cy="-2540.74" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/home/home.module.ts -->
 <g id="node12" class="node">
@@ -431,14 +407,10 @@
 <!-- src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/home/home.module.ts -->
 <g id="edge11" class="edge">
 <title>src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/home/home.module.ts</title>
-<g id="a_edge11"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M428.58,-1873.3C429.64,-1980.56 441.63,-2981.74 523,-3081 528.44,-3087.63 535.71,-3092.35 543.63,-3095.7"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="550.54,-3100.15 556.9,-3100.01 551.84,-3096.16 550.54,-3100.15"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="551.19,-3098.15 548.34,-3097.23 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="546.06" cy="-3096.49" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="421.61" y="-2481.85" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M428.58,-1873.3C429.64,-1980.56 441.63,-2981.74 523,-3081 528.44,-3087.63 535.71,-3092.35 543.63,-3095.7"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="550.54,-3100.15 556.9,-3100.01 551.84,-3096.16 550.54,-3100.15"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="551.19,-3098.15 548.34,-3097.23 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="546.06" cy="-3096.49" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/invite/invite.module.ts -->
 <g id="node13" class="node">
@@ -452,14 +424,10 @@
 <!-- src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/invite/invite.module.ts -->
 <g id="edge12" class="edge">
 <title>src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/invite/invite.module.ts</title>
-<g id="a_edge12"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M428.71,-1873.15C430.41,-1939.66 444.03,-2348.7 523,-2437 528.72,-2443.39 536.13,-2447.99 544.12,-2451.28"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="551.06,-2455.72 557.42,-2455.56 552.35,-2451.73 551.06,-2455.72"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="551.71,-2453.72 548.85,-2452.81 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="546.57" cy="-2452.07" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="424.98" y="-2162.16" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M428.71,-1873.15C430.41,-1939.66 444.03,-2348.7 523,-2437 528.72,-2443.39 536.13,-2447.99 544.12,-2451.28"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="551.06,-2455.72 557.42,-2455.56 552.35,-2451.73 551.06,-2455.72"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="551.71,-2453.72 548.85,-2452.81 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="546.57" cy="-2452.07" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/login/login.module.ts -->
 <g id="node14" class="node">
@@ -473,14 +441,10 @@
 <!-- src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/login/login.module.ts -->
 <g id="edge13" class="edge">
 <title>src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/login/login.module.ts</title>
-<g id="a_edge13"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M428.52,-1873.04C428.89,-1983.76 434.77,-3076.71 523,-3185 528.84,-3192.17 536.83,-3197.11 545.47,-3200.49"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="552.55,-3204.8 558.9,-3204.51 553.75,-3200.78 552.55,-3204.8"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="553.15,-3202.79 550.28,-3201.93 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="547.98" cy="-3201.24" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="418.78" y="-2533.74" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M428.52,-1873.04C428.89,-1983.76 434.77,-3076.71 523,-3185 528.84,-3192.17 536.83,-3197.11 545.47,-3200.49"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="552.55,-3204.8 558.9,-3204.51 553.75,-3200.78 552.55,-3204.8"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="553.15,-3202.79 550.28,-3201.93 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="547.98" cy="-3201.24" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/members/members.module.ts -->
 <g id="node15" class="node">
@@ -494,14 +458,10 @@
 <!-- src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/members/members.module.ts -->
 <g id="edge14" class="edge">
 <title>src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/members/members.module.ts</title>
-<g id="a_edge14"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M429.02,-1873.22C432.6,-1933.74 455.55,-2273.8 523,-2347 526.6,-2350.9 530.83,-2354.13 535.42,-2356.8"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="541.95,-2362.08 548.28,-2362.65 543.68,-2358.25 541.95,-2362.08"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="542.81,-2360.16 540.08,-2358.92 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="537.9" cy="-2357.93" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="430.21" y="-2116.04" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M429.02,-1873.22C432.6,-1933.74 455.55,-2273.8 523,-2347 526.6,-2350.9 530.83,-2354.13 535.42,-2356.8"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="541.95,-2362.08 548.28,-2362.65 543.68,-2358.25 541.95,-2362.08"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="542.81,-2360.16 540.08,-2358.92 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="537.9" cy="-2357.93" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/messages/messages.module.ts -->
 <g id="node16" class="node">
@@ -515,14 +475,10 @@
 <!-- src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/messages/messages.module.ts -->
 <g id="edge15" class="edge">
 <title>src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/messages/messages.module.ts</title>
-<g id="a_edge15"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M429.46,-1873.19C435.22,-1926.78 466.94,-2198.71 523,-2257 526.42,-2260.56 530.37,-2263.55 534.63,-2266.07"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="540.99,-2271.36 547.32,-2271.99 542.77,-2267.55 540.99,-2271.36"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="541.88,-2269.45 539.16,-2268.18 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="536.99" cy="-2267.17" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="435.78" y="-2071.02" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M429.46,-1873.19C435.22,-1926.78 466.94,-2198.71 523,-2257 526.42,-2260.56 530.37,-2263.55 534.63,-2266.07"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="540.99,-2271.36 547.32,-2271.99 542.77,-2267.55 540.99,-2271.36"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="541.88,-2269.45 539.16,-2268.18 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="536.99" cy="-2267.17" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/missions/missions.module.ts -->
 <g id="node17" class="node">
@@ -536,14 +492,10 @@
 <!-- src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/missions/missions.module.ts -->
 <g id="edge16" class="edge">
 <title>src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/missions/missions.module.ts</title>
-<g id="a_edge16"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M428.41,-1873.26C428.56,-1914.24 434.73,-2081.12 523,-2167 527.2,-2171.08 532.09,-2174.42 537.35,-2177.15"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="543.75,-2182.09 550.1,-2182.46 545.37,-2178.22 543.75,-2182.09"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="544.56,-2180.15 541.79,-2179 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="539.58" cy="-2178.08" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="427.38" y="-2032" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M428.41,-1873.26C428.56,-1914.24 434.73,-2081.12 523,-2167 527.2,-2171.08 532.09,-2174.42 537.35,-2177.15"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="543.75,-2182.09 550.1,-2182.46 545.37,-2178.22 543.75,-2182.09"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="544.56,-2180.15 541.79,-2179 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="539.58" cy="-2178.08" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/news&#45;feed/news&#45;feed.module.ts -->
 <g id="node18" class="node">
@@ -557,14 +509,10 @@
 <!-- src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/news&#45;feed/news&#45;feed.module.ts -->
 <g id="edge17" class="edge">
 <title>src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/news&#45;feed/news&#45;feed.module.ts</title>
-<g id="a_edge17"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M429.79,-1873.32C434.89,-1906.44 456.66,-2019.51 523,-2077 526.3,-2079.86 529.94,-2082.34 533.79,-2084.51"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="540.34,-2089.81 546.67,-2090.39 542.09,-2085.99 540.34,-2089.81"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="541.21,-2087.9 538.48,-2086.65 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="536.3" cy="-2085.65" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="439.71" y="-1985.53" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M429.79,-1873.32C434.89,-1906.44 456.66,-2019.51 523,-2077 526.3,-2079.86 529.94,-2082.34 533.79,-2084.51"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="540.34,-2089.81 546.67,-2090.39 542.09,-2085.99 540.34,-2089.81"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="541.21,-2087.9 538.48,-2086.65 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="536.3" cy="-2085.65" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/privacy/privacy.module.ts -->
 <g id="node19" class="node">
@@ -578,14 +526,10 @@
 <!-- src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/privacy/privacy.module.ts -->
 <g id="edge18" class="edge">
 <title>src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/privacy/privacy.module.ts</title>
-<g id="a_edge18"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M433.83,-1873.2C446.48,-1894.21 480.5,-1946.02 523,-1973 528.36,-1976.4 534.25,-1979.29 540.31,-1981.73"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="547.39,-1986.42 553.75,-1986.41 548.77,-1982.46 547.39,-1986.42"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="548.08,-1984.44 545.25,-1983.45 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="542.98" cy="-1982.66" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="459.03" y="-1932.31" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M433.83,-1873.2C446.48,-1894.21 480.5,-1946.02 523,-1973 528.36,-1976.4 534.25,-1979.29 540.31,-1981.73"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="547.39,-1986.42 553.75,-1986.41 548.77,-1982.46 547.39,-1986.42"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="548.08,-1984.44 545.25,-1983.45 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="542.98" cy="-1982.66" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/profile/profile.module.ts -->
 <g id="node20" class="node">
@@ -599,14 +543,10 @@
 <!-- src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/profile/profile.module.ts -->
 <g id="edge19" class="edge">
 <title>src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/profile/profile.module.ts</title>
-<g id="a_edge19"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M466.78,-1873.1C491.1,-1878.88 522.87,-1886.43 549.4,-1892.74"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="556.8,-1896.65 563.12,-1896 557.77,-1892.57 556.8,-1896.65"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="557.28,-1894.61 554.36,-1893.92 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="552.03" cy="-1893.36" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="490.15" y="-1877.28" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M466.78,-1873.1C491.1,-1878.88 522.87,-1886.43 549.4,-1892.74"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="556.8,-1896.65 563.12,-1896 557.77,-1892.57 556.8,-1896.65"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="557.28,-1894.61 554.36,-1893.92 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="552.03" cy="-1893.36" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/register/register.module.ts -->
 <g id="node21" class="node">
@@ -620,14 +560,10 @@
 <!-- src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/register/register.module.ts -->
 <g id="edge20" class="edge">
 <title>src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/register/register.module.ts</title>
-<g id="a_edge20"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M466.78,-1854.9C491.1,-1849.12 522.87,-1841.57 549.4,-1835.26"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="557.77,-1835.43 563.12,-1832 556.8,-1831.35 557.77,-1835.43"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="557.28,-1833.39 554.36,-1834.08 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="552.03" cy="-1834.64" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="490.15" y="-1836.32" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M466.78,-1854.9C491.1,-1849.12 522.87,-1841.57 549.4,-1835.26"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="557.77,-1835.43 563.12,-1832 556.8,-1831.35 557.77,-1835.43"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="557.28,-1833.39 554.36,-1834.08 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="552.03" cy="-1834.64" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/search/search.module.ts -->
 <g id="node22" class="node">
@@ -641,14 +577,10 @@
 <!-- src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/search/search.module.ts -->
 <g id="edge21" class="edge">
 <title>src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/search/search.module.ts</title>
-<g id="a_edge21"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M437.26,-1854.95C453.26,-1838.75 488.69,-1804.33 523,-1781 536.83,-1771.6 553.16,-1762.89 567.29,-1756.03"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="575.48,-1754.49 580.02,-1750.04 573.69,-1750.69 575.48,-1754.49"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="574.59,-1752.59 571.87,-1753.87 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="569.7" cy="-1754.89" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="478.82" y="-1788.21" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M437.26,-1854.95C453.26,-1838.75 488.69,-1804.33 523,-1781 536.83,-1771.6 553.16,-1762.89 567.29,-1756.03"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="575.48,-1754.49 580.02,-1750.04 573.69,-1750.69 575.48,-1754.49"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="574.59,-1752.59 571.87,-1753.87 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="569.7" cy="-1754.89" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/settings/settings.module.ts -->
 <g id="node23" class="node">
@@ -662,14 +594,10 @@
 <!-- src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/settings/settings.module.ts -->
 <g id="edge22" class="edge">
 <title>src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/settings/settings.module.ts</title>
-<g id="a_edge22"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M431.31,-1854.91C440.33,-1827.05 471.03,-1741.63 523,-1691 533.87,-1680.41 548.12,-1672 561.45,-1665.67"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="569.67,-1664.37 574.32,-1660.05 567.99,-1660.53 569.67,-1664.37"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="568.83,-1662.45 566.08,-1663.65 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="563.88" cy="-1664.61" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="456.93" y="-1737.15" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M431.31,-1854.91C440.33,-1827.05 471.03,-1741.63 523,-1691 533.87,-1680.41 548.12,-1672 561.45,-1665.67"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="569.67,-1664.37 574.32,-1660.05 567.99,-1660.53 569.67,-1664.37"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="568.83,-1662.45 566.08,-1663.65 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="563.88" cy="-1664.61" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/splash/splash.module.ts -->
 <g id="node24" class="node">
@@ -683,14 +611,10 @@
 <!-- src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/splash/splash.module.ts -->
 <g id="edge23" class="edge">
 <title>src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/splash/splash.module.ts</title>
-<g id="a_edge23"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M429.93,-1854.76C435.83,-1819.03 460.94,-1687.55 523,-1601 536.25,-1582.52 556.47,-1566.66 573,-1555.62"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="580.81,-1553.13 584.74,-1548.14 578.55,-1549.59 580.81,-1553.13"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="579.68,-1551.36 577.15,-1552.97 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="575.13" cy="-1554.26" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="451.56" y="-1681.44" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M429.93,-1854.76C435.83,-1819.03 460.94,-1687.55 523,-1601 536.25,-1582.52 556.47,-1566.66 573,-1555.62"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="580.81,-1553.13 584.74,-1548.14 578.55,-1549.59 580.81,-1553.13"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="579.68,-1551.36 577.15,-1552.97 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="575.13" cy="-1554.26" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/stats/stats.module.ts -->
 <g id="node25" class="node">
@@ -704,14 +628,10 @@
 <!-- src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/stats/stats.module.ts -->
 <g id="edge24" class="edge">
 <title>src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/stats/stats.module.ts</title>
-<g id="a_edge24"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M428.77,-1854.91C430.43,-1811.42 442.24,-1621.46 523,-1497 535.31,-1478.04 555.37,-1462.28 572.07,-1451.39"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="579.99,-1448.98 584,-1444.05 577.79,-1445.4 579.99,-1448.98"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="578.89,-1447.19 576.34,-1448.77 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="574.3" cy="-1450.02" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="438.1" y="-1629.79" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M428.77,-1854.91C430.43,-1811.42 442.24,-1621.46 523,-1497 535.31,-1478.04 555.37,-1462.28 572.07,-1451.39"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="579.99,-1448.98 584,-1444.05 577.79,-1445.4 579.99,-1448.98"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="578.89,-1447.19 576.34,-1448.77 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="574.3" cy="-1450.02" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/terms/terms.module.ts -->
 <g id="node26" class="node">
@@ -725,14 +645,10 @@
 <!-- src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/terms/terms.module.ts -->
 <g id="edge25" class="edge">
 <title>src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/terms/terms.module.ts</title>
-<g id="a_edge25"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M428.11,-1854.83C426.37,-1804.26 423.4,-1555.96 523,-1393 534.72,-1373.83 554.62,-1358.15 571.39,-1347.36"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="579.37,-1344.98 583.42,-1340.08 577.2,-1341.39 579.37,-1344.98"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="578.29,-1343.18 575.72,-1344.74 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="573.67" cy="-1345.98" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="426.62" y="-1578.67" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M428.11,-1854.83C426.37,-1804.26 423.4,-1555.96 523,-1393 534.72,-1373.83 554.62,-1358.15 571.39,-1347.36"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="579.37,-1344.98 583.42,-1340.08 577.2,-1341.39 579.37,-1344.98"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="578.29,-1343.18 575.72,-1344.74 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="573.67" cy="-1345.98" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/the&#45;wire/the&#45;wire.module.ts -->
 <g id="node27" class="node">
@@ -746,14 +662,10 @@
 <!-- src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/the&#45;wire/the&#45;wire.module.ts -->
 <g id="edge26" class="edge">
 <title>src/app/app&#45;routing.module.ts&#45;&gt;src/app/features/the&#45;wire/the&#45;wire.module.ts</title>
-<g id="a_edge26"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M428.89,-1854.97C431.88,-1789.29 452.98,-1385.06 523,-1289 531.12,-1277.86 543.25,-1269.6 555.54,-1263.57"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="563.58,-1262.38 568.25,-1258.07 561.91,-1258.53 563.58,-1262.38"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="562.74,-1260.46 559.99,-1261.65 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="557.79" cy="-1262.6" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="430.39" y="-1543.46" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M428.89,-1854.97C431.88,-1789.29 452.98,-1385.06 523,-1289 531.12,-1277.86 543.25,-1269.6 555.54,-1263.57"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="563.58,-1262.38 568.25,-1258.07 561.91,-1258.53 563.58,-1262.38"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="562.74,-1260.46 559.99,-1261.65 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="557.79" cy="-1262.6" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/shared/components/forbidden/forbidden.component.ts -->
 <g id="node28" class="node">
@@ -857,26 +769,18 @@
 <!-- src/app/features/about/about.module.ts&#45;&gt;src/app/shared/shared.module.ts -->
 <g id="edge76" class="edge">
 <title>src/app/features/about/about.module.ts&#45;&gt;src/app/shared/shared.module.ts</title>
-<g id="a_edge76"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M647.56,-2996.37C660.35,-2993.29 672.99,-2987.53 681,-2977 695.95,-2957.34 675.23,-1219.5 689,-1199 701.77,-1179.99 723.6,-1168.5 744.91,-1161.55"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="753.18,-1161.37 758.37,-1157.7 752.03,-1157.33 753.18,-1161.37"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="752.6,-1159.35 749.72,-1160.18 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="747.41" cy="-1160.84" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="660.9" y="-2070.17" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M647.56,-2996.37C660.35,-2993.29 672.99,-2987.53 681,-2977 695.95,-2957.34 675.23,-1219.5 689,-1199 701.77,-1179.99 723.6,-1168.5 744.91,-1161.55"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="753.18,-1161.37 758.37,-1157.7 752.03,-1157.33 753.18,-1161.37"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="752.6,-1159.35 749.72,-1160.18 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="747.41" cy="-1160.84" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/blog/blog.module.ts&#45;&gt;src/app/shared/shared.module.ts -->
 <g id="edge80" class="edge">
 <title>src/app/features/blog/blog.module.ts&#45;&gt;src/app/shared/shared.module.ts</title>
-<g id="a_edge80"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M644.29,-2907.09C658.16,-2904.23 672.31,-2898.42 681,-2887 695.19,-2868.34 675.93,-1218.46 689,-1199 701.77,-1179.99 723.61,-1168.5 744.91,-1161.56"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="753.18,-1161.37 758.37,-1157.71 752.03,-1157.34 753.18,-1161.37"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="752.61,-1159.36 749.72,-1160.18 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="747.41" cy="-1160.84" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="660.88" y="-2025.1" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M644.29,-2907.09C658.16,-2904.23 672.31,-2898.42 681,-2887 695.19,-2868.34 675.93,-1218.46 689,-1199 701.77,-1179.99 723.61,-1168.5 744.91,-1161.56"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="753.18,-1161.37 758.37,-1157.71 752.03,-1157.34 753.18,-1161.37"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="752.61,-1159.36 749.72,-1160.18 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="747.41" cy="-1160.84" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/blog/blog&#45;routing.module.ts -->
 <g id="node64" class="node">
@@ -896,14 +800,10 @@
 <!-- src/app/features/bookmarks/bookmarks.module.ts&#45;&gt;src/app/shared/shared.module.ts -->
 <g id="edge84" class="edge">
 <title>src/app/features/bookmarks/bookmarks.module.ts&#45;&gt;src/app/shared/shared.module.ts</title>
-<g id="a_edge84"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M659.22,-2812.69C667.71,-2809.28 675.46,-2804.28 681,-2797 694.44,-2779.34 676.62,-1217.42 689,-1199 701.78,-1179.99 723.61,-1168.5 744.91,-1161.56"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="753.18,-1161.38 758.38,-1157.71 752.03,-1157.34 753.18,-1161.38"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="752.61,-1159.36 749.72,-1160.18 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="747.42" cy="-1160.84" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="660.86" y="-1977.78" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M659.22,-2812.69C667.71,-2809.28 675.46,-2804.28 681,-2797 694.44,-2779.34 676.62,-1217.42 689,-1199 701.78,-1179.99 723.61,-1168.5 744.91,-1161.56"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="753.18,-1161.38 758.38,-1157.71 752.03,-1157.34 753.18,-1161.38"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="752.61,-1159.36 749.72,-1160.18 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="747.42" cy="-1160.84" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/bookmarks/bookmarks&#45;routing.module.ts -->
 <g id="node67" class="node">
@@ -923,14 +823,10 @@
 <!-- src/app/features/dashboard/dashboard.module.ts&#45;&gt;src/app/shared/shared.module.ts -->
 <g id="edge88" class="edge">
 <title>src/app/features/dashboard/dashboard.module.ts&#45;&gt;src/app/shared/shared.module.ts</title>
-<g id="a_edge88"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M658.83,-2722.84C667.47,-2719.43 675.38,-2714.39 681,-2707 693.69,-2690.33 677.31,-1216.38 689,-1199 701.78,-1179.99 723.61,-1168.5 744.92,-1161.56"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="753.19,-1161.38 758.38,-1157.71 752.03,-1157.34 753.19,-1161.38"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="752.61,-1159.36 749.73,-1160.18 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="747.42" cy="-1160.84" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="660.84" y="-1933.51" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M658.83,-2722.84C667.47,-2719.43 675.38,-2714.39 681,-2707 693.69,-2690.33 677.31,-1216.38 689,-1199 701.78,-1179.99 723.61,-1168.5 744.92,-1161.56"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="753.19,-1161.38 758.38,-1157.71 752.03,-1157.34 753.19,-1161.38"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="752.61,-1159.36 749.73,-1160.18 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="747.42" cy="-1160.84" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/dashboard/dashboard&#45;routing.module.ts -->
 <g id="node70" class="node">
@@ -950,14 +846,10 @@
 <!-- src/app/features/friends/friends.module.ts&#45;&gt;src/app/shared/shared.module.ts -->
 <g id="edge92" class="edge">
 <title>src/app/features/friends/friends.module.ts&#45;&gt;src/app/shared/shared.module.ts</title>
-<g id="a_edge92"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M649.59,-2635.85C661.68,-2632.66 673.41,-2626.96 681,-2617 692.93,-2601.33 678.01,-1215.34 689,-1199 701.78,-1179.99 723.62,-1168.5 744.92,-1161.56"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="753.19,-1161.38 758.38,-1157.71 752.04,-1157.34 753.19,-1161.38"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="752.61,-1159.36 749.73,-1160.19 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="747.42" cy="-1160.85" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="660.82" y="-1889.76" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M649.59,-2635.85C661.68,-2632.66 673.41,-2626.96 681,-2617 692.93,-2601.33 678.01,-1215.34 689,-1199 701.78,-1179.99 723.62,-1168.5 744.92,-1161.56"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="753.19,-1161.38 758.38,-1157.71 752.04,-1157.34 753.19,-1161.38"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="752.61,-1159.36 749.73,-1160.19 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="747.42" cy="-1160.85" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/friends/friends&#45;routing.module.ts -->
 <g id="node73" class="node">
@@ -977,14 +869,10 @@
 <!-- src/app/features/groups/groups.module.ts&#45;&gt;src/app/shared/shared.module.ts -->
 <g id="edge96" class="edge">
 <title>src/app/features/groups/groups.module.ts&#45;&gt;src/app/shared/shared.module.ts</title>
-<g id="a_edge96"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M650.4,-2545.63C662.2,-2542.4 673.58,-2536.74 681,-2527 703.35,-2497.65 668.41,-1229.61 689,-1199 701.79,-1180 723.62,-1168.51 744.92,-1161.56"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="753.19,-1161.38 758.39,-1157.71 752.04,-1157.34 753.19,-1161.38"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="752.62,-1159.36 749.73,-1160.19 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="747.42" cy="-1160.85" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="661.04" y="-1844.39" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M650.4,-2545.63C662.2,-2542.4 673.58,-2536.74 681,-2527 703.35,-2497.65 668.41,-1229.61 689,-1199 701.79,-1180 723.62,-1168.51 744.92,-1161.56"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="753.19,-1161.38 758.39,-1157.71 752.04,-1157.34 753.19,-1161.38"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="752.62,-1159.36 749.73,-1160.19 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="747.42" cy="-1160.85" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/groups/groups&#45;routing.module.ts -->
 <g id="node76" class="node">
@@ -1004,14 +892,10 @@
 <!-- src/app/features/home/home.module.ts&#45;&gt;src/app/shared/shared.module.ts -->
 <g id="edge102" class="edge">
 <title>src/app/features/home/home.module.ts&#45;&gt;src/app/shared/shared.module.ts</title>
-<g id="a_edge102"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M647.15,-3100.47C660.08,-3097.41 672.91,-3091.64 681,-3081 696.82,-3060.19 674.43,-1220.7 689,-1199 701.77,-1179.99 723.6,-1168.49 744.9,-1161.55"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="753.18,-1161.37 758.37,-1157.7 752.02,-1157.33 753.18,-1161.37"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="752.6,-1159.35 749.72,-1160.18 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="747.41" cy="-1160.84" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="660.92" y="-2121.89" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M647.15,-3100.47C660.08,-3097.41 672.91,-3091.64 681,-3081 696.82,-3060.19 674.43,-1220.7 689,-1199 701.77,-1179.99 723.6,-1168.49 744.9,-1161.55"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="753.18,-1161.37 758.37,-1157.7 752.02,-1157.33 753.18,-1161.37"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="752.6,-1159.35 749.72,-1160.18 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="747.41" cy="-1160.84" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/home/home&#45;routing.module.ts -->
 <g id="node79" class="node">
@@ -1046,14 +930,10 @@
 <!-- src/app/features/invite/invite.module.ts&#45;&gt;src/app/shared/shared.module.ts -->
 <g id="edge106" class="edge">
 <title>src/app/features/invite/invite.module.ts&#45;&gt;src/app/shared/shared.module.ts</title>
-<g id="a_edge106"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M646.73,-2456.55C659.8,-2453.52 672.81,-2447.74 681,-2437 701.84,-2409.65 669.8,-1227.53 689,-1199 701.79,-1180 723.63,-1168.51 744.93,-1161.57"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="753.2,-1161.39 758.39,-1157.72 752.04,-1157.35 753.2,-1161.39"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="752.62,-1159.37 749.74,-1160.19 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="747.43" cy="-1160.85" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="661.01" y="-1800.16" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M646.73,-2456.55C659.8,-2453.52 672.81,-2447.74 681,-2437 701.84,-2409.65 669.8,-1227.53 689,-1199 701.79,-1180 723.63,-1168.51 744.93,-1161.57"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="753.2,-1161.39 758.39,-1157.72 752.04,-1157.35 753.2,-1161.39"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="752.62,-1159.37 749.74,-1160.19 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="747.43" cy="-1160.85" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/invite/invite&#45;routing.module.ts -->
 <g id="node82" class="node">
@@ -1073,14 +953,10 @@
 <!-- src/app/features/login/login.module.ts&#45;&gt;src/app/shared/shared.module.ts -->
 <g id="edge112" class="edge">
 <title>src/app/features/login/login.module.ts&#45;&gt;src/app/shared/shared.module.ts</title>
-<g id="a_edge112"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M645.11,-3204.93C658.72,-3202.01 672.49,-3196.2 681,-3185 697.69,-3163.04 673.63,-1221.9 689,-1199 701.77,-1179.98 723.6,-1168.49 744.9,-1161.55"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="753.18,-1161.37 758.37,-1157.7 752.02,-1157.33 753.18,-1161.37"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="752.6,-1159.35 749.71,-1160.18 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="747.41" cy="-1160.83" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="709.95" y="-2174.37" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M645.11,-3204.93C658.72,-3202.01 672.49,-3196.2 681,-3185 697.69,-3163.04 673.63,-1221.9 689,-1199 701.77,-1179.98 723.6,-1168.49 744.9,-1161.55"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="753.18,-1161.37 758.37,-1157.7 752.02,-1157.33 753.18,-1161.37"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="752.6,-1159.35 749.71,-1160.18 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="747.41" cy="-1160.83" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/login/login&#45;routing.module.ts -->
 <g id="node85" class="node">
@@ -1115,14 +991,10 @@
 <!-- src/app/features/members/members.module.ts&#45;&gt;src/app/shared/shared.module.ts -->
 <g id="edge116" class="edge">
 <title>src/app/features/members/members.module.ts&#45;&gt;src/app/shared/shared.module.ts</title>
-<g id="a_edge116"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M655.64,-2364.01C665.51,-2360.61 674.69,-2355.28 681,-2347 700.34,-2321.64 671.19,-1225.45 689,-1199 701.79,-1180 723.63,-1168.51 744.93,-1161.57"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="753.2,-1161.39 758.39,-1157.72 752.05,-1157.35 753.2,-1161.39"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="752.62,-1159.37 749.74,-1160.19 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="747.43" cy="-1160.85" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="660.95" y="-1753.88" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M655.64,-2364.01C665.51,-2360.61 674.69,-2355.28 681,-2347 700.34,-2321.64 671.19,-1225.45 689,-1199 701.79,-1180 723.63,-1168.51 744.93,-1161.57"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="753.2,-1161.39 758.39,-1157.72 752.05,-1157.35 753.2,-1161.39"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="752.62,-1159.37 749.74,-1160.19 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="747.43" cy="-1160.85" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/members/members&#45;routing.module.ts -->
 <g id="node88" class="node">
@@ -1142,14 +1014,10 @@
 <!-- src/app/features/messages/messages.module.ts&#45;&gt;src/app/shared/shared.module.ts -->
 <g id="edge120" class="edge">
 <title>src/app/features/messages/messages.module.ts&#45;&gt;src/app/shared/shared.module.ts</title>
-<g id="a_edge120"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M656.84,-2273.58C666.24,-2270.17 674.94,-2264.94 681,-2257 698.83,-2233.63 672.58,-1223.37 689,-1199 701.8,-1180.01 723.64,-1168.52 744.94,-1161.57"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="753.21,-1161.39 758.4,-1157.72 752.05,-1157.35 753.21,-1161.39"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="752.63,-1159.37 749.75,-1160.2 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="747.44" cy="-1160.86" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="660.92" y="-1708.68" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M656.84,-2273.58C666.24,-2270.17 674.94,-2264.94 681,-2257 698.83,-2233.63 672.58,-1223.37 689,-1199 701.8,-1180.01 723.64,-1168.52 744.94,-1161.57"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="753.21,-1161.39 758.4,-1157.72 752.05,-1157.35 753.21,-1161.39"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="752.63,-1159.37 749.75,-1160.2 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="747.44" cy="-1160.86" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/messages/messages&#45;routing.module.ts -->
 <g id="node91" class="node">
@@ -1169,14 +1037,10 @@
 <!-- src/app/features/missions/missions.module.ts&#45;&gt;src/app/shared/shared.module.ts -->
 <g id="edge124" class="edge">
 <title>src/app/features/missions/missions.module.ts&#45;&gt;src/app/shared/shared.module.ts</title>
-<g id="a_edge124"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M653.63,-2184.66C664.24,-2181.31 674.25,-2175.83 681,-2167 697.32,-2145.63 673.96,-1221.29 689,-1199 701.81,-1180.01 723.65,-1168.52 744.94,-1161.58"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="753.21,-1161.4 758.4,-1157.73 752.06,-1157.36 753.21,-1161.4"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="752.64,-1159.38 749.75,-1160.2 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="747.44" cy="-1160.86" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="660.89" y="-1664.37" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M653.63,-2184.66C664.24,-2181.31 674.25,-2175.83 681,-2167 697.32,-2145.63 673.96,-1221.29 689,-1199 701.81,-1180.01 723.65,-1168.52 744.94,-1161.58"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="753.21,-1161.4 758.4,-1157.73 752.06,-1157.36 753.21,-1161.4"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="752.64,-1159.38 749.75,-1160.2 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="747.44" cy="-1160.86" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/missions/missions&#45;routing.module.ts -->
 <g id="node94" class="node">
@@ -1196,14 +1060,10 @@
 <!-- src/app/features/news&#45;feed/news&#45;feed.module.ts&#45;&gt;src/app/shared/shared.module.ts -->
 <g id="edge128" class="edge">
 <title>src/app/features/news&#45;feed/news&#45;feed.module.ts&#45;&gt;src/app/shared/shared.module.ts</title>
-<g id="a_edge128"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M657.22,-2093.43C666.48,-2090.02 675.02,-2084.83 681,-2077 695.81,-2057.62 675.35,-1219.22 689,-1199 701.81,-1180.02 723.66,-1168.53 744.95,-1161.58"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="753.22,-1161.4 758.41,-1157.73 752.07,-1157.36 753.22,-1161.4"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="752.64,-1159.38 749.76,-1160.21 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="747.45" cy="-1160.87" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="660.84" y="-1618.54" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M657.22,-2093.43C666.48,-2090.02 675.02,-2084.83 681,-2077 695.81,-2057.62 675.35,-1219.22 689,-1199 701.81,-1180.02 723.66,-1168.53 744.95,-1161.58"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="753.22,-1161.4 758.41,-1157.73 752.07,-1157.36 753.22,-1161.4"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="752.64,-1159.38 749.76,-1160.21 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="747.45" cy="-1160.87" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/news&#45;feed/news&#45;feed&#45;routing.module.ts -->
 <g id="node97" class="node">
@@ -1223,14 +1083,10 @@
 <!-- src/app/features/privacy/privacy.module.ts&#45;&gt;src/app/shared/shared.module.ts -->
 <g id="edge133" class="edge">
 <title>src/app/features/privacy/privacy.module.ts&#45;&gt;src/app/shared/shared.module.ts</title>
-<g id="a_edge133"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M650.37,-1991.61C662.17,-1988.38 673.56,-1982.72 681,-1973 694.07,-1955.92 676.96,-1216.81 689,-1199 701.83,-1180.02 723.67,-1168.54 744.97,-1161.59"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="753.23,-1161.41 758.42,-1157.74 752.08,-1157.37 753.23,-1161.41"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="752.65,-1159.39 749.77,-1160.22 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="747.46" cy="-1160.88" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="660.81" y="-1567.44" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M650.37,-1991.61C662.17,-1988.38 673.56,-1982.72 681,-1973 694.07,-1955.92 676.96,-1216.81 689,-1199 701.83,-1180.02 723.67,-1168.54 744.97,-1161.59"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="753.23,-1161.41 758.42,-1157.74 752.08,-1157.37 753.23,-1161.41"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="752.65,-1159.39 749.77,-1160.22 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="747.46" cy="-1160.88" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/privacy/privacy&#45;routing.module.ts -->
 <g id="node100" class="node">
@@ -1265,14 +1121,10 @@
 <!-- src/app/features/profile/profile.module.ts&#45;&gt;src/app/shared/shared.module.ts -->
 <g id="edge137" class="edge">
 <title>src/app/features/profile/profile.module.ts&#45;&gt;src/app/shared/shared.module.ts</title>
-<g id="a_edge137"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M648.73,-1902.03C661.11,-1898.88 673.21,-1893.16 681,-1883 692.56,-1867.92 678.35,-1214.74 689,-1199 701.84,-1180.03 723.68,-1168.55 744.98,-1161.6"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="753.25,-1161.42 758.43,-1157.75 752.09,-1157.38 753.25,-1161.42"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="752.67,-1159.4 749.78,-1160.23 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="747.48" cy="-1160.89" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="660.79" y="-1522.78" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M648.73,-1902.03C661.11,-1898.88 673.21,-1893.16 681,-1883 692.56,-1867.92 678.35,-1214.74 689,-1199 701.84,-1180.03 723.68,-1168.55 744.98,-1161.6"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="753.25,-1161.42 758.43,-1157.75 752.09,-1157.38 753.25,-1161.42"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="752.67,-1159.4 749.78,-1160.23 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="747.48" cy="-1160.89" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/profile/profile&#45;routing.module.ts -->
 <g id="node103" class="node">
@@ -1292,14 +1144,10 @@
 <!-- src/app/features/register/register.module.ts&#45;&gt;src/app/shared/shared.module.ts -->
 <g id="edge142" class="edge">
 <title>src/app/features/register/register.module.ts&#45;&gt;src/app/shared/shared.module.ts</title>
-<g id="a_edge142"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M633.99,-1813.99C651.04,-1807.29 670.77,-1796.25 681,-1779 697.44,-1751.29 670.91,-1225.67 689,-1199 701.86,-1180.05 723.71,-1168.57 745,-1161.62"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="753.26,-1161.43 758.45,-1157.76 752.11,-1157.39 753.26,-1161.43"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="752.69,-1159.41 749.8,-1160.24 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="747.49" cy="-1160.9" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="659.84" y="-1478.98" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M633.99,-1813.99C651.04,-1807.29 670.77,-1796.25 681,-1779 697.44,-1751.29 670.91,-1225.67 689,-1199 701.86,-1180.05 723.71,-1168.57 745,-1161.62"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="753.26,-1161.43 758.45,-1157.76 752.11,-1157.39 753.26,-1161.43"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="752.69,-1159.41 749.8,-1160.24 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="747.49" cy="-1160.9" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/register/register&#45;routing.module.ts -->
 <g id="node106" class="node">
@@ -1334,14 +1182,10 @@
 <!-- src/app/features/search/search.module.ts&#45;&gt;src/app/shared/shared.module.ts -->
 <g id="edge146" class="edge">
 <title>src/app/features/search/search.module.ts&#45;&gt;src/app/shared/shared.module.ts</title>
-<g id="a_edge146"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M627.9,-1731.83C646.17,-1723.65 669.7,-1709.71 681,-1689 694.04,-1665.1 673.69,-1221.51 689,-1199 701.88,-1180.06 723.74,-1168.58 745.02,-1161.63"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="753.29,-1161.45 758.47,-1157.77 752.13,-1157.41 753.29,-1161.45"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="752.71,-1159.43 749.82,-1160.26 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="747.52" cy="-1160.92" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="708.67" y="-1437.65" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M627.9,-1731.83C646.17,-1723.65 669.7,-1709.71 681,-1689 694.04,-1665.1 673.69,-1221.51 689,-1199 701.88,-1180.06 723.74,-1168.58 745.02,-1161.63"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="753.29,-1161.45 758.47,-1157.77 752.13,-1157.41 753.29,-1161.45"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="752.71,-1159.43 749.82,-1160.26 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="747.52" cy="-1160.92" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/search/search&#45;routing.module.ts -->
 <g id="node109" class="node">
@@ -1361,14 +1205,10 @@
 <!-- src/app/features/settings/settings.module.ts&#45;&gt;src/app/shared/shared.module.ts -->
 <g id="edge150" class="edge">
 <title>src/app/features/settings/settings.module.ts&#45;&gt;src/app/shared/shared.module.ts</title>
-<g id="a_edge150"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M627.5,-1641.99C645.82,-1633.82 669.58,-1619.84 681,-1599 691.68,-1579.51 676.46,-1217.35 689,-1199 701.87,-1180.16 723.61,-1168.7 744.81,-1161.74"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="753.03,-1161.55 758.21,-1157.87 751.87,-1157.52 753.03,-1161.55"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="752.45,-1159.53 749.57,-1160.37 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="747.26" cy="-1161.03" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="659.82" y="-1393.05" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M627.5,-1641.99C645.82,-1633.82 669.58,-1619.84 681,-1599 691.68,-1579.51 676.46,-1217.35 689,-1199 701.87,-1180.16 723.61,-1168.7 744.81,-1161.74"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="753.03,-1161.55 758.21,-1157.87 751.87,-1157.52 753.03,-1161.55"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="752.45,-1159.53 749.57,-1160.37 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="747.26" cy="-1161.03" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/settings/settings&#45;routing.module.ts -->
 <g id="node112" class="node">
@@ -1388,14 +1228,10 @@
 <!-- src/app/features/splash/splash.module.ts&#45;&gt;src/app/shared/shared.module.ts -->
 <g id="edge155" class="edge">
 <title>src/app/features/splash/splash.module.ts&#45;&gt;src/app/shared/shared.module.ts</title>
-<g id="a_edge155"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M633.9,-1529.94C650.93,-1523.22 670.65,-1512.18 681,-1495 697.97,-1466.82 670.35,-1226.1 689,-1199 701.93,-1180.21 723.68,-1168.76 744.88,-1161.79"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="753.09,-1161.6 758.27,-1157.91 751.93,-1157.56 753.09,-1161.6"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="752.51,-1159.58 749.63,-1160.41 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="747.32" cy="-1161.08" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="708.79" y="-1337.04" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M633.9,-1529.94C650.93,-1523.22 670.65,-1512.18 681,-1495 697.97,-1466.82 670.35,-1226.1 689,-1199 701.93,-1180.21 723.68,-1168.76 744.88,-1161.79"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="753.09,-1161.6 758.27,-1157.91 751.93,-1157.56 753.09,-1161.6"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="752.51,-1159.58 749.63,-1160.41 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="747.32" cy="-1161.08" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/splash/splash&#45;routing.module.ts -->
 <g id="node115" class="node">
@@ -1430,14 +1266,10 @@
 <!-- src/app/features/stats/stats.module.ts&#45;&gt;src/app/shared/shared.module.ts -->
 <g id="edge160" class="edge">
 <title>src/app/features/stats/stats.module.ts&#45;&gt;src/app/shared/shared.module.ts</title>
-<g id="a_edge160"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M633.81,-1425.89C650.8,-1419.14 670.53,-1408.1 681,-1391 692.15,-1372.79 676.77,-1216.5 689,-1199 702.07,-1180.3 723.85,-1168.87 745.02,-1161.89"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="753.22,-1161.69 758.4,-1158 752.05,-1157.66 753.22,-1161.69"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="752.64,-1159.67 749.76,-1160.51 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="747.45" cy="-1161.18" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="660.04" y="-1284.98" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M633.81,-1425.89C650.8,-1419.14 670.53,-1408.1 681,-1391 692.15,-1372.79 676.77,-1216.5 689,-1199 702.07,-1180.3 723.85,-1168.87 745.02,-1161.89"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="753.22,-1161.69 758.4,-1158 752.05,-1157.66 753.22,-1161.69"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="752.64,-1159.67 749.76,-1160.51 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="747.45" cy="-1161.18" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/stats/stats&#45;routing.module.ts -->
 <g id="node118" class="node">
@@ -1472,14 +1304,10 @@
 <!-- src/app/features/terms/terms.module.ts&#45;&gt;src/app/shared/shared.module.ts -->
 <g id="edge165" class="edge">
 <title>src/app/features/terms/terms.module.ts&#45;&gt;src/app/shared/shared.module.ts</title>
-<g id="a_edge165"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M633.11,-1321.85C650.08,-1315.05 670.03,-1303.97 681,-1287 691.66,-1270.51 677.36,-1214.81 689,-1199 702.42,-1180.77 724.04,-1169.43 745,-1162.4"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="753.08,-1162.18 758.24,-1158.45 751.89,-1158.15 753.08,-1162.18"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="752.48,-1160.17 749.61,-1161.02 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="747.31" cy="-1161.71" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="660.04" y="-1233.44" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M633.11,-1321.85C650.08,-1315.05 670.03,-1303.97 681,-1287 691.66,-1270.51 677.36,-1214.81 689,-1199 702.42,-1180.77 724.04,-1169.43 745,-1162.4"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="753.08,-1162.18 758.24,-1158.45 751.89,-1158.15 753.08,-1162.18"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="752.48,-1160.17 749.61,-1161.02 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="747.31" cy="-1161.71" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/terms/terms&#45;routing.module.ts -->
 <g id="node121" class="node">
@@ -1514,14 +1342,10 @@
 <!-- src/app/features/the&#45;wire/the&#45;wire.module.ts&#45;&gt;src/app/shared/shared.module.ts -->
 <g id="edge169" class="edge">
 <title>src/app/features/the&#45;wire/the&#45;wire.module.ts&#45;&gt;src/app/shared/shared.module.ts</title>
-<g id="a_edge169"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M652.85,-1249.52C663.24,-1247.38 673.35,-1243.29 681,-1236 693.18,-1224.39 678.22,-1211.91 689,-1199 703.27,-1181.91 724.61,-1170.82 745.12,-1163.66"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="753.29,-1163.3 758.39,-1159.5 752.03,-1159.29 753.29,-1163.3"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="752.66,-1161.29 749.8,-1162.19 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="747.51" cy="-1162.91" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="669.79" y="-1186.04" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M652.85,-1249.52C663.24,-1247.38 673.35,-1243.29 681,-1236 693.18,-1224.39 678.22,-1211.91 689,-1199 703.27,-1181.91 724.61,-1170.82 745.12,-1163.66"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="753.29,-1163.3 758.39,-1159.5 752.03,-1159.29 753.29,-1163.3"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="752.66,-1161.29 749.8,-1162.19 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="747.51" cy="-1162.91" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/features/the&#45;wire/the&#45;wire&#45;routing.module.ts -->
 <g id="node124" class="node">
@@ -1637,14 +1461,10 @@
 <!-- src/app/app.module.ts&#45;&gt;src/app/app&#45;routing.module.ts -->
 <g id="edge35" class="edge">
 <title>src/app/app.module.ts&#45;&gt;src/app/app&#45;routing.module.ts</title>
-<g id="a_edge35"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M257.08,-870.29C272.68,-961.76 398.7,-1700.92 422.6,-1841.1"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="421.86,-1849.29 424.94,-1854.85 426,-1848.59 421.86,-1849.29"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="423.93,-1848.94 423.43,-1845.98 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="423.02" cy="-1843.62" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="316.55" y="-1355.61" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M257.08,-870.29C272.68,-961.76 398.7,-1700.92 422.6,-1841.1"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="421.86,-1849.29 424.94,-1854.85 426,-1848.59 421.86,-1849.29"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="423.93,-1848.94 423.43,-1845.98 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="423.02" cy="-1843.62" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/app.module.ts&#45;&gt;src/app/app.component.ts -->
 <g id="edge36" class="edge">
@@ -1664,14 +1484,10 @@
 <!-- src/app/app.module.ts&#45;&gt;src/app/core/core.module.ts -->
 <g id="edge37" class="edge">
 <title>src/app/app.module.ts&#45;&gt;src/app/core/core.module.ts</title>
-<g id="a_edge37"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M243.34,-851.73C220.41,-831.81 168.72,-782.22 152,-727 149.09,-717.38 149.09,-374.62 152,-365 157.81,-345.8 177.74,-339.46 198.5,-338.45"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="206.48,-340.58 212.48,-338.49 206.49,-336.38 206.48,-340.58"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="206.48,-338.48 203.48,-338.47 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="201.08" cy="-338.46" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="125.39" y="-588.3" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M243.34,-851.73C220.41,-831.81 168.72,-782.22 152,-727 149.09,-717.38 149.09,-374.62 152,-365 157.81,-345.8 177.74,-339.46 198.5,-338.45"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="206.48,-340.58 212.48,-338.49 206.49,-336.38 206.48,-340.58"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="206.48,-338.48 203.48,-338.47 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="201.08" cy="-338.46" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/core/services/title.service.ts -->
 <g id="node37" class="node">
@@ -1718,14 +1534,10 @@
 <!-- src/app/core/core.module.ts&#45;&gt;src/app/app.module.ts -->
 <g id="edge50" class="edge">
 <title>src/app/core/core.module.ts&#45;&gt;src/app/app.module.ts</title>
-<g id="a_edge50"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M212.48,-338.49C187.42,-337.26 159.12,-341.49 152,-365 149.09,-374.62 149.09,-717.38 152,-727 166.5,-774.89 207.29,-818.54 232.83,-842.28"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="237.48,-849.28 243.34,-851.73 240.28,-846.15 237.48,-849.28"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="238.88,-847.72 236.65,-845.71 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="234.86" cy="-844.11" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="174.39" y="-588.3" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M212.48,-338.49C187.42,-337.26 159.12,-341.49 152,-365 149.09,-374.62 149.09,-717.38 152,-727 166.5,-774.89 207.29,-818.54 232.83,-842.28"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="237.48,-849.28 243.34,-851.73 240.28,-846.15 237.48,-849.28"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="238.88,-847.72 236.65,-845.71 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="234.86" cy="-844.11" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/core/components/footer/footer.component.ts -->
 <g id="node41" class="node">
@@ -2096,14 +1908,10 @@
 <!-- src/app/shared/shared.module.ts&#45;&gt;src/app/app.module.ts -->
 <g id="edge176" class="edge">
 <title>src/app/shared/shared.module.ts&#45;&gt;src/app/app.module.ts</title>
-<g id="a_edge176"><a xlink:title="no&#45;circular">
-<path fill="none" stroke="orange" stroke-width="2" d="M773.35,-1141.88C749.67,-1134.63 716.72,-1123.63 689,-1111 527.02,-1037.19 346.65,-921.39 281.07,-878.09"/>
-<polygon fill="orange" stroke="orange" stroke-width="2" points="275.36,-871.78 269.2,-870.21 273.04,-875.28 275.36,-871.78"/>
-<polyline fill="none" stroke="orange" stroke-width="2" points="274.2,-873.53 276.7,-875.19 "/>
-<ellipse fill="none" stroke="orange" stroke-width="2" cx="278.7" cy="-876.52" rx="2.4" ry="2.4"/>
-</a>
-</g>
-<text text-anchor="middle" x="488.46" y="-1013.01" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">no&#45;circular</text>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M773.35,-1141.88C749.67,-1134.63 716.72,-1123.63 689,-1111 527.02,-1037.19 346.65,-921.39 281.07,-878.09"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="275.36,-871.78 269.2,-870.21 273.04,-875.28 275.36,-871.78"/>
+<polyline fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="274.2,-873.53 276.7,-875.19 "/>
+<ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="278.7" cy="-876.52" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/shared/components/language&#45;selector/language&#45;selector.component.ts -->
 <g id="node129" class="node">
