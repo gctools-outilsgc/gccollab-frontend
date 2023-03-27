@@ -1,0 +1,41 @@
+name: Update Dependency Graph
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches: [ "master", "development" ]
+    
+env:
+  NODE_VERSION: '16.14.2'
+
+jobs:
+  if_merged:
+    if: github.event.pull_request.merged == true
+    name: Install packages and update dependency graph
+    runs-on: ubuntu-latest
+    env:
+      CI_COMMIT_MESSAGE: Updated dependency graph
+      CI_COMMIT_AUTHOR: Continuous Integration
+      
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ env.NODE_VERSION }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        
+    - name: Install
+      run: |
+        npm install
+        npm run install-graphviz-linux
+        
+    - name: Generate
+      run: npm run depcruise
+      
+    - name: Commit
+      run: |
+        git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+        git config --global user.email "username@users.noreply.github.com"
+        git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
+        git push
