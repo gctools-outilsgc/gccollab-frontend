@@ -15,7 +15,7 @@ jobs:
     name: Install packages and update dependency graph
     runs-on: ubuntu-latest
     env:
-      CI_COMMIT_MESSAGE: Updated dependency graph
+      CI_COMMIT_MESSAGE: Dependency Graph ${{ vars.IGNORE_DEPLOY }}
       
     steps:
     - uses: actions/checkout@v3
