@@ -11,9 +11,9 @@ env:
 
 jobs:
   if_merged:
-    if: github.event.pull_request.merged == true
     name: Install packages and update dependency graph
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
       
     steps:
     - uses: actions/checkout@v3
@@ -32,8 +32,12 @@ jobs:
     - name: Generate
       run: npm run depcruise
       
-    - name: Commit
-      run: |
+  commit_push:
+    name: Commit and push changes
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    if: github.event.pull_request.merged == true
+    run: |
         git config --global user.email "shea.wow@hotmail.com"
         git config --global user.name Shea Dougherty-Gill
         git commit -a -m "Dependency Graph ${{ vars.IGNORE_DEPLOY }}"
