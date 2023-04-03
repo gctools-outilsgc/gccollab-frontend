@@ -11,10 +11,15 @@ export class TitleService extends TitleStrategy implements OnDestroy {
 
   private appTitleSub!: Subscription;
   private titleSub!: Subscription;
+  private appTitle!: string;
 
   constructor(private translateService: TranslateService,
               private readonly title: Title) {
     super();
+    
+    this.appTitleSub = this.translateService.get('app.title').subscribe((translatedTitle) => {
+      this.appTitle = translatedTitle;
+    });
   }
 
   ngOnDestroy(): void {
@@ -27,18 +32,12 @@ export class TitleService extends TitleStrategy implements OnDestroy {
 
   override updateTitle(routerState: RouterStateSnapshot): void {
     const title = this.buildTitle(routerState);
-    let appTitle: string = '';
-
-    this.appTitleSub = this.translateService.get('app.title').subscribe((translatedTitle) => {
-      appTitle = translatedTitle;
-    });
-
     if (title) {
       this.titleSub = this.translateService.get(title).subscribe((translatedTitle) => {
-        this.title.setTitle(appTitle + ' - ' + translatedTitle);
+        this.title.setTitle(this.appTitle + ' - ' + translatedTitle);
       })
     } else {
-      this.title.setTitle(appTitle);
+      this.title.setTitle(this.appTitle);
     }
   }
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Router, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -16,8 +16,7 @@ import { SessionStorageService } from '../services/session-storage.service';
 export class AuthGuard implements CanActivate {
   constructor(
     private oidcSecurityService: OidcSecurityService, 
-    private sessionStorageService: SessionStorageService,
-    private router: Router
+    private sessionStorageService: SessionStorageService
     ) {}
 
   canActivate(
@@ -26,24 +25,10 @@ export class AuthGuard implements CanActivate {
       return this.oidcSecurityService.isAuthenticated$.pipe(
         map(({ isAuthenticated }) => {
 
-          const returnUrlKey = 'gccollab-retUrl';
-          
-          if (isAuthenticated) {
-
-            let retUrl = this.sessionStorageService.read(returnUrlKey);
-
-            if (retUrl) {
-
-              this.sessionStorageService.remove(returnUrlKey);
-              return this.router.parseUrl(retUrl);
-            }
-
+          if (isAuthenticated)
             return true;
-          }
-          
-          let url = new URL(window.location.href);
-          this.sessionStorageService.write(returnUrlKey, url.pathname);
 
+          this.sessionStorageService.write('gccollab-retUrl', state.url);
           this.oidcSecurityService.authorize();
 
           return false; 
