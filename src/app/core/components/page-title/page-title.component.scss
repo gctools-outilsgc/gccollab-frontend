@@ -1,4 +1,8 @@
+@import "../../../../assets/scss/partials/colors";
+
 mat-toolbar {
+    background: $primary-1-gradient;
+    color: $primary-1-contrast;
     margin-top: 64px;
 
     span:not(:first-child)::before {
