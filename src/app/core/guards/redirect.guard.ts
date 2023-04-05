@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from '@angular/router';
 
 /**
-   * A `CanActivate` route guard that redirects the user to the externalUrl.
+   * A `CanActivate` route guard that opens an externalUrl in a new tab.
    * @returns false.
    */
 @Injectable({
@@ -10,10 +10,19 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from
 })
 export class RedirectGuard implements CanActivate {
 
-  constructor(private router: Router) {}
+  constructor() {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    window.location.href = route.data['externalUrl'];
+
+    let externalUrl = route.data['externalUrl'];
+    
+    if (externalUrl) {
+      window.open(externalUrl, '_blank')?.focus();
+    }
+    else {
+      console.error(`RedirectGuard: No externalUrl data provided for the '${state.url}' route.`);
+    }
+
     return false;
   }
   

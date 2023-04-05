@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Router, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { SessionStorageService } from '../services/session-storage.service';
 
 /**
    * A `CanActivate` route guard that ensured the user is authenticated.
@@ -13,17 +14,24 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor(private oidcSecurityService: OidcSecurityService, private router: Router) {}
+  constructor(
+    private oidcSecurityService: OidcSecurityService, 
+    private sessionStorageService: SessionStorageService
+    ) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       return this.oidcSecurityService.isAuthenticated$.pipe(
         map(({ isAuthenticated }) => {
-          if (isAuthenticated) {
+
+          if (isAuthenticated)
             return true;
-          }
-          return this.router.parseUrl('/login');
+
+          this.sessionStorageService.write('gccollab-retUrl', state.url);
+          this.oidcSecurityService.authorize();
+
+          return false; 
         })
       );
   }
