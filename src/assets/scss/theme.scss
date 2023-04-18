@@ -1,0 +1,136 @@
+//@import "../../../node_modules/@angular/material/theming";
+//@include mat-core();
+
+$default-primary: (
+    50: #f5e5f9,
+    100: #e5bef0,
+    200: #d493e7,
+    300: #c266de,
+    400: #b440d6,
+    500: #a612ce,
+    600: #9612c8,
+    700: #800fc1,
+    800: #6c0dba,
+    900: #4109b0,
+    A100: white,
+    A200: white,
+    A400: white,
+    A700: white,
+    contrast: (
+        50: black,
+        100: black,
+        200: black,
+        300: white
+        400: white
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: black,
+        A200: black,
+        A400: black,
+        A700: black,
+    )
+);
+
+$default-secondary: (
+    50: #e0f1f2,
+    100: #b1dddd,
+    200: #7fc8c7,
+    300: #4bb2b0,
+    400: #25a19e,
+    500: #04A19E,
+    600: #01847e,
+    700: #02746e,
+    800: #05645e,
+    900: #064841,
+    A100: white,
+    A200: white,
+    A400: white,
+    A700: white,
+    contrast: (
+        50: black,
+        100: black,
+        200: black,
+        300: black,
+        400: white,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: black,
+        A200: black,
+        A400: black,
+        A700: black,
+    )
+);
+
+// TODO : Contrast + fillers
+$default-accent: (
+    50: #FBEDFC,
+    100: #badffb,
+    200: #8fcbfa,
+    300: #61b7f7,
+    400: #3ca7f6,
+    500: #AC0DBA,
+    600: #078ae7,
+    700: #0078d4,
+    800: #0067c2,
+    900: #760980,
+    A100: white,
+    A200: white,
+    A400: white,
+    A700: white,
+    contrast: (
+        50: black,
+        100: black,
+        200: black,
+        300: black,
+        400: black,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: black,
+        A200: black,
+        A400: black,
+        A700: black,
+    )
+);
+
+$default-warn: (
+    50: #ffeaed,
+    100: #ffcbce,
+    200: #f29793,
+    300: #e96e69,
+    400: #f24d42,
+    500: #f53c23,
+    600: #e73024,
+    700: #d5241e,
+    800: #c81b17,
+    900: #ba0606,
+    A100: #800404,
+    A200: white,
+    A400: white,
+    A700: white,
+    contrast: (
+        50: black,
+        100: black,
+        200: black,
+        300: black,
+        400: black,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: white,
+        A200: black,
+        A400: black,
+        A700: black,
+    )
+);
+
