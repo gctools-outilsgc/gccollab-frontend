@@ -173,6 +173,8 @@
         "insert": "Insérer",
         "alt": "Texte alternatif",
         "title": "Titre",
-        "remove": "Retirer"
+        "remove": "Retirer",
+        "horizontalrule": "La règle horizontale",
+        "formatclear": "Supprimer le formattage"
     }
 }
