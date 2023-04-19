@@ -142,6 +142,7 @@
         }
     },
     "editor": {
+        "placeholder": "Écrivez ici...",
         "bold": "Gras",
         "italic": "Italique",
         "code": "Code",

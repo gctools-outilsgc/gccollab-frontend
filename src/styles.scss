@@ -34,3 +34,7 @@ app-root {
 // p {
 //     font-weight: $regular;
 // }
+
+.NgxEditor__Dropdown .NgxEditor__Dropdown--DropdownMenu {
+    width: fit-content !important;
+}
