@@ -1,6 +1,9 @@
 //@import "../../../node_modules/@angular/material/theming";
 //@include mat-core();
 
+// These aren't used currently 
+// When we upgrade to Angular 16 material will require palettes defined in this format.
+
 $default-primary: (
     50: #f5e5f9,
     100: #e5bef0,
