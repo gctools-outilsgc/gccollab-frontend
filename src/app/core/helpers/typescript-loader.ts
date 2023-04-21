@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { TranslateLoader } from '@ngx-translate/core';
 import { Observable, map } from 'rxjs';
+import { LanguageStorageService } from '../services/language-storage.service';
 
 interface TranslationData {
   [key: string]: string;
@@ -14,7 +15,8 @@ export class TypescriptLoader implements TranslateLoader {
 
     return this.http.get(url, { responseType: 'text' }).pipe(
       map(response => {
-        const translations = eval(JSON.parse(response.replace('export default ', ''))); // Evaluate the TypeScript code to get the translation object
+        let obj = response.substring(response.indexOf('{'), response.lastIndexOf('}') + 1);
+        const translations = eval(JSON.parse(obj));
         return translations.default || translations;
       })
     );

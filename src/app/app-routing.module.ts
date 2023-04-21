@@ -10,6 +10,10 @@ import { NotFoundComponent } from './shared/components/not-found/not-found.compo
 import { UnauthorizedComponent } from './shared/components/unauthorized/unauthorized.component';
 import { ForbiddenComponent } from './shared/components/forbidden/forbidden.component';
 
+import { Translations } from './core/services/translations.service';
+
+let translations = new Translations();
+
 const routes: Routes = [
   {
     path: '',
@@ -18,82 +22,82 @@ const routes: Routes = [
   },
   {
     path: CoreRoutes.Login,
-    title: 'titles.login',
+    title: translations.titles.login,
     loadChildren: () => import('./features/login/login.module').then(m => m.LoginModule),
     canActivate: [LoginGuard],
     data: {
-      title: 'titles.login',
-      breadcrumb: 'titles.login'
+      title: translations.titles.login,
+      breadcrumb: translations.titles.login
     }
   },
   {
     path: CoreRoutes.Home,
-    title: 'titles.home',
+    title: translations.titles.home,
     loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule),
     canActivate: [InterceptorGuard],
     data: {
-      title: 'titles.home',
-      breadcrumb: 'titles.home'
+      title: translations.titles.home,
+      breadcrumb: translations.titles.home
     }
   },
   {
     path: CoreRoutes.Register,
-    title: 'titles.register',
+    title: translations.titles.register,
     loadChildren: () => import('./features/register/register.module').then(m => m.RegisterModule),
     canActivate: [LoginGuard],
     data: {
-      title: 'titles.register',
-      breadcrumb: 'titles.register'
+      title: translations.titles.register,
+      breadcrumb: translations.titles.register
     }
   },
   {
     path: CoreRoutes.Terms,
-    title: 'titles.terms',
+    title: translations.titles.terms,
     loadChildren: () => import('./features/terms/terms.module').then(m => m.TermsModule),
     data: {
-      title: 'titles.terms',
-      breadcrumb: 'titles.terms'
+      title: translations.titles.terms,
+      breadcrumb: translations.titles.terms
     }
   },
   {
     path: CoreRoutes.Splash,
-    title: 'titles.splash', 
+    title: translations.titles.splash, 
     loadChildren: () => import('./features/splash/splash.module').then(m => m.SplashModule),
     data: {
-      title: 'titles.splash',
-      breadcrumb: 'titles.splash'
+      title: translations.titles.splash,
+      breadcrumb: translations.titles.splash
     }
   },
   {
     path: CoreRoutes.About,
-    title: 'titles.about', 
+    title: translations.titles.about, 
     loadChildren: () => import('./features/about/about.module').then(m => m.AboutModule),
     data: {
-      title: 'titles.about',
-      breadcrumb: 'titles.about'
+      title: translations.titles.about,
+      breadcrumb: translations.titles.about
     }
   },
   {
     path: CoreRoutes.Privacy,
-    title: 'titles.privacy',
+    title: translations.titles.privacy,
     loadChildren: () => import('./features/privacy/privacy.module').then(m => m.PrivacyModule),
     data: {
-      title: 'titles.privacy',
-      breadcrumb: 'titles.privacy'
+      title: translations.titles.privacy,
+      breadcrumb: translations.titles.privacy
     }
   },
   {
     path: CoreRoutes.Stats,
-    title: 'titles.stats',
+    title: translations.titles.stats,
     loadChildren: () => import('./features/stats/stats.module').then(m => m.StatsModule),
     data: {
-      title: 'titles.stats',
-      breadcrumb: 'titles.stats'
+      title: translations.titles.stats,
+      breadcrumb: translations.titles.stats
     }
   },
   {
     path: CoreRoutes.Help,
-    title: 'titles.help',
+    title: translations.titles.help,
     component: RedirectGuard,
     canActivate: [RedirectGuard],
     data: {
@@ -102,168 +106,168 @@ const routes: Routes = [
   },
   {
     path: CoreRoutes.Blog,
-    title: 'titles.blog',
+    title: translations.titles.blog,
     loadChildren: () => import('./features/blog/blog.module').then(m => m.BlogModule),
     canActivate: [AuthGuard],
     data: {
-      title: 'titles.blog',
-      breadcrumb: 'titles.blog'
+      title: translations.titles.blog,
+      breadcrumb: translations.titles.blog
     }
   },
   {
     path: CoreRoutes.Bookmarks,
-    title: 'titles.bookmarks',
+    title: translations.titles.bookmarks,
     loadChildren: () => import('./features/bookmarks/bookmarks.module').then(m => m.BookmarksModule),
     canActivate: [AuthGuard],
     data: {
-      title: 'titles.bookmarks',
-      breadcrumb: 'titles.bookmarks'
+      title: translations.titles.bookmarks,
+      breadcrumb: translations.titles.bookmarks
     }
   },
   {
     path: CoreRoutes.Dashboard,
-    title: 'titles.dashboards',
+    title: translations.titles.dashboards,
     loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule),
     canActivate: [AuthGuard],
     data: {
-      title: 'titles.dashboards',
-      breadcrumb: 'titles.dashboards'
+      title: translations.titles.dashboards,
+      breadcrumb: translations.titles.dashboards
     }
   },
   {
     path: CoreRoutes.Friends,
-    title: 'titles.friends',
+    title: translations.titles.friends,
     loadChildren: () => import('./features/friends/friends.module').then(m => m.FriendsModule),
     canActivate: [AuthGuard],
     data: {
-      title: 'titles.friends',
-      breadcrumb: 'titles.friends'
+      title: translations.titles.friends,
+      breadcrumb: translations.titles.friends
     }
   },
   {
     path: CoreRoutes.Groups,
-    title: 'titles.groups',
+    title: translations.titles.groups,
     loadChildren: () => import('./features/groups/groups.module').then(m => m.GroupsModule),
     canActivate: [AuthGuard],
     data: {
-      title: 'titles.groups',
-      breadcrumb: 'titles.groups'
+      title: translations.titles.groups,
+      breadcrumb: translations.titles.groups
     }
   },
   {
     path: CoreRoutes.Invite,
-    title: 'titles.invite',
+    title: translations.titles.invite,
     loadChildren: () => import('./features/invite/invite.module').then(m => m.InviteModule),
     canActivate: [AuthGuard],
     data: {
-      title: 'titles.invite',
-      breadcrumb: 'titles.invite'
+      title: translations.titles.invite,
+      breadcrumb: translations.titles.invite
     }
   },
   {
     path: CoreRoutes.Members,
-    title: 'titles.members',
+    title: translations.titles.members,
     loadChildren: () => import('./features/members/members.module').then(m => m.MembersModule),
     canActivate: [AuthGuard],
     data: {
-      title: 'titles.members',
-      breadcrumb: 'titles.members'
+      title: translations.titles.members,
+      breadcrumb: translations.titles.members
     }
   },
   {
     path: CoreRoutes.Messages,
-    title: 'titles.messages',
+    title: translations.titles.messages,
     loadChildren: () => import('./features/messages/messages.module').then(m => m.MessagesModule),
     canActivate: [AuthGuard],
     data: {
-      title: 'titles.messages',
-      breadcrumb: 'titles.messages'
+      title: translations.titles.messages,
+      breadcrumb: translations.titles.messages
     }
   },
   {
     path: CoreRoutes.Missions,
-    title: 'titles.missions',
+    title: translations.titles.missions,
     loadChildren: () => import('./features/missions/missions.module').then(m => m.MissionsModule),
     canActivate: [AuthGuard],
     data: {
-      title: 'titles.missions',
-      breadcrumb: 'titles.missions'
+      title: translations.titles.missions,
+      breadcrumb: translations.titles.missions
     }
   },
   {
     path: CoreRoutes.NewsFeed,
-    title: 'titles.newsfeed',
+    title: translations.titles.newsfeed,
     loadChildren: () => import('./features/news-feed/news-feed.module').then(m => m.NewsFeedModule),
     canActivate: [AuthGuard],
     data: {
-      title: 'titles.newsfeed',
-      breadcrumb: 'titles.newsfeed'
+      title: translations.titles.newsfeed,
+      breadcrumb: translations.titles.newsfeed
     }
   },
   {
     path: CoreRoutes.Profile,
-    title: 'titles.profile',
+    title: translations.titles.profile,
     loadChildren: () => import('./features/profile/profile.module').then(m => m.ProfileModule),
     canActivate: [AuthGuard],
     data: {
-      title: 'titles.profile',
-      breadcrumb: 'titles.profile'
+      title: translations.titles.profile,
+      breadcrumb: translations.titles.profile
     }
   },
   {
     path: CoreRoutes.Search,
-    title: 'titles.search',
+    title: translations.titles.search,
     loadChildren: () => import('./features/search/search.module').then(m => m.SearchModule),
     canActivate: [AuthGuard],
     data: {
-      title: 'titles.search',
-      breadcrumb: 'titles.search'
+      title: translations.titles.search,
+      breadcrumb: translations.titles.search
     }
   },
   {
     path: CoreRoutes.Settings,
-    title: 'titles.settings',
+    title: translations.titles.settings,
     loadChildren: () => import('./features/settings/settings.module').then(m => m.SettingsModule),
     canActivate: [AuthGuard],
     data: {
-      title: 'titles.settings',
-      breadcrumb: 'titles.settings'
+      title: translations.titles.settings,
+      breadcrumb: translations.titles.settings
     }
   },
   {
     path: CoreRoutes.TheWire,
-    title: 'titles.thewire',
+    title: translations.titles.thewire,
     loadChildren: () => import('./features/the-wire/the-wire.module').then(m => m.TheWireModule),
     canActivate: [AuthGuard],
     data: {
-      title: 'titles.thewire',
-      breadcrumb: 'titles.thewire'
+      title: translations.titles.thewire,
+      breadcrumb: translations.titles.thewire
     }
   },
   {
     path: CoreRoutes.Unauthorized,
-    title: 'titles.unauthorized',
+    title: translations.titles.unauthorized,
     component: UnauthorizedComponent,
     data: {
-      title: 'titles.unauthorized',
-      breadcrumb: 'titles.unauthorized'
+      title: translations.titles.unauthorized,
+      breadcrumb: translations.titles.unauthorized
     }
   },
   {
     path: CoreRoutes.Forbidden,
-    title: 'titles.forbidden',
+    title: translations.titles.forbidden,
     component: ForbiddenComponent,
     data: {
-      title: 'titles.forbidden',
-      breadcrumb: 'titles.forbidden'
+      title: translations.titles.forbidden,
+      breadcrumb: translations.titles.forbidden
     }
   },
   {
     path: '**',
     component: NotFoundComponent,
     data: {
-      title: 'titles.notfound',
-      breadcrumb: 'titles.notfound'
+      title: translations.titles.notfound,
+      breadcrumb: translations.titles.notfound
     }
   }
 ];

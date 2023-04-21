@@ -177,4 +177,4 @@ export default {
         "horizontalrule": "Horizontal Rule",
         "formatclear": "Clear Formatting"
     }
-}
+};
