@@ -14,7 +14,7 @@ export class TypescriptLoader implements TranslateLoader {
 
     return this.http.get(url, { responseType: 'text' }).pipe(
       map(response => {
-        const translations = eval(response); // Evaluate the TypeScript code to get the translation object
+        const translations = eval(JSON.parse(response.replace('export default ', ''))); // Evaluate the TypeScript code to get the translation object
         return translations.default || translations;
       })
     );

@@ -16,6 +16,8 @@ import { TitleStrategy } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from 'src/environments/environment';
 
+import { TypescriptLoader } from './core/helpers/typescript-loader';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,7 @@ import { environment } from 'src/environments/environment';
       useDefaultLang: true,
       loader: {
         provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
+        useFactory: (http: HttpClient) => new TypescriptLoader(http, 'translations'),
         deps: [HttpClient]
       },
       isolate: false
