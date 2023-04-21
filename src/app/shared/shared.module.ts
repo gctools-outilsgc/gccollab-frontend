@@ -12,6 +12,7 @@ import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 import { NGX_EDITOR_CONFIG_TOKEN, NgxEditorModule } from 'ngx-editor';
 import { EditorComponent } from './components/editor/editor.component';
 import { ngxEditorConfigFactory } from './factories/editor-config.factory';
+import { TypescriptLoader } from '../core/helpers/typescript-loader';
 
 
 @NgModule({
@@ -28,7 +29,7 @@ import { ngxEditorConfigFactory } from './factories/editor-config.factory';
     TranslateModule.forChild({
       loader: {
         provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
+        useFactory: (http: HttpClient) => new TypescriptLoader(http, 'translations'),
         deps: [HttpClient]
       },
       isolate: false,
