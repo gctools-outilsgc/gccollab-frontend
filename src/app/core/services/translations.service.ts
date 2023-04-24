@@ -34,8 +34,17 @@ function transformObjectToPath <T extends object | string> (
     providedIn: 'root'
 })
 export class Translations extends GenericClass<typeof translations> () {
-  constructor() {
+  private static instance: Translations;
+
+  private constructor() {
     super();
     Object.assign(this, transformObjectToPath('', translations));
+  }
+
+  public static getInstance(): Translations {
+    if(!Translations.instance) {
+      Translations.instance = new Translations();
+    }
+    return Translations.instance;
   }
 }

@@ -9,11 +9,9 @@ import { InterceptorGuard } from './core/guards/interceptor.guard';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 import { UnauthorizedComponent } from './shared/components/unauthorized/unauthorized.component';
 import { ForbiddenComponent } from './shared/components/forbidden/forbidden.component';
-
-/////// TODO: Is there a better way to do this? (using DI instead of instantiating here) ///////
 import { Translations } from './core/services/translations.service';
-let translations = new Translations();
-////////////////////////////////////////////////////////////////////////////////////////////////
+
+let translations = Translations.getInstance();
 
 const routes: Routes = [
   {
