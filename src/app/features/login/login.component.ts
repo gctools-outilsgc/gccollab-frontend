@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Translations } from 'src/app/core/services/translations.service';
 
 @Component({
   templateUrl: './login.component.html',
@@ -7,7 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(public translations: Translations) { }
 
   ngOnInit(): void {
   }

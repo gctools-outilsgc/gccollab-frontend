@@ -1,10 +1,10 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HttpLoaderFactory } from 'src/app/app.module';
 
 import { LoginComponent } from './login.component';
 import { TranslateService } from '@ngx-translate/core';
+import { TypescriptLoader } from 'src/app/core/helpers/typescript-loader';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -18,7 +18,7 @@ describe('LoginComponent', () => {
         TranslateModule.forRoot({
           loader: {
             provide: TranslateLoader,
-            useFactory: HttpLoaderFactory,
+            useFactory: (http: HttpClient) => new TypescriptLoader(http, 'translations'),
             deps: [ HttpClient ]
           }
         }),

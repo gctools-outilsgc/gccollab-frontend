@@ -4,8 +4,8 @@ import { FooterComponent } from './footer.component';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HttpLoaderFactory } from 'src/app/app.module';
 import { TranslateService } from '@ngx-translate/core';
+import { TypescriptLoader } from '../../helpers/typescript-loader';
 
 describe('FooterComponent', () => {
   let component: FooterComponent;
@@ -19,7 +19,7 @@ describe('FooterComponent', () => {
         TranslateModule.forRoot({
           loader: {
             provide: TranslateLoader,
-            useFactory: HttpLoaderFactory,
+            useFactory: (http: HttpClient) => new TypescriptLoader(http, 'translations'),
             deps: [ HttpClient ]
           }
         }),
