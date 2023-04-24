@@ -13,6 +13,7 @@ import { NGX_EDITOR_CONFIG_TOKEN, NgxEditorModule } from 'ngx-editor';
 import { EditorComponent } from './components/editor/editor.component';
 import { ngxEditorConfigFactory } from './factories/editor-config.factory';
 import { TypescriptLoader } from '../core/helpers/typescript-loader';
+import { Translations } from '../core/services/translations.service';
 
 
 @NgModule({
@@ -46,7 +47,7 @@ import { TypescriptLoader } from '../core/helpers/typescript-loader';
     {
       useFactory: ngxEditorConfigFactory,
       provide: NGX_EDITOR_CONFIG_TOKEN,
-      deps: [TranslateService],
+      deps: [TranslateService, Translations],
     }
   ]
 })
