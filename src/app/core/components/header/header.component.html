@@ -3,63 +3,63 @@
   <div>
     <button mat-icon-button 
             [matMenuTriggerFor]="menu" 
-            attr.aria-label="{{ 'header.menu.aria' | translate }}">
+            attr.aria-label="{{ translations.header.menu.aria | translate }}">
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item 
-              attr.aria-label="{{ 'header.menu.home.aria' | translate }}" 
+              attr.aria-label="{{ translations.header.menu.home.aria | translate }}" 
               [routerLink]="[routes.Home]">
         <mat-icon>home</mat-icon>
-        <span>{{ 'titles.home' | translate }}</span>
+        <span>{{ translations.titles.home | translate }}</span>
       </button>
       <button mat-menu-item 
-              attr.aria-label="{{ 'header.menu.communities.aria' | translate }}"
+              attr.aria-label="{{ translations.header.menu.communities.aria | translate }}"
               [routerLink]="[routes.Groups]">
         <mat-icon>group_work</mat-icon>
-        <span>{{ 'titles.communities' | translate }}</span>
+        <span>{{ translations.titles.communities | translate }}</span>
       </button>
       <button mat-menu-item 
-              attr.aria-label="{{ 'header.menu.thewire.aria' | translate }}"
+              attr.aria-label="{{ translations.header.menu.thewire.aria | translate }}"
               [routerLink]="[routes.TheWire]">
         <mat-icon>compare_arrows</mat-icon>
-        <span>{{ 'titles.thewire' | translate }}</span>
+        <span>{{ translations.titles.thewire | translate }}</span>
       </button>
       <button mat-menu-item 
-              attr.aria-label="{{ 'header.menu.groups.aria' | translate }}"
+              attr.aria-label="{{ translations.header.menu.groups.aria | translate }}"
               [routerLink]="[routes.Groups]">
         <mat-icon>group</mat-icon>
-        <span>{{ 'titles.groups' | translate }}</span>
+        <span>{{ translations.titles.groups | translate }}</span>
       </button>
       <button mat-menu-item 
-              attr.aria-label="{{ 'header.menu.members.aria' | translate }}"
+              attr.aria-label="{{ translations.header.menu.members.aria | translate }}"
               [routerLink]="[routes.Members]">
         <mat-icon>face</mat-icon>
-        <span>{{ 'titles.members' | translate }}</span>
+        <span>{{ translations.titles.members | translate }}</span>
       </button>
       <button mat-menu-item 
-              attr.aria-label="{{ 'header.menu.missions.aria' | translate }}"
+              attr.aria-label="{{ translations.header.menu.missions.aria | translate }}"
               [routerLink]="[routes.Missions]">
         <mat-icon>work</mat-icon>
-        <span>{{ 'titles.missions' | translate }}</span>
+        <span>{{ translations.titles.missions | translate }}</span>
       </button>
       <button mat-menu-item 
-              attr.aria-label="{{ 'header.menu.blogs.aria' | translate }}"
+              attr.aria-label="{{ translations.header.menu.blogs.aria | translate }}"
               [routerLink]="[routes.Blog]">
         <mat-icon>library_books</mat-icon>
-        <span>{{ 'titles.blogs' | translate }}</span>
+        <span>{{ translations.titles.blogs | translate }}</span>
       </button>
       <button mat-menu-item 
-              attr.aria-label="{{ 'header.menu.dashboards.aria' | translate }}"
+              attr.aria-label="{{ translations.header.menu.dashboards.aria | translate }}"
               [routerLink]="[routes.Dashboard]">
         <mat-icon>dashboard</mat-icon>
-        <span>{{ 'titles.dashboards' | translate }}</span>
+        <span>{{ translations.titles.dashboards | translate }}</span>
       </button>
       <button mat-menu-item 
-              attr.aria-label="{{ 'header.menu.help.aria' | translate }}"
+              attr.aria-label="{{ translations.header.menu.help.aria | translate }}"
               [routerLink]="[routes.Help]">
         <mat-icon>help</mat-icon>
-        <span>{{ 'titles.help' | translate }}</span>
+        <span>{{ translations.titles.help | translate }}</span>
       </button>
     </mat-menu>
   </div>
@@ -72,13 +72,13 @@
 
   <div class="header-search">
     <form>
-      <input type="text" placeholder="{{ 'header.search.title' | translate }}" />
+      <input type="text" placeholder="{{ translations.header.search.title | translate }}" />
       <button mat-icon-button
               color="primary" 
-              attr.aria-label="{{ 'header.search.aria' | translate }}">
+              attr.aria-label="{{ translations.header.search.aria | translate }}">
         <mat-icon aria-hidden="false"
-                  matTooltip="{{ 'header.search.button.tooltip' | translate }}"
-                  attr.aria-label="{{ 'header.search.button.aria' | translate }}">
+                  matTooltip="{{ translations.header.search.button.tooltip | translate }}"
+                  attr.aria-label="{{ translations.header.search.button.aria | translate }}">
           search
         </mat-icon>
       </button>
@@ -88,36 +88,36 @@
   <div class="header-actions">
     <button mat-button
             [routerLink]="[routes.Invite]">
-      {{ 'header.invite.title' | translate }}
+      {{ translations.header.invite.title | translate }}
     </button>
     <button mat-icon-button>
       <mat-icon aria-hidden="false" 
-                matTooltip="{{ 'header.bookmark.tooltip' | translate }}" 
-                attr.aria-label="{{ 'header.bookmark.aria' | translate }}"
+                matTooltip="{{ translations.header.bookmark.tooltip | translate }}" 
+                attr.aria-label="{{ translations.header.bookmark.aria | translate }}"
                 [routerLink]="[routes.Bookmarks]">
         bookmark
       </mat-icon>
     </button>
     <button mat-icon-button>
       <mat-icon aria-hidden="false" 
-                matTooltip="{{ 'header.colleagues.tooltip' | translate }}" 
-                attr.aria-label="{{ 'header.colleagues.aria' | translate }}"
+                matTooltip="{{ translations.header.colleagues.tooltip | translate }}" 
+                attr.aria-label="{{ translations.header.colleagues.aria | translate }}"
                 [routerLink]="[routes.Members]">
         people
       </mat-icon>
     </button>
     <button mat-icon-button>
       <mat-icon aria-hidden="false" 
-                matTooltip="{{ 'header.notifications.tooltip' | translate }}" 
-                attr.aria-label="{{ 'header.notifications.aria' | translate }}"
+                matTooltip="{{ translations.header.notifications.tooltip | translate }}" 
+                attr.aria-label="{{ translations.header.notifications.aria | translate }}"
                 [routerLink]="[routes.Messages]">
         notifications
       </mat-icon>
     </button>
     <button mat-icon-button>
       <mat-icon aria-hidden="false" 
-                matTooltip="{{ 'header.profile.tooltip' | translate }}" 
-                attr.aria-label="{{ 'header.profile.aria' | translate }}"
+                matTooltip="{{ translations.header.profile.tooltip | translate }}" 
+                attr.aria-label="{{ translations.header.profile.aria | translate }}"
                 [routerLink]="[routes.Profile]">
         account_circle
       </mat-icon>

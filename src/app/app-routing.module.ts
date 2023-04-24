@@ -10,9 +10,10 @@ import { NotFoundComponent } from './shared/components/not-found/not-found.compo
 import { UnauthorizedComponent } from './shared/components/unauthorized/unauthorized.component';
 import { ForbiddenComponent } from './shared/components/forbidden/forbidden.component';
 
+/////// TODO: Is there a better way to do this? (using DI instead of instantiating here) ///////
 import { Translations } from './core/services/translations.service';
-
 let translations = new Translations();
+////////////////////////////////////////////////////////////////////////////////////////////////
 
 const routes: Routes = [
   {
@@ -36,7 +37,7 @@ const routes: Routes = [
     loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule),
     canActivate: [InterceptorGuard],
     data: {
-      title: translations.titles.home,
+      title: translations.titles.home, 
       breadcrumb: translations.titles.home
     }
   },

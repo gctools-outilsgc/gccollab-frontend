@@ -2,7 +2,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguageSelectorComponent } from './components/language-selector/language-selector.component';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
-import { AppModule, HttpLoaderFactory } from '../app.module';
+import { AppModule } from '../app.module';
 import { HttpClient } from '@angular/common/http';
 
 import { FormsModule } from '@angular/forms';

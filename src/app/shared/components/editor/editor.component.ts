@@ -54,6 +54,6 @@ export class EditorComponent implements OnInit, OnDestroy {
   }
 
   placeholderText(): string {
-    return this.translateService.instant('editor.placeholder')
+    return this.translateService.instant(this.translations.editor.placeholder)
   }
 }

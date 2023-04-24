@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { TranslateLoader } from '@ngx-translate/core';
 import { Observable, map } from 'rxjs';
-import { LanguageStorageService } from '../services/language-storage.service';
 
 interface TranslationData {
   [key: string]: string;
