@@ -13,6 +13,7 @@ export class ButtonComponent implements OnInit {
 
   @Input() name: string = '';
   @Input() value: string = '';
+  @Input() tooltip: string = '';
   @Input() ariaLabel: string = '';
   @Input() type: ButtonType = ButtonType.Button;
   @Input() matButtonType: MaterialButtonType = MaterialButtonType.Raised;
