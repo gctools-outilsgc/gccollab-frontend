@@ -1,0 +1,16 @@
+<button mat-button
+        name="{{name}}" 
+        value="{{value}}" 
+        type="{{type}}"
+        [class]="matButtonType"
+        color="{{matColor}}"
+        [disabled]="disabled"
+        (click)="callback()"
+        [autofocus]="autofocus">
+    <div class="gcc-button-inner">
+        <ng-content></ng-content>
+        <mat-icon *ngIf="matIcon">
+            {{ matIcon }}
+        </mat-icon>
+    </div>
+</button>

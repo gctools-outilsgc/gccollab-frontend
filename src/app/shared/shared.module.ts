@@ -14,7 +14,11 @@ import { EditorComponent } from './components/editor/editor.component';
 import { ngxEditorConfigFactory } from './factories/editor-config.factory';
 import { TypescriptLoader } from '../core/helpers/typescript-loader';
 import { Translations } from '../core/services/translations.service';
+import { ButtonComponent } from './components/button/button.component';
 
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,8 @@ import { Translations } from '../core/services/translations.service';
     NotFoundComponent,
     UnauthorizedComponent,
     ForbiddenComponent,
-    EditorComponent
+    EditorComponent,
+    ButtonComponent
   ],
   imports: [
     CommonModule,
@@ -36,12 +41,16 @@ import { Translations } from '../core/services/translations.service';
       isolate: false,
       extend: true
     }),
-    NgxEditorModule.forChild()
+    NgxEditorModule.forChild(),
+    MatButtonModule,
+    MatIconModule,
+    MatTooltipModule
   ],
   exports: [
     TranslateModule,
     LanguageSelectorComponent,
-    EditorComponent
+    EditorComponent,
+    ButtonComponent
   ],
   providers: [
     {
