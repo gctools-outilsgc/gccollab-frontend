@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Editor, NgxEditorService, Toolbar } from 'ngx-editor';
 import { ngxEditorLocals } from '../../factories/editor-config.factory';
 import { Subscription } from 'rxjs/internal/Subscription';
+import { Translations } from 'src/app/core/services/translations.service';
 
 // https://sibiraj-s.github.io/ngx-editor/en/introduction/
 @Component({
@@ -27,7 +28,7 @@ export class EditorComponent implements OnInit, OnDestroy {
 
   private langChangeSub!: Subscription;
 
-  constructor(private translateService: TranslateService, private ngxEditorService: NgxEditorService ) {
+  constructor(private translateService: TranslateService, private ngxEditorService: NgxEditorService, public translations: Translations ) {
     this.editor = new Editor();
 
     this.langChangeSub = this.translateService.onLangChange.subscribe(() => {
@@ -49,10 +50,10 @@ export class EditorComponent implements OnInit, OnDestroy {
   }
 
   onLangChange(): void {
-    this.ngxEditorService.config.locals = ngxEditorLocals(this.translateService);
+    this.ngxEditorService.config.locals = ngxEditorLocals(this.translateService, this.translations);
   }
 
   placeholderText(): string {
-    return this.translateService.instant('editor.placeholder')
+    return this.translateService.instant(this.translations.editor.placeholder)
   }
 }

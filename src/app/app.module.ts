@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgxTranslateRoutesModule } from 'ngx-translate-routes';
 
 import { AuthInterceptor } from 'angular-auth-oidc-client';
@@ -14,7 +13,8 @@ import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TitleService } from './core/services/title.service';
 import { TitleStrategy } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { environment } from 'src/environments/environment';
+
+import { TypescriptLoader } from './core/helpers/typescript-loader';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import { environment } from 'src/environments/environment';
       useDefaultLang: true,
       loader: {
         provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
+        useFactory: (http: HttpClient) => new TypescriptLoader(http, 'translations'),
         deps: [HttpClient]
       },
       isolate: false
@@ -54,8 +54,3 @@ import { environment } from 'src/environments/environment';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-// required for AOT compilation
-export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http, environment.i18nFolder, ".json");
-}

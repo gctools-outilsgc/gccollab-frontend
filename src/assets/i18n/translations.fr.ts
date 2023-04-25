@@ -1,4 +1,4 @@
-{
+const fr: typeof import('./translations.en').default = {
     "app": {
         "title": "GCcollab"
     },
@@ -177,4 +177,5 @@
         "horizontalrule": "La règle horizontale",
         "formatclear": "Supprimer le formattage"
     }
-}
+};
+export default fr;

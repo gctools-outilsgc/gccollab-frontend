@@ -1,4 +1,4 @@
-{
+export default {
     "app": {
         "title": "GCcollab"
     },
@@ -177,4 +177,4 @@
         "horizontalrule": "Horizontal Rule",
         "formatclear": "Clear Formatting"
     }
-}
+};

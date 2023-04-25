@@ -5,44 +5,41 @@ import { AuthConfigModule } from './core/auth/auth.module';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HttpLoaderFactory } from 'src/app/app.module';
 import { TranslateService } from '@ngx-translate/core';
+import { TypescriptLoader } from './core/helpers/typescript-loader';
 
 // describe('AppComponent', () => {
-//   let component: AppComponent;
-//   let fixture: ComponentFixture<AppComponent>;
-//   let translateService: TranslateService;
-
-//   beforeEach(async () => {
-//     await TestBed.configureTestingModule({
-//       declarations: [
-//         AppComponent
-//       ],
-//       imports: [
-//         RouterTestingModule,
-//         AuthConfigModule,
-//         TranslateModule.forRoot({
-//           loader: {
-//             provide: TranslateLoader,
-//             useFactory: HttpLoaderFactory,
-//             deps: [ HttpClient ]
-//           }
-//         }),
-//         HttpClientModule
-//       ],
-//       providers: [
-//         TranslateService, 
-//         HttpClient,
-//       ]
-//     }).compileComponents();
-
-//     translateService = TestBed.inject(TranslateService);
-//     fixture = TestBed.createComponent(AppComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
-
-//   it('should create the app', () => {
-//     expect(component).toBeTruthy();
-//   });
+//     let component: AppComponent;
+//     let fixture: ComponentFixture<AppComponent>;
+//     let translateService: TranslateService;
+//     beforeEach(async () => {
+//       await TestBed.configureTestingModule({
+//         declarations: [
+//           AppComponent
+//         ],
+//         imports: [
+//           RouterTestingModule,
+//           AuthConfigModule,
+//           TranslateModule.forRoot({
+//             loader: {
+//               provide: TranslateLoader,
+//               useFactory: (http: HttpClient) => new TypescriptLoader(http, 'translations'),
+//               deps: [ HttpClient ]
+//             }
+//           }),
+//           HttpClientModule
+//         ],
+//         providers: [
+//           TranslateService, 
+//           HttpClient,
+//         ]
+//       }).compileComponents();
+//       translateService = TestBed.inject(TranslateService);
+//       fixture = TestBed.createComponent(AppComponent);
+//       component = fixture.componentInstance;
+//       fixture.detectChanges();
+//     });
+//     it('should create the app', () => {
+//       expect(component).toBeTruthy();
+//     });
 // });

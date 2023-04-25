@@ -11,10 +11,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatMenuModule } from '@angular/material/menu';
 import { RouterModule } from '@angular/router';
-import { AppModule, HttpLoaderFactory } from '../app.module';
+import { AppModule } from '../app.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { PageTitleComponent } from './components/page-title/page-title.component';
+import { TypescriptLoader } from './helpers/typescript-loader';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { PageTitleComponent } from './components/page-title/page-title.component
     TranslateModule.forChild({
       loader: {
         provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
+        useFactory: (http: HttpClient) => new TypescriptLoader(http, 'translations'),
         deps: [HttpClient]
       },
       isolate: false,

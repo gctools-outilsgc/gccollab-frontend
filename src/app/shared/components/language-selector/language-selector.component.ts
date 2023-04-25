@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ILanguage } from '../../models/language';
+import { Translations } from 'src/app/core/services/translations.service';
 
 @Component({
   selector: 'app-language-selector',
@@ -10,12 +11,12 @@ import { ILanguage } from '../../models/language';
 export class LanguageSelectorComponent implements OnInit {
   
   languages: ILanguage [] = [
-    {'key': 'en', 'value': 'languages.english'},
-    {'key': 'fr', 'value': 'languages.french'},
+    {'key': 'en', 'value': this.translations.languages.english},
+    {'key': 'fr', 'value': this.translations.languages.french},
   ];
   selectedLanguageKey: string = this.languages[0].key;
 
-  constructor(private translateService: TranslateService) { }
+  constructor(private translateService: TranslateService, public translations: Translations) { }
 
   ngOnInit(): void {
     let currLang = this.translateService.currentLang;

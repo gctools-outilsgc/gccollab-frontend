@@ -4,8 +4,8 @@ import { HomeComponent } from './home.component';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HttpLoaderFactory } from 'src/app/app.module';
 import { TranslateService } from '@ngx-translate/core';
+import { TypescriptLoader } from 'src/app/core/helpers/typescript-loader';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -19,7 +19,7 @@ describe('HomeComponent', () => {
         TranslateModule.forRoot({
           loader: {
             provide: TranslateLoader,
-            useFactory: HttpLoaderFactory,
+            useFactory: (http: HttpClient) => new TypescriptLoader(http, 'translations'),
             deps: [ HttpClient ]
           }
         }),

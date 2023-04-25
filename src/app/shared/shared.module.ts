@@ -2,7 +2,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguageSelectorComponent } from './components/language-selector/language-selector.component';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
-import { AppModule, HttpLoaderFactory } from '../app.module';
+import { AppModule } from '../app.module';
 import { HttpClient } from '@angular/common/http';
 
 import { FormsModule } from '@angular/forms';
@@ -12,6 +12,8 @@ import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 import { NGX_EDITOR_CONFIG_TOKEN, NgxEditorModule } from 'ngx-editor';
 import { EditorComponent } from './components/editor/editor.component';
 import { ngxEditorConfigFactory } from './factories/editor-config.factory';
+import { TypescriptLoader } from '../core/helpers/typescript-loader';
+import { Translations } from '../core/services/translations.service';
 
 
 @NgModule({
@@ -28,7 +30,7 @@ import { ngxEditorConfigFactory } from './factories/editor-config.factory';
     TranslateModule.forChild({
       loader: {
         provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
+        useFactory: (http: HttpClient) => new TypescriptLoader(http, 'translations'),
         deps: [HttpClient]
       },
       isolate: false,
@@ -45,7 +47,7 @@ import { ngxEditorConfigFactory } from './factories/editor-config.factory';
     {
       useFactory: ngxEditorConfigFactory,
       provide: NGX_EDITOR_CONFIG_TOKEN,
-      deps: [TranslateService],
+      deps: [TranslateService, Translations],
     }
   ]
 })

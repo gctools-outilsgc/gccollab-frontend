@@ -11,9 +11,9 @@ import { HeaderComponent } from './header.component';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HttpLoaderFactory } from 'src/app/app.module';
 import { TranslateService } from '@ngx-translate/core';
 import { MatMenuModule } from '@angular/material/menu';
+import { TypescriptLoader } from '../../helpers/typescript-loader';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -35,7 +35,7 @@ describe('HeaderComponent', () => {
         TranslateModule.forRoot({
           loader: {
             provide: TranslateLoader,
-            useFactory: HttpLoaderFactory,
+            useFactory: (http: HttpClient) => new TypescriptLoader(http, 'translations'),
             deps: [ HttpClient ]
           }
         }),
