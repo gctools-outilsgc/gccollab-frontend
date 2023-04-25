@@ -1,6 +1,6 @@
 <mat-toolbar role="navigation" color="primary">
-  <div class="header-title">
-
+  
+  <div>
     <button mat-icon-button 
             [matMenuTriggerFor]="menu" 
             attr.aria-label="{{ 'header.menu.aria' | translate }}">
@@ -62,7 +62,9 @@
         <span>{{ 'titles.help' | translate }}</span>
       </button>
     </mat-menu>
-
+  </div>
+  
+  <div class="header-title">
     <a [routerLink]="[routes.Home]">
       <span>GC</span>Collab
     </a>

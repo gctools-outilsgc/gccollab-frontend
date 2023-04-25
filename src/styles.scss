@@ -1,11 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+@import '/src/assets/scss/partials/font-weights';
 
-// Default theme
-@import "../src/assets/scss/default-theme.scss";
 html, body { height: 100%; }
+
 body { 
     margin: 0; 
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
     display: flex;
 }
 
@@ -14,4 +13,28 @@ app-root {
     min-height: 100%;
     flex-direction: column;
     flex: 1;
+}
+
+// h1, h2, h3, h4, h5, p, span, a, button, div {
+//     font-family: 'Inter', 'Helvetica Neue', sans-serif;
+// }
+
+// h1, h2 {
+//     font-weight: $bold;
+// }
+
+// h3, h4 {
+//     font-weight: $semi-bold;
+// }
+
+// h5 {
+//     font-weight: $medium;
+// }
+
+// p {
+//     font-weight: $regular;
+// }
+
+.NgxEditor__Dropdown .NgxEditor__Dropdown--DropdownMenu {
+    width: fit-content !important;
 }
