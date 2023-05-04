@@ -5,7 +5,7 @@ import { FooterComponent } from './footer.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateService } from '@ngx-translate/core';
-import { TypescriptLoader } from '../../helpers/typescript-loader';
+import { TypescriptLoader } from 'src/app/core/helpers/typescript-loader';
 
 describe('FooterComponent', () => {
   let component: FooterComponent;

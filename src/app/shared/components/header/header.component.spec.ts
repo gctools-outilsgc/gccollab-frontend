@@ -13,7 +13,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateService } from '@ngx-translate/core';
 import { MatMenuModule } from '@angular/material/menu';
-import { TypescriptLoader } from '../../helpers/typescript-loader';
+import { TypescriptLoader } from 'src/app/core/helpers/typescript-loader';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
