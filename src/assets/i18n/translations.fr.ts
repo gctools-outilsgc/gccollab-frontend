@@ -65,63 +65,41 @@ const fr: typeof import('./translations.en').default = {
         "french": "Français"
     },
     "header": {
-        "menu": {
-            "aria": "Cliquez pour ouvrir le menu de navigation",
-            "home": {
-                "aria": "Cliquez pour aller à la page d'accueil"
-            },
-            "communities": {
-                "aria": "Cliquez pour accéder à la page des communautés"
-            },
-            "thewire": {
-                "aria": "Cliquez pour accéder au fil"
-            },
-            "groups": {
-                "aria": "Cliquez pour accéder à la page des groupes"
-            },
-            "members": {
-                "aria": "Cliquez pour accéder à la page des membres"
-            },
-            "missions": {
-                "aria": "Cliquez pour accéder à la page carrières"
-            },
-            "blogs": {
-                "aria": "Cliquez pour accéder à la page des blogs"
-            },
-            "dashboards": {
-                "aria": "Cliquez pour accéder à la page des tableaux de bord"
-            },
-            "help": {
-                "aria": "Cliquez pour accéder à la page d'aide"
-            }
+        "home": {
+            "title": "Accueil",
+            "aria": "Cliquez pour aller à la page d'accueil."
+        },
+        "network": {
+            "title": "Réseau",
+            "aria": "Cliquez pour accéder à votre réseau."
+        },
+        "groups": {
+            "title": "Groupes",
+            "aria": "Cliquez pour accéder à la page des groupes."
+        },
+        "jobs": {
+            "title": "Emplois",
+            "aria": "Cliquez pour accéder à la page des emplois."
+        },
+        "support": {
+            "title": "Soutien",
+            "aria": "Cliquez pour accéder à la page d'assistance."
         },
         "search": {
             "title": "Rechercher GCCollab",
-            "aria": "Commencez à taper pour rechercher GCCollab",
+            "aria": "Commencez à taper pour rechercher GCCollab.",
             "button": {
                 "tooltip": "Rechercher",
-                "aria": "Cliquez pour lancer la recherche GCCollab"
+                "aria": "Cliquez pour lancer la recherche GCCollab."
             }
-        },
-        "invite": {
-            "title": "Inviter",
-            "aria": "Cliquez pour inviter des amis ou des collègues à GCCollab"
-        },
-        "bookmark": {
-            "tooltip": "Signets",
-            "aria": "Cliquez pour afficher vos signets"
-        },
-        "colleagues": {
-            "tooltip": "Des collègues",
-            "aria": "Cliquez pour voir vos collègues"
         },
         "notifications": {
             "tooltip": "Avis",
-            "aria": "Cliquez pour afficher vos notifications"
+            "aria": "Cliquez pour afficher vos notifications."
         },
         "profile": {
             "tooltip": "Profil",
-            "aria": "Cliquez pour voir votre profil"
+            "aria": "Cliquez pour voir votre profil."
         }
     },
     "footer": {

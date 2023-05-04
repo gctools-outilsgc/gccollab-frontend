@@ -19,6 +19,11 @@ import { ButtonComponent } from './components/button/button.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { PageTitleComponent } from './components/page-title/page-title.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -27,11 +32,15 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     UnauthorizedComponent,
     ForbiddenComponent,
     EditorComponent,
-    ButtonComponent
+    ButtonComponent,
+    HeaderComponent,
+    FooterComponent,
+    PageTitleComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
+    RouterModule,
     TranslateModule.forChild({
       loader: {
         provide: TranslateLoader,
@@ -44,10 +53,14 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     NgxEditorModule.forChild(),
     MatButtonModule,
     MatIconModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatToolbarModule,
   ],
   exports: [
     TranslateModule,
+    HeaderComponent,
+    FooterComponent,
+    PageTitleComponent,
     LanguageSelectorComponent,
     EditorComponent,
     ButtonComponent
