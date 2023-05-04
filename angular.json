@@ -26,9 +26,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/web.config",
-              "src/assets/i18n/translations.en.ts",
-              "src/assets/i18n/translations.fr.ts"
+              "src/web.config"
             ],
             "styles": [
               {
@@ -44,7 +42,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "10mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -100,9 +98,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/web.config",
-              "src/assets/i18n/translations.en.ts",
-              "src/assets/i18n/translations.fr.ts"
+              "src/web.config"
             ],
             "styles": [
               {
