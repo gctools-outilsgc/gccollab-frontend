@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { AbstractSecurityStorage, AuthModule, LogLevel } from 'angular-auth-oidc-client';
+import { AbstractSecurityStorage, AuthModule } from 'angular-auth-oidc-client';
 import { environment } from 'src/environments/environment';
 import { SessionStorageService } from '../services/session-storage.service';
 

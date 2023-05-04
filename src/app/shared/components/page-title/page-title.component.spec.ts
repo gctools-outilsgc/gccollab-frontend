@@ -4,9 +4,9 @@ import { PageTitleComponent } from './page-title.component';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HttpLoaderFactory } from 'src/app/app.module';
 import { TranslateService } from '@ngx-translate/core';
 import { ActivatedRoute } from '@angular/router';
+import { TypescriptLoader } from '../../helpers/typescript-loader';
 
 describe('PageTitleComponent', () => {
   let component: PageTitleComponent;
@@ -25,7 +25,7 @@ describe('PageTitleComponent', () => {
         TranslateModule.forRoot({
           loader: {
             provide: TranslateLoader,
-            useFactory: HttpLoaderFactory,
+            useFactory: (http: HttpClient) => new TypescriptLoader(http, 'translations'),
             deps: [ HttpClient ]
           }
         }),

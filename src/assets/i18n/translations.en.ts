@@ -1,4 +1,4 @@
-{
+export default {
     "app": {
         "title": "GCcollab"
     },
@@ -65,35 +65,25 @@
         "french": "French"
     },
     "header": {
-        "menu": {
-            "aria": "Click to open the navigational menu",
-            "home": {
-                "aria": "Click to go to the home page"
-            },
-            "communities": {
-                "aria": "Click to go to the communities page"
-            },
-            "thewire": {
-                "aria": "Click to go to the wire"
-            },
-            "groups": {
-                "aria": "Click to go to the groups page"
-            },
-            "members": {
-                "aria": "Click to go to the members page"
-            },
-            "missions": {
-                "aria": "Click to go to the careers page"
-            },
-            "blogs": {
-                "aria": "Click to go to the blogs page"
-            },
-            "dashboards": {
-                "aria": "Click to go to the dashboards page"
-            },
-            "help": {
-                "aria": "Click to go to the help page"
-            }
+        "home": {
+            "title": "Home",
+            "aria": "Click to go to the home page."
+        },
+        "network": {
+            "title": "Network",
+            "aria": "Click to go to your network."
+        },
+        "groups": {
+            "title": "Groups",
+            "aria": "Click to go to the groups page."
+        },
+        "jobs": {
+            "title": "Jobs",
+            "aria": "Click to go to the jobs page."
+        },
+        "support": {
+            "title": "Support",
+            "aria": "Click to go to the support page."
         },
         "search": {
             "title": "Search GCCollab",
@@ -102,18 +92,6 @@
                 "tooltip": "Search",
                 "aria": "Click to start searching GCCollab"
             }
-        },
-        "invite": {
-            "title": "Invite",
-            "aria": "Click to invite friends or colleagues to GCCollab"
-        },
-        "bookmark": {
-            "tooltip": "Bookmarks",
-            "aria": "Click to view your bookmarks"
-        },
-        "colleagues": {
-            "tooltip": "Colleagues",
-            "aria": "Click to view your colleagues"
         },
         "notifications": {
             "tooltip": "Notifications",
@@ -177,4 +155,4 @@
         "horizontalrule": "Horizontal Rule",
         "formatclear": "Clear Formatting"
     }
-}
+};
