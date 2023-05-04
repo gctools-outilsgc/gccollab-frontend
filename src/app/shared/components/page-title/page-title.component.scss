@@ -1,0 +1,10 @@
+@import "../../../../assets/scss/partials/colors";
+@import "../../../../assets/scss/partials/header";
+
+mat-toolbar {
+    margin-top: $header-height-desktop;
+
+    span:not(:first-child)::before {
+        content: ' - ';
+    }
+}

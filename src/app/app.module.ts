@@ -15,6 +15,7 @@ import { TitleStrategy } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { TypescriptLoader } from './core/helpers/typescript-loader';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { TypescriptLoader } from './core/helpers/typescript-loader';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
+    SharedModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       useDefaultLang: true,
