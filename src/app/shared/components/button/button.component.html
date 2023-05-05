@@ -3,14 +3,15 @@
         [value]="value" 
         [type]="type"
         [class]="matButtonType"
-        [color]="matColor"
         [disabled]="disabled"
         (click)="callback()"
         [autofocus]="autofocus"
         [matTooltip]="tooltip">
     <div class="gcc-button-inner">
         <ng-content></ng-content>
-        <mat-icon *ngIf="matIcon">
+        <mat-icon *ngIf="matIcon" 
+                  aria-hidden="false"
+                  attr.aria-label="{{ ariaLabel }}">
             {{ matIcon }}
         </mat-icon>
     </div>

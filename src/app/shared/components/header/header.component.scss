@@ -15,11 +15,33 @@
         }
     
         .gcc-logo {
+            height: 85px;
+            width: 85px;
             margin: 0px 30px;
             cursor: pointer;
+            border-radius: 50%;
+            background-color: $primary-1-dark;
 
             > div {
+                line-height: 85px;
+                text-align: center;
                 font-size: xx-large;
+            }
+        }
+
+        .header-links {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            padding: 0px;
+            gap: 33px;
+
+            a, a:visited {
+                color: $primary-1-contrast;
+            }
+
+            a:focus, a:hover {
+                text-decoration: underline;
             }
         }
         

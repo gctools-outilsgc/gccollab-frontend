@@ -5,6 +5,7 @@ import { map, shareReplay } from 'rxjs/operators';
 import { CoreRoutes } from 'src/app/core/constants/routes.constants';
 import { TranslateService } from '@ngx-translate/core';
 import { Translations } from 'src/app/core/services/translations.service';
+import { MaterialButtonType } from '../../models/material-button-type';
 
 @Component({
   selector: 'app-header',
@@ -14,6 +15,7 @@ import { Translations } from 'src/app/core/services/translations.service';
 export class HeaderComponent {
 
   routes = CoreRoutes;
+  materialButtonType = MaterialButtonType;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(

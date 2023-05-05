@@ -17,7 +17,7 @@ export class ButtonComponent implements OnInit {
   @Input() ariaLabel: string = '';
   @Input() type: ButtonType = ButtonType.Button;
   @Input() matButtonType: MaterialButtonType = MaterialButtonType.Raised;
-  @Input() matColor: MaterialColor = MaterialColor.Primary;
+  @Input() matColor: MaterialColor = MaterialColor.Primary; // TODO: Implement this so it defaults to primary contrast
   @Input() disabled: boolean = false;
   @Input() callback: Function = () => {};
   @Input() autofocus: boolean = false;

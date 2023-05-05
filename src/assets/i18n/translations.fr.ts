@@ -93,6 +93,10 @@ const fr: typeof import('./translations.en').default = {
                 "aria": "Cliquez pour lancer la recherche GCCollab."
             }
         },
+        "messages" : {
+            "tooltip": "Messages",
+            "aria": "Cliquez pour voir vos messages"
+        },
         "notifications": {
             "tooltip": "Avis",
             "aria": "Cliquez pour afficher vos notifications."

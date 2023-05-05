@@ -93,6 +93,10 @@ export default {
                 "aria": "Click to start searching GCCollab"
             }
         },
+        "messages" : {
+            "tooltip": "Messages",
+            "aria": "Click to view your messages"
+        },
         "notifications": {
             "tooltip": "Notifications",
             "aria": "Click to view your notifications"
