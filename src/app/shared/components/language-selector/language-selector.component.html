@@ -1,6 +1,14 @@
-<label for="language">{{ translations.languages.label | translate }}</label>
-<select [(ngModel)]="selectedLanguageKey" (ngModelChange)="update()" name="language">
-    <option *ngFor="let lang of languages" [value]="lang.key">
-        {{ lang.value | translate }}
-    </option>
-</select>
+<div *ngIf="!isToggle">
+    <label for="language">{{ translations.languages.label | translate }}</label>
+    <select [(ngModel)]="selectedLanguageKey" (ngModelChange)="update()" name="language">
+        <option *ngFor="let lang of languages" [value]="lang.key">
+            {{ lang.value | translate }}
+        </option>
+    </select>
+</div>
+
+<app-button *ngIf="isToggle"
+            [matButtonType]="materialButtonType.Icon"
+            (click)="toggle()">
+    {{ selectedLanguageKey | uppercase }}
+</app-button>

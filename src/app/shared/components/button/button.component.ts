@@ -19,7 +19,6 @@ export class ButtonComponent implements OnInit {
   @Input() matButtonType: MaterialButtonType = MaterialButtonType.Raised;
   @Input() matColor: MaterialColor = MaterialColor.Primary; // TODO: Implement this so it defaults to primary contrast
   @Input() disabled: boolean = false;
-  @Input() callback: Function = () => {};
   @Input() autofocus: boolean = false;
   @Input() matIcon: string = '';
 
