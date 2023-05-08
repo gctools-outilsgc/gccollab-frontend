@@ -38,13 +38,3 @@ app-root {
 .NgxEditor__Dropdown .NgxEditor__Dropdown--DropdownMenu {
     width: fit-content !important;
 }
-
-app-header {
-    app-language-selector {
-        app-button {
-            button {
-                font-size: large;
-            }
-        }
-    }
-}
