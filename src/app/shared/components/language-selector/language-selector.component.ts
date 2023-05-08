@@ -3,7 +3,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { ILanguage } from '../../models/language';
 import { Translations } from 'src/app/core/services/translations.service';
 import { MaterialButtonType } from '../../models/material-button-type';
-import { FontSize } from '../../models/font-size';
 
 @Component({
   selector: 'app-language-selector',
@@ -20,7 +19,6 @@ export class LanguageSelectorComponent implements OnInit {
   ];
   selectedLanguageKey: string = this.languages[0].key;
   materialButtonType = MaterialButtonType;
-  fontSize = FontSize;
 
   constructor(private translateService: TranslateService, public translations: Translations) { }
 
