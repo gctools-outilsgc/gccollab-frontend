@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -14,8 +14,11 @@ import { MaterialButtonType } from '../../models/material-button-type';
 })
 export class HeaderComponent {
 
+  @Output() headerToggleEvent = new EventEmitter<boolean>();
+
   routes = CoreRoutes;
   materialButtonType = MaterialButtonType;
+  headerExpanded = false;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -24,5 +27,10 @@ export class HeaderComponent {
     );
 
   constructor(private breakpointObserver: BreakpointObserver, public translations: Translations) {}
+
+  toggleSearch() {
+    this.headerExpanded = !this.headerExpanded;
+    this.headerToggleEvent.emit(this.headerExpanded);
+  }
 
 }

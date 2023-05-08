@@ -1,75 +1,81 @@
 <mat-toolbar role="navigation" color="primary">
+
+  <mat-toolbar-row>
+    <div class="gcc-logo" [routerLink]="[routes.Home]">
+      <div>GCC</div>
+    </div>
   
-  <div class="gcc-logo" [routerLink]="[routes.Home]">
-    <div>GCC</div>
-  </div>
+    <div class="header-links">
+      <a aria-hidden="false"
+         [routerLink]="[routes.Home]"
+         attr.aria-label="{{ translations.header.home.aria | translate }}">
+        {{ translations.header.home.title | translate }}
+      </a>
+      <a aria-hidden="false"
+         [routerLink]="[routes.TheWire]"
+         attr.aria-label="{{ translations.header.network.aria | translate }}">
+        {{ translations.header.network.title | translate }}
+      </a>
+      <a aria-hidden="false"
+         [routerLink]="[routes.Groups]"
+         attr.aria-label="{{ translations.header.groups.aria | translate }}">
+        {{ translations.header.groups.title | translate }}
+      </a>
+      <a aria-hidden="false"
+         [routerLink]="[routes.Missions]"
+         attr.aria-label="{{ translations.header.jobs.aria | translate }}">
+        {{ translations.header.jobs.title | translate }}
+      </a>
+      <a aria-hidden="false"
+         [routerLink]="[routes.Help]"
+         attr.aria-label="{{ translations.header.support.aria | translate }}">
+        {{ translations.header.support.title | translate }}
+      </a>
+    </div>
+  
+    <div class="header-actions">
+      <app-button [matButtonType]="materialButtonType.Icon"
+                  [matIcon]="headerExpanded ? 'close' : 'search'"
+                  [matTooltip]="translations.header.search.button.tooltip | translate"
+                  [ariaLabel]="translations.header.search.button.aria | translate"
+                  (click)="toggleSearch()">
+      </app-button>
+      <app-button [matButtonType]="materialButtonType.Icon"
+                  [matIcon]="'chat_bubble_outline'"
+                  [matTooltip]="translations.header.messages.tooltip | translate"
+                  [ariaLabel]="translations.header.messages.aria | translate"
+                  [routerLink]="[routes.Messages]">
+      </app-button>
+      <app-button [matButtonType]="materialButtonType.Icon"
+                  [matIcon]="'notifications'"
+                  [matTooltip]="translations.header.notifications.tooltip | translate"
+                  [ariaLabel]="translations.header.notifications.aria | translate"
+                  [routerLink]="[routes.Messages]">
+      </app-button>
+      <app-button [matButtonType]="materialButtonType.Icon"
+                  [matIcon]="'account_circle'"
+                  [matTooltip]="translations.header.profile.tooltip | translate"
+                  [ariaLabel]="translations.header.profile.aria | translate"
+                  [routerLink]="[routes.Profile]">
+      </app-button>
+    </div>
+  </mat-toolbar-row>
 
-  <!-- <div class="header-search">
-    <form>
-      <input type="text" placeholder="{{ translations.header.search.title | translate }}" />
-      <button mat-icon-button
-              color="primary" 
-              attr.aria-label="{{ translations.header.search.aria | translate }}">
-        <mat-icon aria-hidden="false"
-                  matTooltip="{{ translations.header.search.button.tooltip | translate }}"
-                  attr.aria-label="{{ translations.header.search.button.aria | translate }}">
-          search
-        </mat-icon>
-      </button>
-    </form>
-  </div> -->
+  <mat-toolbar-row *ngIf="headerExpanded">
+    <div class="header-search">
+      <form>
+        <input type="text" placeholder="{{ translations.header.search.title | translate }}" />
+        <button mat-icon-button
+                color="primary" 
+                attr.aria-label="{{ translations.header.search.aria | translate }}">
+          <mat-icon aria-hidden="false"
+                    matTooltip="{{ translations.header.search.button.tooltip | translate }}"
+                    attr.aria-label="{{ translations.header.search.button.aria | translate }}">
+            search
+          </mat-icon>
+        </button>
+      </form>
+    </div>
+  </mat-toolbar-row>
 
-  <div class="header-links">
-    <a aria-hidden="false"
-       [routerLink]="[routes.Home]"
-       attr.aria-label="{{ translations.header.home.aria | translate }}">
-      {{ translations.header.home.title | translate }}
-    </a>
-    <a aria-hidden="false"
-       [routerLink]="[routes.TheWire]"
-       attr.aria-label="{{ translations.header.network.aria | translate }}">
-      {{ translations.header.network.title | translate }}
-    </a>
-    <a aria-hidden="false"
-       [routerLink]="[routes.Groups]"
-       attr.aria-label="{{ translations.header.groups.aria | translate }}">
-      {{ translations.header.groups.title | translate }}
-    </a>
-    <a aria-hidden="false"
-       [routerLink]="[routes.Missions]"
-       attr.aria-label="{{ translations.header.jobs.aria | translate }}">
-      {{ translations.header.jobs.title | translate }}
-    </a>
-    <a aria-hidden="false"
-       [routerLink]="[routes.Help]"
-       attr.aria-label="{{ translations.header.support.aria | translate }}">
-      {{ translations.header.support.title | translate }}
-    </a>
-  </div>
-
-  <div class="header-actions">
-    <app-button [matButtonType]="materialButtonType.Icon"
-                [matIcon]="'search'"
-                [matTooltip]="translations.header.search.button.tooltip | translate"
-                [ariaLabel]="translations.header.search.button.aria | translate">
-    </app-button>
-    <app-button [matButtonType]="materialButtonType.Icon"
-                [matIcon]="'chat_bubble_outline'"
-                [matTooltip]="translations.header.messages.tooltip | translate"
-                [ariaLabel]="translations.header.messages.aria | translate"
-                [routerLink]="[routes.Messages]">
-    </app-button>
-    <app-button [matButtonType]="materialButtonType.Icon"
-                [matIcon]="'notifications'"
-                [matTooltip]="translations.header.notifications.tooltip | translate"
-                [ariaLabel]="translations.header.notifications.aria | translate"
-                [routerLink]="[routes.Messages]">
-    </app-button>
-    <app-button [matButtonType]="materialButtonType.Icon"
-                [matIcon]="'account_circle'"
-                [matTooltip]="translations.header.profile.tooltip | translate"
-                [ariaLabel]="translations.header.profile.aria | translate"
-                [routerLink]="[routes.Profile]">
-    </app-button>
-  </div>
 </mat-toolbar>

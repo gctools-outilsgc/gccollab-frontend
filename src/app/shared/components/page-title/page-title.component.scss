@@ -1,9 +1,14 @@
 @import "../../../../assets/scss/partials/colors";
 @import "../../../../assets/scss/partials/header";
 
-mat-toolbar {
+.gcc-header {
     margin-top: $header-height-desktop;
+}
+.gcc-header-expanded {
+    margin-top: $header-height-expanded-desktop;
+}
 
+mat-toolbar {
     span:not(:first-child)::before {
         content: ' - ';
     }
