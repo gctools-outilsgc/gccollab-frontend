@@ -1,7 +1,7 @@
 @import "../../../../assets/scss/partials/colors";
 
 footer {
-    background-color: linear-gradient(#6C0DBA, #4A0980);
+    background: $primary-1-gradient;
 
     .footer-body {
         padding: 12px;
@@ -23,6 +23,7 @@ footer {
 
                 h3 {
                     font-weight: bold;
+                    color: #ffffff;
                 }
 
                 li:not(:last-child) {
@@ -33,30 +34,25 @@ footer {
                     display: flex;
                     flex: 1;
                     text-decoration: none;
-                    color: #0278a4;
+                    color: #ffffff;
                 }
 
                 a:visited {
-                    color: #0278a4;
+                    color: #ffffff;
                 }
-            }
+
+                img {
+                    float: right;
+                    height: 40px;
+                    width: auto;
+                    margin: 20px;
+                    margin-top: 130px;
+                }
+            } 
 
             section:nth-child(2) {
                 margin: 0 80px;
             }
-        }
-    }
-
-    .footer-brand {
-        background: $neutral-200;
-        border-top: 4px solid $primary-1;
-        line-height: 30px;
-
-        img {
-            float: right;
-            height: 40px;
-            width: auto;
-            margin: 20px;
         }
     }
 }
