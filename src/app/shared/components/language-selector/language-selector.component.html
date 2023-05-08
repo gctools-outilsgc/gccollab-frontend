@@ -9,6 +9,9 @@
 
 <app-button *ngIf="isToggle"
             [matButtonType]="materialButtonType.Icon"
-            (click)="toggle()">
+            (click)="toggle()"
+            [matTooltip]="translations.languages.tooltip | translate"
+            [ariaLabel]="translations.languages.aria | translate"
+            [fontSize]="fontSize.large">
     {{ selectedLanguageKey | uppercase }}
 </app-button>

@@ -62,7 +62,9 @@ export default {
     "languages": {
         "label": "Language",
         "english": "English",
-        "french": "French"
+        "french": "French",
+        "tooltip": "Select your language",
+        "aria": "Click to select your language preference"
     },
     "header": {
         "home": {

@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 import { ButtonType } from '../../models/button-type';
 import { MaterialButtonType } from '../../models/material-button-type';
 import { MaterialColor } from '../../models/material-color';
+import { FontSize } from '../../models/font-size';
 
 @Component({
   selector: 'app-button',
@@ -21,6 +22,7 @@ export class ButtonComponent implements OnInit {
   @Input() disabled: boolean = false;
   @Input() autofocus: boolean = false;
   @Input() matIcon: string = '';
+  @Input() fontSize: FontSize = FontSize.medium;
 
   constructor() { }
 
