@@ -24,5 +24,4 @@ export enum CoreRoutes {
     TheWire = 'thewire',
     Unauthorized = 'unauthorized',
     Forbidden = 'forbidden',
-    GCtools ='gctools',
 }
