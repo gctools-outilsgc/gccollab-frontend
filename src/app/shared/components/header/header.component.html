@@ -36,8 +36,8 @@
     <div class="header-actions">
       <app-button [matButtonType]="materialButtonType.Icon"
                   [matIcon]="headerExpanded ? 'close' : 'search'"
-                  [matTooltip]="translations.header.search.button.tooltip | translate"
-                  [ariaLabel]="translations.header.search.button.aria | translate"
+                  [matTooltip]="headerExpanded ? (translations.header.search.button.tooltip_off | translate) : translations.header.search.button.tooltip_on | translate"
+                  [ariaLabel]="headerExpanded ? (translations.header.search.button.aria_off | translate) : translations.header.search.button.aria_on | translate"
                   (click)="toggleSearch()">
       </app-button>
       <app-button [matButtonType]="materialButtonType.Icon"
@@ -70,8 +70,8 @@
                 color="primary" 
                 attr.aria-label="{{ translations.header.search.aria | translate }}">
           <mat-icon aria-hidden="false"
-                    matTooltip="{{ translations.header.search.button.tooltip | translate }}"
-                    attr.aria-label="{{ translations.header.search.button.aria | translate }}">
+                    matTooltip="{{ translations.header.search.button.tooltip_on | translate }}"
+                    attr.aria-label="{{ translations.header.search.button.aria_on | translate }}">
             search
           </mat-icon>
         </button>
