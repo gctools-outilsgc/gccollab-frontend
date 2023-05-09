@@ -111,18 +111,19 @@ export default {
     "footer": {
         "title": {
             "about": "About",
-            "help": "Help",
-            "connect": "Stay Connected"
+            "privacy": "Privacy",
+            "connect": "Support"
         },
         "item": {
             "about": "About GCCollab",
-            "privacy": "Privacy Policy",
+            "privacypolicy": "Privacy Policy",
             "terms": "Terms and Conditions of Use",
             "stats": "Statistics",
             "faq": "Frequently Asked Questions",
             "help": "Help / Contact Us",
             "twitter": "Twitter",
-            "github": "GitHub"
+            "github": "GitHub",
+            "gctools": "GCtools"
         }
     },
     "editor": {
