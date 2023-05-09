@@ -17,6 +17,7 @@ import { LanguageStorageService } from './core/services/language-storage.service
 export class AppComponent implements OnDestroy {
 
   showHeaderFooter: boolean = true;
+  showSearchBar: boolean = false;
   private checkAuthSub!: Subscription;
   private langChangeSub!: Subscription;
   private routeChangeSub!: Subscription;
@@ -82,6 +83,10 @@ export class AppComponent implements OnDestroy {
       }
       return this.showHeaderFooter = true;
      });
+  }
+
+  headerToggleEvent(toggled: boolean): void {
+    this.showSearchBar = toggled;
   }
 
   logout(): void {

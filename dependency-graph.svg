@@ -231,8 +231,8 @@
 </g>
 <g id="clust45" class="cluster">
 <title>cluster_src/app/shared/models</title>
-<path fill="#ffffff" stroke="black" stroke-width="2" d="M900.5,-546.14C900.5,-546.14 1014.5,-546.14 1014.5,-546.14 1020.5,-546.14 1026.5,-552.14 1026.5,-558.14 1026.5,-558.14 1026.5,-676.14 1026.5,-676.14 1026.5,-682.14 1020.5,-688.14 1014.5,-688.14 1014.5,-688.14 900.5,-688.14 900.5,-688.14 894.5,-688.14 888.5,-682.14 888.5,-676.14 888.5,-676.14 888.5,-558.14 888.5,-558.14 888.5,-552.14 894.5,-546.14 900.5,-546.14"/>
-<text text-anchor="middle" x="957.5" y="-676.94" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">models</text>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M900.5,-490.14C900.5,-490.14 1014.5,-490.14 1014.5,-490.14 1020.5,-490.14 1026.5,-496.14 1026.5,-502.14 1026.5,-502.14 1026.5,-620.14 1026.5,-620.14 1026.5,-626.14 1020.5,-632.14 1014.5,-632.14 1014.5,-632.14 900.5,-632.14 900.5,-632.14 894.5,-632.14 888.5,-626.14 888.5,-620.14 888.5,-620.14 888.5,-502.14 888.5,-502.14 888.5,-496.14 894.5,-490.14 900.5,-490.14"/>
+<text text-anchor="middle" x="957.5" y="-620.94" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">models</text>
 </g>
 <g id="clust46" class="cluster">
 <title>cluster_src/assets</title>
@@ -1607,7 +1607,7 @@
 <!-- src/app/app.module.ts&#45;&gt;src/app/core/services/title.service.ts -->
 <g id="edge41" class="edge">
 <title>src/app/app.module.ts&#45;&gt;src/app/core/services/title.service.ts</title>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M136.14,-2021.01C137.77,-1917.49 153.66,-963.33 189,-682.14 222.38,-416.53 107.44,-262.2 315,-93.14 325.86,-84.3 610.46,-82.07 668,-92.14 756.91,-107.71 792.19,-100.45 859,-161.14 998.06,-287.48 998.29,-359.96 1040,-543.14 1047.58,-576.43 1032.32,-2973.98 1053,-3001.14 1060.84,-3011.44 1073.11,-3017.18 1085.61,-3020.3"/>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M136.14,-2021.01C137.77,-1917.49 153.66,-963.33 189,-682.14 222.38,-416.53 107.44,-262.2 315,-93.14 325.86,-84.3 610.46,-82.07 668,-92.14 756.91,-107.71 790.28,-102.63 859,-161.14 985.18,-268.58 998.04,-326.82 1040,-487.14 1048.84,-520.92 1031.85,-2973.36 1053,-3001.14 1060.84,-3011.44 1073.11,-3017.18 1085.61,-3020.3"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="1085.45,-3022.42 1091.75,-3021.64 1086.34,-3018.31 1085.45,-3022.42"/>
 </g>
 <!-- src/app/app.module.ts&#45;&gt;src/app/shared/shared.module.ts -->
@@ -1639,37 +1639,37 @@
 <ellipse fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" cx="175.86" cy="-2050.23" rx="2.4" ry="2.4"/>
 </g>
 <!-- src/app/shared/shared.module.ts&#45;&gt;src/app/core/services/translations.service.ts -->
-<g id="edge196" class="edge">
+<g id="edge198" class="edge">
 <title>src/app/shared/shared.module.ts&#45;&gt;src/app/core/services/translations.service.ts</title>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M622.64,-736.39C687.64,-735.44 803.68,-744.77 859,-817.14 878.49,-842.65 846.22,-3103.68 867,-3128.14 873.91,-3136.28 883.42,-3141.15 893.68,-3143.93"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="893.47,-3146.04 899.79,-3145.34 894.41,-3141.95 893.47,-3146.04"/>
 </g>
 <!-- src/app/shared/shared.module.ts&#45;&gt;src/app/shared/components/forbidden/forbidden.component.ts -->
-<g id="edge200" class="edge">
+<g id="edge202" class="edge">
 <title>src/app/shared/shared.module.ts&#45;&gt;src/app/shared/components/forbidden/forbidden.component.ts</title>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M621.94,-729.99C639.23,-724.13 657.28,-714.6 668,-699.14 698.19,-655.63 651.43,-505.41 680.5,-461.14 689.35,-447.67 704.16,-438.56 718.68,-432.48"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="719.62,-434.37 724.44,-430.22 718.09,-430.46 719.62,-434.37"/>
 </g>
 <!-- src/app/shared/shared.module.ts&#45;&gt;src/app/shared/components/not&#45;found/not&#45;found.component.ts -->
-<g id="edge203" class="edge">
+<g id="edge205" class="edge">
 <title>src/app/shared/shared.module.ts&#45;&gt;src/app/shared/components/not&#45;found/not&#45;found.component.ts</title>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M622.12,-730.11C639.43,-724.27 657.45,-714.72 668,-699.14 694.06,-660.67 655.44,-320.27 680.5,-281.14 689.12,-267.69 703.73,-258.6 718.15,-252.53"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="719.06,-254.43 723.87,-250.27 717.52,-250.52 719.06,-254.43"/>
 </g>
 <!-- src/app/shared/shared.module.ts&#45;&gt;src/app/shared/components/unauthorized/unauthorized.component.ts -->
-<g id="edge205" class="edge">
+<g id="edge207" class="edge">
 <title>src/app/shared/shared.module.ts&#45;&gt;src/app/shared/components/unauthorized/unauthorized.component.ts</title>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M622.15,-730.13C639.46,-724.29 657.48,-714.74 668,-699.14 697.71,-655.1 651.92,-265.93 680.5,-221.14 689.1,-207.67 703.7,-198.58 718.12,-192.51"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="719.03,-194.41 723.84,-190.26 717.49,-190.51 719.03,-194.41"/>
 </g>
 <!-- src/app/shared/shared.module.ts&#45;&gt;src/app/core/helpers/typescript&#45;loader.ts -->
-<g id="edge195" class="edge">
+<g id="edge197" class="edge">
 <title>src/app/shared/shared.module.ts&#45;&gt;src/app/core/helpers/typescript&#45;loader.ts</title>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M622.65,-729.98C639.82,-724.13 657.6,-714.61 668,-699.14 684.68,-674.33 659.12,-182.04 680.5,-161.14 737.24,-105.7 791.96,-118.72 859,-161.14 1017.76,-261.6 995.34,-360.66 1040,-543.14 1100.81,-791.61 1128.24,-2754.67 1130.8,-2947.86"/>
-<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="1128.7,-2948 1130.88,-2953.98 1132.9,-2947.95 1128.7,-2948"/>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M622.65,-729.98C639.82,-724.13 657.6,-714.61 668,-699.14 684.68,-674.33 659.12,-182.04 680.5,-161.14 737.24,-105.7 790.63,-120.9 859,-161.14 1001.82,-245.21 995.51,-327.5 1040,-487.14 1110.26,-739.25 1129.17,-2749.64 1130.87,-2947.49"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="1128.77,-2947.77 1130.92,-2953.75 1132.97,-2947.74 1128.77,-2947.77"/>
 </g>
 <!-- src/app/shared/shared.module.ts&#45;&gt;src/app/app.module.ts -->
-<g id="edge194" class="edge">
+<g id="edge196" class="edge">
 <title>src/app/shared/shared.module.ts&#45;&gt;src/app/app.module.ts</title>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M527.49,-739C468.58,-741.54 368.33,-755.39 315,-817.14 152.89,-1004.84 137.59,-1855.81 136.15,-2007.1"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="133.99,-2015.08 136.04,-2021.1 138.19,-2015.11 133.99,-2015.08"/>
@@ -1686,7 +1686,7 @@
 </g>
 </g>
 <!-- src/app/shared/shared.module.ts&#45;&gt;src/app/shared/components/button/button.component.ts -->
-<g id="edge197" class="edge">
+<g id="edge199" class="edge">
 <title>src/app/shared/shared.module.ts&#45;&gt;src/app/shared/components/button/button.component.ts</title>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M611.65,-730.06C630.25,-723.85 652.33,-714 668,-699.14 677.02,-690.6 670.49,-681.5 680.5,-674.14 686.2,-669.95 692.75,-666.9 699.59,-664.71"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="700.2,-666.72 705.4,-663.06 699.05,-662.68 700.2,-666.72"/>
@@ -1701,7 +1701,7 @@
 </g>
 </g>
 <!-- src/app/shared/shared.module.ts&#45;&gt;src/app/shared/components/editor/editor.component.ts -->
-<g id="edge198" class="edge">
+<g id="edge200" class="edge">
 <title>src/app/shared/shared.module.ts&#45;&gt;src/app/shared/components/editor/editor.component.ts</title>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M617.9,-730.05C635.8,-724.11 655.42,-714.5 668,-699.14 684.71,-678.75 664.31,-661.96 680.5,-641.14 690.82,-627.88 706.7,-618.69 721.64,-612.5"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="722.71,-614.34 727.53,-610.2 721.18,-610.43 722.71,-614.34"/>
@@ -1716,7 +1716,7 @@
 </g>
 </g>
 <!-- src/app/shared/shared.module.ts&#45;&gt;src/app/shared/factories/editor&#45;config.factory.ts -->
-<g id="edge206" class="edge">
+<g id="edge208" class="edge">
 <title>src/app/shared/shared.module.ts&#45;&gt;src/app/shared/factories/editor&#45;config.factory.ts</title>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M622.66,-735.96C690.21,-731.34 815.52,-722.78 891.92,-717.56"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="892.4,-719.63 898.24,-717.13 892.11,-715.44 892.4,-719.63"/>
@@ -1731,7 +1731,7 @@
 </g>
 </g>
 <!-- src/app/shared/shared.module.ts&#45;&gt;src/app/shared/components/footer/footer.component.ts -->
-<g id="edge199" class="edge">
+<g id="edge201" class="edge">
 <title>src/app/shared/shared.module.ts&#45;&gt;src/app/shared/components/footer/footer.component.ts</title>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M620.58,-730.02C638.08,-724.15 656.67,-714.59 668,-699.14 699.2,-656.63 650.39,-624.44 680.5,-581.14 689.86,-567.68 705.09,-558.53 719.81,-552.43"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="720.8,-554.29 725.62,-550.15 719.27,-550.38 720.8,-554.29"/>
@@ -1746,7 +1746,7 @@
 </g>
 </g>
 <!-- src/app/shared/shared.module.ts&#45;&gt;src/app/shared/components/header/header.component.ts -->
-<g id="edge201" class="edge">
+<g id="edge203" class="edge">
 <title>src/app/shared/shared.module.ts&#45;&gt;src/app/shared/components/header/header.component.ts</title>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M621.33,-730.06C638.74,-724.2 657.04,-714.65 668,-699.14 690.89,-666.77 658.44,-554.1 680.5,-521.14 689.47,-507.75 704.3,-498.65 718.81,-492.56"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="719.75,-494.45 724.56,-490.3 718.21,-490.55 719.75,-494.45"/>
@@ -1761,7 +1761,7 @@
 </g>
 </g>
 <!-- src/app/shared/shared.module.ts&#45;&gt;src/app/shared/components/language&#45;selector/language&#45;selector.component.ts -->
-<g id="edge202" class="edge">
+<g id="edge204" class="edge">
 <title>src/app/shared/shared.module.ts&#45;&gt;src/app/shared/components/language&#45;selector/language&#45;selector.component.ts</title>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M622.02,-730.05C639.32,-724.2 657.36,-714.66 668,-699.14 686.75,-671.82 662.46,-428.94 680.5,-401.14 689.28,-387.62 704.08,-378.5 718.61,-372.43"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="719.55,-374.32 724.37,-370.17 718.01,-370.41 719.55,-374.32"/>
@@ -1776,7 +1776,7 @@
 </g>
 </g>
 <!-- src/app/shared/shared.module.ts&#45;&gt;src/app/shared/components/page&#45;title/page&#45;title.component.ts -->
-<g id="edge204" class="edge">
+<g id="edge206" class="edge">
 <title>src/app/shared/shared.module.ts&#45;&gt;src/app/shared/components/page&#45;title/page&#45;title.component.ts</title>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M622.08,-730.09C639.39,-724.24 657.41,-714.69 668,-699.14 690.4,-666.24 658.95,-374.61 680.5,-341.14 689.15,-327.71 703.77,-318.62 718.19,-312.55"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="719.09,-314.45 723.9,-310.29 717.55,-310.55 719.09,-314.45"/>
@@ -2634,46 +2634,46 @@
 <g id="node128" class="node">
 <title>src/app/shared/models/button&#45;type.ts</title>
 <g id="a_node128"><a xlink:href="src/app/shared/models/button-type.ts" xlink:title="button&#45;type.ts">
-<path fill="#ddfeff" stroke="black" d="M992.5,-602.14C992.5,-602.14 922.5,-602.14 922.5,-602.14 919.5,-602.14 916.5,-599.14 916.5,-596.14 916.5,-596.14 916.5,-590.14 916.5,-590.14 916.5,-587.14 919.5,-584.14 922.5,-584.14 922.5,-584.14 992.5,-584.14 992.5,-584.14 995.5,-584.14 998.5,-587.14 998.5,-590.14 998.5,-590.14 998.5,-596.14 998.5,-596.14 998.5,-599.14 995.5,-602.14 992.5,-602.14"/>
-<text text-anchor="start" x="924.5" y="-590.94" font-family="Helvetica,sans-Serif" font-size="9.00">button&#45;type.ts</text>
+<path fill="#ddfeff" stroke="black" d="M992.5,-606.14C992.5,-606.14 922.5,-606.14 922.5,-606.14 919.5,-606.14 916.5,-603.14 916.5,-600.14 916.5,-600.14 916.5,-594.14 916.5,-594.14 916.5,-591.14 919.5,-588.14 922.5,-588.14 922.5,-588.14 992.5,-588.14 992.5,-588.14 995.5,-588.14 998.5,-591.14 998.5,-594.14 998.5,-594.14 998.5,-600.14 998.5,-600.14 998.5,-603.14 995.5,-606.14 992.5,-606.14"/>
+<text text-anchor="start" x="924.5" y="-594.94" font-family="Helvetica,sans-Serif" font-size="9.00">button&#45;type.ts</text>
 </a>
 </g>
 </g>
 <!-- src/app/shared/components/button/button.component.ts&#45;&gt;src/app/shared/models/button&#45;type.ts -->
 <g id="edge169" class="edge">
 <title>src/app/shared/components/button/button.component.ts&#45;&gt;src/app/shared/models/button&#45;type.ts</title>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M818.83,-658.71C833.5,-655.52 848.22,-649.64 859,-639.14 869.2,-629.22 856.51,-617.76 867,-608.14 878.58,-597.52 894.73,-592.9 910.12,-591.22"/>
-<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="910.4,-593.3 916.2,-590.69 910.04,-589.12 910.4,-593.3"/>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M810.34,-652.08C826,-648.62 843.4,-644.25 859,-639.14 884.72,-630.74 913.01,-618.16 932.46,-608.96"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="933.68,-610.7 938.2,-606.22 931.88,-606.91 933.68,-610.7"/>
 </g>
 <!-- src/app/shared/models/material&#45;button&#45;type.ts -->
 <g id="node129" class="node">
 <title>src/app/shared/models/material&#45;button&#45;type.ts</title>
 <g id="a_node129"><a xlink:href="src/app/shared/models/material-button-type.ts" xlink:title="material&#45;button&#45;type.ts">
-<path fill="#ddfeff" stroke="black" d="M1012.5,-662.14C1012.5,-662.14 902.5,-662.14 902.5,-662.14 899.5,-662.14 896.5,-659.14 896.5,-656.14 896.5,-656.14 896.5,-650.14 896.5,-650.14 896.5,-647.14 899.5,-644.14 902.5,-644.14 902.5,-644.14 1012.5,-644.14 1012.5,-644.14 1015.5,-644.14 1018.5,-647.14 1018.5,-650.14 1018.5,-650.14 1018.5,-656.14 1018.5,-656.14 1018.5,-659.14 1015.5,-662.14 1012.5,-662.14"/>
-<text text-anchor="start" x="904.5" y="-650.94" font-family="Helvetica,sans-Serif" font-size="9.00">material&#45;button&#45;type.ts</text>
+<path fill="#ddfeff" stroke="black" d="M1012.5,-546.14C1012.5,-546.14 902.5,-546.14 902.5,-546.14 899.5,-546.14 896.5,-543.14 896.5,-540.14 896.5,-540.14 896.5,-534.14 896.5,-534.14 896.5,-531.14 899.5,-528.14 902.5,-528.14 902.5,-528.14 1012.5,-528.14 1012.5,-528.14 1015.5,-528.14 1018.5,-531.14 1018.5,-534.14 1018.5,-534.14 1018.5,-540.14 1018.5,-540.14 1018.5,-543.14 1015.5,-546.14 1012.5,-546.14"/>
+<text text-anchor="start" x="904.5" y="-534.94" font-family="Helvetica,sans-Serif" font-size="9.00">material&#45;button&#45;type.ts</text>
 </a>
 </g>
 </g>
 <!-- src/app/shared/components/button/button.component.ts&#45;&gt;src/app/shared/models/material&#45;button&#45;type.ts -->
 <g id="edge170" class="edge">
 <title>src/app/shared/components/button/button.component.ts&#45;&gt;src/app/shared/models/material&#45;button&#45;type.ts</title>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M818.71,-658.84C841.05,-657.92 866.98,-656.85 890.27,-655.88"/>
-<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="890.54,-657.97 896.45,-655.63 890.37,-653.78 890.54,-657.97"/>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M818.72,-660.05C833.83,-656.95 848.81,-650.79 859,-639.14 871.78,-624.53 853.79,-566.37 867,-552.14 873.33,-545.32 881.5,-540.85 890.33,-538.01"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="891,-540 896.22,-536.37 889.87,-535.96 891,-540"/>
 </g>
 <!-- src/app/shared/models/material&#45;color.ts -->
 <g id="node130" class="node">
 <title>src/app/shared/models/material&#45;color.ts</title>
 <g id="a_node130"><a xlink:href="src/app/shared/models/material-color.ts" xlink:title="material&#45;color.ts">
-<path fill="#ddfeff" stroke="black" d="M996,-632.14C996,-632.14 919,-632.14 919,-632.14 916,-632.14 913,-629.14 913,-626.14 913,-626.14 913,-620.14 913,-620.14 913,-617.14 916,-614.14 919,-614.14 919,-614.14 996,-614.14 996,-614.14 999,-614.14 1002,-617.14 1002,-620.14 1002,-620.14 1002,-626.14 1002,-626.14 1002,-629.14 999,-632.14 996,-632.14"/>
-<text text-anchor="start" x="921" y="-620.94" font-family="Helvetica,sans-Serif" font-size="9.00">material&#45;color.ts</text>
+<path fill="#ddfeff" stroke="black" d="M996,-576.14C996,-576.14 919,-576.14 919,-576.14 916,-576.14 913,-573.14 913,-570.14 913,-570.14 913,-564.14 913,-564.14 913,-561.14 916,-558.14 919,-558.14 919,-558.14 996,-558.14 996,-558.14 999,-558.14 1002,-561.14 1002,-564.14 1002,-564.14 1002,-570.14 1002,-570.14 1002,-573.14 999,-576.14 996,-576.14"/>
+<text text-anchor="start" x="921" y="-564.94" font-family="Helvetica,sans-Serif" font-size="9.00">material&#45;color.ts</text>
 </a>
 </g>
 </g>
 <!-- src/app/shared/components/button/button.component.ts&#45;&gt;src/app/shared/models/material&#45;color.ts -->
 <g id="edge171" class="edge">
 <title>src/app/shared/components/button/button.component.ts&#45;&gt;src/app/shared/models/material&#45;color.ts</title>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M801.92,-652.04C821.41,-647.61 845.4,-642.34 867,-638.14 879.76,-635.67 893.59,-633.23 906.48,-631.06"/>
-<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="907.14,-633.08 912.72,-630.02 906.45,-628.93 907.14,-633.08"/>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M818.62,-659.69C833.64,-656.57 848.6,-650.48 859,-639.14 876.3,-620.3 849.15,-600.47 867,-582.14 877.29,-571.58 892.02,-566.73 906.58,-564.84"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="907.03,-566.9 912.79,-564.2 906.6,-562.72 907.03,-566.9"/>
 </g>
 <!-- src/app/shared/components/editor/editor.component.spec.ts -->
 <g id="node131" class="node">
@@ -2705,11 +2705,11 @@
 <!-- src/app/shared/components/editor/editor.component.ts&#45;&gt;src/app/shared/factories/editor&#45;config.factory.ts -->
 <g id="edge174" class="edge">
 <title>src/app/shared/components/editor/editor.component.ts&#45;&gt;src/app/shared/factories/editor&#45;config.factory.ts</title>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M809.56,-610.27C827.61,-616.14 846.82,-625.69 859,-641.14 872.93,-658.82 851.76,-674.59 867,-691.14 873.89,-698.62 882.87,-703.74 892.48,-707.22"/>
-<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="891.84,-709.22 898.2,-709.08 893.14,-705.23 891.84,-709.22"/>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M789.47,-610.21C809.21,-617.43 836.54,-628.42 859,-641.14 889.96,-658.68 922.56,-684.47 941.13,-699.95"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="940.03,-701.78 945.98,-704.03 942.74,-698.56 940.03,-701.78"/>
 </g>
 <!-- src/app/shared/factories/editor&#45;config.factory.ts&#45;&gt;src/app/core/services/translations.service.ts -->
-<g id="edge193" class="edge">
+<g id="edge195" class="edge">
 <title>src/app/shared/factories/editor&#45;config.factory.ts&#45;&gt;src/app/core/services/translations.service.ts</title>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M956.97,-722.44C950.31,-839.51 882.96,-2038.91 863,-3009.14 862.48,-3034.25 855.72,-3098.11 863,-3122.14 863.93,-3125.21 864.31,-3126.41 867,-3128.14 875.09,-3133.37 884.4,-3136.96 893.91,-3139.4"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="893.53,-3141.47 899.85,-3140.78 894.48,-3137.38 893.53,-3141.47"/>
@@ -2784,16 +2784,22 @@
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="699.44,-483.24 705.44,-481.14 699.44,-479.04 699.44,-483.24"/>
 </g>
 <!-- src/app/shared/components/header/header.component.ts&#45;&gt;src/app/core/constants/routes.constants.ts -->
-<g id="edge183" class="edge">
+<g id="edge184" class="edge">
 <title>src/app/shared/components/header/header.component.ts&#45;&gt;src/app/core/constants/routes.constants.ts</title>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M720.87,-490.22C702.13,-496.86 682.34,-508.16 674.25,-527.14 666.22,-545.98 666.22,-3456.31 674.25,-3475.14 679.52,-3487.52 690.81,-3494.78 703.58,-3498.96"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="703.19,-3501.04 709.54,-3500.67 704.35,-3497 703.19,-3501.04"/>
 </g>
 <!-- src/app/shared/components/header/header.component.ts&#45;&gt;src/app/core/services/translations.service.ts -->
-<g id="edge184" class="edge">
+<g id="edge185" class="edge">
 <title>src/app/shared/components/header/header.component.ts&#45;&gt;src/app/core/services/translations.service.ts</title>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M813.3,-490.2C830.76,-496.01 848.56,-505.54 859,-521.14 869.07,-536.19 855.28,-3114.34 867,-3128.14 873.9,-3136.28 883.42,-3141.16 893.68,-3143.94"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="893.47,-3146.04 899.79,-3145.34 894.41,-3141.95 893.47,-3146.04"/>
+</g>
+<!-- src/app/shared/components/header/header.component.ts&#45;&gt;src/app/shared/models/material&#45;button&#45;type.ts -->
+<g id="edge183" class="edge">
+<title>src/app/shared/components/header/header.component.ts&#45;&gt;src/app/shared/models/material&#45;button&#45;type.ts</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M782.51,-490.27C803.1,-499.55 836.7,-513.73 867,-522.14 874.5,-524.23 882.44,-526.06 890.37,-527.67"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="890.13,-529.77 896.42,-528.86 890.94,-525.64 890.13,-529.77"/>
 </g>
 <!-- src/app/shared/components/language&#45;selector/language&#45;selector.component.spec.ts -->
 <g id="node139" class="node">
@@ -2805,37 +2811,43 @@
 </g>
 </g>
 <!-- src/app/shared/components/language&#45;selector/language&#45;selector.component.spec.ts&#45;&gt;src/app/core/helpers/typescript&#45;loader.ts -->
-<g id="edge186" class="edge">
+<g id="edge187" class="edge">
 <title>src/app/shared/components/language&#45;selector/language&#45;selector.component.spec.ts&#45;&gt;src/app/core/helpers/typescript&#45;loader.ts</title>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M651.72,-352.09C657.9,-348.81 663.49,-344.58 668,-339.14 686.18,-317.22 659.88,-102.78 680.5,-83.14 694.96,-69.37 1025.66,-69.25 1040,-83.14 1095.01,-136.44 1128.07,-2724.74 1130.81,-2947.84"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="1128.72,-2948.03 1130.89,-2954.01 1132.92,-2947.98 1128.72,-2948.03"/>
 </g>
 <!-- src/app/shared/components/language&#45;selector/language&#45;selector.component.spec.ts&#45;&gt;src/app/shared/components/language&#45;selector/language&#45;selector.component.ts -->
-<g id="edge185" class="edge">
+<g id="edge186" class="edge">
 <title>src/app/shared/components/language&#45;selector/language&#45;selector.component.spec.ts&#45;&gt;src/app/shared/components/language&#45;selector/language&#45;selector.component.ts</title>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M668.23,-361.14C670.36,-361.14 672.48,-361.14 674.61,-361.14"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="674.96,-363.24 680.96,-361.14 674.96,-359.04 674.96,-363.24"/>
 </g>
 <!-- src/app/shared/components/language&#45;selector/language&#45;selector.component.ts&#45;&gt;src/app/core/services/translations.service.ts -->
-<g id="edge188" class="edge">
+<g id="edge190" class="edge">
 <title>src/app/shared/components/language&#45;selector/language&#45;selector.component.ts&#45;&gt;src/app/core/services/translations.service.ts</title>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M813.3,-370.2C830.76,-376.01 848.56,-385.54 859,-401.14 869.53,-416.89 854.74,-3113.71 867,-3128.14 873.9,-3136.28 883.42,-3141.16 893.68,-3143.94"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="893.47,-3146.04 899.79,-3145.34 894.41,-3141.95 893.47,-3146.04"/>
+</g>
+<!-- src/app/shared/components/language&#45;selector/language&#45;selector.component.ts&#45;&gt;src/app/shared/models/material&#45;button&#45;type.ts -->
+<g id="edge189" class="edge">
+<title>src/app/shared/components/language&#45;selector/language&#45;selector.component.ts&#45;&gt;src/app/shared/models/material&#45;button&#45;type.ts</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M811.78,-370.22C829.49,-376.05 847.86,-385.58 859,-401.14 874.68,-423.06 848.92,-502.16 867,-522.14 873.24,-529.05 881.37,-533.56 890.18,-536.42"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="889.71,-538.47 896.05,-538.07 890.84,-534.43 889.71,-538.47"/>
 </g>
 <!-- src/app/shared/models/language.ts -->
 <g id="node141" class="node">
 <title>src/app/shared/models/language.ts</title>
 <g id="a_node141"><a xlink:href="src/app/shared/models/language.ts" xlink:title="language.ts">
-<path fill="#ddfeff" stroke="black" d="M986.5,-572.14C986.5,-572.14 928.5,-572.14 928.5,-572.14 925.5,-572.14 922.5,-569.14 922.5,-566.14 922.5,-566.14 922.5,-560.14 922.5,-560.14 922.5,-557.14 925.5,-554.14 928.5,-554.14 928.5,-554.14 986.5,-554.14 986.5,-554.14 989.5,-554.14 992.5,-557.14 992.5,-560.14 992.5,-560.14 992.5,-566.14 992.5,-566.14 992.5,-569.14 989.5,-572.14 986.5,-572.14"/>
-<text text-anchor="start" x="930.5" y="-560.94" font-family="Helvetica,sans-Serif" font-size="9.00">language.ts</text>
+<path fill="#ddfeff" stroke="black" d="M986.5,-516.14C986.5,-516.14 928.5,-516.14 928.5,-516.14 925.5,-516.14 922.5,-513.14 922.5,-510.14 922.5,-510.14 922.5,-504.14 922.5,-504.14 922.5,-501.14 925.5,-498.14 928.5,-498.14 928.5,-498.14 986.5,-498.14 986.5,-498.14 989.5,-498.14 992.5,-501.14 992.5,-504.14 992.5,-504.14 992.5,-510.14 992.5,-510.14 992.5,-513.14 989.5,-516.14 986.5,-516.14"/>
+<text text-anchor="start" x="930.5" y="-504.94" font-family="Helvetica,sans-Serif" font-size="9.00">language.ts</text>
 </a>
 </g>
 </g>
 <!-- src/app/shared/components/language&#45;selector/language&#45;selector.component.ts&#45;&gt;src/app/shared/models/language.ts -->
-<g id="edge187" class="edge">
+<g id="edge188" class="edge">
 <title>src/app/shared/components/language&#45;selector/language&#45;selector.component.ts&#45;&gt;src/app/shared/models/language.ts</title>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M799.26,-370.27C818.62,-376.52 841.91,-386.4 859,-401.14 908.16,-443.56 939.56,-517.15 951.3,-548.42"/>
-<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="949.34,-549.18 953.38,-554.08 953.28,-547.73 949.34,-549.18"/>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M794.13,-370.28C813.81,-376.96 839.18,-387.27 859,-401.14 896.73,-427.57 930.65,-470.86 946.7,-493.05"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="945.02,-494.3 950.21,-497.96 948.43,-491.86 945.02,-494.3"/>
 </g>
 <!-- src/app/shared/components/not&#45;found/not&#45;found.component.spec.ts -->
 <g id="node142" class="node">
@@ -2847,7 +2859,7 @@
 </g>
 </g>
 <!-- src/app/shared/components/not&#45;found/not&#45;found.component.spec.ts&#45;&gt;src/app/shared/components/not&#45;found/not&#45;found.component.ts -->
-<g id="edge189" class="edge">
+<g id="edge191" class="edge">
 <title>src/app/shared/components/not&#45;found/not&#45;found.component.spec.ts&#45;&gt;src/app/shared/components/not&#45;found/not&#45;found.component.ts</title>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M650.71,-241.14C664.45,-241.14 678.74,-241.14 692.29,-241.14"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="692.46,-243.24 698.46,-241.14 692.46,-239.04 692.46,-243.24"/>
@@ -2862,13 +2874,13 @@
 </g>
 </g>
 <!-- src/app/shared/components/page&#45;title/page&#45;title.component.spec.ts&#45;&gt;src/app/core/helpers/typescript&#45;loader.ts -->
-<g id="edge191" class="edge">
+<g id="edge193" class="edge">
 <title>src/app/shared/components/page&#45;title/page&#45;title.component.spec.ts&#45;&gt;src/app/core/helpers/typescript&#45;loader.ts</title>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M649.92,-292.92C656.8,-289.54 663.04,-285.06 668,-279.14 697.9,-243.5 646.63,-102.05 680.5,-70.14 695.04,-56.45 1025.66,-56.25 1040,-70.14 1095.25,-123.68 1128.09,-2723.67 1130.82,-2947.77"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="1128.72,-2947.99 1130.89,-2953.97 1132.92,-2947.94 1128.72,-2947.99"/>
 </g>
 <!-- src/app/shared/components/page&#45;title/page&#45;title.component.spec.ts&#45;&gt;src/app/shared/components/page&#45;title/page&#45;title.component.ts -->
-<g id="edge190" class="edge">
+<g id="edge192" class="edge">
 <title>src/app/shared/components/page&#45;title/page&#45;title.component.spec.ts&#45;&gt;src/app/shared/components/page&#45;title/page&#45;title.component.ts</title>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M649.65,-301.14C664.02,-301.14 679.03,-301.14 693.2,-301.14"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="693.21,-303.24 699.21,-301.14 693.21,-299.04 693.21,-303.24"/>
@@ -2883,7 +2895,7 @@
 </g>
 </g>
 <!-- src/app/shared/components/unauthorized/unauthorized.component.spec.ts&#45;&gt;src/app/shared/components/unauthorized/unauthorized.component.ts -->
-<g id="edge192" class="edge">
+<g id="edge194" class="edge">
 <title>src/app/shared/components/unauthorized/unauthorized.component.spec.ts&#45;&gt;src/app/shared/components/unauthorized/unauthorized.component.ts</title>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M658.76,-181.14C667.19,-181.14 675.74,-181.14 684.1,-181.14"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="684.46,-183.24 690.46,-181.14 684.46,-179.04 684.46,-183.24"/>
@@ -2898,7 +2910,7 @@
 </g>
 </g>
 <!-- src/assets/i18n/translations.fr.ts&#45;&gt;src/assets/i18n/translations.en.ts -->
-<g id="edge207" class="edge">
+<g id="edge209" class="edge">
 <title>src/assets/i18n/translations.fr.ts&#45;&gt;src/assets/i18n/translations.en.ts</title>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M1002.03,-3623.14C1025.22,-3623.14 1053.91,-3623.14 1078.35,-3623.14"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="1078.46,-3625.24 1084.46,-3623.14 1078.46,-3621.04 1078.46,-3625.24"/>
@@ -2922,13 +2934,13 @@
 </g>
 </g>
 <!-- src/main.ts&#45;&gt;src/app/app.module.ts -->
-<g id="edge208" class="edge">
+<g id="edge210" class="edge">
 <title>src/main.ts&#45;&gt;src/app/app.module.ts</title>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M48.68,-2864.04C52.32,-2814.74 69.7,-2574.7 78,-2378.14 78.39,-2368.84 80.26,-2050.47 86,-2043.14 86.8,-2042.13 87.67,-2041.18 88.6,-2040.31"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="90.16,-2041.76 93.7,-2036.49 87.64,-2038.4 90.16,-2041.76"/>
 </g>
 <!-- src/main.ts&#45;&gt;src/environments/environment.ts -->
-<g id="edge209" class="edge">
+<g id="edge211" class="edge">
 <title>src/main.ts&#45;&gt;src/environments/environment.ts</title>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M48.02,-2882.35C48.27,-2961.57 51.24,-3527.28 86,-3593.14 128.03,-3672.78 156.95,-3716.14 247,-3716.14 247,-3716.14 247,-3716.14 763,-3716.14 877.8,-3716.14 1012.35,-3727.43 1082.65,-3734.19"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="1082.66,-3736.3 1088.83,-3734.79 1083.06,-3732.12 1082.66,-3736.3"/>

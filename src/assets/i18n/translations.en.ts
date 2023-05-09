@@ -62,7 +62,9 @@ export default {
     "languages": {
         "label": "Language",
         "english": "English",
-        "french": "French"
+        "french": "French",
+        "tooltip": "Select your language",
+        "aria": "Click to select your language preference"
     },
     "header": {
         "home": {
@@ -92,6 +94,10 @@ export default {
                 "tooltip": "Search",
                 "aria": "Click to start searching GCCollab"
             }
+        },
+        "messages" : {
+            "tooltip": "Messages",
+            "aria": "Click to view your messages"
         },
         "notifications": {
             "tooltip": "Notifications",
