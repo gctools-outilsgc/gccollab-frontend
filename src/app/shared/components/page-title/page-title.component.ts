@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
@@ -9,6 +9,8 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./page-title.component.scss'],
 })
 export class PageTitleComponent implements OnInit {
+
+  @Input() headerExpanded: boolean = false;
 
   // TODO: Change to breadcrumb
   public title: string[] = [];

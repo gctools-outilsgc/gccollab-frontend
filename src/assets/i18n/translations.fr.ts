@@ -62,7 +62,9 @@ const fr: typeof import('./translations.en').default = {
     "languages": {
         "label": "Langue",
         "english": "Anglais",
-        "french": "Français"
+        "french": "Français",
+        "tooltip": "Choisissez votre langue",
+        "aria": "Cliquez pour sélectionner votre préférence de langue"
     },
     "header": {
         "home": {
@@ -92,6 +94,10 @@ const fr: typeof import('./translations.en').default = {
                 "tooltip": "Rechercher",
                 "aria": "Cliquez pour lancer la recherche GCCollab."
             }
+        },
+        "messages" : {
+            "tooltip": "Messages",
+            "aria": "Cliquez pour voir vos messages"
         },
         "notifications": {
             "tooltip": "Avis",
