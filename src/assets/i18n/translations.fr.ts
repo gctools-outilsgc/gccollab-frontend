@@ -91,8 +91,10 @@ const fr: typeof import('./translations.en').default = {
             "title": "Rechercher GCCollab",
             "aria": "Commencez à taper pour rechercher GCCollab.",
             "button": {
-                "tooltip": "Rechercher",
-                "aria": "Cliquez pour lancer la recherche GCCollab."
+                "tooltip_on": "Rechercher",
+                "tooltip_off": "Fermer la recherche",
+                "aria_on": "Cliquez pour lancer la recherche GCCollab.",
+                "aria_off": "Cliquez pour fermer la barre de recherche."
             }
         },
         "messages" : {

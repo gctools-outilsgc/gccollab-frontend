@@ -35,28 +35,28 @@
   
     <div class="header-actions">
       <app-button [matButtonType]="materialButtonType.Icon"
-                  [matIcon]="headerExpanded ? 'close' : 'search'"
-                  [matTooltip]="translations.header.search.button.tooltip | translate"
-                  [ariaLabel]="translations.header.search.button.aria | translate"
+                  [matTooltip]="headerExpanded ? (translations.header.search.button.tooltip_off | translate) : translations.header.search.button.tooltip_on | translate"
+                  [ariaLabel]="headerExpanded ? (translations.header.search.button.aria_off | translate) : translations.header.search.button.aria_on | translate"
                   (click)="toggleSearch()">
+                  <i [ngClass]="headerExpanded ? 'fa-x' : 'fa-search'" class="fa-solid"></i>
       </app-button>
       <app-button [matButtonType]="materialButtonType.Icon"
-                  [matIcon]="'chat_bubble_outline'"
                   [matTooltip]="translations.header.messages.tooltip | translate"
                   [ariaLabel]="translations.header.messages.aria | translate"
                   [routerLink]="[routes.Messages]">
+                  <i class="fa-regular fa-comment-dots"></i>
       </app-button>
       <app-button [matButtonType]="materialButtonType.Icon"
-                  [matIcon]="'notifications'"
                   [matTooltip]="translations.header.notifications.tooltip | translate"
                   [ariaLabel]="translations.header.notifications.aria | translate"
                   [routerLink]="[routes.Messages]">
+                  <i class="fa-regular fa-bell"></i>
       </app-button>
       <app-button [matButtonType]="materialButtonType.Icon"
-                  [matIcon]="'account_circle'"
                   [matTooltip]="translations.header.profile.tooltip | translate"
                   [ariaLabel]="translations.header.profile.aria | translate"
                   [routerLink]="[routes.Profile]">
+                  <i class="fa-regular fa-user"></i>
       </app-button>
       <app-language-selector [isToggle]="true"></app-language-selector>
     </div>
@@ -65,15 +65,15 @@
   <mat-toolbar-row *ngIf="headerExpanded">
     <div class="header-search">
       <form>
-        <input type="text" placeholder="{{ translations.header.search.title | translate }}" />
+        <input #gccSearch type="text" placeholder="{{ translations.header.search.title | translate }}" />
         <button mat-icon-button
                 color="primary" 
                 attr.aria-label="{{ translations.header.search.aria | translate }}">
-          <mat-icon aria-hidden="false"
-                    matTooltip="{{ translations.header.search.button.tooltip | translate }}"
-                    attr.aria-label="{{ translations.header.search.button.aria | translate }}">
-            search
-          </mat-icon>
+          <app-button [matButtonType]="materialButtonType.Icon"
+                      [matTooltip]="translations.header.search.button.tooltip_on | translate"
+                      [ariaLabel]="translations.header.search.button.aria_on | translate">
+                      <i class="fa-solid fa-search"></i>
+        </app-button>
         </button>
       </form>
     </div>

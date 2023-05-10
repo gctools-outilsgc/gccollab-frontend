@@ -10,8 +10,13 @@
         box-shadow: 0 3px 5px -1px #0003, 0 6px 10px #00000024, 0 1px 18px #0000001f;
         transition: height 1s;
 
+        mat-toolbar-row {
+            padding: 0;
+        }
+
         mat-toolbar-row:first-child {
             height: $header-height-desktop;
+            padding-left: 120px;
 
             div[class^="header-"] {
                 flex: 1;
@@ -22,7 +27,7 @@
                 width: 85px;
                 min-height: 85px;
                 min-width: 85px;
-                margin: 0px 30px;
+                //margin: 0px 30px;
                 cursor: pointer;
                 border-radius: 50%;
                 background-color: $primary-1-dark;
@@ -40,13 +45,18 @@
                 align-items: flex-start;
                 padding: 0px;
                 gap: 33px;
+                font-weight: 400;
+                padding-left: 120px;
 
                 a, a:visited {
                     color: $primary-1-contrast;
+                    text-underline-offset: 3px;
+                    transition: all 0.15s;
                 }
 
                 a:focus, a:hover {
                     text-decoration: underline;
+                    font-weight: 700;
                 }
             }
 
@@ -54,6 +64,8 @@
                 justify-content: flex-end;
                 display: inline-flex;
                 padding-left: 40px;
+                padding-right: 60px;
+                gap: 10px;
             }
         }
      
@@ -77,8 +89,8 @@
         mat-toolbar-row:not(mat-toolbar-row:first-child) {
             height: 80px;
             margin-top: -50px;
-            padding-right: 187px;
-            padding-left: 160px;
+            padding-right: 305px;
+            padding-left: 320px;
         }
     }
 }
