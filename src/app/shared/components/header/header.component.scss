@@ -64,7 +64,8 @@
                 justify-content: flex-end;
                 display: inline-flex;
                 padding-left: 40px;
-                padding-right: calc(130px - 40px);
+                padding-right: 60px;
+                gap: 10px;
             }
         }
      
@@ -88,7 +89,7 @@
         mat-toolbar-row:not(mat-toolbar-row:first-child) {
             height: 80px;
             margin-top: -50px;
-            padding-right: 260px;
+            padding-right: 305px;
             padding-left: 320px;
         }
     }
