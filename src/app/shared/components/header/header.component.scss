@@ -1,5 +1,6 @@
 @import "../../../../assets/scss/partials/colors";
 @import "../../../../assets//scss/partials/header";
+@import "../../../../assets//scss/partials/layout";
 
 :host {
     z-index: 1;
@@ -16,7 +17,7 @@
 
         mat-toolbar-row:first-child {
             height: $header-height-desktop;
-            padding-left: 120px;
+            padding-left: $gutter-desktop;
 
             div[class^="header-"] {
                 flex: 1;
@@ -27,8 +28,6 @@
                 width: 85px;
                 min-height: 85px;
                 min-width: 85px;
-                //margin: 0px 30px;
-                cursor: pointer;
                 border-radius: 50%;
                 background-color: $primary-1-dark;
 
@@ -46,17 +45,17 @@
                 padding: 0px;
                 gap: 33px;
                 font-weight: 400;
-                padding-left: 120px;
+                padding-left: $gutter-desktop;
 
                 a, a:visited {
                     color: $primary-1-contrast;
-                    text-underline-offset: 3px;
                     transition: all 0.15s;
                 }
 
-                a:focus, a:hover {
+                a:focus, .selected {
                     text-decoration: underline;
                     font-weight: 700;
+                    text-underline-offset: 3px;
                 }
             }
 
@@ -64,13 +63,14 @@
                 justify-content: flex-end;
                 display: inline-flex;
                 padding-left: 40px;
-                padding-right: 60px;
+                padding-right: calc($gutter-desktop / 2);
                 gap: 10px;
             }
         }
      
         .header-search { 
             width: 100%;
+            min-width: 500px;
 
             input {
                 width: 100%;
