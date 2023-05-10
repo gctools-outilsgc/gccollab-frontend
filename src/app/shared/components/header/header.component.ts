@@ -28,7 +28,7 @@ export class HeaderComponent {
 
   constructor(private breakpointObserver: BreakpointObserver, public translations: Translations) {}
 
-  toggleSearch() {
+  toggleSearch () {
     this.headerExpanded = !this.headerExpanded;
     this.headerToggleEvent.emit(this.headerExpanded);
   }
