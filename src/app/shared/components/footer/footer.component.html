@@ -10,13 +10,8 @@
                         </a>
                     </li>
                     <li>
-                        <a routerLink="{{ routes.Privacy }}">
-                            {{ translations.footer.item.privacy | translate }}
-                        </a>
-                    </li>
-                    <li>
-                        <a routerLink="{{ routes.Terms }}">
-                            {{ translations.footer.item.terms | translate }}
+                        <a href="https://github.com/gctools-outilsgc" target="_blank">
+                            {{ translations.footer.item.gctools | translate }}
                         </a>
                     </li>
                     <li>
@@ -27,8 +22,33 @@
                 </ul>
             </section>
             <section>
-                <h3>{{ translations.footer.title.help | translate }}</h3>
+                <h3>{{ translations.footer.title.privacy | translate }}</h3>
                 <ul>
+                    <li>
+                        <a routerLink="{{ routes.Privacy }}">
+                            {{ translations.footer.item.privacypolicy | translate }}
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="{{ routes.Terms }}">
+                            {{ translations.footer.item.terms | translate }}
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>{{ translations.footer.title.connect | translate }}</h3>
+                <ul>
+                    <!-- <li>
+                        <a href="https://twitter.com/TBS_Canada" target="_blank">
+                            {{ translations.footer.item.twitter | translate }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/gctools-outilsgc/gccollab-frontend" target="_blank">
+                            {{ translations.footer.item.github | translate }}
+                        </a>
+                    </li> -->
                     <li>
                         <a href="https://support.gccollab.ca" target="_blank">
                             {{ translations.footer.item.faq | translate }}
@@ -42,23 +62,8 @@
                 </ul>
             </section>
             <section>
-                <h3>{{ translations.footer.title.connect | translate }}</h3>
-                <ul>
-                    <li>
-                        <a href="https://twitter.com/TBS_Canada" target="_blank">
-                            {{ translations.footer.item.twitter | translate }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/gctools-outilsgc/gccollab-frontend" target="_blank">
-                            {{ translations.footer.item.github | translate }}
-                        </a>
-                    </li>
-                </ul>
+            <img src="https://gccollab.ca//mod/gccollab_theme/graphics/wmms-blk.svg" alt="Canada" aria-label="Symbol of the Government of Canada"/>
             </section>
         </div>
-    </div>
-    <div class="footer-brand">
-        <img src="https://gccollab.ca//mod/gccollab_theme/graphics/wmms-blk.svg" alt="Canada" aria-label="Symbol of the Government of Canada"/>
     </div>
 </footer>

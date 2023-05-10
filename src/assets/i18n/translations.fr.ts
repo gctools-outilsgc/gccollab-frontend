@@ -113,18 +113,19 @@ const fr: typeof import('./translations.en').default = {
     "footer": {
         "title": {
             "about": "Infos",
-            "help": "Aide",
+            "privacy": "Confidentialité",
             "connect": "Restez branchés"
         },
         "item": {
             "about": "Au sujet de GCcollab",
-            "privacy": "Politique de confidentialité",
+            "privacypolicy": "Politique de confidentialité",
             "terms": "Conditions d'utilisation",
             "stats": "Statistiques",
             "faq": "Foire aux questions",
             "help": "Aide / Contactez-nous",
             "twitter": "Twitter",
-            "github": "GitHub"
+            "github": "GitHub",
+            "gctools": "GCtools"
         }
     },
     "editor": {
