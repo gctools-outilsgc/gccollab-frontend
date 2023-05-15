@@ -8,27 +8,32 @@
     <div class="header-links">
       <a aria-hidden="false"
          [routerLink]="[routes.Home]"
-         attr.aria-label="{{ translations.header.home.aria | translate }}">
+         attr.aria-label="{{ translations.header.home.aria | translate }}"
+         [ngClass]="activeRoute == routes.Home ? 'selected' : ''">
         {{ translations.header.home.title | translate }}
       </a>
       <a aria-hidden="false"
          [routerLink]="[routes.TheWire]"
-         attr.aria-label="{{ translations.header.network.aria | translate }}">
+         attr.aria-label="{{ translations.header.network.aria | translate }}"
+         [ngClass]="activeRoute == routes.TheWire ? 'selected' : ''">
         {{ translations.header.network.title | translate }}
       </a>
       <a aria-hidden="false"
          [routerLink]="[routes.Groups]"
-         attr.aria-label="{{ translations.header.groups.aria | translate }}">
+         attr.aria-label="{{ translations.header.groups.aria | translate }}"
+         [ngClass]="activeRoute == routes.Groups ? 'selected' : ''">
         {{ translations.header.groups.title | translate }}
       </a>
       <a aria-hidden="false"
          [routerLink]="[routes.Missions]"
-         attr.aria-label="{{ translations.header.jobs.aria | translate }}">
+         attr.aria-label="{{ translations.header.jobs.aria | translate }}"
+         [ngClass]="activeRoute == routes.Missions ? 'selected' : ''">
         {{ translations.header.jobs.title | translate }}
       </a>
       <a aria-hidden="false"
          [routerLink]="[routes.Help]"
-         attr.aria-label="{{ translations.header.support.aria | translate }}">
+         attr.aria-label="{{ translations.header.support.aria | translate }}"
+         [ngClass]="activeRoute == routes.Help ? 'selected' : ''">
         {{ translations.header.support.title | translate }}
       </a>
     </div>
@@ -66,15 +71,11 @@
     <div class="header-search">
       <form>
         <input #gccSearch type="text" placeholder="{{ translations.header.search.title | translate }}" />
-        <button mat-icon-button
-                color="primary" 
-                attr.aria-label="{{ translations.header.search.aria | translate }}">
-          <app-button [matButtonType]="materialButtonType.Icon"
-                      [matTooltip]="translations.header.search.button.tooltip_on | translate"
-                      [ariaLabel]="translations.header.search.button.aria_on | translate">
-                      <i class="fa-solid fa-search"></i>
+        <app-button [matButtonType]="materialButtonType.Icon"
+                    [matTooltip]="translations.header.search.button.tooltip_on | translate"
+                    [ariaLabel]="translations.header.search.button.aria_on | translate">
+          <i class="fa-solid fa-search"></i>
         </app-button>
-        </button>
       </form>
     </div>
   </mat-toolbar-row>

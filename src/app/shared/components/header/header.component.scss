@@ -35,6 +35,7 @@
                     line-height: 85px;
                     text-align: center;
                     font-size: xx-large;
+                    cursor: default;
                 }
             }
 
@@ -64,7 +65,7 @@
                 display: inline-flex;
                 padding-left: 40px;
                 padding-right: calc($gutter-desktop / 2);
-                gap: 10px;
+                //gap: 10px;
             }
         }
      
@@ -81,15 +82,16 @@
                 outline-width: 0;
             }
  
-            button {
-                margin-left: -40px;
+            app-button {
+                margin-left: -53px;
+                color: $primary-1;
             }
         }
 
         mat-toolbar-row:not(mat-toolbar-row:first-child) {
             height: 80px;
             margin-top: -50px;
-            padding-right: 305px;
+            padding-right: 375px;
             padding-left: 320px;
         }
     }

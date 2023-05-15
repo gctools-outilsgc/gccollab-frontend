@@ -18,6 +18,7 @@ export class AppComponent implements OnDestroy {
 
   showHeaderFooter: boolean = true;
   showSearchBar: boolean = false;
+  activeRoute: string = CoreRoutes.Home;
   private checkAuthSub!: Subscription;
   private langChangeSub!: Subscription;
   private routeChangeSub!: Subscription;
@@ -78,10 +79,16 @@ export class AppComponent implements OnDestroy {
 
   initRouteChangeSubscription(): void {
     this.routeChangeSub = this.router.events.pipe(filter(e => e instanceof NavigationStart ||  e instanceof NavigationEnd)).subscribe((e) => { 
-      if ((e as RouterEvent).url === '/' + CoreRoutes.Splash) {
-        return this.showHeaderFooter = false;
-      }
-      return this.showHeaderFooter = true;
+      let url = (e as RouterEvent).url;
+      let queryIndex = url.indexOf('?');
+      url = url.substring(1, queryIndex > 0 ? queryIndex : undefined);
+      
+      if (url === CoreRoutes.Splash) 
+        this.showHeaderFooter = false;
+      else
+        this.showHeaderFooter = true;
+
+      this.activeRoute = url;
      });
   }
 
