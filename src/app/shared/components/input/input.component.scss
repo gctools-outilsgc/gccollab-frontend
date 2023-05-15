@@ -1,0 +1,43 @@
+@import "../../../../assets/scss/partials/colors";
+
+mat-label, mat-input {
+    display: block;
+}
+
+mat-label {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+mat-form-field {
+    padding-top: 11px;
+    width: 100%;
+
+    .mat-mdc-form-field {
+        padding: 0 10px; 
+    }
+    
+}
+
+::ng-deep .mat-mdc-form-field-input-control { 
+    padding: 12px 0px !important;
+}
+
+::ng-deep.mdc-notched-outline__leading, 
+::ng-deep.mdc-notched-outline__trailing {
+    border-color: $neutral-300 !important;
+    border-right-width: 2px !important;
+    border-left-width: 2px !important;
+    border-bottom-width: 2px !important;
+    border-top-width: 2px !important;
+}
+
+::ng-deep.mdc-notched-outline__leading {
+    border-top-left-radius: var(--mdc-shape-small, 14px) !important;
+    border-bottom-left-radius: var(--mdc-shape-small, 14px) !important;
+}
+
+::ng-deep.mdc-notched-outline__trailing {
+    border-top-right-radius: var(--mdc-shape-small, 14px) !important;
+    border-bottom-right-radius: var(--mdc-shape-small, 14px) !important;
+}

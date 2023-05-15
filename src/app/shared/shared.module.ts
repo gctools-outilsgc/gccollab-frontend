@@ -26,6 +26,8 @@ import { PageTitleComponent } from './components/page-title/page-title.component
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { InputComponent } from './components/input/input.component';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -58,6 +60,8 @@ import { InputComponent } from './components/input/input.component';
     MatIconModule,
     MatTooltipModule,
     MatToolbarModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   exports: [
     TranslateModule,
@@ -74,6 +78,12 @@ import { InputComponent } from './components/input/input.component';
       useFactory: ngxEditorConfigFactory,
       provide: NGX_EDITOR_CONFIG_TOKEN,
       deps: [TranslateService, Translations],
+    },
+    { 
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, 
+      useValue: {
+        appearance: 'outline'
+      }
     }
   ]
 })

@@ -78,10 +78,10 @@ export class AppComponent implements OnDestroy {
   }
 
   initRouteChangeSubscription(): void {
-    this.routeChangeSub = this.router.events.pipe(filter(e => e instanceof NavigationStart ||  e instanceof NavigationEnd)).subscribe((e) => { 
+    this.routeChangeSub = this.router.events.pipe(filter(e => e instanceof NavigationEnd)).subscribe((e) => { 
       let url = (e as RouterEvent).url;
       let queryIndex = url.indexOf('?');
-      url = url.substring(1, queryIndex > 0 ? queryIndex : undefined);
+      url = url.substring(1, queryIndex > -1 ? queryIndex : undefined);
       
       if (url === CoreRoutes.Splash) 
         this.showHeaderFooter = false;
