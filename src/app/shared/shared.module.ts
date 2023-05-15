@@ -16,14 +16,16 @@ import { TypescriptLoader } from '../core/helpers/typescript-loader';
 import { Translations } from '../core/services/translations.service';
 import { ButtonComponent } from './components/button/button.component';
 
-import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
+
+import { MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatLegacyTooltipModule as MatTooltipModule } from '@angular/material/legacy-tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PageTitleComponent } from './components/page-title/page-title.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
+import { InputComponent } from './components/input/input.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { RouterModule } from '@angular/router';
     ButtonComponent,
     HeaderComponent,
     FooterComponent,
-    PageTitleComponent
+    PageTitleComponent,
+    InputComponent
   ],
   imports: [
     CommonModule,
@@ -63,7 +66,8 @@ import { RouterModule } from '@angular/router';
     PageTitleComponent,
     LanguageSelectorComponent,
     EditorComponent,
-    ButtonComponent
+    ButtonComponent,
+    InputComponent
   ],
   providers: [
     {
