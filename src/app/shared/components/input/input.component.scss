@@ -1,43 +1,87 @@
 @import "../../../../assets/scss/partials/colors";
 
-mat-label, mat-input {
-    display: block;
+.gcc-input-wrapper {
+    font-size: 16px;
+    padding: 15px 0;
 }
 
 mat-label {
     font-size: 18px;
     font-weight: 600;
+    display: inline-block;
+
+    .required-star {
+        display: inline-block;
+        color: $error-red;
+    }
 }
 
 mat-form-field {
-    padding-top: 11px;
     width: 100%;
 
     .mat-mdc-form-field {
         padding: 0 10px; 
     }
     
+    input {
+        width: calc(100% - 65px);
+    }
+
+    app-button {
+        display: inline-flex;
+
+        ::ng-deep button:focus {
+            color: $primary-1;
+        }
+    }
 }
 
-::ng-deep .mat-mdc-form-field-input-control { 
-    padding: 12px 0px !important;
+.hint-button {
+    margin-left: -20px;
+
+    ::ng-deep button {
+        margin-top: -4px;
+    }
+
+    ::ng-deep button:focus {
+        color: $primary-1;
+    }
 }
 
-::ng-deep.mdc-notched-outline__leading, 
-::ng-deep.mdc-notched-outline__trailing {
-    border-color: $neutral-300 !important;
-    border-right-width: 2px !important;
-    border-left-width: 2px !important;
-    border-bottom-width: 2px !important;
-    border-top-width: 2px !important;
+mat-hint {
+    font-size: 14px;
 }
 
-::ng-deep.mdc-notched-outline__leading {
-    border-top-left-radius: var(--mdc-shape-small, 14px) !important;
-    border-bottom-left-radius: var(--mdc-shape-small, 14px) !important;
-}
+::ng-deep {
+    .mat-mdc-form-field-input-control { 
+        padding: 12px 0px !important;
+    }
 
-::ng-deep.mdc-notched-outline__trailing {
-    border-top-right-radius: var(--mdc-shape-small, 14px) !important;
-    border-bottom-right-radius: var(--mdc-shape-small, 14px) !important;
+    .mdc-notched-outline__leading, .mdc-notched-outline__trailing {
+        border-color: $neutral-300 !important;
+        border-right-width: 2px !important;
+        border-left-width: 2px !important;
+        border-bottom-width: 2px !important;
+        border-top-width: 2px !important;
+    }
+
+    .mdc-notched-outline__leading {
+        border-top-left-radius: var(--mdc-shape-small, 10px) !important;
+        border-bottom-left-radius: var(--mdc-shape-small, 10px) !important;
+    }
+
+    .mdc-notched-outline__trailing {
+        border-top-right-radius: var(--mdc-shape-small, 10px) !important;
+        border-bottom-right-radius: var(--mdc-shape-small, 10px) !important;
+    }
+
+    .mdc-text-field--outlined {
+        padding-right: 0 !important;
+    }
+
+    .mat-focused {
+        .mdc-notched-outline__leading, .mdc-notched-outline__trailing {
+            border-color: $primary-1 !important;
+        }
+    }
 }

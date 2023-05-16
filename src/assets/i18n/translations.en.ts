@@ -163,5 +163,31 @@ export default {
         "remove": "Remove",
         "horizontalrule": "Horizontal Rule",
         "formatclear": "Clear Formatting"
+    },
+    "input": {
+        "hint": {
+            "show": {
+                "text": "Show hint",
+                "aria": "Click to show the hint"
+            },
+            "hide": {
+                "text": "Hide hint",
+                "aria": "Click to hide the hint"
+            }
+        },
+        "password": {
+            "show": {
+                "text": "Show password",
+                "aria": "Click to show your password"
+            },
+            "hide": {
+                "text": "Hide password",
+                "aria": "Click to hide your password"
+            }
+        },
+        "error": {
+            "required": "is required.",
+            "email": "Please enter a valid email."
+        }
     }
 };

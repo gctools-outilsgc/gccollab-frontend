@@ -1,8 +1,55 @@
-<div style="font-size: 16px">
-    <mat-label>Full name</mat-label>
+<div class="gcc-input-wrapper">
+
+    <mat-label *ngIf="label">
+        {{ label }} 
+        <div *ngIf="required" class="required-star">
+            *
+        </div>
+    </mat-label>
+
+    <app-button *ngIf="hint"
+                [matButtonType]="materialButtonType.Icon"
+                [tooltip]="showHint ? (translations.input.hint.hide.text | translate) : translations.input.hint.show.text | translate"
+                [ariaLabel]="showHint ? (translations.input.hint.hide.aria | translate) : translations.input.hint.show.aria | translate"
+                [tooltipDirection]="tooltipDirection.Right"
+                (click)="toggleShowHint()"
+                class="hint-button">
+        <i [ngClass]="showHint ? 'fa-circle-xmark' : 'fa-circle-question'" class="fa-regular"></i>
+    </app-button>
+
     <mat-form-field>
         <input matInput 
-               placeholder="Ex. Pizza" 
-               value="Sushi">
+               [value]="value"
+               [type]="type === inputType.Password ? (showPassword ? inputType.Text : type) : type"
+               [placeholder]="placeholder"
+               [minLength]="minLength"
+               [maxLength]="maxLength"
+               [pattern]="pattern"
+               [required]="required"
+               [disabled]="disabled"
+               [readonly]="readonly"
+               [autofocus]="autofocus"
+        >
+
+        <app-button *ngIf="type == inputType.Password" 
+                    [matButtonType]="materialButtonType.Icon"
+                    [tooltip]="showPassword ? (translations.input.password.hide.text | translate) : translations.input.password.show.text | translate"
+                    [ariaLabel]="showPassword ? (translations.input.password.hide.aria | translate) : translations.input.password.show.aria | translate"
+                    (click)="toggleShowPassword()">
+            <i [ngClass]="showPassword ? 'fa-eye' : 'fa-eye-slash'" class="fa-regular"></i>
+        </app-button>
+
+        <mat-hint *ngIf="hint && showHint">
+            {{ hint }}
+        </mat-hint>
+
+        <mat-error *ngIf="formControl && (formControl.hasError('email') && !formControl.hasError('required'))">
+            {{ translations.input.error.email | translate }}
+        </mat-error>
+
+        <mat-error *ngIf="formControl && formControl.hasError('required')">
+            {{ label }} {{ translations.input.error.required | translate }}
+        </mat-error>
+
     </mat-form-field>
 </div>

@@ -163,6 +163,32 @@ const fr: typeof import('./translations.en').default = {
         "remove": "Retirer",
         "horizontalrule": "La règle horizontale",
         "formatclear": "Supprimer le formattage"
+    },
+    "input": {
+        "hint": {
+            "show": {
+                "text": "Dévoiler un indice",
+                "aria": "Cliquez pour afficher l'indice"
+            },
+            "hide": {
+                "text": "Masquer l'indice",
+                "aria": "Cliquez pour masquer l'indice"
+            }
+        },
+        "password": {
+            "show": {
+                "text": "Montrer le mot de passe",
+                "aria": "Cliquez pour afficher votre mot de passe"
+            },
+            "hide": {
+                "text": "Masquer le mot de passe",
+                "aria": "Cliquez pour masquer votre mot de passe"
+            }
+        },
+        "error": {
+            "required": "est requis.",
+            "email": "Veuillez saisir une adresse e-mail valide."
+        }
     }
 };
 export default fr;
