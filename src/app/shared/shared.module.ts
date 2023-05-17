@@ -16,15 +16,19 @@ import { TypescriptLoader } from '../core/helpers/typescript-loader';
 import { Translations } from '../core/services/translations.service';
 import { ButtonComponent } from './components/button/button.component';
 
-import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
+
+import { MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatLegacyTooltipModule as MatTooltipModule } from '@angular/material/legacy-tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PageTitleComponent } from './components/page-title/page-title.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { BannerComponent } from './components/banner/banner.component';
+import { InputComponent } from './components/input/input.component';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -37,8 +41,9 @@ import { BannerComponent } from './components/banner/banner.component';
     ButtonComponent,
     HeaderComponent,
     FooterComponent,
-    PageTitleComponent, 
-    BannerComponent, 
+    PageTitleComponent,
+    InputComponent,
+	BannerComponent
   ],
   imports: [
     CommonModule,
@@ -58,6 +63,8 @@ import { BannerComponent } from './components/banner/banner.component';
     MatIconModule,
     MatTooltipModule,
     MatToolbarModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   exports: [
     TranslateModule,
@@ -66,14 +73,21 @@ import { BannerComponent } from './components/banner/banner.component';
     PageTitleComponent,
     LanguageSelectorComponent,
     EditorComponent,
-    ButtonComponent, 
-    BannerComponent,
+    ButtonComponent,
+    InputComponent,
+	BannerComponent
   ],
   providers: [
     {
       useFactory: ngxEditorConfigFactory,
       provide: NGX_EDITOR_CONFIG_TOKEN,
       deps: [TranslateService, Translations],
+    },
+    { 
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, 
+      useValue: {
+        appearance: 'outline'
+      }
     }
   ]
 })

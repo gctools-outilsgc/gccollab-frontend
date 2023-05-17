@@ -1,9 +1,9 @@
 import { LayoutModule } from '@angular/cdk/layout';
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
+import { MatButtonModule} from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
-import { MatLegacyListModule as MatListModule } from '@angular/material/legacy-list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
@@ -12,7 +12,6 @@ import { HeaderComponent } from './header.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateService } from '@ngx-translate/core';
-import { MatLegacyMenuModule as MatMenuModule } from '@angular/material/legacy-menu';
 import { TypescriptLoader } from 'src/app/core/helpers/typescript-loader';
 
 describe('HeaderComponent', () => {
@@ -28,10 +27,9 @@ describe('HeaderComponent', () => {
         LayoutModule,
         MatButtonModule,
         MatIconModule,
-        MatListModule,
         MatSidenavModule,
         MatToolbarModule,
-        MatMenuModule,
+        MatTooltipModule,
         TranslateModule.forRoot({
           loader: {
             provide: TranslateLoader,
