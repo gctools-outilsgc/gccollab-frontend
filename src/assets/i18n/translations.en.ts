@@ -189,5 +189,9 @@ export default {
             "required": "is required.",
             "email": "Please enter a valid email."
         }
+    },
+	"banner": {
+        "welcome": "WELCOME",
+        "gccollab": "TO GCcollab"
     }
 };

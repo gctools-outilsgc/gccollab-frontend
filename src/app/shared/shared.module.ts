@@ -25,9 +25,11 @@ import { FooterComponent } from './components/footer/footer.component';
 import { PageTitleComponent } from './components/page-title/page-title.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
+import { BannerComponent } from './components/banner/banner.component';
 import { InputComponent } from './components/input/input.component';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { MatInputModule } from '@angular/material/input';
     HeaderComponent,
     FooterComponent,
     PageTitleComponent,
-    InputComponent
+    InputComponent,
+	BannerComponent
   ],
   imports: [
     CommonModule,
@@ -71,7 +74,8 @@ import { MatInputModule } from '@angular/material/input';
     LanguageSelectorComponent,
     EditorComponent,
     ButtonComponent,
-    InputComponent
+    InputComponent,
+	BannerComponent
   ],
   providers: [
     {

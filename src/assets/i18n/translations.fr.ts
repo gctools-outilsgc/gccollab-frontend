@@ -189,6 +189,10 @@ const fr: typeof import('./translations.en').default = {
             "required": "est requis.",
             "email": "Veuillez saisir une adresse e-mail valide."
         }
+    },
+	"banner": {
+        "welcome": "BIENVENUE",
+        "gccollab": "À GCcollab"
     }
 };
 export default fr;
