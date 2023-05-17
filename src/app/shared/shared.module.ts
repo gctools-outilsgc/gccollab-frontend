@@ -24,6 +24,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { PageTitleComponent } from './components/page-title/page-title.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
+import { BannerComponent } from './components/banner/banner.component';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { RouterModule } from '@angular/router';
     ButtonComponent,
     HeaderComponent,
     FooterComponent,
-    PageTitleComponent
+    PageTitleComponent, 
+    BannerComponent, 
   ],
   imports: [
     CommonModule,
@@ -63,7 +66,8 @@ import { RouterModule } from '@angular/router';
     PageTitleComponent,
     LanguageSelectorComponent,
     EditorComponent,
-    ButtonComponent
+    ButtonComponent, 
+    BannerComponent,
   ],
   providers: [
     {
