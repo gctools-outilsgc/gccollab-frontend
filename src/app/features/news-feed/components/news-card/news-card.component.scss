@@ -23,7 +23,8 @@ $title-padding: 0px; // TODO: Add padding to make room for profile picture when 
         }
 
         mat-card-content {
-
+            padding-top: 10px;
+            padding-bottom: 10px;
         }
 
         mat-card-actions {
@@ -43,3 +44,5 @@ $title-padding: 0px; // TODO: Add padding to make room for profile picture when 
         }
     }
 }
+
+// https://stackoverflow.com/a/57759753/6479757

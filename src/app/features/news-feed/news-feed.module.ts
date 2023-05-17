@@ -7,12 +7,14 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import {MatCardModule} from '@angular/material/card';
 
 import { NewsCardComponent } from './components/news-card/news-card.component';
+import { NewsListComponent } from './components/news-list/news-list.component';
 
 
 
 @NgModule({
   declarations: [
-    NewsCardComponent
+    NewsCardComponent,
+    NewsListComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { NewsCardComponent } from './components/news-card/news-card.component';
     MatCardModule
   ],
   exports: [
-    NewsCardComponent
+    NewsCardComponent,
+    NewsListComponent
   ]
 })
 export class NewsFeedModule { }
