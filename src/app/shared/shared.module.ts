@@ -43,7 +43,7 @@ import { MatInputModule } from '@angular/material/input';
     FooterComponent,
     PageTitleComponent,
     InputComponent,
-	BannerComponent
+	  BannerComponent,
   ],
   imports: [
     CommonModule,
@@ -75,7 +75,7 @@ import { MatInputModule } from '@angular/material/input';
     EditorComponent,
     ButtonComponent,
     InputComponent,
-	BannerComponent
+	  BannerComponent
   ],
   providers: [
     {
