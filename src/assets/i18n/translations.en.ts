@@ -91,8 +91,10 @@ export default {
             "title": "Search GCCollab",
             "aria": "Start typing to search GCCollab",
             "button": {
-                "tooltip": "Search",
-                "aria": "Click to start searching GCCollab"
+                "tooltip_on": "Search",
+                "tooltip_off": "Close search",
+                "aria_on": "Click to start searching GCCollab",
+                "aria_off": "Click to close the search bar"
             }
         },
         "messages" : {

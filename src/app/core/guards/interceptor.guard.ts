@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { SessionStorageService } from '../services/session-storage.service';
 
@@ -11,7 +11,7 @@ import { SessionStorageService } from '../services/session-storage.service';
 @Injectable({
   providedIn: 'root'
 })
-export class InterceptorGuard implements CanActivate {
+export class InterceptorGuard  {
 
   private readonly returnUrlKey:string = 'gccollab-retUrl';
 
