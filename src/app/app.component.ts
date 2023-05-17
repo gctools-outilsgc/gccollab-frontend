@@ -7,6 +7,7 @@ import { OidcSecurityService } from 'angular-auth-oidc-client';
 
 import { TranslateService } from "@ngx-translate/core";
 import { LanguageStorageService } from './core/services/language-storage.service';
+import { Translations } from './core/services/translations.service';
 
 
 @Component({
@@ -21,8 +22,9 @@ export class AppComponent implements OnDestroy {
   private checkAuthSub!: Subscription;
   private langChangeSub!: Subscription;
   private routeChangeSub!: Subscription;
-
+  
   constructor(public oidcSecurityService: OidcSecurityService, 
+              public translations: Translations,
               private translateService: TranslateService,
               private languageStorageService: LanguageStorageService,
               private router: Router) {

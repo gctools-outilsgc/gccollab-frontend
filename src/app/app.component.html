@@ -1,5 +1,10 @@
 <app-header *ngIf="showHeaderFooter" (headerToggleEvent)="headerToggleEvent($event)"></app-header>
-<app-page-title *ngIf="showHeaderFooter" [headerExpanded]="showSearchBar"></app-page-title>
+<!-- <app-page-title *ngIf="showHeaderFooter" [headerExpanded]="showSearchBar"></app-page-title> -->
+<app-banner *ngIf="showHeaderFooter" 
+            [headerExpanded]="showSearchBar"
+            [textTop]="translations.banner.welcome | translate"
+            [textBottom]="translations.banner.gccollab | translate">
+</app-banner>
 
 <div [ngClass]="{'gcc-main': showHeaderFooter}">
     <router-outlet></router-outlet>

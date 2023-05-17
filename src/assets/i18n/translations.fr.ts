@@ -163,6 +163,10 @@ const fr: typeof import('./translations.en').default = {
         "remove": "Retirer",
         "horizontalrule": "La règle horizontale",
         "formatclear": "Supprimer le formattage"
+    },
+    "banner": {
+        "welcome": "BIENVENUE",
+        "gccollab": "À GCcollab"
     }
 };
 export default fr;

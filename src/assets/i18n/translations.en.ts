@@ -163,5 +163,9 @@ export default {
         "remove": "Remove",
         "horizontalrule": "Horizontal Rule",
         "formatclear": "Clear Formatting"
+    },
+    "banner": {
+        "welcome": "WELCOME",
+        "gccollab": "TO GCcollab"
     }
 };

@@ -1,0 +1,16 @@
+<div class="banner" 
+     [ngClass]="headerExpanded ? 'gcc-header-expanded' : 'gcc-header'"
+     [ngStyle]="{'background': 'url(' + imgUrl + ')'}">
+  <div class="banner-text-container">
+    <div class="top">
+      <div>
+        {{ textTop }}
+      </div>
+    </div>
+    <div class="bottom">
+      <div>
+        {{ textBottom }}
+      </div>
+    </div>
+  </div>
+</div> 
