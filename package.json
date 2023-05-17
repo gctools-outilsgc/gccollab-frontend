@@ -29,6 +29,7 @@
     "@ngx-translate/http-loader": "^7.0.0",
     "angular-auth-oidc-client": "^14.1.5",
     "ngx-editor": "^15.3.0",
+    "ngx-infinite-scroll": "^16.0.0",
     "ngx-translate-routes": "^1.4.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
