@@ -1,6 +1,16 @@
-<div class="banner" [ngClass]="{'banner-hidden': hideBanner} && headerExpanded ? 'gcc-header-expanded' : 'gcc-header'">
-    <img class="banner-img" src="assets/banner.svg" alt="Banner Image">
-    <h1 class="banner-text-welcome">{{ translations.banner.welcome | translate }}</h1>
-    <h1 class="banner-text-gccollab">{{ translations.banner.gccollab | translate }}</h1>
+<div class="banner" 
+     [ngClass]="headerExpanded ? 'gcc-header-expanded' : 'gcc-header'"
+     [ngStyle]="{'background': 'url(' + imgUrl + ')'}">
+  <div class="banner-text-container">
+    <div class="top">
+      <div>
+        {{ textTop }}
+      </div>
+    </div>
+    <div class="bottom">
+      <div>
+        {{ textBottom }}
+      </div>
+    </div>
   </div>
-  
+</div> 

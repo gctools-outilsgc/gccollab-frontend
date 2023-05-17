@@ -165,7 +165,8 @@ const fr: typeof import('./translations.en').default = {
         "formatclear": "Supprimer le formattage"
     },
     "banner": {
-        "welcome": "Bienvenue GCcollab"
+        "welcome": "BIENVENUE",
+        "gccollab": "À GCcollab"
     }
 };
 export default fr;

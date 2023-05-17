@@ -1,44 +1,55 @@
 @import "../../../../assets/scss/partials/header";
-
-.gcc-header {
-    margin-top: $header-height-desktop;
-}
-.gcc-header-expanded {
-    margin-top: $header-height-expanded-desktop;
-}
+@import "../../../../assets/scss/partials/colors";
+@import "../../../../assets/scss/partials/layout";
+@import "../../../../assets/scss/partials/font-weights";
 
 .banner {
-    height: 100%;
+  position: relative;
+  width: 100%;
+  height: 25vw;
+  min-height: 215px;
+  max-height: 420px;
+
+  img {
     width: 100%;
-    transition: top 0.3s ease;
-    margin-top: 0; 
-  }
-  
-  .banner-img {
-    width: 100%;
-    height: 100%;
-  }
-  
-  .banner-hidden {
-    top: -100px; /* Shift the banner above the viewport */
   }
 
-  .banner-text-welcome {
+  .banner-text-container {
+    width: 100%;
+    height: 100%;
     position: absolute;
-    top: 45%;
-    left: 19%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 70px;
+    color: $primary-1-contrast;
+    font-size: 68px;
+    font-weight: $bold;
+    cursor: default;
+    top: 0;
+
+    > div {
+      height: 50%;
+    }
+
+    .top, .bottom {
+      position: relative;
+      padding-left: $gutter-desktop;
+
+      div {
+        position: absolute;
+      }
+    }
+
+    .top > div {
+      bottom: 0;
+    }
+    .bottom > div {
+      top: 0;
+    }
   }
-  .banner-text-gccollab {
-    position: absolute;
-    top: 55%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 70px;
-  }
-  
-  
-  
+}
+
+.gcc-header {
+  margin-top: $header-height-desktop;
+}
+
+.gcc-header-expanded {
+  margin-top: $header-height-expanded-desktop;
+}
