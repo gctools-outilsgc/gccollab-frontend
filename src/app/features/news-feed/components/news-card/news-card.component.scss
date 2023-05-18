@@ -43,6 +43,10 @@ $title-padding: 0px; // TODO: Add padding to make room for profile picture when 
             }
         }
     }
+
+    ::ng-deep button:focus {
+        color: $primary-1;
+    }
 }
 
 // https://stackoverflow.com/a/57759753/6479757

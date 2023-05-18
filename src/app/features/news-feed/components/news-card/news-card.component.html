@@ -1,30 +1,38 @@
 <mat-card>
     <mat-card-header>
-        <mat-card-title>{{ model.author?.firstName + ' ' +  model.author?.lastName }}</mat-card-title>
-        <mat-card-subtitle>{{ model.author?.jobTitle }}</mat-card-subtitle>
+        <mat-card-title>{{ model?.author?.firstName + ' ' +  model?.author?.lastName }}</mat-card-title>
+        <mat-card-subtitle>{{ model?.author?.jobTitle }}</mat-card-subtitle>
     </mat-card-header>
 
     <mat-card-content>
         <p>
-            {{ model.content }}
+            {{ model?.content }}
         </p>
     </mat-card-content>
 
     <mat-card-actions>
         <div class="left-actions">
-            <app-button [matButtonType]="materialButtonType.Icon">
+            <app-button [matButtonType]="materialButtonType.Icon"
+                        [tooltip]="translations.newsCard.like.tooltip | translate"
+                        [ariaLabel]="translations.newsCard.like.aria | translate">
                 <i class="fa-regular fa-thumbs-up"></i>
             </app-button>
-            <app-button [matButtonType]="materialButtonType.Icon">
+            <app-button [matButtonType]="materialButtonType.Icon"
+                        [tooltip]="translations.newsCard.comment.tooltip | translate"
+                        [ariaLabel]="translations.newsCard.comment.aria | translate">
                 <i class="fa-regular fa-comment"></i>
             </app-button>
-            <app-button [matButtonType]="materialButtonType.Icon">
+            <app-button [matButtonType]="materialButtonType.Icon"
+                        [tooltip]="translations.newsCard.share.tooltip | translate"
+                        [ariaLabel]="translations.newsCard.share.aria | translate">
                 <i class="fa-regular fa-share-from-square"></i>
             </app-button>
         </div>
 
         <div class="right-actions">
-            <app-button [matButtonType]="materialButtonType.Icon">
+            <app-button [matButtonType]="materialButtonType.Icon"
+                        [tooltip]="translations.newsCard.bookmark.tooltip | translate"
+                        [ariaLabel]="translations.newsCard.like.aria | translate">
                 <i class="fa-regular fa-bookmark"></i>
             </app-button>
         </div>

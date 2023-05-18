@@ -29,6 +29,7 @@ import { BannerComponent } from './components/banner/banner.component';
 import { InputComponent } from './components/input/input.component';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { MatInputModule } from '@angular/material/input';
     MatTooltipModule,
     MatToolbarModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     TranslateModule,
@@ -75,7 +77,8 @@ import { MatInputModule } from '@angular/material/input';
     EditorComponent,
     ButtonComponent,
     InputComponent,
-	  BannerComponent
+	  BannerComponent,
+    MatProgressSpinnerModule
   ],
   providers: [
     {

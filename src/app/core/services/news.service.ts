@@ -53,7 +53,7 @@ export class NewsService {
 
     newsItem.id = this.id.toString();
     newsItem.date = new Date();
-    newsItem.content = this.lorem.generateParagraphs(Math.floor(Math.random() * 2));
+    newsItem.content = this.lorem.generateParagraphs(Math.floor(Math.random() * 2) + 1);
 
     const author = new Person();
 

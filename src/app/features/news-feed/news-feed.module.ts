@@ -8,6 +8,7 @@ import {MatCardModule} from '@angular/material/card';
 
 import { NewsCardComponent } from './components/news-card/news-card.component';
 import { NewsListComponent } from './components/news-list/news-list.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 
 
@@ -20,7 +21,8 @@ import { NewsListComponent } from './components/news-list/news-list.component';
     CommonModule,
     NewsFeedRoutingModule,
     SharedModule,
-    MatCardModule
+    MatCardModule,
+    InfiniteScrollModule
   ],
   exports: [
     NewsCardComponent,

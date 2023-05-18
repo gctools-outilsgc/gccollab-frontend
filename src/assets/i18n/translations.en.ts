@@ -192,6 +192,24 @@ export default {
     },
 	"banner": {
         "welcome": "WELCOME",
-        "gccollab": "TO GCcollab"
+        "gccollab": "TO GCCollab"
+    },
+    "newsCard": {
+        "like": {
+            "tooltip": "Like",
+            "aria": "Click to like this."
+        },
+        "comment": {
+            "tooltip": "Comment",
+            "aria": "Click to add a comment."
+        },
+        "share": {
+            "tooltip": "Share",
+            "aria": "Click to share this."
+        },
+        "bookmark": {
+            "tooltip": "Bookmark",
+            "aria": "Click to bookmark this."
+        }
     }
 };

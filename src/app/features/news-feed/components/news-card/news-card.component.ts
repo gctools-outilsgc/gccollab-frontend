@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { MaterialButtonType } from 'src/app/shared/models/material-button-type';
 import { NewsItem } from '../../models/news-item';
+import { Translations } from 'src/app/core/services/translations.service';
 
 @Component({
   selector: 'app-news-card',
@@ -10,9 +11,9 @@ import { NewsItem } from '../../models/news-item';
 })
 export class NewsCardComponent {
 
-  @Input() model!: NewsItem;
+  @Input() model?: NewsItem;
 
   materialButtonType = MaterialButtonType;
 
-  constructor() {}
+  constructor(public translations: Translations) {}
 }
