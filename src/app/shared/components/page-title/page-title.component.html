@@ -1,5 +1,3 @@
-<mat-toolbar color="primary" [ngClass]="headerExpanded ? 'gcc-header-expanded' : 'gcc-header'">
-    <div *ngFor="let item of title;">
-        <span>{{ item | translate }}</span>
-    </div>
-</mat-toolbar>
+<div *ngIf="pageTitle" class="page-title">
+    <h1>{{ pageTitle }}</h1>
+</div>
