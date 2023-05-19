@@ -192,7 +192,27 @@ const fr: typeof import('./translations.en').default = {
     },
 	"banner": {
         "welcome": "BIENVENUE",
-        "gccollab": "À GCcollab"
+        "gccollab": "À GCCollab"
+    },
+    "newsCard": {
+        "like": {
+            "tooltip": "Aimer",
+            "aria_on": "Cliquez pour aimer.",
+            "aria_off": "Cliquez pour ne plus aimer."
+        },
+        "comment": {
+            "tooltip": "Commentaire",
+            "aria": "Cliquez pour ajouter un commentaire."
+        },
+        "share": {
+            "tooltip": "Partager",
+            "aria": "Cliquez pour partager ceci."
+        },
+        "bookmark": {
+            "tooltip": "Signet",
+            "aria_on": "Cliquez pour marquer ceci.",
+            "aria_off": "Cliquez pour dé-marquer ceci."
+        }
     }
 };
 export default fr;

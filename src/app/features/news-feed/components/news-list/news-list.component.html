@@ -1,0 +1,13 @@
+<div class="news-list-container">
+    <div *ngFor="let newsItem of model" class="news-card-wrapper">
+        <app-news-card [model]="newsItem"></app-news-card>
+    </div>
+
+    <div *ngIf="model && !isLoading && model.length == 0">
+        There is nothing to display.
+    </div>
+
+    <div *ngIf="isLoading" class="news-card-wrapper">
+        <app-news-card [loading]="true"></app-news-card>
+    </div>
+</div>

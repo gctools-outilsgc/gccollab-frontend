@@ -1,0 +1,20 @@
+:host {
+    .news-list-container {
+        .news-card-wrapper {
+            padding: 20px 0;
+        }
+
+        .news-card-wrapper:first-child {
+            padding-top: 0;
+        }
+
+        .news-card-wrapper:last-child {
+            padding-bottom: 0;
+        }
+
+        > div:not(.news-card-wrapper) {
+            font-size: 18px;
+            font-weight: 600;
+        }
+    }
+}

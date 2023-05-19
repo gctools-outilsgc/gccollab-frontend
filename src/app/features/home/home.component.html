@@ -1,8 +1,17 @@
-<p>{{ translations.titles.home | translate }}</p>
-<app-language-selector></app-language-selector>
-<br /><br />
-<app-editor></app-editor>
-<app-input [type]="inputType"
+<app-page-title [pageTitle]="translations.titles.newsfeed | translate"></app-page-title>
+<div class="page-container">
+    <div class="news-container">
+        <div infinite-scroll 
+             [infiniteScrollDistance]="2" 
+             [infiniteScrollThrottle]="1000"
+             (scrolled)="onNewsScroll()">
+            <app-news-list [model]="newsItems" 
+                           [isLoading]="loadingNews">
+            </app-news-list>
+        </div>
+    </div>
+    <div class="side-content">
+        <app-input [type]="inputType"
            [label]="'Full name'"
            [placeholder]="'Enter your full name'"
            [errorMessage]="'Please enter your full name'"
@@ -13,4 +22,6 @@
            [required]="true"
            [readonly]="false"
            [autofocus]="false">
-</app-input>
+        </app-input>
+    </div>
+</div>

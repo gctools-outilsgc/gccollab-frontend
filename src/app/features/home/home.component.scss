@@ -1,0 +1,37 @@
+@import '../../../assets/scss/partials/layout';
+@import '../../../assets/scss/partials/colors';
+
+:host {
+    .page-title {
+        h1 {
+            margin-top: 0;
+            margin-bottom: 48px;
+        }
+    }
+
+    .page-container {
+        display: flex;
+        flex-direction: row;
+        min-height: 500px;
+        
+        .news-container {
+            width: 66%;
+            padding-right: $grid-step;
+        }
+
+        .side-content {
+            width: 33%;
+            min-width: 300px;
+        }
+    }
+
+    .loading {
+        align-items: center;
+        display: flex;
+
+        i {
+            margin: auto;
+            color: $primary-2;
+        }
+    }
+}

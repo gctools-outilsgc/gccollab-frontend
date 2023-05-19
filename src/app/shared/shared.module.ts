@@ -29,6 +29,8 @@ import { BannerComponent } from './components/banner/banner.component';
 import { InputComponent } from './components/input/input.component';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 
 @NgModule({
@@ -43,7 +45,7 @@ import { MatInputModule } from '@angular/material/input';
     FooterComponent,
     PageTitleComponent,
     InputComponent,
-	BannerComponent
+	  BannerComponent,
   ],
   imports: [
     CommonModule,
@@ -64,7 +66,9 @@ import { MatInputModule } from '@angular/material/input';
     MatTooltipModule,
     MatToolbarModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    NgxSkeletonLoaderModule,
+    InfiniteScrollModule
   ],
   exports: [
     TranslateModule,
@@ -75,7 +79,9 @@ import { MatInputModule } from '@angular/material/input';
     EditorComponent,
     ButtonComponent,
     InputComponent,
-	BannerComponent
+	  BannerComponent,
+    NgxSkeletonLoaderModule,
+    InfiniteScrollModule
   ],
   providers: [
     {

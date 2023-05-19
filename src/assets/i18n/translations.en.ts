@@ -49,7 +49,7 @@ export default {
         "members": "Members",
         "messages": "Messages",
         "missions": "Careers",
-        "newsfeed": "News Feed",
+        "newsfeed": "Newsfeed",
         "profile": "Profile",
         "search": "Search",
         "settings": "Settings",
@@ -192,6 +192,26 @@ export default {
     },
 	"banner": {
         "welcome": "WELCOME",
-        "gccollab": "TO GCcollab"
+        "gccollab": "TO GCCollab"
+    },
+    "newsCard": {
+        "like": {
+            "tooltip": "Like",
+            "aria_on": "Click to like this.",
+            "aria_off": "Click to un-like this."
+        },
+        "comment": {
+            "tooltip": "Comment",
+            "aria": "Click to add a comment."
+        },
+        "share": {
+            "tooltip": "Share",
+            "aria": "Click to share this."
+        },
+        "bookmark": {
+            "tooltip": "Bookmark",
+            "aria_on": "Click to bookmark this.",
+            "aria_off": "Click to un-bookmark this."
+        }
     }
 };
