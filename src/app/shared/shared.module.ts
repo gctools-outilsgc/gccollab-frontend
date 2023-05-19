@@ -29,7 +29,8 @@ import { BannerComponent } from './components/banner/banner.component';
 import { InputComponent } from './components/input/input.component';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatToolbarModule,
     MatFormFieldModule,
     MatInputModule,
-    MatProgressSpinnerModule
+    NgxSkeletonLoaderModule,
+    InfiniteScrollModule
   ],
   exports: [
     TranslateModule,
@@ -78,7 +80,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     ButtonComponent,
     InputComponent,
 	  BannerComponent,
-    MatProgressSpinnerModule
+    NgxSkeletonLoaderModule,
+    InfiniteScrollModule
   ],
   providers: [
     {

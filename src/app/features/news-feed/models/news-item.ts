@@ -5,4 +5,6 @@ export class NewsItem {
     date: Date | undefined;
     author: Person | undefined;
     content: string | undefined;
+    comments: number = 0; // TODO: Comments should be its own class not a number
+    likes: number = 0;
 }

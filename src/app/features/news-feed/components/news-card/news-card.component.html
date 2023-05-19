@@ -1,30 +1,67 @@
 <mat-card>
-    <mat-card-header>
-        <mat-card-title>{{ model?.author?.firstName + ' ' +  model?.author?.lastName }}</mat-card-title>
-        <mat-card-subtitle>{{ model?.author?.jobTitle }}</mat-card-subtitle>
+
+    <div class="profile-wrapper">
+        <ngx-skeleton-loader 
+                             count="1" 
+                             appearance="circle" 
+                             animation="progress">
+        </ngx-skeleton-loader>
+    </div>
+
+    <div *ngIf="loading" class="loading-header">
+        <ngx-skeleton-loader count="1" 
+                             appearance="line" 
+                             animation="progress">
+        </ngx-skeleton-loader>
+        <ngx-skeleton-loader count="1" 
+                             appearance="line" 
+                             animation="progress">
+        </ngx-skeleton-loader>
+    </div>
+
+    <mat-card-header *ngIf="!loading">
+        <mat-card-title>
+            {{ model?.author?.firstName + ' ' +  model?.author?.lastName }}
+        </mat-card-title>
+        <mat-card-subtitle>
+            {{ model?.author?.jobTitle }}
+        </mat-card-subtitle>
     </mat-card-header>
 
     <mat-card-content>
-        <p>
+        <p *ngIf="!loading">
             {{ model?.content }}
         </p>
+        <ngx-skeleton-loader *ngIf="loading" 
+                             count="6" 
+                             appearance="line" 
+                             animation="progress">
+        </ngx-skeleton-loader>
     </mat-card-content>
 
     <mat-card-actions>
         <div class="left-actions">
             <app-button [matButtonType]="materialButtonType.Icon"
                         [tooltip]="translations.newsCard.like.tooltip | translate"
-                        [ariaLabel]="translations.newsCard.like.aria | translate">
-                <i class="fa-regular fa-thumbs-up"></i>
+                        [ariaLabel]="(liked ? translations.newsCard.like.aria_on : translations.newsCard.like.aria_off) | translate"
+                        [disabled]="loading"
+                        (click)="loading ? '' : liked = !liked">
+                <i class="fa-thumbs-up"
+                   [ngClass]="liked ? 'fa-solid' : 'fa-regular'">
+                </i>
+                {{ model ? (model.likes > 0 ? model.likes + (liked ? 1 : 0) : '') : ''}}
             </app-button>
             <app-button [matButtonType]="materialButtonType.Icon"
                         [tooltip]="translations.newsCard.comment.tooltip | translate"
-                        [ariaLabel]="translations.newsCard.comment.aria | translate">
-                <i class="fa-regular fa-comment"></i>
+                        [ariaLabel]="translations.newsCard.comment.aria | translate"
+                        [disabled]="loading">
+                <i class="fa-regular fa-comment"></i> 
+                {{ model?.comments ? model?.comments : '' }}
             </app-button>
             <app-button [matButtonType]="materialButtonType.Icon"
                         [tooltip]="translations.newsCard.share.tooltip | translate"
-                        [ariaLabel]="translations.newsCard.share.aria | translate">
+                        [ariaLabel]="translations.newsCard.share.aria | translate"
+                        [disabled]="loading">
                 <i class="fa-regular fa-share-from-square"></i>
             </app-button>
         </div>
@@ -32,8 +69,12 @@
         <div class="right-actions">
             <app-button [matButtonType]="materialButtonType.Icon"
                         [tooltip]="translations.newsCard.bookmark.tooltip | translate"
-                        [ariaLabel]="translations.newsCard.like.aria | translate">
-                <i class="fa-regular fa-bookmark"></i>
+                        [ariaLabel]="(bookmarked ? translations.newsCard.like.aria_on : translations.newsCard.like.aria_off) | translate"
+                        [disabled]="loading"
+                        (click)="loading ? '' : bookmarked = !bookmarked">
+                <i class="fa-bookmark"
+                   [ngClass]="bookmarked ? 'fa-solid' : 'fa-regular'">
+                </i>
             </app-button>
         </div>
     </mat-card-actions>

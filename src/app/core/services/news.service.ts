@@ -42,7 +42,7 @@ export class NewsService {
       setTimeout(() => {
         subscriber.next(response);
         subscriber.complete();
-      }, 2000);
+      }, 5000);
     });
 
     return observable;
@@ -54,6 +54,8 @@ export class NewsService {
     newsItem.id = this.id.toString();
     newsItem.date = new Date();
     newsItem.content = this.lorem.generateParagraphs(Math.floor(Math.random() * 2) + 1);
+    newsItem.comments = Math.floor(Math.random() * 199) + 1;
+    newsItem.likes = Math.floor(Math.random() * 99) + 1;
 
     const author = new Person();
 

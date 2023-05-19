@@ -197,7 +197,8 @@ const fr: typeof import('./translations.en').default = {
     "newsCard": {
         "like": {
             "tooltip": "Aimer",
-            "aria": "Cliquez pour aimer."
+            "aria_on": "Cliquez pour aimer.",
+            "aria_off": "Cliquez pour ne plus aimer."
         },
         "comment": {
             "tooltip": "Commentaire",
@@ -209,7 +210,8 @@ const fr: typeof import('./translations.en').default = {
         },
         "bookmark": {
             "tooltip": "Signet",
-            "aria": "Cliquez pour marquer ceci."
+            "aria_on": "Cliquez pour marquer ceci.",
+            "aria_off": "Cliquez pour dé-marquer ceci."
         }
     }
 };

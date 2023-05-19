@@ -49,7 +49,7 @@ export default {
         "members": "Members",
         "messages": "Messages",
         "missions": "Careers",
-        "newsfeed": "News Feed",
+        "newsfeed": "Newsfeed",
         "profile": "Profile",
         "search": "Search",
         "settings": "Settings",
@@ -197,7 +197,8 @@ export default {
     "newsCard": {
         "like": {
             "tooltip": "Like",
-            "aria": "Click to like this."
+            "aria_on": "Click to like this.",
+            "aria_off": "Click to un-like this."
         },
         "comment": {
             "tooltip": "Comment",
@@ -209,7 +210,8 @@ export default {
         },
         "bookmark": {
             "tooltip": "Bookmark",
-            "aria": "Click to bookmark this."
+            "aria_on": "Click to bookmark this.",
+            "aria_off": "Click to un-bookmark this."
         }
     }
 };

@@ -3,4 +3,5 @@ export class Person {
     firstName: string | undefined;
     lastName: string | undefined;
     jobTitle: string | undefined;
+    profilePicture: string | undefined;
 }

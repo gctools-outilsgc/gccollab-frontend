@@ -1,14 +1,14 @@
-<app-page-title [pageTitle]="'Newsfeed'"></app-page-title>
+<app-page-title [pageTitle]="translations.titles.newsfeed | translate"></app-page-title>
 <div class="page-container">
     <div class="news-container">
-        <app-news-list *ngIf="newsItems$ | async as newsItems; else firstLoad" 
-                       [model]="newsItems">
-        </app-news-list>
-        <ng-template #firstLoad>
-            <div class="fa-3x loading">
-                <i class="fas fa-circle-notch fa-spin"></i>
-            </div>
-        </ng-template>
+        <div infinite-scroll 
+             [infiniteScrollDistance]="2" 
+             [infiniteScrollThrottle]="1000"
+             (scrolled)="onNewsScroll()">
+            <app-news-list [model]="newsItems" 
+                           [isLoading]="loadingNews">
+            </app-news-list>
+        </div>
     </div>
     <div class="side-content">
         <app-input [type]="inputType"

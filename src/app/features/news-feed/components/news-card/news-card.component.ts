@@ -12,6 +12,10 @@ import { Translations } from 'src/app/core/services/translations.service';
 export class NewsCardComponent {
 
   @Input() model?: NewsItem;
+  @Input() loading: boolean = false;
+
+  liked: boolean = false;
+  bookmarked: boolean = false;
 
   materialButtonType = MaterialButtonType;
 
