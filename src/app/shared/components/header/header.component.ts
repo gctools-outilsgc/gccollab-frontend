@@ -3,6 +3,7 @@ import { CoreRoutes } from 'src/app/core/constants/routes.constants';
 import { TranslateService } from '@ngx-translate/core';
 import { Translations } from 'src/app/core/services/translations.service';
 import { MaterialButtonType } from '../../models/material-button-type';
+import { Person } from 'src/app/core/models/person';
 
 @Component({
   selector: 'app-header',
@@ -17,6 +18,8 @@ export class HeaderComponent {
   routes = CoreRoutes;
   materialButtonType = MaterialButtonType;
   headerExpanded = false;
+
+  user: Person = new Person(); // TODO: Pass user from base component instead of header
 
   constructor(public translations: Translations) 
   { }

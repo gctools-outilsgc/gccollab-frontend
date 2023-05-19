@@ -31,6 +31,7 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from '@angular/mat
 import { MatInputModule } from '@angular/material/input';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { ProfilePicComponent } from './components/profile-pic/profile-pic.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     PageTitleComponent,
     InputComponent,
 	  BannerComponent,
+    ProfilePicComponent,
   ],
   imports: [
     CommonModule,
@@ -81,7 +83,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     InputComponent,
 	  BannerComponent,
     NgxSkeletonLoaderModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    ProfilePicComponent
   ],
   providers: [
     {

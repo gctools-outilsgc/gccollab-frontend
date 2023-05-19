@@ -65,6 +65,11 @@
                 display: inline-flex;
                 padding-left: 40px;
                 padding-right: calc($gutter-desktop / 2);
+
+                app-profile-pic {
+                    width: 52px;
+                    line-height: 10px;
+                }
             }
         }
      
