@@ -63,7 +63,7 @@
                   [ariaLabel]="translations.header.profile.aria | translate"
                   [routerLink]="[routes.Profile]"
                   [ngClass]="activeRoute == routes.Profile ? 'selected' : ''">
-                  <i class="fa-user" [ngClass]="activeRoute == routes.Profile ? 'fa-solid' : 'fa-regular'"></i>
+                  <app-profile-pic [model]="user"></app-profile-pic>
       </app-button>
       <app-language-selector [isToggle]="true"></app-language-selector>
     </div>

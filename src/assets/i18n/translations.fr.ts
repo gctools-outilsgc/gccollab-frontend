@@ -213,6 +213,9 @@ const fr: typeof import('./translations.en').default = {
             "aria_on": "Cliquez pour marquer ceci.",
             "aria_off": "Cliquez pour dé-marquer ceci."
         }
+    },
+    "profile_pic": {
+        "alt": "Une photo de profil"
     }
 };
 export default fr;
