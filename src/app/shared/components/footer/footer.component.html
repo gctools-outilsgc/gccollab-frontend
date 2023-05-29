@@ -1,7 +1,7 @@
 <footer>
     <div class="footer-body">
         <div class="footer-list">
-            <section>
+            <section class="footer-column">
                 <h3>{{ translations.footer.title.about | translate }}</h3>
                 <ul>
                     <li>
@@ -21,7 +21,7 @@
                     </li>
                 </ul>
             </section>
-            <section>
+            <section class="footer-column">
                 <h3>{{ translations.footer.title.privacy | translate }}</h3>
                 <ul>
                     <li>
@@ -36,7 +36,7 @@
                     </li>
                 </ul>
             </section>
-            <section>
+            <section class="footer-column">
                 <h3>{{ translations.footer.title.connect | translate }}</h3>
                 <ul>
                     <li>
@@ -51,8 +51,10 @@
                     </li>
                 </ul>
             </section>
-            <section>
-                <img src="https://gccollab.ca//mod/gccollab_theme/graphics/wmms-blk.svg" alt="Canada" aria-label="Symbol of the Government of Canada"/>
+            <section class="footer-column">
+                <div class="canada-logo-container">
+                    <img src="https://gccollab.ca//mod/gccollab_theme/graphics/wmms-blk.svg" alt="Canada" aria-label="Symbol of the Government of Canada"/>
+                </div>
             </section>
         </div>
     </div>
