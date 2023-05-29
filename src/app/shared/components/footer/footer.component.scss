@@ -4,6 +4,10 @@
 footer {
     background: $primary-1-gradient;
 
+    h3 {
+        font-size: x-large;
+    }
+
     .footer-body {
         padding: 12px $gutter-desktop;
 
@@ -17,11 +21,11 @@ footer {
             ul {
                 list-style: none;
                 padding-left: 0;
-                padding-block: 5px;
+                margin-top: 5px;
             }
 
             li {
-                margin-bottom: 10px;
+                margin-bottom: 14px;
 
                 a {
                     color: white;
@@ -33,12 +37,14 @@ footer {
                 flex-direction: column;
                 color: white;
                 align-items: flex-start;
+                display: flex;
+                padding-top: 12px;
 
                 section {
                     flex-direction: column;
 
                     h3 {
-                        font-weight: bold;
+                        font-weight: bold;  
                         color: white;
                     }
 
@@ -75,7 +81,7 @@ footer {
                     float: right;
                     width: 100%;
                     margin: 20px;
-                    margin-top: 130px;
+                    margin-top: 125px;
                     filter: brightness(0) invert(1);
                 }
             }
