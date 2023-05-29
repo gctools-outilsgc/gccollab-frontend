@@ -1,7 +1,8 @@
 <mat-card>
 
     <div class="profile-wrapper">
-        <ngx-skeleton-loader 
+        <app-profile-pic *ngIf="!loading" [model]="model?.author"></app-profile-pic>
+        <ngx-skeleton-loader *ngIf="loading"
                              count="1" 
                              appearance="circle" 
                              animation="progress">

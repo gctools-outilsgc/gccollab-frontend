@@ -213,5 +213,8 @@ export default {
             "aria_on": "Click to bookmark this.",
             "aria_off": "Click to un-bookmark this."
         }
+    },
+    "profile_pic": {
+        "alt": "A profile picture"
     }
 };

@@ -5,6 +5,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NewsFeedModule } from '../news-feed/news-feed.module';
+import { GroupsModule } from '../groups/groups.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { NewsFeedModule } from '../news-feed/news-feed.module';
     CommonModule,
     HomeRoutingModule,
     SharedModule,
-    NewsFeedModule
+    NewsFeedModule,
+    GroupsModule
   ]
 })
 export class HomeModule { }

@@ -17,6 +17,12 @@
         .news-container {
             width: 66%;
             padding-right: $grid-step;
+
+            > div {
+                max-height: 65vh;
+                overflow: auto;
+                padding: 22px 22px 0 22px;
+            }
         }
 
         .side-content {
