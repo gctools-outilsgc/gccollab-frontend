@@ -13,7 +13,6 @@ footer {
             justify-content: space-between;
             align-items: stretch;
             padding: 8px;
-            filter: brightness(0) invert(1);
 
             ul {
                 list-style: none;
@@ -23,6 +22,10 @@ footer {
 
             li {
                 margin-bottom: 10px;
+
+                a {
+                    color: white;
+                }
             }
 
             .footer-column {
@@ -65,15 +68,15 @@ footer {
                 float: right;
                 margin-left: auto; 
                 margin-top: 13px; 
-                padding-right: $gutter-desktop;
+                width: 100%;
+                height: 100%;
 
                 img {
                     float: right;
-                    width: auto;
+                    width: 100%;
                     margin: 20px;
                     margin-top: 130px;
                     filter: brightness(0) invert(1);
-                    padding-left: $gutter-desktop;
                 }
             }
         }
