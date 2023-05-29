@@ -121,7 +121,7 @@ export default {
             "privacypolicy": "Privacy Policy",
             "terms": "Terms and Conditions of Use",
             "stats": "Statistics",
-            "faq": "Frequently Asked Questions",
+            "faq": "FAQs",
             "help": "Help / Contact Us",
             "twitter": "Twitter",
             "github": "GitHub",

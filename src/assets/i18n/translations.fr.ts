@@ -121,7 +121,7 @@ const fr: typeof import('./translations.en').default = {
             "privacypolicy": "Politique de confidentialité",
             "terms": "Conditions d'utilisation",
             "stats": "Statistiques",
-            "faq": "Foire aux questions",
+            "faq": "FAQs",
             "help": "Aide / Contactez-nous",
             "twitter": "Twitter",
             "github": "GitHub",

@@ -9,51 +9,72 @@ footer {
 
         .footer-list {
             display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: stretch;
             padding: 8px;
+            filter: brightness(0) invert(1);
 
             ul {
                 list-style: none;
                 padding-left: 0;
-                padding-right: 20px;
+                padding-block: 5px;
             }
 
-            section {
+            li {
+                margin-bottom: 10px;
+            }
+
+            .footer-column {
+                flex: 1;
                 flex-direction: column;
+                color: white;
+                align-items: flex-start;
 
-                h3 {
-                    font-weight: bold;
-                    color: #ffffff;
-                }
+                section {
+                    flex-direction: column;
 
-                li:not(:last-child) {
-                    padding-bottom: 12px;
-                }
+                    h3 {
+                        font-weight: bold;
+                        color: white;
+                    }
 
-                a {
-                    display: flex;
-                    flex: 1;
-                    text-decoration: none;
-                    color: #ffffff;
-                }
+                    li:not(:last-child) {
+                        margin-bottom: 20px;
+                    }
 
-                a:visited {
-                    color: #ffffff;
-                }
+                    a {
+                        display: flex;
+                        flex: 1;
+                        text-decoration: none;
+                        color: white;
+                    }
+
+                    a:visited {
+                        color: white;
+                    }
+                } 
+            }
+
+            section:nth-child(2) {
+                margin: 0 1px;
+            }
+
+            .canada-logo-container {
+                display: flex;
+                float: right;
+                margin-left: auto; 
+                margin-top: 13px; 
+                padding-right: $gutter-desktop;
 
                 img {
                     float: right;
-                    height: 40px;
                     width: auto;
                     margin: 20px;
                     margin-top: 130px;
                     filter: brightness(0) invert(1);
+                    padding-left: $gutter-desktop;
                 }
-            } 
-
-            section:nth-child(2) {
-                margin: 0 80px;
             }
         }
     }

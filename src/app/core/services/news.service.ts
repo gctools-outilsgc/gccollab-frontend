@@ -34,7 +34,7 @@ export class NewsService {
   private mockGetNewsItems(page: number): Observable<NewsItem[]> {
     let response: NewsItem[] = [];
 
-    for(let i = 0; i < 10; i++) {
+    for(let i = 0; i < 10; i++) { // infinite loader
       response.push(this.generateRandomNewsItem());
     }
 
