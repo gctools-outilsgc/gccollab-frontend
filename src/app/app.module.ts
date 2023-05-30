@@ -16,10 +16,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { TypescriptLoader } from './core/helpers/typescript-loader';
 import { SharedModule } from './shared/shared.module';
+import { EventsComponent } from './features/events/events.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    EventsComponent,
   ],
   imports: [
     BrowserModule,
