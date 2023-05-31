@@ -216,6 +216,20 @@ export default {
             "aria_off": "Click to un-bookmark this."
         }
     },
+    "eventCard": {
+        "calendar": {
+            "tooltip": "View in calendar",
+            "aria": "Click to view this event in the calendar"
+        },
+        "confirm": {
+            "tooltip": "Confirm event",
+            "aria": "Click to add this event to your calendar"
+        },
+        "decline": {
+            "tooltip": "Decline event",
+            "aria": "Click to decline this event"
+        }
+    },
     "profile_pic": {
         "alt": "A profile picture"
     }

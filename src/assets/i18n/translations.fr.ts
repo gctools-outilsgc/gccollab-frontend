@@ -216,6 +216,20 @@ const fr: typeof import('./translations.en').default = {
             "aria_off": "Cliquez pour dé-marquer ceci."
         }
     },
+    "eventCard": {
+        "calendar": {
+            "tooltip": "Afficher dans le calendrier",
+            "aria": "Cliquez pour voir cet événement dans le calendrier"
+        },
+        "confirm": {
+            "tooltip": "Confirmer l'événement",
+            "aria": "Cliquez pour ajouter cet événement à votre calendrier"
+        },
+        "decline": {
+            "tooltip": "Refuser l'événement",
+            "aria": "Cliquez pour refuser cet événement"
+        }
+    },
     "profile_pic": {
         "alt": "Une photo de profil"
     }

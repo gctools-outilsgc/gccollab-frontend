@@ -6,6 +6,7 @@ import { InputType } from 'src/app/shared/models/input-type';
 import { NewsItem } from '../news-feed/models/news-item';
 import { NewsService } from 'src/app/core/services/news.service';
 import { Observable, Subscription } from 'rxjs';
+import { Event } from '../events/models/event';
 
 @Component({
   templateUrl: './home.component.html',
@@ -19,7 +20,14 @@ export class HomeComponent implements OnInit {
   newsPage: number = 1;
   loadingNews: boolean = true;
 
-  constructor(public translations: Translations, private newsService: NewsService) { }
+  event: Event | undefined; // remove
+
+  constructor(public translations: Translations, private newsService: NewsService) {
+    this.event = new Event();
+    this.event.startDate = new Date();
+    this.event.title = "Web Accessibility";
+    this.event.eventType = "Roundtable";
+   }
 
   ngOnInit(): void {
     this.newsService.getNews(this.newsPage).subscribe((newsItems: NewsItem[]) => {
@@ -35,6 +43,22 @@ export class HomeComponent implements OnInit {
       this.newsItems.push(...newsItems);
       this.loadingNews = false;
     });
+  }
+
+  confirmEvent(event: Event | undefined) {
+    if (this.event) {
+      this.event.confirmed = true;
+      console.log('Event Confirm');
+      console.log(event);
+    }
+  }
+
+  declineEvent(event: Event | undefined) {
+    if (this.event) {
+      this.event.declined = true;
+      console.log('Event Declined');
+      console.log(event);
+    }
   }
 
 }

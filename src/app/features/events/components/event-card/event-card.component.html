@@ -1,23 +1,59 @@
 <mat-card>
     <mat-card-content>
-        <div class="event-calendar">
-            <div>{{ 'feb' | uppercase }}</div>
-            <div>{{ '15' }}</div>
+        <div class="event-calendar"
+             *ngIf="!loading"
+             [matTooltip]="translations.eventCard.calendar.tooltip | translate"
+             [attr.aria-label]="translations.eventCard.calendar.aria | translate"
+             [matTooltipPosition]="tooltipDirection.Above"
+             (click)="clickEvent()"
+             tabindex="0">
+            <div>
+                {{ model?.startDate | date:'LLL' | uppercase }}
+            </div>
+
+            <div>
+                {{ model?.startDate | date:'dd' }}
+            </div>
         </div>
 
-        <div class="event-content">
-            <div>{{ 'Web Accessibility' }}</div>
-            <div>{{ 'Working Group' }}</div>
+        <ngx-skeleton-loader *ngIf="loading" count="1" appearance="circle" animation="progress" class="event-calendar-loading"></ngx-skeleton-loader>
+
+        <div class="event-content" 
+             routerLink="{{ '/' + routes.Events  + '/view/' + model?.id }}">
+
+            <div *ngIf="!loading">
+                {{ model?.title }}
+            </div>
+
+            <div *ngIf="!loading">
+                {{ model?.eventType }}
+            </div>
+
+            <ngx-skeleton-loader *ngIf="loading" count="2" appearance="line" animation="progress"></ngx-skeleton-loader>
         </div>
 
         <div class="event-actions">
-            <div class="event-confirm">
-                <i class="fa-regular fa-circle-check"></i>
-            </div>
+            <app-button class="event-confirm"
+                        [matButtonType]="materialButtonType.Icon" 
+                        [tooltip]="translations.eventCard.confirm.tooltip | translate"
+                        [ariaLabel]="translations.eventCard.confirm.aria | translate"
+                        [tooltipDirection]="tooltipDirection.Above"
+                        [disabled]="loading"
+                        (click)="confirmEvent()">
 
-            <div class="event-decline">
-                <i class="fa-regular fa-circle-xmark"></i>
-            </div>
+                <i *ngIf="!loading" class="fa-regular fa-circle-check"></i>
+                <ngx-skeleton-loader *ngIf="loading" count="1" appearance="circle" animation="progress"></ngx-skeleton-loader>
+            </app-button>
+
+            <app-button class="event-decline"
+                        [matButtonType]="materialButtonType.Icon"
+                        [tooltip]="translations.eventCard.decline.tooltip | translate"
+                        [ariaLabel]="translations.eventCard.decline.aria | translate"
+                        [disabled]="loading"
+                        (click)="declineEvent()">
+                <i *ngIf="!loading" class="fa-regular fa-circle-xmark"></i>
+                <ngx-skeleton-loader *ngIf="loading" count="1" appearance="circle" animation="progress"></ngx-skeleton-loader>
+            </app-button>
         </div>
     </mat-card-content>
 </mat-card>

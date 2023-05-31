@@ -23,6 +23,12 @@
            [readonly]="false"
            [autofocus]="false">
         </app-input>
-        <app-event-card></app-event-card>
+
+        <app-event-card *ngIf="!event?.confirmed && !event?.declined" 
+                        [model]="event"
+                        [loading]="true"
+                        (confirm)="confirmEvent(event)" 
+                        (decline)="declineEvent(event)">
+        </app-event-card>
     </div>
 </div>

@@ -11,4 +11,7 @@ export class Event {
     endDate: Date | undefined;
     author: Person | undefined;
     authoredDate: Date | undefined;
+    
+    confirmed: boolean = false;
+    declined: boolean = false;
 }

@@ -29,7 +29,7 @@
                 border-radius: 12px;
                 color: $secondary-2-contrast;
                 background: $secondary-2-gradient;
-                cursor: default;
+                cursor: pointer;
 
                 div:first-child {
                     font-weight: 400;
@@ -42,12 +42,40 @@
                 }
             }
 
+            .event-calendar-loading {
+                ::ng-deep >div {
+                    width: 65px;
+                    height: 65px;
+                    min-width: 65px;
+                    min-height: 65px;
+                    border-radius: 12px;
+                }
+            }
+
             .event-content {
                 width: 100%;
-                padding: 0 6px;
+                padding: 0 12px;
+                display: block;
 
                 div {
                     white-space: nowrap;
+                    cursor: pointer;
+                }
+
+                div:first-child {
+                    font-weight: 600;
+                }
+
+                ngx-skeleton-loader {
+                    ::ng-deep >div:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+            .event-content:hover, .event-content:focus {
+                div {
+                    text-decoration: underline;
                 }
             }
 
@@ -58,7 +86,7 @@
                 }
 
                 .event-confirm {
-                    padding-bottom: 12px;
+                    margin-bottom: 12px;
                     color: $secondary-2;
                 }
 
