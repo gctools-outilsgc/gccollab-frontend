@@ -15,6 +15,7 @@ export default {
         "blog": "blog",
         "bookmarks": "bookmarks",
         "dashboards": "dashboards",
+        "events": "events",
         "friends": "friends",
         "groups": "groups",
         "invite": "invite",
@@ -43,6 +44,7 @@ export default {
         "blogs": "Blogs",
         "bookmarks": "Bookmarks",
         "dashboards": "Dashboards",
+        "events": "Events",
         "friends": "Friends",
         "groups": "Groups",
         "invite": "Invite",
@@ -212,6 +214,24 @@ export default {
             "tooltip": "Bookmark",
             "aria_on": "Click to bookmark this.",
             "aria_off": "Click to un-bookmark this."
+        }
+    },
+    "eventCard": {
+        "calendar": {
+            "tooltip": "View in calendar",
+            "aria": "Click to view this event in the calendar"
+        },
+        "confirm": {
+            "tooltip_on": "Confirm event",
+            "aria_on": "Click to add this event to your calendar",
+            "tooltip_off": "Remove confirmation",
+            "aria_off": "Click to remove this event from your calendar"
+        },
+        "decline": {
+            "tooltip_on": "Decline event",
+            "aria_on": "Click to decline this event",
+            "tooltip_off": "Rescind declination",
+            "aria_off": "Click to rescind your declination of the event"
         }
     },
     "profile_pic": {

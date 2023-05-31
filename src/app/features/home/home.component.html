@@ -23,5 +23,12 @@
            [readonly]="false"
            [autofocus]="false">
         </app-input>
+
+        <app-event-card  
+                        [model]="event"
+                        [loading]="false"
+                        (confirm)="confirmEvent(event)" 
+                        (decline)="declineEvent(event)">
+        </app-event-card>
     </div>
 </div>

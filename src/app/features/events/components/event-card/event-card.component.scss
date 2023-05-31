@@ -1,0 +1,107 @@
+@import "../../../../../assets//scss/partials/colors";
+@import "../../../../../assets//scss/partials/font-weights";
+
+:host {
+    mat-card {
+        //max-width: 350px;
+        border: 1px solid $neutral-300;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+
+        mat-card-content {
+            display: flex;
+            padding: 20px 12px;
+            align-items: center;
+            justify-content: center;
+
+            >div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .event-calendar {
+                width: 65px;
+                height: 65px;
+                min-width: 65px;
+                min-height: 65px;
+                border-radius: 12px;
+                color: $secondary-2-contrast;
+                background: $secondary-2-gradient;
+                cursor: pointer;
+
+                div:first-child {
+                    font-weight: 400;
+                    font-size: 20px;
+                }
+
+                div:last-child {
+                    font-weight: 700;
+                    font-size: 24px;
+                }
+            }
+
+            .event-calendar-loading {
+                ::ng-deep >div {
+                    width: 65px;
+                    height: 65px;
+                    min-width: 65px;
+                    min-height: 65px;
+                    border-radius: 12px;
+                }
+            }
+
+            .event-content {
+                width: 100%;
+                padding: 0 12px;
+                display: block;
+
+                div {
+                    white-space: nowrap;
+                    cursor: pointer;
+                }
+
+                div:first-child {
+                    font-weight: 600;
+                }
+
+                ngx-skeleton-loader {
+                    ::ng-deep >div:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+            .event-content:hover, .event-content:focus {
+                div {
+                    text-decoration: underline;
+                }
+            }
+
+            .event-actions {
+
+                >div {
+                    cursor: pointer;
+                }
+
+                .event-confirm {
+                    margin-bottom: 12px;
+                    color: $secondary-2;
+                }
+
+                .event-decline {
+                    color: $error-red;
+                }
+
+                .disabled {
+                    color: $neutral-200 !important;
+                }
+
+                i {
+                    font-size: xx-large;
+                }
+            }
+        }
+    }
+}

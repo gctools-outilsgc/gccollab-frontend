@@ -11,6 +11,7 @@ export enum CoreRoutes {
     Blog = 'blog',
     Bookmarks = 'bookmarks',
     Dashboard = 'dashboard',
+    Events = 'events',
     Friends = 'friends',
     Groups = 'groups',
     Invite = 'invite',
