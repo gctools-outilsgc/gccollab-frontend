@@ -222,12 +222,16 @@ const fr: typeof import('./translations.en').default = {
             "aria": "Cliquez pour voir cet événement dans le calendrier"
         },
         "confirm": {
-            "tooltip": "Confirmer l'événement",
-            "aria": "Cliquez pour ajouter cet événement à votre calendrier"
+            "tooltip_on": "Confirmer l'événement",
+            "aria_on": "Cliquez pour ajouter cet événement à votre calendrier",
+            "tooltip_off": "Supprimer la confirmation",
+            "aria_off": "Cliquez pour supprimer cet événement de votre calendrier"
         },
         "decline": {
-            "tooltip": "Refuser l'événement",
-            "aria": "Cliquez pour refuser cet événement"
+            "tooltip_on": "Refuser l'événement",
+            "aria_on": "Cliquez pour refuser cet événement",
+            "tooltip_off": "Annuler la déclinaison",
+            "aria_off": "Cliquez pour annuler votre déclinaison de l'événement"
         }
     },
     "profile_pic": {

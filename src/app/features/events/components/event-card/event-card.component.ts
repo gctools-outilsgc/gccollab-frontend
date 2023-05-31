@@ -27,11 +27,27 @@ export class EventCardComponent {
   {  }
 
   confirmEvent() {
-    this.confirm.emit(this.model);
+    if (this.model) {
+      
+      this.model.confirmed = !this.model.confirmed;
+
+      if (this.model.confirmed && this.model.declined)
+        this.model.declined = false;
+
+      this.confirm.emit(this.model);
+    }
   }
 
   declineEvent() {
-    this.decline.emit(this.model);
+    if (this.model) {
+
+      this.model.declined = !this.model.declined;
+      
+      if (this.model.declined && this.model.confirmed)
+        this.model.confirmed = false;
+
+      this.decline.emit(this.model);
+    }
   }
 
   clickEvent() {

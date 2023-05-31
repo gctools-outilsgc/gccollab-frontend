@@ -222,12 +222,16 @@ export default {
             "aria": "Click to view this event in the calendar"
         },
         "confirm": {
-            "tooltip": "Confirm event",
-            "aria": "Click to add this event to your calendar"
+            "tooltip_on": "Confirm event",
+            "aria_on": "Click to add this event to your calendar",
+            "tooltip_off": "Remove confirmation",
+            "aria_off": "Click to remove this event from your calendar"
         },
         "decline": {
-            "tooltip": "Decline event",
-            "aria": "Click to decline this event"
+            "tooltip_on": "Decline event",
+            "aria_on": "Click to decline this event",
+            "tooltip_off": "Rescind declination",
+            "aria_off": "Click to rescind your declination of the event"
         }
     },
     "profile_pic": {

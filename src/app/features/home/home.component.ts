@@ -47,7 +47,6 @@ export class HomeComponent implements OnInit {
 
   confirmEvent(event: Event | undefined) {
     if (this.event) {
-      this.event.confirmed = true;
       console.log('Event Confirm');
       console.log(event);
     }
@@ -55,7 +54,6 @@ export class HomeComponent implements OnInit {
 
   declineEvent(event: Event | undefined) {
     if (this.event) {
-      this.event.declined = true;
       console.log('Event Declined');
       console.log(event);
     }

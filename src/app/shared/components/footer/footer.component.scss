@@ -69,6 +69,10 @@ footer {
                 margin: 0 1px;
             }
 
+            section:last-child {
+                max-width: 400px;
+            }
+
             .canada-logo-container {
                 display: flex;
                 float: right;
