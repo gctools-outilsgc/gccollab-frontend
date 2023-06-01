@@ -7,6 +7,7 @@ import { NewsItem } from '../news-feed/models/news-item';
 import { NewsService } from 'src/app/core/services/news.service';
 import { Observable, Subscription } from 'rxjs';
 import { Event } from '../events/models/event';
+import { EventService } from 'src/app/core/services/event.service';
 
 @Component({
   templateUrl: './home.component.html',
@@ -16,23 +17,29 @@ export class HomeComponent implements OnInit {
 
   inputType = InputType.Password;
 
+  // News
   newsItems: NewsItem[] = [];
   newsPage: number = 1;
   loadingNews: boolean = true;
 
-  event: Event | undefined; // remove
+  // Events
+  events: Event[] = [];
+  eventsPage: number = 1;
+  loadingEvents: boolean = true;
 
-  constructor(public translations: Translations, private newsService: NewsService) {
-    this.event = new Event();
-    this.event.startDate = new Date();
-    this.event.title = "Web Accessibility";
-    this.event.eventType = "Roundtable";
+  constructor(public translations: Translations, private newsService: NewsService, private eventService: EventService) {
+
    }
 
   ngOnInit(): void {
     this.newsService.getNews(this.newsPage).subscribe((newsItems: NewsItem[]) => {
       this.newsItems = newsItems;
       this.loadingNews = false;
+    });
+
+    this.eventService.getEvents(this.eventsPage).subscribe((events: Event[]) => {
+      this.events = events;
+      this.loadingEvents = false;
     });
   }
 
@@ -45,18 +52,12 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  confirmEvent(event: Event | undefined) {
-    if (this.event) {
-      console.log('Event Confirm');
-      console.log(event);
-    }
+  confirmEvent() {
+    console.log('Event Confirm');
   }
 
-  declineEvent(event: Event | undefined) {
-    if (this.event) {
-      console.log('Event Declined');
-      console.log(event);
-    }
+  declineEvent() {
+    console.log('Event Declined');
   }
 
 }

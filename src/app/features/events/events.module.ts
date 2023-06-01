@@ -5,10 +5,12 @@ import { EventsRoutingModule } from './events-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { EventCardComponent } from './components/event-card/event-card.component';
 import { MatCardModule } from '@angular/material/card';
+import { EventListComponent } from './components/event-list/event-list.component';
 
 @NgModule({
   declarations: [
-    EventCardComponent
+    EventCardComponent,
+    EventListComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { MatCardModule } from '@angular/material/card';
     MatCardModule
   ],
   exports: [
-    EventCardComponent
+    EventCardComponent,
+    EventListComponent
   ]
 })
 export class EventsModule { }

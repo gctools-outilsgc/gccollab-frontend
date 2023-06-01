@@ -41,7 +41,6 @@
                         [tooltipDirection]="tooltipDirection.Above"
                         [disabled]="loading"
                         (click)="confirmEvent()">
-
                 <i *ngIf="!loading" 
                    class="fa-circle-check"
                    [ngClass]="model?.confirmed || model?.declined ? 'fa-solid' : 'fa-regular'">
