@@ -55,11 +55,14 @@
             .event-content {
                 width: 100%;
                 padding: 0 12px;
-                display: block;
+                display: inline-grid;
+                justify-content: normal;
 
                 div {
                     white-space: nowrap;
                     cursor: pointer;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
                 }
 
                 div:first-child {
