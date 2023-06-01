@@ -8,6 +8,7 @@ import { NewsService } from 'src/app/core/services/news.service';
 import { Observable, Subscription } from 'rxjs';
 import { Event } from '../events/models/event';
 import { EventService } from 'src/app/core/services/event.service';
+import { CoreRoutes } from 'src/app/core/constants/routes.constants';
 
 @Component({
   templateUrl: './home.component.html',
@@ -16,6 +17,7 @@ import { EventService } from 'src/app/core/services/event.service';
 export class HomeComponent implements OnInit {
 
   inputType = InputType.Password;
+  routes = CoreRoutes;
 
   // News
   newsItems: NewsItem[] = [];

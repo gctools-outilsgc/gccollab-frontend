@@ -38,7 +38,7 @@ export class EventService {
     event.id = this.id.toString();
     event.title = this.randomTitle();
     event.eventType = this.randomEventType();
-    event.startDate = new Date();
+    event.startDate = this.randomDate();
     
     return event;
   }
@@ -46,13 +46,13 @@ export class EventService {
   private randomTitle(): string {
     const titles: string[] = [
       'Drink Outside the Box',
-      'Office Bake Sale',
+      'Grillin\' n Chillin\'',
       'Chili Cook Off',
       'Hot Dog Eating Contest',
       'Apple Bobbing for Justice',
-      'Shawarma Tour',
-      'Haunted Walk',
-      'Dragon Boat Race'
+      'Shawarma Grand Tour',
+      'Belly Flop Olympics',
+      'Mens Wet T-Shirt Competition'
     ];
     return titles[Math.floor(Math.random() * titles.length)];
   }
@@ -60,11 +60,18 @@ export class EventService {
   private randomEventType(): string {
     const titles: string[] = [
       'In Person',
-      'Online via Zoom',
-      'Online via Teams',
-      'Roundtable'
+      'Workshop',
+      'Conference',
+      'Roundtable',
+      'Charity Event'
     ];
     return titles[Math.floor(Math.random() * titles.length)];
+  }
+
+  private randomDate() {
+    let startDate = new Date();
+    let endDate = new Date('2023/12/31');
+    return new Date(startDate.getTime() + Math.random() * (endDate.getTime() - startDate.getTime()));
   }
 
 }

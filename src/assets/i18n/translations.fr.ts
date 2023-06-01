@@ -68,6 +68,11 @@ const fr: typeof import('./translations.en').default = {
         "tooltip": "Choisissez votre langue",
         "aria": "Cliquez pour sélectionner votre préférence de langue"
     },
+    "features": {
+        "home": {
+            "moreEvents": "Plus d'événements"
+        }
+    },
     "header": {
         "home": {
             "title": "Accueil",

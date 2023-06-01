@@ -29,5 +29,10 @@
                         (confirm)="confirmEvent()"
                         (decline)="declineEvent()">
         </app-event-list>
+        <div class="event-more">
+            <a routerLink="{{ routes.Events }}">
+                {{ translations.features.home.moreEvents | translate }}
+            </a>
+        </div>
     </div>
 </div>
