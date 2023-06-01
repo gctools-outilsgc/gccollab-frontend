@@ -68,6 +68,11 @@ export default {
         "tooltip": "Select your language",
         "aria": "Click to select your language preference"
     },
+    "features": {
+        "home": {
+            "moreEvents": "More events"
+        }
+    },
     "header": {
         "home": {
             "title": "Home",

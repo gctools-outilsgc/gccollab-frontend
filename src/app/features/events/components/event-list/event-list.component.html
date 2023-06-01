@@ -1,0 +1,15 @@
+<div class="event-list-container">
+    <div *ngFor="let event of model" class="event-card-wrapper">
+        <app-event-card [model]="event"></app-event-card>
+    </div>
+
+    <div *ngIf="isLoading">
+        <div *ngFor="let num of [0,1,2]" class="event-card-wrapper">
+            <app-event-card  [loading]="true"></app-event-card>
+        </div>
+    </div>
+
+    <div *ngIf="model && !isLoading && model.length == 0">
+        There is nothing to display.
+    </div>
+</div>

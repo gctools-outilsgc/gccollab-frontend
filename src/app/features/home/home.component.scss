@@ -28,6 +28,20 @@
         .side-content {
             width: 33%;
             min-width: 300px;
+
+            .event-more {
+                text-align: center;
+                font-weight: 700;
+                padding: 10px 0;
+                
+                a {
+                    color: $primary-2;
+                }
+
+                a:hover, a:focus {
+                    text-decoration: underline;
+                }
+            }
         }
     }
 

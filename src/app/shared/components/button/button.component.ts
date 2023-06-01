@@ -12,6 +12,7 @@ import { TooltipDirection } from '../../models/tooltip-direction';
 })
 export class ButtonComponent implements OnInit {
 
+  @Input() id: string = '';
   @Input() name: string = '';
   @Input() value: string = '';
   @Input() tooltip: string = '';

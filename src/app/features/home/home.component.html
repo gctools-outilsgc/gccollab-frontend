@@ -24,11 +24,15 @@
            [autofocus]="false">
         </app-input>
 
-        <app-event-card  
-                        [model]="event"
-                        [loading]="false"
-                        (confirm)="confirmEvent(event)" 
-                        (decline)="declineEvent(event)">
-        </app-event-card>
+        <app-event-list [model]="events" 
+                        [isLoading]="loadingEvents"
+                        (confirm)="confirmEvent()"
+                        (decline)="declineEvent()">
+        </app-event-list>
+        <div class="event-more">
+            <a routerLink="{{ '/' + routes.Events }}">
+                {{ translations.features.home.moreEvents | translate }}
+            </a>
+        </div>
     </div>
 </div>
