@@ -7,6 +7,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { NewsFeedModule } from '../news-feed/news-feed.module';
 import { GroupsModule } from '../groups/groups.module';
 import { EventsModule } from '../events/events.module';
+import { ProfileModule } from '../profile/profile.module';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { EventsModule } from '../events/events.module';
     SharedModule,
     NewsFeedModule,
     GroupsModule,
-    EventsModule
+    EventsModule,
+    ProfileModule
   ]
 })
 export class HomeModule { }

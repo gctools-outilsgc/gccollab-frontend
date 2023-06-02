@@ -70,7 +70,8 @@ const fr: typeof import('./translations.en').default = {
     },
     "features": {
         "home": {
-            "moreEvents": "Plus d'événements"
+            "moreEvents": "Plus d'événements",
+            "moreConnections": "Plus de connexions"
         }
     },
     "header": {
@@ -237,6 +238,20 @@ const fr: typeof import('./translations.en').default = {
             "aria_on": "Cliquez pour refuser cet événement",
             "tooltip_off": "Annuler la déclinaison",
             "aria_off": "Cliquez pour annuler votre déclinaison de l'événement"
+        }
+    },
+    "profileCard": {
+        "confirm": {
+            "tooltip_on": "Ajouter une connexion",
+            "aria_on": "Cliquez pour ajouter cette personne à vos relations",
+            "tooltip_off": "Supprimer la connexion",
+            "aria_off": "Cliquez pour supprimer cette personne de vos relations"
+        },
+        "decline": {
+            "tooltip_on": "Refuser la connexion",
+            "aria_on": "Cliquez pour refuser cette connexion",
+            "tooltip_off": "Annuler la déclinaison",
+            "aria_off": "Cliquez pour annuler votre refus de cette connexion"
         }
     },
     "profile_pic": {

@@ -70,7 +70,8 @@ export default {
     },
     "features": {
         "home": {
-            "moreEvents": "More events"
+            "moreEvents": "More events",
+            "moreConnections": "More connections"
         }
     },
     "header": {
@@ -237,6 +238,20 @@ export default {
             "aria_on": "Click to decline this event",
             "tooltip_off": "Rescind declination",
             "aria_off": "Click to rescind your declination of the event"
+        }
+    },
+    "profileCard": {
+        "confirm": {
+            "tooltip_on": "Add connection",
+            "aria_on": "Click to add this person to your connections",
+            "tooltip_off": "Remove connection",
+            "aria_off": "Click to remove this person from your connections"
+        },
+        "decline": {
+            "tooltip_on": "Decline connection",
+            "aria_on": "Click to decline this connection",
+            "tooltip_off": "Rescind declination",
+            "aria_off": "Click to rescind your declination of this connection"
         }
     },
     "profile_pic": {
