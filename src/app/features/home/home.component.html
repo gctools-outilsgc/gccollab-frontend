@@ -1,5 +1,7 @@
 <app-page-title [pageTitle]="translations.titles.newsfeed | translate"></app-page-title>
 <div class="page-container">
+
+    <!-- News Feed -->
     <div class="news-container gcc-scroller">
         <div infinite-scroll 
              [infiniteScrollDistance]="2" 
@@ -10,18 +12,32 @@
             </app-news-list>
         </div>
     </div>
+
     <div class="side-content">
-        <app-input [type]="inputType"
-           [label]="'Full name'"
-           [placeholder]="'Enter your full name'"
-           [errorMessage]="'Please enter your full name'"
-           [hint]="'Try typing with the keyboard, doofus.'"
-           [maxLength]="64"
-           [minLength]="3"
-           [disabled]="false"
-           [required]="true"
-           [readonly]="false"
-           [autofocus]="false">
-        </app-input>
+
+        <!-- Events -->
+        <section>
+            <app-event-list [model]="events" 
+                            [isLoading]="loadingEvents"
+                            (confirm)="confirmEvent()"
+                            (decline)="declineEvent()">
+            </app-event-list>
+            <div class="click-for-more">
+                <a routerLink="{{ '/' + routes.Events }}">
+                    {{ translations.features.home.moreEvents | translate }}
+                </a>
+            </div>
+        </section>
+
+        <!-- Connections -->
+        <section>
+            <app-profile-card [model]="profile"></app-profile-card>
+            <div class="click-for-more">
+                <a routerLink="{{ '/' + routes.Profile }}">
+                    {{ translations.features.home.moreConnections | translate }}
+                </a>
+            </div>
+        </section>
+        
     </div>
 </div>

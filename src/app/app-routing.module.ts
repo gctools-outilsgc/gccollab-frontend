@@ -134,6 +134,21 @@ const routes: Routes = [
     }
   },
   {
+    // Old route from GCCollab that we are replacing with "/events"
+    path: 'event_calendar',
+    redirectTo: CoreRoutes.Events
+  },
+  {
+    path: CoreRoutes.Events,
+    title: translations.titles.events,
+    loadChildren: () => import('./features/events/events.module').then(m => m.EventsModule),
+    canActivate: [AuthGuard],
+    data: {
+      title: translations.titles.events,
+      breadcrumb: translations.titles.events
+    }
+  },
+  {
     path: CoreRoutes.Friends,
     title: translations.titles.friends,
     loadChildren: () => import('./features/friends/friends.module').then(m => m.FriendsModule),

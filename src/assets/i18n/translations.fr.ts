@@ -15,6 +15,7 @@ const fr: typeof import('./translations.en').default = {
         "blog": "blog",
         "bookmarks": "signets",
         "dashboards": "tableaux_de_bord",
+        "events": "événements",
         "friends": "amis",
         "groups": "groupes",
         "invite": "inviter",
@@ -43,6 +44,7 @@ const fr: typeof import('./translations.en').default = {
         "blogs": "Blogues",
         "bookmarks": "Signets",
         "dashboards": "Tableaux de bord",
+        "events": "Événements",
         "friends": "Amis",
         "groups": "Groupes",
         "invite": "Inviter",
@@ -65,6 +67,12 @@ const fr: typeof import('./translations.en').default = {
         "french": "Français",
         "tooltip": "Choisissez votre langue",
         "aria": "Cliquez pour sélectionner votre préférence de langue"
+    },
+    "features": {
+        "home": {
+            "moreEvents": "Plus d'événements",
+            "moreConnections": "Plus de connexions"
+        }
     },
     "header": {
         "home": {
@@ -212,6 +220,38 @@ const fr: typeof import('./translations.en').default = {
             "tooltip": "Signet",
             "aria_on": "Cliquez pour marquer ceci.",
             "aria_off": "Cliquez pour dé-marquer ceci."
+        }
+    },
+    "eventCard": {
+        "calendar": {
+            "tooltip": "Afficher dans le calendrier",
+            "aria": "Cliquez pour voir cet événement dans le calendrier"
+        },
+        "confirm": {
+            "tooltip_on": "Confirmer l'événement",
+            "aria_on": "Cliquez pour ajouter cet événement à votre calendrier",
+            "tooltip_off": "Supprimer la confirmation",
+            "aria_off": "Cliquez pour supprimer cet événement de votre calendrier"
+        },
+        "decline": {
+            "tooltip_on": "Refuser l'événement",
+            "aria_on": "Cliquez pour refuser cet événement",
+            "tooltip_off": "Annuler la déclinaison",
+            "aria_off": "Cliquez pour annuler votre déclinaison de l'événement"
+        }
+    },
+    "profileCard": {
+        "confirm": {
+            "tooltip_on": "Ajouter une connexion",
+            "aria_on": "Cliquez pour ajouter cette personne à vos relations",
+            "tooltip_off": "Supprimer la connexion",
+            "aria_off": "Cliquez pour supprimer cette personne de vos relations"
+        },
+        "decline": {
+            "tooltip_on": "Refuser la connexion",
+            "aria_on": "Cliquez pour refuser cette connexion",
+            "tooltip_off": "Annuler la déclinaison",
+            "aria_off": "Cliquez pour annuler votre refus de cette connexion"
         }
     },
     "profile_pic": {

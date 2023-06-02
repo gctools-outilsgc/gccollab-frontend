@@ -1,0 +1,7 @@
+:host {
+    .event-list-container {
+        .event-card-wrapper:not(:last-child) {
+            padding-bottom: 12px;
+        }
+    }
+}

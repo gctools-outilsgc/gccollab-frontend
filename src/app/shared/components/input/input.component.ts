@@ -14,6 +14,9 @@ import { TooltipDirection } from '../../models/tooltip-direction';
 })
 export class InputComponent {
 
+  @Input() id: string = '';
+  @Input() name: string = '';
+  
   @Input() type: InputType = InputType.Text;
   @Input() formControl!: FormControl;
 

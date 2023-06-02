@@ -74,6 +74,7 @@ import { ProfilePicComponent } from './components/profile-pic/profile-pic.compon
   ],
   exports: [
     TranslateModule,
+    MatTooltipModule,
     HeaderComponent,
     FooterComponent,
     PageTitleComponent,

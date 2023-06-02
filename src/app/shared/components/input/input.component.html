@@ -19,6 +19,8 @@
 
     <mat-form-field>
         <input matInput 
+               [id]="id"
+               [name]="name"
                [value]="value"
                [type]="type === inputType.Password ? (showPassword ? inputType.Text : type) : type"
                [placeholder]="placeholder"
