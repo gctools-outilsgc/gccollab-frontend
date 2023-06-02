@@ -1,9 +1,9 @@
 
 Feature: Search collapse function 
 
-    Backgrounds: environment/service
+    Backgrounds: environment/service, pages/search
 
     On the home webpage
-    Click on Search
+    Click the button Search
 
-    Should see Search bar
+    Click by placeholder "Search GCCollab"
