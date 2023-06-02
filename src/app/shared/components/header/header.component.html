@@ -39,7 +39,8 @@
     </div>
   
     <div class="header-actions">
-      <app-button [matButtonType]="materialButtonType.Icon"
+      <app-button id="gcc-header-search-btn"
+                  [matButtonType]="materialButtonType.Icon"
                   [tooltip]="headerExpanded ? (translations.header.search.button.tooltip_off | translate) : translations.header.search.button.tooltip_on | translate"
                   [ariaLabel]="headerExpanded ? (translations.header.search.button.aria_off | translate) : translations.header.search.button.aria_on | translate"
                   (click)="toggleSearch()">
@@ -73,7 +74,8 @@
     <div class="header-search">
       <form>
         <input #gccSearch type="text" placeholder="{{ translations.header.search.title | translate }}" />
-        <app-button [matButtonType]="materialButtonType.Icon"
+        <app-button id="gcc-header-search-btn-collapse"
+                    [matButtonType]="materialButtonType.Icon"
                     [tooltip]="translations.header.search.button.tooltip_on | translate"
                     [ariaLabel]="translations.header.search.button.aria_on | translate">
           <i class="fa-solid fa-search"></i>
