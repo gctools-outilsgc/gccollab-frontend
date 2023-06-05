@@ -1,5 +1,5 @@
 
-Feature: Change Language 
+Feature: Change language 
 
     Backgrounds: environment/service, pages/search 
 
