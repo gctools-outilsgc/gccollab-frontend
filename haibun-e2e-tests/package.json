@@ -10,9 +10,6 @@
       "build-watch": "tsc --watch",
       "build": "tsc",
       "test": "HAIBUN_O_WEBPLAYWRIGHT_STORAGE=StorageFS HAIBUN_O_WEBPLAYWRIGHT_CAPTURE_VIDEO=true haibun-cli local",
-      "test-xss": "HAIBUN_O_WEBPLAYWRIGHT_STORAGE=StorageFS HAIBUN_O_WEBPLAYWRIGHT_CAPTURE_VIDEO=true haibun-cli local xss",
-      "test-counter": "HAIBUN_O_WEBPLAYWRIGHT_STORAGE=StorageFS HAIBUN_O_WEBPLAYWRIGHT_CAPTURE_VIDEO=true haibun-cli local counter",
-      "test-upload": "HAIBUN_O_WEBPLAYWRIGHT_STORAGE=StorageFS HAIBUN_O_WEBPLAYWRIGHT_CAPTURE_VIDEO=true haibun-cli local upload",
       "test-chromium": "HAIBUN_SPLIT_SHARED=a-browser=chromium haibun-cli local",
       "test-some": "HAIBUN_LOOPS=2 HAIBUN_MEMBERS=5 haibun-cli local",
       "test-many": "HAIBUN_LOOPS=5 HAIBUN_MEMBERS=50 haibun-cli local",
@@ -33,7 +30,6 @@
       "@haibun/out-xunit": "^1.25.0",
       "@haibun/storage-fs": "^1.25.0",
       "@haibun/web-playwright": "^1.25.0",
-      "@haibun/web-server-express": "^1.25.0",
       "@types/express-fileupload": "^1.4.1",
       "express-fileupload": "^1.4.0",
       "typescript": "^4.5.5"
