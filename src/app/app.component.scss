@@ -2,7 +2,7 @@
 
 .gcc-main {
     flex: 1;
-    width: calc(100% - 240px);
+    width: calc(100% - ($gutter-desktop * 2));
     margin: 0 auto;
     padding: $padding-vertical 0;
 }
