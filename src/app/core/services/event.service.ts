@@ -11,14 +11,10 @@ export class EventService {
 
   constructor() { }
 
-  getEvents(page: number): Observable<Event[]> {
-    return this.mockGetEvents(page);
-  }
-
-  private mockGetEvents(page: number): Observable<Event[]> {
+  mockGetEvents(count: number = 10, delay: number = 5000): Observable<Event[]> {
     let response: Event[] = [];
 
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < count; i++) {
       response.push(this.generateRandomEventItem());
     }
 
@@ -26,7 +22,7 @@ export class EventService {
       setTimeout(() => {
         subscriber.next(response);
         subscriber.complete();
-      }, 5000);
+      }, delay);
     });
 
     return observable;
@@ -39,6 +35,8 @@ export class EventService {
     event.title = this.randomTitle();
     event.eventType = this.randomEventType();
     event.startDate = this.randomDate();
+
+    this.id++;
     
     return event;
   }

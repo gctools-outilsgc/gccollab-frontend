@@ -12,7 +12,9 @@
         There is nothing to display.
     </div>
 
-    <div *ngIf="isLoading" class="news-card-wrapper loading" style="padding: 22px 0;">
-        <app-news-card [loading]="true"></app-news-card>
+    <div *ngIf="isLoading">
+        <div *ngFor="let num of loadingItems" class="news-card-wrapper loading" style="padding: 22px 0;">
+            <app-news-card [loading]="true"></app-news-card>
+        </div>
     </div>
 </div>

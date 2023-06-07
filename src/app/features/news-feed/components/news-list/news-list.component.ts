@@ -10,6 +10,15 @@ import { NewsItem } from '../../models/news-item';
 export class NewsListComponent {
   @Input() model?: NewsItem[];
   @Input() isLoading: boolean = false;
+  @Input() loadingCount: number = 3;
 
-  // https://levelup.gitconnected.com/implementing-infinite-scrolling-using-angular-82c66f27e817
+  loadingItems: number[];
+
+  constructor() {
+    this.loadingItems = [];
+    
+    for (let i = 0; i < this.loadingCount; i++) {
+      this.loadingItems.push(i);
+    }
+  }
 }

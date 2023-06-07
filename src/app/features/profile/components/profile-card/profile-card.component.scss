@@ -31,6 +31,12 @@
             >div:first-child {
                 font-weight: 700;
             }
+
+            ngx-skeleton-loader {
+                width: 50%;
+                display: block;
+                margin: auto;
+            }
         }
 
         mat-card-actions {
