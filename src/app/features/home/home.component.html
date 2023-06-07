@@ -31,7 +31,8 @@
 
         <!-- Connections -->
         <section>
-            <app-profile-card [model]="profile"></app-profile-card>
+            <app-profile-card [model]="profileShea"></app-profile-card>
+            <app-profile-card [model]="profileAdi" style="display: block; padding-top: 12px;"></app-profile-card>
             <div class="click-for-more">
                 <a routerLink="{{ '/' + routes.Profile }}">
                     {{ translations.features.home.moreConnections | translate }}

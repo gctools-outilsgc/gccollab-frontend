@@ -19,9 +19,9 @@
             padding-right: $grid-step;
 
             > div {
-                max-height: 65vh;
+                max-height: 100vh;
                 overflow: auto;
-                padding: 22px 22px 0 22px;
+                padding: 0 22px 0 22px;
             }
         }
 

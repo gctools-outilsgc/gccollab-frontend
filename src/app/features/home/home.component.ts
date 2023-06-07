@@ -31,14 +31,21 @@ export class HomeComponent implements OnInit {
   loadingEvents: boolean = true;
 
   // Profiles
-  profile: Person = new Person();
+  profileShea: Person = new Person();
+  profileAdi: Person = new Person();
 
   constructor(public translations: Translations, private newsService: NewsService, private eventService: EventService) {
-    this.profile.id = '1';
-    this.profile.firstName = 'Shea';
-    this.profile.lastName = 'Dougherty-Gill';
-    this.profile.jobTitle = 'Web Developer';
-    this.profile.profilePicture = 'https://avatars.githubusercontent.com/u/2327968?v=4';
+    this.profileShea.id = '1';
+    this.profileShea.firstName = 'Shea';
+    this.profileShea.lastName = 'Dougherty-Gill';
+    this.profileShea.jobTitle = 'Web Developer';
+    this.profileShea.profilePicture = 'https://media.tenor.com/0ygiqFaX-ssAAAAM/bongo-cat-typing.gif';
+
+    this.profileAdi.id = '2';
+    this.profileAdi.firstName = 'Adi';
+    this.profileAdi.lastName = 'Makkar';
+    this.profileAdi.jobTitle = 'Web Developer';
+    this.profileAdi.profilePicture = 'https://i.gifer.com/KWZg.gif';
   }
 
   ngOnInit(): void {
