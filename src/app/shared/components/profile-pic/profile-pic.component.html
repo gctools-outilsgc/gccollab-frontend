@@ -1,4 +1,10 @@
-<img [src]="model?.profilePicture" 
+<img *ngIf="!loading"
+     [src]="model?.profilePicture" 
      [alt]="translations.profile_pic.alt | translate" 
      (click)="onClick()"
 />
+<ngx-skeleton-loader *ngIf="loading"
+                     count="1" 
+                     appearance="circle" 
+                     animation="progress">
+</ngx-skeleton-loader>

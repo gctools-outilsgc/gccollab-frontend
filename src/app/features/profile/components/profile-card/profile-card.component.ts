@@ -38,7 +38,8 @@ export class ProfileCardComponent {
       if (this.confirmed && this.declined)
         this.declined = false;
 
-      this.confirm.emit(this.model);
+      if (this.confirmed)
+        this.confirm.emit(this.model);
     }
   }
 
@@ -50,7 +51,8 @@ export class ProfileCardComponent {
       if (this.declined && this.confirmed)
         this.confirmed = false;
 
-      this.decline.emit(this.model);
+      if (this.declined)
+        this.decline.emit(this.model);
     }
   }
 

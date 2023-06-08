@@ -1,14 +1,14 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { Event } from '../../models/event';
+import { Person } from 'src/app/core/models/person';
 
 @Component({
-  selector: 'app-event-list',
-  templateUrl: './event-list.component.html',
-  styleUrls: ['./event-list.component.scss'],
+  selector: 'app-profile-list',
+  templateUrl: './profile-list.component.html',
+  styleUrls: ['./profile-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EventListComponent {
-  @Input() model?: Event[];
+export class ProfileListComponent {
+  @Input() model?: Person[];
   @Input() isLoading: boolean = false;
   @Input() loadingCount: number = 3;
 
@@ -25,11 +25,11 @@ export class EventListComponent {
     }
   }
 
-  confirmEvent(event: Event) {
-    this.confirm.emit(event);
+  confirmConnection(person: Person) {
+    this.confirm.emit(person);
   }
 
-  declineEvent(event: Event) {
-    this.decline.emit(event);
+  declineConnection(person: Person) {
+    this.decline.emit(person);
   }
 }

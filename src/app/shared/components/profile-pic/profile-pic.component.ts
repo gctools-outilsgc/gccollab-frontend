@@ -14,6 +14,7 @@ import { CoreRoutes } from 'src/app/core/constants/routes.constants';
 export class ProfilePicComponent {
 
   @Input() model: Person | undefined;
+  @Input() loading: boolean = false;
 
   constructor (public translations: Translations,
                private router: Router)

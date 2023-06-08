@@ -10,6 +10,7 @@ import { Event } from '../events/models/event';
 import { EventService } from 'src/app/core/services/event.service';
 import { CoreRoutes } from 'src/app/core/constants/routes.constants';
 import { Person } from 'src/app/core/models/person';
+import { PeopleService } from 'src/app/core/services/people.service';
 
 @Component({
   templateUrl: './home.component.html',
@@ -30,51 +31,62 @@ export class HomeComponent implements OnInit {
   eventsPage: number = 1;
   loadingEvents: boolean = true;
 
-  // Profiles
-  profileShea: Person = new Person();
-  profileAdi: Person = new Person();
+  // Connections
+  people: Person[] = [];
+  peoplePage: number = 1;
+  loadingPeople: boolean = true;
 
-  constructor(public translations: Translations, private newsService: NewsService, private eventService: EventService) {
-    this.profileShea.id = '1';
-    this.profileShea.firstName = 'Shea';
-    this.profileShea.lastName = 'Dougherty-Gill';
-    this.profileShea.jobTitle = 'Web Developer';
-    this.profileShea.profilePicture = 'https://media.tenor.com/0ygiqFaX-ssAAAAM/bongo-cat-typing.gif';
+  constructor(public translations: Translations, 
+              private newsService: NewsService, 
+              private eventService: EventService, 
+              private peopleService: PeopleService) {
 
-    this.profileAdi.id = '2';
-    this.profileAdi.firstName = 'Adi';
-    this.profileAdi.lastName = 'Makkar';
-    this.profileAdi.jobTitle = 'Web Developer';
-    this.profileAdi.profilePicture = 'https://i.gifer.com/KWZg.gif';
   }
 
   ngOnInit(): void {
-    this.newsService.getNews(this.newsPage).subscribe((newsItems: NewsItem[]) => {
+    this.newsService.mockGetNewsItems(10, 5000).subscribe((newsItems: NewsItem[]) => {
       this.newsItems = newsItems;
       this.loadingNews = false;
     });
 
-    this.eventService.getEvents(this.eventsPage).subscribe((events: Event[]) => {
+    this.eventService.mockGetEvents(3, 5000).subscribe((events: Event[]) => {
       this.events = events;
       this.loadingEvents = false;
+    });
+
+    this.peopleService.mockGetPeople(3, 5000).subscribe((people: Person[]) => {
+      this.people = people;
+      this.loadingPeople = false;
     });
   }
 
   onNewsScroll(): void {
     this.loadingNews = true;
     
-    this.newsService.getNews(++this.newsPage).subscribe((newsItems: NewsItem[]) => {
+    this.newsService.mockGetNewsItems(10, 3000).subscribe((newsItems: NewsItem[]) => {
       this.newsItems.push(...newsItems);
       this.loadingNews = false;
     });
   }
 
-  confirmEvent() {
+  confirmEvent(event: Event) {
     console.log('Event Confirm');
+    console.log(event);
   }
 
-  declineEvent() {
+  confirmConnection(person: Person) {
+    console.log('Connection Confirmed');
+    console.log(person);
+  }
+
+  declineEvent(event: Event) {
     console.log('Event Declined');
+    console.log(event);
+  }
+
+  declineConnection(person: Person) {
+    console.log('Connection Declined');
+    console.log(person);
   }
 
 }
