@@ -5,4 +5,4 @@ Feature: Support button feature
 
     On the home webpage
     Click the button Support
-    #Add a support link 
+    #Then the support webpage should load successfully 

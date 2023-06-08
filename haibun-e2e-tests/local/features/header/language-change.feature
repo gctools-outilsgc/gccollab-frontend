@@ -5,6 +5,6 @@ Feature: Change language
 
     On the home webpage
     Click the button Language
-    #Then the language should be toggled to French 
+    #Then I should see English
     #Click the button Language
-    #Then the language should be toggled to English
+    #Then I should see French
