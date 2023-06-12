@@ -4,7 +4,11 @@ Feature: Change language
     Backgrounds: environment/service, pages/site 
 
     On the home webpage
-    Click the button Language
-    #Then I should see English
-    #Click the button Language
-    #Then I should see French
+
+    Scenario: Change to French Language
+    When I click the button Language
+    Then I should see the home webpage in French
+
+    Scenario: Change to English Language 
+    When I click the button Language
+    Then I should see the home webpage in English
