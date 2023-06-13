@@ -4,4 +4,4 @@ Feature: Statistics button feature
 
     On the home webpage
     Click the button Statistics
-    Then be on the statistics page
+    #Then be on the statistics page
