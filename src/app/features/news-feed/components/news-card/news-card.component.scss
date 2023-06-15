@@ -29,18 +29,17 @@ $title-padding: 90px;
                 font-size: 20px;
                 font-weight: $bold;
             }
-    
+
             mat-card-subtitle {
                 font-size: 16px;
-                font-weight: $regular;
             }
         }
-
+        
         mat-card-content {
             padding-top: 15px;
             padding-bottom: 10px;
         }
-
+        
         mat-card-actions {
             padding-bottom: 10px;
             padding-left: 0;

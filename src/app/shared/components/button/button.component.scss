@@ -12,4 +12,10 @@
             align-self:center;
         }
     }
+
+    ::ng-deep {
+        .mat-mdc-button:not(:disabled) {
+            color: inherit;
+        }
+    }
 }

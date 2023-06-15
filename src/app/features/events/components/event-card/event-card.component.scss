@@ -41,6 +41,22 @@
                 }
             }
 
+            .event-calendar.canceled {
+                background: $error-red-gradient;
+            }
+
+            .event-calendar.past {
+                background: $neutral-700 !important;
+            }
+
+            .event-content.canceled {
+                color: $error-red;
+            }
+
+            .event-content.past {
+                color: $neutral-700 !important;
+            }
+
             .event-calendar-loading {
                 ::ng-deep >div {
                     width: 65px;
