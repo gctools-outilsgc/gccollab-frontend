@@ -1,10 +1,4 @@
-//@import "../../../node_modules/@angular/material/theming";
-//@include mat-core();
-
-// These aren't used currently 
-// When we upgrade to Angular 16 material will require palettes defined in this format.
-
-$default-primary: (
+$primary-palette: (
     50: #f5e5f9,
     100: #e5bef0,
     200: #d493e7,
@@ -23,8 +17,8 @@ $default-primary: (
         50: black,
         100: black,
         200: black,
-        300: white
-        400: white
+        300: white,
+        400: white,
         500: white,
         600: white,
         700: white,
@@ -37,7 +31,7 @@ $default-primary: (
     )
 );
 
-$default-secondary: (
+$secondary-palette: (
     50: #e0f1f2,
     100: #b1dddd,
     200: #7fc8c7,
@@ -71,7 +65,7 @@ $default-secondary: (
 );
 
 // TODO : Contrast + fillers
-$default-accent: (
+$accent-palette: (
     50: #FBEDFC,
     100: #badffb,
     200: #8fcbfa,
@@ -104,7 +98,7 @@ $default-accent: (
     )
 );
 
-$default-warn: (
+$warn-palette: (
     50: #ffeaed,
     100: #ffcbce,
     200: #f29793,
@@ -136,4 +130,3 @@ $default-warn: (
         A700: black,
     )
 );
-
