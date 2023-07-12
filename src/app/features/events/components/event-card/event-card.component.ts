@@ -53,8 +53,14 @@ export class EventCardComponent {
   }
 
   clickEvent() {
-    if (this.model) {
+    if (this.model) 
       this.router.navigateByUrl(CoreRoutes.Events + '/' + this.model.id);
-    }
+  }
+
+  isPast(): boolean {
+    if (this.model?.startDate && this.model.startDate < new Date()) 
+      return true;
+    
+    return false;
   }
 }

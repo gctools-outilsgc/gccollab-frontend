@@ -83,4 +83,14 @@ mat-hint {
             border-color: $primary-1 !important;
         }
     }
+
+    .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+
+    .mat-mdc-form-field-infix {
+        min-height: unset;
+    }
 }
