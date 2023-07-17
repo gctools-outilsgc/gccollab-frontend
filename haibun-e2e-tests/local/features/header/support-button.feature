@@ -3,7 +3,7 @@ Feature: Support button feature
 
     Backgrounds: environment/service, pages/site
 
-    be on the home webpage
+    go to the home webpage
     click the button Support
 
     pause until current tab is 2
