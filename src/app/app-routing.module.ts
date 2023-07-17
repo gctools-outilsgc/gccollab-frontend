@@ -33,7 +33,7 @@ const routes: Routes = [
     path: CoreRoutes.Home,
     title: translations.titles.home,
     loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule),
-    //canActivate: [InterceptorGuard],
+    canActivate: [InterceptorGuard],
     data: {
       title: translations.titles.home, 
       breadcrumb: translations.titles.home
