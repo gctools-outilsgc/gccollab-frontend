@@ -3,6 +3,10 @@ Feature: Support button feature
 
     Backgrounds: environment/service, pages/site
 
-    On the home webpage
-    Click the button Support
-    Then be on the support page
+    be on the home webpage
+    click the button Support
+
+    pause until current tab is 2
+    on tab 2
+    be on the support webpage 
+    see "Welcome to GCTools Support"

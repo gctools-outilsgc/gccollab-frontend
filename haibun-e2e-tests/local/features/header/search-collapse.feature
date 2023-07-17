@@ -3,7 +3,7 @@ Feature: Search collapse function
 
     Backgrounds: environment/service, pages/site
 
-    On the home webpage
-    Click the button Search
+    be on the home webpage
+    click the button Search
 
-    Click by placeholder "Search GCCollab"
+    click by placeholder "Search GCCollab"

@@ -3,5 +3,5 @@ Feature: Home button feature
 
     Backgrounds: environment/service, pages/site
 
-    On the home webpage
-    Click the button Home
+    be on the home webpage
+    click the button Home

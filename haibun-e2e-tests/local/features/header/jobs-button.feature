@@ -3,6 +3,6 @@ Feature: Jobs button feature
 
     Backgrounds: environment/service, pages/site
 
-    On the home webpage
-    Click the button Jobs
+    be on the home webpage
+    click the button Jobs
     #Add a jobs link 

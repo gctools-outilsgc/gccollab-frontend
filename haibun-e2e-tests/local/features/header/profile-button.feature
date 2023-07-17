@@ -3,6 +3,6 @@ Feature: Profile button feature
 
     Backgrounds: environment/service, pages/site
 
-    On the home webpage
-    Click the button Profile
+    be on the home webpage
+    click the button Profile
     #Add a profile link 
