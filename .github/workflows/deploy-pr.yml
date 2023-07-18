@@ -1,0 +1,103 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Deploy PR
+
+on:
+  pull_request:
+    types: [opened, edited, reopened]
+    branches: master
+
+env:
+  AZURE_WEBAPP_NAME: gccollab-dev-pr-${{ github.event.number }}
+  AZURE_WEBAPP_PACKAGE_PATH: './dist/gccollab-frontend'
+  NODE_VERSION: '16.14.2'
+  ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+  PUBLISHING_PROFILE: 'Unset'
+
+jobs:
+  # https://stackoverflow.com/questions/57819539/github-actions-how-to-share-a-calculated-value-between-job-steps
+
+  setup:
+    name: Setup Environemnt w/ Bicep
+    runs-on: ubuntu-latest
+    steps:
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Create Resource Group
+        uses: azure/arm-deploy@v1
+        with:
+          scope: ''
+          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+          template: ./.bicep/pr-instance-setup.bicep
+          parameters: 'storagePrefix=mystore storageSKU=Standard_LRS'
+          failOnStdErr: false
+
+      - name: Create Web App and Service
+        uses: azure/arm-deploy@v1
+        with:
+          scope: ''
+          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+          resourceGroupName: ${{ env.AZURE_WEBAPP_NAME }}
+          template: ./.bicep/pr-instance.bicep
+          parameters: 'storagePrefix=mystore storageSKU=Standard_LRS'
+          failOnStdErr: false
+
+  store:
+    name: Store Publishing Profile
+    runs-on: ubuntu-latest
+    steps:
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }} #TODO: https://www.techielass.com/create-azure-credentials-for-use-in-github-actions/
+
+      - name: Get Publishing Profile
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
+            az webapp deployment list-publishing-profiles
+
+      - name: GitHub Auth Login
+        shell: bash
+        run: gh auth login --with-token <<< $ACCESS_TOKEN
+
+      - name: Store Publishing Profile
+        shell: bash
+        run: |
+          repository='${{ github.repository }}'
+          gh secret set "$AZURE_WEBAPP_NAME" --body "$PUBLISHING_PROFILE" --repo $repository
+
+      - name: Set Secret
+        shell: bash
+        run: |
+          echo "PUBLISHING_PROFILE=edited" >> "$GITHUB_ENV"
+
+  build-test-and-deploy:
+    name: Build, Test and Deploy
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install
+        run: npm install
+
+      - name: Build
+        run: npm run build-dev --if-present
+
+      - name: Test
+        run: npm run test --if-present -- --watch=false --browsers=ChromeHeadless
+
+      - name: 'Deploy to Azure WebApp'
+        uses: azure/webapps-deploy@v1
+        with: 
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets[env.AZURE_WEBAPP_NAME] }}
+          package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
