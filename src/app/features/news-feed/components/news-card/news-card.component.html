@@ -1,12 +1,7 @@
-<mat-card>
+<mat-card appearance="outlined">
 
     <div class="profile-wrapper">
-        <app-profile-pic *ngIf="!loading" [model]="model?.author"></app-profile-pic>
-        <ngx-skeleton-loader *ngIf="loading"
-                             count="1" 
-                             appearance="circle" 
-                             animation="progress">
-        </ngx-skeleton-loader>
+        <app-profile-pic [model]="model?.author" [loading]="loading"></app-profile-pic>
     </div>
 
     <div *ngIf="loading" class="loading-header">

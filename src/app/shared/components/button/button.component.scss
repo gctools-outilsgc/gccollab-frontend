@@ -1,5 +1,9 @@
 :host {
     position: sticky;
+
+    button {
+        margin: 0;
+    }
     
     .gcc-button-inner {
         display: flex;
@@ -10,6 +14,12 @@
         .mat-icon {
             display:flex;             
             align-self:center;
+        }
+    }
+
+    ::ng-deep {
+        .mat-mdc-button:not(:disabled) {
+            color: inherit;
         }
     }
 }

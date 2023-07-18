@@ -34,7 +34,8 @@ export class EventCardComponent {
       if (this.model.confirmed && this.model.declined)
         this.model.declined = false;
 
-      this.confirm.emit(this.model);
+      if (this.model.confirmed)
+        this.confirm.emit(this.model);
     }
   }
 
@@ -46,13 +47,20 @@ export class EventCardComponent {
       if (this.model.declined && this.model.confirmed)
         this.model.confirmed = false;
 
-      this.decline.emit(this.model);
+      if (this.model.declined)
+        this.decline.emit(this.model);
     }
   }
 
   clickEvent() {
-    if (this.model) {
+    if (this.model) 
       this.router.navigateByUrl(CoreRoutes.Events + '/' + this.model.id);
-    }
+  }
+
+  isPast(): boolean {
+    if (this.model?.startDate && this.model.startDate < new Date()) 
+      return true;
+    
+    return false;
   }
 }

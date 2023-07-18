@@ -20,11 +20,12 @@
         }
 
         .fade-list-top {
-            width: calc(22px + 53%);
+            width: calc(100% + 22px + 2px);
             height: 44px;
             margin-left: -22px;
             margin-top: -22px;
-            position: absolute;
+            position: sticky;
+            top: 0;
             z-index: 2;
             background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(255 255 255)), to(rgba(0, 0, 0, 0)));
             pointer-events: none;

@@ -19,8 +19,8 @@
         <section>
             <app-event-list [model]="events" 
                             [isLoading]="loadingEvents"
-                            (confirm)="confirmEvent()"
-                            (decline)="declineEvent()">
+                            (confirm)="confirmEvent($event)"
+                            (decline)="declineEvent($event)">
             </app-event-list>
             <div class="click-for-more">
                 <a routerLink="{{ '/' + routes.Events }}">
@@ -31,7 +31,12 @@
 
         <!-- Connections -->
         <section>
-            <app-profile-card [model]="profile"></app-profile-card>
+            <app-profile-list [model]="people"
+                              [isLoading]="loadingPeople"
+                              (confirm)="confirmConnection($event)"
+                              (decline)="declineConnection($event)">
+            </app-profile-list>
+
             <div class="click-for-more">
                 <a routerLink="{{ '/' + routes.Profile }}">
                     {{ translations.features.home.moreConnections | translate }}

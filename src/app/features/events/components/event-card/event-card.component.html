@@ -1,10 +1,11 @@
-<mat-card>
+<mat-card appearance="outlined">
     <mat-card-content>
         <div class="event-calendar"
              *ngIf="!loading"
              [matTooltip]="translations.eventCard.calendar.tooltip | translate"
              [attr.aria-label]="translations.eventCard.calendar.aria | translate"
              [matTooltipPosition]="tooltipDirection.Above"
+             [ngClass]="model?.canceled == true ? 'canceled' : isPast() ? 'past' : ''"
              (click)="clickEvent()"
              tabindex="0">
             <div>
@@ -19,6 +20,7 @@
         <ngx-skeleton-loader *ngIf="loading" count="1" appearance="circle" animation="progress" class="event-calendar-loading"></ngx-skeleton-loader>
 
         <div class="event-content" 
+             [ngClass]="model?.canceled == true ? 'canceled' : isPast() ? 'past' : ''"
              routerLink="{{ '/' + routes.Events  + '/view/' + model?.id }}">
 
             <div *ngIf="!loading">
@@ -39,7 +41,7 @@
                         [tooltip]="(model?.confirmed ? translations.eventCard.confirm.tooltip_off : translations.eventCard.confirm.tooltip_on) | translate"
                         [ariaLabel]="(model?.confirmed ? translations.eventCard.confirm.aria_off : translations.eventCard.confirm.aria_on) | translate"
                         [tooltipDirection]="tooltipDirection.Above"
-                        [disabled]="loading"
+                        [disabled]="loading || model?.canceled == true || isPast()"
                         (click)="confirmEvent()">
                 <i *ngIf="!loading" 
                    class="fa-circle-check"
@@ -53,7 +55,7 @@
                         [matButtonType]="materialButtonType.Icon"
                         [tooltip]="(model?.declined ? translations.eventCard.decline.tooltip_off : translations.eventCard.decline.tooltip_on) | translate"
                         [ariaLabel]="(model?.declined ? translations.eventCard.decline.aria_off : translations.eventCard.decline.aria_on) | translate"
-                        [disabled]="loading"
+                        [disabled]="loading || model?.canceled == true || isPast()"
                         (click)="declineEvent()">
                 <i *ngIf="!loading" 
                    class="fa-circle-xmark"

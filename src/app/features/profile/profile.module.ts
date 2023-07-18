@@ -5,11 +5,13 @@ import { ProfileRoutingModule } from './profile-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ProfileCardComponent } from './components/profile-card/profile-card.component';
 import { MatCardModule } from '@angular/material/card';
+import { ProfileListComponent } from './components/profile-list/profile-list.component';
 
 
 @NgModule({
   declarations: [
-    ProfileCardComponent
+    ProfileCardComponent,
+    ProfileListComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { MatCardModule } from '@angular/material/card';
     MatCardModule
   ],
   exports: [
-    ProfileCardComponent
+    ProfileCardComponent,
+    ProfileListComponent
   ]
 })
 export class ProfileModule { }
