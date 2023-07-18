@@ -19,6 +19,7 @@ export class LanguageSelectorComponent implements OnInit {
   ];
   selectedLanguageKey: string = this.languages[0].key;
   materialButtonType = MaterialButtonType;
+  id: string = 'gcc-language-selector-btn-en';
 
   constructor(private translateService: TranslateService, public translations: Translations) { }
 
@@ -38,6 +39,8 @@ export class LanguageSelectorComponent implements OnInit {
         break;
       }
     }
+    
+    this.id = 'gcc-language-selector-btn-' + this.selectedLanguageKey;
   }
 
   toggle() {
@@ -48,5 +51,6 @@ export class LanguageSelectorComponent implements OnInit {
   update() {
     this.translateService.use(this.selectedLanguageKey);
     this.translateService.currentLang = this.selectedLanguageKey;
+    this.id = 'gcc-language-selector-btn-' + this.selectedLanguageKey;
   }
 }
