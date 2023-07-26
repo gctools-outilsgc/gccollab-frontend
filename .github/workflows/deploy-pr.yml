@@ -13,7 +13,6 @@ env:
   AZURE_WEBAPP_PACKAGE_PATH: './dist/gccollab-frontend'
   NODE_VERSION: '16.14.2'
   ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-  PUBLISHING_PROFILE: 'Unset'
 
 jobs:
   # https://stackoverflow.com/questions/57819539/github-actions-how-to-share-a-calculated-value-between-job-steps
@@ -56,25 +55,21 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }} #TODO: https://www.techielass.com/create-azure-credentials-for-use-in-github-actions/
 
       - name: Get Publishing Profile
-        uses: azure/CLI@v1
-        with:
-          inlineScript: |
-            az webapp deployment list-publishing-profiles
+        id: get-publishing-profile
+        run: |
+          profile=$(az webapp deployment list-publishing-profiles --resource-group ${{ env.AZURE_WEBAPP_NAME }} --name ${{ env.AZURE_WEBAPP_NAME }} --query "[?publishMethod=='MSDeploy']").[publishUrl,userName,userPWD] -o tsv)
+          echo "::set-output name=profile::$profile"
 
       - name: GitHub Auth Login
         shell: bash
         run: gh auth login --with-token <<< $ACCESS_TOKEN
 
-      - name: Store Publishing Profile
-        shell: bash
+      - name: Create Secret
         run: |
-          repository='${{ github.repository }}'
-          gh secret set "$AZURE_WEBAPP_NAME" --body "$PUBLISHING_PROFILE" --repo $repository
-
-      - name: Set Secret
-        shell: bash
-        run: |
-          echo "PUBLISHING_PROFILE=edited" >> "$GITHUB_ENV"
+          echo "$PROFILE" > profile.txt
+          gh secret set "$AZURE_WEBAPP_NAME" --in-file profile.txt --repo $repository
+        env:
+          PROFILE: ${{ steps.get-publishing-profile.outputs.profile }}
 
   build-test-and-deploy:
     name: Build, Test and Deploy
