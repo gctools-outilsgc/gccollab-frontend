@@ -9,14 +9,13 @@ on:
     branches: master
 
 env:
-  AZURE_WEBAPP_NAME: gccollab-dev-pr-${{ github.event.number }}
+  AZURE_WEBAPP_NAME: gccollab-dev-pr-${{ github.event.number }} 
   AZURE_WEBAPP_PACKAGE_PATH: './dist/gccollab-frontend'
   NODE_VERSION: '16.14.2'
   ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+  ENV_NAME: PR-${{ github.event.number }}
 
 jobs:
-  # https://stackoverflow.com/questions/57819539/github-actions-how-to-share-a-calculated-value-between-job-steps
-
   setup:
     name: Setup Environemnt w/ Bicep
     runs-on: ubuntu-latest
@@ -63,18 +62,33 @@ jobs:
 
       - name: GitHub Auth Login
         shell: bash
-        run: gh auth login --with-token <<< $ACCESS_TOKEN
+        run: gh auth login --with-token <<< ${{ env.ACCESS_TOKEN }}
 
       - name: Create Secret
         run: |
           echo "$PROFILE" > profile.txt
-          gh secret set "$AZURE_WEBAPP_NAME" --in-file profile.txt --repo $repository
+          gh secret set "${{ env.AZURE_WEBAPP_NAME }}" --in-file profile.txt --repo $repository
         env:
           PROFILE: ${{ steps.get-publishing-profile.outputs.profile }}
+
+  create-environment:
+    name: Create Environment 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Environment
+        shell: bash
+        run: |
+          curl -X POST "https://api.github.com/repos/gctools-outilsgc/gccollab-frontend/environments" \
+          -H "Authorization: token ${{ env.ACCESS_TOKEN }}" \
+          -H "Accept: application/vnd.github.v3+json" \
+          -d "{\"name\":\"${{ env.ENV_NAME }}\"}"
 
   build-test-and-deploy:
     name: Build, Test and Deploy
     runs-on: windows-latest
+    environment: 
+      name: ${{ env.ENV_NAME }} #Ignore IDE error. It's complaining about the environment not existing yet.
+      url: https://gccollab-dev-pr-${{ github.event.number }}.azurewebsites.net/
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js ${{ env.NODE_VERSION }}

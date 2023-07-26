@@ -1,7 +1,7 @@
 targetScope = 'resourceGroup'
 
 param appName string = resourceGroup().name
-param location string
+param location string = 'Canada East'
 param siteKind string = 'windows'
 param sku string = 'F1'
 
