@@ -2,7 +2,7 @@
     "type": "module",
     "name": "haibun-e2e-tests",
     "version": "1.10.0",
-    "description": "e2e tests for haibun",
+    "description": "e2e tests for gccollab frontend",
     "engines": {
       "node": ">=14"
     },
@@ -20,16 +20,17 @@
       "test-envc-10": "HAIBUN_LOOPS=2 HAIBUN_MEMBERS=5 HAIBUN_ENVC=what=what1,what=what2,also=also1,also=also2 haibun-cli envc"
     },
     "keywords": [],
-    "author": "vid",
+    "author": "vid", 
     "license": "ISC",
     "dependencies": {
-      "@haibun/cli": "^1.28.12",
-      "@haibun/core": "^1.28.12",
-      "@haibun/domain-storage": "^1.28.12",
-      "@haibun/domain-webpage": "^1.28.12",
-      "@haibun/out-xunit": "^1.28.12",
-      "@haibun/storage-fs": "^1.28.12",
-      "@haibun/web-playwright": "^1.28.12",
+      "@haibun/cli": "^1.29.1",
+      "@haibun/core": "^1.29.1",
+      "@haibun/domain-storage": "^1.29.1",
+      "@haibun/domain-webpage": "^1.29.1",
+      "@haibun/out-xunit": "^1.29.1",
+      "@haibun/storage-fs": "^1.29.1",
+      "@haibun/web-playwright": "^1.29.1",
+      "@haibun/web-accessibility-axe": "1.29.1",
       "@types/express-fileupload": "^1.4.1",
       "express-fileupload": "^1.4.0",
       "typescript": "^4.5.5"

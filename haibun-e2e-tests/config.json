@@ -5,6 +5,7 @@
     "~@haibun/web-playwright/build/web-playwright",
     "~@haibun/domain-storage/build/domain-storage",
     "~@haibun/storage-fs/build/storage-fs",
+    "~@haibun/web-accessibility-axe/build/a11y-axe-stepper",
     "vars",
     "credentials",
     "haibun"
