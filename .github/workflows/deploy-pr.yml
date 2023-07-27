@@ -30,7 +30,6 @@ jobs:
           scope: 'subscription'
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           template: ./.bicep/pr-instance-setup.bicep
-          parameters: 'storagePrefix=mystore storageSKU=Standard_LRS'
           failOnStdErr: false
 
       - name: Create Web App and Service
@@ -40,7 +39,6 @@ jobs:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           resourceGroupName: ${{ env.AZURE_WEBAPP_NAME }}
           template: ./.bicep/pr-instance.bicep
-          parameters: 'storagePrefix=mystore storageSKU=Standard_LRS'
           failOnStdErr: false
 
   store:
