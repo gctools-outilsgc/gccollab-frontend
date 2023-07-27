@@ -27,7 +27,7 @@ jobs:
       - name: Create Resource Group
         uses: azure/arm-deploy@v1
         with:
-          scope: ''
+          scope: 'subscription'
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           template: ./.bicep/pr-instance-setup.bicep
           parameters: 'storagePrefix=mystore storageSKU=Standard_LRS'
@@ -36,7 +36,7 @@ jobs:
       - name: Create Web App and Service
         uses: azure/arm-deploy@v1
         with:
-          scope: ''
+          scope: 'resourcegroup'
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           resourceGroupName: ${{ env.AZURE_WEBAPP_NAME }}
           template: ./.bicep/pr-instance.bicep
@@ -50,7 +50,7 @@ jobs:
       - name: Azure Login
         uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }} #TODO: https://www.techielass.com/create-azure-credentials-for-use-in-github-actions/
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
     
       - name: Get Publishing Profile
         id: get-publishing-profile
@@ -80,13 +80,13 @@ jobs:
           curl -X POST "https://api.github.com/repos/gctools-outilsgc/gccollab-frontend/environments" \
           -H "Authorization: token ${{ env.ACCESS_TOKEN }}" \
           -H "Accept: application/vnd.github.v3+json" \
-          -d "{\"name\":\"PR #${{ github.event.number }}\"}"
+          -d "{\"name\":\"PR ${{ github.event.number }}\"}"
 
   build-test-and-deploy:
     name: Build, Test and Deploy
     runs-on: windows-latest
     environment: 
-      name: PR \#${{ github.event.number }}
+      name: PR ${{ github.event.number }}
       url: https://${{ env.AZURE_WEBAPP_NAME }}.azurewebsites.net/
     steps:
       - uses: actions/checkout@v3
