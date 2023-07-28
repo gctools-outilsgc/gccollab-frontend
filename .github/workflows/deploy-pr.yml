@@ -16,11 +16,11 @@ env:
 
 jobs:
   setup:
-    name: Setup Environemnt w/ Bicep
+    name: Deploy Bicep
     runs-on: ubuntu-latest
     steps:
-      - name: Azure Login
-        uses: azure/login@v1
+      - uses: actions/checkout@master
+      - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
@@ -30,7 +30,6 @@ jobs:
           scope: 'subscription'
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           template: ./.bicep/pr-instance-setup.bicep
-          failOnStdErr: false
 
       - name: Create Web App and Service
         uses: azure/arm-deploy@v1
@@ -39,7 +38,6 @@ jobs:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           resourceGroupName: ${{ env.AZURE_WEBAPP_NAME }}
           template: ./.bicep/pr-instance.bicep
-          failOnStdErr: false
 
   store:
     name: Store Publishing Profile
