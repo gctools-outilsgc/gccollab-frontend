@@ -12,4 +12,4 @@ Feature: FAQs button feature
     see "Welcome to GCTools Support"
 
     #checks for the accessibility of the page - based on haibun-web-accessibility-axe 
-    page is accessible accepting serious 3 and moderate 3 
+    page is accessible accepting serious 0 and moderate 0 
