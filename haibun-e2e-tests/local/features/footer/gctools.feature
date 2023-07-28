@@ -10,3 +10,6 @@ Feature: GCTools button feature
     on tab 2 
     be on the gctools webpage 
     see "gctools-outilsgc"
+
+    #checks for the accessibility of the page - based on haibun-web-accessibility-axe 
+    page is accessible accepting serious 3 and moderate 3 

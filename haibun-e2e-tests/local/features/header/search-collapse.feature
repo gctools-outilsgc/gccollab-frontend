@@ -7,3 +7,6 @@ Feature: Search collapse function
     click the button Search
 
     click by placeholder "Search GCCollab"
+
+    #checks for the accessibility of the page - based on haibun-web-accessibility-axe 
+    page is accessible accepting serious 3 and moderate 3 
