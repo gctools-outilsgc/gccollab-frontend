@@ -1,14 +1,15 @@
-<mat-card class="group-card" appearance="outlined" routerLink="/group"> 
+<mat-card class="group-card" appearance="outlined"> 
     <mat-card-header>
         <div class="group-image-wrapper">
-            <app-profile-pic 
-                [model]="" 
+            <!-- <app-profile-pic
+                [model]="model" 
                 [loading]="loading">
-            </app-profile-pic>
+            </app-profile-pic> -->
         </div>
     </mat-card-header>
     <mat-card-content>
-        <div class="group-info" *ngIf="!loading">
+        <div class="group-info" *ngIf="!loading"
+        routerLink="{{ '/' + routes.Groups  + '/view/' + model?.id }}">
             <div class="group-name" [ngClass]="{ 'underline': isFocused }"></div>
                 {{ model?.name }}
         </div>

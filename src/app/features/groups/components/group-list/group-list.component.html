@@ -1,0 +1,13 @@
+<div class="group-list-container">
+    <div *ngFor="let group of model" class="group-card-wrapper">
+    </div>
+
+    <div *ngIf="isLoading">
+        <div *ngFor="let num of loadingItems" class="group-card-wrapper">
+        </div>
+    </div>
+
+    <div *ngIf="model && !isLoading && model.length == 0">
+        There is nothing to display.
+    </div>
+</div>

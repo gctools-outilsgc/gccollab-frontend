@@ -71,7 +71,8 @@ export default {
     "features": {
         "home": {
             "moreEvents": "More events",
-            "moreConnections": "More connections"
+            "moreConnections": "More connections",
+            "moreGroups": "More groups"
         }
     },
     "header": {
