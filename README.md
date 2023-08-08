@@ -31,6 +31,20 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 For more information see the official Angular [documentation](https://angular.io/guide/testing).
 
-## Running end-to-end tests
+## Running haibun end-to-end tests using haibun-web-accessibility-axe 
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Navigate to the directory 
+
+    cd haibun-e2e-tests
+
+Install the packages 
+    
+    npm install
+
+Upgrade the packages
+
+    npm upgrade
+
+- Ensure `http://localhost:4200/` is running.
+- Run `npm run test` to execute the haibun e2e tests.
+
