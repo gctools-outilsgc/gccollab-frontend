@@ -20,7 +20,7 @@ All development should be done in branches that branch off `master`.  Any new de
 
 - Create **a new branch** for your work that branches off of `master`.
 - Once your work is done, open a pull request to merge back into `master`.
-- If the pull request has been approved you are free merge and close your branch.
+- If the pull request has been approved you are free to merge and close your branch.
 
 ## Build
 
@@ -31,9 +31,9 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 For more information see the official Angular [documentation](https://angular.io/guide/testing).
 
-## Running haibun end-to-end tests using haibun-web-accessibility-axe 
+## Running haibun end-to-end tests
 
-Haibun Web Accessibility Axe is a module that incorporates Haibun's integration and testing with that of Axe (https://www.deque.com/axe/), an accessibility test engine. 
+GCcollab frontend incorporates Haibun's task-specific modules' integration. The following describes the testing procedure:
 
 1. Navigate to the directory:
    `cd haibun-e2e-tests`
