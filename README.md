@@ -33,7 +33,9 @@ For more information see the official Angular [documentation](https://angular.io
 
 ## Running haibun end-to-end tests
 
-GCcollab frontend incorporates Haibun's task-specific modules' integration. The following describes the testing procedure:
+GCcollab frontend incorporates [Haibun's task-specific modules' integration](https://github.com/withhaibun) for functionality and [accessibility](https://github.com/withhaibun/haibun-web-accessibility-axe). 
+
+The following describes the testing procedure:
 
 1. Navigate to the directory:
    `cd haibun-e2e-tests`
