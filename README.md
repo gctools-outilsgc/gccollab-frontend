@@ -33,38 +33,12 @@ For more information see the official Angular [documentation](https://angular.io
 
 ## Running haibun end-to-end tests using haibun-web-accessibility-axe 
 
-Haibun Web Accessibility Axe is a module that incorporates Haibun's integration and testing with that of Axe, an accessibility test engine. 
+Haibun Web Accessibility Axe is a module that incorporates Haibun's integration and testing with that of Axe (https://www.deque.com/axe/), an accessibility test engine. 
 
-### Installation
-
-Normally, libraries from this repository will be included in a project like any other, or used via the cli, for example, using `npx @haibun/cli`. For more information, you can visit `Haibun` at `https://github.com/withhaibun/haibun`
-
-### Axe 
-
-Axe serves as an accessibility testing ruleset developed by Deque Systems, and follows the international standards set under WCAG. 
-
-### Playwright-Axe 
-
-Playwright-Axe is a Node library to combine the efforts of Playwright and Axe to conduct accessibility tests. 
-
-To download playwright: 
-
-`npm i-D @playwright/test`
-
-To download playwright-axe: 
-
-`npm i-D axe-playwright`
-
-- After the installation, the modules in this repository can be used freely. 
-
-Navigate to the directory:
-
-    cd haibun-e2e-tests
-
-Install the packages:
-    
-    npm install
-
-- Ensure `http://localhost:4200/` is running.
-- Run `npm run test` to execute the haibun e2e tests.
-
+1. Navigate to the directory:
+   `cd haibun-e2e-tests`
+2. Install the packages:
+   `npm install`
+3. Ensure `http://localhost:4200/` is running. 
+5. Run the tests:
+   `npm run test`
