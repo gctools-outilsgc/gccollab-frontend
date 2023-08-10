@@ -21,7 +21,7 @@ jobs:
     if: ${{ !contains(github.event.head_commit.message, vars.IGNORE_DEPLOY) }}
     environment: 
       name: Development
-      url: https://gccollab-dev.azurewebsites.net/
+      url: https://${{ env.AZURE_WEBAPP_NAME }}.azurewebsites.net/
 
     steps:
     - uses: actions/checkout@v3
