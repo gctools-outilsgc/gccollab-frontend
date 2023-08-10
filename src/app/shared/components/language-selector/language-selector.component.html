@@ -8,6 +8,7 @@
 </div>
 
 <app-button *ngIf="isToggle"
+            [id]="id"
             [matButtonType]="materialButtonType.Icon"
             (click)="toggle()"
             [matTooltip]="translations.languages.tooltip | translate"
