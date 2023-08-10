@@ -58,6 +58,7 @@ jobs:
         run: |
           escaped_profile=$(printf "%q" "${{ env.PROFILE }}")
           gh secret set "${{ env.SECRET_NAME }}" --body "$escaped_profile"
+          echo $escaped_profile
         env:
           PROFILE: ${{ steps.get-publishing-profile.outputs.profile }}
 
@@ -97,9 +98,14 @@ jobs:
       - name: Test
         run: npm run test --if-present -- --watch=false --browsers=ChromeHeadless
 
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
       - name: 'Deploy to Azure WebApp'
         uses: azure/webapps-deploy@v1
         with: 
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
-          publish-profile: ${{ secrets[env.AZURE_WEBAPP_NAME] }}
+          publish-profile: ${{ secrets[env.SECRET_NAME] }}
           package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
