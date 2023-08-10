@@ -5,7 +5,7 @@ name: Deploy PR
 
 on:
   pull_request:
-    types: [opened, edited, reopened]
+    types: [opened, reopened]
     branches: master
 
 env:
@@ -13,6 +13,7 @@ env:
   AZURE_WEBAPP_PACKAGE_PATH: './dist/gccollab-frontend'
   NODE_VERSION: '16.14.2'
   ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+  LOCATION: canadaeast
 
 jobs:
   setup:
@@ -29,7 +30,7 @@ jobs:
         with:
           azcliversion: 2.30.0
           inlineScript: |
-            az deployment sub create -l canadaeast -f ./.bicep/pr-instance-setup.bicep --parameters prNumber=${{ github.event.number }}
+            az deployment sub create -l ${{ env.LOCATION }} -f ./.bicep/pr-instance-setup.bicep --parameters prNumber=${{ github.event.number }} location=${{ env.LOCATION }}
 
   store:
     name: Store Publishing Profile
@@ -53,8 +54,8 @@ jobs:
 
       - name: Create Secret
         run: |
-          echo "$PROFILE" > profile.txt
-          gh secret set "${{ env.AZURE_WEBAPP_NAME }}" --body "${{ env.PROFILE }}" --repo "gccollab-frontend"
+          escaped_profile=$(printf "%q" "${{  env.PROFILE }}")
+          gh secret set "${{ env.AZURE_WEBAPP_NAME }}" --body "$escaped_profile" --repo "gccollab-frontend"
         env:
           PROFILE: ${{ steps.get-publishing-profile.outputs.profile }}
 
