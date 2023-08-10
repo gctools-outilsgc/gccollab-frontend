@@ -44,7 +44,6 @@ jobs:
       - name: Get Publishing Profile
         id: get-publishing-profile
         run: |
-          az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION }}
           profile=$(az webapp deployment list-publishing-profiles --resource-group ${{ env.AZURE_WEBAPP_NAME }} --name ${{ env.AZURE_WEBAPP_NAME }} --xml | sed -e 's|\"<|<|g' | sed -e 's|>\"|>|g' | sed -e 's|\\"|"|g' | sed -e 's|\\\\|\\|g')
           echo "::set-output name=profile::$profile"
 
