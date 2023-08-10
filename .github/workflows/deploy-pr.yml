@@ -29,7 +29,6 @@ jobs:
         with:
           azcliversion: 2.30.0
           inlineScript: |
-            az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION }}
             az deployment sub create -l canadaeast -f ./.bicep/pr-instance-setup.bicep --parameters prNumber=${{ github.event.number }}
 
   store:
