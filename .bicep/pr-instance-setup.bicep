@@ -9,7 +9,7 @@ resource prResourceGroup 'Microsoft.Resources/resourceGroups@2021-01-01' = {
 }
 
 module collab './pr-instance.bicep' = {
-  name: 'gcc-pr-infra'
+  name: prResourceGroup.name
   scope: resourceGroup(prResourceGroup.name)
   params: {
     location: location
