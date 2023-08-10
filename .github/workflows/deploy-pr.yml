@@ -55,7 +55,7 @@ jobs:
       - name: Create Secret
         run: |
           escaped_profile=$(printf "%q" "${{  env.PROFILE }}")
-          gh secret set "${{ env.AZURE_WEBAPP_NAME }}" --body "$escaped_profile" --repo "gccollab-frontend"
+          gh secret set "${{ env.AZURE_WEBAPP_NAME }}" --body "$escaped_profile"
         env:
           PROFILE: ${{ steps.get-publishing-profile.outputs.profile }}
 
