@@ -54,7 +54,7 @@ jobs:
       - name: Create Secret
         run: |
           echo "$PROFILE" > profile.txt
-          gh secret set "${{ env.AZURE_WEBAPP_NAME }}" --in-file profile.txt --repo $repository
+          gh secret set "${{ env.AZURE_WEBAPP_NAME }}" --body "${{ env.PROFILE }}" --repo $repository
         env:
           PROFILE: ${{ steps.get-publishing-profile.outputs.profile }}
 
