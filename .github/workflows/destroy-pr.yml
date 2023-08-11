@@ -26,13 +26,11 @@ jobs:
         uses: azure/CLI@v1
         with:
           azcliversion: 2.30.0
-          inlineScript: |
-            az group delete --name ${{ env.AZURE_WEBAPP_NAME }}
+          inlineScript: az group delete --name ${{ env.AZURE_WEBAPP_NAME }}
 
   secret:
     name: Delete GitHub Secret
     runs-on: ubuntu-latest
-    needs: azure
     steps:
       - name: GitHub Auth Login
         shell: bash
@@ -40,13 +38,11 @@ jobs:
 
       - uses: actions/checkout@master
       - name: Delete Secret
-        run: |
-          gh secret delete "${{ env.SECRET_NAME }}"
+        run: gh secret delete "${{ env.SECRET_NAME }}"
 
   environment:
     name: Delete GitHub Environment 
     runs-on: ubuntu-latest
-    needs: [azure, secret]
     steps:
       - name: Delete Environment
         shell: bash
