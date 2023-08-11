@@ -1,5 +1,4 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
+# This action will create the azure resources, github secret, github environment, and deploy the app when a PR once is opened.
 
 name: Deploy PR
 
