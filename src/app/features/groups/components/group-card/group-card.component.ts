@@ -15,19 +15,10 @@ import { CoreRoutes } from 'src/app/core/constants/routes.constants';
    @Input() loading: boolean = false;
 
    routes = CoreRoutes;
-   isFocused: boolean = false;
 
    constructor(public translations: Translations,
                private router: Router) 
    {  }
-
-   onMouseOver() {
-    this.isFocused = true;
-   }
-
-   onMouseOut() {
-    this.isFocused = false;
-   }
 
    clickEvent() {
      if (this.model) {
@@ -35,3 +26,4 @@ import { CoreRoutes } from 'src/app/core/constants/routes.constants';
      }
    }
  }
+ 
