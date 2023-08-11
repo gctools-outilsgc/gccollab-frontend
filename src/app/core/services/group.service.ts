@@ -57,8 +57,8 @@ import { Group, GroupStatus } from 'src/app/features/groups/models/group';
 
     private randomGroupStatus(): GroupStatus {
         const status: GroupStatus[] = [
-            //Open, 
-            //Closed, 
+            GroupStatus.Open, 
+            GroupStatus.Closed
         ];
         return status[Math.floor(Math.random() * status.length)];
     }
