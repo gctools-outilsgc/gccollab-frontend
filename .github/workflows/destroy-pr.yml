@@ -46,6 +46,6 @@ jobs:
       - name: Delete Environment
         shell: bash
         run: |
-          curl -X DELETE "https://api.github.com/repos/gctools-outilsgc/gccollab-frontend/environments" \
+          curl -X DELETE "https://api.github.com/repos/gctools-outilsgc/gccollab-frontend/environments/PR%20${{ github.event.number }}" \
           -H "Authorization: token ${{ env.ACCESS_TOKEN }}" \
           -H "Accept: application/vnd.github.v3+json" 
