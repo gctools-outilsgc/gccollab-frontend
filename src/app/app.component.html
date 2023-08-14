@@ -11,8 +11,7 @@
                 [headerExpanded]="showSearchBar">
 </app-page-title> -->
 
-<div [ngClass]="[showHeaderFooter ? 'gcc-main' : '',
-                banner ? '' : (showSearchBar ? 'gcc-header-expanded' : 'gcc-header')]">
+<div [ngClass]="showHeaderFooter ? 'gcc-main' + (banner ? '' : (showSearchBar ? ' gcc-header-expanded' : ' gcc-header'))  : ''">
     <router-outlet></router-outlet>
 </div>
 
