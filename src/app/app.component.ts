@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { NavigationEnd, NavigationStart, Router, RouterEvent }from '@angular/router';
+import { ActivatedRoute, NavigationEnd, NavigationStart, Router, RouterEvent }from '@angular/router';
 import { filter, Subscription } from 'rxjs';
 import { CoreRoutes } from './core/constants/routes.constants';
 
@@ -8,6 +8,7 @@ import { OidcSecurityService } from 'angular-auth-oidc-client';
 import { TranslateService } from "@ngx-translate/core";
 import { LanguageStorageService } from './core/services/language-storage.service';
 import { Translations } from './core/services/translations.service';
+import { Banner } from './shared/components/banner/banner.component';
 
 
 @Component({
@@ -19,7 +20,10 @@ export class AppComponent implements OnDestroy {
 
   showHeaderFooter: boolean = true;
   showSearchBar: boolean = false;
+  showBanner: boolean = false;
   activeRoute: string = CoreRoutes.Home;
+  banner: Banner | undefined;
+
   private checkAuthSub!: Subscription;
   private langChangeSub!: Subscription;
   private routeChangeSub!: Subscription;
@@ -28,6 +32,7 @@ export class AppComponent implements OnDestroy {
               public translations: Translations,
               private translateService: TranslateService,
               private languageStorageService: LanguageStorageService,
+              private activatedRoute: ActivatedRoute,
               private router: Router) {
 
   }
@@ -85,13 +90,31 @@ export class AppComponent implements OnDestroy {
       let queryIndex = url.indexOf('?');
       url = url.substring(1, queryIndex > -1 ? queryIndex : undefined);
       
-      if (url === CoreRoutes.Splash) 
+      if (url === CoreRoutes.Splash) {
         this.showHeaderFooter = false;
-      else
+      } 
+      else {
         this.showHeaderFooter = true;
+      }
 
       this.activeRoute = url;
-     });
+
+      this.banner = this.getRouteData('banner');
+      this.showBanner = this.banner instanceof Banner;
+    });
+  }
+
+  getRouteData(key: string) {
+    let child = this.activatedRoute.firstChild;
+    while (child) {
+      if (child.firstChild) {
+        child = child.firstChild;
+      } else if (child.snapshot.data && child.snapshot.data[key]) {
+        return child.snapshot.data[key];
+      } else {
+        return null;
+      }
+    }
   }
 
   headerToggleEvent(toggled: boolean): void {

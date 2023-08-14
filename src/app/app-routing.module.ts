@@ -11,6 +11,8 @@ import { UnauthorizedComponent } from './shared/components/unauthorized/unauthor
 import { ForbiddenComponent } from './shared/components/forbidden/forbidden.component';
 import { Translations } from './core/services/translations.service';
 
+import { Banner } from './shared/components/banner/banner.component';
+
 let translations = Translations.getInstance();
 
 const routes: Routes = [
@@ -36,7 +38,8 @@ const routes: Routes = [
     canActivate: [InterceptorGuard],
     data: {
       title: translations.titles.home, 
-      breadcrumb: translations.titles.home
+      breadcrumb: translations.titles.home,
+      banner: new Banner('./assets/svg/banner.svg', translations.banner.welcome, translations.banner.gccollab)
     }
   },
   {
