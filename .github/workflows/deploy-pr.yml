@@ -21,7 +21,7 @@ jobs:
   setup:
     name: Deploy Bicep
     runs-on: ubuntu-latest
-    if: ${{ github.event.action == 'opened' ||  github.event.action == 'reopened'}}
+    if: ${{ github.event.action == 'opened' ||  github.event.action == 'reopened' }}
     steps:
       - uses: actions/checkout@master
       - uses: azure/login@v1
@@ -38,7 +38,7 @@ jobs:
   store:
     name: Store Publishing Profile
     runs-on: ubuntu-latest
-    if: ${{ github.event.action == 'opened' ||  github.event.action == 'reopened'}}
+    if: ${{ github.event.action == 'opened' ||  github.event.action == 'reopened' }}
     needs: setup
     steps:
       - name: Azure Login
@@ -68,7 +68,7 @@ jobs:
   create-environment:
     name: Create Environment 
     runs-on: ubuntu-latest
-    if: ${{ github.event.action == 'opened' ||  github.event.action == 'reopened'}}
+    if: ${{ github.event.action == 'opened' ||  github.event.action == 'reopened' }}
     needs: [setup, store]
     steps:
       - name: Create Environment
