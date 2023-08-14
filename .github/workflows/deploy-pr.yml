@@ -5,7 +5,7 @@ name: Deploy PR
 
 on:
   pull_request:
-    types: [opened, reopened]
+    types: [opened, reopened, synchronize]
     branches: master
 
 env:
@@ -17,9 +17,11 @@ env:
   SECRET_NAME: PR_${{ github.event.number }}
 
 jobs:
+  
   setup:
     name: Deploy Bicep
     runs-on: ubuntu-latest
+    if: ${{ github.event.action == 'opened' ||  github.event.action == 'reopened'}}
     steps:
       - uses: actions/checkout@master
       - uses: azure/login@v1
@@ -36,6 +38,7 @@ jobs:
   store:
     name: Store Publishing Profile
     runs-on: ubuntu-latest
+    if: ${{ github.event.action == 'opened' ||  github.event.action == 'reopened'}}
     needs: setup
     steps:
       - name: Azure Login
@@ -65,6 +68,7 @@ jobs:
   create-environment:
     name: Create Environment 
     runs-on: ubuntu-latest
+    if: ${{ github.event.action == 'opened' ||  github.event.action == 'reopened'}}
     needs: [setup, store]
     steps:
       - name: Create Environment
@@ -93,7 +97,7 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npm run build-dev --if-present
+        run: npm run build-pr --if-present
 
       - name: Test
         run: npm run test --if-present -- --watch=false --browsers=ChromeHeadless
