@@ -21,7 +21,6 @@ jobs:
   setup:
     name: Deploy Bicep
     runs-on: ubuntu-latest
-    if: ${{ github.event.action == 'opened' ||  github.event.action == 'reopened' }}
     steps:
       - uses: actions/checkout@master
       - uses: azure/login@v1
@@ -33,12 +32,15 @@ jobs:
         with:
           azcliversion: 2.30.0
           inlineScript: |
-            az deployment sub create -l ${{ env.LOCATION }} -f ./.bicep/pr-instance-setup.bicep --parameters prNumber=${{ github.event.number }} location=${{ env.LOCATION }}
+            if [[ ${{ github.event.action }} == "synchronize" ]]; then
+              az deployment sub create -l ${{ env.LOCATION }} -f ./.bicep/pr-instance-setup.bicep --parameters prNumber=${{ github.event.number }} location=${{ env.LOCATION }}
+            else
+              echo "This has already been deployed."
+            fi
 
   store:
     name: Store Publishing Profile
     runs-on: ubuntu-latest
-    if: ${{ github.event.action == 'opened' ||  github.event.action == 'reopened' }}
     needs: setup
     steps:
       - name: Azure Login
@@ -49,8 +51,12 @@ jobs:
       - name: Get Publishing Profile
         id: get-publishing-profile
         run: |
-          profile=$(az webapp deployment list-publishing-profiles --resource-group ${{ env.AZURE_WEBAPP_NAME }} --name ${{ env.AZURE_WEBAPP_NAME }} --xml | sed -e 's|\"<|<|g' | sed -e 's|>\"|>|g' | sed -e 's|\\"|"|g' | sed -e 's|\\\\|\\|g')
-          echo "::set-output name=profile::$profile"
+          if [[ ${{ github.event.action }} == "synchronize" ]]; then
+            profile=$(az webapp deployment list-publishing-profiles --resource-group ${{ env.AZURE_WEBAPP_NAME }} --name ${{ env.AZURE_WEBAPP_NAME }} --xml | sed -e 's|\"<|<|g' | sed -e 's|>\"|>|g' | sed -e 's|\\"|"|g' | sed -e 's|\\\\|\\|g')
+            echo "::set-output name=profile::$profile"
+          else
+            echo "Publishing profile has already been retrieved."
+          fi
 
       - name: GitHub Auth Login
         shell: bash
@@ -59,9 +65,12 @@ jobs:
       - uses: actions/checkout@master
       - name: Create Secret
         run: |
-          escaped_profile=$(printf "%q" "${{ env.PROFILE }}")
-          gh secret set "${{ env.SECRET_NAME }}" --body "$escaped_profile"
-          echo $escaped_profile
+          if [[ ${{ github.event.action }} == "synchronize" ]]; then
+            escaped_profile=$(printf "%q" "${{ env.PROFILE }}")
+            gh secret set "${{ env.SECRET_NAME }}" --body "$escaped_profile"
+          else
+            echo "Secret has already been stored."
+          fi
         env:
           PROFILE: ${{ steps.get-publishing-profile.outputs.profile }}
 
@@ -74,10 +83,14 @@ jobs:
       - name: Create Environment
         shell: bash
         run: |
-          curl -X POST "https://api.github.com/repos/gctools-outilsgc/gccollab-frontend/environments" \
-          -H "Authorization: token ${{ env.ACCESS_TOKEN }}" \
-          -H "Accept: application/vnd.github.v3+json" \
-          -d "{\"name\":\"PR ${{ github.event.number }}\"}"
+          if [[ ${{ github.event.action }} == "synchronize" ]]; then
+            curl -X POST "https://api.github.com/repos/gctools-outilsgc/gccollab-frontend/environments" \
+            -H "Authorization: token ${{ env.ACCESS_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            -d "{\"name\":\"PR ${{ github.event.number }}\"}"
+          else
+            echo "Environment has already been created."
+          fi
 
   build-test-and-deploy:
     name: Build, Test and Deploy
