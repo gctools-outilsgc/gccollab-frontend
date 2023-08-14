@@ -11,11 +11,22 @@ import { Translations } from 'src/app/core/services/translations.service';
 
 export class BannerComponent {
 
+  @Input() model: Banner | undefined;
   @Input() headerExpanded: boolean = false;
-  @Input() textTop: string = '';
-  @Input() textBottom: string = '';
-  @Input() imgUrl: string = '../../../../assets/svg/banner.svg';
   
   constructor(public translations: Translations) {}
 
+}
+
+export class Banner {
+
+  textTop: string;
+  textBottom: string;
+  backgroundImage: string = '../../../../assets/svg/banner.svg';
+
+  constructor(backgroundImage: string, textTop: string = '', textBottom: string = '') {
+    this.backgroundImage = backgroundImage;
+    this.textTop = textTop;
+    this.textBottom = textBottom;
+  }
 }
