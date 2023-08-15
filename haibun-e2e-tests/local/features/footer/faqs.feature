@@ -10,3 +10,6 @@ Feature: FAQs button feature
     on tab 2 
     be on the support webpage 
     see "Welcome to GCTools Support"
+
+    #checks for the accessibility of the page - based on haibun-web-accessibility-axe 
+    page is accessible accepting serious 0 and moderate 0 
