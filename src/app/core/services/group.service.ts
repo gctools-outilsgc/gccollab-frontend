@@ -65,16 +65,16 @@ import { Group, GroupStatus } from 'src/app/features/groups/models/group';
 
     private randomDisplayPicture(): string {
         const urls: string[] = [
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmvC2Gzy3zrH0V97WubkgHZ7WnILp-l9WrcdeNNKSPP0GZ5Kv0rcHIII5Z_UEmFjkcUPw&usqp=CAU',
-            'https://i.pinimg.com/originals/fe/a0/b4/fea0b4eca9a774e2f76952d4d443ba73.jpg',
-            'https://static.boredpanda.com/blog/wp-content/uploads/2021/07/CLml70UpO26-png__700.jpg',
-            'https://wallpapers-clan.com/wp-content/uploads/2022/08/funny-dog-pfp-1.jpg',
-            'https://i.redd.it/k4ckbuiugmfz.jpg',
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFGDbcW5mkzZH9Mb-azwbvYedTer6phmPlXg&usqp=CAU',
-            'https://www.asiamediajournal.com/wp-content/uploads/2022/11/Funny-Dog-PFP-profile-300x300.jpg',
-            'https://images.unsplash.com/photo-1575425186775-b8de9a427e67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZnVubnklMjBhbmltYWx8ZW58MHx8MHx8fDA%3D&w=1000&q=80',
-            'https://i.pinimg.com/originals/31/a0/d5/31a0d596f1e215b5825333f419645dcb.jpg',
-            'https://static.photocdn.pt/images/apple/71animalfaces/animalfaces25.webp'
+            'https://images.prismic.io/designworld/c4b894a3-7443-4ba6-8108-7a114292107a_wcag.png?auto=format%2Ccompress&fit=max&q=50&w=2880&h=2048',
+            'https://images.unsplash.com/photo-1593871075120-982e042088d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80',
+            'https://images.unsplash.com/photo-1551884831-bbf3cdc6469e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1274&q=80',
+            'https://images.unsplash.com/photo-1556997685-309989c1aa82?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZnVubnklMjBhbmltYWxzfGVufDB8fDB8fHww&auto=format&fit=crop&w=900&q=60',
+            'https://images.unsplash.com/photo-1522435229388-6f7a422cd95b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+            'https://images.unsplash.com/photo-1636370395847-e0781efa45e6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1494&q=80',
+            'https://images.unsplash.com/photo-1587920149371-ac728dd20da4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1872&q=80',
+            'https://images.unsplash.com/photo-1597237154674-1a0d2274cef4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80',
+            'https://images.unsplash.com/photo-1504006833117-8886a355efbf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+            'https://images.unsplash.com/photo-1546807742-e44ac98e1e4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'
           ];
           return urls[Math.floor(Math.random() * urls.length)];
         }

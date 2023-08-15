@@ -1,6 +1,6 @@
-/* group-card.component.scss */
-
 @import "../../../../../assets//scss/partials/colors";
+
+$title-padding: 90px;
 
 :host {
   mat-card {
@@ -10,50 +10,51 @@
     padding: 0 10px;
 
     mat-card-header {
-      justify-content: center;
-
-      .group-card {
-
-        &:hover {
-          transform: scale(1.03);
-        }
-
-        .group-image-wrapper {
-          width: 50px;
-          height: 100px;
-          border-radius: 50%;
-          background-color: #fff;
-          padding: 5px;
-          box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
-          object-fit: contain;
-        }
-      }
-
-      ngx-skeleton-loader {
+      .group-image-wrapper {
         width: 100%;
-        display: block;
-        margin: auto;
+        height: 140px;
+        border-radius: 20px;
+        background-color: #fff;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+
+        img {
+          max-width: 100%;
+          max-height: 100%;
+          width: 100%;
+          height: 100%;
+          object-position: center;
+          object-fit: cover;
+          border-radius: 20px;
+        }
       }
     }
 
     mat-card-content {
       padding: 20px 12px;
 
-      > div {
+      .group-content:hover, .group-content:focus {
+        text-decoration: underline;
+      }
+      
+      >div {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
       }
 
-      > div:first-child {
-        font-weight: 700;
+      >div:first-child {
+          font-weight: 700;
       }
 
       ngx-skeleton-loader {
-        width: 100%;
-        display: block;
-        margin: auto;
+          width: 100%;
+          display: block;
+          margin: auto;
       }
     }
   }
