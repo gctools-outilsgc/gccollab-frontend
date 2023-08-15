@@ -44,7 +44,7 @@ import { Group, GroupStatus } from 'src/app/features/groups/models/group';
     private randomName(): string {
         const names: string[] = [
             'Web Accessibility',
-            'Haibun\'',
+            'Haibun',
             'OCIO Coffee Chat',
             'ESDC Coffee Chat',
             'GCcollab News',

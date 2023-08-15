@@ -1,57 +1,60 @@
-.group-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out;
-    
-    &:hover {
-      transform: scale(1.03);
+/* group-card.component.scss */
 
-      .group-image-wrapper {
-        transform: scale(1.05);
-      }
+@import "../../../../../assets//scss/partials/colors";
 
-      .group-name {
-        text-decoration: underline;
-      }
-    }
-    
-    .group-image-wrapper {
-      width: 100%;
-      height: 50%;
-      overflow: hidden;
-      transition: transform 0.2s ease-in-out;
-      
-      app-profile-pic {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-    
-    .group-info {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+:host {
+  mat-card {
+    border: 1px solid $neutral-300;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 0 10px;
+
+    mat-card-header {
       justify-content: center;
-      height: 50%;
-      
-      .group-name {
-        font-weight: bold;
-        font-size: 1.2rem;
-        margin-bottom: 8px;
-        transition: text-decoration 0.2s ease-in-out;
-        
-        &.underline {
-          text-decoration: underline;
+
+      .group-card {
+
+        &:hover {
+          transform: scale(1.03);
+        }
+
+        .group-image-wrapper {
+          width: 50px;
+          height: 100px;
+          border-radius: 50%;
+          background-color: #fff;
+          padding: 5px;
+          box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
+          object-fit: contain;
         }
       }
-      
-      .group-status {
-        font-size: 1rem;
-        color: #666;
+
+      ngx-skeleton-loader {
+        width: 100%;
+        display: block;
+        margin: auto;
+      }
+    }
+
+    mat-card-content {
+      padding: 20px 12px;
+
+      > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      > div:first-child {
+        font-weight: 700;
+      }
+
+      ngx-skeleton-loader {
+        width: 100%;
+        display: block;
+        margin: auto;
       }
     }
   }
-  
+}
