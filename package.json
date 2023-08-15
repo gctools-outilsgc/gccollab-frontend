@@ -7,6 +7,7 @@
     "build": "ng build",
     "build-dev": "ng build --configuration development",
     "build-prod": "ng build --configuration production",
+    "build-pr": "ng build --configuration pullrequest",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "install-graphviz-linux": "sudo apt install graphviz",
