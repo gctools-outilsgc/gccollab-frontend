@@ -33,7 +33,7 @@ jobs:
             if [[ ${{ github.event.action }} != "synchronize" ]]; then
               az deployment sub create -l ${{ env.LOCATION }} -f ./.bicep/pr-instance-setup.bicep --parameters prNumber=${{ github.event.number }} location=${{ env.LOCATION }}
             else
-              echo "This has already been deployed."
+              echo "The Azure resources have already been created."
             fi
 
   store:
@@ -49,12 +49,8 @@ jobs:
       - name: Get Publishing Profile
         id: get-publishing-profile
         run: |
-          if [[ ${{ github.event.action }} != "synchronize" ]]; then
-            profile=$(az webapp deployment list-publishing-profiles --resource-group ${{ env.AZURE_WEBAPP_NAME }} --name ${{ env.AZURE_WEBAPP_NAME }} --xml | sed -e 's|\"<|<|g' | sed -e 's|>\"|>|g' | sed -e 's|\\"|"|g' | sed -e 's|\\\\|\\|g')
-            echo "::set-output name=profile::$profile"
-          else
-            echo "Publishing profile has already been retrieved."
-          fi
+          profile=$(az webapp deployment list-publishing-profiles --resource-group ${{ env.AZURE_WEBAPP_NAME }} --name ${{ env.AZURE_WEBAPP_NAME }} --xml | sed -e 's|\"<|<|g' | sed -e 's|>\"|>|g' | sed -e 's|\\"|"|g' | sed -e 's|\\\\|\\|g')
+          echo "::set-output name=profile::$profile"
 
       - name: GitHub Auth Login
         shell: bash
@@ -63,12 +59,8 @@ jobs:
       - uses: actions/checkout@master
       - name: Create Secret
         run: |
-          if [[ ${{ github.event.action }} != "synchronize" ]]; then
-            escaped_profile=$(printf "%q" "${{ env.PROFILE }}")
-            gh secret set "${{ env.SECRET_NAME }}" --body "$escaped_profile"
-          else
-            echo "Secret has already been stored."
-          fi
+          escaped_profile=$(printf "%q" "${{ env.PROFILE }}")
+          gh secret set "${{ env.SECRET_NAME }}" --body "$escaped_profile"
         env:
           PROFILE: ${{ steps.get-publishing-profile.outputs.profile }}
 
