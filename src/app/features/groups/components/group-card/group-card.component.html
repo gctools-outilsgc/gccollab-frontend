@@ -9,11 +9,11 @@
     
     <mat-card-content>
         <div class="group-content">
-            <div *ngIf="!loading"
+            <div class="group-name" *ngIf="!loading"
                 routerLink="{{ '/' + routes.Groups  + '/view/' + model?.id }}">
                 {{ model?.name }}
             </div>
-            <div *ngIf="!loading">
+            <div class="group-status" *ngIf="!loading">
                 {{ model?.groupStatus }}
             </div>
         </div>

@@ -38,6 +38,7 @@ $title-padding: 90px;
 
       .group-content:hover, .group-content:focus {
         text-decoration: underline;
+        cursor: pointer;
       }
       
       >div {
@@ -47,7 +48,7 @@ $title-padding: 90px;
         justify-content: center;
       }
 
-      >div:first-child {
+      .group-name:first-child {
           font-weight: 700;
       }
 
