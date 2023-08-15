@@ -11,6 +11,8 @@ import { EventService } from 'src/app/core/services/event.service';
 import { CoreRoutes } from 'src/app/core/constants/routes.constants';
 import { Person } from 'src/app/core/models/person';
 import { PeopleService } from 'src/app/core/services/people.service';
+import { Group } from '../groups/models/group';
+import { GroupService } from 'src/app/core/services/group.service';
 
 @Component({
   templateUrl: './home.component.html',
@@ -36,10 +38,16 @@ export class HomeComponent implements OnInit {
   peoplePage: number = 1;
   loadingPeople: boolean = true;
 
+  // Groups
+  groups: Group[] = [];
+  groupsPage: number = 1;
+  loadingGroups: boolean = true;
+
   constructor(public translations: Translations, 
               private newsService: NewsService, 
               private eventService: EventService, 
-              private peopleService: PeopleService) {
+              private peopleService: PeopleService,
+              private groupService: GroupService) {
 
   }
 
@@ -57,6 +65,11 @@ export class HomeComponent implements OnInit {
     this.peopleService.mockGetPeople(3, 5000).subscribe((people: Person[]) => {
       this.people = people;
       this.loadingPeople = false;
+    });
+
+    this.groupService.mockGetGroups(3, 5000).subscribe((groups: Group[]) => {
+      this.groups = groups;
+      this.loadingGroups = false;
     });
   }
 

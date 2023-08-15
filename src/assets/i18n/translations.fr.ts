@@ -71,7 +71,9 @@ const fr: typeof import('./translations.en').default = {
     "features": {
         "home": {
             "moreEvents": "Plus d'événements",
-            "moreConnections": "Plus de connexions"
+            "moreConnections": "Plus de connexions",
+            "moreGroups": "Plus des groupes"
+
         }
     },
     "header": {
