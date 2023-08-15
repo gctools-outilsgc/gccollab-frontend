@@ -20,7 +20,7 @@ All development should be done in branches that branch off `master`.  Any new de
 
 - Create **a new branch** for your work that branches off of `master`.
 - Once your work is done, open a pull request to merge back into `master`.
-- If the pull request has been approved you are free merge and close your branch.
+- If the pull request has been approved you are free to merge and close your branch.
 
 ## Build
 
@@ -31,6 +31,16 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 For more information see the official Angular [documentation](https://angular.io/guide/testing).
 
-## Running end-to-end tests
+## Running haibun end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+GCcollab frontend incorporates [Haibun's task-specific modules' integration](https://github.com/withhaibun) for functionality and [accessibility](https://github.com/withhaibun/haibun-web-accessibility-axe). 
+
+The following describes the testing procedure:
+
+1. Navigate to the directory:
+   `cd haibun-e2e-tests`
+2. Install the packages:
+   `npm install`
+3. Ensure `http://localhost:4200/` is running. 
+5. Run the tests:
+   `npm run test`
