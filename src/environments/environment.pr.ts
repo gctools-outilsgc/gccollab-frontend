@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  authEnabled: false, // TODO: Switch this to true once we have OAuth working for PR
+  authGuard: false, // TODO: Switch this to true once we have OAuth working for PR
   clientId: "429862", // TODO: Create client during workflow and insert here
   baseUrl: "https://dev.account.gccollab.ca/api",
   authUrl: "https://dev.account.gccollab.ca/openid",

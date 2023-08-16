@@ -23,7 +23,7 @@ export class AuthGuard  {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if (!environment.authEnabled)
+      if (!environment.authGuard)
         return true;
 
       return this.oidcSecurityService.isAuthenticated$.pipe(

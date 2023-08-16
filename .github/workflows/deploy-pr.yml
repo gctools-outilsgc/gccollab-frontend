@@ -4,7 +4,7 @@ name: Deploy PR
 
 on:
   pull_request:
-    types: [opened, reopened, synchronize]
+    types: [opened, reopened] # TODO: synchronize
     branches: master
 
 env:

@@ -105,6 +105,9 @@
             },
             "development": {
               "browserTarget": "gccollab-frontend:build:development"
+            },
+            "pullrequest": {
+              "browserTarget": "gccollab-frontend:build:pullrequest"
             }
           },
           "defaultConfiguration": "development"
