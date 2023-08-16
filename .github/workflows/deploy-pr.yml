@@ -4,7 +4,7 @@ name: Deploy PR
 
 on:
   pull_request:
-    types: [opened, reopened]
+    types: [opened, reopened] # TODO: synchronize
     branches: master
 
 env:
@@ -30,7 +30,11 @@ jobs:
         with:
           azcliversion: 2.30.0
           inlineScript: |
-            az deployment sub create -l ${{ env.LOCATION }} -f ./.bicep/pr-instance-setup.bicep --parameters prNumber=${{ github.event.number }} location=${{ env.LOCATION }}
+            if [[ ${{ github.event.action }} != "synchronize" ]]; then
+              az deployment sub create -l ${{ env.LOCATION }} -f ./.bicep/pr-instance-setup.bicep --parameters prNumber=${{ github.event.number }} location=${{ env.LOCATION }}
+            else
+              echo "The Azure resources have already been created."
+            fi
 
   store:
     name: Store Publishing Profile
@@ -68,10 +72,14 @@ jobs:
       - name: Create Environment
         shell: bash
         run: |
-          curl -X POST "https://api.github.com/repos/gctools-outilsgc/gccollab-frontend/environments" \
-          -H "Authorization: token ${{ env.ACCESS_TOKEN }}" \
-          -H "Accept: application/vnd.github.v3+json" \
-          -d "{\"name\":\"PR ${{ github.event.number }}\"}"
+          if [[ ${{ github.event.action }} != "synchronize" ]]; then
+            curl -X POST "https://api.github.com/repos/gctools-outilsgc/gccollab-frontend/environments" \
+            -H "Authorization: token ${{ env.ACCESS_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            -d "{\"name\":\"PR ${{ github.event.number }}\"}"
+          else
+            echo "Environment has already been created."
+          fi
 
   build-test-and-deploy:
     name: Build, Test and Deploy
@@ -91,7 +99,7 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npm run build-dev --if-present
+        run: npm run build-pr --if-present
 
       - name: Test
         run: npm run test --if-present -- --watch=false --browsers=ChromeHeadless
