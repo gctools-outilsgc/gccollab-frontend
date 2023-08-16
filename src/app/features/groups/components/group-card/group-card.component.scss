@@ -1,0 +1,66 @@
+@import "../../../../../assets//scss/partials/colors";
+
+$title-padding: 90px;
+
+:host {
+  mat-card {
+    border: 1px solid $neutral-300;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 0 10px;
+
+    mat-card-header {
+      .group-image-wrapper {
+        width: 100%;
+        height: 140px;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-position: center;
+          object-fit: cover;
+        }
+
+        ngx-skeleton-loader {
+          width: 100%;
+          height: 100%;
+
+          ::ng-deep > div {
+            height: 100%;
+          }
+        }
+      }
+    }
+
+    mat-card-content {
+      padding: 20px 12px;
+
+      .group-content:hover, .group-content:focus {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      
+      >div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .group-name:first-child {
+          font-weight: 700;
+      }
+
+      ngx-skeleton-loader {
+          width: 100%;
+          display: block;
+          margin: auto;
+      }
+    }
+  }
+}

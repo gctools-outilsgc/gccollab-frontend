@@ -1,0 +1,7 @@
+:host {
+    .group-list-container {
+        .group-card-wrapper:not(:last-child) {
+            padding-bottom: 12px;
+        }
+    }
+}
