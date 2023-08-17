@@ -47,6 +47,7 @@ const fr: typeof import('./translations.en').default = {
         "events": "Événements",
         "friends": "Amis",
         "groups": "Groupes",
+        "group": "Groupe",
         "invite": "Inviter",
         "members": "Membres",
         "messages": "Messages",

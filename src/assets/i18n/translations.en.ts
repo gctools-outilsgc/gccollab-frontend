@@ -47,6 +47,7 @@ export default {
         "events": "Events",
         "friends": "Friends",
         "groups": "Groups",
+        "group": "Group",
         "invite": "Invite",
         "members": "Members",
         "messages": "Messages",
