@@ -45,6 +45,7 @@ export default {
         "bookmarks": "Bookmarks",
         "dashboards": "Dashboards",
         "events": "Events",
+        "event": "Event",
         "friends": "Friends",
         "groups": "Groups",
         "group": "Group",

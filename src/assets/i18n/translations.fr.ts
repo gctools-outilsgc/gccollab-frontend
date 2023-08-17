@@ -45,6 +45,7 @@ const fr: typeof import('./translations.en').default = {
         "bookmarks": "Signets",
         "dashboards": "Tableaux de bord",
         "events": "Événements",
+        "event": "Événement",
         "friends": "Amis",
         "groups": "Groupes",
         "group": "Groupe",
