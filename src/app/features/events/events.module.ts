@@ -6,11 +6,13 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { EventCardComponent } from './components/event-card/event-card.component';
 import { MatCardModule } from '@angular/material/card';
 import { EventListComponent } from './components/event-list/event-list.component';
+import { EventComponent } from './components/event/event.component';
 
 @NgModule({
   declarations: [
     EventCardComponent,
-    EventListComponent
+    EventListComponent,
+    EventComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,6 @@ import { EventListComponent } from './components/event-list/event-list.component
     MatCardModule
   ],
   exports: [
-    EventCardComponent,
     EventListComponent
   ]
 })
