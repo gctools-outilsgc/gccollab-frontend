@@ -9,4 +9,4 @@ Feature: Terms button feature
 
     #checks for the accessibility of the page - based on haibun-web-accessibility-axe 
     #doesn't work
-    #page is accessible accepting serious 0 and moderate 0 
+    page is accessible accepting serious 0 and moderate 0 
