@@ -1,0 +1,44 @@
+@import "../../../../assets/scss/partials/colors";
+
+:host {
+    display: block;
+    
+    .event-calendar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
+        color: $secondary-2-contrast;
+        background: $secondary-2-gradient;
+        cursor: pointer;
+    
+        div:first-child {
+            font-weight: 400;
+            font-size: 36px;
+        }
+    
+        div:last-child {
+            font-weight: 700;
+            font-size: 52px;
+        }
+    }
+    
+    .event-calendar.canceled {
+        background: $error-red-gradient;
+    }
+    
+    .event-calendar.past {
+        background: $neutral-700 !important;
+    }
+    
+    .event-calendar-loading {
+        ::ng-deep >div {
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+        }
+    }
+}

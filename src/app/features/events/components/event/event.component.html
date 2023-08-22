@@ -1,1 +1,79 @@
-<p>event works!</p>
+<app-banner [model]="banner"></app-banner>
+<app-calendar-button [model]="model?.startDate"></app-calendar-button>
+
+<div class="page-container">
+
+    <div class="title-row">
+        <h1>GC Data Conference/Conférence sur les données du GC</h1>
+
+        <div class="title-actions">
+            <div class="top">
+                <app-button [matButtonType]="materialButtonType.Icon"
+                            [tooltip]="translations.event.share.tooltip | translate"
+                            [ariaLabel]="translations.event.share.aria | translate"
+                            [disabled]="loading || isPast()">
+                    <i class="fa fa-share"></i>
+                </app-button>
+                <app-button [matButtonType]="materialButtonType.Icon"
+                            [tooltip]="(bookmarked ? translations.event.bookmark.tooltip_on : translations.event.bookmark.tooltip_off) | translate"
+                            [ariaLabel]="(bookmarked ? translations.event.bookmark.aria_on : translations.event.bookmark.aria_off) | translate"
+                            [disabled]="loading || isPast()"
+                            (click)="loading ? '' : bookmarked = !bookmarked">
+                    <i class="fa fa-bookmark"
+                       [ngClass]="bookmarked ? 'fa-solid' : 'fa-regular'">
+                    </i>
+                </app-button>
+            </div>
+            <div class="bottom">
+                <app-button [disabled]="loading || isPast()"
+                            [ngClass]="loading || isPast() ? 'disabled' : 'enabled'">
+                    {{ translations.event.form.register | translate }}
+                </app-button>
+            </div>
+        </div>
+    </div>
+
+    <div class="event-info">
+        
+        <i class="fa fa-calendar"></i>
+        <section>
+            <h3>{{ translations.event.date_time | translate }}</h3>
+            <p>April 17th, 2024</p>
+            <p>3 PM - 5 PM</p>
+        </section>
+
+        <i class="fa fa-map-marker"></i>
+        <section>
+            <h3>{{ translations.event.location | translate }}</h3>
+            <p>90 Elgin Street</p>
+            <p>Ottawa, Ontario</p>
+        </section>
+
+        <i class="fa-user-circle fa-regular"></i>
+        <section>
+            <h3>{{ translations.event.host | translate }}</h3>
+            <p>CSPS</p>
+            <p>Group page link</p>
+        </section>
+    </div>
+
+    <!-- Description -->
+    <div class="event-description">
+        <h3>{{ translations.event.event_description | translate }}</h3>
+        <p>
+            The annual GC Data Conference, now in its seventh year, serves as the primary forum for public servants and data leaders to share awareness in order to advance Canada's commitments to provide higher-quality data, insights and services to all.<br/>
+            With a theme centred on "Leveraging Data to Advance Innovation", the GC Data Conference 2023 will explore key topics related to using data to expand innovative methods, integrating social and ethical practices, and enabling collective change. The event offers opportunities to exchange knowledge, engage in discussions and expand awareness of the opportunities and challenges around the use of data across the Government of Canada.<br/>
+            This event is delivered through a partnership between Innovation, Science and Economic Development Canada and the Canada School of Public Service, with the subject-matter support and expertise of the GC Data Community.
+        </p>
+        <br/>
+        <h3>{{ translations.event.event_program | translate }}</h3>
+        <p>Le programme de la conférence et la liste complète des conférenciers et conférencières seront publiés sous peu.</p>
+        <br/>
+    </div>
+
+    <!-- Registration -->
+    <div class="event-registration">
+        <h2>{{ translations.event.event_registration | translate }}</h2>
+    </div>
+    
+</div>

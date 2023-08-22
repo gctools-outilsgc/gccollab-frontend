@@ -259,5 +259,32 @@ export default {
     },
     "profile_pic": {
         "alt": "A profile picture"
+    },
+    "event": {
+        "date_time": "Date & Time:",
+        "location": "Location:",
+        "host": "Host:",
+        "event_description": "Event Description",
+        "event_program": "Event Program",
+        "event_registration": "Event Registration",
+        "form": {
+            "full_name": "Full Name",
+            "email": "Email Address",
+            "email_confirm": "Confirm Email Address",
+            "occupation": "Occupation",
+            "add_calendar": "Add to my calendar",
+            "terms": "I agree with the terms and conditions",
+            "register": "REGISTER"
+        },
+        "share": {
+            "tooltip": "Share",
+            "aria": "Click to share this event."
+        },
+        "bookmark": {
+            "tooltip_on": "Bookmark",
+            "tooltip_off": "Bookmarked",
+            "aria_on": "Click to bookmark this event.",
+            "aria_off": "Click to remove this event from your bookmarks."
+        }
     }
 };

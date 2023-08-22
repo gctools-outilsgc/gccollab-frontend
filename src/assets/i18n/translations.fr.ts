@@ -260,6 +260,33 @@ const fr: typeof import('./translations.en').default = {
     },
     "profile_pic": {
         "alt": "Une photo de profil"
+    },
+    "event": {
+        "date_time": "Date & Heure :",
+        "location": "Emplacement:",
+        "host": "Hôte:",
+        "event_description": "Description de L'évenement",
+        "event_program": "Programme de L'événement",
+        "event_registration": "Inscription à L'événement",
+        "form": {
+            "full_name": "Nom et Prénom",
+            "email": "Adresse Email",
+            "email_confirm": "Confirmez votre Adresse Email",
+            "occupation": "Profession",
+            "add_calendar": "Ajouter à mon calendrier",
+            "terms": "Je suis d'accord avec les termes et conditions",
+            "register": "REGISTRE"
+        },
+        "share": {
+            "tooltip": "Partager",
+            "aria": "Cliquez pour partager cet événement."
+        },
+        "bookmark": {
+            "tooltip_on": "Signet",
+            "tooltip_off": "Favoris",
+            "aria_on": "Cliquez pour ajouter cet événement à vos favoris.",
+            "aria_off": "Cliquez pour supprimer cet événement de vos favoris."
+        }
     }
 };
 export default fr;

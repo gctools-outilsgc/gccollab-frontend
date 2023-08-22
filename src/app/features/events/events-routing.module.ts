@@ -19,6 +19,7 @@ const routes: Routes = [
     data: {
       title: translations.titles.event, 
       breadcrumb: translations.titles.event
+      
     }
   },
   {

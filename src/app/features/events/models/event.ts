@@ -12,6 +12,7 @@ export class Event {
     author: Person | undefined;
     authoredDate: Date | undefined;
     canceled: boolean = false;
+    image: string | undefined;
     
     confirmed: boolean = false;
     declined: boolean = false;
