@@ -1,5 +1,6 @@
 import { Person } from "src/app/core/models/person";
 import { Location } from "src/app/core/models/location";
+import { Group } from "../../groups/models/group";
 
 export class Event {
     id: string | undefined;
@@ -14,6 +15,7 @@ export class Event {
     authoredDate: Date | undefined;
     canceled: boolean = false;
     image: string | undefined;
+    group: Group | undefined;
     
     confirmed: boolean = false;
     declined: boolean = false;

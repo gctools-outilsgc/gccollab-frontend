@@ -33,6 +33,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ProfilePicComponent } from './components/profile-pic/profile-pic.component';
 import { CalendarButtonComponent } from './components/calendar-button/calendar-button.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -71,6 +72,7 @@ import { CalendarButtonComponent } from './components/calendar-button/calendar-b
     MatToolbarModule,
     MatFormFieldModule,
     MatInputModule,
+    MatCheckboxModule,
     NgxSkeletonLoaderModule,
     InfiniteScrollModule
   ],
@@ -88,7 +90,8 @@ import { CalendarButtonComponent } from './components/calendar-button/calendar-b
     NgxSkeletonLoaderModule,
     InfiniteScrollModule,
     ProfilePicComponent,
-    CalendarButtonComponent
+    CalendarButtonComponent,
+    MatCheckboxModule
   ],
   providers: [
     {

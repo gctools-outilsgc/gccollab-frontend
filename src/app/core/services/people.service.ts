@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Person } from '../models/person';
 import { Observable } from 'rxjs';
+import { Location } from '../models/location';
 
 @Injectable({
   providedIn: 'root'
@@ -29,16 +30,15 @@ export class PeopleService {
   }
 
   private generateRandomPerson(): Person {
-    const person = new Person();
-
-    person.id = this.id.toString();
-    person.firstName = this.randomFirstName();
-    person.lastName = this.randomLastName();
-    person.jobTitle = this.randomJobTitle();
-    person.profilePicture = this.randomProfilePic();
-
+    const person = new Person(
+      this.id.toString(), 
+      this.randomFirstName(), 
+      this.randomLastName(), 
+      this.randomJobTitle(), 
+      this.randomAddress(),
+      this.randomProfilePic()
+    );
     this.id++;
-    
     return person;
   }
 
@@ -104,5 +104,16 @@ export class PeopleService {
       'https://static.photocdn.pt/images/apple/71animalfaces/animalfaces25.webp'
     ];
     return urls[Math.floor(Math.random() * urls.length)];
+  }
+
+  private randomAddress(): Location {
+    const addresses: Location[] = [
+      new Location('2910 Woodroffe Ave', 'Ottawa', 'Ontario'),
+      new Location('4230 Innes Rd', 'Ottawa', 'Ontario'),
+      new Location('2440 Bank St', 'Ottawa', 'Ontario'),
+      new Location('464 Rideau St', 'Ottawa', 'Ontario'),
+      new Location('464 Bank St', 'Ottawa', 'Ontario')
+    ];
+    return addresses[Math.floor(Math.random() * addresses.length)];
   }
 }

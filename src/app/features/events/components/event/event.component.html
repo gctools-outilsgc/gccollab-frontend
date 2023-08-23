@@ -9,10 +9,15 @@
 
     <div class="title-row">
 
-        <h1>{{ model?.title }}</h1>
+        <h1>
+            {{ model?.title }}
+        </h1>
 
+        <!-- Actions -->
         <div class="title-actions">
             <div class="top">
+
+                <!-- Share -->
                 <app-button [matButtonType]="materialButtonType.Icon"
                             [tooltip]="translations.event.share.tooltip | translate"
                             [ariaLabel]="translations.event.share.aria | translate"
@@ -20,6 +25,8 @@
                             [disabled]="loading || isPast()">
                     <i class="fa fa-share"></i>
                 </app-button>
+
+                <!-- Bookmark -->
                 <app-button [matButtonType]="materialButtonType.Icon"
                             [tooltip]="(bookmarked ? translations.event.bookmark.tooltip_off : translations.event.bookmark.tooltip_on) | translate"
                             [ariaLabel]="(bookmarked ? translations.event.bookmark.aria_off : translations.event.bookmark.aria_on) | translate"
@@ -32,9 +39,13 @@
                     </i>
                 </app-button>
             </div>
+
             <div class="bottom">
+
+                <!-- Register -->
                 <app-button [disabled]="loading || isPast()"
-                            [ngClass]="loading || isPast() ? 'disabled' : 'enabled'">
+                            [ngClass]="loading || isPast() ? 'disabled' : 'enabled'"
+                            class="registerBtn">
                     {{ translations.event.form.register | translate }}
                 </app-button>
             </div>
@@ -42,38 +53,127 @@
     </div>
 
     <div class="event-info">
-        
+
+        <!-- Date & Time-->
         <i class="fa fa-calendar"></i>
         <section>
-            <h3>{{ translations.event.date_time | translate }}</h3>
-            <p>{{ model?.startDate | date: 'mediumDate' }}</p>
-            <p>{{ model?.startDate | date: 'h a' }} - {{ model?.endDate | date: 'h a' }}</p>
+            <h3>
+                {{ translations.event.date_time | translate }}
+            </h3>
+            <p>
+                {{ model?.startDate | date: 'mediumDate' }}
+            </p>
+            <p>
+                {{ model?.startDate | date: 'h a' }} - {{ model?.endDate | date: 'h a' }}
+            </p>
         </section>
 
+        <!-- Location -->
         <i class="fa fa-map-marker"></i>
         <section>
-            <h3>{{ translations.event.location | translate }}</h3>
-            <p>{{ model?.location?.address }}</p>
-            <p>{{ model?.location?.city }}, {{ model?.location?.province }}</p>
+            <h3>
+                {{ translations.event.location | translate }}
+            </h3>
+            <p>
+                {{ model?.location?.address }}
+            </p>
+            <p>
+                {{ model?.location?.city }}, {{ model?.location?.province }}
+            </p>
         </section>
 
+        <!-- Host -->
         <i class="fa-user-circle fa-regular"></i>
         <section>
-            <h3>{{ translations.event.host | translate }}</h3>
-            <p>CSPS</p>
-            <p>Group page link</p>
+            <h3>
+                {{ translations.event.host | translate }}
+            </h3>
+            <p>
+                {{ this.model?.author?.firstName }} {{ this.model?.author?.lastName }}
+            </p>
+            <a routerLink="{{ '/' + 'groups'  + '/' + model?.group?.id }}">
+                {{ this.model?.group?.name }}
+            </a>
         </section>
     </div>
 
     <!-- Description -->
     <div class="event-description">
-        <h3>{{ translations.event.event_description | translate }}</h3>
+        <h3>
+            {{ translations.event.event_description | translate }}
+        </h3>
         <p [innerHTML]="model?.description"></p>
     </div>
 
-    <!-- Registration -->
+    <!-- Registration Form -->
     <div class="event-registration">
         <h2>{{ translations.event.event_registration | translate }}</h2>
+
+        <!-- Full Name -->
+        <app-input [id]="'event-register-fullName'"
+                   [name]="'fullName'"
+                   [label]="'Full Name'"
+                   [placeholder]="'Type here'"
+                   [errorMessage]="'Your full name is required'"
+                   [required]="true"
+                   [disabled]="loading || isPast()">
+        </app-input>
+
+        <!-- Confirm -->
+        <app-input [id]="'event-register-emailAddress'"
+                   [name]="'emailAddress'"
+                   [label]="'Email Address'"
+                   [placeholder]="'Type here'"
+                   [errorMessage]="'Your email address is required'"
+                   [required]="true"
+                   [disabled]="loading || isPast()">
+        </app-input>
+
+        <!-- Email Confirm -->
+        <app-input [id]="'event-register-emailAddressConfirm'"
+                   [name]="'emailAddressConfirm'"
+                   [label]="'Confirm Email Address'"
+                   [placeholder]="'Type here'"
+                   [errorMessage]="'Your email address is required'"
+                   [required]="true"
+                   [disabled]="loading || isPast()">
+        </app-input>
+
+        <!-- Occupation -->
+        <app-input [id]="'event-register-occupation'"
+                   [name]="'occupation'"
+                   [label]="'Occupation'"
+                   [placeholder]="'Type here'"
+                   [errorMessage]="'Your occupation is required'"
+                   [hint]="'This would be your current job title.'"
+                   [required]="true"
+                   [disabled]="loading || isPast()">
+        </app-input>
+
+        <!-- Add to calendar -->
+        <mat-checkbox id="event-register-add-to-calendar"
+                      name="addToCalendar"
+                      [color]="'primary'"
+                      [disabled]="loading || isPast()">
+            Add to my calendar
+        </mat-checkbox>
+
+        <!-- Agree to terms -->
+        <mat-checkbox id="event-register-add-to-calendar"
+                      name="addToCalendar"
+                      [color]="'primary'"
+                      [disabled]="loading || isPast()">
+            I agree with the <a>terms and conditions</a>
+        </mat-checkbox>
+
+        <!-- Register -->
+        <app-button [id]="'event-register-registerBtn'"
+                    [name]="'registerBtn'"
+                    [disabled]="loading || isPast()"
+                    [ngClass]="loading || isPast() ? 'disabled' : 'enabled'"
+                    class="registerBtn">
+            {{ translations.event.form.register | translate }}
+        </app-button>
     </div>
     
 </div>

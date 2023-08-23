@@ -29,15 +29,8 @@ import { Group, GroupStatus } from 'src/app/features/groups/models/group';
     }
 
     private generateRandomGroupItem(): Group {
-        const group = new Group();
-    
-        group.id = this.id.toString();
-        group.name = this.randomName();
-        group.displayPicture = this.randomDisplayPicture();
-        group.groupStatus = this.randomGroupStatus();
-    
+        const group = new Group(this.id.toString(), this.randomName(), this.randomDisplayPicture(), this.randomGroupStatus());
         this.id++;
-        
         return group;
     }
 

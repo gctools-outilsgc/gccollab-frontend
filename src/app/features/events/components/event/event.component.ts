@@ -6,6 +6,9 @@ import { Event } from '../../models/event';
 import { MaterialButtonType } from 'src/app/shared/models/material-button-type';
 import { Location } from 'src/app/core/models/location';
 import { TooltipDirection } from 'src/app/shared/models/tooltip-direction';
+import { Group } from 'src/app/features/groups/models/group';
+import { Person } from 'src/app/core/models/person';
+import { InputType } from 'src/app/shared/models/input-type';
 
 @Component({
   selector: 'app-event',
@@ -22,6 +25,7 @@ export class EventComponent {
 
   materialButtonType = MaterialButtonType;
   tooltipDirection = TooltipDirection;
+  inputType = InputType;
 
   constructor(public translations: Translations) {
     this.banner = new Banner('https://s3-alpha-sig.figma.com/img/9986/772c/bad4dde06cf83ed41c61df1b17d1369a?Expires=1693785600&Signature=Mk0vcKtlQGC1NfcH0dBlpdPH-i5JMQSjJHiBxsVivkz6XbUMgo5Ul~T1ZUsd5gqSdBNfzmzp7lkO9qpVNlO8-A4GndxqBMpov3x3qwhzV1XJobTN40viIEkOjMwF~jMFLjFRL7Ya2zrsBOKmct95k6QiyVuzvgVkm3o6bcjRNM7DuWnMFbju73L4Y-qDphKeglfi83dYbf3qO074PUnB3ReGXGChQ23~NiykgTz8UDu4oszh09nTKlnPhi8ZxuBckc6W8CsIUbsjaaTP6p0lcukyKa49lGjB9aFJ~xvpf38YI3ssl6rLlpWP1ILo6HvmQQAF7wdZvhPH1edpaeWecw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4');
@@ -32,6 +36,8 @@ export class EventComponent {
     this.model.location = new Location('90 Elgin Street', 'Ottawa', 'Ontario');
     this.model.startDate = new Date('2024 04 27 9:00');
     this.model.endDate = new Date('2024 04 27 17:00');
+    this.model.group = new Group('1', 'CSPS', '');
+    this.model.author = new Person('1', 'Shea', 'Dougherty-Gill', 'Web Developer', this.model.location);
   }
 
   isPast(): boolean {
