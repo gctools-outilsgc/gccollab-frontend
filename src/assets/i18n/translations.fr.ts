@@ -262,11 +262,10 @@ const fr: typeof import('./translations.en').default = {
         "alt": "Une photo de profil"
     },
     "event": {
-        "date_time": "Date & Heure :",
+        "date_time": "Date & Heure:",
         "location": "Emplacement:",
         "host": "Hôte:",
         "event_description": "Description de L'évenement",
-        "event_program": "Programme de L'événement",
         "event_registration": "Inscription à L'événement",
         "form": {
             "full_name": "Nom et Prénom",

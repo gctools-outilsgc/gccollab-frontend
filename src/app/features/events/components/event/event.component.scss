@@ -47,6 +47,14 @@ $calendar-size: 120px;
             .title-actions {
                 .top {
                     font-size: x-large;
+
+                    .bookmarked {
+                        ::ng-deep {
+                            button {
+                                color: $primary-1;
+                            }
+                        }
+                    }
                 }
 
                 .bottom {

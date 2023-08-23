@@ -13,10 +13,9 @@ export class CalendarButtonComponent {
   @Input() model: Date | undefined;
   @Input() tooltip: string = '';
   @Input() aria: string = '';
+  @Input() tooltipDirection: TooltipDirection = TooltipDirection.Above;
   @Input() canceled: boolean = false;
   @Input() loading: boolean = false;
-
-  tooltipDirection = TooltipDirection;
 
   constructor(public translations: Translations) 
   {  }

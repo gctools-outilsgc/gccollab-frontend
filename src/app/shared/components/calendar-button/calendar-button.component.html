@@ -2,7 +2,7 @@
      *ngIf="!loading"
      [matTooltip]="tooltip | translate"
      [attr.aria-label]="aria | translate"
-     [matTooltipPosition]="tooltipDirection.Above"
+     [matTooltipPosition]="tooltipDirection"
      [ngClass]="canceled == true ? 'canceled' : isPast() ? 'past' : ''"
      (click)="click()"
      tabindex="0">

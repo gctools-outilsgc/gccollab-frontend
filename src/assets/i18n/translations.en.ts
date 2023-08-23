@@ -265,7 +265,6 @@ export default {
         "location": "Location:",
         "host": "Host:",
         "event_description": "Event Description",
-        "event_program": "Event Program",
         "event_registration": "Event Registration",
         "form": {
             "full_name": "Full Name",
