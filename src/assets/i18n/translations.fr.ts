@@ -269,12 +269,19 @@ const fr: typeof import('./translations.en').default = {
         "event_registration": "Inscription à L'événement",
         "form": {
             "full_name": "Nom et Prénom",
+            "full_name_error": "Votre nom complet est requis.",
             "email": "Adresse Email",
+            "email_error": "Votre adresse e-mail est nécessaire.",
             "email_confirm": "Confirmez votre Adresse Email",
+            "email_confirm_error": "Votre email doit correspondre.",
             "occupation": "Profession",
+            "occupation_error": "Votre profession est requise.",
+            "occupation_hint": "Ce serait votre titre de poste actuel.",
             "add_calendar": "Ajouter à mon calendrier",
-            "terms": "Je suis d'accord avec les termes et conditions",
-            "register": "REGISTRE"
+            "agree_with": "Je suis d'accord avec les ",
+            "terms_conditions": "termes et conditions",
+            "register": "REGISTRE",
+            "placeholder": "Écrivez ici"
         },
         "share": {
             "tooltip": "Partager",

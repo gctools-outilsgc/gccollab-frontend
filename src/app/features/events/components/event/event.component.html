@@ -112,9 +112,9 @@
         <!-- Full Name -->
         <app-input [id]="'event-register-fullName'"
                    [name]="'fullName'"
-                   [label]="'Full Name'"
-                   [placeholder]="'Type here'"
-                   [errorMessage]="'Your full name is required'"
+                   [label]="translations.event.form.full_name | translate"
+                   [placeholder]="translations.event.form.placeholder | translate"
+                   [errorMessage]="translations.event.form.full_name_error | translate"
                    [required]="true"
                    [disabled]="loading || isPast()">
         </app-input>
@@ -122,9 +122,9 @@
         <!-- Confirm -->
         <app-input [id]="'event-register-emailAddress'"
                    [name]="'emailAddress'"
-                   [label]="'Email Address'"
-                   [placeholder]="'Type here'"
-                   [errorMessage]="'Your email address is required'"
+                   [label]="translations.event.form.email | translate"
+                   [placeholder]="translations.event.form.placeholder | translate"
+                   [errorMessage]="translations.event.form.email_error | translate"
                    [required]="true"
                    [disabled]="loading || isPast()">
         </app-input>
@@ -132,9 +132,9 @@
         <!-- Email Confirm -->
         <app-input [id]="'event-register-emailAddressConfirm'"
                    [name]="'emailAddressConfirm'"
-                   [label]="'Confirm Email Address'"
-                   [placeholder]="'Type here'"
-                   [errorMessage]="'Your email address is required'"
+                   [label]="translations.event.form.email_confirm | translate"
+                   [placeholder]="translations.event.form.placeholder | translate"
+                   [errorMessage]="translations.event.form.email_confirm_error | translate"
                    [required]="true"
                    [disabled]="loading || isPast()">
         </app-input>
@@ -142,10 +142,10 @@
         <!-- Occupation -->
         <app-input [id]="'event-register-occupation'"
                    [name]="'occupation'"
-                   [label]="'Occupation'"
-                   [placeholder]="'Type here'"
-                   [errorMessage]="'Your occupation is required'"
-                   [hint]="'This would be your current job title.'"
+                   [label]="translations.event.form.occupation | translate"
+                   [placeholder]="translations.event.form.placeholder | translate"
+                   [errorMessage]="translations.event.form.occupation_error | translate"
+                   [hint]="translations.event.form.occupation_hint | translate"
                    [required]="true"
                    [disabled]="loading || isPast()">
         </app-input>
@@ -155,7 +155,7 @@
                       name="addToCalendar"
                       [color]="'primary'"
                       [disabled]="loading || isPast()">
-            Add to my calendar
+            {{ translations.event.form.add_calendar | translate }}
         </mat-checkbox>
 
         <!-- Agree to terms -->
@@ -163,7 +163,7 @@
                       name="addToCalendar"
                       [color]="'primary'"
                       [disabled]="loading || isPast()">
-            I agree with the <a>terms and conditions</a>
+            {{ translations.event.form.agree_with | translate }}<a>{{ translations.event.form.terms_conditions | translate }}</a>
         </mat-checkbox>
 
         <!-- Register -->
