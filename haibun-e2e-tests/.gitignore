@@ -1,2 +1,5 @@
 node_modules
 capture
+failures.json
+failures-previous.json
+
