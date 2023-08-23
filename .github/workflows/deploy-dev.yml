@@ -1,4 +1,4 @@
-# This action will deploy the app to the dev environment once new code is pushed on master.
+# This action will deploy the app to the dev environment once new code is pushed on main.
 
 
 name: Deploy to Development
@@ -6,7 +6,7 @@ name: Deploy to Development
 on:
   push:
     branches:
-      - master
+      - main
   workflow_dispatch:
 
 env:

@@ -1,4 +1,4 @@
-# This action will generate a new dependency graph for the project once a pull request is closed that targets master
+# This action will generate a new dependency graph for the project once a pull request is closed that targets main
 
 name: Update Dependency Graph
 
@@ -6,7 +6,7 @@ on:
   pull_request:
     types:
       - closed
-    branches: ["master"]
+    branches: ["main"]
     
 env:
   NODE_VERSION: '16.14.2'

@@ -5,7 +5,7 @@ name: Deploy PR
 on:
   pull_request:
     types: [opened, reopened] # TODO: synchronize
-    branches: master
+    branches: main
 
 env:
   AZURE_WEBAPP_NAME: gccollab-dev-pr-${{ github.event.number }}
@@ -20,7 +20,7 @@ jobs:
     name: Deploy Bicep
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -56,7 +56,7 @@ jobs:
         shell: bash
         run: gh auth login --with-token <<< ${{ env.ACCESS_TOKEN }}
 
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
       - name: Create Secret
         run: |
           escaped_profile=$(printf "%q" "${{ env.PROFILE }}")

@@ -5,7 +5,7 @@ name: Destroy PR
 on:
   pull_request:
     types: [closed]
-    branches: master
+    branches: main
 
 env:
   AZURE_WEBAPP_NAME: gccollab-dev-pr-${{ github.event.number }}
@@ -35,7 +35,7 @@ jobs:
         shell: bash
         run: gh auth login --with-token <<< ${{ env.ACCESS_TOKEN }}
 
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
       - name: Delete Secret
         run: gh secret delete "${{ env.SECRET_NAME }}"
 
