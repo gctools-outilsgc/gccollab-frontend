@@ -9,19 +9,48 @@ import { Location } from '../models/location';
 export class PeopleService {
 
   private id: number = 0;
+  private delay: number = 5000;
+
+  public people: Person[] = [
+    this.generateRandomPerson(),
+    this.generateRandomPerson(),
+    this.generateRandomPerson(),
+    this.generateRandomPerson(),
+    this.generateRandomPerson(),
+    this.generateRandomPerson(),
+    this.generateRandomPerson(),
+    this.generateRandomPerson(),
+    this.generateRandomPerson(),
+    this.generateRandomPerson()
+  ];
 
   constructor() { }
 
-  mockGetPeople(count: number = 10, delay: number = 3000): Observable<Person[]> {
-    let response: Person[] = [];
+  mockGetPerson(id: string | null, delay: number = this.delay): Observable<Person> {
+    let response: Person;
 
-    for (let i = 0; i < count; i++) {
-      response.push(this.generateRandomPerson());
+    for(let i = 0; i < this.people.length; i++) {
+      if (this.people[i].id == id) {
+        response = this.people[i];
+        break;
+      }
     }
+
+    let observable: Observable<Person> = new Observable((subscriber) => {
+      setTimeout(() => {
+        subscriber.next(response);
+        subscriber.complete();
+      }, delay);
+    });
+
+    return observable;
+  }
+
+  mockGetPeople(count: number = 10, delay: number = 3000): Observable<Person[]> {
 
     let observable: Observable<Person[]> = new Observable((subscriber) => {
       setTimeout(() => {
-        subscriber.next(response);
+        subscriber.next(this.people.slice(0, count > this.people.length ? this.people.length : count));
         subscriber.complete();
       }, delay);
     });

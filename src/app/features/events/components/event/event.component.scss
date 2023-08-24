@@ -7,7 +7,7 @@ $calendar-size: 120px;
 :host {
     app-banner {
         display: block;
-        width: calc(100vw - ($grid-gutter / 2) - 2px);
+        width: 100vw;
         margin-left: -$gutter-desktop;
         margin-top: -$padding-vertical;
 
@@ -62,6 +62,7 @@ $calendar-size: 120px;
 
                     .registerBtn {
                         margin-left: 12px;
+                        padding-right: 12px;
                     }
                 }
             }

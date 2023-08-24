@@ -21,7 +21,7 @@
 
         <div class="event-content" 
              [ngClass]="model?.canceled == true ? 'canceled' : isPast() ? 'past' : ''"
-             routerLink="{{ '/' + routes.Events  + '/view/' + model?.id }}">
+             routerLink="{{ '/' + routes.Events  + '/' + model?.id }}">
 
             <div *ngIf="!loading">
                 {{ model?.title }}

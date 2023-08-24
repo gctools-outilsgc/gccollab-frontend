@@ -1,4 +1,5 @@
-<app-banner [model]="banner"></app-banner>
+<app-banner *ngIf="banner" [model]="banner"></app-banner>
+
 <app-calendar-button [model]="model?.startDate" 
                      [tooltip]="translations.eventCard.calendar.tooltip | translate"
                      [aria]="translations.eventCard.calendar.aria | translate"
@@ -163,7 +164,7 @@
                       name="addToCalendar"
                       [color]="'primary'"
                       [disabled]="loading || isPast()">
-            {{ translations.event.form.agree_with | translate }}<a>{{ translations.event.form.terms_conditions | translate }}</a>
+            {{ translations.event.form.agree_with | translate }}<a href="https://gccollab.ca/terms" target="_blank">{{ translations.event.form.terms_conditions | translate }}</a>
         </mat-checkbox>
 
         <!-- Register -->
