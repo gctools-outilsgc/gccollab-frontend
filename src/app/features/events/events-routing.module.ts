@@ -19,9 +19,9 @@ const routes: Routes = [
     path: ':id',
     title: translations.titles.event,
     component: EventComponent,
-    resolve: {
-      event: EventResolver
-    },
+    // resolve: {
+    //   event: EventResolver
+    // },
     data: {
       title: translations.titles.event, 
       breadcrumb: translations.titles.event

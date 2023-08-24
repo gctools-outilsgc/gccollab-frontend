@@ -9,7 +9,7 @@ import { Location } from '../models/location';
 export class PeopleService {
 
   private id: number = 0;
-  private delay: number = 5000;
+  private delay: number = 3000;
 
   public people: Person[] = [
     this.generateRandomPerson(),
@@ -46,7 +46,7 @@ export class PeopleService {
     return observable;
   }
 
-  mockGetPeople(count: number = 10, delay: number = 3000): Observable<Person[]> {
+  mockGetPeople(count: number = 10, delay: number = this.delay): Observable<Person[]> {
 
     let observable: Observable<Person[]> = new Observable((subscriber) => {
       setTimeout(() => {

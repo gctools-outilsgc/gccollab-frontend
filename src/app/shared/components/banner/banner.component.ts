@@ -11,8 +11,9 @@ import { Translations } from 'src/app/core/services/translations.service';
 
 export class BannerComponent {
 
-  @Input() model: Banner | undefined;
+  @Input() model: Banner | null = null;
   @Input() headerExpanded: boolean = false;
+  @Input() loading: boolean = false;
   
   constructor(public translations: Translations) {}
 

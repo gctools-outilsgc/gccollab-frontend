@@ -22,7 +22,7 @@ export class AppComponent implements OnDestroy {
   showSearchBar: boolean = false;
   showBanner: boolean = false;
   activeRoute: string = CoreRoutes.Home;
-  banner: Banner | undefined;
+  banner: Banner | null = null;
 
   private checkAuthSub!: Subscription;
   private langChangeSub!: Subscription;

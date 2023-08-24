@@ -1,8 +1,7 @@
 //import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NewsItem } from 'src/app/features/news-feed/models/news-item';
-import { Person } from '../models/person';
 import { PeopleService } from './people.service';
 
 import { LoremIpsum } from 'lorem-ipsum';
@@ -13,6 +12,7 @@ import { LoremIpsum } from 'lorem-ipsum';
 export class NewsService {
 
   private id: number = 0;
+  private delay: number = 3000;
   private lorem = new LoremIpsum({
     sentencesPerParagraph: {
       max: 8,
@@ -23,22 +23,49 @@ export class NewsService {
       min: 4
     }
   });
-  private peopleService: PeopleService;
 
-  constructor(peopleService: PeopleService) {
-    this.peopleService = peopleService;
+  private peopleService: PeopleService = inject(PeopleService);
+
+  public newsItems: NewsItem[] = [
+    this.generateRandomNewsItem(),
+    this.generateRandomNewsItem(),
+    this.generateRandomNewsItem(),
+    this.generateRandomNewsItem(),
+    this.generateRandomNewsItem(),
+    this.generateRandomNewsItem(),
+    this.generateRandomNewsItem(),
+    this.generateRandomNewsItem(),
+    this.generateRandomNewsItem(),
+    this.generateRandomNewsItem()
+  ];
+
+  constructor() {
+  }
+
+  mockGetNewsItem(id: string | null, delay: number = this.delay): Observable<NewsItem> {
+    let response: NewsItem;
+
+    for(let i = 0; i < this.newsItems.length; i++) {
+      if (this.newsItems[i].id == id) {
+        response = this.newsItems[i];
+        break;
+      }
+    }
+
+    let observable: Observable<NewsItem> = new Observable((subscriber) => {
+      setTimeout(() => {
+        subscriber.next(response);
+        subscriber.complete();
+      }, delay);
+    });
+
+    return observable;
   }
 
   mockGetNewsItems(count: number = 10, delay: number = 5000): Observable<NewsItem[]> {
-    let response: NewsItem[] = [];
-
-    for(let i = 0; i < count; i++) {
-      response.push(this.generateRandomNewsItem());
-    }
-
     let observable: Observable<NewsItem[]> = new Observable((subscriber) => {
       setTimeout(() => {
-        subscriber.next(response);
+        subscriber.next(this.newsItems.slice(0, count > this.newsItems.length ? this.newsItems.length : count));
         subscriber.complete();
       }, delay);
     });
@@ -54,10 +81,7 @@ export class NewsService {
     newsItem.content = this.lorem.generateParagraphs(Math.floor(Math.random() * 2) + 1);
     newsItem.comments = Math.floor(Math.random() * 199) + 1;
     newsItem.likes = Math.floor(Math.random() * 99) + 1;
-
-    this.peopleService.mockGetPeople(1, 0).subscribe((person) => {
-      newsItem.author = person[0];
-    });
+    newsItem.author = this.peopleService.people[this.id];
 
     this.id++;
 

@@ -1,18 +1,21 @@
-<app-banner *ngIf="banner" [model]="banner"></app-banner>
+<app-banner *ngIf="banner || loading" [model]="banner" [loading]="loading"></app-banner>
 
 <app-calendar-button [model]="model?.startDate" 
                      [tooltip]="translations.eventCard.calendar.tooltip | translate"
                      [aria]="translations.eventCard.calendar.aria | translate"
-                     [tooltipDirection]="tooltipDirection.Below">
+                     [tooltipDirection]="tooltipDirection.Below"
+                     [loading]="loading"
+                     [ngClass]="loading? 'calendar-loading' : ''">
 </app-calendar-button>
 
-<div class="page-container">
+<div class="page-container" [ngClass]="loading ? 'loading' : ''">
 
     <div class="title-row">
 
-        <h1>
+        <h1 *ngIf="!loading">
             {{ model?.title }}
         </h1>
+        <ngx-skeleton-loader *ngIf="loading" count="1" appearance="line" animation="progress" class="loading-title"></ngx-skeleton-loader>
 
         <!-- Actions -->
         <div class="title-actions">
@@ -61,12 +64,13 @@
             <h3>
                 {{ translations.event.date_time | translate }}
             </h3>
-            <p>
+            <p *ngIf="!loading">
                 {{ model?.startDate | date: 'mediumDate' }}
             </p>
-            <p>
+            <p *ngIf="!loading">
                 {{ model?.startDate | date: 'h a' }} - {{ model?.endDate | date: 'h a' }}
             </p>
+            <ngx-skeleton-loader *ngIf="loading" count="2" appearance="line" animation="progress" class="loading-section"></ngx-skeleton-loader>
         </section>
 
         <!-- Location -->
@@ -75,12 +79,13 @@
             <h3>
                 {{ translations.event.location | translate }}
             </h3>
-            <p>
+            <p *ngIf="!loading">
                 {{ model?.location?.address }}
             </p>
-            <p>
+            <p *ngIf="!loading">
                 {{ model?.location?.city }}, {{ model?.location?.province }}
             </p>
+            <ngx-skeleton-loader *ngIf="loading" count="2" appearance="line" animation="progress" class="loading-section"></ngx-skeleton-loader>
         </section>
 
         <!-- Host -->
@@ -89,12 +94,13 @@
             <h3>
                 {{ translations.event.host | translate }}
             </h3>
-            <p>
+            <p *ngIf="!loading">
                 {{ this.model?.author?.firstName }} {{ this.model?.author?.lastName }}
             </p>
-            <a routerLink="{{ '/' + 'groups'  + '/' + model?.group?.id }}">
+            <a *ngIf="!loading" routerLink="{{ '/' + 'groups'  + '/' + model?.group?.id }}">
                 {{ this.model?.group?.name }}
             </a>
+            <ngx-skeleton-loader *ngIf="loading" count="2" appearance="line" animation="progress" class="loading-section"></ngx-skeleton-loader>
         </section>
     </div>
 
@@ -103,7 +109,8 @@
         <h3>
             {{ translations.event.event_description | translate }}
         </h3>
-        <p [innerHTML]="model?.description"></p>
+        <p *ngIf="!loading" [innerHTML]="model?.description"></p>
+        <ngx-skeleton-loader *ngIf="loading" count="10" appearance="line" animation="progress" class="loading-section"></ngx-skeleton-loader>
     </div>
 
     <!-- Registration Form -->

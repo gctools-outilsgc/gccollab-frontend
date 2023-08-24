@@ -4,24 +4,20 @@ import { Translations } from 'src/app/core/services/translations.service';
 import { Banner } from 'src/app/shared/components/banner/banner.component';
 import { Event } from '../../models/event';
 import { MaterialButtonType } from 'src/app/shared/models/material-button-type';
-import { Location } from 'src/app/core/models/location';
 import { TooltipDirection } from 'src/app/shared/models/tooltip-direction';
-import { Group } from 'src/app/features/groups/models/group';
-import { Person } from 'src/app/core/models/person';
 import { InputType } from 'src/app/shared/models/input-type';
-import { Observable, map, of } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { EventService } from 'src/app/core/services/event.service';
 
 @Component({
   selector: 'app-event',
   templateUrl: './event.component.html',
   styleUrls: ['./event.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  //changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EventComponent implements OnInit {
 
   @Input() model: Event | null = null;
-  event$: Observable<Event | null> = of(null);
 
   banner: Banner | null = null;
   loading: boolean = true;
@@ -32,6 +28,7 @@ export class EventComponent implements OnInit {
   inputType = InputType;
 
   private readonly route: ActivatedRoute = inject(ActivatedRoute);
+  private readonly eventService: EventService = inject(EventService);
 
   constructor(public translations: Translations) {
     
@@ -39,15 +36,13 @@ export class EventComponent implements OnInit {
 
   ngOnInit(): void {
     if (!this.model) {
-      this.event$ = this.route.data.pipe(map(({ event }) => event));
-
-      this.event$.subscribe((event: Event | null) => {
+      this.eventService.mockGetEvent(this.route.snapshot.paramMap.get('id'), 1500)
+      .subscribe(event => {
         this.model = event;
         this.banner = this.createBanner(this.model);
         this.loading = false;
       });
-    }
-    else {
+    } else {
       this.banner = this.createBanner(this.model);
       this.loading = false;
     }

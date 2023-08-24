@@ -46,6 +46,17 @@
       top: 0;
     }
   }
+
+  ngx-skeleton-loader {
+    display: block;
+    height: 100%;
+
+    ::ng-deep {
+      >div {
+        height: 100%;
+      }
+    }
+  }
 }
 
 .gcc-header {
