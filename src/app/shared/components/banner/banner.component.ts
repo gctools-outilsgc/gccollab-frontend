@@ -23,9 +23,9 @@ export class Banner {
 
   textTop: string;
   textBottom: string;
-  backgroundImage: string = '../../../../assets/svg/banner.svg';
+  backgroundImage: string;
 
-  constructor(backgroundImage: string, textTop: string = '', textBottom: string = '') {
+  constructor(backgroundImage: string = '../../../../assets/svg/banner.svg', textTop: string = '', textBottom: string = '') {
     this.backgroundImage = backgroundImage;
     this.textTop = textTop;
     this.textBottom = textBottom;

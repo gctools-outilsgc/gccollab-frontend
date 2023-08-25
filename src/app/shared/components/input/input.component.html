@@ -12,6 +12,7 @@
                 [tooltip]="showHint ? (translations.input.hint.hide.text | translate) : translations.input.hint.show.text | translate"
                 [ariaLabel]="showHint ? (translations.input.hint.hide.aria | translate) : translations.input.hint.show.aria | translate"
                 [tooltipDirection]="tooltipDirection.Right"
+                [disabled]="disabled"
                 (click)="toggleShowHint()"
                 class="hint-button">
         <i [ngClass]="showHint ? 'fa-circle-xmark' : 'fa-circle-question'" class="fa-regular"></i>
@@ -19,7 +20,7 @@
 
     <mat-form-field>
         <input matInput 
-               [id]="id"
+               [id]="inputId"
                [name]="name"
                [value]="value"
                [type]="type === inputType.Password ? (showPassword ? inputType.Text : type) : type"

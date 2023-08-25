@@ -36,7 +36,7 @@ export class EventComponent implements OnInit {
 
   ngOnInit(): void {
     if (!this.model) {
-      this.eventService.mockGetEvent(this.route.snapshot.paramMap.get('id'), 1500)
+      this.eventService.mockGetEvent(this.route.snapshot.paramMap.get('id'), 3000)
       .subscribe(event => {
         this.model = event;
         this.banner = this.createBanner(this.model);

@@ -11,12 +11,15 @@ import { Person } from 'src/app/core/models/person';
 import { PeopleService } from 'src/app/core/services/people.service';
 import { Group } from '../groups/models/group';
 import { GroupService } from 'src/app/core/services/group.service';
+import { Banner } from 'src/app/shared/components/banner/banner.component';
 
 @Component({
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+  banner: Banner = new Banner('../../../assets/svg/banner.svg', this.translations.banner.welcome, this.translations.banner.gccollab);
 
   inputType = InputType.Password;
   routes = CoreRoutes;

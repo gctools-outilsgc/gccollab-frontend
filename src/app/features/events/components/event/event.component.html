@@ -1,4 +1,7 @@
-<app-banner *ngIf="banner || loading" [model]="banner" [loading]="loading"></app-banner>
+<app-banner *ngIf="banner || loading" 
+            [model]="banner" 
+            [loading]="loading">
+</app-banner>
 
 <app-calendar-button [model]="model?.startDate" 
                      [tooltip]="translations.eventCard.calendar.tooltip | translate"
@@ -22,7 +25,8 @@
             <div class="top">
 
                 <!-- Share -->
-                <app-button [matButtonType]="materialButtonType.Icon"
+                <app-button btnId="gcc-event-share-btn"
+                            [matButtonType]="materialButtonType.Icon"
                             [tooltip]="translations.event.share.tooltip | translate"
                             [ariaLabel]="translations.event.share.aria | translate"
                             [tooltipDirection]="tooltipDirection.Above"
@@ -31,7 +35,8 @@
                 </app-button>
 
                 <!-- Bookmark -->
-                <app-button [matButtonType]="materialButtonType.Icon"
+                <app-button btnId="gcc-event-bookmark-btn"
+                            [matButtonType]="materialButtonType.Icon"
                             [tooltip]="(bookmarked ? translations.event.bookmark.tooltip_off : translations.event.bookmark.tooltip_on) | translate"
                             [ariaLabel]="(bookmarked ? translations.event.bookmark.aria_off : translations.event.bookmark.aria_on) | translate"
                             [tooltipDirection]="tooltipDirection.Above"
@@ -47,7 +52,8 @@
             <div class="bottom">
 
                 <!-- Register -->
-                <app-button [disabled]="loading || isPast()"
+                <app-button btnId="gcc-event-register-jump-btn"
+                            [disabled]="loading || isPast()"
                             [ngClass]="loading || isPast() ? 'disabled' : 'enabled'"
                             class="registerBtn">
                     {{ translations.event.form.register | translate }}
@@ -110,7 +116,7 @@
             {{ translations.event.event_description | translate }}
         </h3>
         <p *ngIf="!loading" [innerHTML]="model?.description"></p>
-        <ngx-skeleton-loader *ngIf="loading" count="10" appearance="line" animation="progress" class="loading-section"></ngx-skeleton-loader>
+        <ngx-skeleton-loader *ngIf="loading" count="5" appearance="line" animation="progress" class="loading-section"></ngx-skeleton-loader>
     </div>
 
     <!-- Registration Form -->
@@ -118,7 +124,7 @@
         <h2>{{ translations.event.event_registration | translate }}</h2>
 
         <!-- Full Name -->
-        <app-input [id]="'event-register-fullName'"
+        <app-input inputId="gcc-event-name-input"
                    [name]="'fullName'"
                    [label]="translations.event.form.full_name | translate"
                    [placeholder]="translations.event.form.placeholder | translate"
@@ -128,7 +134,7 @@
         </app-input>
 
         <!-- Confirm -->
-        <app-input [id]="'event-register-emailAddress'"
+        <app-input inputId="gcc-event-email-input"
                    [name]="'emailAddress'"
                    [label]="translations.event.form.email | translate"
                    [placeholder]="translations.event.form.placeholder | translate"
@@ -138,7 +144,7 @@
         </app-input>
 
         <!-- Email Confirm -->
-        <app-input [id]="'event-register-emailAddressConfirm'"
+        <app-input inputId="gcc-event-email-confirm-input"
                    [name]="'emailAddressConfirm'"
                    [label]="translations.event.form.email_confirm | translate"
                    [placeholder]="translations.event.form.placeholder | translate"
@@ -148,7 +154,7 @@
         </app-input>
 
         <!-- Occupation -->
-        <app-input [id]="'event-register-occupation'"
+        <app-input inputId="gcc-event-occupation-input"
                    [name]="'occupation'"
                    [label]="translations.event.form.occupation | translate"
                    [placeholder]="translations.event.form.placeholder | translate"
@@ -159,7 +165,7 @@
         </app-input>
 
         <!-- Add to calendar -->
-        <mat-checkbox id="event-register-add-to-calendar"
+        <mat-checkbox id="gcc-event-calendar-checkbox"
                       name="addToCalendar"
                       [color]="'primary'"
                       [disabled]="loading || isPast()">
@@ -167,7 +173,7 @@
         </mat-checkbox>
 
         <!-- Agree to terms -->
-        <mat-checkbox id="event-register-add-to-calendar"
+        <mat-checkbox id="gcc-event-terms-checkbox"
                       name="addToCalendar"
                       [color]="'primary'"
                       [disabled]="loading || isPast()">
@@ -175,7 +181,7 @@
         </mat-checkbox>
 
         <!-- Register -->
-        <app-button [id]="'event-register-registerBtn'"
+        <app-button id="gcc-event-register-btn"
                     [name]="'registerBtn'"
                     [disabled]="loading || isPast()"
                     [ngClass]="loading || isPast() ? 'disabled' : 'enabled'"

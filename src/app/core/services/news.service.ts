@@ -78,7 +78,7 @@ export class NewsService {
 
     newsItem.id = this.id.toString();
     newsItem.date = new Date();
-    newsItem.content = this.lorem.generateParagraphs(Math.floor(Math.random() * 2) + 1);
+    newsItem.content = this.randomContent();
     newsItem.comments = Math.floor(Math.random() * 199) + 1;
     newsItem.likes = Math.floor(Math.random() * 99) + 1;
     newsItem.author = this.peopleService.people[this.id];
@@ -86,5 +86,19 @@ export class NewsService {
     this.id++;
 
     return newsItem;
+  }
+
+  private randomContent(): string {
+    let content: string = '';
+    let paragraphs = (Math.random() * 4) + 1;
+
+    for (let i = 0; i < paragraphs; i++) {
+      content += this.lorem.generateSentences(Math.floor(Math.random() * 10) + 4);
+
+      if (i != paragraphs - 1)
+      content += '<br/><br/>';
+    }
+
+    return content;
   }
 }

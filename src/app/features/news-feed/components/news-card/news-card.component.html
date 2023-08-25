@@ -25,9 +25,7 @@
     </mat-card-header>
 
     <mat-card-content>
-        <p *ngIf="!loading">
-            {{ model?.content }}
-        </p>
+        <p *ngIf="!loading" [innerHTML]="model?.content"></p>
         <ngx-skeleton-loader *ngIf="loading" 
                              count="6" 
                              appearance="line" 
