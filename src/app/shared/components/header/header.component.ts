@@ -19,17 +19,18 @@ export class HeaderComponent {
   routes = CoreRoutes;
   materialButtonType = MaterialButtonType;
   headerExpanded = false;
-  loadingProfile = false;
+  loadingProfile = true;
 
-  user!: Person; // TODO: Pass user from base component instead of header
+  user!: Person; 
 
   constructor(public translations: Translations,
               peopleService: PeopleService) 
   {
-      peopleService.mockGetPeople(1, 0).subscribe((people: Person[]) => {
-        this.user = people[0];
-        this.loadingProfile = false;
-      });
+    // TODO: Get user from service
+    peopleService.mockGetPerson('0', 0).subscribe((person: Person) => {
+      this.user = person;
+      this.loadingProfile = false;
+    });
   }
 
   toggleSearch () {

@@ -72,7 +72,7 @@
                   [ariaLabel]="translations.header.profile.aria | translate"
                   [routerLink]="[routes.Profile]"
                   [ngClass]="activeRoute == routes.Profile ? 'selected' : ''">
-                  <app-profile-pic [model]="user"></app-profile-pic>
+                  <app-profile-pic [model]="user" [loading]="loadingProfile"></app-profile-pic>
       </app-button>
       <app-language-selector 
                   id="gcc-header-change-language"

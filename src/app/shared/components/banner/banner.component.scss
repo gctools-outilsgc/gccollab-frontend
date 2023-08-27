@@ -23,35 +23,13 @@
       width: 100%;
     }
   
-    .banner-text-container {
-      width: 100%;
+    .banner-content-container {
       height: 100%;
-      position: absolute;
-      color: $primary-1-contrast;
+      margin: 0 $gutter-desktop;
       font-size: 68px;
       font-weight: $bold;
+      color: $primary-1-contrast;
       cursor: default;
-      top: 0;
-  
-      > div {
-        height: 50%;
-      }
-  
-      .top, .bottom {
-        position: relative;
-        padding-left: $gutter-desktop;
-  
-        div {
-          position: absolute;
-        }
-      }
-  
-      .top > div {
-        bottom: 0;
-      }
-      .bottom > div {
-        top: 0;
-      }
     }
   
     ngx-skeleton-loader {
