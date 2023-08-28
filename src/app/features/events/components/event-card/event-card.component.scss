@@ -20,6 +20,13 @@
                 justify-content: center;
             }
 
+            app-calendar-button {
+                width: 65px;
+                height: 65px;
+                min-width: 65px;
+                min-height: 65px;
+            }
+
             .event-calendar {
                 width: 65px;
                 height: 65px;
@@ -57,15 +64,15 @@
                 color: $neutral-700 !important;
             }
 
-            .event-calendar-loading {
-                ::ng-deep >div {
-                    width: 65px;
-                    height: 65px;
-                    min-width: 65px;
-                    min-height: 65px;
-                    border-radius: 12px;
-                }
-            }
+            // .event-calendar-loading {
+            //     ::ng-deep >div {
+            //         width: 65px;
+            //         height: 65px;
+            //         min-width: 65px;
+            //         min-height: 65px;
+            //         border-radius: 12px;
+            //     }
+            // }
 
             .event-content {
                 width: 100%;
@@ -85,6 +92,9 @@
                 }
 
                 ngx-skeleton-loader {
+                    display: flex;
+                    flex-direction: column;
+                    
                     ::ng-deep >div:last-child {
                         margin-bottom: 0;
                     }
@@ -104,7 +114,7 @@
                 }
 
                 .event-confirm {
-                    margin-bottom: 12px;
+                    margin-bottom: 6px;
                     color: $secondary-2;
                 }
 

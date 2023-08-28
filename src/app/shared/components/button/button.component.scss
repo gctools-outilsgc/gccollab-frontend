@@ -3,12 +3,14 @@
 
     button {
         margin: 0;
+        padding: 0;
     }
     
     .gcc-button-inner {
         display: flex;
         flex-direction: row;
         justify-content: center;
+        align-items: center;
         gap: 5px;
 
         .mat-icon {
@@ -20,6 +22,10 @@
     ::ng-deep {
         .mat-mdc-button:not(:disabled) {
             color: inherit;
+        }
+
+        .mat-mdc-button .mdc-button__label, .mat-mdc-unelevated-button .mdc-button__label, .mat-mdc-raised-button .mdc-button__label, .mat-mdc-outlined-button .mdc-button__label {
+            padding: 0 16px 0 16px;
         }
     }
 }

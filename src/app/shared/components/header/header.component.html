@@ -71,7 +71,8 @@
                   [tooltip]="translations.header.profile.tooltip | translate"
                   [ariaLabel]="translations.header.profile.aria | translate"
                   [routerLink]="[routes.Profile]"
-                  [ngClass]="activeRoute == routes.Profile ? 'selected' : ''">
+                  [ngClass]="activeRoute == routes.Profile ? 'selected' : ''"
+                  class="profile-btn">
                   <app-profile-pic [model]="user" [loading]="loadingProfile"></app-profile-pic>
       </app-button>
       <app-language-selector 

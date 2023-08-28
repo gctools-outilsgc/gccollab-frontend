@@ -7,8 +7,7 @@
                      [tooltip]="translations.eventCard.calendar.tooltip | translate"
                      [aria]="translations.eventCard.calendar.aria | translate"
                      [tooltipDirection]="tooltipDirection.Below"
-                     [loading]="loading"
-                     [ngClass]="loading? 'calendar-loading' : ''">
+                     [loading]="loading">
 </app-calendar-button>
 
 <div class="page-container" [ngClass]="loading ? 'loading' : ''">
@@ -53,9 +52,10 @@
 
                 <!-- Register -->
                 <app-button btnId="gcc-event-register-jump-btn"
+                            class="registerBtn"
                             [disabled]="loading || isPast()"
                             [ngClass]="loading || isPast() ? 'disabled' : 'enabled'"
-                            class="registerBtn">
+                            (click)="scrollToRegister()">
                     {{ translations.event.form.register | translate }}
                 </app-button>
             </div>
@@ -120,7 +120,7 @@
     </div>
 
     <!-- Registration Form -->
-    <div class="event-registration">
+    <div [id]="registerFormId" class="event-registration">
         <h2>{{ translations.event.event_registration | translate }}</h2>
 
         <!-- Full Name -->
@@ -177,7 +177,11 @@
                       name="addToCalendar"
                       [color]="'primary'"
                       [disabled]="loading || isPast()">
-            {{ translations.event.form.agree_with | translate }}<a href="https://gccollab.ca/terms" target="_blank">{{ translations.event.form.terms_conditions | translate }}</a>
+            {{ translations.event.form.agree_with | translate }}
+            <a routerLink="{{ '/' + routes.Terms }}" target="_blank">
+                {{ translations.event.form.terms_conditions | translate }} 
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
         </mat-checkbox>
 
         <!-- Register -->

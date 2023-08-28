@@ -20,7 +20,7 @@ import { NewsListComponent } from './components/news-list/news-list.component';
     CommonModule,
     NewsFeedRoutingModule,
     SharedModule,
-    MatCardModule
+    MatCardModule,
   ],
   exports: [
     NewsCardComponent,
