@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, NavigationStart, Router, RouterEvent }from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router, RouterEvent }from '@angular/router';
 import { filter, Subscription } from 'rxjs';
 import { CoreRoutes } from './core/constants/routes.constants';
 
@@ -8,7 +8,6 @@ import { OidcSecurityService } from 'angular-auth-oidc-client';
 import { TranslateService } from "@ngx-translate/core";
 import { LanguageStorageService } from './core/services/language-storage.service';
 import { Translations } from './core/services/translations.service';
-import { Banner } from './shared/components/banner/banner.component';
 
 
 @Component({
@@ -20,9 +19,7 @@ export class AppComponent implements OnDestroy {
 
   showHeaderFooter: boolean = true;
   showSearchBar: boolean = false;
-  showBanner: boolean = false;
   activeRoute: string = CoreRoutes.Home;
-  banner: Banner | undefined;
 
   private checkAuthSub!: Subscription;
   private langChangeSub!: Subscription;
@@ -98,9 +95,6 @@ export class AppComponent implements OnDestroy {
       }
 
       this.activeRoute = url;
-
-      this.banner = this.getRouteData('banner');
-      this.showBanner = this.banner instanceof Banner;
     });
   }
 

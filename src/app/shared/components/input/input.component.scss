@@ -8,6 +8,7 @@ mat-label {
     font-size: 18px;
     font-weight: 600;
     display: inline-block;
+    padding-bottom: 10px;
 
     .required-star {
         display: inline-block;
@@ -36,7 +37,7 @@ mat-form-field {
 }
 
 .hint-button {
-    margin-left: -20px;
+    //margin-left: -20px;
 
     ::ng-deep button {
         margin-top: -4px;

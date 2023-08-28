@@ -25,9 +25,7 @@
     </mat-card-header>
 
     <mat-card-content>
-        <p *ngIf="!loading">
-            {{ model?.content }}
-        </p>
+        <p *ngIf="!loading" [innerHTML]="model?.content"></p>
         <ngx-skeleton-loader *ngIf="loading" 
                              count="6" 
                              appearance="line" 
@@ -37,6 +35,7 @@
 
     <mat-card-actions>
         <div class="left-actions">
+
             <app-button [matButtonType]="materialButtonType.Icon"
                         [tooltip]="translations.newsCard.like.tooltip | translate"
                         [ariaLabel]="(liked ? translations.newsCard.like.aria_on : translations.newsCard.like.aria_off) | translate"
@@ -45,15 +44,22 @@
                 <i class="fa-thumbs-up"
                    [ngClass]="liked ? 'fa-solid' : 'fa-regular'">
                 </i>
-                {{ model ? (model.likes > 0 ? model.likes + (liked ? 1 : 0) : '') : ''}}
+                
             </app-button>
+            <div class="action-count">
+                {{ model ? (model.likes > 0 ? model.likes + (liked ? 1 : 0) : '') : ''}}
+            </div>
+
             <app-button [matButtonType]="materialButtonType.Icon"
                         [tooltip]="translations.newsCard.comment.tooltip | translate"
                         [ariaLabel]="translations.newsCard.comment.aria | translate"
                         [disabled]="loading">
                 <i class="fa-regular fa-comment"></i> 
-                {{ model?.comments ? model?.comments : '' }}
             </app-button>
+            <div class="action-count">
+                {{ model?.comments ? model?.comments : '' }}
+            </div>
+
             <app-button [matButtonType]="materialButtonType.Icon"
                         [tooltip]="translations.newsCard.share.tooltip | translate"
                         [ariaLabel]="translations.newsCard.share.aria | translate"

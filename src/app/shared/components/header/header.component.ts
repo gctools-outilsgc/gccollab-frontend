@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Translations } from 'src/app/core/services/translations.service';
 import { MaterialButtonType } from '../../models/material-button-type';
 import { Person } from 'src/app/core/models/person';
+import { PeopleService } from 'src/app/core/services/people.service';
 
 @Component({
   selector: 'app-header',
@@ -18,11 +19,19 @@ export class HeaderComponent {
   routes = CoreRoutes;
   materialButtonType = MaterialButtonType;
   headerExpanded = false;
+  loadingProfile = true;
 
-  user: Person = new Person(); // TODO: Pass user from base component instead of header
+  user!: Person; 
 
-  constructor(public translations: Translations) 
-  { }
+  constructor(public translations: Translations,
+              peopleService: PeopleService) 
+  {
+    // TODO: Get user from service
+    peopleService.mockGetPerson('0', 0).subscribe((person: Person) => {
+      this.user = person;
+      this.loadingProfile = false;
+    });
+  }
 
   toggleSearch () {
     this.headerExpanded = !this.headerExpanded;

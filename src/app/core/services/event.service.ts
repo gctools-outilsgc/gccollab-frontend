@@ -1,6 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Event } from 'src/app/features/events/models/event';
+import { Location } from '../models/location';
+import { PeopleService } from './people.service';
+
+import { LoremIpsum } from 'lorem-ipsum';
+import { GroupService } from './group.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,19 +13,64 @@ import { Event } from 'src/app/features/events/models/event';
 export class EventService {
 
   private id: number = 0;
+  private delay: number = 5000;
 
-  constructor() { }
+  private readonly peopleService: PeopleService = inject(PeopleService);
+  private readonly groupService: GroupService = inject(GroupService);
 
-  mockGetEvents(count: number = 10, delay: number = 5000): Observable<Event[]> {
-    let response: Event[] = [];
-
-    for (let i = 0; i < count; i++) {
-      response.push(this.generateRandomEventItem());
+  private lorem = new LoremIpsum({
+    sentencesPerParagraph: {
+      max: 8,
+      min: 4
+    },
+    wordsPerSentence: {
+      max: 16,
+      min: 4
     }
+  });
+
+  public events: Event[] = [
+    this.generateRandomEventItem(),
+    this.generateRandomEventItem(),
+    this.generateRandomEventItem(),
+    this.generateRandomEventItem(),
+    this.generateRandomEventItem(),
+    this.generateRandomEventItem(),
+    this.generateRandomEventItem(),
+    this.generateRandomEventItem(),
+    this.generateRandomEventItem(),
+    this.generateRandomEventItem()
+  ];
+
+  constructor() {
+
+  }
+
+  mockGetEvent(id: string | null, delay: number = this.delay): Observable<Event> {
+    let response: Event;
+
+    for(let i = 0; i < this.events.length; i++) {
+      if (this.events[i].id == id) {
+        response = this.events[i];
+        break;
+      }
+    }
+
+    let observable: Observable<Event> = new Observable((subscriber) => {
+      setTimeout(() => {
+        subscriber.next(response);
+        subscriber.complete();
+      }, delay);
+    });
+
+    return observable;
+  }
+
+  mockGetEvents(count: number = 10, delay: number = this.delay): Observable<Event[]> {
 
     let observable: Observable<Event[]> = new Observable((subscriber) => {
       setTimeout(() => {
-        subscriber.next(response);
+        subscriber.next(this.events.slice(0, count > this.events.length ? this.events.length : count));
         subscriber.complete();
       }, delay);
     });
@@ -34,7 +84,13 @@ export class EventService {
     event.id = this.id.toString();
     event.title = this.randomTitle();
     event.eventType = this.randomEventType();
+    event.description = this.randomEventDescription();
+    event.location = this.randomLocation();
+    event.author = this.peopleService.people[this.id];
+    event.group = this.groupService.groups[this.id];
     event.startDate = this.randomDate();
+    event.endDate = this.randomDate();
+    event.image = this.randomImage();
 
     this.id++;
     
@@ -55,21 +111,53 @@ export class EventService {
     return titles[Math.floor(Math.random() * titles.length)];
   }
 
+  private randomEventDescription(): string {
+    let description: string = '';
+    let paragraphs = (Math.random() * 4) + 1;
+
+    for (let i = 0; i < paragraphs; i++) {
+      description += this.lorem.generateSentences(Math.floor(Math.random() * 10) + 4);
+
+      if (i != paragraphs - 1)
+        description += '<br/><br/>';
+    }
+
+    return description;
+  }
+
   private randomEventType(): string {
-    const titles: string[] = [
+    const eventTypes: string[] = [
       'In Person',
       'Workshop',
       'Conference',
       'Roundtable',
       'Charity Event'
     ];
-    return titles[Math.floor(Math.random() * titles.length)];
+    return eventTypes[Math.floor(Math.random() * eventTypes.length)];
   }
 
   private randomDate() {
     let startDate = new Date();
     let endDate = new Date('2023/12/31');
     return new Date(startDate.getTime() + Math.random() * (endDate.getTime() - startDate.getTime()));
+  }
+
+  private randomLocation(): Location {
+    const addresses: Location[] = [
+      new Location('2910 Woodroffe Ave', 'Ottawa', 'Ontario'),
+      new Location('4230 Innes Rd', 'Ottawa', 'Ontario'),
+      new Location('2440 Bank St', 'Ottawa', 'Ontario'),
+      new Location('464 Rideau St', 'Ottawa', 'Ontario'),
+      new Location('464 Bank St', 'Ottawa', 'Ontario')
+    ];
+    return addresses[Math.floor(Math.random() * addresses.length)];
+  }
+
+  private randomImage() {
+    const images: string[] = [
+      'https://s3-alpha-sig.figma.com/img/9986/772c/bad4dde06cf83ed41c61df1b17d1369a?Expires=1693785600&Signature=Mk0vcKtlQGC1NfcH0dBlpdPH-i5JMQSjJHiBxsVivkz6XbUMgo5Ul~T1ZUsd5gqSdBNfzmzp7lkO9qpVNlO8-A4GndxqBMpov3x3qwhzV1XJobTN40viIEkOjMwF~jMFLjFRL7Ya2zrsBOKmct95k6QiyVuzvgVkm3o6bcjRNM7DuWnMFbju73L4Y-qDphKeglfi83dYbf3qO074PUnB3ReGXGChQ23~NiykgTz8UDu4oszh09nTKlnPhi8ZxuBckc6W8CsIUbsjaaTP6p0lcukyKa49lGjB9aFJ~xvpf38YI3ssl6rLlpWP1ILo6HvmQQAF7wdZvhPH1edpaeWecw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
+    ];
+    return images[Math.floor(Math.random() * images.length)];
   }
 
 }

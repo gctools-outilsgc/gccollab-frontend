@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
 import { Translations } from 'src/app/core/services/translations.service';
 import { InputType } from 'src/app/shared/models/input-type';
 
 import { NewsItem } from '../news-feed/models/news-item';
 import { NewsService } from 'src/app/core/services/news.service';
-import { Observable, Subscription } from 'rxjs';
 import { Event } from '../events/models/event';
 import { EventService } from 'src/app/core/services/event.service';
 import { CoreRoutes } from 'src/app/core/constants/routes.constants';

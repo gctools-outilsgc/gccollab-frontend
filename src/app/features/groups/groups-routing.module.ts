@@ -13,7 +13,7 @@ const routes: Routes = [
     component: GroupsComponent
   },
   {
-    path: ':groupId',
+    path: ':id',
     title: translations.titles.group,
     component: GroupComponent,
     data: {

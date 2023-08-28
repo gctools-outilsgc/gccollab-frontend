@@ -65,9 +65,18 @@
                 display: inline-flex;
                 padding-left: 40px;
                 padding-right: calc($gutter-desktop / 2);
+                align-items: center;
+                gap: 7px;
+
+                app-language-selector, .profile-btn {
+                    ::ng-deep button {
+                        padding: 0;
+                    }
+                }
 
                 app-profile-pic {
                     width: 52px;
+                    height: 52px;
                     line-height: 10px;
                 }
             }
@@ -76,6 +85,11 @@
         .header-search { 
             width: 100%;
             min-width: 500px;
+
+            form {
+                align-items: center;
+                display: flex;
+            }
 
             input {
                 width: 100%;

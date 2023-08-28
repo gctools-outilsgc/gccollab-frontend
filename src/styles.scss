@@ -8,6 +8,7 @@ body {
     margin: 0; 
     font-family: 'Inter', 'Helvetica Neue', sans-serif;
     display: flex;
+    overflow-x: hidden;
 }
 
 app-root {
@@ -43,6 +44,25 @@ app-root {
 
 a {
     text-decoration: none;
+}
+
+app-banner {
+  .banner-text-top, .banner-text-bottom {
+      height: 50%;
+
+      div {
+          display: flex;
+          height: 100%;
+          width: 100%;
+      }
+  }
+
+  .banner-text-top > div {
+      align-items: flex-end;
+  }
+  .banner-text-bottom > div {
+      align-items: flex-start;
+  }
 }
 
 .page-title {

@@ -8,17 +8,34 @@ import { Group, GroupStatus } from 'src/app/features/groups/models/group';
   export class GroupService {
 
     private id: number = 0;
+    private delay: number = 5000;
 
-  constructor() { }
+    public groups: Group[] = [
+      this.generateRandomGroupItem(),
+      this.generateRandomGroupItem(),
+      this.generateRandomGroupItem(),
+      this.generateRandomGroupItem(),
+      this.generateRandomGroupItem(),
+      this.generateRandomGroupItem(),
+      this.generateRandomGroupItem(),
+      this.generateRandomGroupItem(),
+      this.generateRandomGroupItem(),
+      this.generateRandomGroupItem()
+    ];
 
-  mockGetGroups(count: number = 10, delay: number = 5000): Observable<Group[]> {
-    let response: Group[] = [];
+    constructor() { }
 
-    for (let i = 0; i < count; i++) {
-        response.push(this.generateRandomGroupItem());
+    mockGetGroup(id: string | null, delay: number = this.delay): Observable<Group> {
+      let response: Group;
+  
+      for(let i = 0; i < this.groups.length; i++) {
+        if (this.groups[i].id == id) {
+          response = this.groups[i];
+          break;
+        }
       }
   
-      let observable: Observable<Group[]> = new Observable((subscriber) => {
+      let observable: Observable<Group> = new Observable((subscriber) => {
         setTimeout(() => {
           subscriber.next(response);
           subscriber.complete();
@@ -28,16 +45,20 @@ import { Group, GroupStatus } from 'src/app/features/groups/models/group';
       return observable;
     }
 
+    mockGetGroups(count: number = 10, delay: number = this.delay): Observable<Group[]> {
+      let observable: Observable<Group[]> = new Observable((subscriber) => {
+        setTimeout(() => {
+          subscriber.next(this.groups.slice(0, count > this.groups.length ? this.groups.length : count));
+          subscriber.complete();
+        }, delay);
+      });
+  
+      return observable;
+    }
+
     private generateRandomGroupItem(): Group {
-        const group = new Group();
-    
-        group.id = this.id.toString();
-        group.name = this.randomName();
-        group.displayPicture = this.randomDisplayPicture();
-        group.groupStatus = this.randomGroupStatus();
-    
+        const group = new Group(this.id.toString(), this.randomName(), this.randomDisplayPicture(), this.randomGroupStatus());
         this.id++;
-        
         return group;
     }
 

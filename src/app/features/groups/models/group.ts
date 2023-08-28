@@ -9,4 +9,11 @@ export class Group {
     name: string | undefined;
     displayPicture: string | undefined;
     groupStatus: GroupStatus | undefined;
+
+    constructor(id: string, name: string, displayPicture: string, groupStatus: GroupStatus = GroupStatus.Open) {
+        this.id = id;
+        this.name = name;
+        this.displayPicture = displayPicture;
+        this.groupStatus = groupStatus;
+    }
 }

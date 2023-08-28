@@ -259,5 +259,38 @@ export default {
     },
     "profile_pic": {
         "alt": "A profile picture"
+    },
+    "event": {
+        "date_time": "Date & Time:",
+        "location": "Location:",
+        "host": "Host:",
+        "event_description": "Event Description",
+        "event_registration": "Event Registration",
+        "form": {
+            "full_name": "Full Name",
+            "full_name_error": "Your full name is required.",
+            "email": "Email Address",
+            "email_error": "Your email address is required.",
+            "email_confirm": "Confirm Email Address",
+            "email_confirm_error": "Your email must match.",
+            "occupation": "Occupation",
+            "occupation_error": "Your occupation is required.",
+            "occupation_hint": "This would be your current job title.",
+            "add_calendar": "Add to my calendar",
+            "agree_with": "I agree with the ",
+            "terms_conditions": "terms and conditions",
+            "register": "REGISTER",
+            "placeholder": "Type here"
+        },
+        "share": {
+            "tooltip": "Share",
+            "aria": "Click to share this event."
+        },
+        "bookmark": {
+            "tooltip_on": "Bookmark",
+            "tooltip_off": "Bookmarked",
+            "aria_on": "Click to bookmark this event.",
+            "aria_off": "Click to remove this event from your bookmarks."
+        }
     }
 };
