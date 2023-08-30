@@ -5,7 +5,7 @@ name: Deploy PR
 on:
   pull_request:
     types: [opened, reopened] # TODO: synchronize
-    branches: master
+    branches: main
     
 
 env:
@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ !contains(github.event.pull_request.title, vars.IGNORE_DEPLOY) }}
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v3
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -59,7 +59,7 @@ jobs:
         shell: bash
         run: gh auth login --with-token <<< ${{ env.ACCESS_TOKEN }}
 
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v3
       - name: Create Secret
         run: |
           escaped_profile=$(printf "%q" "${{ env.PROFILE }}")
