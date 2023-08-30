@@ -6,6 +6,7 @@ on:
   pull_request:
     types: [opened, reopened] # TODO: synchronize
     branches: main
+    
 
 env:
   AZURE_WEBAPP_NAME: gccollab-dev-pr-${{ github.event.number }}
@@ -19,8 +20,9 @@ jobs:
   setup:
     name: Deploy Bicep
     runs-on: ubuntu-latest
+    if: ${{ !contains(github.event.pull_request.title, vars.IGNORE_DEPLOY) }}
     steps:
-      - uses: actions/checkout@main
+      - uses: actions/checkout@v3
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -40,6 +42,7 @@ jobs:
     name: Store Publishing Profile
     runs-on: ubuntu-latest
     needs: setup
+    if: ${{ !contains(github.event.pull_request.title, vars.IGNORE_DEPLOY) }}
     steps:
       - name: Azure Login
         uses: azure/login@v1
@@ -56,7 +59,7 @@ jobs:
         shell: bash
         run: gh auth login --with-token <<< ${{ env.ACCESS_TOKEN }}
 
-      - uses: actions/checkout@main
+      - uses: actions/checkout@v3
       - name: Create Secret
         run: |
           escaped_profile=$(printf "%q" "${{ env.PROFILE }}")
@@ -68,6 +71,7 @@ jobs:
     name: Create Environment 
     runs-on: ubuntu-latest
     needs: [setup, store]
+    if: ${{ !contains(github.event.pull_request.title, vars.IGNORE_DEPLOY) }}
     steps:
       - name: Create Environment
         shell: bash
@@ -85,6 +89,7 @@ jobs:
     name: Build, Test and Deploy
     runs-on: windows-latest
     needs: [setup, store, create-environment]
+    if: ${{ !contains(github.event.pull_request.title, vars.IGNORE_DEPLOY) }}
     environment: 
       name: PR ${{ github.event.number }}
       url: https://${{ env.AZURE_WEBAPP_NAME }}.azurewebsites.net/

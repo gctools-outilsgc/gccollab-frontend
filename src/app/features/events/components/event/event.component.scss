@@ -102,6 +102,13 @@ $calendar-size: 120px;
                 }
             }
 
+            .section-separator {
+                height: 40px;
+                margin-top: 30px;
+                flex-grow: 0.5;
+                border-left: 2px solid $neutral-300;
+            }
+
             ngx-skeleton-loader {
                 display: block;
                 width: 80%;
