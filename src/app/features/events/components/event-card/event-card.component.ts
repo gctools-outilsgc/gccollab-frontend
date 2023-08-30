@@ -17,6 +17,7 @@ export class EventCardComponent {
   @Input() loading: boolean = false;
   @Output() confirm = new EventEmitter();
   @Output() decline = new EventEmitter();
+  @Input() view: String = 'small';
 
   materialButtonType = MaterialButtonType;
   tooltipDirection = TooltipDirection;

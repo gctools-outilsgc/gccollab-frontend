@@ -36,7 +36,8 @@
     <mat-card-actions>
         <div class="left-actions">
 
-            <app-button [matButtonType]="materialButtonType.Icon"
+
+            <app-button [matButtonType]="materialButtonType.Basic"
                         [tooltip]="translations.newsCard.like.tooltip | translate"
                         [ariaLabel]="(liked ? translations.newsCard.like.aria_on : translations.newsCard.like.aria_off) | translate"
                         [disabled]="loading"
@@ -44,21 +45,16 @@
                 <i class="fa-thumbs-up"
                    [ngClass]="liked ? 'fa-solid' : 'fa-regular'">
                 </i>
-                
-            </app-button>
-            <div class="action-count">
                 {{ model ? (model.likes > 0 ? model.likes + (liked ? 1 : 0) : '') : ''}}
-            </div>
+            </app-button>
 
-            <app-button [matButtonType]="materialButtonType.Icon"
+            <app-button [matButtonType]="materialButtonType.Basic"
                         [tooltip]="translations.newsCard.comment.tooltip | translate"
                         [ariaLabel]="translations.newsCard.comment.aria | translate"
                         [disabled]="loading">
                 <i class="fa-regular fa-comment"></i> 
+                {{ model?.comments }}
             </app-button>
-            <div class="action-count">
-                {{ model?.comments ? model?.comments : '' }}
-            </div>
 
             <app-button [matButtonType]="materialButtonType.Icon"
                         [tooltip]="translations.newsCard.share.tooltip | translate"

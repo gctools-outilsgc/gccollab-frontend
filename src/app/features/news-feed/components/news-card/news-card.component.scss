@@ -48,6 +48,7 @@ $title-padding: 90px;
             > div {
                 display: flex;
                 width: 50%;
+                align-items: center;
             }
 
             .right-actions {
@@ -58,11 +59,6 @@ $title-padding: 90px;
 
             i.fa-solid {
                 color: $primary-2;
-            }
-
-            .action-count {
-                display: flex;
-                align-items: center;
             }
 
             .right-actions {
