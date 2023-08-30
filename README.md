@@ -16,10 +16,10 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## Contributing
 
-All development should be done in branches that branch off `master`.  Any new dev work should include unit tests that are in a passing state.
+All development should be done in branches that branch off `main`.  Any new dev work should include unit tests that are in a passing state.
 
-- Create **a new branch** for your work that branches off of `master`.
-- Once your work is done, open a pull request to merge back into `master`.
+- Create **a new branch** for your work that branches off of `main`.
+- Once your work is done, open a pull request to merge back into `main`.
 - If the pull request has been approved you are free to merge and close your branch.
 
 ## Build

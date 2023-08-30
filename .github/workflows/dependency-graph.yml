@@ -1,4 +1,4 @@
-# This action will generate a new dependency graph for the project once a pull request is closed that targets master
+# This action will generate a new dependency graph for the project once a pull request is closed that targets main
 
 name: Update Dependency Graph
 
