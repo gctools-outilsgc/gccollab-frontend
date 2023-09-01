@@ -1,22 +1,16 @@
 <div class="gcc-input-wrapper">
-
-    <mat-label *ngIf="label">
+    <mat-label *ngIf="label" [ngClass]="disabled ? 'disabled' : ''">
         {{ label }} 
-        <div *ngIf="required" class="required-star">
-            *
-        </div>
+        <div *ngIf="required" class="required-star">*</div>
+        <i *ngIf="hint" 
+           tabindex="0"
+           [ngClass]="{'fa-circle-xmark' : showHint, 'fa-circle-question' : !showHint}" class="fa-regular"
+           [matTooltip]="showHint ? (translations.input.hint.hide.text | translate) : translations.input.hint.show.text | translate"
+           [attr.aria-label]="showHint ? (translations.input.hint.hide.aria | translate) : translations.input.hint.show.aria | translate"
+           [matTooltipPosition]="tooltipDirection.Right"
+           (click)="toggleShowHint()">
+        </i>
     </mat-label>
-
-    <app-button *ngIf="hint"
-                [matButtonType]="materialButtonType.Icon"
-                [tooltip]="showHint ? (translations.input.hint.hide.text | translate) : translations.input.hint.show.text | translate"
-                [ariaLabel]="showHint ? (translations.input.hint.hide.aria | translate) : translations.input.hint.show.aria | translate"
-                [tooltipDirection]="tooltipDirection.Right"
-                [disabled]="disabled"
-                (click)="toggleShowHint()"
-                class="hint-button">
-        <i [ngClass]="showHint ? 'fa-circle-xmark' : 'fa-circle-question'" class="fa-regular"></i>
-    </app-button>
 
     <mat-form-field>
         <input matInput 
