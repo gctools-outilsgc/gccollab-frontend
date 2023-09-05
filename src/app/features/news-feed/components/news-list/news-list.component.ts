@@ -10,7 +10,7 @@ import { NewsItem } from '../../models/news-item';
 export class NewsListComponent {
   @Input() model?: NewsItem[];
   @Input() isLoading: boolean = false;
-  @Input() loadingCount: number = 3;
+  @Input() loadingCount: number = 5;
 
   loadingItems: number[];
 
