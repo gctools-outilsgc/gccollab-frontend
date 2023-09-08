@@ -5,6 +5,7 @@ import { MaterialButtonType } from '../../models/material-button-type';
 import { Translations } from 'src/app/core/services/translations.service';
 import { TranslateService } from '@ngx-translate/core';
 import { TooltipDirection } from '../../models/tooltip-direction';
+import { ErrorStateMatcher } from '@angular/material/core';
 
 @Component({
   selector: 'app-input',
@@ -17,8 +18,9 @@ export class InputComponent {
   @Input() inputId: string = '';
   @Input() name: string = '';
   
-  @Input() type: InputType = InputType.Text;
+  @Input() type: InputType | string = InputType.Text;
   @Input() formControl!: FormControl;
+  @Input() errorStateMatcher!: ErrorStateMatcher;
 
   @Input() value: string = '';
   @Input() label!: string;

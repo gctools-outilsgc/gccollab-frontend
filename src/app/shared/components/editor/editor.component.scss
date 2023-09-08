@@ -1,3 +1,5 @@
+@import "../../../../assets/scss/partials/colors";
+
 :host {
     display: block;
     width: 100%;
@@ -6,5 +8,26 @@
         position: relative;
         max-width: 100%;
         max-height: 100%;
+        border-radius: 10px;
+        border: 2px solid $neutral-300;
+
+        ngx-editor-menu {
+            ::ng-deep {
+                .NgxEditor__MenuBar {
+                    border-top-left-radius: 10px;
+                    border-top-right-radius: 10px;
+                    border-bottom: 2px solid $neutral-300;
+                }
+            }
+        }
+
+        ngx-editor {
+            ::ng-deep {
+                .NgxEditor {
+                    border-bottom-left-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                }
+            }
+        }
     }
 }

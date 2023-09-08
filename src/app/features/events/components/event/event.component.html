@@ -124,7 +124,7 @@
     </div>
 
     <!-- Registration Form -->
-    <div [id]="registerFormId" class="event-registration">
+    <form [id]="registerFormId" class="event-registration">
         <h2>{{ translations.event.event_registration | translate }}</h2>
 
         <!-- Full Name -->
@@ -134,26 +134,34 @@
                    [placeholder]="translations.event.form.placeholder | translate"
                    [errorMessage]="translations.event.form.full_name_error | translate"
                    [required]="true"
+                   [formControl]="nameFormControl"
+                   [errorStateMatcher]="matcher"
                    [disabled]="loading || isPast()">
         </app-input>
 
         <!-- Confirm -->
         <app-input inputId="gcc-event-email-input"
                    [name]="'emailAddress'"
+                   [type]="'email'"
                    [label]="translations.event.form.email | translate"
                    [placeholder]="translations.event.form.placeholder | translate"
                    [errorMessage]="translations.event.form.email_error | translate"
                    [required]="true"
+                   [formControl]="emailFormControl"
+                   [errorStateMatcher]="matcher"
                    [disabled]="loading || isPast()">
         </app-input>
 
         <!-- Email Confirm -->
         <app-input inputId="gcc-event-email-confirm-input"
                    [name]="'emailAddressConfirm'"
+                   [type]="'email'"
                    [label]="translations.event.form.email_confirm | translate"
                    [placeholder]="translations.event.form.placeholder | translate"
                    [errorMessage]="translations.event.form.email_confirm_error | translate"
                    [required]="true"
+                   [formControl]="emailConfirmFormControl"
+                   [errorStateMatcher]="matcher"
                    [disabled]="loading || isPast()">
         </app-input>
 
@@ -165,6 +173,8 @@
                    [errorMessage]="translations.event.form.occupation_error | translate"
                    [hint]="translations.event.form.occupation_hint | translate"
                    [required]="true"
+                   [formControl]="occupationFormControl"
+                   [errorStateMatcher]="matcher"
                    [disabled]="loading || isPast()">
         </app-input>
 
@@ -179,6 +189,7 @@
         <!-- Agree to terms -->
         <mat-checkbox id="gcc-event-terms-checkbox"
                       name="addToCalendar"
+                     
                       [color]="'primary'"
                       [disabled]="loading || isPast()">
             {{ translations.event.form.agree_with | translate }}
@@ -196,6 +207,6 @@
                     class="registerBtn">
             {{ translations.event.form.register | translate }}
         </app-button>
-    </div>
+    </form>
     
 </div>

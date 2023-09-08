@@ -6,12 +6,14 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { ProfileCardComponent } from './components/profile-card/profile-card.component';
 import { MatCardModule } from '@angular/material/card';
 import { ProfileListComponent } from './components/profile-list/profile-list.component';
+import { PostComponent } from './components/post/post.component';
 
 
 @NgModule({
   declarations: [
     ProfileCardComponent,
-    ProfileListComponent
+    ProfileListComponent,
+    PostComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { ProfileListComponent } from './components/profile-list/profile-list.com
   ],
   exports: [
     ProfileCardComponent,
-    ProfileListComponent
+    ProfileListComponent,
+    PostComponent
   ]
 })
 export class ProfileModule { }

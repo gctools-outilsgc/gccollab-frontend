@@ -5,7 +5,7 @@ import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-transla
 import { AppModule } from '../app.module';
 import { HttpClient } from '@angular/common/http';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
 import { ForbiddenComponent } from './components/forbidden/forbidden.component';
@@ -34,6 +34,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ProfilePicComponent } from './components/profile-pic/profile-pic.component';
 import { CalendarButtonComponent } from './components/calendar-button/calendar-button.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { EditorMenuComponent } from './components/editor/menu/editor-menu/editor-menu.component';
 
 
 @NgModule({
@@ -51,10 +52,12 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 	  BannerComponent,
     ProfilePicComponent,
     CalendarButtonComponent,
+    EditorMenuComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule,
     TranslateModule.forChild({
       loader: {

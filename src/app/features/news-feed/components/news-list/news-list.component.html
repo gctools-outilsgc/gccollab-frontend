@@ -8,8 +8,8 @@
         There is nothing to display.
     </div>
 
-    <div *ngIf="isLoading">
-        <div *ngFor="let num of loadingItems" class="news-card-wrapper loading">
+    <div *ngIf="isLoading" class="loading">
+        <div *ngFor="let num of loadingItems" class="news-card-wrapper">
             <app-news-card [loading]="true"></app-news-card>
         </div>
     </div>

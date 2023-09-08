@@ -74,7 +74,7 @@ export class HomeComponent implements OnInit {
   onNewsScroll(): void {
     this.loadingNews = true;
     
-    this.newsService.mockGetNewsItems(10, 3000).subscribe((newsItems: NewsItem[]) => {
+    this.newsService.mockGetNewsItems(10, 30000).subscribe((newsItems: NewsItem[]) => {
       this.newsItems.push(...newsItems);
       this.loadingNews = false;
     });

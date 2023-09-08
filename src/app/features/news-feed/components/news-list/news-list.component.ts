@@ -8,9 +8,9 @@ import { NewsItem } from '../../models/news-item';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NewsListComponent {
-  @Input() model?: NewsItem[];
+  @Input() model: NewsItem[] = [];
   @Input() isLoading: boolean = false;
-  @Input() loadingCount: number = 5;
+  @Input() loadingCount: number = 3;
 
   loadingItems: number[];
 

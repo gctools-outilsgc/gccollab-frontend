@@ -6,6 +6,11 @@
         width: 66%;
         padding-right: $grid-step;
 
+        app-post {
+            display: block;
+            padding-bottom: 40px;
+        }
+
         > div {
             padding: 0 22px 0 22px;
         }

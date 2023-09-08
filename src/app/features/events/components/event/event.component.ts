@@ -10,6 +10,8 @@ import { InputType } from 'src/app/shared/models/input-type';
 import { ActivatedRoute } from '@angular/router';
 import { EventService } from 'src/app/core/services/event.service';
 import { CoreRoutes } from 'src/app/core/constants/routes.constants';
+import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
 
 @Component({
   selector: 'app-event',
@@ -24,6 +26,7 @@ export class EventComponent implements OnInit {
   banner: Banner | null = null;
   loading: boolean = true;
   bookmarked: boolean = false;
+  agreeToTerms: boolean = false;
 
   registerFormId: string = 'gcc-event-register-form';
 
@@ -34,6 +37,13 @@ export class EventComponent implements OnInit {
 
   private readonly route: ActivatedRoute = inject(ActivatedRoute);
   private readonly eventService: EventService = inject(EventService);
+
+  nameFormControl = new FormControl('', [Validators.required]);
+  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  emailConfirmFormControl = new FormControl('', [Validators.required, Validators.email]);
+  occupationFormControl = new FormControl('', [Validators.required]);
+
+  matcher = new MyErrorStateMatcher();
 
   constructor(public translations: Translations,
               private viewportScroller: ViewportScroller ) {
@@ -70,5 +80,13 @@ export class EventComponent implements OnInit {
 
   scrollToRegister() {
     this.viewportScroller.scrollToAnchor(this.registerFormId);
+  }
+}
+
+/** Error when invalid control is dirty, touched, or submitted. */
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
 }

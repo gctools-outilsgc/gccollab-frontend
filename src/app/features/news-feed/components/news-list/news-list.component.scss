@@ -3,15 +3,7 @@
         overflow: visible;
 
         .news-card-wrapper {
-            padding: 20px 0;
-        }
-
-        .news-card-wrapper:first-child {
-            padding-top: 0;
-        }
-
-        .news-card-wrapper:last-child {
-            padding-bottom: 0;
+            padding-bottom: 40px;
         }
 
         > div:not(.news-card-wrapper) {

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Editor, NgxEditorService, Toolbar } from 'ngx-editor';
 import { ngxEditorLocals } from '../../factories/editor-config.factory';
@@ -11,7 +11,12 @@ import { Translations } from 'src/app/core/services/translations.service';
   templateUrl: './editor.component.html',
   styleUrls: ['./editor.component.scss']
 })
-export class EditorComponent implements OnInit, OnDestroy {
+export class EditorComponent implements OnInit, OnDestroy, AfterViewInit {
+
+  @Input() disabled: boolean = false;
+
+  @ViewChild('[title="Bold"]') el!:ElementRef;
+
   editor: Editor;
   toolbar: Toolbar = [
     ['bold', 'italic'],
@@ -28,17 +33,26 @@ export class EditorComponent implements OnInit, OnDestroy {
 
   private langChangeSub!: Subscription;
 
-  constructor(private translateService: TranslateService, private ngxEditorService: NgxEditorService, public translations: Translations ) {
-    this.editor = new Editor();
+  constructor(private translateService: TranslateService, private ngxEditorService: NgxEditorService, public translations: Translations, private elementRef: ElementRef ) {
+    this.editor = new Editor({
+      history: true,
+      keyboardShortcuts: true,
+      inputRules: true,
+    });
 
     this.langChangeSub = this.translateService.onLangChange.subscribe(() => {
       this.onLangChange();
     });
+
    }
 
   ngOnInit(): void {
     if (!this.editor) 
       this.editor = new Editor();
+  }
+
+  ngAfterViewInit() {
+    this.applyAccessibility();
   }
 
   ngOnDestroy(): void {
@@ -51,9 +65,25 @@ export class EditorComponent implements OnInit, OnDestroy {
 
   onLangChange(): void {
     this.ngxEditorService.config.locals = ngxEditorLocals(this.translateService, this.translations);
+    this.applyAccessibility();
   }
 
   placeholderText(): string {
     return this.translateService.instant(this.translations.editor.placeholder)
+  }
+
+  applyAccessibility(): void {
+    let bold = this.elementRef.nativeElement.querySelectorAll('[title="' + this.translateService.instant(this.translations.editor.bold) + '"]')[0];
+    bold.setAttribute('tabIndex', '0');
+    bold.setAttribute('ariaLabel', this.translateService.instant(this.translations.editor.bold));
+    bold.addEventListener('click', (event: KeyboardEvent) => {
+      console.log('clicked'); 
+    });
+    bold.addEventListener('keydown', (event: KeyboardEvent) => {
+      if (event.key == "Enter") {
+        bold.dispatchEvent(new Event('click',));
+        //bold.click();
+      }
+    });
   }
 }

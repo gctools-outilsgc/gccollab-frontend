@@ -26,6 +26,8 @@
                [disabled]="disabled"
                [readonly]="readonly"
                [autofocus]="autofocus"
+               [formControl]="formControl"
+               [errorStateMatcher]="errorStateMatcher"
         >
 
         <app-button *ngIf="type == inputType.Password" 
