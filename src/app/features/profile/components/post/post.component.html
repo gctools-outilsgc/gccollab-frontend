@@ -1,0 +1,48 @@
+<mat-card appearance="outlined">
+
+    <div class="profile-wrapper">
+        <app-profile-pic [model]="profile" [loading]="loading"></app-profile-pic>
+    </div>
+
+    <div *ngIf="loading" class="loading-header">
+        <ngx-skeleton-loader count="1" 
+                             appearance="line" 
+                             animation="progress">
+        </ngx-skeleton-loader>
+        <ngx-skeleton-loader count="1" 
+                             appearance="line" 
+                             animation="progress">
+        </ngx-skeleton-loader>
+    </div>
+
+    <mat-card-header *ngIf="!loading">
+        <mat-card-title>
+            {{ profile.firstName + ' ' +  profile.lastName }}
+        </mat-card-title>
+        <mat-card-subtitle>
+            {{ profile.jobTitle }}
+        </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <p *ngIf="!loading && model?.content" [innerHTML]="model.content"></p>
+
+        <app-editor *ngIf="!loading"></app-editor>
+
+        <ngx-skeleton-loader *ngIf="loading" 
+                             count="6" 
+                             appearance="line" 
+                             animation="progress">
+        </ngx-skeleton-loader>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <div class="left-actions">
+
+        </div>
+
+        <div class="right-actions">
+            
+        </div>
+    </mat-card-actions>
+</mat-card>

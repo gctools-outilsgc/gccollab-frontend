@@ -68,7 +68,9 @@ import { EditorMenuComponent } from './components/editor/menu/editor-menu/editor
       isolate: false,
       extend: true
     }),
-    NgxEditorModule.forChild(),
+    NgxEditorModule.forChild({
+      
+    }),
     MatButtonModule,
     MatIconModule,
     MatTooltipModule,
@@ -77,7 +79,7 @@ import { EditorMenuComponent } from './components/editor/menu/editor-menu/editor
     MatInputModule,
     MatCheckboxModule,
     NgxSkeletonLoaderModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
   ],
   exports: [
     TranslateModule,

@@ -145,8 +145,8 @@ const fr: typeof import('./translations.en').default = {
         "bold": "Gras",
         "italic": "Italique",
         "code": "Code",
-        "underline": "Underline",
-        "strike": "Souligner",
+        "underline": "Souligner",
+        "strike": "Grève",
         "blockquote": "Citation en bloc",
         "bulletlist": "Liste à puces",
         "orderedlist": "Liste ordonnée",
@@ -174,7 +174,8 @@ const fr: typeof import('./translations.en').default = {
         "title": "Titre",
         "remove": "Retirer",
         "horizontalrule": "La règle horizontale",
-        "formatclear": "Supprimer le formattage"
+        "formatclear": "Supprimer le formattage",
+        "enabled": " activé"
     },
     "input": {
         "hint": {

@@ -45,7 +45,7 @@ import { GroupsComponent } from './features/groups/groups.component';
       enableTitleTranslate: false,
       
     }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [
     { 

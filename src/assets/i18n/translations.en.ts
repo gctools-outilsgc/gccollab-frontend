@@ -173,7 +173,8 @@ export default {
         "title": "Title",
         "remove": "Remove",
         "horizontalrule": "Horizontal Rule",
-        "formatclear": "Clear Formatting"
+        "formatclear": "Clear Formatting",
+        "enabled": " enabled"
     },
     "input": {
         "hint": {
