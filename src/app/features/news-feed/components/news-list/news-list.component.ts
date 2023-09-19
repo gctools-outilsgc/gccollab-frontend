@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { NewsItem } from '../../models/news-item';
+import { INewsItem } from '../../models/INewsItem';
 
 @Component({
   selector: 'app-news-list',
@@ -8,7 +8,7 @@ import { NewsItem } from '../../models/news-item';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NewsListComponent {
-  @Input() model: NewsItem[] = [];
+  @Input() model: INewsItem[] = [];
   @Input() isLoading: boolean = false;
   @Input() loadingCount: number = 3;
 

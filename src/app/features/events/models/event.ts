@@ -1,5 +1,5 @@
-import { Person } from "src/app/core/models/person";
-import { Location } from "src/app/core/models/location";
+import { Person } from "src/app/core/models/person.model";
+import { Location } from "src/app/core/models/location.model";
 import { Group } from "../../groups/models/group";
 
 export class Event {

@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Event } from 'src/app/features/events/models/event';
-import { Location } from '../models/location';
+import { Location } from '../models/location.model';
 import { PeopleService } from './people.service';
 
 import { LoremIpsum } from 'lorem-ipsum';

@@ -1,7 +1,11 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { MaterialButtonType } from 'src/app/shared/models/material-button-type';
-import { NewsItem } from '../../models/news-item';
+import { INewsItem } from '../../models/INewsItem';
 import { Translations } from 'src/app/core/services/translations.service';
+
+import { Post } from 'src/app/core/models/post.model';
+import { Blog } from 'src/app/core/models/blog.model';
+import { Poll } from 'src/app/core/models/poll.model';
 
 @Component({
   selector: 'app-news-card',
@@ -11,7 +15,7 @@ import { Translations } from 'src/app/core/services/translations.service';
 })
 export class NewsCardComponent {
 
-  @Input() model?: NewsItem;
+  @Input() model?: INewsItem;
   @Input() loading: boolean = false;
 
   liked: boolean = false;
@@ -20,4 +24,16 @@ export class NewsCardComponent {
   materialButtonType = MaterialButtonType;
 
   constructor(public translations: Translations) {}
+
+  isPost(instance: any): boolean {
+    return instance instanceof Post
+  }
+
+  isBlog(instance: any): boolean {
+    return instance instanceof Blog
+  }
+
+  isPoll(instance: any): boolean {
+    return instance instanceof Poll
+  }
 }
