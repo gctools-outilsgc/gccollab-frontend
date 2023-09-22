@@ -1,0 +1,12 @@
+:host {
+    app-button {
+        ::ng-deep {
+            button {
+                margin: 30px 0;
+            }
+            .gcc-button-inner {
+                letter-spacing: 1px;
+            }
+        }
+    }
+}

@@ -1,3 +1,17 @@
+<div *ngIf="label">
+    
+</div>
+
+<mat-label *ngIf="label" [ngClass]="disabled ? 'disabled' : ''">
+    {{ label }} 
+    <div *ngIf="required" class="required-star">*</div>
+    <i *ngIf="hint" 
+       tabindex="0"
+       [ngClass]="{'fa-circle-xmark' : showHint, 'fa-circle-question' : !showHint}" class="fa-regular">
+    </i>
+</mat-label>
+
+
 <div class="NgxEditor__Wrapper">
     <ngx-editor-menu 
         [editor]="editor" 

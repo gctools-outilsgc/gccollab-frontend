@@ -35,6 +35,10 @@ import { ProfilePicComponent } from './components/profile-pic/profile-pic.compon
 import { CalendarButtonComponent } from './components/calendar-button/calendar-button.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { EditorMenuComponent } from './components/editor/menu/editor-menu/editor-menu.component';
+import { PostFormComponent } from './components/post-form/post-form.component';
+import { BlogFormComponent } from './components/blog-form/blog-form.component';
+import { EventFormComponent } from './components/event-form/event-form.component';
+import { PollFormComponent } from './components/poll-form/poll-form.component';
 
 
 @NgModule({
@@ -53,6 +57,10 @@ import { EditorMenuComponent } from './components/editor/menu/editor-menu/editor
     ProfilePicComponent,
     CalendarButtonComponent,
     EditorMenuComponent,
+    PostFormComponent,
+    BlogFormComponent,
+    EventFormComponent,
+    PollFormComponent,
   ],
   imports: [
     CommonModule,
@@ -96,7 +104,11 @@ import { EditorMenuComponent } from './components/editor/menu/editor-menu/editor
     InfiniteScrollModule,
     ProfilePicComponent,
     CalendarButtonComponent,
-    MatCheckboxModule
+    MatCheckboxModule,
+    PostFormComponent,
+    BlogFormComponent,
+    EventFormComponent,
+    PollFormComponent,
   ],
   providers: [
     {

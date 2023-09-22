@@ -12,9 +12,19 @@ export class PostComponent {
   @Input() profile!: Person;
   @Input() model!: INewsItem; // TODO: Create models for each post type
   @Input() loading: boolean = false;
+  @Input() editing: boolean = false;
 
   constructor() {
     
+  }
+
+  toggleEditing(event: Event) {
+    if ((event instanceof KeyboardEvent && (event.key == 'Enter' || event.key == 'Space')) || event instanceof KeyboardEvent == false) 
+      this.editing = !this.editing;
+  }
+
+  formReady(): boolean {
+    return true;
   }
 
 }

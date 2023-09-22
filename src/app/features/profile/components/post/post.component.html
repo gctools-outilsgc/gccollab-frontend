@@ -25,9 +25,37 @@
     </mat-card-header>
 
     <mat-card-content>
-        <p *ngIf="!loading && model?.content" [innerHTML]="model.content"></p>
 
-        <app-editor *ngIf="!loading"></app-editor>
+        <div *ngIf="!loading && !editing" 
+             class="gcc-post-placeholder" 
+             (click)="toggleEditing($event)"
+             (keydown)="toggleEditing($event)"
+             tabindex="0">
+            <i class="fa-regular fa-pen-to-square"></i>
+            <span>Type here</span>
+        </div>
+
+        <app-button *ngIf="!loading && editing" 
+                    class="gcc-cancel-editing"
+                    [matButtonType]="'mat-icon-button'"
+                    (click)="toggleEditing($event)">
+            <i class="fa-regular fa-circle-xmark fa-2xl"></i>
+        </app-button>
+
+        <mat-tab-group *ngIf="!loading && editing" mat-stretch-tabs="false">
+            <mat-tab label="Post">
+                <app-post-form></app-post-form>
+            </mat-tab>
+            <mat-tab label="Blog">
+                <app-blog-form></app-blog-form>
+            </mat-tab>
+            <mat-tab label="Event">
+                <app-event-form></app-event-form>
+            </mat-tab>
+            <mat-tab label="Poll">
+                <app-poll-form></app-poll-form>
+            </mat-tab>
+        </mat-tab-group>
 
         <ngx-skeleton-loader *ngIf="loading" 
                              count="6" 
@@ -36,13 +64,17 @@
         </ngx-skeleton-loader>
     </mat-card-content>
 
-    <mat-card-actions>
+    <mat-card-actions *ngIf="editing">
         <div class="left-actions">
 
         </div>
 
         <div class="right-actions">
-            
+            <app-button *ngIf="!loading && editing"
+                        [ngClass]="formReady() ? 'enabled' : 'disabled'"
+                        [disabled]="!formReady()">
+                Post
+            </app-button>
         </div>
     </mat-card-actions>
 </mat-card>

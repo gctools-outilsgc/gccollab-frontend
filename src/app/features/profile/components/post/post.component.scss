@@ -5,6 +5,111 @@ $title-padding: 90px;
 
 :host {
     mat-card {
+        mat-card-content {
+            .gcc-post-placeholder {
+                display: flex;
+                padding: 12px 17px;
+                border: 2px solid $neutral-300;
+                border-radius: 10px;
+                align-items: center;
+                margin-bottom: 16px;
+                cursor: pointer;
+
+                i {
+                    padding-right: 16px;
+                }
+
+                i,span {
+                    color: $neutral-900;
+                }
+            }
+
+            ::ng-deep {
+                mat-tab-header {
+                    margin-right: 65px;
+
+                    .mat-mdc-tab-labels {
+                        gap: 20px;
+
+                        .mdc-tab__text-label {
+                            font-size: large;
+                            font-weight: 600;
+                        }
+                    }
+
+                    .mdc-tab {
+                        height: 40px;
+                        border: 3px solid $primary-1;
+                        border-radius: 10px;
+
+                        .mdc-tab__text-label {
+                            color: #000;
+                            transition: none;
+                        }
+                    }
+    
+                    .mdc-tab--active {
+                        background-color: $primary-1;
+
+                        .mdc-tab__text-label {
+                            color: $primary-1-contrast;
+                        }
+                    }
+
+                    .mdc-tab--active:hover, .mdc-tab--active:focus {
+                        background-color: $primary-2;
+                        border-color: $primary-2;
+                    }
+    
+                    .mdc-tab-indicator {
+                        display: none;
+                    }
+                }
+
+                .mat-mdc-tab-body-wrapper {
+                    padding-top: 30px;
+                }
+            }
+
+            .gcc-cancel-editing {
+                position: absolute;
+                top: 94px;
+                right: 26px;
+
+                ::ng-deep {
+                    color: $primary-1;
+                }
+            }
+        }
+
+        mat-card-actions {
+            padding: 0px 16px 24px 16px !important;
+
+            .right-actions {
+                ::ng-deep {
+                    button {
+                        background: $secondary-2-gradient;
+                        color: $secondary-2-contrast;
+                    }
+
+                    app-button.disabled {
+                        button {
+                            background: #9e9e9e;
+                            color: $secondary-2-contrast;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+
+    mat-card {
         border: 1px solid $neutral-300;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 10px;

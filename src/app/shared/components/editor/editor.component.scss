@@ -60,4 +60,28 @@
             }
         }
     }
+
+    mat-label {
+        font-size: 18px;
+        font-weight: 600;
+        display: inline-block;
+        padding-bottom: 8px;
+    
+        .required-star {
+            display: inline-block;
+            color: $error-red;
+        }
+    
+        i {
+            margin-left: 5px;
+            cursor: pointer;
+            color: $primary-1;
+        }
+    }
+    
+    mat-label.disabled {
+        .required-star, i {
+            color: $neutral-300 !important;
+        }
+    }
 }

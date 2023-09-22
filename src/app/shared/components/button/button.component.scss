@@ -1,3 +1,5 @@
+@import "../../../../assets/scss/partials/colors";
+
 :host {
     position: sticky;
 
@@ -26,6 +28,15 @@
 
         .mat-mdc-button .mdc-button__label, .mat-mdc-unelevated-button .mdc-button__label, .mat-mdc-raised-button .mdc-button__label, .mat-mdc-outlined-button .mdc-button__label {
             padding: 0 16px 0 16px;
+        }
+
+        .mat-stroked-button {
+            border: 3px solid $primary-1 !important;
+            border-radius: 10px;
+
+            i {
+                color: $primary-1;
+            }
         }
     }
 }

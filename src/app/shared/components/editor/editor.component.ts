@@ -15,6 +15,9 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit {
 
   @Input() html!: string;
   @Input() disabled: boolean = false;
+  @Input() required: boolean = false;
+  @Input() label!: string;
+  @Input() hint!: string;
   
   editor: Editor;
   toolbar: Toolbar = [
@@ -28,6 +31,7 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit {
     ['align_left', 'align_center', 'align_right', 'align_justify'],
     ['horizontal_rule', 'format_clear'],
   ];
+  showHint: boolean = false;
 
   private langChangeSub!: Subscription;
   private keydownRef = this.handleKeyDown.bind(this);
@@ -171,8 +175,9 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit {
       console.warn(selector + " not found.");
   }
 
+  // TODO: Aria labels for drop down (enabled/disabled)
   handleDropDown(event: Event): void {
-    if (event instanceof KeyboardEvent && event.key != 'Enter')
+    if (event instanceof KeyboardEvent && (event.key != 'Enter' && event.key != 'Space'))
       return;
 
     setTimeout(() => {
@@ -184,11 +189,8 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit {
           if (el instanceof HTMLElement)
             el.setAttribute('tabIndex', '0');
             el.addEventListener('keydown', (event) => {
-
-              if (event instanceof KeyboardEvent && event.key == 'Enter') {
-                event.target?.dispatchEvent(new MouseEvent('mousedown'));
-                event.target?.dispatchEvent(new MouseEvent('mouseup'));
-              }
+              if (event instanceof KeyboardEvent)
+                this.handleKeyDown(event);
             });
         });
       }
@@ -196,7 +198,7 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   handleKeyDown(event: KeyboardEvent) {
-    if (event.key == 'Enter') {
+    if (event.key == 'Enter' || event.key == 'Space') {
       event.target?.dispatchEvent(new MouseEvent('mousedown'));
       event.target?.dispatchEvent(new MouseEvent('mouseup'));
       this.toggleAria(event);
