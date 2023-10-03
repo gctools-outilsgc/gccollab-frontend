@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Editor, NgxEditorService, Toolbar } from 'ngx-editor';
 import { ngxEditorLocals } from '../../factories/editor-config.factory';
@@ -18,6 +18,7 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit {
   @Input() required: boolean = false;
   @Input() label!: string;
   @Input() hint!: string;
+  @Input() autofocus: boolean = false;
   
   editor: Editor;
   toolbar: Toolbar = [
@@ -60,6 +61,9 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngAfterViewInit() {
     this.onLangChange();
+    
+    if (this.autofocus)
+      this.editor.commands.focus();
   }
 
   ngOnDestroy(): void {
@@ -177,7 +181,7 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit {
 
   // TODO: Aria labels for drop down (enabled/disabled)
   handleDropDown(event: Event): void {
-    if (event instanceof KeyboardEvent && (event.key != 'Enter' && event.key != 'Space'))
+    if (event instanceof KeyboardEvent && (event.key != 'Enter' && event.key != ' '))
       return;
 
     setTimeout(() => {
@@ -198,7 +202,8 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   handleKeyDown(event: KeyboardEvent) {
-    if (event.key == 'Enter' || event.key == 'Space') {
+    if (event.key == 'Enter' || event.key == ' ') {
+      event.preventDefault();
       event.target?.dispatchEvent(new MouseEvent('mousedown'));
       event.target?.dispatchEvent(new MouseEvent('mouseup'));
       this.toggleAria(event);

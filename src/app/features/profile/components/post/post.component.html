@@ -42,18 +42,26 @@
             <i class="fa-regular fa-circle-xmark fa-2xl"></i>
         </app-button>
 
-        <mat-tab-group *ngIf="!loading && editing" mat-stretch-tabs="false">
-            <mat-tab label="Post">
-                <app-post-form></app-post-form>
+        <mat-tab-group *ngIf="!loading && editing" [preserveContent]="true" mat-stretch-tabs="false">
+            <mat-tab [label]="translations.titles.post | translate">
+                <ng-template matTabContent>
+                    <app-post-form></app-post-form>
+                </ng-template>
             </mat-tab>
-            <mat-tab label="Blog">
-                <app-blog-form></app-blog-form>
+            <mat-tab [label]="translations.titles.blog | translate">
+                <ng-template matTabContent>
+                    <app-blog-form></app-blog-form>
+                </ng-template>
             </mat-tab>
-            <mat-tab label="Event">
-                <app-event-form></app-event-form>
+            <mat-tab [label]="translations.titles.event | translate">
+                <ng-template matTabContent>
+                    <app-event-form></app-event-form>
+                </ng-template>
             </mat-tab>
-            <mat-tab label="Poll">
-                <app-poll-form></app-poll-form>
+            <mat-tab [label]="translations.titles.poll | translate">
+                <ng-template matTabContent>
+                    <app-poll-form></app-poll-form>
+                </ng-template>
             </mat-tab>
         </mat-tab-group>
 
@@ -73,7 +81,7 @@
             <app-button *ngIf="!loading && editing"
                         [ngClass]="formReady() ? 'enabled' : 'disabled'"
                         [disabled]="!formReady()">
-                Post
+                {{ translations.titles.post | translate }}
             </app-button>
         </div>
     </mat-card-actions>

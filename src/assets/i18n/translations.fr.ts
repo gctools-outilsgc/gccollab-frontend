@@ -54,6 +54,8 @@ const fr: typeof import('./translations.en').default = {
         "messages": "Messages",
         "missions": "Carrières",
         "newsfeed": "Fil d'actualité",
+        "poll": "Sondage",
+        "post": "Poste",
         "profile": "Profil",
         "search": "Chercher",
         "settings": "Réglages",

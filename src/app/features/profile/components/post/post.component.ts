@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Person } from 'src/app/core/models/person.model';
 import { INewsItem } from 'src/app/features/news-feed/models/INewsItem';
+import { Translations } from 'src/app/core/services/translations.service';
 
 @Component({
   selector: 'app-post',
@@ -14,8 +15,8 @@ export class PostComponent {
   @Input() loading: boolean = false;
   @Input() editing: boolean = false;
 
-  constructor() {
-    
+  constructor(public translations: Translations) {
+      
   }
 
   toggleEditing(event: Event) {

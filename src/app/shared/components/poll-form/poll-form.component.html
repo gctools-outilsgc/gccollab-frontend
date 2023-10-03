@@ -1,1 +1,35 @@
-<p>poll-form works!</p>
+<app-editor [required]="true"
+            [label]="'Poll description / question'"
+            [hint]="'Start writing'"
+            [autofocus]="true">
+</app-editor>
+
+<div *ngFor="let option of model.options; index as i" class="option-wrapper">
+    <app-input [value]="option"
+               [label]="'Option #' + (i + 1)" 
+               [placeholder]="'Type here'"
+               [hint]="'Create an option for choice #' + (i + 1)"
+               [required]="true">
+    </app-input>
+    <app-button [matButtonType]="'mat-icon-button'"
+                [disabled]="model.options.length <= 2"
+                [tooltip]="'Remove option #' + (i + 1)"
+                [tooltipDirection]="tooltipDirection.Above"
+                (click)="removeOption(i)">
+        <i class="fa-solid fa-minus"></i>
+    </app-button>
+</div>
+
+<div class="form-actions">
+    <app-button [matButtonType]="'mat-stroked-button'"
+                [disabled]="model.options.length >= maxOptions"
+                (click)="addOption()">
+        <i class="fa-solid fa-circle-plus"></i>
+        Add an option
+    </app-button>
+
+    <app-button [matButtonType]="'mat-stroked-button'">
+        <i class="fa-regular fa-image"></i> 
+        Add a photo
+</app-button>
+</div>

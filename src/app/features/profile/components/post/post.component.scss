@@ -6,6 +6,8 @@ $title-padding: 90px;
 :host {
     mat-card {
         mat-card-content {
+            padding-top: 30px;
+
             .gcc-post-placeholder {
                 display: flex;
                 padding: 12px 17px;
@@ -27,6 +29,7 @@ $title-padding: 90px;
             ::ng-deep {
                 mat-tab-header {
                     margin-right: 65px;
+                    padding-bottom: 30px;
 
                     .mat-mdc-tab-labels {
                         gap: 20px;
@@ -39,7 +42,7 @@ $title-padding: 90px;
 
                     .mdc-tab {
                         height: 40px;
-                        border: 3px solid $primary-1;
+                        border: 2px solid $primary-1;
                         border-radius: 10px;
 
                         .mdc-tab__text-label {
@@ -65,15 +68,11 @@ $title-padding: 90px;
                         display: none;
                     }
                 }
-
-                .mat-mdc-tab-body-wrapper {
-                    padding-top: 30px;
-                }
             }
 
             .gcc-cancel-editing {
                 position: absolute;
-                top: 94px;
+                top: 112px;
                 right: 26px;
 
                 ::ng-deep {
@@ -138,11 +137,6 @@ $title-padding: 90px;
             mat-card-subtitle {
                 font-size: 16px;
             }
-        }
-        
-        mat-card-content {
-            padding-top: 15px;
-            padding-bottom: 10px;
         }
         
         mat-card-actions {

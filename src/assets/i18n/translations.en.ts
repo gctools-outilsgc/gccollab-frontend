@@ -54,6 +54,8 @@ export default {
         "messages": "Messages",
         "missions": "Careers",
         "newsfeed": "Newsfeed",
+        "poll": "Poll",
+        "post": "Post",
         "profile": "Profile",
         "search": "Search",
         "settings": "Settings",
