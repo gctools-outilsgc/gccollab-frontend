@@ -14,20 +14,23 @@
 
     <mat-form-field>
         <input matInput 
-               [id]="inputId"
-               [name]="name"
-               [value]="value"
-               [type]="type === inputType.Password ? (showPassword ? inputType.Text : type) : type"
+               [(ngModel)]="value" 
+               (ngModelChange)="onInputChange($event)"
+               [attr.id]="inputId"
+               [attr.name]="name"
+               [attr.type]="type === inputType.Password ? (showPassword ? inputType.Text : type) : type"
+               [attr.value]="value"
                [placeholder]="placeholder"
-               [minLength]="minLength"
-               [maxLength]="maxLength"
-               [pattern]="pattern"
+               [attr.minLength]="minLength"
+               [attr.maxLength]="maxLength"
+               [attr.pattern]="pattern"
                [required]="required"
                [disabled]="disabled"
                [readonly]="readonly"
                [autofocus]="autofocus"
-               [formControl]="formControl"
-               [errorStateMatcher]="errorStateMatcher"
+               [attr.formControl]="control"
+               [attr.formControlName]="controlName"
+               [attr.errorStateMatcher]="errorMatcher"
         >
 
         <app-button *ngIf="type == inputType.Password" 
@@ -42,11 +45,11 @@
             {{ hint }}
         </mat-hint>
 
-        <mat-error *ngIf="formControl && (formControl.hasError('email') && !formControl.hasError('required'))">
+        <mat-error *ngIf="control && (control.hasError('email') && !control.hasError('required'))">
             {{ translations.input.error.email | translate }}
         </mat-error>
 
-        <mat-error *ngIf="formControl && formControl.hasError('required')">
+        <mat-error *ngIf="control && control.hasError('required')">
             {{ label }} {{ translations.input.error.required | translate }}
         </mat-error>
 

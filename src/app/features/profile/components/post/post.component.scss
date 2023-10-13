@@ -83,22 +83,6 @@ $title-padding: 90px;
 
         mat-card-actions {
             padding: 0px 16px 24px 16px !important;
-
-            .right-actions {
-                ::ng-deep {
-                    button {
-                        background: $secondary-2-gradient;
-                        color: $secondary-2-contrast;
-                    }
-
-                    app-button.disabled {
-                        button {
-                            background: #9e9e9e;
-                            color: $secondary-2-contrast;
-                        }
-                    }
-                }
-            }
         }
     }
 

@@ -1,18 +1,18 @@
-<div *ngIf="label">
-    
-</div>
-
 <mat-label *ngIf="label" [ngClass]="disabled ? 'disabled' : ''">
     {{ label }} 
     <div *ngIf="required" class="required-star">*</div>
     <i *ngIf="hint" 
-       tabindex="0"
-       [ngClass]="{'fa-circle-xmark' : showHint, 'fa-circle-question' : !showHint}" class="fa-regular">
-    </i>
+           tabindex="0"
+           [ngClass]="{'fa-circle-xmark' : showHint, 'fa-circle-question' : !showHint}" class="fa-regular"
+           [matTooltip]="showHint ? (translations.input.hint.hide.text | translate) : translations.input.hint.show.text | translate"
+           [attr.aria-label]="showHint ? (translations.input.hint.hide.aria | translate) : translations.input.hint.show.aria | translate"
+           [matTooltipPosition]="tooltipDirection.Right"
+           (click)="showHint = !showHint">
+        </i>
 </mat-label>
 
-
-<div class="NgxEditor__Wrapper">
+<div #gccEditor class="NgxEditor__Wrapper"
+     [ngClass]="{focus: hasFocus, error: (characterCount > maxCharacters) || (characterCount < minCharacters)}">
     <ngx-editor-menu 
         [editor]="editor" 
         [toolbar]="toolbar"
@@ -20,11 +20,24 @@
     </ngx-editor-menu>
     <ngx-editor 
         [editor]="editor" 
-        [ngModel]="html" 
+        [(ngModel)]="html" 
+        (ngModelChange)="onInputChange($event)"
         [disabled]="disabled" 
-        [placeholder]="placeholderText()">
+        [placeholder]="this.translations.editor.placeholder | translate"
+        (ngModelChange)="updateCharacterCount($event)"
+        [attr.formControl]="formControl"
+        [attr.formControlName]="formControlName">
     </ngx-editor>
+    <div *ngIf="minCharacters > 0 || maxCharacters != Number.MAX_VALUE" 
+         [ngClass]="(characterCount > maxCharacters) || (characterCount < minCharacters) ? 'error' : ''" 
+         class="character-count">
+        {{ characterCount }} / {{ maxCharacters }}
+    </div>
 </div>
+
+<mat-hint *ngIf="hint && showHint">
+    {{ hint }}
+</mat-hint>
 
 <!-- In ngx-editor-menu -->
 <!-- [customMenuRef]="customMenu"  -->

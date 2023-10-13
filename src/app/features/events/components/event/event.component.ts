@@ -10,7 +10,7 @@ import { InputType } from 'src/app/shared/models/input-type';
 import { ActivatedRoute } from '@angular/router';
 import { EventService } from 'src/app/core/services/event.service';
 import { CoreRoutes } from 'src/app/core/constants/routes.constants';
-import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 
 @Component({
@@ -38,17 +38,29 @@ export class EventComponent implements OnInit {
   private readonly route: ActivatedRoute = inject(ActivatedRoute);
   private readonly eventService: EventService = inject(EventService);
 
-  nameFormControl = new FormControl('', [Validators.required]);
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-  emailConfirmFormControl = new FormControl('', [Validators.required, Validators.email]);
-  occupationFormControl = new FormControl('', [Validators.required]);
+  formModel = {
+    name: '',
+    email: '',
+    emailConfirm: '',
+    occupation: ''
+  }
+
+  nameFormControl = new FormControl(this.formModel.name, [Validators.required]);
+  emailFormControl = new FormControl(this.formModel.email, [Validators.required, Validators.email]);
+  emailConfirmFormControl = new FormControl(this.formModel.emailConfirm, [Validators.required, Validators.email]);
+  occupationFormControl = new FormControl(this.formModel.occupation, [Validators.required]);
+
+  formGroup = new FormGroup({});
 
   matcher = new MyErrorStateMatcher();
 
   constructor(public translations: Translations,
               private viewportScroller: ViewportScroller ) {
-    
-  }
+    this.formGroup.addControl('name', this.nameFormControl);
+    this.formGroup.addControl('email', this.emailFormControl);
+    this.formGroup.addControl('emailConfirm', this.emailConfirmFormControl);
+    this.formGroup.addControl('occupation', this.occupationFormControl);
+  }  
 
   ngOnInit(): void {
     if (!this.model) {

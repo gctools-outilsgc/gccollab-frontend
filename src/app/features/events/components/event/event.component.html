@@ -129,52 +129,56 @@
 
         <!-- Full Name -->
         <app-input inputId="gcc-event-name-input"
+                   [(value)]="formModel.name" 
                    [name]="'fullName'"
                    [label]="translations.event.form.full_name | translate"
                    [placeholder]="translations.event.form.placeholder | translate"
                    [errorMessage]="translations.event.form.full_name_error | translate"
                    [required]="true"
-                   [formControl]="nameFormControl"
-                   [errorStateMatcher]="matcher"
+                   [control]="nameFormControl"
+                   [errorMatcher]="matcher"
                    [disabled]="loading || isPast()">
         </app-input>
 
         <!-- Confirm -->
         <app-input inputId="gcc-event-email-input"
+                   [(value)]="formModel.email"
                    [name]="'emailAddress'"
                    [type]="'email'"
                    [label]="translations.event.form.email | translate"
                    [placeholder]="translations.event.form.placeholder | translate"
                    [errorMessage]="translations.event.form.email_error | translate"
                    [required]="true"
-                   [formControl]="emailFormControl"
-                   [errorStateMatcher]="matcher"
+                   [control]="emailFormControl"
+                   [errorMatcher]="matcher"
                    [disabled]="loading || isPast()">
         </app-input>
 
         <!-- Email Confirm -->
         <app-input inputId="gcc-event-email-confirm-input"
+                   [(value)]="formModel.emailConfirm"
                    [name]="'emailAddressConfirm'"
                    [type]="'email'"
                    [label]="translations.event.form.email_confirm | translate"
                    [placeholder]="translations.event.form.placeholder | translate"
                    [errorMessage]="translations.event.form.email_confirm_error | translate"
                    [required]="true"
-                   [formControl]="emailConfirmFormControl"
-                   [errorStateMatcher]="matcher"
+                   [control]="emailConfirmFormControl"
+                   [errorMatcher]="matcher"
                    [disabled]="loading || isPast()">
         </app-input>
 
         <!-- Occupation -->
         <app-input inputId="gcc-event-occupation-input"
+                   [(value)]="formModel.occupation" 
                    [name]="'occupation'"
                    [label]="translations.event.form.occupation | translate"
                    [placeholder]="translations.event.form.placeholder | translate"
                    [errorMessage]="translations.event.form.occupation_error | translate"
                    [hint]="translations.event.form.occupation_hint | translate"
                    [required]="true"
-                   [formControl]="occupationFormControl"
-                   [errorStateMatcher]="matcher"
+                   [control]="occupationFormControl"
+                   [errorMatcher]="matcher"
                    [disabled]="loading || isPast()">
         </app-input>
 
@@ -202,8 +206,8 @@
         <!-- Register -->
         <app-button id="gcc-event-register-btn"
                     [name]="'registerBtn'"
-                    [disabled]="loading || isPast()"
-                    [ngClass]="loading || isPast() ? 'disabled' : 'enabled'"
+                    [disabled]="loading || !formGroup.valid || isPast()"
+                    [ngClass]="loading || !formGroup.valid || isPast() ? 'disabled' : 'enabled'"
                     class="registerBtn">
             {{ translations.event.form.register | translate }}
         </app-button>

@@ -1,9 +1,14 @@
-<app-editor [required]="true"
-            [label]="'Post'"
-            [hint]="'Start writing'"
-            [autofocus]="true">
-</app-editor>
+<form id="gcc-form-post" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <app-editor [label]="'Post'"
+                [hint]="'Start writing'"
+                [(html)]="model.description"
+                [required]="true"
+                [autofocus]="true"
+                [maxCharacters]="maxLength"
+                formControlName="description">
+    </app-editor>
 
-<app-button [matButtonType]="'mat-stroked-button'">
-    <i class="fa-regular fa-image"></i> Add a photo
-</app-button>
+    <app-button [matButtonType]="'mat-stroked-button'">
+        <i class="fa-regular fa-image"></i> Add a photo
+    </app-button>
+</form>

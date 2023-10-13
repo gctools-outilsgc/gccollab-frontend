@@ -1,17 +1,26 @@
-import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild, forwardRef } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Editor, NgxEditorService, Toolbar } from 'ngx-editor';
 import { ngxEditorLocals } from '../../factories/editor-config.factory';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { Translations } from 'src/app/core/services/translations.service';
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { TooltipDirection } from '../../models/tooltip-direction';
 
 // https://sibiraj-s.github.io/ngx-editor/en/introduction/
 @Component({
   selector: 'app-editor',
   templateUrl: './editor.component.html',
-  styleUrls: ['./editor.component.scss']
+  styleUrls: ['./editor.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => EditorComponent),
+      multi: true,
+    },
+  ],
 })
-export class EditorComponent implements OnInit, OnDestroy, AfterViewInit {
+export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, ControlValueAccessor {
 
   @Input() html!: string;
   @Input() disabled: boolean = false;
@@ -19,6 +28,14 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit {
   @Input() label!: string;
   @Input() hint!: string;
   @Input() autofocus: boolean = false;
+  @Input() minCharacters: number = 0;
+  @Input() maxCharacters: number = Number.MAX_VALUE;
+  @Input() formControl!: FormControl;
+  @Input() formControlName!: string;
+
+  @Output() htmlChange = new EventEmitter<string>();
+
+  @ViewChild('gccEditor') editorViewChild!: ElementRef;
   
   editor: Editor;
   toolbar: Toolbar = [
@@ -32,8 +49,17 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit {
     ['align_left', 'align_center', 'align_right', 'align_justify'],
     ['horizontal_rule', 'format_clear'],
   ];
+  
   showHint: boolean = false;
+  hasFocus: boolean = false;
+  characterCount: number = 0;
+  Number = Number;
+  focusChange!: MutationObserver;
+  tooltipDirection = TooltipDirection;
 
+  onChange = (_: any) => {};
+  onTouched = () => {};
+  
   private langChangeSub!: Subscription;
   private keydownRef = this.handleKeyDown.bind(this);
   private ariaRef = this.toggleAria.bind(this);
@@ -55,12 +81,27 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit {
     if (!this.editor) 
       this.editor = new Editor();
 
-    if (!this.html)
+    if (!this.html) {
       this.html = '';
+    } else {
+      this.characterCount = this.html.length;
+    }
   }
 
   ngAfterViewInit() {
     this.onLangChange();
+
+    this.focusChange = new MutationObserver((mutations: MutationRecord[]) => {
+      mutations.forEach((mutation: MutationRecord) => {
+        let classList = this.editorViewChild.nativeElement.children[1].children[0].children[0].classList;
+        this.hasFocus = Array.from(classList).includes('ProseMirror-focused') ? true : false;
+        console.log("Has focus: " + this.hasFocus);
+      });
+    });
+
+    this.focusChange.observe(this.editorViewChild.nativeElement.children[1].children[0].children[0], {
+      attributeFilter: ['class'],
+    })
     
     if (this.autofocus)
       this.editor.commands.focus();
@@ -72,6 +113,10 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit {
 
     if (this.langChangeSub)
       this.langChangeSub.unsubscribe();
+  }
+
+  updateCharacterCount(content: string) {
+    this.characterCount = content.length;
   }
 
   onLangChange(): void {
@@ -149,10 +194,6 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit {
     }, 500);
   }
 
-  placeholderText(): string {
-    return this.translateService.instant(this.translations.editor.placeholder)
-  }
-
   addAccessibility(selector: string, ariaLabel: string): void {
     let el: HTMLElement = this.elementRef.nativeElement.querySelectorAll(selector)[0];
 
@@ -228,5 +269,25 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit {
       return ariaLabel.replaceAll(this.translateService.instant(this.translations.editor.enabled), '');
     }
     return '';
+  }
+
+  writeValue(html: string): void {
+    if (html !== undefined) {
+      this.html = html;
+    }
+  }
+
+  registerOnChange(fn: any): void {
+    this.onChange  = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+
+  onInputChange(value:  string) {
+    this.html = value;
+    this.onChange(this.html);
+    this.htmlChange.emit(this.html);
   }
 }

@@ -25,6 +25,9 @@ export class ButtonComponent implements OnInit {
   @Input() autofocus: boolean = false;
   @Input() matIcon!: string;
   @Input() fontSize: string = 'inherit';
+  @Input() form!: string;
+  @Input() theme: string = 'primary-1'; // TODO: Create enum for themes
+  @Input() onClick!: Function;
 
   public materialButtonType = MaterialButtonType;
 
