@@ -12,7 +12,7 @@
 </mat-label>
 
 <div #gccEditor class="NgxEditor__Wrapper"
-     [ngClass]="{focus: hasFocus, error: (characterCount > maxCharacters) || (characterCount < minCharacters)}">
+     [ngClass]="{focus: hasFocus, error: control && control.hasError('required') || (characterCount > maxCharacters) || (characterCount < minCharacters)}">
     <ngx-editor-menu 
         [editor]="editor" 
         [toolbar]="toolbar"
@@ -21,12 +21,12 @@
     <ngx-editor 
         [editor]="editor" 
         [(ngModel)]="html" 
-        (ngModelChange)="onInputChange($event)"
+        (ngModelChange)="onInputChange($event); updateCharacterCount($event);"
         [disabled]="disabled" 
         [placeholder]="this.translations.editor.placeholder | translate"
-        (ngModelChange)="updateCharacterCount($event)"
-        [attr.formControl]="formControl"
-        [attr.formControlName]="formControlName">
+        [attr.formControl]="control"
+        [attr.formControlName]="controlName"
+        [required]="required">
     </ngx-editor>
     <div *ngIf="minCharacters > 0 || maxCharacters != Number.MAX_VALUE" 
          [ngClass]="(characterCount > maxCharacters) || (characterCount < minCharacters) ? 'error' : ''" 
@@ -38,6 +38,18 @@
 <mat-hint *ngIf="hint && showHint">
     {{ hint }}
 </mat-hint>
+
+<mat-error *ngIf="control && (control.hasError('minlength') && !control.hasError('required'))">
+    {{ translations.input.error.minLength | translate }} {{ control.errors!['minlength'].requiredLength }}
+</mat-error>
+
+<mat-error *ngIf="control && (control.hasError('maxlength') && !control.hasError('required'))">
+    {{ translations.input.error.maxLength | translate }} {{ control.errors!['maxlength'].requiredLength }}
+</mat-error>
+
+<mat-error *ngIf="control && control.hasError('required')">
+    {{ label }} {{ translations.input.error.required | translate }}
+</mat-error>
 
 <!-- In ngx-editor-menu -->
 <!-- [customMenuRef]="customMenu"  -->

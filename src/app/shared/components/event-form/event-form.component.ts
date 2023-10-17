@@ -15,11 +15,7 @@ export class EventFormComponent {
   ngOnInit(): void {
     if (Object.keys(this.form.controls).length === 0) {
       for (const [key, value] of Object.entries(this.model)) {
-        console.log(`${key}: ${value}`);
-        this.form.addControl(
-          key, 
-          new FormControl(value, [Validators.required])
-        );
+        this.form.addControl(key, new FormControl(value, [Validators.required]));
       }
     }
   }

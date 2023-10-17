@@ -1,11 +1,12 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild, forwardRef } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild, forwardRef } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Editor, NgxEditorService, Toolbar } from 'ngx-editor';
 import { ngxEditorLocals } from '../../factories/editor-config.factory';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { Translations } from 'src/app/core/services/translations.service';
-import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
 import { TooltipDirection } from '../../models/tooltip-direction';
+import { DebounceService } from 'src/app/core/services/debounce.service';
 
 // https://sibiraj-s.github.io/ngx-editor/en/introduction/
 @Component({
@@ -20,7 +21,7 @@ import { TooltipDirection } from '../../models/tooltip-direction';
     },
   ],
 })
-export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, ControlValueAccessor {
+export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterContentInit, ControlValueAccessor {
 
   @Input() html!: string;
   @Input() disabled: boolean = false;
@@ -30,8 +31,8 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, Contro
   @Input() autofocus: boolean = false;
   @Input() minCharacters: number = 0;
   @Input() maxCharacters: number = Number.MAX_VALUE;
-  @Input() formControl!: FormControl;
-  @Input() formControlName!: string;
+  @Input() control!: FormControl;
+  @Input() controlName!: string;
 
   @Output() htmlChange = new EventEmitter<string>();
 
@@ -45,7 +46,6 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, Contro
     ['ordered_list', 'bullet_list'],
     [ { heading: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] }],
     ['link', 'image'],
-
     ['align_left', 'align_center', 'align_right', 'align_justify'],
     ['horizontal_rule', 'format_clear'],
   ];
@@ -56,6 +56,7 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, Contro
   Number = Number;
   focusChange!: MutationObserver;
   tooltipDirection = TooltipDirection;
+  hasRequiredValidator = false;
 
   onChange = (_: any) => {};
   onTouched = () => {};
@@ -65,7 +66,13 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, Contro
   private ariaRef = this.toggleAria.bind(this);
   private dropdownRef = this.handleDropDown.bind(this);
 
-  constructor(private translateService: TranslateService, private ngxEditorService: NgxEditorService, public translations: Translations, private elementRef: ElementRef ) {
+  constructor(
+    public translations: Translations, 
+    private translateService: TranslateService, 
+    private ngxEditorService: NgxEditorService, 
+    private elementRef: ElementRef,
+    private debounceService: DebounceService 
+  ) {
     this.editor = new Editor({
       history: true,
       keyboardShortcuts: true,
@@ -88,21 +95,38 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, Contro
     }
   }
 
+  // TODO
+  ngAfterContentInit(): void {
+    if (this.control && this.control.hasValidator(Validators.required)) {
+      this.control.removeValidators([Validators.required]);
+      this.control.clearValidators();
+      this.control.updateValueAndValidity();
+      this.hasRequiredValidator = true;
+    }
+  }
+
   ngAfterViewInit() {
     this.onLangChange();
 
     this.focusChange = new MutationObserver((mutations: MutationRecord[]) => {
       mutations.forEach((mutation: MutationRecord) => {
-        let classList = this.editorViewChild.nativeElement.children[1].children[0].children[0].classList;
-        this.hasFocus = Array.from(classList).includes('ProseMirror-focused') ? true : false;
-        console.log("Has focus: " + this.hasFocus);
+        let classList = this.editorViewChild.nativeElement.children[1]?.children[0]?.children[0]?.classList;
+        if (classList) {
+          this.hasFocus = Array.from(classList).includes('ProseMirror-focused') ? true : false;
+
+          // TODO
+          if (this.control && this.hasRequiredValidator && !this.hasFocus) {
+            this.control.addValidators([Validators.required]);
+            this.control.updateValueAndValidity();
+          }
+        }
       });
     });
 
     this.focusChange.observe(this.editorViewChild.nativeElement.children[1].children[0].children[0], {
       attributeFilter: ['class'],
-    })
-    
+    });
+
     if (this.autofocus)
       this.editor.commands.focus();
   }
@@ -113,10 +137,19 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, Contro
 
     if (this.langChangeSub)
       this.langChangeSub.unsubscribe();
+
+    if (this.focusChange)
+      this.focusChange.disconnect();
   }
 
   updateCharacterCount(content: string) {
-    this.characterCount = content.length;
+    this.debounceService.debounce(() => {
+      this.characterCount = this.countCharactersInsideHTML(content);
+      if (this.characterCount === 0) {
+        this.html = '';
+        this.onInputChange(this.html);
+      }
+    }, 250);
   }
 
   onLangChange(): void {
@@ -269,6 +302,23 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, Contro
       return ariaLabel.replaceAll(this.translateService.instant(this.translations.editor.enabled), '');
     }
     return '';
+  }
+
+  countCharactersInsideHTML(html: string): number {
+    let count = 0;
+    let insideTag = false;
+
+    for (let i = 0; i < html.length; i++) {
+      if (html[i] === '<') {
+        insideTag = true;
+      } else if (html[i] === '>') {
+        insideTag = false;
+      } else if (!insideTag) {
+        count++;
+      }
+    }
+
+    return count;
   }
 
   writeValue(html: string): void {

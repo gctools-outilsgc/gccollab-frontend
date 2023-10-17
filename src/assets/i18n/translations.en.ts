@@ -201,7 +201,9 @@ export default {
         },
         "error": {
             "required": "is required.",
-            "email": "Please enter a valid email."
+            "email": "Please enter a valid email.",
+            "minLength": "Minimum character length is ",
+            "maxLength": "Maximum character length is "
         }
     },
 	"banner": {

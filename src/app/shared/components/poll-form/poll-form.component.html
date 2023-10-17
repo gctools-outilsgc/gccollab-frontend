@@ -5,13 +5,15 @@
                 [required]="true"
                 [autofocus]="true"
                 [maxCharacters]="maxLength"
-                formControlName="description">
+                formControlName="description"
+                [control]="$any(form).controls['description']">
     </app-editor>
 
     <div *ngFor="let option of model.options; index as i" class="option-wrapper">
         <app-input [(value)]="model.options[i].value" 
                    [name]="'option' + i"
                    formControlName="option{{i}}"
+                   [control]="$any(form).controls['option' + i]"
                    [label]="'Option #' + (i + 1)" 
                    [placeholder]="'Type here'"
                    [errorMatcher]="errorStateMatcher"

@@ -202,7 +202,9 @@ const fr: typeof import('./translations.en').default = {
         },
         "error": {
             "required": "est requis.",
-            "email": "Veuillez saisir une adresse e-mail valide."
+            "email": "Veuillez saisir une adresse e-mail valide.",
+            "minLength": "La longueur minimale des caractères est ",
+            "maxLength": "La longueur maximale des caractères est "
         }
     },
 	"banner": {

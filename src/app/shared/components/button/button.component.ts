@@ -27,7 +27,7 @@ export class ButtonComponent implements OnInit {
   @Input() fontSize: string = 'inherit';
   @Input() form!: string;
   @Input() theme: string = 'primary-1'; // TODO: Create enum for themes
-  @Input() onClick!: Function;
+  @Input() onClick: Function = () => {};
 
   public materialButtonType = MaterialButtonType;
 
