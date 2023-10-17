@@ -1,3 +1,61 @@
 <form #gccBlogForm [formGroup]="form">
-    
+
+    <app-input [(value)]="model.name" 
+               [name]="'name'"
+               formControlName="name"
+               [control]="$any(form).controls['name']"
+               [label]="'Name of Blog'" 
+               [placeholder]="'Type here'"
+               [errorMatcher]="errorStateMatcher"
+               [autofocus]="true"
+               [required]="true">
+    </app-input>
+
+    <app-input [(value)]="model.publisher" 
+               [name]="'publisher'"
+               formControlName="publisher"
+               [control]="$any(form).controls['publisher']"
+               [label]="'Name of publisher'" 
+               [placeholder]="'Type here'"
+               [errorMatcher]="errorStateMatcher"
+               [required]="true">
+    </app-input>
+
+    <div class="cover-photo-upload"
+         [ngClass]="{error: $any(form).controls['coverPhoto'].touched && ($any(form).controls['coverPhoto'].hasError('required') || coverPhotoError)}">
+        <app-button [matButtonType]="'mat-stroked-button'"
+                    (click)="openFilePicker()">
+            <i class="fa-solid fa-upload"></i>
+            {{ coverPhoto ? coverPhoto.name : 'Upload a cover photo'}}
+        </app-button>
+    </div>
+
+    <mat-error *ngIf="coverPhotoError">
+        {{ coverPhotoError }}
+    </mat-error>
+
+    <mat-error *ngIf="!coverPhotoError && $any(form).controls['coverPhoto'].touched && $any(form).controls['coverPhoto'].hasError('required')">
+        A cover photo is required.
+    </mat-error>
+
+    <input #gccBlogCoverPhotoInput type="file" accept="image/*" (change)="onFileSelected($event)" style="display: none;">
+
+    <app-input [(value)]="model.coverPhotoAlt" 
+               [name]="'coverPhotoAlt'"
+               formControlName="coverPhotoAlt"
+               [control]="$any(form).controls['coverPhotoAlt']"
+               [label]="'Cover photo alt text'" 
+               [placeholder]="'Type here'"
+               [errorMatcher]="errorStateMatcher"
+               [required]="true">
+    </app-input>
+
+    <app-editor [label]="'Body'"
+                [hint]="'Start writing'"
+                [(html)]="model.description"
+                [required]="true"
+                [maxCharacters]="maxBlogLength"
+                formControlName="description"
+                [control]="$any(form).controls['description']">
+    </app-editor>
 </form>

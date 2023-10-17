@@ -56,7 +56,7 @@ export class PostComponent implements OnInit {
   }
 
   submit(): void {
-    console.log(this.profile);
+    console.log(this.selectedForm);
   }
 
 }

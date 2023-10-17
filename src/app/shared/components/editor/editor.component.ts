@@ -95,7 +95,7 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterC
     }
   }
 
-  // TODO
+  // TODO: Handle min/max
   ngAfterContentInit(): void {
     if (this.control && this.control.hasValidator(Validators.required)) {
       this.control.removeValidators([Validators.required]);
@@ -115,9 +115,10 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterC
           this.hasFocus = Array.from(classList).includes('ProseMirror-focused') ? true : false;
 
           // TODO
-          if (this.control && this.hasRequiredValidator && !this.hasFocus) {
+          if (!this.hasFocus && this.control && !this.control.hasValidator(Validators.required) && this.hasRequiredValidator) {
             this.control.addValidators([Validators.required]);
             this.control.updateValueAndValidity();
+            this.updateCharacterCount(this.html);
           }
         }
       });
@@ -143,13 +144,30 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterC
   }
 
   updateCharacterCount(content: string) {
-    this.debounceService.debounce(() => {
-      this.characterCount = this.countCharactersInsideHTML(content);
-      if (this.characterCount === 0) {
-        this.html = '';
-        this.onInputChange(this.html);
+    this.characterCount = this.countCharactersInsideHTML(content);
+
+    if (this.characterCount === 0) {
+      this.html = '';
+      this.onInputChange(this.html);
+    }
+
+    if (this.control) {
+      if (this.characterCount > this.maxCharacters){
+        this.control.setErrors({
+          maxlength: {
+            requiredLength: this.maxCharacters
+          }
+        });
+        this.control.markAsTouched();
+      } else if (this.characterCount < this.minCharacters) {
+        this.control.setErrors({
+          minlength: {
+            requiredLength: this.minCharacters
+          }
+        });
+        this.control.markAsTouched();
       }
-    }, 250);
+    }
   }
 
   onLangChange(): void {
