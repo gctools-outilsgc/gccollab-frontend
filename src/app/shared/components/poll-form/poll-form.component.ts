@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { TooltipDirection } from '../../models/tooltip-direction';
 import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
@@ -8,7 +8,7 @@ import { ErrorStateMatcher } from '@angular/material/core';
   templateUrl: './poll-form.component.html',
   styleUrls: ['./poll-form.component.scss']
 })
-export class PollFormComponent implements OnInit {
+export class PollFormComponent implements OnInit, OnDestroy {
   @Input() form: FormGroup = new FormGroup({});
   @Input() model: IPollForm = {
     description: '',
@@ -46,6 +46,10 @@ export class PollFormComponent implements OnInit {
         ));
       }
     }
+  }
+
+  ngOnDestroy(): void {
+    this.form.reset();
   }
 
   addOption(): void {

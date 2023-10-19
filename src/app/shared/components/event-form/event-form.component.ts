@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './event-form.component.html',
   styleUrls: ['./event-form.component.scss']
 })
-export class EventFormComponent {
+export class EventFormComponent implements OnInit, OnDestroy {
   @Input() form: FormGroup = new FormGroup({});
   @Input() model: IEventForm = {
     description: ''
@@ -18,6 +18,10 @@ export class EventFormComponent {
         this.form.addControl(key, new FormControl(value, [Validators.required]));
       }
     }
+  }
+
+  ngOnDestroy(): void {
+    this.form.reset();
   }
 }
 

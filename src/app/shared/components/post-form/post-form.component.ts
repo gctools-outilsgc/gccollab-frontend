@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './post-form.component.html',
   styleUrls: ['./post-form.component.scss']
 })
-export class PostFormComponent {
+export class PostFormComponent implements OnInit, OnDestroy {
   @Input() form: FormGroup = new FormGroup({});
   @Input() model: IPostForm = {
     description: ''
@@ -31,6 +31,10 @@ export class PostFormComponent {
         ]
       )
     );
+  }
+
+  ngOnDestroy(): void {
+    this.form.reset();
   }
 
   onSubmit() {

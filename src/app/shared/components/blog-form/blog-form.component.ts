@@ -56,6 +56,8 @@ export class BlogFormComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     if (this.focusSub)
       this.focusSub.unsubscribe();
+
+    this.form.reset();
   }
 
   openFilePicker(): void {
