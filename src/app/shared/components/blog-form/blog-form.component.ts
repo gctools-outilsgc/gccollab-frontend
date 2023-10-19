@@ -24,17 +24,18 @@ export class BlogFormComponent implements OnInit, OnDestroy {
 
   coverPhoto: File | undefined;
   coverPhotoError: string | undefined;
-  maxCoverPhotoSize: number = 3145728;
   maxBlogLength: number = 2000;
-  maxPhotoWidth: number = 1200;
-  maxPhotoHeight: number = 800;
 
   clickCallback: Function = this.openFilePicker.bind(this);
   blurCallback: Function = this.onPhotoBlur.bind(this);
-  filePickerHasOpened: boolean = false;
-  appInFocus: boolean = true;
 
+  private filePickerHasOpened: boolean = false;
+  private appInFocus: boolean = true;
   private focusSub!: Subscription;
+
+  private maxCoverPhotoSize: number = 3145728;
+  private coverPhotoMaxWidth: number = 1200;
+  private coverPhotoMaxHeight: number = 800;
 
   constructor(private focusTrackingService: FocusTrackingService) {
 
@@ -83,10 +84,10 @@ export class BlogFormComponent implements OnInit, OnDestroy {
         this.setImageError("Photo is too large. Maximum size allowed is " + this.maxCoverPhotoSize / 1024 + " KB.");
       }
       else {
-        this.isCorrectDimensions(selectedFile, this.maxPhotoWidth, this.maxPhotoHeight).then((valid) => {
+        this.isCorrectDimensions(selectedFile, this.coverPhotoMaxWidth, this.coverPhotoMaxHeight).then((valid) => {
 
           if (!valid) 
-            return this.setImageError("Photo dimensions have a maximum of " + this.maxPhotoWidth + "x" + this.maxPhotoHeight + ".");
+            return this.setImageError("Photo dimensions have a maximum of " + this.coverPhotoMaxWidth + "x" + this.coverPhotoMaxHeight + ".");
 
           this.loadImage(selectedFile).then((dataURL) => {
             this.coverPhoto = selectedFile;
@@ -133,7 +134,6 @@ export class BlogFormComponent implements OnInit, OnDestroy {
       const img = new Image();
 
       img.onload = () => {
-        debugger;
         const width = img.width;
         const height = img.height;
 
@@ -170,7 +170,3 @@ class MyErrorStateMatcher implements ErrorStateMatcher {
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
 }
-function resolve(arg0: boolean) {
-  throw new Error('Function not implemented.');
-}
-
