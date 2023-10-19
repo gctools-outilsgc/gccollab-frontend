@@ -33,7 +33,7 @@ export class PollFormComponent implements OnInit, OnDestroy {
           this.model.description,
           [
             Validators.required,
-            Validators.minLength(this.minLength), 
+            //Validators.minLength(this.minLength), 
             Validators.maxLength(this.maxLength),
           ]
         )

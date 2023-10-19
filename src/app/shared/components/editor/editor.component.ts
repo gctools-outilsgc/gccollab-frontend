@@ -6,7 +6,6 @@ import { Subscription } from 'rxjs/internal/Subscription';
 import { Translations } from 'src/app/core/services/translations.service';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
 import { TooltipDirection } from '../../models/tooltip-direction';
-import { DebounceService } from 'src/app/core/services/debounce.service';
 
 // https://sibiraj-s.github.io/ngx-editor/en/introduction/
 @Component({
@@ -70,8 +69,7 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterC
     public translations: Translations, 
     private translateService: TranslateService, 
     private ngxEditorService: NgxEditorService, 
-    private elementRef: ElementRef,
-    private debounceService: DebounceService 
+    private elementRef: ElementRef
   ) {
     this.editor = new Editor({
       history: true,
@@ -326,13 +324,15 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterC
     let count = 0;
     let insideTag = false;
 
-    for (let i = 0; i < html.length; i++) {
-      if (html[i] === '<') {
-        insideTag = true;
-      } else if (html[i] === '>') {
-        insideTag = false;
-      } else if (!insideTag) {
-        count++;
+    if (html) {
+      for (let i = 0; i < html.length; i++) {
+        if (html[i] === '<') {
+          insideTag = true;
+        } else if (html[i] === '>') {
+          insideTag = false;
+        } else if (!insideTag) {
+          count++;
+        }
       }
     }
 
