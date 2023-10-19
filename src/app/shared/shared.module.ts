@@ -39,6 +39,8 @@ import { BlogFormComponent } from './components/blog-form/blog-form.component';
 import { EventFormComponent } from './components/event-form/event-form.component';
 import { PollFormComponent } from './components/poll-form/poll-form.component';
 
+import { TruncateFileNamePipe } from './pipes/truncate-file-name.pipe';
+
 
 @NgModule({
   declarations: [
@@ -60,6 +62,7 @@ import { PollFormComponent } from './components/poll-form/poll-form.component';
     BlogFormComponent,
     EventFormComponent,
     PollFormComponent,
+    TruncateFileNamePipe
   ],
   imports: [
     CommonModule,
@@ -108,6 +111,7 @@ import { PollFormComponent } from './components/poll-form/poll-form.component';
     BlogFormComponent,
     EventFormComponent,
     PollFormComponent,
+    TruncateFileNamePipe
   ],
   providers: [
     {

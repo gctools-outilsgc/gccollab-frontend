@@ -27,7 +27,7 @@
                     [onClick]="clickCallback"
                     [onBlur]="blurCallback">
             <i class="fa-solid fa-upload"></i>
-            {{ coverPhoto ? coverPhoto.name : 'Upload a cover photo'}}
+            {{ coverPhoto ? (coverPhoto.name | truncateFileName: 18) : 'Upload a cover photo'}}
             <span *ngIf="!coverPhoto" class="required-star">*</span>
         </app-button>
     </div>
