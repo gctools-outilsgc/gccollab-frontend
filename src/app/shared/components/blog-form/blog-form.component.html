@@ -24,9 +24,11 @@
     <div class="cover-photo-upload"
          [ngClass]="{error: $any(form).controls['coverPhoto'].touched && ($any(form).controls['coverPhoto'].hasError('required') || coverPhotoError)}">
         <app-button [matButtonType]="'mat-stroked-button'"
-                    (click)="openFilePicker()">
+                    [onClick]="clickCallback"
+                    [onBlur]="blurCallback">
             <i class="fa-solid fa-upload"></i>
             {{ coverPhoto ? coverPhoto.name : 'Upload a cover photo'}}
+            <span *ngIf="!coverPhoto" class="required-star">*</span>
         </app-button>
     </div>
 

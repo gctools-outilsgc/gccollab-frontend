@@ -40,11 +40,11 @@
 </mat-hint>
 
 <mat-error *ngIf="control && (control.hasError('minlength') && !control.hasError('required'))">
-    {{ translations.input.error.minLength | translate }} {{ control.errors!['minlength'].requiredLength }}
+    {{ translations.input.error.minLength | translate }} {{ control.errors!['minlength'].requiredLength }}.
 </mat-error>
 
 <mat-error *ngIf="control && (control.hasError('maxlength') && !control.hasError('required'))">
-    {{ translations.input.error.maxLength | translate }} {{ control.errors!['maxlength'].requiredLength }}
+    {{ translations.input.error.maxLength | translate }} {{ control.errors!['maxlength'].requiredLength }}.
 </mat-error>
 
 <mat-error *ngIf="control && control.hasError('required')">

@@ -1,13 +1,15 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { Subscription } from 'rxjs';
+import { FocusTrackingService } from 'src/app/core/services/focus-tracking.service';
 
 @Component({
   selector: 'app-blog-form',
   templateUrl: './blog-form.component.html',
   styleUrls: ['./blog-form.component.scss'],
 })
-export class BlogFormComponent {
+export class BlogFormComponent implements OnInit, OnDestroy {
   @Input() form: FormGroup = new FormGroup({});
   @Input() model: IBlogForm = {
     name: '',
@@ -25,17 +27,45 @@ export class BlogFormComponent {
   maxCoverPhotoSize: number = 3145728;
   maxBlogLength: number = 2000;
 
+  clickCallback: Function = this.openFilePicker.bind(this);
+  blurCallback: Function = this.onPhotoBlur.bind(this);
+  filePickerHasOpened: boolean = false;
+  appInFocus: boolean = true;
+
+  private focusSub!: Subscription;
+
+  constructor(private focusTrackingService: FocusTrackingService) {
+
+  }
+
   ngOnInit(): void {
     if (Object.keys(this.form.controls).length === 0) {
       for (const [key, value] of Object.entries(this.model)) {
         this.form.addControl(key, new FormControl(value, [Validators.required]));
       }
     }
+
+    this.focusSub = this.focusTrackingService.getAppFocusObservable().subscribe((isInFocus) => {
+      this.appInFocus = isInFocus;
+      if (isInFocus && this.filePickerHasOpened) {
+        this.form.controls['coverPhoto'].markAsTouched();
+      }
+    });
   }
 
-  openFilePicker() {
+  ngOnDestroy(): void {
+    if (this.focusSub)
+      this.focusSub.unsubscribe();
+  }
+
+  openFilePicker(): void {
+    this.filePickerHasOpened = true;
     this.fileInput.nativeElement.click();
-    this.form.controls['coverPhoto'].markAsTouched();
+  }
+
+  onPhotoBlur(): void {
+    if (this.appInFocus && !this.filePickerHasOpened)
+      this.form.controls['coverPhoto'].markAsTouched();
   }
 
   onFileSelected(event: any): void {
@@ -86,7 +116,6 @@ export interface IBlogForm {
   coverPhotoAlt: string;
   description: string;
 }
-
 
 class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {

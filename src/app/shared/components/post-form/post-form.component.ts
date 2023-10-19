@@ -12,7 +12,7 @@ export class PostFormComponent {
     description: ''
   }
 
-  minLength: number = 1;
+  minLength: number = 3;
   maxLength: number = 240;
 
   constructor() {

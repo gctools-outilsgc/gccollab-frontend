@@ -15,6 +15,10 @@
         border-color: $error-red;
     }
 
+    .required-star {
+        color: $error-red;
+    }
+
     mat-error {
         position: absolute;
         padding-left: 16px;
