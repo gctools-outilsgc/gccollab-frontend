@@ -15,6 +15,7 @@ export class BlogFormComponent implements OnInit, OnDestroy {
     name: '',
     publisher: '',
     coverPhoto: '',
+    coverPhotoName: '',
     coverPhotoAlt: '',
     description: ''
   }
@@ -22,7 +23,6 @@ export class BlogFormComponent implements OnInit, OnDestroy {
   @ViewChild('gccBlogCoverPhotoInput') fileInput!: ElementRef;
   errorStateMatcher = new MyErrorStateMatcher();
 
-  coverPhoto: File | undefined;
   coverPhotoError: string | undefined;
   maxBlogLength: number = 2000;
 
@@ -90,9 +90,9 @@ export class BlogFormComponent implements OnInit, OnDestroy {
             return this.setImageError("Photo dimensions have a maximum of " + this.coverPhotoMaxWidth + "x" + this.coverPhotoMaxHeight + ".");
 
           this.loadImage(selectedFile).then((dataURL) => {
-            this.coverPhoto = selectedFile;
             this.model.coverPhoto = dataURL;
             this.form.controls['coverPhoto'].setValue(this.model.coverPhoto);
+            this.form.controls['coverPhotoName'].setValue(selectedFile.name);
             this.coverPhotoError = undefined;
           }).catch((error) => {
             this.setImageError("Error reading the image." + error);
@@ -149,9 +149,9 @@ export class BlogFormComponent implements OnInit, OnDestroy {
   }
 
   private setImageError(error: string): void {
-    this.coverPhoto = undefined;
     this.model.coverPhoto = '';
     this.form.controls['coverPhoto'].setValue(this.model.coverPhoto);
+    this.form.controls['coverPhotoName'].setValue('');
     this.coverPhotoError = error;
   }
 }
@@ -160,6 +160,7 @@ export interface IBlogForm {
   name: string;
   publisher: string;
   coverPhoto: string;
+  coverPhotoName: string;
   coverPhotoAlt: string;
   description: string;
 }

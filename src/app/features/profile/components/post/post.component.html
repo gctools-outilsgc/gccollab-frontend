@@ -43,7 +43,7 @@
 
         <mat-tab-group *ngIf="!loading && editing" 
                        [preserveContent]="true" 
-                       (selectedTabChange)="onTabChange($event)"
+                       (selectedTabChange)="onTabChange($event); load()"
                        mat-stretch-tabs="false">
             <mat-tab [label]="translations.titles.post | translate">
                 <ng-template matTabContent>
@@ -75,7 +75,14 @@
     </mat-card-content>
 
     <mat-card-actions *ngIf="editing">
-        <div class="left-actions"></div>
+        <div class="left-actions">
+            <app-button *ngIf="!loading && editing && (selectedIndex === 1 || selectedIndex === 2)"
+                        [disabled]="!formHasValues(selectedForm) || !formChanges[selectedIndex]"
+                        theme="primary-2"
+                        [onClick]="saveCallback">
+                Save
+            </app-button>
+        </div>
         <div class="right-actions">
             <app-button *ngIf="!loading && editing"
                         type="submit"

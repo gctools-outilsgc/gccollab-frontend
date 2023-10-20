@@ -1,5 +1,5 @@
 <div class="gcc-input-wrapper">
-    <mat-label *ngIf="label" [ngClass]="disabled ? 'disabled' : ''">
+    <mat-label *ngIf="label" [ngClass]="{'disabled': disabled}">
         {{ label }} 
         <div *ngIf="required" class="required-star">*</div>
         <i *ngIf="hint" 
