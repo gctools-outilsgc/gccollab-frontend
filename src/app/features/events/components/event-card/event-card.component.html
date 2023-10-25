@@ -61,11 +61,51 @@
     </mat-card>
 </ng-container>
 
-<!-- Largw View -->
-<ng-container #templateLarge>
+<!-- Large View -->
+<ng-container *ngIf="view !== 'small'" #templateLarge>
     <mat-card appearance="outlined" class="event-card-large">
+        <mat-card-header>
+            <div class="event-image-wrapper">
+               <img *ngIf="!loading" [src]="model?.displayPicture">
+               <ngx-skeleton-loader *ngIf="loading" count="1" appearance="line" animation="progress"></ngx-skeleton-loader>
+           </div> 
+           
+       </mat-card-header>
         <mat-card-content>
+            <div class="event-calendar">
+                <div>
+                    <app-calendar-button [model]="model?.startDate" 
+                                        [tooltip]="translations.eventCard.calendar.tooltip | translate"
+                                        [aria]="translations.eventCard.calendar.aria | translate"
+                                        [tooltipDirection]="tooltipDirection.Below"
+                                        [loading]="loading"
+                                        [ngClass]="loading? 'calendar-loading' : ''">
+                    </app-calendar-button>
+                </div>
+            </div>
+            <div class="event-content" 
+                [ngClass]="model?.canceled == true ? 'canceled' : isPast() ? 'past' : ''"
+                routerLink="{{ '/' + routes.Events  + '/' + model?.id }}">
 
+                <div *ngIf="!loading" class="title-larger-text">
+                    {{ model?.title }}
+                </div>
+                
+                <div *ngIf="!loading">
+                    Organizer: {{ model?.organizer }}
+                </div>
+
+                <div *ngIf="!loading">
+                    Location: {{ model?.location?.address }}
+                </div>
+
+                <ngx-skeleton-loader *ngIf="loading" count="2" appearance="line" animation="progress"></ngx-skeleton-loader>
+            </div>
+            <ngx-skeleton-loader *ngIf="loading" count="2" appearance="line" animation="progress"></ngx-skeleton-loader>
         </mat-card-content>
     </mat-card>
   </ng-container>
+
+  <ng-template #templateLarge>
+    <ng-content></ng-content>
+</ng-template>

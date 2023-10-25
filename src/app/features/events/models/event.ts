@@ -16,6 +16,8 @@ export class Event {
     canceled: boolean = false;
     image: string | undefined;
     group: Group | undefined;
+    displayPicture: string | undefined;
+    organizer: string | undefined;
     
     confirmed: boolean = false;
     declined: boolean = false;

@@ -7,6 +7,33 @@
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 10px;
 
+        mat-card-header {
+            .event-image-wrapper {
+                width: 100%;
+                height: 140px;
+                border-radius: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+        
+                img {
+                  width: 100%;
+                  height: 100%;
+                  object-position: center;
+                  object-fit: cover;
+                }
+        
+                ngx-skeleton-loader {
+                  width: 100%;
+                  height: 100%;
+        
+                  ::ng-deep > div {
+                    height: 100%;
+                  }
+                }
+              }            
+        }
         mat-card-content {
             display: flex;
             padding: 20px 12px;
@@ -135,11 +162,15 @@
 
     // Small View 
     mat-card.event-card-small {
-        display: block; // placeholders 
+        display: block; // placeholders
     }
 
     // Large View 
     mat-card.event-card-large {
-        display: block; // placeholders
+        .event-content {
+            .title-larger-text {
+                font-size: 20px;
+            }
+        }
     }
 }
