@@ -9,6 +9,7 @@
         border: 2px solid $neutral-300;
         border-radius: 10px;
         margin-bottom: 16px;
+        margin-top: 5px;
     }
 
     .cover-photo-upload.error {
@@ -17,6 +18,14 @@
 
     .required-star {
         color: $error-red;
+    }
+
+    input + app-input {
+        ::ng-deep {
+            .gcc-input-wrapper {
+                padding-top: 5px;
+            }
+        }
     }
 
     mat-error {
