@@ -101,8 +101,8 @@ export class BlogFormComponent implements OnInit, OnDestroy {
         });
       }
     }
-
-    this.form.controls['coverPhoto'].markAsTouched();
+    else
+      this.form.controls['coverPhoto'].markAsTouched();
   }
 
   private loadImage(file: File): Promise<string> {
@@ -153,6 +153,7 @@ export class BlogFormComponent implements OnInit, OnDestroy {
     this.form.controls['coverPhoto'].setValue(this.model.coverPhoto);
     this.form.controls['coverPhotoName'].setValue('');
     this.coverPhotoError = error;
+    this.form.controls['coverPhoto'].markAsTouched();
   }
 }
 

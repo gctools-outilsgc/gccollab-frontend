@@ -38,7 +38,9 @@ export class PostComponent {
 
   ngOnInit(): void {
     this.formGroups.forEach(formGroup => {
+      // Create a boolean to track when a FormGroup value has changed
       this.formChanges.push(false);
+      // Create a subscription that watches each FormGroup for changes
       this.formWatchSubs.push(
         formGroup.valueChanges.subscribe(() =>{
           this.formChanges[this.selectedIndex] = true;
