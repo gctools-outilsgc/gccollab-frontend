@@ -33,6 +33,9 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ProfilePicComponent } from './components/profile-pic/profile-pic.component';
 import { CalendarButtonComponent } from './components/calendar-button/calendar-button.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MAT_RADIO_DEFAULT_OPTIONS, MatRadioModule } from '@angular/material/radio';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { EditorMenuComponent } from './components/editor/menu/editor-menu/editor-menu.component';
 import { PostFormComponent } from './components/post-form/post-form.component';
 import { BlogFormComponent } from './components/blog-form/blog-form.component';
@@ -88,6 +91,9 @@ import { TruncateFileNamePipe } from './pipes/truncate-file-name.pipe';
     MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatAutocompleteModule,
     NgxSkeletonLoaderModule,
     InfiniteScrollModule,
   ],
@@ -121,10 +127,12 @@ import { TruncateFileNamePipe } from './pipes/truncate-file-name.pipe';
     },
     { 
       provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, 
-      useValue: {
-        appearance: 'outline'
-      }
-    }
+      useValue: { appearance: 'outline' }
+    },
+    {
+      provide: MAT_RADIO_DEFAULT_OPTIONS,
+      useValue: { color: 'primary' },
+  }
   ]
 })
 export class SharedModule {

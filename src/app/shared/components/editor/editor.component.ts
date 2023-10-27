@@ -21,7 +21,6 @@ import { TooltipDirection } from '../../models/tooltip-direction';
   ],
 })
 export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterContentInit, ControlValueAccessor {
-
   @Input() html!: string;
   @Input() disabled: boolean = false;
   @Input() required: boolean = false;
@@ -156,15 +155,14 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterC
             requiredLength: this.maxCharacters
           }
         });
-        this.control.markAsTouched();
       } else if (this.characterCount < this.minCharacters) {
         this.control.setErrors({
           minlength: {
             requiredLength: this.minCharacters
           }
         });
-        this.control.markAsTouched();
       }
+      this.control.markAsTouched();
     }
   }
 

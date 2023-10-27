@@ -76,7 +76,7 @@
 
     <mat-card-actions *ngIf="editing">
         <div class="left-actions">
-            <app-button *ngIf="!loading && editing && (selectedIndex === 1 || selectedIndex === 2)"
+            <app-button *ngIf="!loading && (selectedIndex === 1 || selectedIndex === 2)"
                         [disabled]="!formHasValues(selectedForm) || !formChanges[selectedIndex]"
                         theme="primary-2"
                         [onClick]="saveCallback">
@@ -84,7 +84,7 @@
             </app-button>
         </div>
         <div class="right-actions">
-            <app-button *ngIf="!loading && editing"
+            <app-button *ngIf="!loading"
                         type="submit"
                         [ngClass]="formReady(selectedForm) ? 'enabled' : 'disabled'"
                         [disabled]="!formReady(selectedForm)"

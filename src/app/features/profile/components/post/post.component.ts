@@ -102,8 +102,12 @@ export class PostComponent {
   }
 
   submit(): void {
-    this.sessionStorageService.remove('gccollab-make-a-' + this.getTypeFromIndex(this.selectedIndex));
-    this.toggleEditing(new Event(''));
+    if (this.selectedForm.status === 'VALID') {
+      this.sessionStorageService.remove('gccollab-make-a-' + this.getTypeFromIndex(this.selectedIndex));
+      console.log(this.selectedForm);
+      debugger;
+      this.toggleEditing(new Event(''));
+    }
   }
 
   private getTypeFromIndex(index: number): string {

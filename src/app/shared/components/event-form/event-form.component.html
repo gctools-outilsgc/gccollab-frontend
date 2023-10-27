@@ -1,1 +1,162 @@
-<p>event-form works!</p>
+<form [formGroup]="form">
+    <mat-label>
+        Type of event
+        <div class="required-star">*</div>
+    </mat-label>
+    
+    <mat-radio-group [(ngModel)]="model.eventType" 
+                     (ngModelChange)="onEventTypeChange()"
+                     aria-label="Select an event type"
+                     formControlName="eventType"
+                     [formControl]="$any(form).controls['eventType']"
+                     required="true">
+        <mat-radio-button [value]="eventType.InPerson" [checked]="model.eventType == eventType.InPerson">
+            In-person
+        </mat-radio-button>
+        <mat-radio-button [value]="eventType.Hybrid" [checked]="model.eventType == eventType.Hybrid">
+            Hybrid
+        </mat-radio-button>
+        <mat-radio-button [value]="eventType.Online" [checked]="model.eventType == eventType.Online">
+            Online
+        </mat-radio-button>
+    </mat-radio-group>
+
+    <app-input [(value)]="model.eventOrganizerName" 
+               [name]="'eventOrganizerName'"
+               formControlName="eventOrganizerName"
+               [control]="$any(form).controls['eventOrganizerName']"
+               [label]="'Name of organizer/Nom de l\'organisteur'" 
+               [placeholder]="'Type here'"
+               [errorMatcher]="errorStateMatcher"
+               [autofocus]="true"
+               [required]="true">
+    </app-input>
+
+    <app-input [(value)]="model.eventName" 
+               [name]="'eventName'"
+               formControlName="eventName"
+               [control]="$any(form).controls['eventName']"
+               [label]="'Name of event/Nom de l\'événement'" 
+               [placeholder]="'Type here'"
+               [errorMatcher]="errorStateMatcher"
+               [required]="true">
+    </app-input>
+
+    <mat-label>
+        Language of event/Langue de l'événement
+        <div class="required-star">*</div>
+    </mat-label>
+    
+    <mat-radio-group [(ngModel)]="model.eventLanguage" 
+                     aria-label="Select a language for your event"
+                     formControlName="eventLanguage"
+                     [formControl]="$any(form).controls['eventLanguage']"
+                     required="true">
+        <mat-radio-button [value]="eventLanguage.English" [checked]="model.eventLanguage == eventLanguage.English">
+            English
+        </mat-radio-button>
+        <mat-radio-button [value]="eventLanguage.French" [checked]="model.eventLanguage == eventLanguage.French">
+            French
+        </mat-radio-button>
+        <mat-radio-button [value]="eventLanguage.Bilingual" [checked]="model.eventLanguage == eventLanguage.Bilingual">
+            Bilingual
+        </mat-radio-button>
+    </mat-radio-group>
+    
+    <app-editor [label]="'Body'"
+                [hint]="'Start writing'"
+                [(html)]="model.eventDescription"
+                [required]="true"
+                [maxCharacters]="240"
+                formControlName="eventDescription"
+                [control]="$any(form).controls['eventDescription']">
+    </app-editor>
+
+    <app-input *ngIf="model.eventType != eventType.Online"
+               [(value)]="model.eventLocation" 
+               [name]="'eventLocation'"
+               formControlName="eventLocation"
+               [control]="$any(form).controls['eventLocation']"
+               [label]="'Location/Emplacement'" 
+               [placeholder]="'Type here'"
+               [errorMatcher]="errorStateMatcher"
+               [required]="true">
+    </app-input>
+
+    <app-input *ngIf="model.eventType != eventType.InPerson"
+               [(value)]="model.eventOnlinePlatform" 
+               [name]="'eventOnlinePlatform'"
+               formControlName="eventOnlinePlatform"
+               [control]="$any(form).controls['eventOnlinePlatform']"
+               [label]="'Online streaming platform'" 
+               [placeholder]="'Type here'"
+               [errorMatcher]="errorStateMatcher"
+               [required]="true">
+    </app-input>
+
+    <mat-label>
+        Event Duration
+        <div class="required-star">*</div>
+    </mat-label>
+    
+    <mat-radio-group [(ngModel)]="model.eventDuration" 
+                     (ngModelChange)="onEventDurationChange()"
+                     aria-label="Select a duration for your event"
+                     formControlName="eventDuration"
+                     [formControl]="$any(form).controls['eventDuration']"
+                     required="true">
+        <mat-radio-button [value]="eventDuration.Single" [checked]="model.eventDuration == eventDuration.Single">
+            One day event
+        </mat-radio-button>
+        <mat-radio-button [value]="eventDuration.Multi" [checked]="model.eventDuration == eventDuration.Multi">
+            Multi-day event
+        </mat-radio-button>
+    </mat-radio-group>
+
+    <div class="gcc-date-time-picker">
+        <app-input *ngIf="model.eventDuration"
+                   [(value)]="model.eventStartDate" 
+                   [name]="'eventStartDate'"
+                   formControlName="eventStartDate"
+                   [control]="$any(form).controls['eventStartDate']"
+                   [label]="'Start date'" 
+                   [placeholder]="'MM/DD/YYYY'"
+                   [errorMatcher]="errorStateMatcher"
+                   [required]="true">
+        </app-input>
+
+        <app-input *ngIf="model.eventDuration"
+                   [(value)]="model.eventStartDate" 
+                   [name]="'eventStartDate'"
+                   formControlName="eventStartDate"
+                   [control]="$any(form).controls['eventStartDate']"
+                   [label]="''" 
+                   [placeholder]="'00:00 AM'"
+                   [errorMatcher]="errorStateMatcher"
+                   [required]="true">
+        </app-input>
+    </div>
+
+    <div class="gcc-date-time-picker" *ngIf="model.eventDuration == eventDuration.Multi">
+        <app-input [(value)]="model.eventEndDate" 
+                   [name]="'eventEndDate'"
+                   formControlName="eventEndDate"
+                   [control]="$any(form).controls['eventEndDate']"
+                   [label]="'End date'" 
+                   [placeholder]="'MM/DD/YYYY'"
+                   [errorMatcher]="errorStateMatcher"
+                   [required]="true">
+        </app-input>
+
+        <app-input [(value)]="model.eventEndDate" 
+                   [name]="'eventEndDate'"
+                   formControlName="eventEndDate"
+                   [control]="$any(form).controls['eventEndDate']"
+                   [label]="''" 
+                   [placeholder]="'00:00 AM'"
+                   [errorMatcher]="errorStateMatcher"
+                   [required]="true">
+        </app-input>
+    </div>
+
+</form>
