@@ -297,5 +297,44 @@ export default {
             "aria_on": "Click to bookmark this event.",
             "aria_off": "Click to remove this event from your bookmarks."
         }
+    },
+    "forms": {
+        "placeholder": "Type here",
+        "post": {
+            "post": "Post"
+        },
+        "blog": {
+            "name_of_blog": "Name of Blog",
+            "name_of_publisher": "Name of publisher",
+            "upload_cover_photo": "Upload a cover photo",
+            "cover_photo_alt": "Cover photo alt text",
+            "body": "Body"
+        },
+        "event": {
+            "type_of_event": "Type of event",
+            "in-person": "In-person",
+            "hybrid": "Hybrid",
+            "online": "Online",
+            "name_of_organizer": "Name of organizer",
+            "name_of_event": "Name of event",
+            "event_language": "Language of event",
+            "english": "English",
+            "french": "French",
+            "bilingual": "Bilingual",
+            "body": "Body",
+            "location": "Location",
+            "platform": "Online streaming platform",
+            "duration": "Event duration",
+            "single_day": "One day event",
+            "multi_day": "Multi-day event",
+            "start_date": "Start date",
+            "end_date": "End date"
+        },
+        "poll": {
+            "description": "Poll description / question",
+            "option": "Option",
+            "option_add": "Add an option",
+            "option_remove": "Remove option"
+        }
     }
 };

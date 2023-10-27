@@ -298,6 +298,45 @@ const fr: typeof import('./translations.en').default = {
             "aria_on": "Cliquez pour ajouter cet événement à vos favoris.",
             "aria_off": "Cliquez pour supprimer cet événement de vos favoris."
         }
+    },
+    "forms": {
+        "placeholder": "Type here",
+        "post": {
+            "post": "Poste"
+        },
+        "blog": {
+            "name_of_blog": "Nom du blog",
+            "name_of_publisher": "Nom de l'éditeur",
+            "upload_cover_photo": "Téléchargez une photo de couverture",
+            "cover_photo_alt": "Texte alternatif de la photo de couverture",
+            "body": "Corps"
+        },
+        "event": {
+            "type_of_event": "Type d'événement",
+            "in-person": "En personne",
+            "hybrid": "Hybride",
+            "online": "En ligne",
+            "name_of_organizer": "Nom de l'organisateur",
+            "name_of_event": "Nom de l'événement",
+            "event_language": "Langue de l'événement",
+            "english": "Anglaise",
+            "french": "Français",
+            "bilingual": "Bilingue",
+            "body": "Corps",
+            "location": "Emplacement",
+            "platform": "Plateforme de streaming en ligne",
+            "duration": "Durée de l'événement",
+            "single_day": "Événement d'une journée",
+            "multi_day": "Événement sur plusieurs jours",
+            "start_date": "Date de début",
+            "end_date": "Date de fin"
+        },
+        "poll": {
+            "description": "Description/question du sondage",
+            "option": "Option",
+            "option_add": "Ajouter une option",
+            "option_remove": "Supprimer l'option"
+        }
     }
 };
 export default fr;

@@ -10,10 +10,10 @@ import { ErrorStateMatcher } from '@angular/material/core';
 export class EventFormComponent implements OnInit, OnDestroy {
   @Input() form: FormGroup = new FormGroup({});
   @Input() model: IEventForm = {
-    eventType: 'Hybrid',
+    eventType: '',
     eventOrganizerName: '',
     eventName: '',
-    eventLanguage: 'Bilingual',
+    eventLanguage: '',
     eventDescription: '',
     eventLocation: '',
     eventOnlinePlatform: '',
@@ -28,10 +28,11 @@ export class EventFormComponent implements OnInit, OnDestroy {
   errorStateMatcher = new MyErrorStateMatcher();
 
   ngOnInit(): void {
-    if (Object.keys(this.form.controls).length === 0) {
-      for (const [key, value] of Object.entries(this.model)) {
+    for (const [key, value] of Object.entries(this.model)) {
+      if (!this.form.controls[key])
         this.form.addControl(key, new FormControl(value, [Validators.required]));
-      }
+      else
+        console.warn('Duplicate FormControl detected.');
     }
   }
 
@@ -50,21 +51,27 @@ export class EventFormComponent implements OnInit, OnDestroy {
         this.form.controls['eventOnlinePlatform'].removeValidators(Validators.required);
         this.form.controls['eventOnlinePlatform'].clearValidators();
         this.form.controls['eventOnlinePlatform'].updateValueAndValidity();
+
         this.form.controls['eventLocation'].addValidators(Validators.required);
         this.form.controls['eventLocation'].clearValidators();
         this.form.controls['eventLocation'].updateValueAndValidity()
         break;
+
       case EventType.Online:
         this.form.controls['eventLocation'].removeValidators(Validators.required);
-        this.form.controls['eventLocation'].updateValueAndValidity()
+        this.form.controls['eventLocation'].clearValidators();
+        this.form.controls['eventLocation'].updateValueAndValidity();
+
         this.form.controls['eventOnlinePlatform'].addValidators(Validators.required);
         this.form.controls['eventOnlinePlatform'].clearValidators();
         this.form.controls['eventOnlinePlatform'].updateValueAndValidity();
         break;
+
       case EventType.Hybrid:
         this.form.controls['eventLocation'].addValidators(Validators.required);
         this.form.controls['eventLocation'].clearValidators();
         this.form.controls['eventLocation'].updateValueAndValidity()
+
         this.form.controls['eventOnlinePlatform'].addValidators(Validators.required);
         this.form.controls['eventOnlinePlatform'].clearValidators();
         this.form.controls['eventOnlinePlatform'].updateValueAndValidity();
@@ -79,6 +86,7 @@ export class EventFormComponent implements OnInit, OnDestroy {
         this.form.controls['eventEndDate'].clearValidators();
         this.form.controls['eventEndDate'].updateValueAndValidity();
         break;
+
       case EventDuration.Multi:
         this.form.controls['eventEndDate'].addValidators(Validators.required);
         this.form.controls['eventEndDate'].clearValidators();
@@ -124,39 +132,3 @@ enum EventLanguage {
   French = "French",
   Bilingual = "Bilingual"
 }
-
-// IN PERSON
-// Name of Organizer
-// Name of Event
-// Language of Event
-// Event Description
-// Location
-// One/Multi Day event
-//  One Day: Start Date/Time
-//  Multi: Start & End Date/Time
-
-// HYBRID
-// Same as in person
-// Add Online Streaming Platform link
-
-// ONLINE
-// Same as in person
-// Remove location
-// Replace with Online Streaming Platform link
-
-//     id: string | undefined;
-//     title: string | undefined;
-//     eventType: string | undefined;
-//     description: string | undefined;
-//     location: Location | undefined;
-//     tags: [string] | undefined;
-//     startDate: Date | undefined;
-//     endDate: Date | undefined;
-//     author: Person | undefined;
-//     authoredDate: Date | undefined;
-//     canceled: boolean = false;
-//     image: string | undefined;
-//     group: Group | undefined;
-    
-//     confirmed: boolean = false;
-//     declined: boolean = false;

@@ -42,10 +42,11 @@ export class BlogFormComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    if (Object.keys(this.form.controls).length === 0) {
-      for (const [key, value] of Object.entries(this.model)) {
+    for (const [key, value] of Object.entries(this.model)) {
+      if (!this.form.controls[key])
         this.form.addControl(key, new FormControl(value, [Validators.required]));
-      }
+      else
+        console.warn('Duplicate FormControl detected.');
     }
 
     this.focusSub = this.focusTrackingService.getAppFocusObservable().subscribe((isInFocus) => {
@@ -95,7 +96,7 @@ export class BlogFormComponent implements OnInit, OnDestroy {
             this.form.controls['coverPhotoName'].setValue(selectedFile.name);
             this.coverPhotoError = undefined;
           }).catch((error) => {
-            this.setImageError("Error reading the image." + error);
+            this.setImageError("Error reading the image.");
             console.error(error);
           });
         });

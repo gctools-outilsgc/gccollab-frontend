@@ -26,25 +26,23 @@ export class PollFormComponent implements OnInit, OnDestroy {
   errorStateMatcher = new MyErrorStateMatcher();
   
   ngOnInit(): void {
-    if (Object.keys(this.form.controls).length === 0) {
+    this.form.addControl(
+      'description', 
+      new FormControl(
+        this.model.description,
+        [
+          Validators.required,
+          //Validators.minLength(this.minLength), 
+          Validators.maxLength(this.maxLength),
+        ]
+      )
+    );
+
+    for (let i = 0; i < this.model.options.length; i++) {
       this.form.addControl(
-        'description', 
-        new FormControl(
-          this.model.description,
-          [
-            Validators.required,
-            //Validators.minLength(this.minLength), 
-            Validators.maxLength(this.maxLength),
-          ]
-        )
-      );
-  
-      for (let i = 0; i < this.model.options.length; i++) {
-        this.form.addControl(
-          'option' + i, 
-          new FormControl(this.model.options[i].value, [Validators.required]
-        ));
-      }
+        'option' + i, 
+        new FormControl(this.model.options[i].value, [Validators.required]
+      ));
     }
   }
 
