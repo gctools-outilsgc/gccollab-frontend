@@ -1,7 +1,6 @@
 <form id="gcc-form-post" [formGroup]="form" (ngSubmit)="onSubmit()">
-
-    <app-editor [label]="'Post'"
-                [hint]="'Start writing'"
+    <app-editor [label]="translations.forms.post.post | translate"
+                [hint]="translations.forms.placeholder | translate"
                 [(html)]="model.description"
                 [required]="true"
                 [autofocus]="true"
@@ -9,8 +8,4 @@
                 formControlName="description"
                 [control]="$any(form).controls['description']">
     </app-editor>
-
-    <app-button [matButtonType]="'mat-stroked-button'">
-        <i class="fa-regular fa-image"></i> Add a photo
-    </app-button>
 </form>

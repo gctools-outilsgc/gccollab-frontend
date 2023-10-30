@@ -1,6 +1,6 @@
 <form [formGroup]="form">
-    <app-editor [label]="'Poll description / question'"
-                [hint]="'Start writing'"
+    <app-editor [label]="translations.forms.poll.description | translate"
+                [hint]="translations.forms.placeholder | translate"
                 [(html)]="model.description"
                 [required]="true"
                 [autofocus]="true"
@@ -14,15 +14,14 @@
                    [name]="'option' + i"
                    formControlName="option{{i}}"
                    [control]="$any(form).controls['option' + i]"
-                   [label]="'Option #' + (i + 1)" 
-                   [placeholder]="'Type here'"
+                   [label]="(translations.forms.poll.option | translate) + ' #' + (i + 1)" 
+                   [placeholder]="translations.forms.placeholder | translate"
                    [errorMatcher]="errorStateMatcher"
-                   [errorMessage]="'This is a required field.'"
                    [required]="true">
         </app-input>
         <app-button [matButtonType]="'mat-icon-button'"
                     [disabled]="model.options.length <= 2"
-                    [tooltip]="'Remove option #' + (i + 1)"
+                    [tooltip]="(translations.forms.poll.option_remove | translate) + ' #' + (i + 1)"
                     [tooltipDirection]="tooltipDirection.Above"
                     (click)="removeOption(i)">
             <i class="fa-solid fa-trash"></i>
@@ -34,12 +33,7 @@
                     [disabled]="model.options.length >= maxOptions"
                     (click)="addOption()">
             <i class="fa-solid fa-circle-plus"></i>
-            Add an option
-        </app-button>
-
-        <app-button [matButtonType]="'mat-stroked-button'">
-            <i class="fa-regular fa-image"></i> 
-            Add a photo
+            {{ translations.forms.poll.option_add | translate }}
         </app-button>
     </div>
 </form>

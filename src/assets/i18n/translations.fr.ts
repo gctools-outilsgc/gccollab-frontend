@@ -300,7 +300,9 @@ const fr: typeof import('./translations.en').default = {
         }
     },
     "forms": {
-        "placeholder": "Type here",
+        "placeholder": "Écrivez ici",
+        "save": "Sauvegarder",
+        "create": "Créer",
         "post": {
             "post": "Poste"
         },
@@ -313,19 +315,23 @@ const fr: typeof import('./translations.en').default = {
         },
         "event": {
             "type_of_event": "Type d'événement",
-            "in-person": "En personne",
+            "type_of_event_aria" : "Sélectionnez un type d'événement",
+            "in_person": "En personne",
             "hybrid": "Hybride",
             "online": "En ligne",
             "name_of_organizer": "Nom de l'organisateur",
             "name_of_event": "Nom de l'événement",
             "event_language": "Langue de l'événement",
+            "event_language_aria": "Sélectionnez une langue pour votre événement",
             "english": "Anglaise",
             "french": "Français",
             "bilingual": "Bilingue",
             "body": "Corps",
+            "body_hint": "Commencez à écrire.",
             "location": "Emplacement",
             "platform": "Plateforme de streaming en ligne",
             "duration": "Durée de l'événement",
+            "duration_aria": "Sélectionnez une durée pour votre événement",
             "single_day": "Événement d'une journée",
             "multi_day": "Événement sur plusieurs jours",
             "start_date": "Date de début",

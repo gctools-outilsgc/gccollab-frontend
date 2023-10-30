@@ -300,6 +300,8 @@ export default {
     },
     "forms": {
         "placeholder": "Type here",
+        "save": "Save",
+        "create": "Create",
         "post": {
             "post": "Post"
         },
@@ -312,19 +314,23 @@ export default {
         },
         "event": {
             "type_of_event": "Type of event",
-            "in-person": "In-person",
+            "type_of_event_aria" : "Select an event type",
+            "in_person": "In-person",
             "hybrid": "Hybrid",
             "online": "Online",
             "name_of_organizer": "Name of organizer",
             "name_of_event": "Name of event",
             "event_language": "Language of event",
+            "event_language_aria": "Select a language for your event",
             "english": "English",
             "french": "French",
             "bilingual": "Bilingual",
             "body": "Body",
+            "body_hint": "Start writing.",
             "location": "Location",
             "platform": "Online streaming platform",
             "duration": "Event duration",
+            "duration_aria": "Select a duration for your event",
             "single_day": "One day event",
             "multi_day": "Multi-day event",
             "start_date": "Start date",

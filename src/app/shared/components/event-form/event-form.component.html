@@ -1,23 +1,23 @@
 <form [formGroup]="form">
     <mat-label>
-        Type of event
+        {{ translations.forms.event.type_of_event | translate }}
         <div class="required-star">*</div>
     </mat-label>
     
     <mat-radio-group [(ngModel)]="model.eventType" 
                      (ngModelChange)="onEventTypeChange()"
-                     aria-label="Select an event type"
+                     [ariaLabel]="translations.forms.event.type_of_event_aria | translate"
                      formControlName="eventType"
                      [formControl]="$any(form).controls['eventType']"
                      required="true">
         <mat-radio-button [value]="eventType.InPerson" [checked]="model.eventType == eventType.InPerson">
-            In-person
+            {{ translations.forms.event.in_person | translate }}
         </mat-radio-button>
         <mat-radio-button [value]="eventType.Hybrid" [checked]="model.eventType == eventType.Hybrid">
-            Hybrid
+            {{ translations.forms.event.hybrid | translate }}
         </mat-radio-button>
         <mat-radio-button [value]="eventType.Online" [checked]="model.eventType == eventType.Online">
-            Online
+            {{ translations.forms.event.online | translate }}
         </mat-radio-button>
     </mat-radio-group>
 
@@ -25,8 +25,8 @@
                [name]="'eventOrganizerName'"
                formControlName="eventOrganizerName"
                [control]="$any(form).controls['eventOrganizerName']"
-               [label]="'Name of organizer/Nom de l\'organisteur'" 
-               [placeholder]="'Type here'"
+               [label]="translations.forms.event.name_of_organizer | translate" 
+               [placeholder]="translations.forms.placeholder | translate"
                [errorMatcher]="errorStateMatcher"
                [autofocus]="true"
                [required]="true">
@@ -36,35 +36,35 @@
                [name]="'eventName'"
                formControlName="eventName"
                [control]="$any(form).controls['eventName']"
-               [label]="'Name of event/Nom de l\'événement'" 
-               [placeholder]="'Type here'"
+               [label]="translations.forms.event.name_of_event | translate" 
+               [placeholder]="translations.forms.placeholder | translate"
                [errorMatcher]="errorStateMatcher"
                [required]="true">
     </app-input>
 
     <mat-label>
-        Language of event/Langue de l'événement
+        {{ translations.forms.event.event_language | translate }}
         <div class="required-star">*</div>
     </mat-label>
     
     <mat-radio-group [(ngModel)]="model.eventLanguage" 
-                     aria-label="Select a language for your event"
+                     [ariaLabel]="translations.forms.event.event_language_aria | translate"
                      formControlName="eventLanguage"
                      [formControl]="$any(form).controls['eventLanguage']"
                      required="true">
         <mat-radio-button [value]="eventLanguage.English" [checked]="model.eventLanguage == eventLanguage.English">
-            English
+            {{ translations.forms.event.english | translate }}
         </mat-radio-button>
         <mat-radio-button [value]="eventLanguage.French" [checked]="model.eventLanguage == eventLanguage.French">
-            French
+            {{ translations.forms.event.french | translate }}
         </mat-radio-button>
         <mat-radio-button [value]="eventLanguage.Bilingual" [checked]="model.eventLanguage == eventLanguage.Bilingual">
-            Bilingual
+            {{ translations.forms.event.bilingual | translate }}
         </mat-radio-button>
     </mat-radio-group>
     
-    <app-editor [label]="'Body'"
-                [hint]="'Start writing'"
+    <app-editor [label]="translations.forms.event.body | translate"
+                [hint]="translations.forms.event.body_hint | translate"
                 [(html)]="model.eventDescription"
                 [required]="true"
                 [maxCharacters]="240"
@@ -77,8 +77,8 @@
                [name]="'eventLocation'"
                formControlName="eventLocation"
                [control]="$any(form).controls['eventLocation']"
-               [label]="'Location/Emplacement'" 
-               [placeholder]="'Type here'"
+               [label]="translations.forms.event.location | translate" 
+               [placeholder]="translations.forms.placeholder | translate"
                [errorMatcher]="errorStateMatcher"
                [required]="true">
     </app-input>
@@ -88,28 +88,28 @@
                [name]="'eventOnlinePlatform'"
                formControlName="eventOnlinePlatform"
                [control]="$any(form).controls['eventOnlinePlatform']"
-               [label]="'Online streaming platform'" 
-               [placeholder]="'Type here'"
+               [label]="translations.forms.event.platform | translate" 
+               [placeholder]="translations.forms.placeholder | translate"
                [errorMatcher]="errorStateMatcher"
                [required]="true">
     </app-input>
 
     <mat-label>
-        Event Duration
+        {{ translations.forms.event.duration | translate }}
         <div class="required-star">*</div>
     </mat-label>
     
     <mat-radio-group [(ngModel)]="model.eventDuration" 
                      (ngModelChange)="onEventDurationChange()"
-                     aria-label="Select a duration for your event"
+                     [ariaLabel]="translations.forms.event.duration_aria | translate"
                      formControlName="eventDuration"
                      [formControl]="$any(form).controls['eventDuration']"
                      required="true">
         <mat-radio-button [value]="eventDuration.Single" [checked]="model.eventDuration == eventDuration.Single">
-            One day event
+            {{ translations.forms.event.single_day | translate }}
         </mat-radio-button>
         <mat-radio-button [value]="eventDuration.Multi" [checked]="model.eventDuration == eventDuration.Multi">
-            Multi-day event
+            {{ translations.forms.event.multi_day | translate }}
         </mat-radio-button>
     </mat-radio-group>
 
@@ -119,7 +119,7 @@
                    [name]="'eventStartDate'"
                    formControlName="eventStartDate"
                    [control]="$any(form).controls['eventStartDate']"
-                   [label]="'Start date'" 
+                   [label]="translations.forms.event.start_date | translate" 
                    [placeholder]="'MM/DD/YYYY'"
                    [errorMatcher]="errorStateMatcher"
                    [required]="true">
@@ -142,7 +142,7 @@
                    [name]="'eventEndDate'"
                    formControlName="eventEndDate"
                    [control]="$any(form).controls['eventEndDate']"
-                   [label]="'End date'" 
+                   [label]="translations.forms.event.end_date | translate" 
                    [placeholder]="'MM/DD/YYYY'"
                    [errorMatcher]="errorStateMatcher"
                    [required]="true">

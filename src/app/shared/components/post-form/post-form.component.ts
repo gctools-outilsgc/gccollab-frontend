@@ -1,5 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
+import { Translations } from 'src/app/core/services/translations.service';
 
 @Component({
   selector: 'app-post-form',
@@ -15,7 +17,7 @@ export class PostFormComponent implements OnInit, OnDestroy {
   minLength: number = 3;
   maxLength: number = 240;
 
-  constructor() {
+  constructor(public translations: Translations) {
 
   }
 

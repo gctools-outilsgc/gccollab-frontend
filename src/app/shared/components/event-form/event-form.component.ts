@@ -1,6 +1,8 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { TranslateService } from '@ngx-translate/core';
+import { Translations } from 'src/app/core/services/translations.service';
 
 @Component({
   selector: 'app-event-form',
@@ -10,10 +12,10 @@ import { ErrorStateMatcher } from '@angular/material/core';
 export class EventFormComponent implements OnInit, OnDestroy {
   @Input() form: FormGroup = new FormGroup({});
   @Input() model: IEventForm = {
-    eventType: '',
+    eventType: EventType.Hybrid,
     eventOrganizerName: '',
     eventName: '',
-    eventLanguage: '',
+    eventLanguage: EventLanguage.Bilingual,
     eventDescription: '',
     eventLocation: '',
     eventOnlinePlatform: '',
@@ -26,6 +28,10 @@ export class EventFormComponent implements OnInit, OnDestroy {
   eventLanguage = EventLanguage;
   eventDuration = EventDuration;
   errorStateMatcher = new MyErrorStateMatcher();
+
+  constructor(public translations: Translations) {
+
+  }
 
   ngOnInit(): void {
     for (const [key, value] of Object.entries(this.model)) {

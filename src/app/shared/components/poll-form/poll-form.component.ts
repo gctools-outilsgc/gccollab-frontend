@@ -2,6 +2,8 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { TooltipDirection } from '../../models/tooltip-direction';
 import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { TranslateService } from '@ngx-translate/core';
+import { Translations } from 'src/app/core/services/translations.service';
 
 @Component({
   selector: 'app-poll-form',
@@ -24,6 +26,10 @@ export class PollFormComponent implements OnInit, OnDestroy {
   maxLength: number = 240;
   tooltipDirection = TooltipDirection;
   errorStateMatcher = new MyErrorStateMatcher();
+  
+  constructor(public translations: Translations) {
+
+  }
   
   ngOnInit(): void {
     this.form.addControl(

@@ -3,6 +3,8 @@ import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Subscription } from 'rxjs';
 import { FocusTrackingService } from 'src/app/core/services/focus-tracking.service';
+import { TranslateService } from '@ngx-translate/core';
+import { Translations } from 'src/app/core/services/translations.service';
 
 @Component({
   selector: 'app-blog-form',
@@ -37,7 +39,8 @@ export class BlogFormComponent implements OnInit, OnDestroy {
   private coverPhotoMaxWidth: number = 1200;
   private coverPhotoMaxHeight: number = 800;
 
-  constructor(private focusTrackingService: FocusTrackingService) {
+  constructor(private focusTrackingService: FocusTrackingService,
+              public translations: Translations) {
 
   }
 
