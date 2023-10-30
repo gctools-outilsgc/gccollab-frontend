@@ -14,7 +14,7 @@
         </ngx-skeleton-loader>
     </div>
 
-    <mat-card-header *ngIf="!loading">
+    <mat-card-header *ngIf="!loading && profile">
         <mat-card-title>
             {{ profile.firstName + ' ' +  profile.lastName }}
         </mat-card-title>
@@ -80,7 +80,7 @@
             <app-button *ngIf="!loading && (selectedIndex === 1 || selectedIndex === 2)"
                         [disabled]="!formHasValues(selectedForm) || !formChanges[selectedIndex] || creating"
                         theme="primary-2"
-                        [onClick]="saveCallback">
+                        [clickFunc]="saveCallback">
                 {{ translations.forms.save | translate }}
             </app-button>
         </div>
@@ -90,7 +90,7 @@
                         [ngClass]="formReady(selectedForm) ? 'enabled' : 'disabled'"
                         [disabled]="!formReady(selectedForm) || creating"
                         theme="secondary-2"
-                        [onClick]="submitCallback">
+                        [clickFunc]="submitCallback">
                 <div *ngIf="!creating">{{ translations.forms.create | translate }}</div>
                 <i *ngIf="creating" class="fa-solid fa-spinner fa-spin-pulse"></i>
             </app-button>

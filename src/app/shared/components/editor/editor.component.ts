@@ -107,7 +107,7 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterC
 
     this.focusChange = new MutationObserver((mutations: MutationRecord[]) => {
       mutations.forEach((mutation: MutationRecord) => {
-        let classList = this.editorViewChild.nativeElement.children[1]?.children[0]?.children[0]?.classList;
+        let classList = this.editorViewChild.nativeElement?.children[1]?.children[0]?.children[0]?.classList;
         if (classList) {
           this.hasFocus = Array.from(classList).includes('ProseMirror-focused') ? true : false;
 
@@ -121,9 +121,12 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterC
       });
     });
 
-    this.focusChange.observe(this.editorViewChild.nativeElement.children[1].children[0].children[0], {
-      attributeFilter: ['class'],
-    });
+    const node = this.editorViewChild.nativeElement?.children[1]?.children[0]?.children[0];
+    if (node instanceof Node) {
+      this.focusChange.observe(node, {
+        attributeFilter: ['class'],
+      });
+    }
 
     if (this.autofocus)
       this.editor.commands.focus();

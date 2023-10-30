@@ -28,8 +28,8 @@ export class ButtonComponent implements OnInit {
   @Input() fontSize: string = 'inherit';
   @Input() form!: string;
   @Input() theme: Theme | string = Theme.Primary1;
-  @Input() onClick: Function = () => {};
-  @Input() onBlur: Function = () => {};
+  @Input() clickFunc: Function = () => {};
+  @Input() blurFunc: Function = () => {};
 
   public materialButtonType = MaterialButtonType;
 
