@@ -31,38 +31,39 @@
              (keydown)="toggleEditing($event)"
              tabindex="0">
             <i class="fa-regular fa-pen-to-square"></i>
-            <span>Type here</span>
+            <span>{{ translations.forms.placeholder | translate }}</span>
         </div>
 
         <app-button *ngIf="!loading && editing" 
                     class="gcc-cancel-editing"
                     [matButtonType]="'mat-icon-button'"
-                    (click)="toggleEditing($event)">
+                    (click)="toggleEditing($event)"
+                    [disabled]="creating">
             <i class="fa-regular fa-circle-xmark fa-2xl"></i>
         </app-button>
 
-        <mat-tab-group *ngIf="!loading && editing" 
+        <mat-tab-group *ngIf="!loading && editing"  
                        [preserveContent]="true" 
                        (selectedTabChange)="onTabChange($event); load()"
                        mat-stretch-tabs="false">
-            <mat-tab [label]="translations.titles.post | translate">
+            <mat-tab [label]="translations.titles.post | translate" [disabled]="creating">
                 <ng-template matTabContent>
-                    <app-post-form [form]="formGroups[0]"></app-post-form>
+                    <app-post-form [form]="formGroups[0]" [disabled]="creating"></app-post-form>
                 </ng-template>
             </mat-tab>
-            <mat-tab [label]="translations.titles.blog | translate">
+            <mat-tab [label]="translations.titles.blog | translate" [disabled]="creating">
                 <ng-template matTabContent>
-                    <app-blog-form [form]="formGroups[1]"></app-blog-form>
+                    <app-blog-form [form]="formGroups[1]" [disabled]="creating"></app-blog-form>
                 </ng-template>
             </mat-tab>
-            <mat-tab [label]="translations.titles.event | translate">
+            <mat-tab [label]="translations.titles.event | translate" [disabled]="creating">
                 <ng-template matTabContent>
-                    <app-event-form [form]="formGroups[2]"></app-event-form>
+                    <app-event-form [form]="formGroups[2]" [disabled]="creating"></app-event-form>
                 </ng-template>
             </mat-tab>
-            <mat-tab [label]="translations.titles.poll | translate">
+            <mat-tab [label]="translations.titles.poll | translate" [disabled]="creating">
                 <ng-template matTabContent>
-                    <app-poll-form [form]="formGroups[3]"></app-poll-form>
+                    <app-poll-form [form]="formGroups[3]" [disabled]="creating"></app-poll-form>
                 </ng-template>
             </mat-tab>
         </mat-tab-group>
@@ -77,20 +78,21 @@
     <mat-card-actions *ngIf="editing">
         <div class="left-actions">
             <app-button *ngIf="!loading && (selectedIndex === 1 || selectedIndex === 2)"
-                        [disabled]="!formHasValues(selectedForm) || !formChanges[selectedIndex]"
+                        [disabled]="!formHasValues(selectedForm) || !formChanges[selectedIndex] || creating"
                         theme="primary-2"
                         [onClick]="saveCallback">
-                Save
+                {{ translations.forms.save | translate }}
             </app-button>
         </div>
         <div class="right-actions">
             <app-button *ngIf="!loading"
                         type="submit"
                         [ngClass]="formReady(selectedForm) ? 'enabled' : 'disabled'"
-                        [disabled]="!formReady(selectedForm)"
+                        [disabled]="!formReady(selectedForm) || creating"
                         theme="secondary-2"
                         [onClick]="submitCallback">
-                {{ translations.titles.post | translate }}
+                <div *ngIf="!creating">{{ translations.forms.create | translate }}</div>
+                <i *ngIf="creating" class="fa-solid fa-spinner fa-spin-pulse"></i>
             </app-button>
         </div>
     </mat-card-actions>

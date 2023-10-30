@@ -83,6 +83,12 @@ $title-padding: 90px;
 
         mat-card-actions {
             padding: 0px 16px 24px 16px !important;
+
+            .right-actions {
+                i {
+                    color: $primary-1-contrast;
+                }
+            }
         }
     }
 

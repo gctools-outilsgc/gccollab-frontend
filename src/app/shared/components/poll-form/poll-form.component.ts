@@ -20,6 +20,7 @@ export class PollFormComponent implements OnInit, OnDestroy {
     ],
     photo: ''
   }
+  @Input() disabled: boolean = false;
 
   maxOptions: number = 10;
   minLength: number = 1;

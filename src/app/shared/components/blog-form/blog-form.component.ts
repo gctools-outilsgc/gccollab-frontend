@@ -21,6 +21,7 @@ export class BlogFormComponent implements OnInit, OnDestroy {
     coverPhotoAlt: '',
     description: ''
   }
+  @Input() disabled: boolean = false;
 
   @ViewChild('gccBlogCoverPhotoInput') fileInput!: ElementRef;
   errorStateMatcher = new MyErrorStateMatcher();

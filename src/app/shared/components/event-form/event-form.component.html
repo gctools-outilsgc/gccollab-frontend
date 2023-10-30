@@ -1,4 +1,4 @@
-<form [formGroup]="form">
+<form id="gcc-form-event" [formGroup]="form">
     <mat-label>
         {{ translations.forms.event.type_of_event | translate }}
         <div class="required-star">*</div>
@@ -9,6 +9,7 @@
                      [ariaLabel]="translations.forms.event.type_of_event_aria | translate"
                      formControlName="eventType"
                      [formControl]="$any(form).controls['eventType']"
+                     [disabled]="disabled"
                      required="true">
         <mat-radio-button [value]="eventType.InPerson" [checked]="model.eventType == eventType.InPerson">
             {{ translations.forms.event.in_person | translate }}
@@ -28,6 +29,7 @@
                [label]="translations.forms.event.name_of_organizer | translate" 
                [placeholder]="translations.forms.placeholder | translate"
                [errorMatcher]="errorStateMatcher"
+               [disabled]="disabled"
                [autofocus]="true"
                [required]="true">
     </app-input>
@@ -39,6 +41,7 @@
                [label]="translations.forms.event.name_of_event | translate" 
                [placeholder]="translations.forms.placeholder | translate"
                [errorMatcher]="errorStateMatcher"
+               [disabled]="disabled"
                [required]="true">
     </app-input>
 
@@ -51,6 +54,7 @@
                      [ariaLabel]="translations.forms.event.event_language_aria | translate"
                      formControlName="eventLanguage"
                      [formControl]="$any(form).controls['eventLanguage']"
+                     [disabled]="disabled"
                      required="true">
         <mat-radio-button [value]="eventLanguage.English" [checked]="model.eventLanguage == eventLanguage.English">
             {{ translations.forms.event.english | translate }}
@@ -69,7 +73,8 @@
                 [required]="true"
                 [maxCharacters]="240"
                 formControlName="eventDescription"
-                [control]="$any(form).controls['eventDescription']">
+                [control]="$any(form).controls['eventDescription']"
+                [disabled]="disabled">
     </app-editor>
 
     <app-input *ngIf="model.eventType != eventType.Online"
@@ -80,6 +85,7 @@
                [label]="translations.forms.event.location | translate" 
                [placeholder]="translations.forms.placeholder | translate"
                [errorMatcher]="errorStateMatcher"
+               [disabled]="disabled"
                [required]="true">
     </app-input>
 
@@ -91,6 +97,7 @@
                [label]="translations.forms.event.platform | translate" 
                [placeholder]="translations.forms.placeholder | translate"
                [errorMatcher]="errorStateMatcher"
+               [disabled]="disabled"
                [required]="true">
     </app-input>
 
@@ -104,6 +111,7 @@
                      [ariaLabel]="translations.forms.event.duration_aria | translate"
                      formControlName="eventDuration"
                      [formControl]="$any(form).controls['eventDuration']"
+                     [disabled]="disabled"
                      required="true">
         <mat-radio-button [value]="eventDuration.Single" [checked]="model.eventDuration == eventDuration.Single">
             {{ translations.forms.event.single_day | translate }}
@@ -122,6 +130,7 @@
                    [label]="translations.forms.event.start_date | translate" 
                    [placeholder]="'MM/DD/YYYY'"
                    [errorMatcher]="errorStateMatcher"
+                   [disabled]="disabled"
                    [required]="true">
         </app-input>
 
@@ -133,6 +142,7 @@
                    [label]="''" 
                    [placeholder]="'00:00 AM'"
                    [errorMatcher]="errorStateMatcher"
+                   [disabled]="disabled"
                    [required]="true">
         </app-input>
     </div>
@@ -145,6 +155,7 @@
                    [label]="translations.forms.event.end_date | translate" 
                    [placeholder]="'MM/DD/YYYY'"
                    [errorMatcher]="errorStateMatcher"
+                   [disabled]="disabled"
                    [required]="true">
         </app-input>
 
@@ -155,6 +166,7 @@
                    [label]="''" 
                    [placeholder]="'00:00 AM'"
                    [errorMatcher]="errorStateMatcher"
+                   [disabled]="disabled"
                    [required]="true">
         </app-input>
     </div>

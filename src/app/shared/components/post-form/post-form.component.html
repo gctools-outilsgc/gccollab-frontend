@@ -1,4 +1,4 @@
-<form id="gcc-form-post" [formGroup]="form" (ngSubmit)="onSubmit()">
+<form id="gcc-form-post" [formGroup]="form">
     <app-editor [label]="translations.forms.post.post | translate"
                 [hint]="translations.forms.placeholder | translate"
                 [(html)]="model.description"
@@ -6,6 +6,7 @@
                 [autofocus]="true"
                 [maxCharacters]="maxLength"
                 formControlName="description"
-                [control]="$any(form).controls['description']">
+                [control]="$any(form).controls['description']"
+                [disabled]="disabled">
     </app-editor>
 </form>

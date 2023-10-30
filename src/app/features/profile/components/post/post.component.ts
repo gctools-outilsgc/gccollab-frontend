@@ -30,6 +30,7 @@ export class PostComponent {
   saveCallback: Function = this.save.bind(this);
   submitCallback: Function = this.submit.bind(this);
   selectedForm: FormGroup = this.formGroups[this.selectedIndex];
+  creating: boolean = false;
 
   constructor(public translations: Translations,
               private sessionStorageService: SessionStorageService) {
@@ -62,7 +63,7 @@ export class PostComponent {
   }
 
   toggleEditing(event: Event) {
-    if ((event instanceof KeyboardEvent && (event.key == 'Enter' || event.key == 'Space')) || event instanceof KeyboardEvent == false) {
+    if (!this.creating && (event instanceof KeyboardEvent && (event.key == 'Enter' || event.key == 'Space')) || event instanceof KeyboardEvent == false) {
       this.editing = !this.editing;
       this.selectedIndex = 0;
       this.selectedForm = this.formGroups[this.selectedIndex];
@@ -103,10 +104,14 @@ export class PostComponent {
 
   submit(): void {
     if (this.selectedForm.status === 'VALID') {
+      this.creating = true;
       this.sessionStorageService.remove('gccollab-make-a-' + this.getTypeFromIndex(this.selectedIndex));
-      console.log(this.selectedForm);
-      debugger;
-      this.toggleEditing(new Event(''));
+
+      // TODO: Setup mock service for posting forms
+      setTimeout(() => {
+        this.creating = false;
+        this.toggleEditing(new Event(''));
+      }, 3000);
     }
   }
 

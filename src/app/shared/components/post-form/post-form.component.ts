@@ -13,6 +13,7 @@ export class PostFormComponent implements OnInit, OnDestroy {
   @Input() model: IPostForm = {
     description: ''
   }
+  @Input() disabled: boolean = false;
 
   minLength: number = 3;
   maxLength: number = 240;
@@ -37,10 +38,6 @@ export class PostFormComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.form.reset();
-  }
-
-  onSubmit() {
-    console.log(this.form.value);
   }
 }
 
