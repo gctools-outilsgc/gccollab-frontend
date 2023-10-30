@@ -1,4 +1,4 @@
-import { Location } from "./location";
+import { Location } from "./location.model";
 
 export class Person {
     id: string | undefined;

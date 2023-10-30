@@ -25,7 +25,21 @@
     </mat-card-header>
 
     <mat-card-content>
-        <p *ngIf="!loading" [innerHTML]="model?.content"></p>
+        <ng-container *ngIf="!loading && model">
+
+            <ng-container *ngIf="isPost(model)">
+                <p [innerHTML]="model.content"></p>
+            </ng-container>
+
+            <ng-container *ngIf="isBlog(model)">
+                <p [innerHTML]="model.content"></p>
+            </ng-container>
+
+            <ng-container *ngIf="isPoll(model)">
+                <p [innerHTML]="model.content"></p>
+            </ng-container>
+        </ng-container>
+
         <ngx-skeleton-loader *ngIf="loading" 
                              count="6" 
                              appearance="line" 

@@ -3,7 +3,7 @@ import { CoreRoutes } from 'src/app/core/constants/routes.constants';
 import { TranslateService } from '@ngx-translate/core';
 import { Translations } from 'src/app/core/services/translations.service';
 import { MaterialButtonType } from '../../models/material-button-type';
-import { Person } from 'src/app/core/models/person';
+import { Person } from 'src/app/core/models/person.model';
 import { PeopleService } from 'src/app/core/services/people.service';
 
 @Component({

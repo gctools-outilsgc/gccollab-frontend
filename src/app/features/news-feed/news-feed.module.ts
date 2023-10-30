@@ -14,7 +14,7 @@ import { NewsListComponent } from './components/news-list/news-list.component';
 @NgModule({
   declarations: [
     NewsCardComponent,
-    NewsListComponent
+    NewsListComponent,
   ],
   imports: [
     CommonModule,

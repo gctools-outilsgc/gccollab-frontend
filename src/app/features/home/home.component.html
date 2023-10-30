@@ -21,6 +21,9 @@
              [infiniteScrollDistance]="2" 
              [infiniteScrollThrottle]="1000"
              (scrolled)="onNewsScroll()">
+
+            <app-post [profile]="people[0]" [loading]="loadingPeople"></app-post>
+
             <app-news-list [model]="newsItems" 
                            [isLoading]="loadingNews">
             </app-news-list>

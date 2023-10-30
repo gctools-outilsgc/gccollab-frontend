@@ -54,6 +54,8 @@ const fr: typeof import('./translations.en').default = {
         "messages": "Messages",
         "missions": "Carrières",
         "newsfeed": "Fil d'actualité",
+        "poll": "Sondage",
+        "post": "Poste",
         "profile": "Profil",
         "search": "Chercher",
         "settings": "Réglages",
@@ -145,8 +147,8 @@ const fr: typeof import('./translations.en').default = {
         "bold": "Gras",
         "italic": "Italique",
         "code": "Code",
-        "underline": "Underline",
-        "strike": "Souligner",
+        "underline": "Souligner",
+        "strike": "Grève",
         "blockquote": "Citation en bloc",
         "bulletlist": "Liste à puces",
         "orderedlist": "Liste ordonnée",
@@ -174,7 +176,8 @@ const fr: typeof import('./translations.en').default = {
         "title": "Titre",
         "remove": "Retirer",
         "horizontalrule": "La règle horizontale",
-        "formatclear": "Supprimer le formattage"
+        "formatclear": "Supprimer le formattage",
+        "enabled": " activé"
     },
     "input": {
         "hint": {
@@ -199,7 +202,9 @@ const fr: typeof import('./translations.en').default = {
         },
         "error": {
             "required": "est requis.",
-            "email": "Veuillez saisir une adresse e-mail valide."
+            "email": "Veuillez saisir une adresse e-mail valide.",
+            "minLength": "La longueur minimale des caractères est ",
+            "maxLength": "La longueur maximale des caractères est "
         }
     },
 	"banner": {
@@ -292,6 +297,51 @@ const fr: typeof import('./translations.en').default = {
             "tooltip_off": "Favoris",
             "aria_on": "Cliquez pour ajouter cet événement à vos favoris.",
             "aria_off": "Cliquez pour supprimer cet événement de vos favoris."
+        }
+    },
+    "forms": {
+        "placeholder": "Écrivez ici",
+        "save": "Sauvegarder",
+        "create": "Créer",
+        "post": {
+            "post": "Poste"
+        },
+        "blog": {
+            "name_of_blog": "Nom du blog",
+            "name_of_publisher": "Nom de l'éditeur",
+            "upload_cover_photo": "Téléchargez une photo de couverture",
+            "cover_photo_alt": "Texte alternatif de la photo de couverture",
+            "body": "Corps"
+        },
+        "event": {
+            "type_of_event": "Type d'événement",
+            "type_of_event_aria" : "Sélectionnez un type d'événement",
+            "in_person": "En personne",
+            "hybrid": "Hybride",
+            "online": "En ligne",
+            "name_of_organizer": "Nom de l'organisateur",
+            "name_of_event": "Nom de l'événement",
+            "event_language": "Langue de l'événement",
+            "event_language_aria": "Sélectionnez une langue pour votre événement",
+            "english": "Anglaise",
+            "french": "Français",
+            "bilingual": "Bilingue",
+            "body": "Corps",
+            "body_hint": "Commencez à écrire.",
+            "location": "Emplacement",
+            "platform": "Plateforme de streaming en ligne",
+            "duration": "Durée de l'événement",
+            "duration_aria": "Sélectionnez une durée pour votre événement",
+            "single_day": "Événement d'une journée",
+            "multi_day": "Événement sur plusieurs jours",
+            "start_date": "Date de début",
+            "end_date": "Date de fin"
+        },
+        "poll": {
+            "description": "Description/question du sondage",
+            "option": "Option",
+            "option_add": "Ajouter une option",
+            "option_remove": "Supprimer l'option"
         }
     }
 };

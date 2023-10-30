@@ -1,0 +1,173 @@
+@import "../../../../../assets//scss/partials/colors";
+@import "../../../../../assets//scss/partials/font-weights";
+
+$title-padding: 90px; 
+
+:host {
+    mat-card {
+        mat-card-content {
+            padding-top: 30px;
+
+            .gcc-post-placeholder {
+                display: flex;
+                padding: 12px 17px;
+                border: 2px solid $neutral-300;
+                border-radius: 10px;
+                align-items: center;
+                margin-bottom: 16px;
+                cursor: pointer;
+
+                i {
+                    padding-right: 16px;
+                }
+
+                i,span {
+                    color: $neutral-900;
+                }
+            }
+
+            ::ng-deep {
+                mat-tab-header {
+                    margin-right: 65px;
+                    padding-bottom: 30px;
+
+                    .mat-mdc-tab-labels {
+                        gap: 20px;
+
+                        .mdc-tab__text-label {
+                            font-size: large;
+                            font-weight: 600;
+                        }
+                    }
+
+                    .mdc-tab {
+                        height: 40px;
+                        border: 2px solid $primary-1;
+                        border-radius: 10px;
+
+                        .mdc-tab__text-label {
+                            color: #000;
+                            transition: none;
+                        }
+                    }
+    
+                    .mdc-tab--active {
+                        background-color: $primary-1;
+
+                        .mdc-tab__text-label {
+                            color: $primary-1-contrast;
+                        }
+                    }
+
+                    .mdc-tab--active:hover, .mdc-tab--active:focus {
+                        background-color: $primary-2;
+                        border-color: $primary-2;
+                    }
+    
+                    .mdc-tab-indicator {
+                        display: none;
+                    }
+                }
+            }
+
+            .gcc-cancel-editing {
+                position: absolute;
+                top: 112px;
+                right: 26px;
+
+                ::ng-deep {
+                    color: $primary-1;
+                }
+            }
+        }
+
+        mat-card-actions {
+            padding: 0px 16px 24px 16px !important;
+
+            .right-actions {
+                i {
+                    color: $primary-1-contrast;
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+
+    mat-card {
+        border: 1px solid $neutral-300;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        padding: 0 10px;
+
+        .profile-wrapper {
+            position: absolute;
+            left: -20px;
+            top: -20px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: $background;
+            padding: 5px;
+            box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
+        }
+
+        mat-card-header {
+            padding: 32px 0 0 calc(16px + $title-padding);
+
+            mat-card-title {
+                font-size: 20px;
+                font-weight: $bold;
+            }
+
+            mat-card-subtitle {
+                font-size: 16px;
+            }
+        }
+        
+        mat-card-actions {
+            padding-bottom: 10px;
+            padding-left: 0;
+            padding-right: 0;
+
+            > div {
+                display: flex;
+                width: 50%;
+                align-items: center;
+            }
+
+            .right-actions {
+                app-button {
+                    float: right;
+                }
+            }
+
+            i.fa-solid {
+                color: $primary-2;
+            }
+
+            .right-actions {
+                flex-direction: row-reverse;
+            }
+        }
+
+        .loading-header {
+            padding: 32px 0 0 calc(16px + $title-padding);
+
+            ngx-skeleton-loader {
+                display: block;
+                width: 50%;
+            }
+        }
+    }
+
+    ::ng-deep button:focus {
+        color: $primary-1;
+    }
+}
+
+// https://stackoverflow.com/a/57759753/6479757

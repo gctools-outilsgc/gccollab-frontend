@@ -3,6 +3,7 @@ import { ButtonType } from '../../models/button-type';
 import { MaterialButtonType } from '../../models/material-button-type';
 import { MaterialColor } from '../../models/material-color';
 import { TooltipDirection } from '../../models/tooltip-direction';
+import { Theme } from '../../models/theme';
 
 @Component({
   selector: 'app-button',
@@ -25,6 +26,10 @@ export class ButtonComponent implements OnInit {
   @Input() autofocus: boolean = false;
   @Input() matIcon!: string;
   @Input() fontSize: string = 'inherit';
+  @Input() form!: string;
+  @Input() theme: Theme | string = Theme.Primary1;
+  @Input() clickFunc: Function = () => {};
+  @Input() blurFunc: Function = () => {};
 
   public materialButtonType = MaterialButtonType;
 

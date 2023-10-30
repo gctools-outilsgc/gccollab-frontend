@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Translations } from 'src/app/core/services/translations.service';
 import { InputType } from 'src/app/shared/models/input-type';
 
-import { NewsItem } from '../news-feed/models/news-item';
+import { INewsItem } from '../news-feed/models/INewsItem';
 import { NewsService } from 'src/app/core/services/news.service';
 import { Event } from '../events/models/event';
 import { EventService } from 'src/app/core/services/event.service';
 import { CoreRoutes } from 'src/app/core/constants/routes.constants';
-import { Person } from 'src/app/core/models/person';
+import { Person } from 'src/app/core/models/person.model';
 import { PeopleService } from 'src/app/core/services/people.service';
 import { Group } from '../groups/models/group';
 import { GroupService } from 'src/app/core/services/group.service';
@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   routes = CoreRoutes;
 
   // News
-  newsItems: NewsItem[] = [];
+  newsItems: INewsItem[] = [];
   newsPage: number = 1;
   loadingNews: boolean = true;
 
@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.newsService.mockGetNewsItems(10, 5000).subscribe((newsItems: NewsItem[]) => {
+    this.newsService.mockGetNewsItems(10, 5000).subscribe((newsItems: INewsItem[]) => {
       this.newsItems = newsItems;
       this.loadingNews = false;
     });
@@ -74,7 +74,7 @@ export class HomeComponent implements OnInit {
   onNewsScroll(): void {
     this.loadingNews = true;
     
-    this.newsService.mockGetNewsItems(10, 3000).subscribe((newsItems: NewsItem[]) => {
+    this.newsService.mockGetNewsItems(10, 3000).subscribe((newsItems: INewsItem[]) => {
       this.newsItems.push(...newsItems);
       this.loadingNews = false;
     });
