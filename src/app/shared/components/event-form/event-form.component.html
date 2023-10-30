@@ -121,54 +121,67 @@
         </mat-radio-button>
     </mat-radio-group>
 
-    <div class="gcc-date-time-picker">
-        <app-input *ngIf="model.eventDuration"
-                   [(value)]="model.eventStartDate" 
-                   [name]="'eventStartDate'"
-                   formControlName="eventStartDate"
-                   [control]="$any(form).controls['eventStartDate']"
-                   [label]="translations.forms.event.start_date | translate" 
-                   [placeholder]="'MM/DD/YYYY'"
-                   [errorMatcher]="errorStateMatcher"
-                   [disabled]="disabled"
-                   [required]="true">
-        </app-input>
-
-        <app-input *ngIf="model.eventDuration"
-                   [(value)]="model.eventStartDate" 
-                   [name]="'eventStartDate'"
-                   formControlName="eventStartDate"
-                   [control]="$any(form).controls['eventStartDate']"
-                   [label]="''" 
-                   [placeholder]="'00:00 AM'"
-                   [errorMatcher]="errorStateMatcher"
-                   [disabled]="disabled"
-                   [required]="true">
-        </app-input>
+    <div style="display: table-caption;">
+        <div class="gcc-date-time-picker">
+            <app-input *ngIf="model.eventDuration"
+                       [(value)]="model.eventStartDate" 
+                       [name]="'eventStartDate'"
+                       formControlName="eventStartDate"
+                       [control]="$any(form).controls['eventStartDate']"
+                       [label]="translations.forms.event.start_date | translate" 
+                       [placeholder]="'MM/DD/YYYY'"
+                       [type]="'date'"
+                       [errorMatcher]="errorStateMatcher"
+                       [icon]="'fa-solid fa-calendar-days'"
+                       [disabled]="disabled"
+                       [required]="true">
+                       <i class="fa-solid fa-calendar-days"></i>
+            </app-input>
+    
+            <app-input *ngIf="model.eventDuration"
+                       [(value)]="model.eventStartTime" 
+                       [name]="'eventStartTime'"
+                       formControlName="eventStartTime"
+                       [control]="$any(form).controls['eventStartTime']"
+                       [label]="''" 
+                       [type]="'time'"
+                       [icon]="'fa-regular fa-clock'"
+                       [placeholder]="'00:00 AM'"
+                       [errorMatcher]="errorStateMatcher"
+                       [disabled]="disabled"
+                       [required]="true">
+            </app-input>
+        </div>
+    
+        <div class="gcc-date-time-picker" *ngIf="model.eventDuration == eventDuration.Multi">
+            <app-input [(value)]="model.eventEndDate" 
+                       [name]="'eventEndDate'"
+                       formControlName="eventEndDate"
+                       [control]="$any(form).controls['eventEndDate']"
+                       [label]="translations.forms.event.end_date | translate" 
+                       [placeholder]="'MM/DD/YYYY'"
+                       [type]="'date'"
+                       [icon]="'fa-solid fa-calendar-days'"
+                       [errorMatcher]="errorStateMatcher"
+                       [disabled]="disabled"
+                       [required]="true">
+            </app-input>
+    
+            <app-input [(value)]="model.eventEndTime" 
+                       [name]="'eventEndTime'"
+                       formControlName="eventEndTime"
+                       [control]="$any(form).controls['eventEndTime']"
+                       [label]="''" 
+                       [type]="'time'"
+                       [icon]="'fa-regular fa-clock'"
+                       [placeholder]="'00:00 AM'"
+                       [errorMatcher]="errorStateMatcher"
+                       [disabled]="disabled"
+                       [required]="true">
+            </app-input>
+        </div>
     </div>
 
-    <div class="gcc-date-time-picker" *ngIf="model.eventDuration == eventDuration.Multi">
-        <app-input [(value)]="model.eventEndDate" 
-                   [name]="'eventEndDate'"
-                   formControlName="eventEndDate"
-                   [control]="$any(form).controls['eventEndDate']"
-                   [label]="translations.forms.event.end_date | translate" 
-                   [placeholder]="'MM/DD/YYYY'"
-                   [errorMatcher]="errorStateMatcher"
-                   [disabled]="disabled"
-                   [required]="true">
-        </app-input>
-
-        <app-input [(value)]="model.eventEndDate" 
-                   [name]="'eventEndDate'"
-                   formControlName="eventEndDate"
-                   [control]="$any(form).controls['eventEndDate']"
-                   [label]="''" 
-                   [placeholder]="'00:00 AM'"
-                   [errorMatcher]="errorStateMatcher"
-                   [disabled]="disabled"
-                   [required]="true">
-        </app-input>
-    </div>
+    
 
 </form>

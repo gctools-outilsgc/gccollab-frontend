@@ -19,9 +19,11 @@ export class EventFormComponent implements OnInit, OnDestroy {
     eventDescription: '',
     eventLocation: '',
     eventOnlinePlatform: '',
-    eventDuration: '',
+    eventDuration: EventDuration.Single,
     eventStartDate: '',
-    eventEndDate: ''
+    eventStartTime: '12:00',
+    eventEndDate: '',
+    eventEndTime: '13:00'
   }
   @Input() disabled: boolean = false;
 
@@ -92,12 +94,20 @@ export class EventFormComponent implements OnInit, OnDestroy {
         this.form.controls['eventEndDate'].removeValidators(Validators.required);
         this.form.controls['eventEndDate'].clearValidators();
         this.form.controls['eventEndDate'].updateValueAndValidity();
+
+        this.form.controls['eventEndTime'].removeValidators(Validators.required);
+        this.form.controls['eventEndTime'].clearValidators();
+        this.form.controls['eventEndTime'].updateValueAndValidity();
         break;
 
       case EventDuration.Multi:
         this.form.controls['eventEndDate'].addValidators(Validators.required);
         this.form.controls['eventEndDate'].clearValidators();
         this.form.controls['eventEndDate'].updateValueAndValidity();
+
+        this.form.controls['eventEndTime'].addValidators(Validators.required);
+        this.form.controls['eventEndTime'].clearValidators();
+        this.form.controls['eventEndTime'].updateValueAndValidity();
         break;
     }
   }
@@ -120,7 +130,9 @@ export interface IEventForm {
   eventOnlinePlatform: string,
   eventDuration: EventDuration | string,
   eventStartDate: string,
+  eventStartTime: string,
   eventEndDate: string
+  eventEndTime: string
 }
 
 enum EventType {

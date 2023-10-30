@@ -37,6 +37,7 @@ export class InputComponent implements ControlValueAccessor {
   @Input() maxLength!: number;
   @Input() minLength!: number;
   @Input() pattern!: string;
+  @Input() icon!: string;
 
   @Input() required: boolean = false;
   @Input() disabled: boolean = false;

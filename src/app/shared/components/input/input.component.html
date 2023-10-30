@@ -31,7 +31,10 @@
                [attr.formControl]="control"
                [attr.formControlName]="controlName"
                [attr.errorStateMatcher]="errorMatcher"
+               [ngClass]="{icon: icon}"
         >
+
+        <i *ngIf="icon" [ngClass]="icon" class="gcc-input-icon"></i>
 
         <app-button *ngIf="type == inputType.Password" 
                     [matButtonType]="materialButtonType.Icon"

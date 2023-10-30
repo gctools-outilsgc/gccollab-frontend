@@ -39,6 +39,17 @@ mat-form-field {
         width: calc(100% - 65px);
     }
 
+    input.icon {
+        padding-left: 25px !important;
+    }
+
+    .gcc-input-icon {
+        position: absolute;
+        left: 0;
+        margin-top: 12px;
+        color: #1E1E23;
+    }
+
     app-button {
         display: inline-flex;
 
