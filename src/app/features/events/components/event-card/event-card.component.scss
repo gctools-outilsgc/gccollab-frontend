@@ -63,6 +63,9 @@
                 color: $secondary-2-contrast;
                 background: $secondary-2-gradient;
                 cursor: pointer;
+                position: absolute;
+                margin-bottom: 125px;
+                margin-right: 325px;
 
                 div:first-child {
                     font-weight: 400;
@@ -106,16 +109,14 @@
                 padding: 0 12px;
                 display: inline-grid;
                 justify-content: normal;
+                margin-top: 20px;
+                margin-left: 10px;
 
                 div {
                     white-space: nowrap;
                     cursor: pointer;
                     text-overflow: ellipsis;
                     overflow: hidden;
-                }
-
-                div:first-child {
-                    font-weight: 600;
                 }
 
                 ngx-skeleton-loader {
@@ -162,23 +163,46 @@
 
     // Small View 
     mat-card.event-card-small {
-        display: block; // placeholders
+        .event-content {
+            div:first-child {
+                font-weight: 600;
+            }
+        }
     }
 
     // Large View 
     mat-card.event-card-large {
-        .event-content {
-            .title-larger-text {
-                font-size: 18px;
+
+        .event-image-wrapper {
+            .greyed-image-wrapper {
+                filter:grayscale(100%); 
             }
-
-        .organizer-text {
-            font-weight: 450;
         }
 
-        .location-text {
-            font-weight: 450;
-        }
+            .event-content {
+
+                .title-larger-text {
+                    font-size: 20px;
+                    font-weight: 550;
+                    color: black;
+
+                }
+                .event-organizer {
+                    color: black;
+
+                    .organizer-text {
+                        font-weight: 550;
+                        color: black;
+                    }
+                }
+                .event-location {
+                    color: black;
+
+                    .location-text {
+                        font-weight: 550;
+                        color: black;
+                    }
+                }
         }
     }
 }

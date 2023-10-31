@@ -66,7 +66,7 @@
     <mat-card appearance="outlined" class="event-card-large">
         <mat-card-header>
             <div class="event-image-wrapper">
-               <img *ngIf="!loading" [src]="model?.displayPicture">
+               <img *ngIf="!loading" [src]="model?.displayPicture" [ngClass]="{'greyed-image-wrapper': model?.canceled || isPast()}">
                <ngx-skeleton-loader *ngIf="loading" count="1" appearance="line" animation="progress"></ngx-skeleton-loader>
            </div> 
        </mat-card-header>
@@ -78,25 +78,29 @@
                                     [tooltipDirection]="tooltipDirection.Above"
                                     [loading]="loading"
                                     [ngClass]="loading? 'calendar-loading' : ''">
-                                    <!-- style="position:relative; right: 200px; z-index: 1000" -->
                 </app-calendar-button>
             </div>
             <div class="event-content" 
                 [ngClass]="model?.canceled == true ? 'canceled' : isPast() ? 'past' : ''"
                 routerLink="{{ '/' + routes.Events  + '/' + model?.id }}">
+                <div class="event-text">
+                    <div *ngIf="!loading" class="title-larger-text">
+                        <ng-container class="event-canceled" *ngIf="!model?.canceled">
+                            <span class="canceled" style="color:#BA0606;">CANCELED </span>{{ model?.title }}
+                        </ng-container>
+                        <ng-container *ngIf="!model?.canceled">
+                            {{ model?.title }}
+                        </ng-container>
+                    </div>
 
-                <div *ngIf="!loading" class="title-larger-text">
-                    {{ model?.title }}
-                </div>
-                
-                <div *ngIf="!loading">
-                    <span class="organizer-text">Organizer: </span>{{ model?.organizer }}
-                </div>
+                    <div *ngIf="!loading" class="event-organizer">
+                        <span class="organizer-text">Organizer: </span>{{ model?.organizer }}
+                    </div>
 
-                <div *ngIf="!loading">
-                    <span class="location-text">Location: </span>{{ model?.location?.address }} 
-                </div>
-
+                    <div *ngIf="!loading" class="event-location">
+                        <span class="location-text">Location: </span>{{ model?.location?.address }} 
+                    </div>
+                </div>    
                 <ngx-skeleton-loader *ngIf="loading" count="2" appearance="line" animation="progress"></ngx-skeleton-loader>
             </div>
             <ngx-skeleton-loader *ngIf="loading" count="2" appearance="line" animation="progress"></ngx-skeleton-loader>
