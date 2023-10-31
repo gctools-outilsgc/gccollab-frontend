@@ -66,7 +66,7 @@
     <mat-card appearance="outlined" class="event-card-large">
         <mat-card-header>
             <div class="event-image-wrapper">
-               <img *ngIf="!loading" [src]="model?.displayPicture" [ngClass]="{'greyed-image-wrapper': !model?.canceled || isPast()}">
+               <img *ngIf="!loading" [src]="model?.displayPicture" [ngClass]="{'greyed-image-wrapper': model?.canceled || isPast()}">
                <ngx-skeleton-loader *ngIf="loading" count="1" appearance="line" animation="progress"></ngx-skeleton-loader>
            </div> 
        </mat-card-header>
@@ -85,7 +85,7 @@
                 routerLink="{{ '/' + routes.Events  + '/' + model?.id }}">
                 <div class="event-text">
                     <div *ngIf="!loading" class="title-larger-text">
-                        <ng-container class="event-canceled" *ngIf="!model?.canceled">
+                        <ng-container class="event-canceled" *ngIf="model?.canceled">
                             <span class="canceled" style="color:#BA0606;">CANCELED </span>{{ model?.title }}
                         </ng-container>
                         <ng-container *ngIf="!model?.canceled">
