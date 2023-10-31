@@ -9,7 +9,6 @@ import { TranslateService } from "@ngx-translate/core";
 import { LanguageStorageService } from './core/services/language-storage.service';
 import { Translations } from './core/services/translations.service';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

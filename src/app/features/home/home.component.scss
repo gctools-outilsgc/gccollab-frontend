@@ -6,10 +6,12 @@
         width: 66%;
         padding-right: $grid-step;
 
+        app-post {
+            display: block;
+            padding-bottom: 40px;
+        }
+
         > div {
-            max-height: 100vh;
-            min-height: 100%;
-            overflow: auto;
             padding: 0 22px 0 22px;
         }
     }

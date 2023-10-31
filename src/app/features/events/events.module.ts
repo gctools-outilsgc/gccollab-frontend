@@ -18,7 +18,7 @@ import { EventComponent } from './components/event/event.component';
     CommonModule,
     EventsRoutingModule,
     SharedModule,
-    MatCardModule
+    MatCardModule,
   ],
   exports: [
     EventListComponent

@@ -22,7 +22,7 @@ export class BannerComponent {
 export class Banner {
   backgroundImage: string;
 
-  constructor(backgroundImage: string = '../../../../assets/svg/banner.svg') {
+  constructor(backgroundImage: string = '../../../../assets/image/banner.svg') {
     this.backgroundImage = backgroundImage;
   }
 }

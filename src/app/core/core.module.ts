@@ -9,7 +9,6 @@ import { HttpClient } from '@angular/common/http';
 import { TypescriptLoader } from './helpers/typescript-loader';
 
 @NgModule({
-  declarations: [],
   imports: [
     CommonModule,
     AuthConfigModule,

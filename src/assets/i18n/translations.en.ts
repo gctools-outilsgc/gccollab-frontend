@@ -54,6 +54,8 @@ export default {
         "messages": "Messages",
         "missions": "Careers",
         "newsfeed": "Newsfeed",
+        "poll": "Poll",
+        "post": "Post",
         "profile": "Profile",
         "search": "Search",
         "settings": "Settings",
@@ -173,7 +175,8 @@ export default {
         "title": "Title",
         "remove": "Remove",
         "horizontalrule": "Horizontal Rule",
-        "formatclear": "Clear Formatting"
+        "formatclear": "Clear Formatting",
+        "enabled": " enabled"
     },
     "input": {
         "hint": {
@@ -198,7 +201,9 @@ export default {
         },
         "error": {
             "required": "is required.",
-            "email": "Please enter a valid email."
+            "email": "Please enter a valid email.",
+            "minLength": "Minimum character length is ",
+            "maxLength": "Maximum character length is "
         }
     },
 	"banner": {
@@ -291,6 +296,51 @@ export default {
             "tooltip_off": "Bookmarked",
             "aria_on": "Click to bookmark this event.",
             "aria_off": "Click to remove this event from your bookmarks."
+        }
+    },
+    "forms": {
+        "placeholder": "Type here",
+        "save": "Save",
+        "create": "Create",
+        "post": {
+            "post": "Post"
+        },
+        "blog": {
+            "name_of_blog": "Name of Blog",
+            "name_of_publisher": "Name of publisher",
+            "upload_cover_photo": "Upload a cover photo",
+            "cover_photo_alt": "Cover photo alt text",
+            "body": "Body"
+        },
+        "event": {
+            "type_of_event": "Type of event",
+            "type_of_event_aria" : "Select an event type",
+            "in_person": "In-person",
+            "hybrid": "Hybrid",
+            "online": "Online",
+            "name_of_organizer": "Name of organizer",
+            "name_of_event": "Name of event",
+            "event_language": "Language of event",
+            "event_language_aria": "Select a language for your event",
+            "english": "English",
+            "french": "French",
+            "bilingual": "Bilingual",
+            "body": "Body",
+            "body_hint": "Start writing.",
+            "location": "Location",
+            "platform": "Online streaming platform",
+            "duration": "Event duration",
+            "duration_aria": "Select a duration for your event",
+            "single_day": "One day event",
+            "multi_day": "Multi-day event",
+            "start_date": "Start date",
+            "end_date": "End date"
+        },
+        "poll": {
+            "description": "Poll description / question",
+            "option": "Option",
+            "option_add": "Add an option",
+            "option_remove": "Remove option"
         }
     }
 };

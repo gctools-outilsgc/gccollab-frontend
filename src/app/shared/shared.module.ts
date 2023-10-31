@@ -5,7 +5,7 @@ import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-transla
 import { AppModule } from '../app.module';
 import { HttpClient } from '@angular/common/http';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
 import { ForbiddenComponent } from './components/forbidden/forbidden.component';
@@ -15,7 +15,6 @@ import { ngxEditorConfigFactory } from './factories/editor-config.factory';
 import { TypescriptLoader } from '../core/helpers/typescript-loader';
 import { Translations } from '../core/services/translations.service';
 import { ButtonComponent } from './components/button/button.component';
-
 
 import { MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -34,6 +33,16 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ProfilePicComponent } from './components/profile-pic/profile-pic.component';
 import { CalendarButtonComponent } from './components/calendar-button/calendar-button.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MAT_RADIO_DEFAULT_OPTIONS, MatRadioModule } from '@angular/material/radio';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { EditorMenuComponent } from './components/editor/menu/editor-menu/editor-menu.component';
+import { PostFormComponent } from './components/post-form/post-form.component';
+import { BlogFormComponent } from './components/blog-form/blog-form.component';
+import { EventFormComponent } from './components/event-form/event-form.component';
+import { PollFormComponent } from './components/poll-form/poll-form.component';
+
+import { TruncateFileNamePipe } from './pipes/truncate-file-name.pipe';
 
 
 @NgModule({
@@ -51,10 +60,17 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 	  BannerComponent,
     ProfilePicComponent,
     CalendarButtonComponent,
+    EditorMenuComponent,
+    PostFormComponent,
+    BlogFormComponent,
+    EventFormComponent,
+    PollFormComponent,
+    TruncateFileNamePipe
   ],
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule,
     TranslateModule.forChild({
       loader: {
@@ -65,7 +81,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
       isolate: false,
       extend: true
     }),
-    NgxEditorModule.forChild(),
+    NgxEditorModule.forChild({
+      
+    }),
     MatButtonModule,
     MatIconModule,
     MatTooltipModule,
@@ -73,8 +91,11 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatAutocompleteModule,
     NgxSkeletonLoaderModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
   ],
   exports: [
     TranslateModule,
@@ -91,7 +112,12 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     InfiniteScrollModule,
     ProfilePicComponent,
     CalendarButtonComponent,
-    MatCheckboxModule
+    MatCheckboxModule,
+    PostFormComponent,
+    BlogFormComponent,
+    EventFormComponent,
+    PollFormComponent,
+    TruncateFileNamePipe
   ],
   providers: [
     {
@@ -101,10 +127,12 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     },
     { 
       provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, 
-      useValue: {
-        appearance: 'outline'
-      }
-    }
+      useValue: { appearance: 'outline' }
+    },
+    {
+      provide: MAT_RADIO_DEFAULT_OPTIONS,
+      useValue: { color: 'primary' },
+  }
   ]
 })
 export class SharedModule {

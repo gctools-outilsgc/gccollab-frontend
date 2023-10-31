@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { CoreRoutes } from 'src/app/core/constants/routes.constants';
-import { Person } from 'src/app/core/models/person';
+import { Person } from 'src/app/core/models/person.model';
 import { Translations } from 'src/app/core/services/translations.service';
 import { MaterialButtonType } from 'src/app/shared/models/material-button-type';
 import { TooltipDirection } from 'src/app/shared/models/tooltip-direction';

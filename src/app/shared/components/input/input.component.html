@@ -1,5 +1,5 @@
 <div class="gcc-input-wrapper">
-    <mat-label *ngIf="label" [ngClass]="disabled ? 'disabled' : ''">
+    <mat-label *ngIf="label" [ngClass]="{'disabled': disabled}">
         {{ label }} 
         <div *ngIf="required" class="required-star">*</div>
         <i *ngIf="hint" 
@@ -14,19 +14,27 @@
 
     <mat-form-field>
         <input matInput 
-               [id]="inputId"
-               [name]="name"
+               [(ngModel)]="value" 
+               (ngModelChange)="onInputChange($event)"
+               [attr.id]="inputId"
+               [attr.name]="name"
                [value]="value"
                [type]="type === inputType.Password ? (showPassword ? inputType.Text : type) : type"
                [placeholder]="placeholder"
-               [minLength]="minLength"
-               [maxLength]="maxLength"
-               [pattern]="pattern"
+               [attr.minLength]="minLength"
+               [attr.maxLength]="maxLength"
+               [attr.pattern]="pattern"
                [required]="required"
                [disabled]="disabled"
                [readonly]="readonly"
                [autofocus]="autofocus"
+               [attr.formControl]="control"
+               [attr.formControlName]="controlName"
+               [attr.errorStateMatcher]="errorMatcher"
+               [ngClass]="{icon: icon}"
         >
+
+        <i *ngIf="icon" [ngClass]="icon" class="gcc-input-icon"></i>
 
         <app-button *ngIf="type == inputType.Password" 
                     [matButtonType]="materialButtonType.Icon"
@@ -40,11 +48,19 @@
             {{ hint }}
         </mat-hint>
 
-        <mat-error *ngIf="formControl && (formControl.hasError('email') && !formControl.hasError('required'))">
+        <mat-error *ngIf="control && control.hasError('email')">
             {{ translations.input.error.email | translate }}
         </mat-error>
 
-        <mat-error *ngIf="formControl && formControl.hasError('required')">
+        <mat-error *ngIf="control && control.hasError('minlength')">
+           {{ translations.input.error.minLength | translate }} {{ control.errors!['minlength'].requiredLength }}.
+        </mat-error>
+        
+        <mat-error *ngIf="control && control.hasError('maxlength')">
+            {{ translations.input.error.maxLength | translate }} {{ control.errors!['maxlength'].requiredLength }}.
+        </mat-error>
+        
+        <mat-error *ngIf="control && control.hasError('required')">
             {{ label }} {{ translations.input.error.required | translate }}
         </mat-error>
 

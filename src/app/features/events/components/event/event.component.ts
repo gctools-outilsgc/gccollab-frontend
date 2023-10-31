@@ -10,6 +10,8 @@ import { InputType } from 'src/app/shared/models/input-type';
 import { ActivatedRoute } from '@angular/router';
 import { EventService } from 'src/app/core/services/event.service';
 import { CoreRoutes } from 'src/app/core/constants/routes.constants';
+import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
 
 @Component({
   selector: 'app-event',
@@ -24,6 +26,7 @@ export class EventComponent implements OnInit {
   banner: Banner | null = null;
   loading: boolean = true;
   bookmarked: boolean = false;
+  agreeToTerms: boolean = false;
 
   registerFormId: string = 'gcc-event-register-form';
 
@@ -35,10 +38,29 @@ export class EventComponent implements OnInit {
   private readonly route: ActivatedRoute = inject(ActivatedRoute);
   private readonly eventService: EventService = inject(EventService);
 
+  formModel = {
+    name: '',
+    email: '',
+    emailConfirm: '',
+    occupation: ''
+  }
+
+  nameFormControl = new FormControl(this.formModel.name, [Validators.required]);
+  emailFormControl = new FormControl(this.formModel.email, [Validators.required, Validators.email]);
+  emailConfirmFormControl = new FormControl(this.formModel.emailConfirm, [Validators.required, Validators.email]);
+  occupationFormControl = new FormControl(this.formModel.occupation, [Validators.required]);
+
+  formGroup = new FormGroup({});
+
+  matcher = new MyErrorStateMatcher();
+
   constructor(public translations: Translations,
               private viewportScroller: ViewportScroller ) {
-    
-  }
+    this.formGroup.addControl('name', this.nameFormControl);
+    this.formGroup.addControl('email', this.emailFormControl);
+    this.formGroup.addControl('emailConfirm', this.emailConfirmFormControl);
+    this.formGroup.addControl('occupation', this.occupationFormControl);
+  }  
 
   ngOnInit(): void {
     if (!this.model) {
@@ -70,5 +92,13 @@ export class EventComponent implements OnInit {
 
   scrollToRegister() {
     this.viewportScroller.scrollToAnchor(this.registerFormId);
+  }
+}
+
+/** Error when invalid control is dirty, touched, or submitted. */
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
 }

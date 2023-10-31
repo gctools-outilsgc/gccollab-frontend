@@ -1,7 +1,10 @@
 //import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { NewsItem } from 'src/app/features/news-feed/models/news-item';
+import { INewsItem } from 'src/app/features/news-feed/models/INewsItem';
+import { Post } from '../models/post.model';
+import { Blog } from '../models/blog.model';
+import { Poll } from '../models/poll.model';
 import { PeopleService } from './people.service';
 
 import { LoremIpsum } from 'lorem-ipsum';
@@ -26,7 +29,7 @@ export class NewsService {
 
   private peopleService: PeopleService = inject(PeopleService);
 
-  public newsItems: NewsItem[] = [
+  public newsItems: INewsItem[] = [
     this.generateRandomNewsItem(),
     this.generateRandomNewsItem(),
     this.generateRandomNewsItem(),
@@ -42,8 +45,8 @@ export class NewsService {
   constructor() {
   }
 
-  mockGetNewsItem(id: string | null, delay: number = this.delay): Observable<NewsItem> {
-    let response: NewsItem;
+  mockGetNewsItem(id: string | null, delay: number = this.delay): Observable<INewsItem> {
+    let response: INewsItem;
 
     for(let i = 0; i < this.newsItems.length; i++) {
       if (this.newsItems[i].id == id) {
@@ -52,7 +55,7 @@ export class NewsService {
       }
     }
 
-    let observable: Observable<NewsItem> = new Observable((subscriber) => {
+    let observable: Observable<INewsItem> = new Observable((subscriber) => {
       setTimeout(() => {
         subscriber.next(response);
         subscriber.complete();
@@ -62,8 +65,8 @@ export class NewsService {
     return observable;
   }
 
-  mockGetNewsItems(count: number = 10, delay: number = 5000): Observable<NewsItem[]> {
-    let observable: Observable<NewsItem[]> = new Observable((subscriber) => {
+  mockGetNewsItems(count: number = 10, delay: number = 5000): Observable<INewsItem[]> {
+    let observable: Observable<INewsItem[]> = new Observable((subscriber) => {
       setTimeout(() => {
         subscriber.next(this.newsItems.slice(0, count > this.newsItems.length ? this.newsItems.length : count));
         subscriber.complete();
@@ -73,15 +76,42 @@ export class NewsService {
     return observable;
   }
 
-  private generateRandomNewsItem(): NewsItem {
-    const newsItem = new NewsItem();
+  private generateRandomNewsItem(): INewsItem {
 
-    newsItem.id = this.id.toString();
-    newsItem.date = new Date();
-    newsItem.content = this.randomContent();
-    newsItem.comments = Math.floor(Math.random() * 199) + 1;
-    newsItem.likes = Math.floor(Math.random() * 99) + 1;
-    newsItem.author = this.peopleService.people[this.id];
+    let newsItem: INewsItem = <INewsItem> {};
+
+    switch(Math.floor(Math.random() * 3)) {
+      case 0:
+        newsItem  = new Post(
+          this.id.toString(),
+          this.peopleService.people[this.id],
+          new Date(),
+          this.randomContent(),
+          Math.floor(Math.random() * 199) + 1,
+          Math.floor(Math.random() * 99) + 1
+        );
+        break;
+      case 1:
+        newsItem  = new Blog(
+          this.id.toString(),
+          this.peopleService.people[this.id],
+          new Date(),
+          this.randomContent(),
+          Math.floor(Math.random() * 199) + 1,
+          Math.floor(Math.random() * 99) + 1
+        );
+        break;
+      case 2:
+        newsItem  = new Poll(
+          this.id.toString(),
+          this.peopleService.people[this.id],
+          new Date(),
+          this.randomContent(),
+          Math.floor(Math.random() * 199) + 1,
+          Math.floor(Math.random() * 99) + 1
+        );
+        break;
+    }
 
     this.id++;
 
