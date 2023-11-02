@@ -24,8 +24,7 @@
     </app-input>
 
     <app-file-select [label]="translations.forms.blog.upload_cover_photo | translate"
-                     [control]="$any(form).controls['coverPhoto']"
-                     [required]="true">
+                     [control]="$any(form).controls['coverPhoto']">
     </app-file-select>
 
     <app-input [(value)]="model.coverPhotoAlt" 

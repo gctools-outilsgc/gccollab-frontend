@@ -13,6 +13,7 @@
             (click)="toggle()"
             [matTooltip]="translations.languages.tooltip | translate"
             [ariaLabel]="translations.languages.aria | translate"
-            [fontSize]="'large'">
+            [fontSize]="'large'"
+            [theme]="theme">
     {{ selectedLanguageKey | uppercase }}
 </app-button>

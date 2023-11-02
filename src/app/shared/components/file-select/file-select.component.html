@@ -1,6 +1,13 @@
-<div></div>
-<div class="form"
+<div *ngIf="view === FileSelectView.Button">
+    <ng-container *ngTemplateOutlet="buttonTemplate"></ng-container>
+</div>
+
+<div *ngIf="view === FileSelectView.Form" class="form"
      [ngClass]="{error: control && control.touched && (control.hasError('required') || error)}">
+    <ng-container *ngTemplateOutlet="buttonTemplate"></ng-container>
+</div>
+
+<ng-template #buttonTemplate>
     <app-button [matButtonType]="'mat-stroked-button'"
                 [clickFunc]="clickCallback"
                 [blurFunc]="blurCallback"
@@ -10,13 +17,23 @@
         {{ control && control.value ? (photoName ? (photoName | truncateFileName: 18) : translations.forms.saved_image | translate) : label }}
         <span *ngIf="required && !control?.value" class="required-star">*</span>
     </app-button>
-</div>
+</ng-template>
 
-<mat-error *ngIf="error">
+<app-button *ngIf="view === FileSelectView.Icon"
+            [matButtonType]="'mat-icon-button'"
+            [clickFunc]="clickCallback"
+            [blurFunc]="blurCallback"
+            [disabled]="control ? control.disabled : false"
+            [theme]="theme">
+    <i class="fa-solid fa-upload"></i>
+    <span *ngIf="required && !control?.value" class="required-star icon">*</span>
+</app-button>
+
+<mat-error *ngIf="view === FileSelectView.Form && error">
     {{ error }}
 </mat-error>
 
-<mat-error *ngIf="!error && control && control.touched && control.hasError('required')">
+<mat-error *ngIf="view === FileSelectView.Form && !error && control && control.touched && control.hasError('required')">
     {{ label + ' ' + (translations.input.error.required | translate) }}
 </mat-error>
 

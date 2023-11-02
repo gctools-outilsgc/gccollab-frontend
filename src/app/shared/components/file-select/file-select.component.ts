@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { Theme } from '../../models/theme';
 import { TooltipDirection } from '../../models/tooltip-direction';
 import { Subscription } from 'rxjs';
@@ -21,7 +21,6 @@ export class FileSelectComponent {
   @Input() tooltipDirection: TooltipDirection | string = TooltipDirection.Above;
   @Input() ariaLabel!: string; // Should only be used for FileSelectView.Icon
   @Input() theme: Theme | string = Theme.Primary1;
-  @Input() required: boolean = true;
 
   // All 
   @Input() maxSize: number = 3145728; // Bytes
@@ -41,6 +40,8 @@ export class FileSelectComponent {
 
   error: string | undefined;
   photoName: string = '';
+  required: boolean = false;
+  FileSelectView = FileSelectView;
 
   private filePickerHasOpened: boolean = false;
   private appInFocus: boolean = true;
@@ -85,6 +86,8 @@ export class FileSelectComponent {
         this.control.markAsTouched();
       }
     });
+
+    this.required = this.control.hasValidator(Validators.required);
   }
 
   ngOnDestroy(): void {

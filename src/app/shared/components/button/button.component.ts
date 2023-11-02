@@ -27,7 +27,7 @@ export class ButtonComponent implements OnInit {
   @Input() matIcon!: string;
   @Input() fontSize: string = 'inherit';
   @Input() form!: string;
-  @Input() theme: Theme | string = Theme.Primary1;
+  @Input() theme: Theme | string = Theme.Black;
   @Input() clickFunc: Function = () => {};
   @Input() blurFunc: Function = () => {};
 

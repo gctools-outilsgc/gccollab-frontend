@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { ILanguage } from '../../models/language';
 import { Translations } from 'src/app/core/services/translations.service';
 import { MaterialButtonType } from '../../models/material-button-type';
+import { Theme } from '../../models/theme';
 
 @Component({
   selector: 'app-language-selector',
@@ -12,6 +13,7 @@ import { MaterialButtonType } from '../../models/material-button-type';
 export class LanguageSelectorComponent implements OnInit {
 
   @Input() isToggle: boolean = false;
+  @Input() theme: Theme | string = Theme.Black;
   
   languages: ILanguage [] = [
     {'key': 'en', 'value': this.translations.languages.english},

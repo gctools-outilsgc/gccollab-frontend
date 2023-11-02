@@ -29,9 +29,45 @@
         background: $error-red;
         color: $error-red-contrast;
     }
-    button.mat-raised-button[disabled="true"] {
+    button.mat-raised-button[theme="white"]:not([disabled="true"]) {
+        background: #fff;
+        color: $neutral-900;
+    }
+    button.mat-raised-button[theme="black"]:not([disabled="true"]) {
+        background: $neutral-900;
+        color: $secondary-2-contrast;
+    }
+    button.mat-raised-button[disabled="true"], 
+    button.mat-raised-button[theme="disabled"] {
         background: #9e9e9e;
         color: $secondary-2-contrast;
+    }
+
+    // ICON
+    button.mat-icon-button[theme="primary-1"]:not([disabled="true"]) {
+        color: $primary-1;
+    }
+    button.mat-icon-button[theme="primary-2"]:not([disabled="true"])  {
+        color: $primary-2;
+    }
+    button.mat-icon-button[theme="secondary-1"]:not([disabled="true"]) {
+        color: $secondary-1;
+    }
+    button.mat-icon-button[theme="secondary-2"]:not([disabled="true"]) {
+        color: $secondary-2;
+    }
+    button.mat-icon-button[theme="error"]:not([disabled="true"]) {
+        color: $error-red;
+    }
+    button.mat-icon-button[theme="white"]:not([disabled="true"]) {
+        color: #fff;
+    }
+    button.mat-icon-button[theme="black"]:not([disabled="true"]) {
+        color: $neutral-900;
+    }
+    button.mat-icon-button[disabled="true"], 
+    button.mat-icon-button[theme="disabled"]  {
+        color: #9e9e9e;
     }
 
     // STROKED
@@ -74,8 +110,22 @@
             color: $error-red;
         }
     }
+    button.mat-stroked-button[theme="white"]:not([disabled="true"]) {
+        border-color: #fff;
+        ::ng-deep i {
+            color: #fff;
+        }
+    }
+    button.mat-stroked-button[theme="black"]:not([disabled="true"]) {
+        border-color: $neutral-900;
+        ::ng-deep i {
+            color: $neutral-900;
+        }
+    }
     button.mat-stroked-button[disabled="true"],
-    button.mat-outlined-button[disabled="true"]{
+    button.mat-stroked-button[theme="disabled"],
+    button.mat-outlined-button[disabled="true"],
+    button.mat-outlined-button[theme="disabled"] {
         border-color: $neutral-300;
         ::ng-deep .gcc-button-inner {
             color: $neutral-300;
