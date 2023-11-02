@@ -302,6 +302,7 @@ const fr: typeof import('./translations.en').default = {
     "forms": {
         "placeholder": "Écrivez ici",
         "save": "Sauvegarder",
+        "saved_image": "Image enregistrée",
         "create": "Créer",
         "post": {
             "post": "Poste"
@@ -342,6 +343,16 @@ const fr: typeof import('./translations.en').default = {
             "option": "Option",
             "option_add": "Ajouter une option",
             "option_remove": "Supprimer l'option"
+        }
+    },
+    "file_select": {
+        "error": {
+            "size": "Le fichier est trop grand. La taille maximale autorisée est ",
+            "extension": "Le fichier sélectionné n'a pas d'extension acceptée.",
+            "characters": "Les fichiers ont un nombre maximum de caractères de ",
+            "img_small": "Les images doivent être au minimum ",
+            "img_large": "Les images ont un maximum de ",
+            "read": "Erreur de lecture du fichier."
         }
     }
 };

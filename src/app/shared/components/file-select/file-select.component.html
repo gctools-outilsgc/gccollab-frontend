@@ -1,0 +1,23 @@
+<div></div>
+<div class="form"
+     [ngClass]="{error: control && control.touched && (control.hasError('required') || error)}">
+    <app-button [matButtonType]="'mat-stroked-button'"
+                [clickFunc]="clickCallback"
+                [blurFunc]="blurCallback"
+                [disabled]="control ? control.disabled : false"
+                [theme]="theme">
+        <i class="fa-solid fa-upload"></i>
+        {{ control && control.value ? (photoName ? (photoName | truncateFileName: 18) : translations.forms.saved_image | translate) : label }}
+        <span *ngIf="required && !control?.value" class="required-star">*</span>
+    </app-button>
+</div>
+
+<mat-error *ngIf="error">
+    {{ error }}
+</mat-error>
+
+<mat-error *ngIf="!error && control && control.touched && control.hasError('required')">
+    {{ label + ' ' + (translations.input.error.required | translate) }}
+</mat-error>
+
+<input #gccFileSelect type="file" [accept]="fileType" (change)="onFileSelected($event)" style="display: none;">

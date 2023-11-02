@@ -38,10 +38,12 @@ export class EventFormComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     for (const [key, value] of Object.entries(this.model)) {
-      if (!this.form.controls[key])
+      if (!this.form.controls[key]) {
         this.form.addControl(key, new FormControl(value, [Validators.required]));
-      else
+      } else {
+        this.form.controls[key].setValue(value);
         console.warn('Duplicate FormControl detected.');
+      }
     }
   }
 
