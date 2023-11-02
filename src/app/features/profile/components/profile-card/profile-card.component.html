@@ -26,6 +26,7 @@
                     [ariaLabel]="(confirmed ? translations.profileCard.confirm.aria_off : translations.profileCard.confirm.aria_on) | translate"
                     [tooltipDirection]="tooltipDirection.Above"
                     [disabled]="loading"
+                    [theme]="declined ? 'disabled' : 'secondary-2'"
                     (click)="clickConfirm()">
             <i *ngIf="!loading" 
                class="fa-circle-check"
@@ -41,6 +42,7 @@
                     [ariaLabel]="(declined ? translations.profileCard.decline.aria_off : translations.profileCard.decline.aria_on) | translate"
                     [tooltipDirection]="tooltipDirection.Above"
                     [disabled]="loading"
+                    [theme]="confirmed ? 'disabled' : 'error'"
                     (click)="clickDecline()">
             <i *ngIf="!loading" 
                class="fa-circle-xmark"

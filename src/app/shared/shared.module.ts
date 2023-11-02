@@ -43,6 +43,7 @@ import { EventFormComponent } from './components/event-form/event-form.component
 import { PollFormComponent } from './components/poll-form/poll-form.component';
 
 import { TruncateFileNamePipe } from './pipes/truncate-file-name.pipe';
+import { FileSelectComponent } from './components/file-select/file-select.component';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { TruncateFileNamePipe } from './pipes/truncate-file-name.pipe';
     BlogFormComponent,
     EventFormComponent,
     PollFormComponent,
-    TruncateFileNamePipe
+    TruncateFileNamePipe,
+    FileSelectComponent
   ],
   imports: [
     CommonModule,
