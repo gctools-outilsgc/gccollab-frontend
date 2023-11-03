@@ -29,14 +29,10 @@ export class InputComponent implements ControlValueAccessor {
   @Input() controlName!: string;
   @Input() errorMatcher!: ErrorStateMatcher;
 
-  @Input({required:true}) value!: string;
+  @Input() value!: string;
   @Input({required:true}) label!: string;
   @Input() placeholder!: string;
   @Input() hint!: string;
-  @Input() errorMessage!: string;
-  @Input() maxLength!: number;
-  @Input() minLength!: number;
-  @Input() pattern!: string;
   @Input() icon!: string;
 
   @Input() required: boolean = false;
