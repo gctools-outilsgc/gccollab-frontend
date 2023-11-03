@@ -38,7 +38,8 @@
                     class="gcc-cancel-editing"
                     [matButtonType]="'mat-icon-button'"
                     (click)="toggleEditing($event)"
-                    [disabled]="creating">
+                    [disabled]="creating"
+                    [theme]="creating ? 'disabled' : 'primary-1'">
             <i class="fa-regular fa-circle-xmark fa-2xl"></i>
         </app-button>
 
