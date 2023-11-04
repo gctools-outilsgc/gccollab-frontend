@@ -59,6 +59,18 @@ mat-form-field {
     }
 }
 
+mat-form-field.mat-focused {
+    .gcc-input-icon {
+        color: $primary-1;
+    }
+}
+
+mat-form-field.mat-form-field-invalid {
+    .gcc-input-icon {
+        color: $error-red;
+    }
+}
+
 .hint-button {
     //margin-left: -20px;
 
@@ -122,6 +134,10 @@ mat-hint {
         .mdc-notched-outline__leading, .mdc-notched-outline__trailing {
             border-color: $error-red !important;
         }
+    }
+    
+    .mdc-notched-outline__leading {
+        margin-right: -1px;
     }
 
     input:-webkit-autofill,

@@ -15,7 +15,7 @@
                 [theme]="theme">
         <i class="fa-solid fa-upload"></i>
         {{ control && control.value ? (photoName ? (photoName | truncateFileName: 18) : translations.forms.saved_image | translate) : label }}
-        <span *ngIf="required && !control?.value" class="required-star">*</span>
+        <span *ngIf="control && control.hasValidator(requiredValidator) && !control.value" class="required-star">*</span>
     </app-button>
 </ng-template>
 
@@ -26,7 +26,7 @@
             [disabled]="control ? control.disabled : false"
             [theme]="theme">
     <i class="fa-solid fa-upload"></i>
-    <span *ngIf="required && !control?.value" class="required-star icon">*</span>
+    <span *ngIf="control && control.hasValidator(requiredValidator) && !control.value" class="required-star icon">*</span>
 </app-button>
 
 <mat-error *ngIf="view === FileSelectView.Form && error">

@@ -40,8 +40,8 @@ export class FileSelectComponent {
 
   error: string | undefined;
   photoName: string = '';
-  required: boolean = false;
   FileSelectView = FileSelectView;
+  requiredValidator = Validators.required;
 
   private filePickerHasOpened: boolean = false;
   private appInFocus: boolean = true;
@@ -86,8 +86,6 @@ export class FileSelectComponent {
         this.control.markAsTouched();
       }
     });
-
-    this.required = this.control.hasValidator(Validators.required);
   }
 
   ngOnDestroy(): void {
