@@ -2,11 +2,11 @@
     <app-editor [label]="translations.forms.post.post | translate"
                 [hint]="translations.forms.placeholder | translate"
                 [(html)]="model.description"
-                [required]="true"
-                [autofocus]="true"
-                [maxCharacters]="maxLength"
                 formControlName="description"
                 [control]="$any(form).controls['description']"
-                [disabled]="disabled">
+                [minCharacters]="minLength"
+                [maxCharacters]="maxLength"
+                [disabled]="disabled"
+                [required]="true">
     </app-editor>
 </form>

@@ -12,7 +12,7 @@
 </mat-label>
 
 <div #gccEditor class="NgxEditor__Wrapper"
-     [ngClass]="{focus: hasFocus, error: control && control.hasError('required') || (characterCount > maxCharacters) || (characterCount < minCharacters)}">
+     [ngClass]="{focus: hasFocus, error: control && control.touched && !control.valid}">
     <ngx-editor-menu 
         [editor]="editor" 
         [toolbar]="toolbar"
@@ -29,7 +29,7 @@
         [required]="required">
     </ngx-editor>
     <div *ngIf="minCharacters > 0 || maxCharacters != Number.MAX_VALUE" 
-         [ngClass]="(characterCount > maxCharacters) || (characterCount < minCharacters) ? 'error' : ''" 
+         [ngClass]="(control && control.touched) && ((characterCount > maxCharacters) || (characterCount < minCharacters)) ? 'error' : ''" 
          class="character-count">
         {{ characterCount }} / {{ maxCharacters }}
     </div>
@@ -47,7 +47,7 @@
     {{ translations.input.error.maxLength | translate }} {{ control.errors!['maxlength'].requiredLength }}.
 </mat-error>
 
-<mat-error *ngIf="control && control.hasError('required')">
+<mat-error *ngIf="control && control.touched && control.hasError('required')">
     {{ label }} {{ translations.input.error.required | translate }}
 </mat-error>
 

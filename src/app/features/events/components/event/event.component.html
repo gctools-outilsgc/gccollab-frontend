@@ -55,6 +55,7 @@
                             class="registerBtn"
                             [disabled]="loading || isPast()"
                             [ngClass]="loading || isPast() ? 'disabled' : 'enabled'"
+                            theme="secondary-2"
                             (click)="scrollToRegister()">
                     {{ translations.event.form.register | translate }}
                 </app-button>
