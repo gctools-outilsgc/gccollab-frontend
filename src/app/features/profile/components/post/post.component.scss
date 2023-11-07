@@ -26,50 +26,6 @@ $title-padding: 90px;
                 }
             }
 
-            ::ng-deep {
-                mat-tab-header {
-                    margin-right: 65px;
-                    padding-bottom: 30px;
-
-                    .mat-mdc-tab-labels {
-                        gap: 20px;
-
-                        .mdc-tab__text-label {
-                            font-size: large;
-                            font-weight: 600;
-                        }
-                    }
-
-                    .mdc-tab {
-                        height: 40px;
-                        border: 2px solid $primary-1;
-                        border-radius: 10px;
-
-                        .mdc-tab__text-label {
-                            color: #000;
-                            transition: none;
-                        }
-                    }
-    
-                    .mdc-tab--active {
-                        background-color: $primary-1;
-
-                        .mdc-tab__text-label {
-                            color: $primary-1-contrast;
-                        }
-                    }
-
-                    .mdc-tab--active:hover, .mdc-tab--active:focus {
-                        background-color: $primary-2;
-                        border-color: $primary-2;
-                    }
-    
-                    .mdc-tab-indicator {
-                        display: none;
-                    }
-                }
-            }
-
             .gcc-cancel-editing {
                 position: absolute;
                 top: 112px;
@@ -91,12 +47,6 @@ $title-padding: 90px;
             }
         }
     }
-
-
-
-
-
-
 
     mat-card {
         border: 1px solid $neutral-300;
@@ -169,5 +119,3 @@ $title-padding: 90px;
         color: $primary-1;
     }
 }
-
-// https://stackoverflow.com/a/57759753/6479757

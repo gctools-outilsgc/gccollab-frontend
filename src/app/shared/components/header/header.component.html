@@ -48,14 +48,16 @@
                   [matButtonType]="materialButtonType.Icon"
                   [tooltip]="headerExpanded ? (translations.header.search.button.tooltip_off | translate) : translations.header.search.button.tooltip_on | translate"
                   [ariaLabel]="headerExpanded ? (translations.header.search.button.aria_off | translate) : translations.header.search.button.aria_on | translate"
-                  (click)="toggleSearch()">
+                  (click)="toggleSearch()"
+                  [theme]="'white'">
                   <i [ngClass]="headerExpanded ? 'fa-x' : 'fa-search'" class="fa-solid"></i>
       </app-button>
       <app-button btnId="gcc-header-messages-btn"
                   [matButtonType]="materialButtonType.Icon"
                   [tooltip]="translations.header.messages.tooltip | translate"
                   [ariaLabel]="translations.header.messages.aria | translate"
-                  [routerLink]="[routes.Messages]">
+                  [routerLink]="[routes.Messages]"
+                  [theme]="'white'">
                   <i class="fa-comment-dots" [ngClass]="activeRoute == routes.Messages ? 'fa-solid' : 'fa-regular'"></i>
       </app-button>
       <app-button btnId="gcc-header-notifications-btn"
@@ -63,7 +65,8 @@
                   [tooltip]="translations.header.notifications.tooltip | translate"
                   [ariaLabel]="translations.header.notifications.aria | translate"
                   [routerLink]="[routes.Messages]"
-                  [ngClass]="activeRoute == routes.Messages ? 'selected' : ''">
+                  [ngClass]="activeRoute == routes.Messages ? 'selected' : ''"
+                  [theme]="'white'">
                   <i class="fa-bell" [ngClass]="activeRoute == routes.Messages ? 'fa-solid' : 'fa-regular'"></i>
       </app-button>
       <app-button btnId="gcc-header-profile-btn"
@@ -72,12 +75,14 @@
                   [ariaLabel]="translations.header.profile.aria | translate"
                   [routerLink]="[routes.Profile]"
                   [ngClass]="activeRoute == routes.Profile ? 'selected' : ''"
+                  [theme]="'white'"
                   class="profile-btn">
                   <app-profile-pic [model]="user" [loading]="loadingProfile"></app-profile-pic>
       </app-button>
       <app-language-selector 
                   id="gcc-header-change-language"
-                  [isToggle]="true">
+                  [isToggle]="true"
+                  [theme]="'white'">
       </app-language-selector>
     </div>
   </mat-toolbar-row>

@@ -11,8 +11,7 @@
     </app-editor>
 
     <div *ngFor="let option of model.options; index as i" class="option-wrapper">
-        <app-input [(value)]="model.options[i].value" 
-                   [name]="'option' + i"
+        <app-input [name]="'option' + i"
                    formControlName="option{{i}}"
                    [control]="$any(form).controls['option' + i]"
                    [label]="(translations.forms.poll.option | translate) + ' #' + (i + 1)" 
@@ -22,10 +21,9 @@
                    [disabled]="disabled">
         </app-input>
         <app-button [matButtonType]="'mat-icon-button'"
-                    [disabled]="model.options.length <= 2"
+                    [disabled]="model.options.length <= 2 || disabled"
                     [tooltip]="(translations.forms.poll.option_remove | translate) + ' #' + (i + 1)"
                     [tooltipDirection]="tooltipDirection.Above"
-                    [disabled]="disabled"
                     (click)="removeOption(i)">
             <i class="fa-solid fa-trash"></i>
         </app-button>
@@ -34,6 +32,7 @@
     <div class="form-actions">
         <app-button [matButtonType]="'mat-stroked-button'"
                     [disabled]="model.options.length >= maxOptions || disabled"
+                    theme="primary-1"
                     (click)="addOption()">
             <i class="fa-solid fa-circle-plus"></i>
             {{ translations.forms.poll.option_add | translate }}

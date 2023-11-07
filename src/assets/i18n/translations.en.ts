@@ -246,15 +246,6 @@ export default {
             "aria_on": "Click to decline this event",
             "tooltip_off": "Rescind declination",
             "aria_off": "Click to rescind your declination of the event"
-        },
-        "canceled": {
-            "canceled_on": "Canceled"
-        },
-        "organize": {
-            "organizer": "Organizer"
-        },
-        "location": {
-            "location": "Location"
         }
     },
     "profileCard": {
@@ -310,6 +301,7 @@ export default {
     "forms": {
         "placeholder": "Type here",
         "save": "Save",
+        "saved_image": "Saved Image",
         "create": "Create",
         "post": {
             "post": "Post"
@@ -350,6 +342,16 @@ export default {
             "option": "Option",
             "option_add": "Add an option",
             "option_remove": "Remove option"
+        }
+    },
+    "file_select": {
+        "error": {
+            "size": "File is too large. Maximum size allowed is ",
+            "extension": "The file selected doesn't have an accepted extension.",
+            "characters": "Files have a maximum character count of ",
+            "img_small": "Images must be at minimum ",
+            "img_large": "Images have a maximum of ",
+            "read": "Error reading the file."
         }
     }
 };

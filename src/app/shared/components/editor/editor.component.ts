@@ -4,7 +4,7 @@ import { Editor, NgxEditorService, Toolbar } from 'ngx-editor';
 import { ngxEditorLocals } from '../../factories/editor-config.factory';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { Translations } from 'src/app/core/services/translations.service';
-import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { TooltipDirection } from '../../models/tooltip-direction';
 
 // https://sibiraj-s.github.io/ngx-editor/en/introduction/
@@ -27,10 +27,10 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterC
   @Input() label!: string;
   @Input() hint!: string;
   @Input() autofocus: boolean = false;
-  @Input() minCharacters: number = 0;
-  @Input() maxCharacters: number = Number.MAX_VALUE;
   @Input() control!: FormControl;
   @Input() controlName!: string;
+  @Input() minCharacters: number = 0;
+  @Input() maxCharacters: number = Number.MAX_VALUE;
 
   @Output() htmlChange = new EventEmitter<string>();
 
@@ -92,14 +92,9 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterC
     }
   }
 
-  // TODO: Handle min/max
   ngAfterContentInit(): void {
-    if (this.control && this.control.hasValidator(Validators.required)) {
-      this.control.removeValidators([Validators.required]);
-      this.control.clearValidators();
-      this.control.updateValueAndValidity();
-      this.hasRequiredValidator = true;
-    }
+    if (this.control && this.html != '')
+      this.updateCharacterCount(this.html);
   }
 
   ngAfterViewInit() {
@@ -111,12 +106,8 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterC
         if (classList) {
           this.hasFocus = Array.from(classList).includes('ProseMirror-focused') ? true : false;
 
-          // TODO
-          if (!this.hasFocus && this.control && !this.control.hasValidator(Validators.required) && this.hasRequiredValidator) {
-            this.control.addValidators([Validators.required]);
-            this.control.updateValueAndValidity();
-            this.updateCharacterCount(this.html);
-          }
+          if (this.control && !this.hasFocus)
+            this.control.markAsTouched();
         }
       });
     });
@@ -151,22 +142,8 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterC
       this.onInputChange(this.html);
     }
 
-    if (this.control) {
-      if (this.characterCount > this.maxCharacters){
-        this.control.setErrors({
-          maxlength: {
-            requiredLength: this.maxCharacters
-          }
-        });
-      } else if (this.characterCount < this.minCharacters) {
-        this.control.setErrors({
-          minlength: {
-            requiredLength: this.minCharacters
-          }
-        });
-      }
+    if (this.control)
       this.control.markAsTouched();
-    }
   }
 
   onLangChange(): void {

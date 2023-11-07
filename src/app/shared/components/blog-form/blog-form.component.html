@@ -23,27 +23,9 @@
                [disabled]="disabled">
     </app-input>
 
-    <div class="cover-photo-upload"
-         [ngClass]="{error: $any(form).controls['coverPhoto'].touched && ($any(form).controls['coverPhoto'].hasError('required') || coverPhotoError)}">
-        <app-button [matButtonType]="'mat-stroked-button'"
-                    [clickFunc]="clickCallback"
-                    [blurFunc]="blurCallback"
-                    [disabled]="disabled">
-            <i class="fa-solid fa-upload"></i>
-            {{ $any(form).controls['coverPhoto'].value ? ($any(form).controls['coverPhotoName'].value | truncateFileName: 18) : translations.forms.blog.upload_cover_photo | translate }}
-            <span *ngIf="!$any(form).controls['coverPhoto'].value" class="required-star">*</span>
-        </app-button>
-    </div>
-
-    <mat-error *ngIf="coverPhotoError">
-        {{ coverPhotoError }}
-    </mat-error>
-
-    <mat-error *ngIf="!coverPhotoError && $any(form).controls['coverPhoto'].touched && $any(form).controls['coverPhoto'].hasError('required')">
-        A cover photo is required.
-    </mat-error>
-
-    <input #gccBlogCoverPhotoInput type="file" accept="image/*" (change)="onFileSelected($event)" style="display: none;">
+    <app-file-select [label]="translations.forms.blog.upload_cover_photo | translate"
+                     [control]="$any(form).controls['coverPhoto']">
+    </app-file-select>
 
     <app-input [(value)]="model.coverPhotoAlt" 
                [name]="'coverPhotoAlt'"

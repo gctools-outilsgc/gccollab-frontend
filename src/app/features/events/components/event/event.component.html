@@ -55,6 +55,7 @@
                             class="registerBtn"
                             [disabled]="loading || isPast()"
                             [ngClass]="loading || isPast() ? 'disabled' : 'enabled'"
+                            theme="secondary-2"
                             (click)="scrollToRegister()">
                     {{ translations.event.form.register | translate }}
                 </app-button>
@@ -133,7 +134,6 @@
                    [name]="'fullName'"
                    [label]="translations.event.form.full_name | translate"
                    [placeholder]="translations.event.form.placeholder | translate"
-                   [errorMessage]="translations.event.form.full_name_error | translate"
                    [required]="true"
                    [control]="nameFormControl"
                    [errorMatcher]="matcher"
@@ -147,7 +147,6 @@
                    [type]="'email'"
                    [label]="translations.event.form.email | translate"
                    [placeholder]="translations.event.form.placeholder | translate"
-                   [errorMessage]="translations.event.form.email_error | translate"
                    [required]="true"
                    [control]="emailFormControl"
                    [errorMatcher]="matcher"
@@ -161,7 +160,6 @@
                    [type]="'email'"
                    [label]="translations.event.form.email_confirm | translate"
                    [placeholder]="translations.event.form.placeholder | translate"
-                   [errorMessage]="translations.event.form.email_confirm_error | translate"
                    [required]="true"
                    [control]="emailConfirmFormControl"
                    [errorMatcher]="matcher"
@@ -174,7 +172,6 @@
                    [name]="'occupation'"
                    [label]="translations.event.form.occupation | translate"
                    [placeholder]="translations.event.form.placeholder | translate"
-                   [errorMessage]="translations.event.form.occupation_error | translate"
                    [hint]="translations.event.form.occupation_hint | translate"
                    [required]="true"
                    [control]="occupationFormControl"
