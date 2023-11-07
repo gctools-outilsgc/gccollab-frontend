@@ -172,37 +172,53 @@
 
     // Large View 
     mat-card.event-card-large {
+        position: relative;
 
-        .event-image-wrapper {
-            .greyed-image-wrapper {
-                filter:grayscale(100%); 
+        .event-calendar {
+            position: fixed;
+            top: 120px;        
+            left: 50px;
+            z-index: 999;     
+
+            app-calendar-button {
+                box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+                border-radius: 15px;
             }
         }
 
-            .event-content {
+        .event-image-wrapper {
+            .greyed-image-wrapper {
+                filter:grayscale(60%); 
+            }
+        }
 
-                .title-larger-text {
-                    font-size: 20px;
+        .event-content {
+
+            .title-larger-text {
+                font-size: 20px;
+                font-weight: 550;
+                color: black;
+                
+            .canceled {
+                    color: $error-red;
+                }
+            }
+            .event-organizer {
+                color: black;
+
+                .organizer-text {
                     font-weight: 550;
                     color: black;
-
                 }
-                .event-organizer {
+            }
+            .event-location {
+                color: black;
+
+                .location-text {
+                    font-weight: 550;
                     color: black;
-
-                    .organizer-text {
-                        font-weight: 550;
-                        color: black;
-                    }
                 }
-                .event-location {
-                    color: black;
-
-                    .location-text {
-                        font-weight: 550;
-                        color: black;
-                    }
-                }
+            }
         }
     }
 }

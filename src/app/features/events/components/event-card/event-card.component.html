@@ -1,3 +1,4 @@
+
 <!-- Small View -->
 <ng-container #templateSmall>
     <mat-card appearance="outlined" class="event-card-small" *ngIf="view === 'small'; else templateLarge">
@@ -85,19 +86,18 @@
                 routerLink="{{ '/' + routes.Events  + '/' + model?.id }}">
                 <div class="event-text">
                     <div *ngIf="!loading" class="title-larger-text">
-                        <ng-container class="event-canceled" *ngIf="model?.canceled">
-                            <span class="canceled" style="color:#BA0606;">CANCELED </span>{{ model?.title }}
-                        </ng-container>
-                        <ng-container *ngIf="!model?.canceled">
-                            {{ model?.title }}
-                        </ng-container>
+                        <div *ngIf="model?.canceled">
+                        </div>
+                        <div>
+                            <span class="canceled" *ngIf="model?.canceled">CANCELED </span>{{ model?.title }} <!--[canceled]="translations.eventCard.canceled.canceled_on | translate"-->
+                        </div>
                     </div>
 
-                    <div *ngIf="!loading" class="event-organizer">
+                    <div *ngIf="!loading" class="event-organizer"> <!--[organize]="translations.eventCard.organize.organizer | translate"-->
                         <span class="organizer-text">Organizer: </span>{{ model?.organizer }}
                     </div>
 
-                    <div *ngIf="!loading" class="event-location">
+                    <div *ngIf="!loading" class="event-location"> <!-- [location]="translations.eventCard.location.location | translate" -->
                         <span class="location-text">Location: </span>{{ model?.location?.address }} 
                     </div>
                 </div>    
