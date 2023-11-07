@@ -3,6 +3,7 @@ import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '
 import { ErrorStateMatcher } from '@angular/material/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Translations } from 'src/app/core/services/translations.service';
+import { Validators as EditorValidators } from 'ngx-editor';
 
 @Component({
   selector: 'app-blog-form',
@@ -31,7 +32,10 @@ export class BlogFormComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     for (const [key, value] of Object.entries(this.model)) {
       if (!this.form.controls[key]) {
-        this.form.addControl(key, new FormControl(value, [Validators.required]));
+        if (key == 'description')
+          this.form.addControl(key, new FormControl(value, [EditorValidators.required(), EditorValidators.maxLength(this.maxBlogLength)]));
+        else
+          this.form.addControl(key, new FormControl(value, [Validators.required]));
       } else {
         this.form.controls[key].setValue(value);
         console.warn('Duplicate FormControl detected.');

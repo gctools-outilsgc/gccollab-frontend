@@ -71,7 +71,7 @@
                 [hint]="translations.forms.event.body_hint | translate"
                 [(html)]="model.eventDescription"
                 [required]="true"
-                [maxCharacters]="240"
+                [maxCharacters]="maxCharacters"
                 formControlName="eventDescription"
                 [control]="$any(form).controls['eventDescription']"
                 [disabled]="disabled">

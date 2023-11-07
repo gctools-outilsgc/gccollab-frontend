@@ -4,6 +4,7 @@ import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '
 import { ErrorStateMatcher } from '@angular/material/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Translations } from 'src/app/core/services/translations.service';
+import { Validators as EditorValidators } from 'ngx-editor';
 
 @Component({
   selector: 'app-poll-form',
@@ -38,9 +39,8 @@ export class PollFormComponent implements OnInit, OnDestroy {
       new FormControl(
         this.model.description,
         [
-          Validators.required,
-          //Validators.minLength(this.minLength), 
-          Validators.maxLength(this.maxLength),
+          EditorValidators.required(),
+          EditorValidators.maxLength(this.maxLength),
         ]
       )
     );
