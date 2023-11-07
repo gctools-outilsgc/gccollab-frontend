@@ -246,7 +246,10 @@ export default {
             "aria_on": "Click to decline this event",
             "tooltip_off": "Rescind declination",
             "aria_off": "Click to rescind your declination of the event"
-        }
+        },
+        "canceled": "Canceled",
+        "organizer": "Organizer",
+        "location": "Location"
     },
     "profileCard": {
         "confirm": {
