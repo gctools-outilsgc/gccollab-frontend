@@ -88,16 +88,16 @@
                     <div *ngIf="!loading" class="title-larger-text">
                         <div *ngIf="model?.canceled">
                         </div>
-                        <div>
-                            <span class="canceled" *ngIf="model?.canceled">CANCELED </span>{{ model?.title }} <!--[canceled]="translations.eventCard.canceled.canceled_on | translate"-->
+                        <div [attr.canceled]="translations.eventCard.canceled.canceled_on | translate">
+                            <span class="canceled" *ngIf="model?.canceled">CANCELED </span>{{ model?.title }}
                         </div>
                     </div>
 
-                    <div *ngIf="!loading" class="event-organizer"> <!--[organize]="translations.eventCard.organize.organizer | translate"-->
+                    <div [attr.organize]="translations.eventCard.organize.organizer | translate" *ngIf="!loading" class="event-organizer"> 
                         <span class="organizer-text">Organizer: </span>{{ model?.organizer }}
                     </div>
 
-                    <div *ngIf="!loading" class="event-location"> <!-- [location]="translations.eventCard.location.location | translate" -->
+                    <div [attr.location]="translations.eventCard.location.location | translate" *ngIf="!loading" class="event-location">
                         <span class="location-text">Location: </span>{{ model?.location?.address }} 
                     </div>
                 </div>    
