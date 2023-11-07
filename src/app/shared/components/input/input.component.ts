@@ -6,6 +6,7 @@ import { Translations } from 'src/app/core/services/translations.service';
 import { TranslateService } from '@ngx-translate/core';
 import { TooltipDirection } from '../../models/tooltip-direction';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { Theme } from '../../models/theme';
 
 @Component({
   selector: 'app-input',
@@ -33,6 +34,7 @@ export class InputComponent implements ControlValueAccessor {
   @Input({required:true}) label!: string;
   @Input() placeholder!: string;
   @Input() hint!: string;
+  @Input() theme: Theme | string = Theme.Primary1;
   @Input() icon!: string;
 
   @Input() required: boolean = false;
