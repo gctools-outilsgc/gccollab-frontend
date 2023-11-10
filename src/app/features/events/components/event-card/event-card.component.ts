@@ -15,7 +15,7 @@ import { TooltipDirection } from 'src/app/shared/models/tooltip-direction';
 export class EventCardComponent {
   @Input() model?: Event;
   @Input() loading: boolean = false;
-  @Input() view: string = 'small';
+  @Input() view: string = 'large';
   @Output() confirm = new EventEmitter();
   @Output() decline = new EventEmitter();
 
