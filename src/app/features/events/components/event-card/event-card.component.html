@@ -84,23 +84,21 @@
             <div class="event-content" 
                 [ngClass]="model?.canceled == true ? 'canceled' : isPast() ? 'past' : ''"
                 routerLink="{{ '/' + routes.Events  + '/' + model?.id }}">
-                <div class="event-text">
-                    <div *ngIf="!loading" class="title-larger-text">
-                        <div *ngIf="model?.canceled">
-                        </div>
-                        <div>
-                            <span class="canceled" *ngIf="model?.canceled">{{ translations.eventCard.canceled | translate }} </span>{{ model?.title }}
-                        </div>
+                <div *ngIf="!loading" class="title-larger-text">
+                    <div *ngIf="model?.canceled">
                     </div>
+                    <div>
+                        <span class="canceled" *ngIf="model?.canceled">{{ translations.eventCard.canceled | translate | uppercase }} </span>{{ model?.title }}
+                    </div>
+                </div>
 
-                    <div *ngIf="!loading" class="event-organizer"> 
-                        <span class="organizer-text">{{ translations.eventCard.organizer | translate }}: </span>{{ model?.organizer }}
-                    </div>
+                <div *ngIf="!loading" class="event-organizer"> 
+                    <span class="organizer-text">{{ translations.eventCard.organizer | translate }}: </span>{{ model?.organizer }}
+                </div>
 
-                    <div *ngIf="!loading" class="event-location">
-                        <span class="location-text">{{ translations.eventCard.location | translate }}: </span>{{ model?.location?.address }} 
-                    </div>
-                </div>    
+                <div *ngIf="!loading" class="event-location">
+                    <span class="location-text">{{ translations.eventCard.location | translate }}: </span>{{ model?.location?.address }} 
+                </div>
                 <ngx-skeleton-loader *ngIf="loading" count="2" appearance="line" animation="progress"></ngx-skeleton-loader>
             </div>
             <ngx-skeleton-loader *ngIf="loading" count="2" appearance="line" animation="progress"></ngx-skeleton-loader>
