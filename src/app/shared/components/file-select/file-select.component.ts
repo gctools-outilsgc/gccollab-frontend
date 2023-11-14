@@ -74,9 +74,15 @@ export class FileSelectComponent {
   clickCallback: Function = this.openFilePicker.bind(this);
   blurCallback: Function = this.onPhotoBlur.bind(this);
 
+  private langChangeSub!: Subscription;
+  private previousTranslation: string | undefined;
+  private previousError: string | undefined;
+
   constructor(private focusTrackingService: FocusTrackingService,
               public translations: Translations, private translateService: TranslateService) {
-    
+    this.langChangeSub = this.translateService.onLangChange.subscribe(() => {
+      this.onLangChange();
+    });
   }
 
   ngOnInit(): void {
@@ -91,6 +97,9 @@ export class FileSelectComponent {
   ngOnDestroy(): void {
     if (this.focusSub)
       this.focusSub.unsubscribe();
+
+    if (this.langChangeSub)
+      this.langChangeSub.unsubscribe();
   }
 
   openFilePicker(): void {
@@ -108,17 +117,17 @@ export class FileSelectComponent {
 
     if (selectedFile) {
       if (!this.isCorrectExtension(selectedFile.name)) {
-        this.setError(this.translateService.instant(this.translations.file_select.error.extension));
+        this.setError(this.translations.file_select.error.extension);
       }  
       else if (selectedFile.size > this.maxSize) {
-        this.setError(this.translateService.instant(this.translations.file_select.error.size) + this.maxSize / 1024 + " KB.");
+        this.setError(this.translations.file_select.error.size, this.maxSize / 1024 + " KB.");
       }
       else {
 
         this.loadFile(selectedFile).then((dataURL) => {
 
           if (this.fileType == FileType.Text && dataURL.length > this.maxLength) {
-            return this.setError(this.translateService.instant(this.translations.file_select.error.characters) + this.maxLength);
+            return this.setError(this.translations.file_select.error.characters, this.maxLength.toString());
           }
           else if (this.fileType == FileType.Image) {
             this.isCorrectDimensions(selectedFile).then((result) => {
@@ -129,7 +138,7 @@ export class FileSelectComponent {
 
           this.control.setValue(dataURL);
           this.photoName = selectedFile.name;
-          this.error = undefined;
+          this.clearError();
         }).catch((error) => {
           this.setError(this.translateService.instant(this.translations.file_select.error.read));
           console.error(error);
@@ -208,10 +217,26 @@ export class FileSelectComponent {
     });
   }
 
-  private setError(error: string): void {
-    this.control.setValue('');
-    this.control.markAsTouched();
-    this.error = error;
+  private setError(translation: string | undefined, error: string = ''): void {
+    if (translation) {
+      this.previousTranslation = translation;
+      this.previousError = error;
+
+      this.control.setValue('');
+      this.control.markAsTouched();
+      this.error = this.translateService.instant(translation) + error;
+    }
+  }
+
+  private clearError() {
+    this.error = undefined;
+    this.previousTranslation = undefined;
+    this.previousError = undefined;
+  }
+
+  private onLangChange() {
+    if (this.error)
+      this.setError(this.previousTranslation, this.previousError);
   }
 }
 
