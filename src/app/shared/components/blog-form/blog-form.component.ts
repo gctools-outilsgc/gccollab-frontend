@@ -1,6 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { Translations } from 'src/app/core/services/translations.service';
 import { Validators as EditorValidators } from 'ngx-editor';
@@ -19,9 +18,6 @@ export class BlogFormComponent implements OnInit, OnDestroy {
     coverPhotoAlt: '',
     description: ''
   }
-  @Input() disabled: boolean = false;
-
-  errorStateMatcher = new MyErrorStateMatcher();
 
   maxBlogLength: number = 2000;
 
@@ -54,11 +50,4 @@ export interface IBlogForm {
   coverPhoto: string;
   coverPhotoAlt: string;
   description: string;
-}
-
-class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
 }

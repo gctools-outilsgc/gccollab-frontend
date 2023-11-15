@@ -1,5 +1,5 @@
 <div class="gcc-input-wrapper" [class]="theme">
-    <mat-label *ngIf="label" [ngClass]="{'disabled': disabled}">
+    <mat-label *ngIf="label" [ngClass]="{'disabled': control.disabled}">
         {{ label }} 
         <div *ngIf="required" class="required-star">*</div>
         <i *ngIf="hint" 
@@ -22,12 +22,11 @@
                [type]="type === inputType.Password ? (showPassword ? inputType.Text : type) : type"
                [placeholder]="placeholder"
                [required]="required"
-               [disabled]="disabled"
+               [disabled]="control.disabled"
                [readonly]="readonly"
                [autofocus]="autofocus"
                [attr.formControl]="control"
-               [attr.formControlName]="controlName"
-               [attr.errorStateMatcher]="errorMatcher"
+               [errorStateMatcher]="errorMatcher"
                [ngClass]="{icon: icon}"
         >
 

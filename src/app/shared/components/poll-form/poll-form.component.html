@@ -6,22 +6,20 @@
                 [autofocus]="true"
                 [maxCharacters]="maxLength"
                 formControlName="description"
-                [control]="$any(form).controls['description']"
-                [disabled]="disabled">
+                [control]="form.controls['description'] | formControl">
     </app-editor>
 
     <div *ngFor="let option of model.options; index as i" class="option-wrapper">
         <app-input [name]="'option' + i"
                    formControlName="option{{i}}"
-                   [control]="$any(form).controls['option' + i]"
+                   [control]="form.controls['option' + i] | formControl"
                    [label]="(translations.forms.poll.option | translate) + ' #' + (i + 1)" 
                    [placeholder]="translations.forms.placeholder | translate"
                    [errorMatcher]="errorStateMatcher"
-                   [required]="true"
-                   [disabled]="disabled">
+                   [required]="true">
         </app-input>
         <app-button [matButtonType]="'mat-icon-button'"
-                    [disabled]="model.options.length <= 2 || disabled"
+                    [disabled]="model.options.length <= 2 || form.disabled"
                     [tooltip]="(translations.forms.poll.option_remove | translate) + ' #' + (i + 1)"
                     [tooltipDirection]="tooltipDirection.Above"
                     (click)="removeOption(i)">
@@ -31,7 +29,7 @@
 
     <div class="form-actions">
         <app-button [matButtonType]="'mat-stroked-button'"
-                    [disabled]="model.options.length >= maxOptions || disabled"
+                    [disabled]="model.options.length >= maxOptions || form.disabled"
                     theme="primary-1"
                     (click)="addOption()">
             <i class="fa-solid fa-circle-plus"></i>

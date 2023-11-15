@@ -26,7 +26,6 @@ export class EventFormComponent implements OnInit, OnDestroy {
     eventEndDate: '',
     eventEndTime: '13:00'
   }
-  @Input() disabled: boolean = false;
 
   eventType = EventType;
   eventLanguage = EventLanguage;

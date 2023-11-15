@@ -42,7 +42,9 @@ import { BlogFormComponent } from './components/blog-form/blog-form.component';
 import { EventFormComponent } from './components/event-form/event-form.component';
 import { PollFormComponent } from './components/poll-form/poll-form.component';
 
-import { TruncateFileNamePipe } from './pipes/truncate-file-name.pipe';
+import { TruncateFileNamePipe } from './pipes/truncate-file-name/truncate-file-name.pipe';
+import { FormControlPipe } from './pipes/form-control/form-control.pipe';
+import { FormGroupPipe } from './pipes/form-group/form-group.pipe';
 import { FileSelectComponent } from './components/file-select/file-select.component';
 
 
@@ -67,6 +69,8 @@ import { FileSelectComponent } from './components/file-select/file-select.compon
     EventFormComponent,
     PollFormComponent,
     TruncateFileNamePipe,
+    FormControlPipe,
+    FormGroupPipe,
     FileSelectComponent
   ],
   imports: [
@@ -119,7 +123,6 @@ import { FileSelectComponent } from './components/file-select/file-select.compon
     BlogFormComponent,
     EventFormComponent,
     PollFormComponent,
-    TruncateFileNamePipe
   ],
   providers: [
     {
