@@ -1,4 +1,4 @@
-<mat-label *ngIf="label" [ngClass]="disabled ? 'disabled' : ''">
+<mat-label *ngIf="label" [ngClass]="control && control.disabled ? 'disabled' : ''">
     {{ label }} 
     <div *ngIf="required" class="required-star">*</div>
     <i *ngIf="hint" 
@@ -12,24 +12,23 @@
 </mat-label>
 
 <div #gccEditor class="NgxEditor__Wrapper"
-     [ngClass]="{focus: hasFocus, error: control && control.touched && !control.valid}">
+     [ngClass]="{focus: hasFocus, disabled: control && control.disabled, error: !hasFocus && control && control.touched && !control.valid}">
     <ngx-editor-menu 
         [editor]="editor" 
         [toolbar]="toolbar"
-        [disabled]="disabled">
+        [disabled]="control && control.disabled">
     </ngx-editor-menu>
     <ngx-editor 
         [editor]="editor" 
         [(ngModel)]="html" 
         (ngModelChange)="onInputChange($event); updateCharacterCount($event);"
-        [disabled]="disabled" 
         [placeholder]="this.translations.editor.placeholder | translate"
-        [attr.formControl]="control"
+        [formControl]="control"
         [attr.formControlName]="controlName"
         [required]="required">
     </ngx-editor>
     <div *ngIf="minCharacters > 0 || maxCharacters != Number.MAX_VALUE" 
-         [ngClass]="(control && control.touched) && ((characterCount > maxCharacters) || (characterCount < minCharacters)) ? 'error' : ''" 
+         [ngClass]="(control && control.touched && !control.valid) && ((characterCount > maxCharacters) || (characterCount < minCharacters)) ? 'error' : ''" 
          class="character-count">
         {{ characterCount }} / {{ maxCharacters }}
     </div>

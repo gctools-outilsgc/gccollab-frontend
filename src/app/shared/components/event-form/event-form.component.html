@@ -68,7 +68,7 @@
                 formControlName="eventDescription"
                 [control]="form.controls['eventDescription'] | formControl">
     </app-editor>
-
+    
     <app-input *ngIf="model.eventType != eventType.Online"
                [value]="model.eventLocation" 
                [name]="'eventLocation'"

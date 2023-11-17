@@ -85,7 +85,7 @@
         }
     }
 
-    .NgxEditor__Wrapper.error {
+    .NgxEditor__Wrapper.error:not(.disabled) {
         border-color: $error-red;
 
         ngx-editor-menu {
@@ -116,9 +116,27 @@
     }
     
     mat-label.disabled {
+        color: $neutral-300;
+
         .required-star, i {
             color: $neutral-300 !important;
         }
+
+        .NgxEditor__Wrapper.error {
+            border-color:  $neutral-300;
+    
+            ngx-editor-menu {
+                ::ng-deep {
+                    .NgxEditor__MenuBar {
+                        border-color:  $neutral-300;
+                    }
+                }
+            }
+        }
+    }
+
+    .disabled ngx-editor ::ng-deep .NgxEditor__Content--Disabled {
+        color: $neutral-300 !important;
     }
 
     mat-hint {

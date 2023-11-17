@@ -38,7 +38,6 @@ export class InputComponent implements ControlValueAccessor {
   @Input() icon!: string;
 
   @Input() required: boolean = false;
-  @Input() disabled: boolean = false;
   @Input() readonly: boolean = false;
   @Input() autofocus: boolean = false;
 

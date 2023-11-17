@@ -22,12 +22,11 @@ import { TooltipDirection } from '../../models/tooltip-direction';
 })
 export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterContentInit, ControlValueAccessor {
   @Input() html!: string;
-  @Input() disabled: boolean = false;
   @Input() required: boolean = false;
-  @Input() label!: string;
+  @Input({required: true}) label!: string;
   @Input() hint!: string;
   @Input() autofocus: boolean = false;
-  @Input() control!: FormControl;
+  @Input({required: true}) control!: FormControl;
   @Input() controlName!: string;
   @Input() minCharacters: number = 0;
   @Input() maxCharacters: number = Number.MAX_VALUE;
@@ -54,7 +53,6 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterC
   Number = Number;
   focusChange!: MutationObserver;
   tooltipDirection = TooltipDirection;
-  hasRequiredValidator = false;
 
   onChange = (_: any) => {};
   onTouched = () => {};
