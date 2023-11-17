@@ -1,6 +1,6 @@
 <form id="gcc-form-poll" [formGroup]="form">
 
-    <app-input [(value)]="model.name" 
+    <app-input [value]="model.name" 
                [name]="'name'"
                formControlName="name"
                [control]="form.controls['name'] | formControl"
@@ -10,7 +10,7 @@
                [required]="true">
     </app-input>
 
-    <app-input [(value)]="model.publisher" 
+    <app-input [value]="model.publisher" 
                [name]="'publisher'"
                formControlName="publisher"
                [control]="form.controls['publisher'] | formControl"
@@ -23,7 +23,7 @@
                      [control]="form.controls['coverPhoto'] | formControl">
     </app-file-select>
 
-    <app-input [(value)]="model.coverPhotoAlt" 
+    <app-input [value]="model.coverPhotoAlt" 
                [name]="'coverPhotoAlt'"
                formControlName="coverPhotoAlt"
                [control]="form.controls['coverPhotoAlt'] | formControl"

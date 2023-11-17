@@ -1,6 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { Translations } from 'src/app/core/services/translations.service';
 import { Validators as EditorValidators } from 'ngx-editor';
@@ -30,8 +29,10 @@ export class EventFormComponent implements OnInit, OnDestroy {
   eventType = EventType;
   eventLanguage = EventLanguage;
   eventDuration = EventDuration;
-  errorStateMatcher = new MyErrorStateMatcher();
   maxCharacters = 240;
+
+  private minValidator = Validators.minLength(3);
+  private maxValidator = Validators.maxLength(30);
 
   constructor(public translations: Translations) {
 
@@ -43,10 +44,9 @@ export class EventFormComponent implements OnInit, OnDestroy {
         if (key == 'eventDescription')
           this.form.addControl(key, new FormControl(value, [EditorValidators.required(), EditorValidators.maxLength(this.maxCharacters)]));
         else
-          this.form.addControl(key, new FormControl(value, [Validators.required]));
+          this.form.addControl(key, new FormControl(value, [Validators.required, this.minValidator, this.maxValidator]));
       } else {
         this.form.controls[key].setValue(value);
-        console.warn('Duplicate FormControl detected.');
       }
     }
   }
@@ -63,33 +63,18 @@ export class EventFormComponent implements OnInit, OnDestroy {
   onEventTypeChange(): void {
     switch (this.model.eventType) {
       case EventType.InPerson:
-        this.form.controls['eventOnlinePlatform'].removeValidators(Validators.required);
-        this.form.controls['eventOnlinePlatform'].clearValidators();
-        this.form.controls['eventOnlinePlatform'].updateValueAndValidity();
-
-        this.form.controls['eventLocation'].addValidators(Validators.required);
-        this.form.controls['eventLocation'].clearValidators();
-        this.form.controls['eventLocation'].updateValueAndValidity()
+        this.removeValidators('eventOnlinePlatform');
+        this.addValidators('eventLocation');
         break;
 
       case EventType.Online:
-        this.form.controls['eventLocation'].removeValidators(Validators.required);
-        this.form.controls['eventLocation'].clearValidators();
-        this.form.controls['eventLocation'].updateValueAndValidity();
-
-        this.form.controls['eventOnlinePlatform'].addValidators(Validators.required);
-        this.form.controls['eventOnlinePlatform'].clearValidators();
-        this.form.controls['eventOnlinePlatform'].updateValueAndValidity();
+        this.removeValidators('eventLocation');
+        this.addValidators('eventOnlinePlatform');
         break;
 
       case EventType.Hybrid:
-        this.form.controls['eventLocation'].addValidators(Validators.required);
-        this.form.controls['eventLocation'].clearValidators();
-        this.form.controls['eventLocation'].updateValueAndValidity()
-
-        this.form.controls['eventOnlinePlatform'].addValidators(Validators.required);
-        this.form.controls['eventOnlinePlatform'].clearValidators();
-        this.form.controls['eventOnlinePlatform'].updateValueAndValidity();
+        this.addValidators('eventLocation');
+        this.addValidators('eventOnlinePlatform');
         break;
     }
   }
@@ -97,32 +82,27 @@ export class EventFormComponent implements OnInit, OnDestroy {
   onEventDurationChange(): void {
     switch (this.model.eventDuration) {
       case EventDuration.Single:
-        this.form.controls['eventEndDate'].removeValidators(Validators.required);
-        this.form.controls['eventEndDate'].clearValidators();
-        this.form.controls['eventEndDate'].updateValueAndValidity();
-
-        this.form.controls['eventEndTime'].removeValidators(Validators.required);
-        this.form.controls['eventEndTime'].clearValidators();
-        this.form.controls['eventEndTime'].updateValueAndValidity();
+        this.removeValidators('eventEndDate');
+        this.removeValidators('eventEndTime');
         break;
 
       case EventDuration.Multi:
-        this.form.controls['eventEndDate'].addValidators(Validators.required);
-        this.form.controls['eventEndDate'].clearValidators();
-        this.form.controls['eventEndDate'].updateValueAndValidity();
-
-        this.form.controls['eventEndTime'].addValidators(Validators.required);
-        this.form.controls['eventEndTime'].clearValidators();
-        this.form.controls['eventEndTime'].updateValueAndValidity();
+        this.addValidators('eventEndDate');
+        this.addValidators('eventEndTime');
         break;
     }
   }
-}
 
-class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  private removeValidators(controlName: string): void {
+    this.form.controls[controlName]?.removeValidators([Validators.required, this.minValidator, this.maxValidator]);
+    this.form.controls[controlName]?.clearValidators();
+    this.form.controls[controlName]?.updateValueAndValidity();
+  }
+
+  private addValidators(controlName: string): void {
+    this.form.controls[controlName]?.addValidators([Validators.required, this.minValidator, this.maxValidator]);
+    this.form.controls[controlName]?.clearValidators();
+    this.form.controls[controlName]?.updateValueAndValidity();
   }
 }
 

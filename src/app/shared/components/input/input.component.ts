@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output, forwardRef } from '@angular/core';
 import { InputType } from '../../models/input-type';
-import { ControlValueAccessor, FormControl, FormGroupDirective, NG_VALUE_ACCESSOR, NgForm } from '@angular/forms';
+import { AbstractControl, ControlValueAccessor, FormControl, FormGroupDirective, NG_VALUE_ACCESSOR, NgForm } from '@angular/forms';
 import { MaterialButtonType } from '../../models/material-button-type';
 import { Translations } from 'src/app/core/services/translations.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -21,6 +21,7 @@ import { Theme } from '../../models/theme';
   ],
 })
 export class InputComponent implements ControlValueAccessor {
+
 
   @Input() inputId!: string;
   @Input({required:true}) name!: string;
@@ -53,7 +54,7 @@ export class InputComponent implements ControlValueAccessor {
   onTouched = () => {};
 
   constructor(public translations: Translations) { 
-
+    
   }
 
   writeValue(value: any): void {

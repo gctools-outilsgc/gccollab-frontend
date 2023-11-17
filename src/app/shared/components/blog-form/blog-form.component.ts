@@ -30,11 +30,12 @@ export class BlogFormComponent implements OnInit, OnDestroy {
       if (!this.form.controls[key]) {
         if (key == 'description')
           this.form.addControl(key, new FormControl(value, [EditorValidators.required(), EditorValidators.maxLength(this.maxBlogLength)]));
+        else if (key == 'coverPhoto')
+        this.form.addControl(key, new FormControl(value, [Validators.required]));
         else
-          this.form.addControl(key, new FormControl(value, [Validators.required]));
+          this.form.addControl(key, new FormControl(value, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]));
       } else {
         this.form.controls[key].setValue(value);
-        console.warn('Duplicate FormControl detected.');
       }
     }
   }

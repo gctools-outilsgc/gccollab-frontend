@@ -10,19 +10,18 @@
     </app-editor>
 
     <div *ngFor="let option of model.options; index as i" class="option-wrapper">
-        <app-input [name]="'option' + i"
-                   formControlName="option{{i}}"
-                   [control]="form.controls['option' + i] | formControl"
+        <app-input [name]="'option' + option.id"
+                   [formControlName]="'option' + option.id"
+                   [control]="form.controls['option' + option.id] | formControl"
                    [label]="(translations.forms.poll.option | translate) + ' #' + (i + 1)" 
                    [placeholder]="translations.forms.placeholder | translate"
-                   [errorMatcher]="errorStateMatcher"
                    [required]="true">
         </app-input>
         <app-button [matButtonType]="'mat-icon-button'"
                     [disabled]="model.options.length <= 2 || form.disabled"
                     [tooltip]="(translations.forms.poll.option_remove | translate) + ' #' + (i + 1)"
                     [tooltipDirection]="tooltipDirection.Above"
-                    (click)="removeOption(i)">
+                    (click)="removeOption(option)">
             <i class="fa-solid fa-trash"></i>
         </app-button>
     </div>
