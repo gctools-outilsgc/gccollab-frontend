@@ -104,7 +104,6 @@ export class PostComponent {
 
   submit(): void {
     if (this.selectedForm.status === 'VALID') {
-      debugger
       this.creating = true;
       this.selectedForm.disable();
       this.sessionStorageService.remove('gccollab-make-a-' + this.getTypeFromIndex(this.selectedIndex));
