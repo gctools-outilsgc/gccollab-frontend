@@ -136,8 +136,7 @@
                    [placeholder]="translations.event.form.placeholder | translate"
                    [required]="true"
                    [control]="nameFormControl"
-                   [errorMatcher]="matcher"
-                   [disabled]="loading || isPast()">
+                   [errorMatcher]="matcher">
         </app-input>
 
         <!-- Confirm -->
@@ -149,8 +148,7 @@
                    [placeholder]="translations.event.form.placeholder | translate"
                    [required]="true"
                    [control]="emailFormControl"
-                   [errorMatcher]="matcher"
-                   [disabled]="loading || isPast()">
+                   [errorMatcher]="matcher">
         </app-input>
 
         <!-- Email Confirm -->
@@ -162,8 +160,7 @@
                    [placeholder]="translations.event.form.placeholder | translate"
                    [required]="true"
                    [control]="emailConfirmFormControl"
-                   [errorMatcher]="matcher"
-                   [disabled]="loading || isPast()">
+                   [errorMatcher]="matcher">
         </app-input>
 
         <!-- Occupation -->
@@ -175,8 +172,7 @@
                    [hint]="translations.event.form.occupation_hint | translate"
                    [required]="true"
                    [control]="occupationFormControl"
-                   [errorMatcher]="matcher"
-                   [disabled]="loading || isPast()">
+                   [errorMatcher]="matcher">
         </app-input>
 
         <!-- Add to calendar -->

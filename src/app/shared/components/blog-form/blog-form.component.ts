@@ -1,6 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { Translations } from 'src/app/core/services/translations.service';
 import { Validators as EditorValidators } from 'ngx-editor';
@@ -19,9 +18,6 @@ export class BlogFormComponent implements OnInit, OnDestroy {
     coverPhotoAlt: '',
     description: ''
   }
-  @Input() disabled: boolean = false;
-
-  errorStateMatcher = new MyErrorStateMatcher();
 
   maxBlogLength: number = 2000;
 
@@ -34,11 +30,12 @@ export class BlogFormComponent implements OnInit, OnDestroy {
       if (!this.form.controls[key]) {
         if (key == 'description')
           this.form.addControl(key, new FormControl(value, [EditorValidators.required(), EditorValidators.maxLength(this.maxBlogLength)]));
+        else if (key == 'coverPhoto')
+        this.form.addControl(key, new FormControl(value, [Validators.required]));
         else
-          this.form.addControl(key, new FormControl(value, [Validators.required]));
+          this.form.addControl(key, new FormControl(value, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]));
       } else {
         this.form.controls[key].setValue(value);
-        console.warn('Duplicate FormControl detected.');
       }
     }
   }
@@ -54,11 +51,4 @@ export interface IBlogForm {
   coverPhoto: string;
   coverPhotoAlt: string;
   description: string;
-}
-
-class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
 }

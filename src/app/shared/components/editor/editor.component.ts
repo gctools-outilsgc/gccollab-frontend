@@ -22,13 +22,11 @@ import { TooltipDirection } from '../../models/tooltip-direction';
 })
 export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterContentInit, ControlValueAccessor {
   @Input() html!: string;
-  @Input() disabled: boolean = false;
   @Input() required: boolean = false;
-  @Input() label!: string;
+  @Input({required: true}) label!: string;
   @Input() hint!: string;
   @Input() autofocus: boolean = false;
-  @Input() control!: FormControl;
-  @Input() controlName!: string;
+  @Input({required: true}) control!: FormControl;
   @Input() minCharacters: number = 0;
   @Input() maxCharacters: number = Number.MAX_VALUE;
 
@@ -54,7 +52,6 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterC
   Number = Number;
   focusChange!: MutationObserver;
   tooltipDirection = TooltipDirection;
-  hasRequiredValidator = false;
 
   onChange = (_: any) => {};
   onTouched = () => {};
@@ -106,8 +103,10 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterC
         if (classList) {
           this.hasFocus = Array.from(classList).includes('ProseMirror-focused') ? true : false;
 
-          if (this.control && !this.hasFocus)
+          if (this.control && !this.hasFocus) {
             this.control.markAsTouched();
+            this.control.updateValueAndValidity();
+          }
         }
       });
     });
@@ -134,7 +133,7 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterC
       this.focusChange.disconnect();
   }
 
-  updateCharacterCount(content: string) {
+  updateCharacterCount(content: string, markAsTouched: boolean = false) {
     this.characterCount = this.countCharactersInsideHTML(content);
 
     if (this.characterCount === 0) {
@@ -142,8 +141,10 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterC
       this.onInputChange(this.html);
     }
 
-    if (this.control)
+    if (this.control && markAsTouched) {
       this.control.markAsTouched();
+      this.control.updateValueAndValidity();
+    }
   }
 
   onLangChange(): void {

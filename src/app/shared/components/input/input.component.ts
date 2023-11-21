@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output, forwardRef } from '@angular/core';
 import { InputType } from '../../models/input-type';
-import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { AbstractControl, ControlValueAccessor, FormControl, FormGroupDirective, NG_VALUE_ACCESSOR, NgForm } from '@angular/forms';
 import { MaterialButtonType } from '../../models/material-button-type';
 import { Translations } from 'src/app/core/services/translations.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -22,13 +22,13 @@ import { Theme } from '../../models/theme';
 })
 export class InputComponent implements ControlValueAccessor {
 
+
   @Input() inputId!: string;
   @Input({required:true}) name!: string;
   
   @Input() type: InputType | string = InputType.Text;
   @Input() control!: FormControl;
-  @Input() controlName!: string;
-  @Input() errorMatcher!: ErrorStateMatcher;
+  @Input() errorMatcher: ErrorStateMatcher = new MyErrorStateMatcher();
 
   @Input() value!: string;
   @Input({required:true}) label!: string;
@@ -38,7 +38,6 @@ export class InputComponent implements ControlValueAccessor {
   @Input() icon!: string;
 
   @Input() required: boolean = false;
-  @Input() disabled: boolean = false;
   @Input() readonly: boolean = false;
   @Input() autofocus: boolean = false;
 
@@ -54,7 +53,7 @@ export class InputComponent implements ControlValueAccessor {
   onTouched = () => {};
 
   constructor(public translations: Translations) { 
-
+    
   }
 
   writeValue(value: any): void {
@@ -83,5 +82,12 @@ export class InputComponent implements ControlValueAccessor {
 
   toggleShowHint(): void {
     this.showHint = !this.showHint;
+  }
+}
+
+class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
 }

@@ -5,7 +5,8 @@ import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-transla
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TypescriptLoader } from 'src/app/core/helpers/typescript-loader';
 import { RouterTestingModule } from '@angular/router/testing';
-import { TruncateFileNamePipe } from '../../pipes/truncate-file-name.pipe';
+import { TruncateFileNamePipe } from '../../pipes/truncate-file-name/truncate-file-name.pipe';
+import { FormControlPipe } from '../../pipes/form-control/form-control.pipe';
 describe('BlogFormComponent', () => {
   let component: BlogFormComponent;
   let translateService: TranslateService;
@@ -13,7 +14,7 @@ describe('BlogFormComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [BlogFormComponent, TruncateFileNamePipe],
+      declarations: [BlogFormComponent, TruncateFileNamePipe, FormControlPipe],
       imports: [
         TranslateModule.forRoot({
           loader: {

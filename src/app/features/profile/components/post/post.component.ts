@@ -105,11 +105,13 @@ export class PostComponent {
   submit(): void {
     if (this.selectedForm.status === 'VALID') {
       this.creating = true;
+      this.selectedForm.disable();
       this.sessionStorageService.remove('gccollab-make-a-' + this.getTypeFromIndex(this.selectedIndex));
 
       // TODO: Setup mock service for posting forms
       setTimeout(() => {
         this.creating = false;
+        this.selectedForm.enable();
         this.toggleEditing(new Event(''));
       }, 3000);
     }

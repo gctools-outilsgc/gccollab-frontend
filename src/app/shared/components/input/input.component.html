@@ -1,5 +1,5 @@
 <div class="gcc-input-wrapper" [class]="theme">
-    <mat-label *ngIf="label" [ngClass]="{'disabled': disabled}">
+    <mat-label *ngIf="label" [ngClass]="{'disabled': control ? control.disabled : false}">
         {{ label }} 
         <div *ngIf="required" class="required-star">*</div>
         <i *ngIf="hint" 
@@ -14,19 +14,15 @@
 
     <mat-form-field>
         <input matInput 
-               [(ngModel)]="value" 
-               (ngModelChange)="onInputChange($event)"
-               [attr.id]="inputId"
-               [attr.name]="name"
+               [id]="inputId"
+               [name]="name"
                [value]="value"
                [type]="type === inputType.Password ? (showPassword ? inputType.Text : type) : type"
                [placeholder]="placeholder"
                [required]="required"
-               [disabled]="disabled"
                [readonly]="readonly"
                [autofocus]="autofocus"
-               [attr.formControl]="control"
-               [attr.formControlName]="controlName"
+               [formControl]="control"
                [attr.errorStateMatcher]="errorMatcher"
                [ngClass]="{icon: icon}"
         >
@@ -48,7 +44,7 @@
         <mat-error *ngIf="control && control.hasError('email')">
             {{ translations.input.error.email | translate }}
         </mat-error>
-
+        
         <mat-error *ngIf="control && control.hasError('minlength')">
            {{ translations.input.error.minLength | translate }} {{ control.errors!['minlength'].requiredLength }}.
         </mat-error>

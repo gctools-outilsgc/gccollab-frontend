@@ -5,6 +5,7 @@ import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-transla
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TypescriptLoader } from 'src/app/core/helpers/typescript-loader';
 import { RouterTestingModule } from '@angular/router/testing';
+import { FormControlPipe } from '../../pipes/form-control/form-control.pipe';
 
 describe('EventFormComponent', () => {
   let component: EventFormComponent;
@@ -13,7 +14,7 @@ describe('EventFormComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [EventFormComponent],
+      declarations: [EventFormComponent, FormControlPipe],
       imports: [
         TranslateModule.forRoot({
           loader: {

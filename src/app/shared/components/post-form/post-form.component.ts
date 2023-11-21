@@ -14,7 +14,6 @@ export class PostFormComponent implements OnInit, OnDestroy {
   @Input() model: IPostForm = {
     description: ''
   }
-  @Input() disabled: boolean = false;
 
   minLength: number = 3;
   maxLength: number = 240;

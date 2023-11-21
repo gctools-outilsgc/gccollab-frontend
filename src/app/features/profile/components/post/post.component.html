@@ -49,22 +49,22 @@
                        mat-stretch-tabs="false">
             <mat-tab [label]="translations.titles.post | translate" [disabled]="creating">
                 <ng-template matTabContent>
-                    <app-post-form [form]="formGroups[0]" [disabled]="creating"></app-post-form>
+                    <app-post-form [form]="formGroups[0]"></app-post-form>
                 </ng-template>
             </mat-tab>
             <mat-tab [label]="translations.titles.blog | translate" [disabled]="creating">
                 <ng-template matTabContent>
-                    <app-blog-form [form]="formGroups[1]" [disabled]="creating"></app-blog-form>
+                    <app-blog-form [form]="formGroups[1]"></app-blog-form>
                 </ng-template>
             </mat-tab>
             <mat-tab [label]="translations.titles.event | translate" [disabled]="creating">
                 <ng-template matTabContent>
-                    <app-event-form [form]="formGroups[2]" [disabled]="creating"></app-event-form>
+                    <app-event-form [form]="formGroups[2]"></app-event-form>
                 </ng-template>
             </mat-tab>
             <mat-tab [label]="translations.titles.poll | translate" [disabled]="creating">
                 <ng-template matTabContent>
-                    <app-poll-form [form]="formGroups[3]" [disabled]="creating"></app-poll-form>
+                    <app-poll-form [form]="formGroups[3]"></app-poll-form>
                 </ng-template>
             </mat-tab>
         </mat-tab-group>
