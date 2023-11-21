@@ -27,7 +27,6 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterC
   @Input() hint!: string;
   @Input() autofocus: boolean = false;
   @Input({required: true}) control!: FormControl;
-  @Input() controlName!: string;
   @Input() minCharacters: number = 0;
   @Input() maxCharacters: number = Number.MAX_VALUE;
 
@@ -104,8 +103,10 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterC
         if (classList) {
           this.hasFocus = Array.from(classList).includes('ProseMirror-focused') ? true : false;
 
-          if (this.control && !this.hasFocus)
+          if (this.control && !this.hasFocus) {
             this.control.markAsTouched();
+            this.control.updateValueAndValidity();
+          }
         }
       });
     });
@@ -140,8 +141,10 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterC
       this.onInputChange(this.html);
     }
 
-    if (this.control && markAsTouched)
+    if (this.control && markAsTouched) {
       this.control.markAsTouched();
+      this.control.updateValueAndValidity();
+    }
   }
 
   onLangChange(): void {
