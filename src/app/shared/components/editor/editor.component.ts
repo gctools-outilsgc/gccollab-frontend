@@ -132,7 +132,7 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterC
       this.focusChange.disconnect();
   }
 
-  updateCharacterCount(content: string) {
+  updateCharacterCount(content: string, markAsTouched: boolean = false) {
     this.characterCount = this.countCharactersInsideHTML(content);
 
     if (this.characterCount === 0) {
@@ -140,7 +140,7 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterC
       this.onInputChange(this.html);
     }
 
-    if (this.control)
+    if (this.control && markAsTouched)
       this.control.markAsTouched();
   }
 

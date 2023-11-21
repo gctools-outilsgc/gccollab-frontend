@@ -21,10 +21,9 @@
     <ngx-editor 
         [editor]="editor" 
         [(ngModel)]="html" 
-        (ngModelChange)="onInputChange($event); updateCharacterCount($event);"
+        (ngModelChange)="onInputChange($event); updateCharacterCount($event, false);"
         [placeholder]="this.translations.editor.placeholder | translate"
         [formControl]="control"
-        [attr.formControlName]="controlName"
         [required]="required">
     </ngx-editor>
     <div *ngIf="minCharacters > 0 || maxCharacters != Number.MAX_VALUE" 
