@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { Person } from '../models/person.model';
 import { Observable } from 'rxjs';
 import { Location } from '../models/location.model';
+import { IList } from '../interfaces/list.interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PeopleService {
+export class PeopleService implements IList {
 
   private id: number = 0;
   private delay: number = 3000;
@@ -26,7 +27,7 @@ export class PeopleService {
 
   constructor() { }
 
-  mockGetPerson(id: string | null, delay: number = this.delay): Observable<Person> {
+  get(id: string | null, delay: number = this.delay): Observable<Person> {
     let response: Person;
 
     for(let i = 0; i < this.people.length; i++) {
@@ -46,7 +47,7 @@ export class PeopleService {
     return observable;
   }
 
-  mockGetPeople(count: number = 10, delay: number = this.delay): Observable<Person[]> {
+  getMany(count: number = 10, delay: number = this.delay): Observable<Person[]> {
 
     let observable: Observable<Person[]> = new Observable((subscriber) => {
       setTimeout(() => {

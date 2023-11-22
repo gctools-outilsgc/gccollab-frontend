@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Group, GroupStatus } from 'src/app/features/groups/models/group';
+import { IList } from '../interfaces/list.interface';
 
 @Injectable({
     providedIn: 'root'
   })
-  export class GroupService {
+  export class GroupService implements IList {
 
     private id: number = 0;
     private delay: number = 5000;
@@ -25,7 +26,7 @@ import { Group, GroupStatus } from 'src/app/features/groups/models/group';
 
     constructor() { }
 
-    mockGetGroup(id: string | null, delay: number = this.delay): Observable<Group> {
+    get(id: string | null, delay: number = this.delay): Observable<Group> {
       let response: Group;
   
       for(let i = 0; i < this.groups.length; i++) {
@@ -45,7 +46,7 @@ import { Group, GroupStatus } from 'src/app/features/groups/models/group';
       return observable;
     }
 
-    mockGetGroups(count: number = 10, delay: number = this.delay): Observable<Group[]> {
+    getMany(count: number = 10, delay: number = this.delay): Observable<Group[]> {
       let observable: Observable<Group[]> = new Observable((subscriber) => {
         setTimeout(() => {
           subscriber.next(this.groups.slice(0, count > this.groups.length ? this.groups.length : count));

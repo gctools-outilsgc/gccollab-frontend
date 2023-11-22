@@ -6,11 +6,12 @@ import { PeopleService } from './people.service';
 
 import { LoremIpsum } from 'lorem-ipsum';
 import { GroupService } from './group.service';
+import { IList } from '../interfaces/list.interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EventService {
+export class EventService implements IList {
 
   private id: number = 0;
   private delay: number = 5000;
@@ -46,7 +47,7 @@ export class EventService {
 
   }
 
-  mockGetEvent(id: string | null, delay: number = this.delay): Observable<Event> {
+  get(id: string | null, delay: number = this.delay): Observable<Event> {
     let response: Event;
 
     for(let i = 0; i < this.events.length; i++) {
@@ -66,7 +67,7 @@ export class EventService {
     return observable;
   }
 
-  mockGetEvents(count: number = 10, delay: number = this.delay): Observable<Event[]> {
+  getMany(count: number = 10, delay: number = this.delay): Observable<Event[]> {
 
     let observable: Observable<Event[]> = new Observable((subscriber) => {
       setTimeout(() => {
