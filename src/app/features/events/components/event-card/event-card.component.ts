@@ -5,7 +5,7 @@ import { MaterialButtonType } from 'src/app/shared/models/material-button-type';
 import { Router } from '@angular/router';
 import { CoreRoutes } from 'src/app/core/constants/routes.constants';
 import { TooltipDirection } from 'src/app/shared/models/tooltip-direction';
-import { EventCardView } from '../../models/eventcardview';
+import { EventCardView } from '../../models/EventCardView';
 
 @Component({
   selector: 'app-event-card',

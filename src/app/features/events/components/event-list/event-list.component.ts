@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Event } from '../../models/event';
-import { EventCardView } from '../../models/eventcardview';
+import { EventCardView } from '../../models/EventCardView';
 
 @Component({
   selector: 'app-event-list',
