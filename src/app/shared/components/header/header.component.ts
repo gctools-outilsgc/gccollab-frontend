@@ -27,7 +27,7 @@ export class HeaderComponent {
               peopleService: PeopleService) 
   {
     // TODO: Get user from service
-    peopleService.mockGetPerson('0', 0).subscribe((person: Person) => {
+    peopleService.get('0', 0).subscribe((person: Person) => {
       this.user = person;
       this.loadingProfile = false;
     });

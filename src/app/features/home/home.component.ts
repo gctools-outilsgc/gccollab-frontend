@@ -42,30 +42,30 @@ export class HomeComponent implements OnInit {
   loadingGroups: boolean = true;
 
   constructor(public translations: Translations, 
-              private newsService: NewsService, 
-              private eventService: EventService, 
-              private peopleService: PeopleService,
-              private groupService: GroupService) {
+              public newsService: NewsService, 
+              public eventService: EventService, 
+              public peopleService: PeopleService,
+              public groupService: GroupService) {
 
   }
 
   ngOnInit(): void {
-    this.newsService.mockGetNewsItems(10, 5000).subscribe((newsItems: INewsItem[]) => {
+    this.newsService.getMany(10, 5000).subscribe((newsItems: INewsItem[]) => {
       this.newsItems = newsItems;
       this.loadingNews = false;
     });
 
-    this.eventService.mockGetEvents(3, 5000).subscribe((events: Event[]) => {
+    this.eventService.getMany(3, 5000).subscribe((events: Event[]) => {
       this.events = events;
       this.loadingEvents = false;
     });
 
-    this.peopleService.mockGetPeople(3, 5000).subscribe((people: Person[]) => {
+    this.peopleService.getMany(3, 5000).subscribe((people: Person[]) => {
       this.people = people;
       this.loadingPeople = false;
     });
 
-    this.groupService.mockGetGroups(3, 5000).subscribe((groups: Group[]) => {
+    this.groupService.getMany(3, 5000).subscribe((groups: Group[]) => {
       this.groups = groups;
       this.loadingGroups = false;
     });
@@ -74,7 +74,7 @@ export class HomeComponent implements OnInit {
   onNewsScroll(): void {
     this.loadingNews = true;
     
-    this.newsService.mockGetNewsItems(10, 3000).subscribe((newsItems: INewsItem[]) => {
+    this.newsService.getMany(10, 3000).subscribe((newsItems: INewsItem[]) => {
       this.newsItems.push(...newsItems);
       this.loadingNews = false;
     });

@@ -1,4 +1,3 @@
-//import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { INewsItem } from 'src/app/features/news-feed/models/INewsItem';
@@ -8,11 +7,13 @@ import { Poll } from '../models/poll.model';
 import { PeopleService } from './people.service';
 
 import { LoremIpsum } from 'lorem-ipsum';
+import { IListService } from '../interfaces/list-service.interface';
+import { NewsCardComponent } from 'src/app/features/news-feed/components/news-card/news-card.component';
 
 @Injectable({
   providedIn: 'root'
 })
-export class NewsService {
+export class NewsService implements IListService {
 
   private id: number = 0;
   private delay: number = 3000;
@@ -42,10 +43,13 @@ export class NewsService {
     this.generateRandomNewsItem()
   ];
 
+  public dataType = Post;
+  public cardComponent = NewsCardComponent;
+
   constructor() {
   }
 
-  mockGetNewsItem(id: string | null, delay: number = this.delay): Observable<INewsItem> {
+  get(id: string | null, delay: number = this.delay): Observable<INewsItem> {
     let response: INewsItem;
 
     for(let i = 0; i < this.newsItems.length; i++) {
@@ -65,7 +69,7 @@ export class NewsService {
     return observable;
   }
 
-  mockGetNewsItems(count: number = 10, delay: number = 5000): Observable<INewsItem[]> {
+  getMany(count: number = 10, delay: number = 5000): Observable<INewsItem[]> {
     let observable: Observable<INewsItem[]> = new Observable((subscriber) => {
       setTimeout(() => {
         subscriber.next(this.newsItems.slice(0, count > this.newsItems.length ? this.newsItems.length : count));

@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Group, GroupStatus } from 'src/app/features/groups/models/group';
+import { IListService } from '../interfaces/list-service.interface';
+import { GroupCardComponent } from 'src/app/features/groups/components/group-card/group-card.component';
 
 @Injectable({
     providedIn: 'root'
   })
-  export class GroupService {
+  export class GroupService implements IListService {
 
     private id: number = 0;
     private delay: number = 5000;
@@ -23,9 +25,12 @@ import { Group, GroupStatus } from 'src/app/features/groups/models/group';
       this.generateRandomGroupItem()
     ];
 
+    public dataType = Group;
+    public cardComponent = GroupCardComponent;
+
     constructor() { }
 
-    mockGetGroup(id: string | null, delay: number = this.delay): Observable<Group> {
+    get(id: string | null, delay: number = this.delay): Observable<Group> {
       let response: Group;
   
       for(let i = 0; i < this.groups.length; i++) {
@@ -45,7 +50,7 @@ import { Group, GroupStatus } from 'src/app/features/groups/models/group';
       return observable;
     }
 
-    mockGetGroups(count: number = 10, delay: number = this.delay): Observable<Group[]> {
+    getMany(count: number = 10, delay: number = this.delay): Observable<Group[]> {
       let observable: Observable<Group[]> = new Observable((subscriber) => {
         setTimeout(() => {
           subscriber.next(this.groups.slice(0, count > this.groups.length ? this.groups.length : count));
