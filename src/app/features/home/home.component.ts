@@ -42,10 +42,10 @@ export class HomeComponent implements OnInit {
   loadingGroups: boolean = true;
 
   constructor(public translations: Translations, 
-              private newsService: NewsService, 
-              private eventService: EventService, 
-              private peopleService: PeopleService,
-              private groupService: GroupService) {
+              public newsService: NewsService, 
+              public eventService: EventService, 
+              public peopleService: PeopleService,
+              public groupService: GroupService) {
 
   }
 

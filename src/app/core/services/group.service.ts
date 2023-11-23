@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Group, GroupStatus } from 'src/app/features/groups/models/group';
-import { IList } from '../interfaces/list.interface';
+import { IListService } from '../interfaces/list-service.interface';
+import { GroupCardComponent } from 'src/app/features/groups/components/group-card/group-card.component';
 
 @Injectable({
     providedIn: 'root'
   })
-  export class GroupService implements IList {
+  export class GroupService implements IListService {
 
     private id: number = 0;
     private delay: number = 5000;
@@ -23,6 +24,9 @@ import { IList } from '../interfaces/list.interface';
       this.generateRandomGroupItem(),
       this.generateRandomGroupItem()
     ];
+
+    public dataType = Group;
+    public cardComponent = GroupCardComponent;
 
     constructor() { }
 

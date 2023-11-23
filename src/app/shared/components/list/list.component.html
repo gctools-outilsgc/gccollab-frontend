@@ -1,0 +1,7 @@
+<div class="gcc-list-container">
+    <div *ngFor="let item of items" class="gcc-list-item">
+        <ng-container *ngComponentOutlet="service.cardComponent;
+                                          injector: injector; ">
+        </ng-container>
+    </div>
+</div>

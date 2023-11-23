@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { Person } from '../models/person.model';
 import { Observable } from 'rxjs';
 import { Location } from '../models/location.model';
-import { IList } from '../interfaces/list.interface';
+import { IListService } from '../interfaces/list-service.interface';
+import { ProfileCardComponent } from 'src/app/features/profile/components/profile-card/profile-card.component';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PeopleService implements IList {
+export class PeopleService implements IListService {
 
   private id: number = 0;
   private delay: number = 3000;
@@ -24,6 +25,9 @@ export class PeopleService implements IList {
     this.generateRandomPerson(),
     this.generateRandomPerson()
   ];
+
+  public dataType = Person;
+  public cardComponent = ProfileCardComponent;
 
   constructor() { }
 

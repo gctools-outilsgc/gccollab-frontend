@@ -6,12 +6,13 @@ import { PeopleService } from './people.service';
 
 import { LoremIpsum } from 'lorem-ipsum';
 import { GroupService } from './group.service';
-import { IList } from '../interfaces/list.interface';
+import { IListService } from '../interfaces/list-service.interface';
+import { EventCardComponent } from 'src/app/features/events/components/event-card/event-card.component';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EventService implements IList {
+export class EventService implements IListService {
 
   private id: number = 0;
   private delay: number = 5000;
@@ -42,6 +43,9 @@ export class EventService implements IList {
     this.generateRandomEventItem(),
     this.generateRandomEventItem()
   ];
+
+  public dataType = Event;
+  public cardComponent = EventCardComponent;
 
   constructor() {
 

@@ -46,6 +46,7 @@ import { TruncateFileNamePipe } from './pipes/truncate-file-name/truncate-file-n
 import { FormControlPipe } from './pipes/form-control/form-control.pipe';
 import { FormGroupPipe } from './pipes/form-group/form-group.pipe';
 import { FileSelectComponent } from './components/file-select/file-select.component';
+import { ListComponent } from './components/list/list.component';
 
 
 @NgModule({
@@ -71,7 +72,8 @@ import { FileSelectComponent } from './components/file-select/file-select.compon
     TruncateFileNamePipe,
     FormControlPipe,
     FormGroupPipe,
-    FileSelectComponent
+    FileSelectComponent,
+    ListComponent
   ],
   imports: [
     CommonModule,
@@ -101,7 +103,7 @@ import { FileSelectComponent } from './components/file-select/file-select.compon
     MatDatepickerModule,
     MatAutocompleteModule,
     NgxSkeletonLoaderModule,
-    InfiniteScrollModule,
+    InfiniteScrollModule
   ],
   exports: [
     TranslateModule,
@@ -123,6 +125,7 @@ import { FileSelectComponent } from './components/file-select/file-select.compon
     BlogFormComponent,
     EventFormComponent,
     PollFormComponent,
+    ListComponent
   ],
   providers: [
     {

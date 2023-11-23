@@ -1,0 +1,14 @@
+:host {
+    .gcc-list-container {
+        overflow: visible;
+
+        .gcc-list-item {
+            padding-bottom: 40px;
+        }
+
+        > div:not(.gcc-list-item) {
+            font-size: 18px;
+            font-weight: 600;
+        }
+    }
+}

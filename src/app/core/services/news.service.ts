@@ -7,12 +7,13 @@ import { Poll } from '../models/poll.model';
 import { PeopleService } from './people.service';
 
 import { LoremIpsum } from 'lorem-ipsum';
-import { IList } from '../interfaces/list.interface';
+import { IListService } from '../interfaces/list-service.interface';
+import { NewsCardComponent } from 'src/app/features/news-feed/components/news-card/news-card.component';
 
 @Injectable({
   providedIn: 'root'
 })
-export class NewsService implements IList {
+export class NewsService implements IListService {
 
   private id: number = 0;
   private delay: number = 3000;
@@ -41,6 +42,9 @@ export class NewsService implements IList {
     this.generateRandomNewsItem(),
     this.generateRandomNewsItem()
   ];
+
+  public dataType = Post;
+  public cardComponent = NewsCardComponent;
 
   constructor() {
   }
