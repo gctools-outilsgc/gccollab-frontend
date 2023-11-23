@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Event } from '../../models/event';
-import { EventCardView } from '../../models/EventCardView';
+import { EventCardView } from '../../models/eventcardview';
 
 @Component({
   selector: 'app-event-list',
@@ -33,9 +33,5 @@ export class EventListComponent {
 
   declineEvent(event: Event) {
     this.decline.emit(event);
-  }
-
-  isLargeView(): boolean {
-    return this.view === EventCardView.Large;
   }
 }
