@@ -25,7 +25,7 @@ export class ListComponent implements OnInit {
   
   ngOnInit(): void { 
     if (this.items.length === 0) {
-      this.service.getMany(10, 5000).subscribe((items: typeof this.service.dataType[]) => {
+      this.service?.getMany(10, 5000).subscribe((items: typeof this.service.dataType[]) => {
         this.items = items;
         this.loading = false;
       });
