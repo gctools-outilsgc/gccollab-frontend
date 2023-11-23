@@ -1,4 +1,4 @@
-import { Component, Injector, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgComponentOutlet } from '@angular/common';
 import { IListService } from 'src/app/core/interfaces/list-service.interface';
 
@@ -16,15 +16,11 @@ export class ListComponent implements OnInit {
 
   loading: boolean = true;
 
-  injector!: Injector;
-
-  constructor(public injec: Injector) {
+  constructor() {
     
   }
   
   ngOnInit(): void { 
-    this.injector = Injector.create({providers: [{provide: this.service.cardComponent, deps: []}], parent: this.injec});
-
     if (this.items.length === 0) {
       this.service.getMany(10, 5000).subscribe((items: typeof this.service.dataType[]) => {
         this.items = items;
