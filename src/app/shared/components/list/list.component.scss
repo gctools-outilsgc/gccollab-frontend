@@ -1,9 +1,6 @@
 :host {
     .gcc-list-container {
+        display: flex;
         overflow: visible;
-
-        .gcc-list-item {
-            padding-bottom: 40px;
-        }
     }
 }

@@ -11,10 +11,13 @@ export class ListComponent implements OnInit {
   
   @Input({required:true}) service!: IListService;
   @Input() items: typeof this.service.dataType[] = [];
-  @Input() cardSize: CardSize | string = CardSize.Small;
+  @Input() cardSize: CardSize | string = CardSize.Small; // TODO: Card size on all card components. Make a base component or interface that gets implemented.
   @Input() orientation: Orientation | string = Orientation.Vertical;
+  @Input() loadItems: number = 3;
+  @Input() gap: number = 40;
 
   loading: boolean = true;
+  Orientations = Orientation;
 
   constructor() {
     

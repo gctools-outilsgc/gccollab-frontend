@@ -1,7 +1,8 @@
-<div class="gcc-list-container">
+<div class="gcc-list-container" 
+     [ngStyle]="{'flex-direction': orientation === Orientations.Vertical ? 'column' : 'row', 'gap': gap + 'px'}">
     <div *ngFor="let item of items" class="gcc-list-item">
         <ng-container *ngComponentOutlet="service.cardComponent;
-                                          inputs: {model: item, loading: loading}; ">
+                                          inputs: {model: item, loading: loading};">
         </ng-container>
     </div>
 </div>
