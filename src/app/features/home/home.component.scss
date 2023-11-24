@@ -35,4 +35,9 @@
     section:not(:last-child) {
         padding-bottom: 44px;
     }
+
+    app-news-list {
+        padding-top: 40px;
+        display: block;
+    }
 }

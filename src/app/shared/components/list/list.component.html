@@ -1,8 +1,29 @@
 <div class="gcc-list-container" 
-     [ngStyle]="{'flex-direction': orientation === Orientations.Vertical ? 'column' : 'row', 'gap': gap + 'px'}">
-    <div *ngFor="let item of items" class="gcc-list-item">
+     [ngStyle]="{'flex-direction': orientation === Orientations.Vertical ? 'column' : 'row', 
+                 'columnGap': columnGap + 'px', 
+                 'rowGap': rowGap + 'px'}">
+
+    <div class="gcc-list-previous">
+        <app-button [clickFunc]="previousPageCallback"
+                    [disabled]="currentPage === 1"
+                    matButtonType="mat-icon-button"
+                    theme="primary-1">
+            <i class="fa-solid {{orientation === Orientations.Vertical ? 'fa-arrow-up' : 'fa-arrow-left'}}"></i>
+        </app-button>
+    </div> 
+
+    <div *ngFor="let item of paginatedItems" class="gcc-list-item">
         <ng-container *ngComponentOutlet="service.cardComponent;
-                                          inputs: {model: item, loading: loading};">
+                                          inputs: { model: item, loading: loading && currentPage === lastPage};">
         </ng-container>
+    </div>
+
+    <div class="gcc-list-next">
+        <app-button [clickFunc]="nextPageCallback"
+                    [disabled]="loading"
+                    matButtonType="mat-icon-button"
+                    theme="primary-1">
+            <i class="fa-solid {{orientation === Orientations.Vertical ? 'fa-arrow-down' : 'fa-arrow-right'}}"></i>
+        </app-button>
     </div>
 </div>
