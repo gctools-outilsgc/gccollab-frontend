@@ -1,5 +1,5 @@
 
 export enum EventCardView {
-    Large = 'Large',
-    Small = 'Small',
+    Large = 'large',
+    Small = 'small',
   }

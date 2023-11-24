@@ -13,7 +13,6 @@ export class EventListComponent {
   @Input() isLoading: boolean = false;
   @Input() loadingCount: number = 3;
   @Input() view: string | EventCardView = EventCardView.Small;
-
   @Output() confirm = new EventEmitter();
   @Output() decline = new EventEmitter();
 

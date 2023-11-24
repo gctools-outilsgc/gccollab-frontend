@@ -33,7 +33,7 @@ export class EventCardComponent {
       
       this.model.confirmed = !this.model.confirmed;
 
-      if (this.model.confirmed && this.model.declined && this.view === EventCardView.Large)
+      if (this.model.confirmed && this.model.declined) 
         this.model.declined = false;
 
       if (this.model.confirmed)
@@ -46,7 +46,7 @@ export class EventCardComponent {
 
       this.model.declined = !this.model.declined;
       
-      if (this.model.declined && this.model.confirmed && this.view === EventCardView.Large)
+      if (this.model.declined && this.model.confirmed) 
         this.model.confirmed = false;
 
       if (this.model.declined)
