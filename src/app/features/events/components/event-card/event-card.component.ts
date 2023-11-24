@@ -5,6 +5,7 @@ import { MaterialButtonType } from 'src/app/shared/models/material-button-type';
 import { Router } from '@angular/router';
 import { CoreRoutes } from 'src/app/core/constants/routes.constants';
 import { TooltipDirection } from 'src/app/shared/models/tooltip-direction';
+import { EventCardView } from '../../models/eventcardview';
 
 @Component({
   selector: 'app-event-card',
@@ -15,7 +16,7 @@ import { TooltipDirection } from 'src/app/shared/models/tooltip-direction';
 export class EventCardComponent {
   @Input() model?: Event;
   @Input() loading: boolean = false;
-  @Input() view: string = 'small';
+  @Input() view: string | EventCardView = EventCardView.Small;
   @Output() confirm = new EventEmitter();
   @Output() decline = new EventEmitter();
 
@@ -32,7 +33,7 @@ export class EventCardComponent {
       
       this.model.confirmed = !this.model.confirmed;
 
-      if (this.model.confirmed && this.model.declined)
+      if (this.model.confirmed && this.model.declined) 
         this.model.declined = false;
 
       if (this.model.confirmed)
@@ -45,7 +46,7 @@ export class EventCardComponent {
 
       this.model.declined = !this.model.declined;
       
-      if (this.model.declined && this.model.confirmed)
+      if (this.model.declined && this.model.confirmed) 
         this.model.confirmed = false;
 
       if (this.model.declined)
