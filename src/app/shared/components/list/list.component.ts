@@ -35,17 +35,17 @@ export class ListComponent implements OnInit {
   
   ngOnInit(): void { 
     if (this.items.length === 0) {
-      this.loadNext();
+      this.loadNext(this.pageSize * 3);
     }
     else {
       this.lastPage = this.items.length / this.pageSize;
     }
   }
 
-  loadNext(): void {
+  loadNext(count: number = this.pageSize): void {
     this.loading = true;
 
-    this.service?.getMany(this.pageSize, this.loadTime).subscribe((items: typeof this.service.dataType[]) => {
+    this.service?.getMany(count, this.loadTime).subscribe((items: typeof this.service.dataType[]) => {
       this.items.push(...items);
       this.loading = false;
     });
