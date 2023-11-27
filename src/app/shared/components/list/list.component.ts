@@ -15,11 +15,12 @@ export class ListComponent implements OnInit {
   @Input() items: typeof this.service.dataType[] = [];
   @Input() cardSize: CardSize | string = CardSize.Small; // TODO: Card size on all card components. Make a base component or interface that gets implemented.
   @Input() orientation: Orientation | string = Orientation.Vertical;
-  @Input() pageSize: number = 3;
-  @Input() loadTime: number = 5000;
   @Input() columnGap: number = 10;
   @Input() rowGap: number = 40;
   @Input() paging: boolean = false;
+  @Input() pageSize: number = 3;
+  @Input() pagesToLoad: number = 3;
+  @Input() loadTime: number = 5000;
 
   currentPage: number = 1;
   lastPage: number = this.currentPage;
@@ -35,7 +36,7 @@ export class ListComponent implements OnInit {
   
   ngOnInit(): void { 
     if (this.items.length === 0) {
-      this.loadNext(this.pageSize * 3);
+      this.loadNext(this.pageSize * (this.paging ? this.pagesToLoad : 1));
     }
     else {
       this.lastPage = this.items.length / this.pageSize;
@@ -47,6 +48,7 @@ export class ListComponent implements OnInit {
 
     this.service?.getMany(count, this.loadTime).subscribe((items: typeof this.service.dataType[]) => {
       this.items.push(...items);
+      this.lastPage = this.items.length / this.pageSize;
       this.loading = false;
     });
   }
@@ -55,7 +57,7 @@ export class ListComponent implements OnInit {
     this.lastPage = ++this.currentPage;
 
     if (this.pageSize * this.currentPage > this.items.length)
-      this.loadNext();
+      this.loadNext(this.pageSize * this.pagesToLoad);
   }
 
   previousPage(): void {
