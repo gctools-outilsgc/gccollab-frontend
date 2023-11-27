@@ -1,7 +1,7 @@
 
 <!-- Small View -->
 <ng-container #templateSmall>
-    <mat-card appearance="outlined" class="event-card-small" *ngIf="view === 'small'; else templateLarge">
+    <mat-card appearance="outlined" class="event-card-small" *ngIf="cardSize === 'small'; else templateLarge">
         <mat-card-content>
             <div>
                 <app-calendar-button [model]="model?.startDate" 
@@ -65,7 +65,7 @@
 </ng-container>
 
 <!-- Large View -->
-<ng-container *ngIf="view !== 'small'" #templateLarge>
+<ng-container *ngIf="cardSize !== 'small'" #templateLarge>
     <mat-card appearance="outlined" class="event-card-large">
         <mat-card-header>
             <div class="event-image-wrapper">

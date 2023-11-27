@@ -24,6 +24,8 @@
 
             <app-post [profile]="people[0]" [loading]="loadingPeople"></app-post>
 
+            <app-list [service]="eventService" [cardSize]="'large'" orientation="horizontal" [pageSize]="3" [paging]="false"></app-list>
+
             <app-news-list [model]="newsItems" 
                            [isLoading]="loadingNews">
             </app-news-list>
