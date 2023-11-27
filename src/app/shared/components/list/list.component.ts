@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgComponentOutlet } from '@angular/common';
 import { IListService } from 'src/app/core/interfaces/list-service.interface';
+import { CardSize } from '../../models/card-size';
+import { Orientation } from '../../models/orientation';
 
 @Component({
   selector: 'app-list',
@@ -74,16 +76,4 @@ export class ListComponent implements OnInit {
     ? this.items.slice(0, this.pageSize) 
     : this.items.slice(this.startIndex, this.endIndex);
   }
-}
-
-export enum Orientation {
-  Vertical = "vertical",
-  Horizontal = "horizontal"
-}
-
-export enum CardSize {
-  Small = "small",
-  Medium = "medium",
-  Large = "large",
-  Dynamic = "dynamic"
 }
