@@ -14,7 +14,7 @@
 
     <div *ngFor="let item of paginatedItems" class="gcc-list-item">
         <ng-container *ngComponentOutlet="service.cardComponent;
-                                          inputs: { model: item, loading: loading && currentPage === lastPage};">
+                                          inputs: { model: item, cardSize: cardSize, loading: loading && currentPage === lastPage};">
         </ng-container>
     </div>
 

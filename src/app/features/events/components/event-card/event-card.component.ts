@@ -5,7 +5,8 @@ import { MaterialButtonType } from 'src/app/shared/models/material-button-type';
 import { Router } from '@angular/router';
 import { CoreRoutes } from 'src/app/core/constants/routes.constants';
 import { TooltipDirection } from 'src/app/shared/models/tooltip-direction';
-import { EventCardView } from '../../models/eventcardview';
+import { ICardComponent } from 'src/app/core/interfaces/card-component.interface';
+import { CardSize } from 'src/app/shared/models/card-size';
 
 @Component({
   selector: 'app-event-card',
@@ -13,10 +14,10 @@ import { EventCardView } from '../../models/eventcardview';
   styleUrls: ['./event-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EventCardComponent {
+export class EventCardComponent implements ICardComponent {
   @Input() model?: Event;
   @Input() loading: boolean = false;
-  @Input() view: string | EventCardView = EventCardView.Small;
+  @Input() cardSize: CardSize | string = CardSize.Small;
   @Output() confirm = new EventEmitter();
   @Output() decline = new EventEmitter();
 
