@@ -13,10 +13,11 @@ export class ListComponent implements OnInit {
   @Input() items: typeof this.service.dataType[] = [];
   @Input() cardSize: CardSize | string = CardSize.Small; // TODO: Card size on all card components. Make a base component or interface that gets implemented.
   @Input() orientation: Orientation | string = Orientation.Vertical;
-  @Input() pageSize: number = 10;
+  @Input() pageSize: number = 3;
   @Input() loadTime: number = 5000;
   @Input() columnGap: number = 10;
   @Input() rowGap: number = 40;
+  @Input() paging: boolean = false;
 
   currentPage: number = 1;
   lastPage: number = this.currentPage;
@@ -33,6 +34,9 @@ export class ListComponent implements OnInit {
   ngOnInit(): void { 
     if (this.items.length === 0) {
       this.loadNext();
+    }
+    else {
+      this.lastPage = this.items.length / this.pageSize;
     }
   }
 
