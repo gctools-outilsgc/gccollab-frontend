@@ -13,7 +13,7 @@ export class ListComponent implements OnInit {
   
   @Input({required:true}) service!: IListService;
   @Input() items: typeof this.service.dataType[] = [];
-  @Input() cardSize: CardSize | string = CardSize.Small; // TODO: Card size on all card components. Make a base component or interface that gets implemented.
+  @Input() cardSize: CardSize | string = CardSize.Small;
   @Input() orientation: Orientation | string = Orientation.Vertical;
   @Input() columnGap: number = 10;
   @Input() rowGap: number = 40;
@@ -56,7 +56,7 @@ export class ListComponent implements OnInit {
   nextPage(): void {
     this.lastPage = ++this.currentPage;
 
-    if (this.pageSize * this.currentPage > this.items.length)
+    if (!this.loading && this.pageSize * this.currentPage > this.items.length)
       this.loadNext(this.pageSize * this.pagesToLoad);
   }
 
