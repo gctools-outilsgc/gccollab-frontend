@@ -8,7 +8,6 @@ import { NewsFeedModule } from '../news-feed/news-feed.module';
 import { GroupsModule } from '../groups/groups.module';
 import { EventsModule } from '../events/events.module';
 import { ProfileModule } from '../profile/profile.module';
-import { CalendarModule } from '../calendar/calendar.module';
 
 
 @NgModule({
@@ -22,8 +21,7 @@ import { CalendarModule } from '../calendar/calendar.module';
     NewsFeedModule,
     GroupsModule,
     EventsModule,
-    ProfileModule,
-    CalendarModule
+    ProfileModule
   ]
 })
 export class HomeModule { }

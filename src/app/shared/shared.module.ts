@@ -47,6 +47,7 @@ import { FormControlPipe } from './pipes/form-control/form-control.pipe';
 import { FormGroupPipe } from './pipes/form-group/form-group.pipe';
 import { FileSelectComponent } from './components/file-select/file-select.component';
 import { ListComponent } from './components/list/list.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 
 @NgModule({
@@ -73,7 +74,8 @@ import { ListComponent } from './components/list/list.component';
     FormControlPipe,
     FormGroupPipe,
     FileSelectComponent,
-    ListComponent
+    ListComponent,
+    CalendarComponent
   ],
   imports: [
     CommonModule,
@@ -125,7 +127,8 @@ import { ListComponent } from './components/list/list.component';
     BlogFormComponent,
     EventFormComponent,
     PollFormComponent,
-    ListComponent
+    ListComponent,
+    CalendarComponent
   ],
   providers: [
     {

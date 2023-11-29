@@ -1,0 +1,48 @@
+.header {
+    grid-column: span 7;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+
+    span {
+        pointer-events: none;
+    }
+
+    ::ng-deep {
+        .mat-mdc-button-persistent-ripple,
+        .mat-mdc-button-ripple {
+            display: none;
+        }
+    }
+}
+
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: bold;
+    pointer-events: none;
+
+    .day {
+        border: none;
+    }
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    .day:not(.inactive):hover {
+        background-color: #ccc;
+    }
+    .day.inactive {
+        color: #bfbfbf;
+    }
+}
+
+.day {
+    text-align: center;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
