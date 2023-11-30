@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { startOfDay, endOfDay, subDays, subWeeks, subMonths, addDays, addWeeks, addMonths, endOfMonth, isSameDay, isSameMonth, addHours, getDaysInMonth, startOfWeek, startOfMonth } from 'date-fns';
+import { startOfDay, endOfDay, subDays, subWeeks, subMonths, addDays, addWeeks, addMonths, endOfMonth, isSameDay, isSameMonth, addHours, getDaysInMonth, startOfWeek, startOfMonth, differenceInCalendarDays, differenceInCalendarWeeks, differenceInCalendarMonths } from 'date-fns';
+import { CalendarView } from './interfaces/calendar-view.interface';
+import { ICalendarEvent } from './interfaces/calendar-event.interface';
+import { ICalendarDay } from './interfaces/calendar-day.interface';
 
 @Component({
   selector: 'app-calendar',
@@ -19,23 +22,22 @@ export class CalendarComponent implements OnInit {
   calendarStyle = {
     'grid-template-rows': 'repeat(5, 75px)'
   }
-
-  previousCallback = this.previous.bind(this);
-  nextCallback = this.next.bind(this);
+  
   toggleViewCallback = this.toggleView.bind(this);
 
   CalendarView = CalendarView;
   dayToday = this.date.getDay();
+  activeDayIndex = -1;
 
   constructor() {
-    this.events.push({ title: 'My Event', startDate: new Date(), endDate: addDays(new Date(), 3) });
+    this.events.push({ title: 'My Event has a super long annoying title that will probably breakout of the component box and ruin the view of my calendar LOL', startDate: new Date(), endDate: addDays(new Date(), 3) });
   }
 
   ngOnInit(): void {
     this.buildView();
   }
 
-  buildView(): void {
+  buildView(clickedDay: ICalendarDay | undefined = undefined): void {
     this.daysPaddingPre = []; 
     this.daysPaddingPost = []
     this.days = [];
@@ -72,7 +74,7 @@ export class CalendarComponent implements OnInit {
         // Create any days for the next month that are in the final week row
         const daysAfterMonth = (daysMonth + daysBeforeMonth > 35 ? 42 : 35) - daysMonth - daysBeforeMonth;
         for (let i = 0 ; i < daysAfterMonth; i++) {
-          this.daysPaddingPost.push({ date: addDays(addMonths(startOfMonth(this.date), 1), i + 1), events: [] });
+          this.daysPaddingPost.push({ date: addDays(addMonths(startOfMonth(this.date), 1), i), events: [] });
         }
 
         // Edge case when a month has 28 days and begins on Sunday, we don't need any post padding days.
@@ -89,6 +91,10 @@ export class CalendarComponent implements OnInit {
     }
 
     this.injectEvents();
+
+    // TODO: Switch to manual change detection
+    if (clickedDay)
+      this.setDayActive(clickedDay);
   }
 
   injectEvents(): void {
@@ -135,50 +141,37 @@ export class CalendarComponent implements OnInit {
     this.buildView();
   }
 
-  previous(): void {
+  navigateCalendar(interval: number = 1, clickedDay: ICalendarDay | undefined = undefined): void {
     switch(this.view) {
       case CalendarView.Day:
-        this.date = subDays(this.date, 1);
+        this.date = addDays(this.date, interval);
         break;
       case CalendarView.Week:
-        this.date = subWeeks(this.date, 1);
+        this.date = addWeeks(this.date, interval);
         break;
       case CalendarView.Month:
-        this.date = subMonths(this.date, 1);
+        this.date = addMonths(this.date, interval);
         break;
     }
-    this.buildView();
+    this.buildView(clickedDay);
   }
 
-  next(): void {
-    switch(this.view) {
-      case CalendarView.Day:
-        this.date = addDays(this.date, 1);
-        break;
-      case CalendarView.Week:
-        this.date = addWeeks(this.date, 1);
-        break;
-      case CalendarView.Month:
-        this.date = addMonths(this.date, 1);
-        break;
+  dayClick(day: ICalendarDay): void {
+    const diff = this.view === CalendarView.Month ? differenceInCalendarMonths(day.date, this.date) : (this.view === CalendarView.Week ? differenceInCalendarWeeks(day.date, this.date) : differenceInCalendarDays(day.date, this.date));
+    if (diff !== 0) {
+      this.activeDayIndex = -1;
+      this.navigateCalendar(diff, day);
     }
-    this.buildView();
+
+    this.setDayActive(day);
   }
-}
 
-enum CalendarView {
-  Day = "Day",
-  Week = "Week",
-  Month = "Month"
-}
-
-interface ICalendarDay {
-  date: Date;
-  events: ICalendarEvent[];
-}
-
-interface ICalendarEvent {
-  title: string;
-  startDate: Date;
-  endDate: Date;
+  setDayActive(day: ICalendarDay) {
+    for (let i = 0; i < this.days.length; i++) {
+      if (day.date === this.days[i].date) {
+        this.activeDayIndex = this.activeDayIndex === i ? -1 : i;
+        break;
+      }
+    }
+  }
 }

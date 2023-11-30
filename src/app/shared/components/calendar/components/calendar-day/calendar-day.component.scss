@@ -1,0 +1,37 @@
+@import "../../../../../../assets/scss/partials/colors";
+
+.gcc-calendar-day-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .gcc-calendar-day-number {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: black;
+    }
+
+    .gcc-calendar-day-event {
+        background-color: $primary-1;
+        color: white;
+    }
+}
+
+.currentDay {
+    background-color: $primary-1-light;
+}
+
+.active {
+    border: 1px solid $primary-1;
+    box-sizing: border-box;
+}
+
+.outsideOfMonth .gcc-calendar-day-number {
+    color: $neutral-300;
+}
+
+.gcc-calendar-day-wrapper:hover {
+    background-color: $primary-1-light;
+}
