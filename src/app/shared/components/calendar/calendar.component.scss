@@ -23,6 +23,9 @@
     grid-template-columns: repeat(7, 1fr);
     font-weight: bold;
     pointer-events: none;
+    border-top: 3px solid #f9f9f9;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 
     .day {
         border: none;
@@ -32,6 +35,9 @@
 .calendar {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+    border: 3px solid #f9f9f9;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 
     .day:not(.inactive):focus,
     .day:not(.inactive):focus-visible {

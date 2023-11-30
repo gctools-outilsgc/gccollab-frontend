@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { startOfDay, endOfDay, subDays, subWeeks, subMonths, addDays, addWeeks, addMonths, endOfMonth, isSameDay, isSameMonth, addHours, getDaysInMonth, startOfWeek, startOfMonth, differenceInCalendarDays, differenceInCalendarWeeks, differenceInCalendarMonths } from 'date-fns';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { startOfDay, endOfDay, subDays, addDays, addWeeks, addMonths, endOfMonth, isSameDay, isSameMonth, getDaysInMonth, startOfWeek, startOfMonth, differenceInCalendarDays, differenceInCalendarWeeks, differenceInCalendarMonths, isWithinInterval, isToday } from 'date-fns';
 import { CalendarView } from './interfaces/calendar-view.interface';
 import { ICalendarEvent } from './interfaces/calendar-event.interface';
 import { ICalendarDay } from './interfaces/calendar-day.interface';
@@ -7,7 +7,8 @@ import { ICalendarDay } from './interfaces/calendar-day.interface';
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
-  styleUrls: ['./calendar.component.scss']
+  styleUrls: ['./calendar.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CalendarComponent implements OnInit {
 
@@ -30,7 +31,9 @@ export class CalendarComponent implements OnInit {
   activeDayIndex = -1;
 
   constructor() {
-    this.events.push({ title: 'My Event has a super long annoying title that will probably breakout of the component box and ruin the view of my calendar LOL', startDate: new Date(), endDate: addDays(new Date(), 3) });
+    this.events.push({ title: 'Shawarma Grand Tour', startDate: new Date(), endDate: addDays(new Date(), 3) });
+    this.events.push({ title: 'Chili Cook Off', startDate: new Date(), endDate: addDays(new Date(), 3) });
+
   }
 
   ngOnInit(): void {
@@ -98,33 +101,14 @@ export class CalendarComponent implements OnInit {
   }
 
   injectEvents(): void {
-    this.events.sort((a, b) => a.startDate.getTime() - b.startDate.getTime());
-    let eventsInRange: ICalendarEvent[];
-
-    switch(this.view) {
-      case CalendarView.Day:
-        const targetDay = this.date.getDate();
-        eventsInRange = this.events.filter(event => event.startDate.getDate() === targetDay || event.endDate.getDate() === targetDay);
-        break;
-      case CalendarView.Week:
-        const targetWeek = Math.floor((this.date.getDate() - 1) / 7) + 1
-        eventsInRange = this.events.filter(event => {
-          const weekStartNumber = Math.floor((event.startDate.getDate() - 1) / 7) + 1;
-          const weekEndNumber = Math.floor((event.endDate.getDate() - 1) / 7) + 1;
-          return weekStartNumber === targetWeek || weekEndNumber === targetWeek;
-        });
-        break;
-      case CalendarView.Month:
-        const targetMonth = this.date.getMonth();
-        eventsInRange = this.events.filter(event => event.startDate.getMonth() === targetMonth || event.endDate.getMonth() === targetMonth);
-        break;
-    }
-
-    for (let i = 0; i < this.days.length; i++) {
-      for (let c = 0; c < eventsInRange.length; c++) {
-        if (isSameDay(eventsInRange[c].startDate, this.days[i].date) || isSameDay(eventsInRange[c].endDate, this.days[i].date))
-          this.days[i].events.push(eventsInRange[c]);
-      }
+    let allDays = this.daysPaddingPre.concat(this.days, this.daysPaddingPost);
+    var i = this.events.length;
+    while (i--) {
+      allDays.forEach(day => {
+        if (isWithinInterval(endOfDay(day.date), {start: this.events[i].startDate, end: this.events[i].endDate})) { 
+          day.events.push(this.events[i]);
+        } 
+      });
     }
   }
 

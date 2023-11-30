@@ -1,37 +1,53 @@
 @import "../../../../../../assets/scss/partials/colors";
 
-.gcc-calendar-day-wrapper {
+.day-wrapper {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
 
-    .gcc-calendar-day-number {
+    .day-number {
         display: flex;
         flex-direction: column;
         align-items: center;
         color: black;
+        cursor: default;
     }
 
-    .gcc-calendar-day-event {
-        background-color: $primary-1;
-        color: white;
+    .events-list {
+
+        .event {
+            background-color: $primary-1;
+            color: white;
+            cursor: pointer;
+        }
+
+        .event:not(:last-child) {
+            border-bottom: 1px solid white;
+        }
     }
 }
 
 .currentDay {
     background-color: $primary-1-light;
+
+    .day-number {
+        color: $primary-1;
+        font-weight: 600;
+    }
 }
 
 .active {
-    border: 1px solid $primary-1;
-    box-sizing: border-box;
+    .day-number {
+        color: $primary-1;
+        font-weight: 600;
+    }
 }
 
-.outsideOfMonth .gcc-calendar-day-number {
+.outsideOfMonth .day-number {
     color: $neutral-300;
 }
 
-.gcc-calendar-day-wrapper:hover {
+.day-wrapper:hover {
     background-color: $primary-1-light;
 }

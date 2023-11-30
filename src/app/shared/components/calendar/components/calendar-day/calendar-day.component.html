@@ -1,15 +1,18 @@
-<div class="gcc-calendar-day-wrapper" tabindex="0"
+<div class="day-wrapper" tabindex="0"
      [ngClass]="{'currentDay': currentDay, 'outsideOfMonth': outsideOfMonth, 'active': active}"
      (click)="interact($event, calendarDay)"
      (keydown)="interact($event, calendarDay)">
 
-    <div class="gcc-calendar-day-number">
+    <div class="day-number">
         {{ calendarDay.date | date : 'd' }}
     </div>
 
-    <div *ngIf="calendarDay.events.length > 0" tabindex="0"
-         class="gcc-calendar-day-event">
-        &nbsp;
+    <div class="events-list">
+        <div *ngFor="let event of calendarDay.events; index as i" tabindex="0"
+             class="event"
+             [matTooltip]="event.title"
+             [ngStyle]="{'height': 'calc(100% / ' + (calendarDay.events.length * (calendarDay.events.length / 2)) + ')'}">
+            &nbsp;
+        </div>
     </div>
-
 </div>
