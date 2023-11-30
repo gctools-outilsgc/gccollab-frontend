@@ -27,15 +27,18 @@
 
 <div class="calendar" [ngStyle]="calendarStyle">
     <div *ngFor="let day of daysPaddingPre" class="day inactive" (click)="previous()">
-        <span>{{ day.number }}</span>
+        <span>{{ day.date | date : 'd' }}</span>
     </div>
 
     <div *ngFor="let day of days" class="day" tabindex="0">
-        <span>{{ day.number }}</span>
+        <span>{{ day.date | date : 'd' }}</span>
+        <div *ngFor="let event of day.events">
+            {{ event.title }}
+        </div>
     </div>
 
     <div *ngFor="let day of daysPaddingPost" class="day inactive" (click)="next()">
-        <span>{{ day.number }}</span>
+        <span>{{ day.date | date : 'd' }}</span>
     </div>
 </div>
 
@@ -47,3 +50,7 @@
     <i *ngIf="view === CalendarView.Week" class="fa-solid fa-calendar-week"></i>
     <i *ngIf="view === CalendarView.Month" class="fa-solid fa-calendar"></i>
 </app-button>
+
+<ng-template #CalendarEvent>
+
+</ng-template>
