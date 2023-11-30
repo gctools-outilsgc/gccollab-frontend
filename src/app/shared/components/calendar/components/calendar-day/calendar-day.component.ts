@@ -18,7 +18,7 @@ export class CalendarDayComponent implements OnInit {
   currentDay: boolean = false;
 
   ngOnInit() {
-    this.currentDay = isSameDay(this.calendarDay.date, new Date());
+    this.currentDay = isSameDay(this.calendarDay?.date, new Date());
   }
 
   interact(event: MouseEvent | KeyboardEvent, day: ICalendarDay): void {

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CalendarDayComponent } from './calendar-day.component';
+import { DatePipe } from '@angular/common';
 
 describe('CalendarDayComponent', () => {
   let component: CalendarDayComponent;
@@ -8,7 +9,8 @@ describe('CalendarDayComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CalendarDayComponent]
+      declarations: [CalendarDayComponent],
+      imports: [DatePipe]
     });
     fixture = TestBed.createComponent(CalendarDayComponent);
     component = fixture.componentInstance;
