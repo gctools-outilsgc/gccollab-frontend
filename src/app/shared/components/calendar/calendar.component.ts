@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { endOfDay, subDays, addDays, addWeeks, addMonths, endOfMonth, getDaysInMonth, startOfWeek, startOfMonth, differenceInCalendarDays, differenceInCalendarWeeks, differenceInCalendarMonths, isWithinInterval } from 'date-fns';
+import { addHours, subHours, endOfDay, subDays, addDays, addWeeks, addMonths, endOfMonth, getDaysInMonth, startOfWeek, startOfMonth, differenceInCalendarDays, differenceInCalendarWeeks, differenceInCalendarMonths, isWithinInterval, isSameDay, startOfDay } from 'date-fns';
 import { CalendarView } from './interfaces/calendar-view.interface';
 import { ICalendarEvent } from './interfaces/calendar-event.interface';
 import { ICalendarDay } from './interfaces/calendar-day.interface';
@@ -32,8 +32,8 @@ export class CalendarComponent implements OnInit {
   dummyDay: ICalendarDay = { date: new Date(), events: [] };
 
   constructor() {
-    this.events.push({ title: 'Shawarma Grand Tour', startDate: new Date(), endDate: addDays(new Date(), 3) });
-    this.events.push({ title: 'Chili Cook Off', startDate: new Date(), endDate: addDays(new Date(), 3) });
+    this.events.push({ title: 'Shawarma Grand Tour', startDate: new Date(), endDate: addHours(addDays(new Date(), 3), 3) });
+    this.events.push({ title: 'Chili Cook Off', startDate: addHours(new Date(), 3), endDate: subHours(addDays(new Date(), 3), 3) });
     this.events.push({ title: 'Car Show', startDate: addDays(new Date(), 1), endDate: addDays(new Date(), 2) });
     this.events.push({ title: 'Doc Appointment', startDate: addDays(new Date(), 1), endDate: addDays(new Date(), 2) });
     this.events.push({ title: 'Lunch w/ Friends', startDate: addDays(new Date(), 11), endDate: addDays(new Date(), 12) });
@@ -114,7 +114,8 @@ export class CalendarComponent implements OnInit {
     var i = this.events.length;
     while (i--) {
       allDays.forEach(day => {
-        if (isWithinInterval(endOfDay(day.date), {start: this.events[i].startDate, end: this.events[i].endDate})) { 
+        if (isWithinInterval(endOfDay(day.date), {start: this.events[i].startDate, end: this.events[i].endDate}) || 
+            isWithinInterval(startOfDay(day.date), {start: this.events[i].startDate, end: this.events[i].endDate})) { 
           day.events.push(this.events[i]);
         } 
       });
@@ -122,14 +123,12 @@ export class CalendarComponent implements OnInit {
   }
 
   toggleView(): void {
+    // TODO: Add back in the Day view.
     if (this.view == CalendarView.Month) {
-      this.view = CalendarView.Day
+      this.view = CalendarView.Week
     }
     else if (this.view == CalendarView.Week) {
       this.view = CalendarView.Month;
-    }
-    else {
-      this.view = CalendarView.Week;
     }
     this.buildView();
   }

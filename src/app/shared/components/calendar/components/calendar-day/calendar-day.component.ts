@@ -61,6 +61,15 @@ export class CalendarDayComponent implements OnInit {
     return this.colors[index % this.colors.length];
   }
 
+  percentageOfDayLeft(date: Date, dateToCompare: Date): number {
+    if (isSameDay(date, dateToCompare)) {
+      const totalMillisecondsInDay = 24 * 60 * 60 * 1000;
+      const millisecondsPassed = date.getTime() % totalMillisecondsInDay;
+      return (1 - millisecondsPassed / totalMillisecondsInDay) * 100;
+    }
+    return 100;
+  }
+
   private calcNumberOfEvents(): void {
 
     // See if any events span from previous into today or today into the next day
