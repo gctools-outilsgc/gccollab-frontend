@@ -15,11 +15,12 @@
     }
 
     .events-list {
+        height: calc(100% - 20px);
 
         .event {
-            background-color: $primary-1;
             color: white;
             cursor: pointer;
+            max-height: calc(50% - 2px);
         }
 
         .event:not(:last-child) {

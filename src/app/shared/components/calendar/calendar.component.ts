@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { startOfDay, endOfDay, subDays, addDays, addWeeks, addMonths, endOfMonth, isSameDay, isSameMonth, getDaysInMonth, startOfWeek, startOfMonth, differenceInCalendarDays, differenceInCalendarWeeks, differenceInCalendarMonths, isWithinInterval, isToday } from 'date-fns';
+import { ChangeDetectionStrategy, Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { endOfDay, subDays, addDays, addWeeks, addMonths, endOfMonth, getDaysInMonth, startOfWeek, startOfMonth, differenceInCalendarDays, differenceInCalendarWeeks, differenceInCalendarMonths, isWithinInterval } from 'date-fns';
 import { CalendarView } from './interfaces/calendar-view.interface';
 import { ICalendarEvent } from './interfaces/calendar-event.interface';
 import { ICalendarDay } from './interfaces/calendar-day.interface';
@@ -29,15 +29,25 @@ export class CalendarComponent implements OnInit {
   CalendarView = CalendarView;
   dayToday = this.date.getDay();
   activeDayIndex = -1;
+  dummyDay: ICalendarDay = { date: new Date(), events: [] };
 
   constructor() {
     this.events.push({ title: 'Shawarma Grand Tour', startDate: new Date(), endDate: addDays(new Date(), 3) });
     this.events.push({ title: 'Chili Cook Off', startDate: new Date(), endDate: addDays(new Date(), 3) });
-
+    this.events.push({ title: 'Car Show', startDate: addDays(new Date(), 1), endDate: addDays(new Date(), 2) });
+    this.events.push({ title: 'Doc Appointment', startDate: addDays(new Date(), 1), endDate: addDays(new Date(), 2) });
+    this.events.push({ title: 'Lunch w/ Friends', startDate: addDays(new Date(), 11), endDate: addDays(new Date(), 12) });
+    this.events.push({ title: 'Charity Event', startDate: addDays(new Date(), 11), endDate: addDays(new Date(), 12) });
   }
 
   ngOnInit(): void {
     this.buildView();
+  }
+  
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['events'] && this.events?.length > 1) {
+      this.events.sort((a, b) => a.startDate.getTime() - b.startDate.getTime());
+    }
   }
 
   buildView(clickedDay: ICalendarDay | undefined = undefined): void {
@@ -95,7 +105,6 @@ export class CalendarComponent implements OnInit {
 
     this.injectEvents();
 
-    // TODO: Switch to manual change detection
     if (clickedDay)
       this.setDayActive(clickedDay);
   }

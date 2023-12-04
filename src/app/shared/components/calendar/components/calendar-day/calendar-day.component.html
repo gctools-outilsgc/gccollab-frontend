@@ -4,14 +4,14 @@
      (keydown)="interact($event, calendarDay)">
 
     <div class="day-number">
-        {{ calendarDay?.date | date : 'd' }}
+        {{ calendarDay.date | date : 'd' }}
     </div>
 
     <div class="events-list">
-        <div *ngFor="let event of calendarDay?.events; index as i" tabindex="0"
+        <div *ngFor="let event of calendarDay.events; index as i" tabindex="0"
              class="event"
              [matTooltip]="event.title"
-             [ngStyle]="{'height': 'calc(100% / ' + (calendarDay.events.length * (calendarDay.events.length / 2)) + ')'}">
+             [ngStyle]="{'height': 'calc((100% / ' + numberOfEvents + ') - ' + (numberOfEvents > 1 ? numberOfEvents - 1 : 0) + 'px)', 'background-color': eventColor(i)}">
             &nbsp;
         </div>
     </div>
