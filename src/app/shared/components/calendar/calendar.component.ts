@@ -29,6 +29,7 @@ export class CalendarComponent implements OnInit {
   CalendarView = CalendarView;
   dayToday = this.date.getDay();
   activeDayIndex = -1;
+  eventRows = 0; 
   dummyDay: ICalendarDay = { date: new Date(), events: [] };
 
   constructor() {
@@ -38,6 +39,7 @@ export class CalendarComponent implements OnInit {
     this.events.push({ title: 'Doc Appointment', startDate: addDays(new Date(), 1), endDate: addDays(new Date(), 2) });
     this.events.push({ title: 'Lunch w/ Friends', startDate: addDays(new Date(), 11), endDate: addDays(new Date(), 12) });
     this.events.push({ title: 'Charity Event', startDate: addDays(new Date(), 11), endDate: addDays(new Date(), 12) });
+    this.events.push({ title: 'Shea Event', startDate: new Date(), endDate: addDays(new Date(), 12) });
   }
 
   ngOnInit(): void {
@@ -112,11 +114,17 @@ export class CalendarComponent implements OnInit {
   injectEvents(): void {
     let allDays = this.daysPaddingPre.concat(this.days, this.daysPaddingPost);
     var i = this.events.length;
+
     while (i--) {
       allDays.forEach(day => {
+
         if (isWithinInterval(endOfDay(day.date), {start: this.events[i].startDate, end: this.events[i].endDate}) || 
             isWithinInterval(startOfDay(day.date), {start: this.events[i].startDate, end: this.events[i].endDate})) { 
+
           day.events.push(this.events[i]);
+
+          if (day.events.length > this.eventRows)
+              this.eventRows = day.events.length;
         } 
       });
     }

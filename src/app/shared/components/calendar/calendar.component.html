@@ -29,25 +29,22 @@
 
     <app-calendar-day *ngFor="let day of daysPaddingPre; index as i"
                       [calendarDay]="day"
-                      [previousDay]="i > 0 ? daysPaddingPre[i - 1] : dummyDay"
-                      [nextDay]="i < daysPaddingPre.length ? daysPaddingPre[i + 1] : dummyDay"
                       [outsideOfMonth]="true"
+                      [eventRows]="eventRows"
                       (dayClick)="dayClick(day)">
     </app-calendar-day>
 
     <app-calendar-day *ngFor="let day of days; index as i"
                       [calendarDay]="day"
-                      [previousDay]="i > 0 ? days[i - 1] : dummyDay"
-                      [nextDay]="i < days.length ? days[i + 1] : dummyDay"
                       [active]="i === activeDayIndex"
+                      [eventRows]="eventRows"
                       (dayClick)="dayClick(day)">
     </app-calendar-day>
 
     <app-calendar-day *ngFor="let day of daysPaddingPost; index as i"
                       [calendarDay]="day"
-                      [previousDay]="i > 0 ? daysPaddingPost[i - 1] : dummyDay"
-                      [nextDay]="i < daysPaddingPost.length ? daysPaddingPost[i + 1] : dummyDay"
                       [outsideOfMonth]="true"
+                      [eventRows]="eventRows"
                       (dayClick)="dayClick(day)">
     </app-calendar-day>
 
