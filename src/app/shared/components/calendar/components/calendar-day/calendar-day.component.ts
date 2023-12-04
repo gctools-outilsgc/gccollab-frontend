@@ -73,8 +73,8 @@ export class CalendarDayComponent implements OnInit {
   private calcNumberOfEvents(): void {
 
     // See if any events span from previous into today or today into the next day
-    const eventSpanPreviousDay = this.calendarDay.events.filter((event) => this.previousDay.events.includes(event)).length > 0;
-    const eventSpanNextDay = this.calendarDay.events.filter((event) => this.nextDay.events.includes(event)).length > 0;
+    const eventSpanPreviousDay = this.calendarDay.events.filter((event) => this.previousDay?.events.includes(event)).length > 0;
+    const eventSpanNextDay = this.calendarDay.events.filter((event) => this.nextDay?.events.includes(event)).length > 0;
     
     // If any events are spanning into previous/next day, add that day's total events to the event count array, as well as today's events.
     const eventCounts = [eventSpanPreviousDay ? this.previousDay.events.length : 0, eventSpanNextDay ? this.nextDay.events.length : 0, this.calendarDay.events.length];
