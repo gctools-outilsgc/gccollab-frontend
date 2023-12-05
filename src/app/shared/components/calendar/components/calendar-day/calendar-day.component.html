@@ -11,12 +11,9 @@
         <div *ngFor="let event of calendarDay.events; index as i" tabindex="0"
              class="event"
              [matTooltip]="event.title"
-             [ngStyle]="{
-                'height': 'calc((100% / ' + eventRows + ') - ' + (eventRows > 1 ? 1 : 0) + 'px)', 
-                'margin-left': 'calc(100% - ' + percentageOfDayLeft(event.startDate, calendarDay.date) + '%)',
-                'margin-right': 'calc(100% - ' + percentageOfDayLeft(event.endDate, calendarDay.date) + '%)',
-                'background-color': eventColor(i)}">
+             [ngStyle]="eventStyles[i]">
             &nbsp;
         </div>
+        
     </div>
 </div>
