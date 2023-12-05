@@ -15,6 +15,7 @@ export class CalendarComponent implements OnInit, OnChanges {
   @Input() view: CalendarView = CalendarView.Month; // The current view (Month/Week/Day).
   @Input() date: Date = new Date();                 // The current date for our view.
   @Input() events: ICalendarEvent[] = [];           // All events for the calendar.
+  @Input() daysOutlined: boolean = false;           // Displays an outline for each calendar day
   @Input() loading: boolean = false;                //
 
   days: ICalendarDay[] = [];                        // The days for the current view.

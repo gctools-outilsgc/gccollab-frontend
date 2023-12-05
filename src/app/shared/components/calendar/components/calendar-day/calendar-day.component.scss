@@ -48,6 +48,10 @@
     background-color: $primary-1-light;
 }
 
+.day-wrapper.outline {
+    outline: 1px solid #f9f9f9;
+}
+
 .day-wrapper.loading {
     ngx-skeleton-loader {
         height: 100%;

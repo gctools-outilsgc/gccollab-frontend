@@ -15,6 +15,7 @@ export class CalendarDayComponent implements OnInit, DoCheck {
   @Input() active: boolean = false;
   @Input() eventRows: number = 0;
   @Input() loading: boolean = false;
+  @Input() outline: boolean = false;
 
   @Output() dayClick: EventEmitter<ICalendarDay> = new EventEmitter<ICalendarDay>();
 

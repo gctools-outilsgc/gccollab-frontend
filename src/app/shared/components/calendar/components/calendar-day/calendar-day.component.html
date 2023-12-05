@@ -1,5 +1,5 @@
 <div *ngIf="!loading" class="day-wrapper" tabindex="0"
-     [ngClass]="{'currentDay': currentDay, 'outsideOfMonth': outsideOfMonth, 'active': active}"
+     [ngClass]="{'currentDay': currentDay, 'outsideOfMonth': outsideOfMonth, 'active': active, 'outline': outline}"
      (click)="interact($event, calendarDay)"
      (keydown)="interact($event, calendarDay)">
 
