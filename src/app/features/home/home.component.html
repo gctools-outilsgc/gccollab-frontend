@@ -26,7 +26,7 @@
 
             <app-list [service]="eventService" [cardSize]="'large'" orientation="horizontal" [pageSize]="3" [paging]="true"></app-list>
 
-            <app-calendar></app-calendar>
+            <app-calendar [events]="calEvents" [loading]="loadingCalendar"></app-calendar>
 
             <app-news-list [model]="newsItems" 
                            [isLoading]="loadingNews">

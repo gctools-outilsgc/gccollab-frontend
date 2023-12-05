@@ -1,4 +1,4 @@
-<div class="day-wrapper" tabindex="0"
+<div *ngIf="!loading" class="day-wrapper" tabindex="0"
      [ngClass]="{'currentDay': currentDay, 'outsideOfMonth': outsideOfMonth, 'active': active}"
      (click)="interact($event, calendarDay)"
      (keydown)="interact($event, calendarDay)">
@@ -14,6 +14,9 @@
              [ngStyle]="eventStyles[i]">
             &nbsp;
         </div>
-        
     </div>
+</div>
+
+<div *ngIf="loading" class="day-wrapper loading">
+    <ngx-skeleton-loader animation="pulse"></ngx-skeleton-loader>
 </div>

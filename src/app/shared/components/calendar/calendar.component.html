@@ -1,64 +1,67 @@
-
-<div class="header">
-    <app-button theme="primary-1"
-                matButtonType="mat-icon-button"
-                (click)="navigateCalendar(-1)">
-        <i class="fa-solid fa-caret-left"></i>
-    </app-button>
-
-    <span>{{ date | date : 'MMMM YYYY'}}</span>
+<div class="gcc-calendar-wrapper" [ngClass]="{'loading': loading}">
+    <div class="header">
+        <app-button theme="primary-1"
+                    matButtonType="mat-icon-button"
+                    [disabled]="loading"
+                    (click)="navigateCalendar(-1)">
+            <i class="fa-solid fa-caret-left"></i>
+        </app-button>
+    
+        <span>{{ date | date : 'MMMM YYYY'}}</span>
+        
+        <app-button theme="primary-1"
+                    matButtonType="mat-icon-button"
+                    [disabled]="loading"
+                    (click)="navigateCalendar(1)">
+            <i class="fa-solid fa-caret-right"></i>
+        </app-button>
+    </div>
+    
+    <div class="weekdays">
+        <div class="day">Sun</div>
+        <div class="day">Mon</div>
+        <div class="day">Tue</div>
+        <div class="day">Wed</div>
+        <div class="day">Thu</div>
+        <div class="day">Fri</div>
+        <div class="day">Sat</div>
+    </div>
+    
+    <div class="calendar" [ngStyle]="calendarStyle">
+    
+        <app-calendar-day *ngFor="let day of daysPaddingPre; index as i"
+                          [calendarDay]="day"
+                          [outsideOfMonth]="true"
+                          [eventRows]="eventRows"
+                          [loading]="loading"
+                          (dayClick)="dayClick(day)">
+        </app-calendar-day>
+    
+        <app-calendar-day *ngFor="let day of days; index as i"
+                          [calendarDay]="day"
+                          [active]="i === activeDayIndex"
+                          [eventRows]="eventRows"
+                          [loading]="loading"
+                          (dayClick)="dayClick(day)">
+        </app-calendar-day>
+    
+        <app-calendar-day *ngFor="let day of daysPaddingPost; index as i"
+                          [calendarDay]="day"
+                          [outsideOfMonth]="true"
+                          [eventRows]="eventRows"
+                          [loading]="loading"
+                          (dayClick)="dayClick(day)">
+        </app-calendar-day>
+    
+    </div>
     
     <app-button theme="primary-1"
                 matButtonType="mat-icon-button"
-                (click)="navigateCalendar(1)">
-        <i class="fa-solid fa-caret-right"></i>
+                [clickFunc]="toggleViewCallback"
+                [disabled]="loading"
+                style="float: right;">
+        <i *ngIf="view === CalendarView.Day" class="fa-solid fa-calendar-day"></i>
+        <i *ngIf="view === CalendarView.Week" class="fa-solid fa-calendar-week"></i>
+        <i *ngIf="view === CalendarView.Month" class="fa-solid fa-calendar"></i>
     </app-button>
 </div>
-
-<div class="weekdays">
-    <div class="day">Sun</div>
-    <div class="day">Mon</div>
-    <div class="day">Tue</div>
-    <div class="day">Wed</div>
-    <div class="day">Thu</div>
-    <div class="day">Fri</div>
-    <div class="day">Sat</div>
-</div>
-
-<div class="calendar" [ngStyle]="calendarStyle">
-
-    <app-calendar-day *ngFor="let day of daysPaddingPre; index as i"
-                      [calendarDay]="day"
-                      [outsideOfMonth]="true"
-                      [eventRows]="eventRows"
-                      (dayClick)="dayClick(day)">
-    </app-calendar-day>
-
-    <app-calendar-day *ngFor="let day of days; index as i"
-                      [calendarDay]="day"
-                      [active]="i === activeDayIndex"
-                      [eventRows]="eventRows"
-                      (dayClick)="dayClick(day)">
-    </app-calendar-day>
-
-    <app-calendar-day *ngFor="let day of daysPaddingPost; index as i"
-                      [calendarDay]="day"
-                      [outsideOfMonth]="true"
-                      [eventRows]="eventRows"
-                      (dayClick)="dayClick(day)">
-    </app-calendar-day>
-
-</div>
-
-<app-button theme="primary-1"
-            matButtonType="mat-icon-button"
-            [clickFunc]="toggleViewCallback"
-            style="float: right;">
-    <i *ngIf="view === CalendarView.Day" class="fa-solid fa-calendar-day"></i>
-    <i *ngIf="view === CalendarView.Week" class="fa-solid fa-calendar-week"></i>
-    <i *ngIf="view === CalendarView.Month" class="fa-solid fa-calendar"></i>
-</app-button>
-
-<ng-template #CalendarEvent>
-
-</ng-template>

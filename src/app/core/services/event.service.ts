@@ -8,6 +8,7 @@ import { LoremIpsum } from 'lorem-ipsum';
 import { GroupService } from './group.service';
 import { IListService } from '../interfaces/list-service.interface';
 import { EventCardComponent } from 'src/app/features/events/components/event-card/event-card.component';
+import { addDays, addHours } from 'date-fns';
 
 @Injectable({
   providedIn: 'root'
@@ -94,10 +95,12 @@ export class EventService implements IListService {
     event.author = this.peopleService.people[this.id];
     event.group = this.groupService.groups[this.id];
     event.startDate = this.randomDate();
-    event.endDate = this.randomDate();
+    event.endDate = addDays(event.startDate, this.randomRange(0, 7));
+    event.endDate = addHours(event.endDate, this.randomRange(2, 6));
     event.image = this.randomImage();
     event.displayPicture = this.randomDisplayPicture();
     event.organizer = this.randomOrganizer();
+    event.color = this.randomColor();
 
     this.id++;
     
@@ -192,5 +195,16 @@ export class EventService implements IListService {
       'NRCC'
     ];
     return organizers[Math.floor(Math.random() * organizers.length)];
+  }
+
+  private randomColor(): string {
+    const colors: string[] = [
+      '#6C0DBA', '#04A19E', '#3B18BA', '#AC0DBA', '#4A0980', '#291180', '#760980', '#03807D'
+    ];
+    return colors[Math.floor(Math.random() * colors.length)];
+  }
+
+  private randomRange(min: number, max: number) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
   }
 }

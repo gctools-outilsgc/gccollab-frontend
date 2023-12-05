@@ -62,3 +62,10 @@
         pointer-events: none;
     }
 }
+
+.gcc-calendar-wrapper.loading {
+    .header,
+    .weekdays {
+        color: $neutral-500;
+    }
+}

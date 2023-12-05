@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { addHours, subHours, endOfDay, subDays, addDays, addWeeks, addMonths, endOfMonth, getDaysInMonth, startOfWeek, startOfMonth, differenceInCalendarDays, differenceInCalendarWeeks, differenceInCalendarMonths, isWithinInterval, isSameDay, startOfDay } from 'date-fns';
+import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { endOfDay, subDays, addDays, addWeeks, addMonths, endOfMonth, getDaysInMonth, startOfWeek, startOfMonth, differenceInCalendarDays, differenceInCalendarWeeks, differenceInCalendarMonths, isWithinInterval, startOfDay } from 'date-fns';
 import { CalendarView } from './interfaces/calendar-view.interface';
 import { ICalendarEvent } from './interfaces/calendar-event.interface';
 import { ICalendarDay } from './interfaces/calendar-day.interface';
@@ -10,11 +10,12 @@ import { ICalendarDay } from './interfaces/calendar-day.interface';
   styleUrls: ['./calendar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CalendarComponent implements OnInit {
+export class CalendarComponent implements OnInit, OnChanges {
 
   @Input() view: CalendarView = CalendarView.Month; // The current view (Month/Week/Day).
   @Input() date: Date = new Date();                 // The current date for our view.
   @Input() events: ICalendarEvent[] = [];           // All events for the calendar.
+  @Input() loading: boolean = false;                //
 
   days: ICalendarDay[] = [];                        // The days for the current view.
   daysPaddingPre: ICalendarDay[] = [];              // Any days before the month that should be rendered.
@@ -31,17 +32,17 @@ export class CalendarComponent implements OnInit {
   CalendarView = CalendarView;
 
   constructor() {
-    this.events.push({ title: 'Shawarma Grand Tour', startDate: new Date(), endDate: addHours(addDays(new Date(), 3), 3) });
-    this.events.push({ title: 'Chili Cook Off', startDate: addHours(new Date(), 3), endDate: subHours(addDays(new Date(), 3), 3) });
-    this.events.push({ title: 'Car Show', startDate: addDays(new Date(), 1), endDate: addDays(new Date(), 2) });
-    this.events.push({ title: 'Doc Appointment', startDate: addDays(new Date(), 1), endDate: addDays(new Date(), 2) });
-    this.events.push({ title: 'Lunch w/ Friends', startDate: addDays(new Date(), 11), endDate: addDays(new Date(), 12) });
-    this.events.push({ title: 'Charity Event', startDate: addDays(new Date(), 11), endDate: addDays(new Date(), 12) });
-    this.events.push({ title: 'Shea Event', startDate: new Date(), endDate: addHours(new Date(), 2) }); 
+
   }
 
   ngOnInit(): void {
     this.buildView();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['events'] && !changes['events'].firstChange) {
+      this.injectEvents();
+    }
   }
 
   navigateCalendar(interval: number = 1, clickedDay: ICalendarDay | undefined = undefined): void {
@@ -131,22 +132,25 @@ export class CalendarComponent implements OnInit {
 
   private injectEvents(): void {
     let allDays = this.daysPaddingPre.concat(this.days, this.daysPaddingPost);
-    var i = this.events.length;
+    allDays.forEach(day => {day.events = [];});
 
+    var i = this.events.length;
     while (i--) {
       allDays.forEach(day => {
 
-        const eventStartEndToday = isWithinInterval(this.events[i].startDate, {start: startOfDay(day.date), end: endOfDay(day.date)}) && isWithinInterval(this.events[i].endDate, {start: startOfDay(day.date), end: endOfDay(day.date)});
+        try {
+          const eventStartEndToday = isWithinInterval(this.events[i].startDate, {start: startOfDay(day.date), end: endOfDay(day.date)}) && isWithinInterval(this.events[i].endDate, {start: startOfDay(day.date), end: endOfDay(day.date)});
 
-        if (eventStartEndToday ||
-            isWithinInterval(endOfDay(day.date), {start: this.events[i].startDate, end: this.events[i].endDate}) || 
-            isWithinInterval(startOfDay(day.date), {start: this.events[i].startDate, end: this.events[i].endDate})) { 
+          if (eventStartEndToday ||
+              isWithinInterval(endOfDay(day.date), {start: this.events[i].startDate, end: this.events[i].endDate}) || 
+              isWithinInterval(startOfDay(day.date), {start: this.events[i].startDate, end: this.events[i].endDate})) { 
 
-          day.events.push(this.events[i]);
+            day.events.push(this.events[i]);
 
-          if (day.events.length > this.eventRows)
-              this.eventRows = day.events.length;
-        } 
+            if (day.events.length > this.eventRows)
+                this.eventRows = day.events.length;
+          }
+        } catch(e) {} // Start/End Date incompatible so don't add it.
       });
     }
   }

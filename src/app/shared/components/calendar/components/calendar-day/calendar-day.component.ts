@@ -1,30 +1,39 @@
-import { Component, Input, OnInit, Output, EventEmitter, SimpleChanges } from '@angular/core';
-import { ICalendarDay } from '../../interfaces/calendar-day.interface';
+import { Component, Input, OnInit, Output, EventEmitter, IterableDiffers, IterableDiffer, DoCheck, ChangeDetectionStrategy } from '@angular/core';
 import { isSameDay, isWithinInterval, startOfDay, endOfDay } from 'date-fns';
+import { ICalendarDay } from '../../interfaces/calendar-day.interface';
+import { ICalendarEvent } from '../../interfaces/calendar-event.interface';
 
 @Component({
   selector: 'app-calendar-day',
   templateUrl: './calendar-day.component.html',
-  styleUrls: ['./calendar-day.component.scss']
+  styleUrls: ['./calendar-day.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CalendarDayComponent implements OnInit {
+export class CalendarDayComponent implements OnInit, DoCheck {
   @Input({required: true}) calendarDay: ICalendarDay = { date: new Date(), events: [] };
   @Input() outsideOfMonth: boolean = false;
   @Input() active: boolean = false;
   @Input() eventRows: number = 0;
-  @Input() colors: string [] = ['#6C0DBA', '#04A19E', '#3B18BA', '#AC0DBA'];
+  @Input() loading: boolean = false;
 
   @Output() dayClick: EventEmitter<ICalendarDay> = new EventEmitter<ICalendarDay>();
 
   currentDay: boolean = false;
   eventStyles: IEventStyle[] = [];
 
+  private eventBorderRadius: number = 0;
+  private iterableDiffer: IterableDiffer<ICalendarEvent>;
+
+  constructor(private iterableDiffers: IterableDiffers) {
+    this.iterableDiffer = iterableDiffers.find(this.calendarDay.events).create();
+  }
+
   ngOnInit() {
     this.currentDay = isSameDay(this.calendarDay.date, new Date());
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['calendarDay'] && this.calendarDay?.events.length > 1) {
+  ngDoCheck() {
+    if (this.iterableDiffer.diff(this.calendarDay.events)) {
       this.sortEvents();
       this.buildEventStyles();
     }
@@ -52,11 +61,19 @@ export class CalendarDayComponent implements OnInit {
   private buildEventStyles(): void {
     this.eventStyles = [];
     for (let i = 0; i < this.calendarDay.events.length; i++) {
+
+      const marginLeft = this.startDateOffset(this.calendarDay.events[i].startDate);
+      const marginRight = this.endDateOffset(this.calendarDay.events[i].endDate);
+
       this.eventStyles.push({
         'height': 'calc((100% / ' + this.eventRows + ') - ' + (this.eventRows > 1 ? 1 : 0) + 'px)',
-        'margin-left': this.startDateOffset(this.calendarDay.events[i].startDate) + '%',
-        'margin-right': this.endDateOffset(this.calendarDay.events[i].endDate) + '%',
-        'background-color': this.eventColor(i),
+        'margin-left': marginLeft + '%',
+        'margin-right': marginRight + '%',
+        'background-color': this.calendarDay.events[i].color,
+        'border-top-left-radius': marginLeft > 0 ? this.eventBorderRadius + 'px' : '0',
+        'border-top-right-radius': marginRight > 0 ? this.eventBorderRadius + 'px' : '0',
+        'border-bottom-left-radius': marginLeft > 0 ? this.eventBorderRadius + 'px' : '0',
+        'border-bottom-right-radius': marginRight > 0 ? this.eventBorderRadius + 'px' : '0'
       });
     }
   }
@@ -79,19 +96,15 @@ export class CalendarDayComponent implements OnInit {
      const millisecondsInADay = 24 * 60 * 60 * 1000;
      return (timeDifference / millisecondsInADay) * 100;
   }
-
-  // TODO: Canceled and past events
-  private eventColor(index: number): string {
-    if (index < 0)
-      return this.colors[0];
-
-    return this.colors[index % this.colors.length];
-  }
 }
 
 interface IEventStyle {
   'height': string;
   'margin-left': string;
   'margin-right': string;
-  'background-color': string
+  'background-color': string;
+  'border-top-left-radius': string;
+  'border-top-right-radius': string;
+  'border-bottom-left-radius': string;
+  'border-bottom-right-radius': string;
 }
