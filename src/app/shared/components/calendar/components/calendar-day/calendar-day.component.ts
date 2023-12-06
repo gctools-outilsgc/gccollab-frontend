@@ -2,6 +2,8 @@ import { Component, Input, OnInit, Output, EventEmitter, IterableDiffers, Iterab
 import { isSameDay, isWithinInterval, startOfDay, endOfDay } from 'date-fns';
 import { ICalendarDay } from '../../interfaces/calendar-day.interface';
 import { ICalendarEvent } from '../../interfaces/calendar-event.interface';
+import { Router } from '@angular/router';
+import { CoreRoutes } from 'src/app/core/constants/routes.constants';
 
 @Component({
   selector: 'app-calendar-day',
@@ -25,7 +27,8 @@ export class CalendarDayComponent implements OnInit, DoCheck {
   private eventBorderRadius: number = 0;
   private iterableDiffer: IterableDiffer<ICalendarEvent>;
 
-  constructor(private iterableDiffers: IterableDiffers) {
+  constructor(private iterableDiffers: IterableDiffers, 
+              private router: Router) {
     this.iterableDiffer = iterableDiffers.find(this.calendarDay.events).create();
   }
 
@@ -44,6 +47,11 @@ export class CalendarDayComponent implements OnInit, DoCheck {
     if (event.type === 'click' || (event instanceof KeyboardEvent && (event.code === 'Enter' || event.code === 'NumpadEnter' || event.code === 'Space'))) {
       this.dayClick.emit(day);
     }
+  }
+
+  routeToEvent(eventId: string, event: MouseEvent | KeyboardEvent) {
+    if (eventId && (event.type === 'click' || (event instanceof KeyboardEvent && (event.code === 'Enter' || event.code === 'NumpadEnter' || event.code === 'Space')))) 
+      this.router.navigateByUrl(CoreRoutes.Events + '/' + eventId);
   }
 
   private sortEvents(): void {

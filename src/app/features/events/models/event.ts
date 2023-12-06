@@ -4,7 +4,7 @@ import { Group } from "../../groups/models/group";
 import { ICalendarEvent } from "src/app/shared/components/calendar/interfaces/calendar-event.interface";
 
 export class Event implements ICalendarEvent {
-    id: string | undefined;
+    id: string = "-1";
     title: string = '';
     eventType: string | undefined;
     description: string | undefined;

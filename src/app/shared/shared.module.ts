@@ -49,6 +49,7 @@ import { FileSelectComponent } from './components/file-select/file-select.compon
 import { ListComponent } from './components/list/list.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { CalendarDayComponent } from './components/calendar/components/calendar-day/calendar-day.component';
+import { LocalizedDatePipe } from './pipes/localized-date/localized-date.pipe';
 
 
 @NgModule({
@@ -77,7 +78,8 @@ import { CalendarDayComponent } from './components/calendar/components/calendar-
     FileSelectComponent,
     ListComponent,
     CalendarComponent,
-    CalendarDayComponent
+    CalendarDayComponent,
+    LocalizedDatePipe
   ],
   imports: [
     CommonModule,
@@ -130,7 +132,8 @@ import { CalendarDayComponent } from './components/calendar/components/calendar-
     EventFormComponent,
     PollFormComponent,
     ListComponent,
-    CalendarComponent
+    CalendarComponent,
+    LocalizedDatePipe
   ],
   providers: [
     {

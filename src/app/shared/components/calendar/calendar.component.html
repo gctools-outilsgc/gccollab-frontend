@@ -2,15 +2,21 @@
     <div class="header">
         <app-button theme="primary-1"
                     matButtonType="mat-icon-button"
+                    [tooltip]="previousButtonTitle | translate"
+                    [tooltipDirection]="TooltipDirection.Left"
+                    [ariaLabel]="previousButtonAria | translate"
                     [disabled]="loading"
                     (click)="navigateCalendar(-1)">
             <i class="fa-solid fa-caret-left"></i>
         </app-button>
     
-        <span>{{ date | date : 'MMMM YYYY'}}</span>
+        <span>{{ date | localizedDate : 'MMMM YYYY' }}</span>
         
         <app-button theme="primary-1"
                     matButtonType="mat-icon-button"
+                    [tooltip]="nextButtonTitle | translate"
+                    [tooltipDirection]="TooltipDirection.Right"
+                    [ariaLabel]="nextButtonAria | translate"
                     [disabled]="loading"
                     (click)="navigateCalendar(1)">
             <i class="fa-solid fa-caret-right"></i>
@@ -18,13 +24,13 @@
     </div>
     
     <div class="weekdays">
-        <div class="day">Sun</div>
-        <div class="day">Mon</div>
-        <div class="day">Tue</div>
-        <div class="day">Wed</div>
-        <div class="day">Thu</div>
-        <div class="day">Fri</div>
-        <div class="day">Sat</div>
+        <div class="day">{{ translations.calendar.days.short.sun | translate }}</div>
+        <div class="day">{{ translations.calendar.days.short.mon | translate }}</div>
+        <div class="day">{{ translations.calendar.days.short.tue | translate }}</div>
+        <div class="day">{{ translations.calendar.days.short.wed | translate }}</div>
+        <div class="day">{{ translations.calendar.days.short.thu | translate }}</div>
+        <div class="day">{{ translations.calendar.days.short.fri | translate }}</div>
+        <div class="day">{{ translations.calendar.days.short.sat | translate }}</div>
     </div>
     
     <div class="calendar" [ngStyle]="calendarStyle">
@@ -61,6 +67,8 @@
     <app-button theme="primary-1"
                 matButtonType="mat-icon-button"
                 [clickFunc]="toggleViewCallback"
+                [tooltip]="translations.calendar.controls.viewBtn.title | translate"
+                [ariaLabel]="translations.calendar.controls.viewBtn.aria | translate"
                 [disabled]="loading"
                 style="float: right;">
         <i *ngIf="view === CalendarView.Day" class="fa-solid fa-calendar-day"></i>

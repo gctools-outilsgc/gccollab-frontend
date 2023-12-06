@@ -1,5 +1,9 @@
 @import "../../../../assets/scss/partials/colors";
 
+.gcc-calendar-wrapper {
+    min-width: 350px;
+}
+
 .header {
     grid-column: span 7;
     text-align: center;

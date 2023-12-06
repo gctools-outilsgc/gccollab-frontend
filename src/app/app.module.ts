@@ -18,6 +18,10 @@ import { TypescriptLoader } from './core/helpers/typescript-loader';
 import { SharedModule } from './shared/shared.module';
 import { EventsComponent } from './features/events/events.component';
 import { GroupsComponent } from './features/groups/groups.component';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+
+registerLocaleData(localeFr);
 
 @NgModule({
   declarations: [
@@ -38,7 +42,8 @@ import { GroupsComponent } from './features/groups/groups.component';
         useFactory: (http: HttpClient) => new TypescriptLoader(http, 'translations'),
         deps: [HttpClient]
       },
-      isolate: false
+      isolate: false,
+      extend: true
     }),
     NgxTranslateRoutesModule.forRoot({
       enableRouteTranslate: true,

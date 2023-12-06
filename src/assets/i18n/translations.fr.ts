@@ -357,6 +357,55 @@ const fr: typeof import('./translations.en').default = {
             "img_large": "Les images ont un maximum de ",
             "read": "Erreur de lecture du fichier."
         }
+    },
+    "calendar": {
+        "days": {
+            "full": {
+                "mon": "Lundi",
+                "tue": "Mardi",
+                "wed": "Mercredi",
+                "thu": "Jeudi",
+                "fri": "Vendredi",
+                "sat": "Samdedi",
+                "sun": "Dimanche"
+            },
+            "short": {
+                "mon": "Lun",
+                "tue": "Mar",
+                "wed": "Mer",
+                "thu": "Jeu",
+                "fri": "Ven",
+                "sat": "Sam",
+                "sun": "Dim"
+            }
+        },
+        "views": {
+            "day": "Jour",
+            "week": "Semaine",
+            "month": "Mois"
+        },
+        "controls": {
+            "next": {
+                "title_day": "Suivant jour",
+                "title_week": "Suivant semaine",
+                "title_month": "Suivant mois",
+                "aria_day": "Cliquez pour accéder au suivant jour.",
+                "aria_week": "Cliquez pour accéder au suivant semaine.",
+                "aria_month": "Cliquez pour accéder au suivant mois."
+            },
+            "previous": {
+                "title_day": "Précédent jour",
+                "title_week": "Précédent semaine",
+                "title_month": "Précédent mois",
+                "aria_day": "Cliquez pour accéder au précédent jour.",
+                "aria_week": "Cliquez pour accéder au précédent semaine.",
+                "aria_month": "Cliquez pour accéder au précédent mois."
+            },
+            "viewBtn": {
+                "title": "Changer de vue",
+                "aria": "Vue actuelle: "
+            }
+        }
     }
 };
 export default fr;

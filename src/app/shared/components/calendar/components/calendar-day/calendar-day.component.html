@@ -11,7 +11,9 @@
         <div *ngFor="let event of calendarDay.events; index as i" tabindex="0"
              class="event"
              [matTooltip]="event.title"
-             [ngStyle]="eventStyles[i]">
+             [ngStyle]="eventStyles[i]"
+             (click)="routeToEvent(event.id, $event)"
+             (keydown)="routeToEvent(event.id, $event)">
             &nbsp;
         </div>
     </div>

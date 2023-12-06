@@ -1,8 +1,11 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { endOfDay, subDays, addDays, addWeeks, addMonths, endOfMonth, getDaysInMonth, startOfWeek, startOfMonth, differenceInCalendarDays, differenceInCalendarWeeks, differenceInCalendarMonths, isWithinInterval, startOfDay } from 'date-fns';
+import { endOfDay, subDays, addDays, addWeeks, subWeeks, addMonths, endOfMonth, getDaysInMonth, startOfWeek, startOfMonth, differenceInCalendarDays, differenceInCalendarWeeks, differenceInCalendarMonths, isWithinInterval, startOfDay, isSameWeek, isSameMonth, subMonths } from 'date-fns';
 import { CalendarView } from './interfaces/calendar-view.interface';
 import { ICalendarEvent } from './interfaces/calendar-event.interface';
 import { ICalendarDay } from './interfaces/calendar-day.interface';
+import { Translations } from 'src/app/core/services/translations.service';
+import { TranslateService } from '@ngx-translate/core';
+import { TooltipDirection } from '../../models/tooltip-direction';
 
 @Component({
   selector: 'app-calendar',
@@ -31,13 +34,20 @@ export class CalendarComponent implements OnInit, OnChanges {
   
   toggleViewCallback = this.toggleView.bind(this);
   CalendarView = CalendarView;
+  TooltipDirection = TooltipDirection;
 
-  constructor() {
+  nextButtonTitle = this.translations.calendar.controls.next.title_month;
+  nextButtonAria = this.translations.calendar.controls.next.aria_month;
+  previousButtonTitle = this.translations.calendar.controls.previous.title_month;
+  previousButtonAria = this.translations.calendar.controls.previous.aria_month;
+
+  constructor(public translations: Translations) {
 
   }
 
   ngOnInit(): void {
     this.buildView();
+    this.updateAria();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -82,7 +92,18 @@ export class CalendarComponent implements OnInit, OnChanges {
 
         const daysWeek = 7;
         for (let i = 0 ; i < daysWeek; i++) {
-          this.days.push({ date: addDays(startOfWeek(this.date), i), events: [] });
+
+          const date = addDays(startOfWeek(this.date), i);
+
+          if (isSameMonth(date, this.date)) {
+            this.days.push({ date: date, events: [] });
+          }
+          else if (isSameMonth(date, subMonths(this.date, 1))) {
+            this.daysPaddingPre.push({ date: date, events: [] });
+          }
+          else {
+            this.daysPaddingPost.push({ date: date, events: [] });
+          }
         }
         
         this.calendarStyle = {
@@ -165,6 +186,7 @@ export class CalendarComponent implements OnInit, OnChanges {
       this.view = CalendarView.Month;
     }
     this.buildView();
+    this.updateAria();
   }
 
   private setDayActive(day: ICalendarDay) {
@@ -173,6 +195,29 @@ export class CalendarComponent implements OnInit, OnChanges {
         this.activeDayIndex = this.activeDayIndex === i ? -1 : i;
         break;
       }
+    }
+  }
+
+  private updateAria() {
+    switch(this.view) {
+      case CalendarView.Day:
+        this.nextButtonTitle = this.translations.calendar.controls.next.title_day;
+        this.previousButtonTitle = this.translations.calendar.controls.previous.title_day;
+        this.nextButtonAria = this.translations.calendar.controls.next.aria_day;
+        this.previousButtonAria = this.translations.calendar.controls.previous.aria_day;
+        break;
+      case CalendarView.Week:
+        this.nextButtonTitle = this.translations.calendar.controls.next.title_week;
+        this.previousButtonTitle = this.translations.calendar.controls.previous.title_week;
+        this.nextButtonAria = this.translations.calendar.controls.next.aria_week;
+        this.previousButtonAria = this.translations.calendar.controls.previous.aria_week;
+        break;
+      case CalendarView.Month:
+        this.nextButtonTitle = this.translations.calendar.controls.next.title_month;
+        this.previousButtonTitle = this.translations.calendar.controls.previous.title_month;
+        this.nextButtonAria = this.translations.calendar.controls.next.aria_month;
+        this.previousButtonAria = this.translations.calendar.controls.previous.aria_month;
+        break;
     }
   }
 }
