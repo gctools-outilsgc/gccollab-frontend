@@ -10,7 +10,7 @@
             <i class="fa-solid fa-caret-left"></i>
         </app-button>
     
-        <span>{{ date | localizedDate : 'MMMM YYYY' }}</span>
+        <span>{{ date | localizedDate : 'MMMM YYYY' | titlecase }}</span>
         
         <app-button theme="primary-1"
                     matButtonType="mat-icon-button"
