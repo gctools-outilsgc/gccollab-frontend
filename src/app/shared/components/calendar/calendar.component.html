@@ -35,7 +35,7 @@
     
     <div class="calendar" [ngStyle]="calendarStyle">
     
-        <app-calendar-day *ngFor="let day of daysPaddingPre; index as i"
+        <app-calendar-day *ngFor="let day of daysPaddingPre"
                           [calendarDay]="day"
                           [outsideOfMonth]="true"
                           [eventRows]="eventRows"
@@ -53,7 +53,7 @@
                           (dayClick)="dayClick(day)">
         </app-calendar-day>
     
-        <app-calendar-day *ngFor="let day of daysPaddingPost; index as i"
+        <app-calendar-day *ngFor="let day of daysPaddingPost"
                           [calendarDay]="day"
                           [outsideOfMonth]="true"
                           [eventRows]="eventRows"

@@ -85,6 +85,7 @@ export class CalendarComponent implements OnInit, OnChanges {
     this.daysPaddingPre = []; 
     this.daysPaddingPost = []
     this.days = [];
+    this.eventRows = 0;
     this.activeDayIndex = -1;
 
     switch(this.view) {
