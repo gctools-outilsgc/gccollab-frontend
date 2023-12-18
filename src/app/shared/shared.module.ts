@@ -50,6 +50,7 @@ import { ListComponent } from './components/list/list.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { CalendarDayComponent } from './components/calendar/components/calendar-day/calendar-day.component';
 import { LocalizedDatePipe } from './pipes/localized-date/localized-date.pipe';
+import { DurationFormatPipe } from './pipes/duration-format/duration-format.pipe';
 
 
 @NgModule({
@@ -79,7 +80,8 @@ import { LocalizedDatePipe } from './pipes/localized-date/localized-date.pipe';
     ListComponent,
     CalendarComponent,
     CalendarDayComponent,
-    LocalizedDatePipe
+    LocalizedDatePipe,
+    DurationFormatPipe
   ],
   imports: [
     CommonModule,
@@ -133,7 +135,8 @@ import { LocalizedDatePipe } from './pipes/localized-date/localized-date.pipe';
     PollFormComponent,
     ListComponent,
     CalendarComponent,
-    LocalizedDatePipe
+    LocalizedDatePipe,
+    DurationFormatPipe
   ],
   providers: [
     {

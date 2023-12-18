@@ -274,6 +274,7 @@ export default {
         "host": "Host:",
         "event_description": "Event Description",
         "event_registration": "Event Registration",
+        "duration": "Duration",
         "form": {
             "full_name": "Full Name",
             "full_name_error": "Your full name is required.",
@@ -404,6 +405,28 @@ export default {
                 "title": "Switch View",
                 "aria": "Current view: "
             }
+        }
+    },
+    "duration": {
+        "month": {
+            "singular": "month",
+            "plural": "months"
+        },
+        "week": {
+            "singular": "week",
+            "plural": "weeks"
+        },
+        "day": {
+            "singular": "day",
+            "plural": "days"
+        },
+        "hour": {
+            "singular": "hour",
+            "plural": "hours"
+        },
+        "minute": {
+            "singular": "minute",
+            "plural": "minutes"
         }
     }
 };

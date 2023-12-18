@@ -72,10 +72,10 @@
                 {{ translations.event.date_time | translate }}
             </h3>
             <p *ngIf="!loading">
-                {{ model?.startDate | date: 'mediumDate' }}
+                {{ model?.startDate | date: 'mediumDate' }} @ {{ model?.startDate | date: 'h a' }} - {{ model?.endDate | date: 'mediumDate' }} @ {{ model?.endDate | date: 'h a' }}
             </p>
             <p *ngIf="!loading">
-                {{ model?.startDate | date: 'h a' }} - {{ model?.endDate | date: 'h a' }}
+               {{ translations.event.duration | translate }}: {{ model!.startDate | durationFormat: model!.endDate }}
             </p>
             <ngx-skeleton-loader *ngIf="loading" count="2" appearance="line" animation="progress" class="loading-section"></ngx-skeleton-loader>
         </section>

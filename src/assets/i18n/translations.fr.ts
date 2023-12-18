@@ -275,6 +275,7 @@ const fr: typeof import('./translations.en').default = {
         "host": "Hôte:",
         "event_description": "Description de L'évenement",
         "event_registration": "Inscription à L'événement",
+        "duration": "Durée",
         "form": {
             "full_name": "Nom et Prénom",
             "full_name_error": "Votre nom complet est requis.",
@@ -405,6 +406,28 @@ const fr: typeof import('./translations.en').default = {
                 "title": "Changer de vue",
                 "aria": "Vue actuelle: "
             }
+        }
+    },
+    "duration": {
+        "month": {
+            "singular": "mois",
+            "plural": "mois"
+        },
+        "week": {
+            "singular": "semaine",
+            "plural": "semaines"
+        },
+        "day": {
+            "singular": "jour",
+            "plural": "jours"
+        },
+        "hour": {
+            "singular": "heure",
+            "plural": "heures"
+        },
+        "minute": {
+            "singular": "minute",
+            "plural": "minutes"
         }
     }
 };

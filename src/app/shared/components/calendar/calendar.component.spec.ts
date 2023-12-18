@@ -5,6 +5,7 @@ import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-transla
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TypescriptLoader } from 'src/app/core/helpers/typescript-loader';
 import { RouterTestingModule } from '@angular/router/testing';
+import { LocalizedDatePipe } from '../../pipes/localized-date/localized-date.pipe';
 
 describe('CalendarComponent', () => {
   let component: CalendarComponent;
@@ -13,7 +14,7 @@ describe('CalendarComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CalendarComponent],
+      declarations: [CalendarComponent, LocalizedDatePipe],
       imports: [
         TranslateModule.forRoot({
           loader: {

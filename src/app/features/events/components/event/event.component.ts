@@ -12,6 +12,7 @@ import { EventService } from 'src/app/core/services/event.service';
 import { CoreRoutes } from 'src/app/core/constants/routes.constants';
 import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { DurationFormatPipe } from 'src/app/shared/pipes/duration-format/duration-format.pipe';
 
 @Component({
   selector: 'app-event',

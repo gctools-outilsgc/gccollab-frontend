@@ -89,6 +89,10 @@ export class CalendarComponent implements OnInit, OnChanges {
     this.activeDayIndex = -1;
 
     switch(this.view) {
+      case CalendarView.Day:
+
+        break;
+
       case CalendarView.Week:
 
         const daysWeek = 7;
