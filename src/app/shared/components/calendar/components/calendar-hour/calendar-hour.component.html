@@ -1,0 +1,20 @@
+<div *ngIf="!loading" class="hour-wrapper" tabindex="0"
+     [ngClass]="{'currentHour': currentDay, 'outline': outline}">
+
+    <div class="events-list">
+        <div *ngFor="let event of calendarHour.events; index as i; first as isFirst" tabindex="0"
+             class="event"
+             [matTooltip]="event.title"
+             [matTooltipPosition]="'right'"
+             [ngStyle]="eventStyles[i]"
+             [style.margin-left]="isFirst ? eventOffsets : '0px'"
+             (click)="routeToEvent(event.id, $event)"
+             (keydown)="routeToEvent(event.id, $event)">
+            &nbsp;
+        </div>
+    </div>
+</div>
+
+<div *ngIf="loading" class="hour-wrapper loading">
+    <ngx-skeleton-loader animation="pulse"></ngx-skeleton-loader>
+</div>

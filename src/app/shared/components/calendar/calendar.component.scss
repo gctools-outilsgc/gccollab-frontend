@@ -67,6 +67,45 @@
     }
 }
 
+.schedule {
+    display: grid;
+    grid-template-columns: 80px auto;
+
+    .hours-header {
+        text-align: center;
+        background-color: #f9f9f9;
+        border: none;
+        box-sizing: border-box;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+
+        >div {
+            padding: 10px 0;
+            font-weight: bold;
+        }
+    }
+
+    .hours-dates {
+        display: grid;
+
+        app-calendar-day:first-child {
+            ::ng-deep {
+                .day-wrapper {
+                    border-top-right-radius: 10px;
+                }
+            }
+        }
+        
+        app-calendar-day:last-child {
+            ::ng-deep {
+                .day-wrapper {
+                    border-bottom-right-radius: 10px;
+                }
+            }
+        }
+    }
+}
+
 .gcc-calendar-wrapper.loading {
     .header,
     .weekdays {

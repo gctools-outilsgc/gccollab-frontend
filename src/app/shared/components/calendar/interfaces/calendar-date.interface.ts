@@ -1,6 +1,6 @@
 import { ICalendarEvent } from "./calendar-event.interface";
 
-export interface ICalendarDay {
+export interface ICalendarDate {
   date: Date;
   events: ICalendarEvent[];
 }

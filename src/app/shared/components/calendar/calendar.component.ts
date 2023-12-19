@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { endOfDay, subDays, addDays, addWeeks, subWeeks, addMonths, endOfMonth, getDaysInMonth, startOfWeek, startOfMonth, differenceInCalendarDays, differenceInCalendarWeeks, differenceInCalendarMonths, isWithinInterval, startOfDay, isSameWeek, isSameMonth, subMonths } from 'date-fns';
+import { endOfDay, subDays, addDays, addWeeks, subWeeks, addHours, addMonths, endOfMonth, getDaysInMonth, startOfWeek, startOfMonth, differenceInCalendarDays, differenceInCalendarWeeks, differenceInCalendarMonths, isWithinInterval, startOfDay, isSameWeek, isSameMonth, subMonths, isSameHour } from 'date-fns';
 import { CalendarView } from './interfaces/calendar-view.interface';
 import { ICalendarEvent } from './interfaces/calendar-event.interface';
-import { ICalendarDay } from './interfaces/calendar-day.interface';
+import { ICalendarDate } from './interfaces/calendar-date.interface';
 import { Translations } from 'src/app/core/services/translations.service';
 import { TranslateService } from '@ngx-translate/core';
 import { TooltipDirection } from '../../models/tooltip-direction';
@@ -15,22 +15,24 @@ import { TooltipDirection } from '../../models/tooltip-direction';
 })
 export class CalendarComponent implements OnInit, OnChanges {
 
-  @Input() view: CalendarView = CalendarView.Month; // The current view (Month/Week/Day).
+  @Input() view: CalendarView = CalendarView.Day; // The current view (Month/Week/Day).
   @Input() date: Date = new Date();                 // The current date for our view.
   @Input() events: ICalendarEvent[] = [];           // All events for the calendar.
   @Input() daysOutlined: boolean = false;           // Displays an outline for each calendar day
   @Input() loading: boolean = false;                //
 
-  days: ICalendarDay[] = [];                        // The days for the current view.
-  daysPaddingPre: ICalendarDay[] = [];              // Any days before the month that should be rendered.
-  daysPaddingPost: ICalendarDay[] = [];             // Any days after the month that should be rendered.
+  dates: ICalendarDate[] = [];                        // The days for the current view.
+  datesPaddingPre: ICalendarDate[] = [];              // Any days before the month that should be rendered.
+  datesPaddingPost: ICalendarDate[] = [];             // Any days after the month that should be rendered.
 
   eventRows = 0;                                    // The highest # of events on any given day in our view.
   activeDayIndex = -1;                              // The active day (user selected)
 
   calendarStyle = {
-    'grid-template-rows': 'repeat(5, 75px)'
+    'grid-template-rows': 'repeat(5, 75px)',
+    'grid-template-columns': 'revert-layer'
   }
+  dateFormat = 'MMMM YYYY';
   
   toggleViewCallback = this.toggleView.bind(this);
   CalendarView = CalendarView;
@@ -42,7 +44,7 @@ export class CalendarComponent implements OnInit, OnChanges {
   previousButtonAria = this.translations.calendar.controls.previous.aria_month;
 
   constructor(public translations: Translations) {
-
+    
   }
 
   ngOnInit(): void {
@@ -56,7 +58,7 @@ export class CalendarComponent implements OnInit, OnChanges {
     }
   }
 
-  navigateCalendar(interval: number = 1, clickedDay: ICalendarDay | undefined = undefined): void {
+  navigateCalendar(interval: number = 1, clickedDay: ICalendarDate | undefined = undefined): void {
     switch(this.view) {
       case CalendarView.Day:
         this.date = addDays(this.date, interval);
@@ -71,7 +73,7 @@ export class CalendarComponent implements OnInit, OnChanges {
     this.buildView(clickedDay);
   }
 
-  dayClick(day: ICalendarDay): void {
+  dayClick(day: ICalendarDate): void {
     const diff = this.view === CalendarView.Month ? differenceInCalendarMonths(day.date, this.date) : (this.view === CalendarView.Week ? differenceInCalendarWeeks(day.date, this.date) : differenceInCalendarDays(day.date, this.date));
     if (diff !== 0) {
       this.activeDayIndex = -1;
@@ -81,15 +83,27 @@ export class CalendarComponent implements OnInit, OnChanges {
     this.setDayActive(day);
   }
 
-  private buildView(clickedDay: ICalendarDay | undefined = undefined): void {
-    this.daysPaddingPre = []; 
-    this.daysPaddingPost = []
-    this.days = [];
+  private buildView(clickedDay: ICalendarDate | undefined = undefined): void {
+    this.datesPaddingPre = []; 
+    this.datesPaddingPost = []
+    this.dates = [];
     this.eventRows = 0;
     this.activeDayIndex = -1;
 
     switch(this.view) {
       case CalendarView.Day:
+
+        const hoursInDay = 24;
+        
+        for (let i = 0 ; i < hoursInDay; i++) {
+          this.dates.push({ date: addHours(startOfDay(this.date), i), events: [] });
+        }
+
+        this.calendarStyle = {
+          'grid-template-rows': 'revert-layer',
+          'grid-template-columns': 'repeat(1, 100%)',
+        }
+        this.dateFormat = 'MMMM d, YYYY';
 
         break;
 
@@ -101,19 +115,21 @@ export class CalendarComponent implements OnInit, OnChanges {
           const date = addDays(startOfWeek(this.date), i);
 
           if (isSameMonth(date, this.date)) {
-            this.days.push({ date: date, events: [] });
+            this.dates.push({ date: date, events: [] });
           }
           else if (isSameMonth(date, subMonths(this.date, 1))) {
-            this.daysPaddingPre.push({ date: date, events: [] });
+            this.datesPaddingPre.push({ date: date, events: [] });
           }
           else {
-            this.daysPaddingPost.push({ date: date, events: [] });
+            this.datesPaddingPost.push({ date: date, events: [] });
           }
         }
         
         this.calendarStyle = {
-          'grid-template-rows': 'repeat(1, 75px)'
+          'grid-template-rows': 'repeat(1, 75px)',
+          'grid-template-columns': 'revert-layer',
         }
+        this.dateFormat = 'MMMM YYYY';
 
         break;
 
@@ -122,31 +138,33 @@ export class CalendarComponent implements OnInit, OnChanges {
         // Create days for each day of the month
         const daysMonth = getDaysInMonth(this.date);
         for (let i = 0 ; i < daysMonth; i++) {
-          this.days.push({ date: new Date(this.date.getFullYear() , this.date.getMonth(), i + 1), events: [] });
+          this.dates.push({ date: new Date(this.date.getFullYear() , this.date.getMonth(), i + 1), events: [] });
         }
       
         // Create any days for the previous month that are in the first week row
         const daysBeforeMonth = startOfMonth(this.date).getDay();
         for (let i = 0 ; i < daysBeforeMonth; i++) {
-          this.daysPaddingPre.push({ date: subDays(startOfMonth(this.date), i + 1), events: [] });
+          this.datesPaddingPre.push({ date: subDays(startOfMonth(this.date), i + 1), events: [] });
         }
-        this.daysPaddingPre.reverse();
+        this.datesPaddingPre.reverse();
       
         // Create any days for the next month that are in the final week row
         const daysAfterMonth = (daysMonth + daysBeforeMonth > 35 ? 42 : 35) - daysMonth - daysBeforeMonth;
         for (let i = 0 ; i < daysAfterMonth; i++) {
-          this.daysPaddingPost.push({ date: addDays(addMonths(startOfMonth(this.date), 1), i), events: [] });
+          this.datesPaddingPost.push({ date: addDays(addMonths(startOfMonth(this.date), 1), i), events: [] });
         }
 
         // Edge case when a month has 28 days and begins on Sunday, we don't need any post padding days.
         if (daysBeforeMonth == 0 && endOfMonth(this.date).getDay() == 28) {
-          this.daysPaddingPost = []
+          this.datesPaddingPost = []
         }
 
         // Update the calendar style to account for the number of week rows
         this.calendarStyle = {
-          'grid-template-rows': 'repeat(' + (daysMonth + daysBeforeMonth + daysAfterMonth) / 7 + ', 75px)'
+          'grid-template-rows': 'repeat(' + (daysMonth + daysBeforeMonth + daysAfterMonth) / 7 + ', 75px)',
+          'grid-template-columns': 'revert-layer',
         }
+        this.dateFormat = 'MMMM YYYY';
 
         break;
     }
@@ -158,7 +176,7 @@ export class CalendarComponent implements OnInit, OnChanges {
   }
 
   private injectEvents(): void {
-    let allDays = this.daysPaddingPre.concat(this.days, this.daysPaddingPost);
+    let allDays = this.datesPaddingPre.concat(this.dates, this.datesPaddingPost);
     allDays.forEach(day => {day.events = [];});
 
     var i = this.events.length;
@@ -166,12 +184,34 @@ export class CalendarComponent implements OnInit, OnChanges {
       allDays.forEach(day => {
 
         try {
-          const eventStartEndToday = isWithinInterval(this.events[i].startDate, {start: startOfDay(day.date), end: endOfDay(day.date)}) && isWithinInterval(this.events[i].endDate, {start: startOfDay(day.date), end: endOfDay(day.date)});
+          let addEvent = false;
 
-          if (eventStartEndToday ||
-              isWithinInterval(endOfDay(day.date), {start: this.events[i].startDate, end: this.events[i].endDate}) || 
-              isWithinInterval(startOfDay(day.date), {start: this.events[i].startDate, end: this.events[i].endDate})) { 
+          switch(this.view) {
+            case CalendarView.Month:
+            case CalendarView.Week:
 
+              const eventStartsEndsToday = isWithinInterval(this.events[i].startDate, {start: startOfDay(day.date), end: endOfDay(day.date)}) && 
+                                         isWithinInterval(this.events[i].endDate, {start: startOfDay(day.date), end: endOfDay(day.date)});
+
+              const eventSpansDay = isWithinInterval(endOfDay(day.date), {start: this.events[i].startDate, end: this.events[i].endDate}) || 
+                                    isWithinInterval(startOfDay(day.date), {start: this.events[i].startDate, end: this.events[i].endDate});
+
+              if (eventStartsEndsToday || eventSpansDay) 
+                addEvent = true;
+              
+              break;
+
+            case CalendarView.Day:
+              const eventStartsEndsHr = isSameHour(this.events[i].startDate, day.date) || isSameHour(this.events[i].endDate, day.date);
+              const eventSpansHr = isWithinInterval(day.date, {start: this.events[i].startDate, end: this.events[i].endDate});
+
+              if (eventStartsEndsHr || eventSpansHr) 
+                addEvent = true;
+              
+              break;
+          }
+
+          if (addEvent) {
             day.events.push(this.events[i]);
 
             if (day.events.length > this.eventRows)
@@ -183,20 +223,22 @@ export class CalendarComponent implements OnInit, OnChanges {
   }
 
   private toggleView(): void {
-    // TODO: Add back in the Day view.
     if (this.view == CalendarView.Month) {
       this.view = CalendarView.Week
     }
     else if (this.view == CalendarView.Week) {
+      this.view = CalendarView.Day;
+    }
+    else if (this.view == CalendarView.Day) {
       this.view = CalendarView.Month;
     }
     this.buildView();
     this.updateAria();
   }
 
-  private setDayActive(day: ICalendarDay) {
-    for (let i = 0; i < this.days.length; i++) {
-      if (day.date === this.days[i].date) {
+  private setDayActive(day: ICalendarDate) {
+    for (let i = 0; i < this.dates.length; i++) {
+      if (day.date === this.dates[i].date) {
         this.activeDayIndex = this.activeDayIndex === i ? -1 : i;
         break;
       }

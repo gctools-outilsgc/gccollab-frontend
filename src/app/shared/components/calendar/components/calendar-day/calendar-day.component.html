@@ -1,14 +1,14 @@
 <div *ngIf="!loading" class="day-wrapper" tabindex="0"
      [ngClass]="{'currentDay': currentDay, 'outsideOfMonth': outsideOfMonth, 'active': active, 'outline': outline}"
-     (click)="interact($event, calendarDay)"
-     (keydown)="interact($event, calendarDay)">
+     (click)="interact($event, calendarDate)"
+     (keydown)="interact($event, calendarDate)">
 
-    <div class="day-number">
-        {{ calendarDay.date | date : 'd' }}
+    <div *ngIf="view === CalendarView.Month || view === CalendarView.Week" class="day-number">
+        {{ calendarDate.date | date : 'd' }}
     </div>
 
     <div class="events-list">
-        <div *ngFor="let event of calendarDay.events; index as i" tabindex="0"
+        <div *ngFor="let event of calendarDate.events; index as i" tabindex="0"
              class="event"
              [matTooltip]="event.title"
              [ngStyle]="eventStyles[i]"
