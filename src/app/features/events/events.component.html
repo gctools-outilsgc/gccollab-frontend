@@ -1,1 +1,18 @@
-<p>events works!</p>
+<app-banner>
+    <div class="banner-text-top">
+        <div>
+            {{ translations.banner.event | translate }}
+        </div>
+      </div> 
+</app-banner>
+
+<app-page-title [pageTitle]="translations.titles.upcoming_events | translate"></app-page-title>
+
+<div>
+        <app-input  
+                    [name]="'eventSearchBar'"
+                    formControlName="eventSearchBar"
+                    [label]="translations.forms.event.search | translate"
+                    [placeholder]="translations.forms.search | translate">
+        </app-input>
+</div>

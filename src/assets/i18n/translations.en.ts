@@ -61,6 +61,7 @@ export default {
         "settings": "Settings",
         "thewire": "The Wire",
         "unauthorized": "Unauthorized",
+        "upcoming_events": "Up Coming Events",
         "forbidden": "Forbidden",
         "communities": "Communities",
         "notfound": "Not Found"
@@ -208,7 +209,8 @@ export default {
     },
 	"banner": {
         "welcome": "WELCOME",
-        "gccollab": "TO GCCollab"
+        "gccollab": "TO GCCollab",
+        "event": "Events"
     },
     "newsCard": {
         "like": {
@@ -269,6 +271,9 @@ export default {
         "alt": "A profile picture"
     },
     "event": {
+        "search": {
+            "title": "Search events"
+        },
         "date_time": "Date & Time:",
         "location": "Location:",
         "host": "Host:",
@@ -306,6 +311,7 @@ export default {
         "save": "Save",
         "saved_image": "Saved Image",
         "create": "Create",
+        "search": "Search events",
         "post": {
             "post": "Post"
         },
@@ -338,7 +344,8 @@ export default {
             "single_day": "One day event",
             "multi_day": "Multi-day event",
             "start_date": "Start date",
-            "end_date": "End date"
+            "end_date": "End date", 
+            "search": " "
         },
         "poll": {
             "description": "Poll description / question",
