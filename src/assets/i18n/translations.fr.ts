@@ -62,6 +62,7 @@ const fr: typeof import('./translations.en').default = {
         "thewire": "Le fil",
         "unauthorized": "Non autorisé",
         "upcoming_events": "Événements à venir",
+        "previous_events": "Événements précédents",
         "forbidden": "Interdit",
         "communities": "Communautés",
         "notfound": "Pas trouvé"
@@ -78,8 +79,9 @@ const fr: typeof import('./translations.en').default = {
             "moreEvents": "Plus d'événements",
             "moreConnections": "Plus de connexions",
             "moreGroups": "Plus des groupes"
+        }, 
+        "more": "Voir Plus"
 
-        }
     },
     "header": {
         "home": {

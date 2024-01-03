@@ -16,3 +16,38 @@
                     [placeholder]="translations.forms.search | translate">
         </app-input>
 </div>
+ 
+<div class="upcoming-events-content">
+    <section>
+        <!--
+        <app-event-list [model]="event"
+                        [isLoading]="loadingEvents"
+                        (confirm)="confirmEvent()"
+                        (decline)="declineEvent()">
+        </app-event-list> -->
+        <div class="click-for-more">
+            <a routerLink="{{ '/' + routes.Events }}">
+                {{ translations.features.more | translate }}
+            </a>
+        </div>
+    </section>
+</div> 
+
+<app-page-title [pageTitle]="translations.titles.previous_events | translate"></app-page-title>
+
+<div class="previous-events-content">
+    <section>
+        <!--
+        <app-event-list [model]="event"
+                        [isLoading]="loadingEvents"
+                        cardSize = 
+                        (confirm)="confirmEvent()"
+                        (decline)="declineEvent()">
+        </app-event-list> -->
+        <div class="click-for-more">
+            <a routerLink="{{ '/' + routes.Events }}">
+                {{ translations.features.more | translate }}
+            </a>
+        </div>
+    </section>
+</div> 

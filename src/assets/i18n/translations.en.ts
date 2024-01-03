@@ -62,6 +62,7 @@ export default {
         "thewire": "The Wire",
         "unauthorized": "Unauthorized",
         "upcoming_events": "Up Coming Events",
+        "previous_events": "Previous Events",
         "forbidden": "Forbidden",
         "communities": "Communities",
         "notfound": "Not Found"
@@ -78,7 +79,8 @@ export default {
             "moreEvents": "More events",
             "moreConnections": "More connections",
             "moreGroups": "More groups"
-        }
+        },
+        "more": "See more"
     },
     "header": {
         "home": {
