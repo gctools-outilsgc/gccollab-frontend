@@ -9,18 +9,35 @@
 <app-page-title [pageTitle]="translations.titles.upcoming_events | translate"></app-page-title>
 
 <div>
-        <app-input  
-                    [name]="'eventSearchBar'"
-                    formControlName="eventSearchBar"
-                    [control]="form.controls['eventSearchBar'] | formControl"
-                    [label]="translations.forms.event.search | translate"
-                    [placeholder]="translations.forms.search | translate">
-        </app-input>
+    <app-input  
+        [name]="'eventSearchBar'"
+        formControlName="eventSearchBar"
+        [control]="form.controls['eventSearchBar'] | formControl"
+        [label]="translations.forms.event.search | translate"
+        [placeholder]="translations.forms.search | translate">
+    </app-input>
 </div>
  
 <div class="upcoming-events-content">
     <section>
-        <app-list [service]="eventService" [cardSize]="'large'" orientation="vertical" [pageSize]="2" [paging]="false"></app-list> 
+        <div class="upcoming-events-top">
+            <app-list 
+                [service]="eventService" 
+                [cardSize]="'large'" 
+                orientation="grid" 
+                [pageSize]="2" 
+                [paging]="false">
+            </app-list> 
+        </div>
+        <div class="upcoming-events-bottom">
+            <app-list 
+                [service]="eventService" 
+                [cardSize]="'large'" 
+                orientation="grid" 
+                [pageSize]="2" 
+                [paging]="false">
+            </app-list> 
+        </div>
         <div class="click-for-more">
             <a routerLink="{{ '/' + routes.Events }}">
                 {{ translations.features.more | translate }}
@@ -29,11 +46,32 @@
     </section>
 </div> 
 
-<app-page-title [pageTitle]="translations.titles.previous_events | translate"></app-page-title>
+<div class="events-page-title">
+    <app-page-title 
+    [pageTitle]="translations.titles.previous_events | translate">
+    </app-page-title>
+</div>
 
 <div class="previous-events-content">
     <section>
-        <app-list [service]="eventService" [cardSize]="'large'" orientation="vertical" [pageSize]="2" [paging]="false"></app-list> 
+        <div class="previous-events-top">
+            <app-list 
+                [service]="eventService" 
+                [cardSize]="'large'" 
+                orientation="grid" 
+                [pageSize]="2" 
+                [paging]="false">
+            </app-list> 
+        </div>
+        <div class="previous-events-bottom">
+            <app-list 
+                [service]="eventService" 
+                [cardSize]="'large'" 
+                orientation="grid" 
+                [pageSize]="2" 
+                [paging]="false">
+            </app-list> 
+        </div>
         <div class="click-for-more">
             <a routerLink="{{ '/' + routes.Events }}">
                 {{ translations.features.more | translate }}

@@ -1,24 +1,32 @@
 
 :host {
-    
-        .upcoming-events-content {
 
-            .click-for-more {
-            text-align: center;
-            text-decoration: underline;
-            font-weight: bold;
-            margin-top: 50px;
-            }  
+    .upcoming-events-content {
+        .upcoming-events-top {
+            padding-bottom: 5%;
         }
-
-        .previous-events-content {
-
-            .click-for-more {
-            text-align: center;
-            text-decoration: underline;
-            font-weight: bold;
-            margin-top: 50px;
-            }
+        .upcoming-events-bottom {
+            padding-bottom: 5%;
         }
-    
+        .click-for-more {
+        text-align: center;
+        text-decoration: underline;
+        font-weight: bold;
+        }  
+    }
+
+    .previous-events-content {
+        .previous-events-top {
+            padding-bottom: 5%;
+        }
+        .previous-events-bottom {
+            padding-bottom: 5%;
+        }
+        .click-for-more {
+        text-align: center;
+        text-decoration: underline;
+        font-weight: bold;
+        }
+    }
+
 }
