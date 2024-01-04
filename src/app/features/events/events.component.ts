@@ -1,7 +1,9 @@
 import { Component, Input } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { CoreRoutes } from 'src/app/core/constants/routes.constants';
 import { Translations } from 'src/app/core/services/translations.service';
 import { MaterialButtonType } from 'src/app/shared/models/material-button-type';
-
+import { FormControlPipe } from 'src/app/shared/pipes/form-control/form-control.pipe';
 
 @Component({
   templateUrl: './events.component.html',
@@ -9,11 +11,24 @@ import { MaterialButtonType } from 'src/app/shared/models/material-button-type';
 })
 export class EventsComponent {
 
+  routes = CoreRoutes;
+  @Input() form: FormGroup = new FormGroup({});
+  @Input() control!: FormControl;
   @Input() loading: boolean = false;
   @Input() editing: boolean = false;
-
+  events: Event[] = [];
+  eventsPage: number = 1;
+  loadingEvents: boolean = true;
   materialButtonType = MaterialButtonType;
 
   constructor(public translations: Translations) {}
+
+  confirmEvent() {
+    throw new Error('Method not implemented.');
+    }
+
+  declineEvent() {
+    throw new Error('Method not implemented.');
+  }
 
 }
