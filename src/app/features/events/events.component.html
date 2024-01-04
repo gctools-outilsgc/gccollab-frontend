@@ -22,6 +22,7 @@
     <section>
         <div class="upcoming-events-top">
             <app-list 
+                [loadTime]="0"
                 [service]="eventService" 
                 [cardSize]="'large'" 
                 orientation="grid" 
@@ -32,6 +33,7 @@
         </div>
         <div class="upcoming-events-bottom">
             <app-list 
+                [loadTime]="0"
                 [service]="eventService" 
                 [cardSize]="'large'" 
                 orientation="grid" 
@@ -58,6 +60,7 @@
     <section>
         <div class="previous-events-top">
             <app-list 
+                [loadTime]="0"
                 [service]="eventService" 
                 [cardSize]="'large'" 
                 orientation="grid" 
@@ -68,6 +71,7 @@
         </div>
         <div class="previous-events-bottom">
             <app-list 
+                [loadTime]="0"
                 [service]="eventService" 
                 [cardSize]="'large'" 
                 orientation="grid" 
