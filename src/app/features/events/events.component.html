@@ -12,7 +12,7 @@
         <app-input  
                     [name]="'eventSearchBar'"
                     formControlName="eventSearchBar"
-                    [control]="form.controls['name'] | formControl"
+                    [control]="form.controls['eventSearchBar'] | formControl"
                     [label]="translations.forms.event.search | translate"
                     [placeholder]="translations.forms.search | translate">
         </app-input>
@@ -20,13 +20,7 @@
  
 <div class="upcoming-events-content">
     <section>
-        <div *ngFor="let event of model" class="event-list">
-            <app-event-list [model]="event" 
-                            [cardSize]="cardSize"
-                            (confirm)="confirmEvent(event)" 
-                            (decline)="declineEvent(event)">
-            </app-event-list>
-        </div>
+        <app-list [service]="eventService" [cardSize]="'large'" orientation="vertical" [pageSize]="2" [paging]="false"></app-list> 
         <div class="click-for-more">
             <a routerLink="{{ '/' + routes.Events }}">
                 {{ translations.features.more | translate }}
@@ -39,13 +33,7 @@
 
 <div class="previous-events-content">
     <section>
-        <!--
-        <app-event-list [model]="event"
-                        [isLoading]="loadingEvents"
-                        cardSize = 
-                        (confirm)="confirmEvent()"
-                        (decline)="declineEvent()">
-        </app-event-list> -->
+        <app-list [service]="eventService" [cardSize]="'large'" orientation="vertical" [pageSize]="2" [paging]="false"></app-list> 
         <div class="click-for-more">
             <a routerLink="{{ '/' + routes.Events }}">
                 {{ translations.features.more | translate }}

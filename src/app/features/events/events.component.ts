@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { CoreRoutes } from 'src/app/core/constants/routes.constants';
 import { Translations } from 'src/app/core/services/translations.service';
 import { MaterialButtonType } from 'src/app/shared/models/material-button-type';
-import { FormControlPipe } from 'src/app/shared/pipes/form-control/form-control.pipe';
+import { EventService } from 'src/app/core/services/event.service';
 
 @Component({
   templateUrl: './events.component.html',
@@ -21,7 +21,8 @@ export class EventsComponent {
   loadingEvents: boolean = true;
   materialButtonType = MaterialButtonType;
 
-  constructor(public translations: Translations) {}
+  constructor(public translations: Translations, 
+              public eventService: EventService) {}
 
   confirmEvent() {
     throw new Error('Method not implemented.');
@@ -31,4 +32,7 @@ export class EventsComponent {
     throw new Error('Method not implemented.');
   }
 
+  ngOnInit(): void {
+          this.form.addControl("eventSearchBar", new FormControl("", []));
+  }
 }

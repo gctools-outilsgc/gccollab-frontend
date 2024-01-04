@@ -1,15 +1,24 @@
 
 :host {
+    
         .upcoming-events-content {
+
+            .click-for-more {
             text-align: center;
             text-decoration: underline;
             font-weight: bold;
+            margin-top: 50px;
+            }  
         }
 
         .previous-events-content {
+
+            .click-for-more {
             text-align: center;
             text-decoration: underline;
             font-weight: bold;
+            margin-top: 50px;
+            }
         }
     
 }
