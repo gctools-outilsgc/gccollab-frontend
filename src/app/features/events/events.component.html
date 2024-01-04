@@ -8,7 +8,7 @@
 
 <app-page-title [pageTitle]="translations.titles.upcoming_events | translate"></app-page-title>
 
-<div>
+<div class="search-input-form">
     <app-input  
         [name]="'eventSearchBar'"
         formControlName="eventSearchBar"
@@ -26,6 +26,7 @@
                 [cardSize]="'large'" 
                 orientation="grid" 
                 [pageSize]="2" 
+                [columnGap]="20" 
                 [paging]="false">
             </app-list> 
         </div>
@@ -35,6 +36,7 @@
                 [cardSize]="'large'" 
                 orientation="grid" 
                 [pageSize]="2" 
+                [columnGap]="20" 
                 [paging]="false">
             </app-list> 
         </div>
@@ -60,6 +62,7 @@
                 [cardSize]="'large'" 
                 orientation="grid" 
                 [pageSize]="2" 
+                [columnGap]="20" 
                 [paging]="false">
             </app-list> 
         </div>
@@ -69,6 +72,7 @@
                 [cardSize]="'large'" 
                 orientation="grid" 
                 [pageSize]="2" 
+                [columnGap]="20" 
                 [paging]="false">
             </app-list> 
         </div>
