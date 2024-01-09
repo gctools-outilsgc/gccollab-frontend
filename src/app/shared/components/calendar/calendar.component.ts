@@ -220,6 +220,22 @@ export class CalendarComponent implements OnInit, OnChanges {
         } catch(e) {} // Start/End Date incompatible so don't add it.
       });
     }
+
+    //this.alignDayEvents();
+  }
+
+  private alignDayEvents(): void {
+
+    const sortEvents = (events: ICalendarEvent[]) => events.sort((a, b) => a.startDate.getTime() - b.startDate.getTime());
+    this.dates[0].events = sortEvents(this.dates[0].events);
+
+    for (let i = 1; i < this.dates.length; i++) {
+
+      const sortedEvents = [...this.dates[i - 1].events];
+
+      this.dates[i].events = sortedEvents.map(event => this.dates[i].events.find(e => e.startDate === event.startDate)) as ICalendarEvent[];
+      this.dates[i].events = sortEvents(this.dates[i].events);
+    }
   }
 
   private toggleView(): void {

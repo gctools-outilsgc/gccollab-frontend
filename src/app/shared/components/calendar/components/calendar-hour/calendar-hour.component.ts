@@ -14,13 +14,13 @@ import { isSameDay, isSameHour, isWithinInterval, startOfHour, endOfHour} from '
 export class CalendarHourComponent implements OnInit {
   @Input({required: true}) calendarHour: ICalendarDate = { date: new Date(), events: [] };
   @Input({required: true}) prevCalendarHour: ICalendarDate = { date: new Date(), events: [] };
+  @Input({required: true}) nextCalendarHour: ICalendarDate = { date: new Date(), events: [] };
   @Input() eventRows: number = 0;
   @Input() loading: boolean = false;
   @Input() outline: boolean = false;
 
   currentDay: boolean = false;
   eventStyles: IEventStyle[] = [];
-  eventOffsets: string = '0px';
 
   private iterableDifferEvents: IterableDiffer<ICalendarEvent>;
 
@@ -49,23 +49,43 @@ export class CalendarHourComponent implements OnInit {
   }
 
   private sortEvents(): void {
-    this.calendarHour.events.sort((a, b) => a.startDate.getTime() - b.startDate.getTime());
-    this.calendarHour.events.reverse();
+
+    const sortEvents = (events: ICalendarEvent[]) => events.sort((a, b) => a.startDate.getTime() - b.startDate.getTime());
+    this.calendarHour.events = sortEvents(this.calendarHour.events);
+
+    const sortedEvents = [...this.prevCalendarHour.events];
+
+    this.calendarHour.events = sortedEvents.map(event => this.calendarHour.events.find(e => e.startDate === event.startDate)) as ICalendarEvent[];
+    this.calendarHour.events = sortEvents(this.calendarHour.events);
   }
 
   private buildEventStyles(): void {
     this.eventStyles = [];
 
+    let shifted = 0;
     for (let i = 0; i < this.calendarHour.events.length; i++) {
+      let diff = 0;
+
+      let prevHourEventIndex = (this.prevCalendarHour.events.findIndex((event: ICalendarEvent) => {
+        return event == this.calendarHour.events[i];
+      }));
+      
+      // Get the index difference between the event today and the event yesterday.
+      if (this.prevCalendarHour.events.includes(this.calendarHour.events[i])) {
+        diff = Math.abs(prevHourEventIndex - i);
+      }
+
+      const offset = diff - shifted;
+      
       this.eventStyles.push({
         'width': this.eventWidth,
-        'background-color': this.calendarHour.events[i].color
+        'background-color': this.calendarHour.events[i].color,
+        'margin-left': `calc(${offset} * (${this.eventWidth} + ${this.eventGap}))`
       });
-    }
 
-    if (this.calendarHour.events.length < this.eventRows) {
-      let diff = Math.abs(this.calendarHour.events.length - this.eventRows);
-      this.eventOffsets = `calc(${diff} * (${this.eventWidth} + ${this.eventGap}))`;
+      // Keep track of the number of times we shifted for the event to line up.
+      if (diff > 0) 
+        shifted++;
     }
   }
 }
@@ -73,4 +93,5 @@ export class CalendarHourComponent implements OnInit {
 interface IEventStyle {
   'width': string;
   'background-color': string;
+  'margin-left': string;
 }

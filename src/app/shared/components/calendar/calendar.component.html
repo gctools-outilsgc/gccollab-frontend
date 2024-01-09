@@ -81,6 +81,7 @@
             <app-calendar-hour *ngFor="let day of dates; index as i"
                                [calendarHour]="day"
                                [prevCalendarHour]="i > 0 ? dates[i - 1] : day"
+                               [nextCalendarHour]="i < dates.length ? dates[i + 1] : day"
                                [eventRows]="eventRows"
                                [outline]="daysOutlined"
                                [loading]="loading">
