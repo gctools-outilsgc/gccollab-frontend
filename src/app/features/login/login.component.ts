@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Translations } from 'src/app/core/services/translations.service';
 
 @Component({
+  selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })

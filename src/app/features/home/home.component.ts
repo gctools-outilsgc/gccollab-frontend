@@ -13,6 +13,7 @@ import { Group } from '../groups/models/group';
 import { GroupService } from 'src/app/core/services/group.service';
 
 @Component({
+  selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
