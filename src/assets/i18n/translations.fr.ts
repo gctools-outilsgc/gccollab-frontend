@@ -61,6 +61,8 @@ const fr: typeof import('./translations.en').default = {
         "settings": "Réglages",
         "thewire": "Le fil",
         "unauthorized": "Non autorisé",
+        "upcoming_events": "Événements à venir",
+        "previous_events": "Événements précédents",
         "forbidden": "Interdit",
         "communities": "Communautés",
         "notfound": "Pas trouvé"
@@ -77,8 +79,9 @@ const fr: typeof import('./translations.en').default = {
             "moreEvents": "Plus d'événements",
             "moreConnections": "Plus de connexions",
             "moreGroups": "Plus des groupes"
+        }, 
+        "more": "Voir Plus"
 
-        }
     },
     "header": {
         "home": {
@@ -209,7 +212,8 @@ const fr: typeof import('./translations.en').default = {
     },
 	"banner": {
         "welcome": "BIENVENUE",
-        "gccollab": "À GCCollab"
+        "gccollab": "À GCCollab", 
+        "event": "Événements"
     },
     "newsCard": {
         "like": {
@@ -270,6 +274,9 @@ const fr: typeof import('./translations.en').default = {
         "alt": "Une photo de profil"
     },
     "event": {
+        "search": {
+            "title": "Search events"
+        },
         "date_time": "Date & Heure:",
         "location": "Emplacement:",
         "host": "Hôte:",
@@ -307,6 +314,7 @@ const fr: typeof import('./translations.en').default = {
         "save": "Sauvegarder",
         "saved_image": "Image enregistrée",
         "create": "Créer",
+        "search": "Rechercher des événements",
         "post": {
             "post": "Poste"
         },
@@ -339,7 +347,8 @@ const fr: typeof import('./translations.en').default = {
             "single_day": "Événement d'une journée",
             "multi_day": "Événement sur plusieurs jours",
             "start_date": "Date de début",
-            "end_date": "Date de fin"
+            "end_date": "Date de fin",
+            "search": " "
         },
         "poll": {
             "description": "Description/question du sondage",

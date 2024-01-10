@@ -1,0 +1,39 @@
+
+:host {
+
+    .search-input-form {
+        .search-container {
+            align-items: center;
+        }
+    }
+    
+    .upcoming-events-content {
+        .upcoming-events-top {
+            padding-top: 3%;
+            padding-bottom: 5%;
+        }
+        .upcoming-events-bottom {
+            padding-bottom: 5%;
+        }
+        .click-for-more {
+        text-align: center;
+        text-decoration: underline;
+        font-weight: bold;
+        }  
+    }
+
+    .previous-events-content {
+        .previous-events-top {
+            padding-bottom: 5%;
+        }
+        .previous-events-bottom {
+            padding-bottom: 5%;
+        }
+        .click-for-more {
+        text-align: center;
+        text-decoration: underline;
+        font-weight: bold;
+        }
+    }
+
+}

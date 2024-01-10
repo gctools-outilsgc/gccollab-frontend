@@ -125,7 +125,8 @@ import { ListComponent } from './components/list/list.component';
     BlogFormComponent,
     EventFormComponent,
     PollFormComponent,
-    ListComponent
+    ListComponent, 
+    FormControlPipe
   ],
   providers: [
     {
