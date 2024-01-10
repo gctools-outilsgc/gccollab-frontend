@@ -9,13 +9,16 @@
 <app-page-title [pageTitle]="translations.titles.upcoming_events | translate"></app-page-title>
 
 <div class="search-input-form">
-    <app-input  
-        [name]="'eventSearchBar'"
-        formControlName="eventSearchBar"
-        [control]="form.controls['eventSearchBar'] | formControl"
-        [label]="translations.forms.event.search | translate"
-        [placeholder]="translations.forms.search | translate">
-    </app-input>
+    <div class="search-container">
+        <app-input  
+            [name]="'eventSearchBar'"
+            formControlName="eventSearchBar"
+            [control]="form.controls['eventSearchBar'] | formControl"
+            [label]="translations.forms.event.search | translate"
+            [placeholder]="translations.forms.search | translate"
+            [icon]="searchIcon">
+        </app-input>
+    </div>
 </div>
  
 <div class="upcoming-events-content">
@@ -25,7 +28,7 @@
                 [loadTime]="0"
                 [service]="eventService" 
                 [cardSize]="'large'" 
-                orientation="grid" 
+                orientation="horizontal" 
                 [pageSize]="2" 
                 [columnGap]="20" 
                 [paging]="false">
@@ -36,7 +39,7 @@
                 [loadTime]="0"
                 [service]="eventService" 
                 [cardSize]="'large'" 
-                orientation="grid" 
+                orientation="horizontal" 
                 [pageSize]="2" 
                 [columnGap]="20" 
                 [paging]="false">
@@ -63,7 +66,7 @@
                 [loadTime]="0"
                 [service]="eventService" 
                 [cardSize]="'large'" 
-                orientation="grid" 
+                orientation="horizontal" 
                 [pageSize]="2" 
                 [columnGap]="20" 
                 [paging]="false">
@@ -74,7 +77,7 @@
                 [loadTime]="0"
                 [service]="eventService" 
                 [cardSize]="'large'" 
-                orientation="grid" 
+                orientation="horizontal" 
                 [pageSize]="2" 
                 [columnGap]="20" 
                 [paging]="false">

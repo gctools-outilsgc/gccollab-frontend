@@ -1,6 +1,12 @@
 
 :host {
 
+    .search-input-form {
+        .search-container {
+            align-items: center;
+        }
+    }
+    
     .upcoming-events-content {
         .upcoming-events-top {
             padding-top: 3%;
