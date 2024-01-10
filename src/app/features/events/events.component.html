@@ -1,1 +1,92 @@
-<p>events works!</p>
+<app-banner>
+    <div class="banner-text-top">
+        <div>
+            {{ translations.banner.event | translate }}
+        </div>
+      </div> 
+</app-banner>
+
+<app-page-title [pageTitle]="translations.titles.upcoming_events | translate"></app-page-title>
+
+<div class="search-input-form">
+    <div class="search-container">
+        <app-input  
+            [name]="'eventSearchBar'"
+            formControlName="eventSearchBar"
+            [control]="form.controls['eventSearchBar'] | formControl"
+            [label]="translations.forms.event.search | translate"
+            [placeholder]="translations.forms.search | translate"
+            [icon]="searchIcon">
+        </app-input>
+    </div>
+</div>
+ 
+<div class="upcoming-events-content">
+    <section>
+        <div class="upcoming-events-top">
+            <app-list 
+                [loadTime]="0"
+                [service]="eventService" 
+                [cardSize]="'large'" 
+                orientation="horizontal" 
+                [pageSize]="2" 
+                [columnGap]="20" 
+                [paging]="false">
+            </app-list> 
+        </div>
+        <div class="upcoming-events-bottom">
+            <app-list 
+                [loadTime]="0"
+                [service]="eventService" 
+                [cardSize]="'large'" 
+                orientation="horizontal" 
+                [pageSize]="2" 
+                [columnGap]="20" 
+                [paging]="false">
+            </app-list> 
+        </div>
+        <div class="click-for-more">
+            <a routerLink="{{ '/' + routes.Events }}">
+                {{ translations.features.more | translate }}
+            </a>
+        </div>
+    </section>
+</div> 
+
+<div class="events-page-title">
+    <app-page-title 
+    [pageTitle]="translations.titles.previous_events | translate">
+    </app-page-title>
+</div>
+
+<div class="previous-events-content">
+    <section>
+        <div class="previous-events-top">
+            <app-list 
+                [loadTime]="0"
+                [service]="eventService" 
+                [cardSize]="'large'" 
+                orientation="horizontal" 
+                [pageSize]="2" 
+                [columnGap]="20" 
+                [paging]="false">
+            </app-list> 
+        </div>
+        <div class="previous-events-bottom">
+            <app-list 
+                [loadTime]="0"
+                [service]="eventService" 
+                [cardSize]="'large'" 
+                orientation="horizontal" 
+                [pageSize]="2" 
+                [columnGap]="20" 
+                [paging]="false">
+            </app-list> 
+        </div>
+        <div class="click-for-more">
+            <a routerLink="{{ '/' + routes.Events }}">
+                {{ translations.features.more | translate }}
+            </a>
+        </div>
+    </section>
+</div> 
