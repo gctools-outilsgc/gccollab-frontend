@@ -12,8 +12,8 @@ import { EventService } from 'src/app/core/services/event.service';
 export class EventsComponent {
 
   routes = CoreRoutes;
-  @Input() form: FormGroup = new FormGroup({});
-  @Input() searchIcon: string = 'fa-solid fa-magnifying-glass';
+  form: FormGroup = new FormGroup({});
+  searchIcon: string = 'fa-solid fa-magnifying-glass';
   eventsPage: number = 1;
   loadingEvents: boolean = true;
   materialButtonType = MaterialButtonType;
