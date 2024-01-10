@@ -1,10 +1,10 @@
 # Getting Started
 
-Install [Node](https://nodejs.org/en/blog/release/v16.14.2) at version 18.10.0.  
+Install [Node](https://nodejs.org/en/blog/release/v18.13.0) at version 18.13.0.  
 
-Install the Angular CLI at version 16.0.0
+Install the Angular CLI at version 17.0.0
 
-    npm install -g @angular/cli@16.0.0
+    npm install -g @angular/cli@17.0.0
 
 Navigate to the project and Install the packages
 

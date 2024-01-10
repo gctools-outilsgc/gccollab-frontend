@@ -101,13 +101,13 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "gccollab-frontend:build:production"
+              "buildTarget": "gccollab-frontend:build:production"
             },
             "development": {
-              "browserTarget": "gccollab-frontend:build:development"
+              "buildTarget": "gccollab-frontend:build:development"
             },
             "pullrequest": {
-              "browserTarget": "gccollab-frontend:build:pullrequest"
+              "buildTarget": "gccollab-frontend:build:pullrequest"
             }
           },
           "defaultConfiguration": "development"
@@ -115,7 +115,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "gccollab-frontend:build"
+            "buildTarget": "gccollab-frontend:build"
           }
         },
         "test": {
