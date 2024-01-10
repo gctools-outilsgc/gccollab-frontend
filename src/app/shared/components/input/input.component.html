@@ -13,6 +13,9 @@
     </mat-label>
 
     <mat-form-field>
+
+        <i *ngIf="icon" [ngClass]="icon" class="gcc-input-icon"></i>
+
         <input matInput 
                [id]="inputId"
                [name]="name"
@@ -26,8 +29,6 @@
                [attr.errorStateMatcher]="errorMatcher"
                [ngClass]="{icon: icon}"
         >
-
-        <i *ngIf="icon" [ngClass]="icon" class="gcc-input-icon"></i>
 
         <app-button *ngIf="type == inputType.Password" 
                     [matButtonType]="materialButtonType.Icon"
