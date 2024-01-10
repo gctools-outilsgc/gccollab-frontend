@@ -13,24 +13,12 @@ export class EventsComponent {
 
   routes = CoreRoutes;
   @Input() form: FormGroup = new FormGroup({});
-  @Input() control!: FormControl;
-  @Input() loading: boolean = false;
-  @Input() editing: boolean = false;
-  events: Event[] = [];
   eventsPage: number = 1;
   loadingEvents: boolean = true;
   materialButtonType = MaterialButtonType;
 
   constructor(public translations: Translations, 
               public eventService: EventService) {}
-
-  confirmEvent() {
-    throw new Error('Method not implemented.');
-    }
-
-  declineEvent() {
-    throw new Error('Method not implemented.');
-  }
 
   ngOnInit(): void {
           this.form.addControl("eventSearchBar", new FormControl("", []));
