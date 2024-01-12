@@ -12,7 +12,8 @@
     "test": "ng test",
     "install-graphviz-linux": "sudo apt install graphviz",
     "install-graphviz-win": "winget install -e --id Graphviz.Graphviz --accept-package-agreements --accept-source-agreements --disable-interactivity && set PATH=%PATH%;C:\\Program Files\\Graphviz\\bin;",
-    "depcruise": "depcruise src --include-only \"^src\" --config --output-type dot | dot -T svg > dependency-graph.svg"
+    "depcruise": "depcruise src --include-only \"^src\" --config --output-type dot | dot -T svg > dependency-graph.svg",
+    "node-sync": "node ./src/scripts/nodeSyncWorkflows.js"
   },
   "private": true,
   "dependencies": {
