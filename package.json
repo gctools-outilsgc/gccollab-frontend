@@ -12,36 +12,37 @@
     "test": "ng test",
     "install-graphviz-linux": "sudo apt install graphviz",
     "install-graphviz-win": "winget install -e --id Graphviz.Graphviz --accept-package-agreements --accept-source-agreements --disable-interactivity && set PATH=%PATH%;C:\\Program Files\\Graphviz\\bin;",
-    "depcruise": "depcruise src --include-only \"^src\" --config --output-type dot | dot -T svg > dependency-graph.svg"
+    "depcruise": "depcruise src --include-only \"^src\" --config --output-type dot | dot -T svg > dependency-graph.svg",
+    "node-sync": "node ./src/scripts/nodeSyncWorkflows.js"
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^16.2.0",
+    "@angular/animations": "^17.0.8",
     "@angular/cdk": "^16.0.0",
-    "@angular/common": "^16.2.0",
-    "@angular/compiler": "^16.2.0",
-    "@angular/core": "^16.2.0",
-    "@angular/forms": "^16.2.0",
+    "@angular/common": "^17.0.8",
+    "@angular/compiler": "^17.0.8",
+    "@angular/core": "^17.0.8",
+    "@angular/forms": "^17.0.8",
     "@angular/material": "^16.0.0",
-    "@angular/platform-browser": "^16.2.0",
-    "@angular/platform-browser-dynamic": "^16.2.0",
-    "@angular/router": "^16.2.0",
+    "@angular/platform-browser": "^17.0.8",
+    "@angular/platform-browser-dynamic": "^17.0.8",
+    "@angular/router": "^17.0.8",
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
     "angular-auth-oidc-client": "^14.1.5",
     "lorem-ipsum": "^2.0.8",
     "ngx-editor": "^15.3.0",
-    "ngx-infinite-scroll": "^16.0.0",
+    "ngx-infinite-scroll": "^17.0.0",
     "ngx-skeleton-loader": "^7.0.0",
     "ngx-translate-routes": "^1.4.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.13.0"
+    "zone.js": "~0.14.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^16.2.0",
-    "@angular/cli": "~16.2.0",
-    "@angular/compiler-cli": "^16.2.0",
+    "@angular-devkit/build-angular": "^17.0.9",
+    "@angular/cli": "~17.0.9",
+    "@angular/compiler-cli": "^17.0.8",
     "@types/jasmine": "~4.0.0",
     "dependency-cruiser": "^12.10.1",
     "jasmine-core": "~4.3.0",
@@ -50,6 +51,6 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
-    "typescript": "~4.9.3"
+    "typescript": "~5.2.0"
   }
 }

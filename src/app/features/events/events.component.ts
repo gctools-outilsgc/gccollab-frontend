@@ -6,6 +6,7 @@ import { MaterialButtonType } from 'src/app/shared/models/material-button-type';
 import { EventService } from 'src/app/core/services/event.service';
 
 @Component({
+  selector: 'app-events',
   templateUrl: './events.component.html',
   styleUrls: ['./events.component.scss']
 })
