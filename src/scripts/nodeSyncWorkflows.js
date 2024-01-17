@@ -6,6 +6,7 @@ const workflowFilePaths = [
     '.github/workflows/dependency-graph.yml',
     '.github/workflows/deploy-dev.yml',
     '.github/workflows/deploy-pr.yml',
+    '.github/workflows/lint.yml',
 ];
 
 exec('npm run ng v', (error, stdout, stderr) => {

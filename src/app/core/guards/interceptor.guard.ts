@@ -24,7 +24,7 @@ export class InterceptorGuard  {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     
-    let retUrl = this.sessionStorageService.read(this.returnUrlKey);
+    const retUrl = this.sessionStorageService.read(this.returnUrlKey);
 
     if (retUrl) {
 

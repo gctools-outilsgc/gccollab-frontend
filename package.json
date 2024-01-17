@@ -13,7 +13,8 @@
     "install-graphviz-linux": "sudo apt install graphviz",
     "install-graphviz-win": "winget install -e --id Graphviz.Graphviz --accept-package-agreements --accept-source-agreements --disable-interactivity && set PATH=%PATH%;C:\\Program Files\\Graphviz\\bin;",
     "depcruise": "depcruise src --include-only \"^src\" --config --output-type dot | dot -T svg > dependency-graph.svg",
-    "node-sync": "node ./src/scripts/nodeSyncWorkflows.js"
+    "node-sync": "node ./src/scripts/nodeSyncWorkflows.js",
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
@@ -41,10 +42,18 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^17.0.9",
+    "@angular-eslint/builder": "17.2.0",
+    "@angular-eslint/eslint-plugin": "17.2.0",
+    "@angular-eslint/eslint-plugin-template": "17.2.0",
+    "@angular-eslint/schematics": "17.2.0",
+    "@angular-eslint/template-parser": "17.2.0",
     "@angular/cli": "~17.0.9",
     "@angular/compiler-cli": "^17.0.8",
     "@types/jasmine": "~4.0.0",
+    "@typescript-eslint/eslint-plugin": "6.18.0",
+    "@typescript-eslint/parser": "6.18.0",
     "dependency-cruiser": "^12.10.1",
+    "eslint": "^8.56.0",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",

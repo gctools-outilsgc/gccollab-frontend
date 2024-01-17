@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router, RouterEvent }from '@angular/router';
 import { filter, Subscription } from 'rxjs';
 import { CoreRoutes } from './core/constants/routes.constants';
@@ -14,7 +14,7 @@ import { Translations } from './core/services/translations.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnDestroy {
+export class AppComponent implements OnInit, OnDestroy {
 
   showHeaderFooter: boolean = true;
   showSearchBar: boolean = false;
@@ -60,18 +60,18 @@ export class AppComponent implements OnDestroy {
   }
 
   initTranslationService(): void {
-    this.langChangeSub = this.translateService.onLangChange.subscribe(({lang, translations}) => {
+    this.langChangeSub = this.translateService.onLangChange.subscribe(({lang}) => {
       this.languageStorageService.setLanguage(lang);
     });
 
-    let savedLang = this.languageStorageService.getLanguage();
+    const savedLang = this.languageStorageService.getLanguage();
 
     if (savedLang !== null && (savedLang == 'en' || 'fr')) {
       this.translateService.setDefaultLang(savedLang);
       this.translateService.use(savedLang);
     }
     else {
-      let browserLang = this.translateService.getBrowserLang();
+      const browserLang = this.translateService.getBrowserLang();
 
       if (browserLang && (browserLang == 'en' || 'fr')) {
         this.translateService.setDefaultLang(browserLang);
@@ -83,7 +83,7 @@ export class AppComponent implements OnDestroy {
   initRouteChangeSubscription(): void {
     this.routeChangeSub = this.router.events.pipe(filter(e => e instanceof NavigationEnd)).subscribe((e) => { 
       let url = (e as RouterEvent).url;
-      let queryIndex = url.indexOf('?');
+      const queryIndex = url.indexOf('?');
       url = url.substring(1, queryIndex > -1 ? queryIndex : undefined);
       
       if (url === CoreRoutes.Splash) {
