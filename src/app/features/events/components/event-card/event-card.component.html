@@ -37,7 +37,7 @@
                             [tooltipDirection]="tooltipDirection.Above"
                             [disabled]="loading || model?.canceled == true || isPast()"
                             [theme]="model?.declined ? 'disabled' : 'secondary-2'"
-                            (click)="confirmEvent()">
+                            [clickFunc]="confirmEventCallback">
                     <i *ngIf="!loading" 
                     class="fa-circle-check"
                     [ngClass]="model?.confirmed || model?.declined ? 'fa-solid' : 'fa-regular'">
@@ -52,7 +52,7 @@
                             [ariaLabel]="(model?.declined ? translations.eventCard.decline.aria_off : translations.eventCard.decline.aria_on) | translate"
                             [disabled]="loading || model?.canceled == true || isPast()"
                             [theme]="model?.confirmed ? 'disabled' : 'error'"
-                            (click)="declineEvent()">
+                            [clickFunc]="declineEventCallback">
                     <i *ngIf="!loading" 
                     class="fa-circle-xmark"
                     [ngClass]="model?.declined || model?.confirmed ? 'fa-solid' : 'fa-regular'">
