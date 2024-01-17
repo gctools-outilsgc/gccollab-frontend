@@ -31,7 +31,8 @@
                 orientation="horizontal" 
                 [pageSize]="2" 
                 [columnGap]="20" 
-                [paging]="false">
+                [paging]="false"
+                [filter]="filterUpcomingEvents">
             </app-list> 
         </div>
         <div class="upcoming-events-bottom">
@@ -42,7 +43,8 @@
                 orientation="horizontal" 
                 [pageSize]="2" 
                 [columnGap]="20" 
-                [paging]="false">
+                [paging]="false"
+                [filter]="filterUpcomingEvents">
             </app-list> 
         </div>
         <div class="click-for-more">
@@ -69,7 +71,8 @@
                 orientation="horizontal" 
                 [pageSize]="2" 
                 [columnGap]="20" 
-                [paging]="false">
+                [paging]="false"
+                [filter]="filterPreviousEvents">
             </app-list> 
         </div>
         <div class="previous-events-bottom">
@@ -80,7 +83,8 @@
                 orientation="horizontal" 
                 [pageSize]="2" 
                 [columnGap]="20" 
-                [paging]="false">
+                [paging]="false"
+                [filter]="filterPreviousEvents">
             </app-list> 
         </div>
         <div class="click-for-more">

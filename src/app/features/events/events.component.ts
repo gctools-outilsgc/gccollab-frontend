@@ -24,4 +24,14 @@ export class EventsComponent {
   ngOnInit(): void {
           this.form.addControl("eventSearchBar", new FormControl("", []));
   }
+
+  filterUpcomingEvents = (event : any) => {
+    const currentDate = new Date();
+    return event.startDate >= currentDate;
+  }
+
+  filterPreviousEvents = (event: any) => {
+    const currentDate = new Date();
+    return event.startDate < currentDate;
+  }
 }

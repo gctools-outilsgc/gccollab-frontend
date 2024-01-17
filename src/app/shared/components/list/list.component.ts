@@ -21,6 +21,7 @@ export class ListComponent implements OnInit {
   @Input() pageSize: number = 3;
   @Input() pagesToLoad: number = 3;
   @Input() loadTime: number = 5000;
+  @Input() filter: Function | undefined;
 
   currentPage: number = 1;
   lastPage: number = this.currentPage;
