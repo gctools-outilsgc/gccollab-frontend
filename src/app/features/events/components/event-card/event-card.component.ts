@@ -27,7 +27,6 @@ export class EventCardComponent implements ICardComponent {
 
   confirmEventCallback: Function = this.confirmEvent.bind(this);
   declineEventCallback: Function = this.declineEvent.bind(this);
-  clickEventCallback: Function = this.clickEvent.bind(this);
 
   constructor(public translations: Translations,
               private router: Router) 
