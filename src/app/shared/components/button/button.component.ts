@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ButtonType } from '../../models/button-type';
 import { MaterialButtonType } from '../../models/material-button-type';
 import { MaterialColor } from '../../models/material-color';
@@ -33,9 +33,13 @@ export class ButtonComponent implements OnInit {
 
   public materialButtonType = MaterialButtonType;
 
-  constructor() { }
+  constructor(private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
   }
 
+  modifiedClickFunc() {
+    this.clickFunc(); // calling clickFunc here
+    this.cdr.detectChanges(); // change detection 
+  }
 }
