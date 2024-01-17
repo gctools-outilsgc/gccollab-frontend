@@ -20,7 +20,7 @@ exec('npm run ng v', (error, stdout, stderr) => {
     }
 
     const nodeVersionMatch = stdout.match(/Node:\s+(\d+\.\d+\.\d+)/);
-    const nodeVersion = '10.0.0'; //nodeVersionMatch ? nodeVersionMatch[1] : null;
+    const nodeVersion = nodeVersionMatch ? nodeVersionMatch[1] : null;
 
     if (nodeVersion) {
         for (let i = 0; i < workflowFilePaths.length; i++) {
