@@ -145,7 +145,9 @@ export class EventService implements IListService {
 
   private randomDate() {
     let startDate = new Date();
-    let endDate = new Date('2024/12/31');
+    startDate.setDate(startDate.getDate() - 7);
+    let endDate = new Date();
+    endDate.setFullYear(endDate.getFullYear() + 1);
     return new Date(startDate.getTime() + Math.random() * (endDate.getTime() - startDate.getTime()));
   }
 
