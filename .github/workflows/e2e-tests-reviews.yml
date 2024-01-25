@@ -34,12 +34,12 @@ jobs:
           git config user.name "github-actions[pat]"
           git config user.email "vid_github@zooid.org"
 
-      - name: Merge main branch
+      - name: Merge base branch
         run: |
-          git fetch origin main
-          git merge --allow-unrelated-histories -X theirs origin/main
+          git fetch origin e2e-tests-reviews
+          git merge --allow-unrelated-histories -X theirs origin/e2e-tests-reviews
 
-      - name: Install main dependencies
+      - name: Install frontend dependencies
         run: npm ci
 
       - name: ng build
