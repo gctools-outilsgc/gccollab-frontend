@@ -1,46 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Group, GroupStatus } from 'src/app/features/groups/models/group';
-import { IListService } from '../interfaces/list-service.interface';
-import { GroupCardComponent } from 'src/app/features/groups/components/group-card/group-card.component';
 
 @Injectable({
     providedIn: 'root'
   })
-  export class GroupService implements IListService {
+  export class GroupService {
 
     private id: number = 0;
-    private delay: number = 5000;
 
-    public groups: Group[] = [
-      this.generateRandomGroupItem(),
-      this.generateRandomGroupItem(),
-      this.generateRandomGroupItem(),
-      this.generateRandomGroupItem(),
-      this.generateRandomGroupItem(),
-      this.generateRandomGroupItem(),
-      this.generateRandomGroupItem(),
-      this.generateRandomGroupItem(),
-      this.generateRandomGroupItem(),
-      this.generateRandomGroupItem()
-    ];
+  constructor() { }
 
-    public dataType = Group;
-    public cardComponent = GroupCardComponent;
+  mockGetGroups(count: number = 10, delay: number = 5000): Observable<Group[]> {
+    let response: Group[] = [];
 
-    constructor() { }
-
-    get(id: string | null, delay: number = this.delay): Observable<Group> {
-      let response: Group;
-  
-      for(let i = 0; i < this.groups.length; i++) {
-        if (this.groups[i].id == id) {
-          response = this.groups[i];
-          break;
-        }
+    for (let i = 0; i < count; i++) {
+        response.push(this.generateRandomGroupItem());
       }
   
-      let observable: Observable<Group> = new Observable((subscriber) => {
+      let observable: Observable<Group[]> = new Observable((subscriber) => {
         setTimeout(() => {
           subscriber.next(response);
           subscriber.complete();
@@ -50,20 +28,16 @@ import { GroupCardComponent } from 'src/app/features/groups/components/group-car
       return observable;
     }
 
-    getMany(count: number = 10, delay: number = this.delay): Observable<Group[]> {
-      let observable: Observable<Group[]> = new Observable((subscriber) => {
-        setTimeout(() => {
-          subscriber.next(this.groups.slice(0, count > this.groups.length ? this.groups.length : count));
-          subscriber.complete();
-        }, delay);
-      });
-  
-      return observable;
-    }
-
     private generateRandomGroupItem(): Group {
-        const group = new Group(this.id.toString(), this.randomName(), this.randomDisplayPicture(), this.randomGroupStatus());
+        const group = new Group();
+    
+        group.id = this.id.toString();
+        group.name = this.randomName();
+        group.displayPicture = this.randomDisplayPicture();
+        group.groupStatus = this.randomGroupStatus();
+    
         this.id++;
+        
         return group;
     }
 

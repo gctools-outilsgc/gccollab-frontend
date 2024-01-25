@@ -1,4 +1,4 @@
-# This action will deploy the app to the dev environment once new code is pushed on main.
+# This action will deploy the app to the dev environment once new code is pushed on master.
 
 
 name: Deploy to Development
@@ -6,13 +6,13 @@ name: Deploy to Development
 on:
   push:
     branches:
-      - main
+      - master
   workflow_dispatch:
 
 env:
   AZURE_WEBAPP_NAME: gccollab-dev
   AZURE_WEBAPP_PACKAGE_PATH: './dist/gccollab-frontend'
-  NODE_VERSION: '18.13.0'
+  NODE_VERSION: '16.14.2'
 
 jobs:
   build-test-and-deploy:

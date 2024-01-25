@@ -72,27 +72,6 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
-            },
-            "pullrequest": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "1mb",
-                  "maximumError": "100mb"
-                }
-              ],
-              "buildOptimizer": false,
-              "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true,
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.pr.ts"
-                }
-              ]
             }
           },
           "defaultConfiguration": "production"
@@ -101,13 +80,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "gccollab-frontend:build:production"
+              "browserTarget": "gccollab-frontend:build:production"
             },
             "development": {
-              "buildTarget": "gccollab-frontend:build:development"
-            },
-            "pullrequest": {
-              "buildTarget": "gccollab-frontend:build:pullrequest"
+              "browserTarget": "gccollab-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -115,7 +91,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "gccollab-frontend:build"
+            "browserTarget": "gccollab-frontend:build"
           }
         },
         "test": {

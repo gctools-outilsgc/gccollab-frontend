@@ -25,21 +25,9 @@
     </mat-card-header>
 
     <mat-card-content>
-        <ng-container *ngIf="!loading && model">
-
-            <ng-container *ngIf="isPost(model)">
-                <p [innerHTML]="model.content"></p>
-            </ng-container>
-
-            <ng-container *ngIf="isBlog(model)">
-                <p [innerHTML]="model.content"></p>
-            </ng-container>
-
-            <ng-container *ngIf="isPoll(model)">
-                <p [innerHTML]="model.content"></p>
-            </ng-container>
-        </ng-container>
-
+        <p *ngIf="!loading">
+            {{ model?.content }}
+        </p>
         <ngx-skeleton-loader *ngIf="loading" 
                              count="6" 
                              appearance="line" 
@@ -49,9 +37,7 @@
 
     <mat-card-actions>
         <div class="left-actions">
-
-
-            <app-button [matButtonType]="materialButtonType.Basic"
+            <app-button [matButtonType]="materialButtonType.Icon"
                         [tooltip]="translations.newsCard.like.tooltip | translate"
                         [ariaLabel]="(liked ? translations.newsCard.like.aria_on : translations.newsCard.like.aria_off) | translate"
                         [disabled]="loading"
@@ -61,15 +47,13 @@
                 </i>
                 {{ model ? (model.likes > 0 ? model.likes + (liked ? 1 : 0) : '') : ''}}
             </app-button>
-
-            <app-button [matButtonType]="materialButtonType.Basic"
+            <app-button [matButtonType]="materialButtonType.Icon"
                         [tooltip]="translations.newsCard.comment.tooltip | translate"
                         [ariaLabel]="translations.newsCard.comment.aria | translate"
                         [disabled]="loading">
                 <i class="fa-regular fa-comment"></i> 
-                {{ model?.comments }}
+                {{ model?.comments ? model?.comments : '' }}
             </app-button>
-
             <app-button [matButtonType]="materialButtonType.Icon"
                         [tooltip]="translations.newsCard.share.tooltip | translate"
                         [ariaLabel]="translations.newsCard.share.aria | translate"

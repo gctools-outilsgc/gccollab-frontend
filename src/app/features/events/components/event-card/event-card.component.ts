@@ -5,8 +5,6 @@ import { MaterialButtonType } from 'src/app/shared/models/material-button-type';
 import { Router } from '@angular/router';
 import { CoreRoutes } from 'src/app/core/constants/routes.constants';
 import { TooltipDirection } from 'src/app/shared/models/tooltip-direction';
-import { ICardComponent } from 'src/app/core/interfaces/card-component.interface';
-import { CardSize } from 'src/app/shared/models/card-size';
 
 @Component({
   selector: 'app-event-card',
@@ -14,19 +12,15 @@ import { CardSize } from 'src/app/shared/models/card-size';
   styleUrls: ['./event-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EventCardComponent implements ICardComponent {
+export class EventCardComponent {
   @Input() model?: Event;
   @Input() loading: boolean = false;
-  @Input() cardSize: CardSize | string = CardSize.Small;
   @Output() confirm = new EventEmitter();
   @Output() decline = new EventEmitter();
 
   materialButtonType = MaterialButtonType;
   tooltipDirection = TooltipDirection;
   routes = CoreRoutes;
-
-  confirmEventCallback: Function = this.confirmEvent.bind(this);
-  declineEventCallback: Function = this.declineEvent.bind(this);
 
   constructor(public translations: Translations,
               private router: Router) 
@@ -37,7 +31,7 @@ export class EventCardComponent implements ICardComponent {
       
       this.model.confirmed = !this.model.confirmed;
 
-      if (this.model.confirmed && this.model.declined) 
+      if (this.model.confirmed && this.model.declined)
         this.model.declined = false;
 
       if (this.model.confirmed)
@@ -50,7 +44,7 @@ export class EventCardComponent implements ICardComponent {
 
       this.model.declined = !this.model.declined;
       
-      if (this.model.declined && this.model.confirmed) 
+      if (this.model.declined && this.model.confirmed)
         this.model.confirmed = false;
 
       if (this.model.declined)

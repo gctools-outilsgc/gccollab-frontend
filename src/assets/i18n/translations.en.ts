@@ -45,24 +45,18 @@ export default {
         "bookmarks": "Bookmarks",
         "dashboards": "Dashboards",
         "events": "Events",
-        "event": "Event",
         "friends": "Friends",
         "groups": "Groups",
-        "group": "Group",
         "invite": "Invite",
         "members": "Members",
         "messages": "Messages",
         "missions": "Careers",
         "newsfeed": "Newsfeed",
-        "poll": "Poll",
-        "post": "Post",
         "profile": "Profile",
         "search": "Search",
         "settings": "Settings",
         "thewire": "The Wire",
         "unauthorized": "Unauthorized",
-        "upcoming_events": "Up Coming Events",
-        "previous_events": "Previous Events",
         "forbidden": "Forbidden",
         "communities": "Communities",
         "notfound": "Not Found"
@@ -79,8 +73,7 @@ export default {
             "moreEvents": "More events",
             "moreConnections": "More connections",
             "moreGroups": "More groups"
-        },
-        "more": "See more"
+        }
     },
     "header": {
         "home": {
@@ -178,8 +171,7 @@ export default {
         "title": "Title",
         "remove": "Remove",
         "horizontalrule": "Horizontal Rule",
-        "formatclear": "Clear Formatting",
-        "enabled": " enabled"
+        "formatclear": "Clear Formatting"
     },
     "input": {
         "hint": {
@@ -204,15 +196,12 @@ export default {
         },
         "error": {
             "required": "is required.",
-            "email": "Please enter a valid email.",
-            "minLength": "Minimum character length is ",
-            "maxLength": "Maximum character length is "
+            "email": "Please enter a valid email."
         }
     },
 	"banner": {
         "welcome": "WELCOME",
-        "gccollab": "TO GCCollab",
-        "event": "Events"
+        "gccollab": "TO GCCollab"
     },
     "newsCard": {
         "like": {
@@ -250,10 +239,7 @@ export default {
             "aria_on": "Click to decline this event",
             "tooltip_off": "Rescind declination",
             "aria_off": "Click to rescind your declination of the event"
-        },
-        "canceled": "Canceled",
-        "organizer": "Organizer",
-        "location": "Location"
+        }
     },
     "profileCard": {
         "confirm": {
@@ -271,99 +257,5 @@ export default {
     },
     "profile_pic": {
         "alt": "A profile picture"
-    },
-    "event": {
-        "search": {
-            "title": "Search events"
-        },
-        "date_time": "Date & Time:",
-        "location": "Location:",
-        "host": "Host:",
-        "event_description": "Event Description",
-        "event_registration": "Event Registration",
-        "form": {
-            "full_name": "Full Name",
-            "full_name_error": "Your full name is required.",
-            "email": "Email Address",
-            "email_error": "Your email address is required.",
-            "email_confirm": "Confirm Email Address",
-            "email_confirm_error": "Your email must match.",
-            "occupation": "Occupation",
-            "occupation_error": "Your occupation is required.",
-            "occupation_hint": "This would be your current job title.",
-            "add_calendar": "Add to my calendar",
-            "agree_with": "I agree with the ",
-            "terms_conditions": "terms and conditions",
-            "register": "REGISTER",
-            "placeholder": "Type here"
-        },
-        "share": {
-            "tooltip": "Share",
-            "aria": "Click to share this event."
-        },
-        "bookmark": {
-            "tooltip_on": "Bookmark",
-            "tooltip_off": "Bookmarked",
-            "aria_on": "Click to bookmark this event.",
-            "aria_off": "Click to remove this event from your bookmarks."
-        }
-    },
-    "forms": {
-        "placeholder": "Type here",
-        "save": "Save",
-        "saved_image": "Saved Image",
-        "create": "Create",
-        "search": "Search events",
-        "post": {
-            "post": "Post"
-        },
-        "blog": {
-            "name_of_blog": "Name of Blog",
-            "name_of_publisher": "Name of publisher",
-            "upload_cover_photo": "Upload a cover photo",
-            "cover_photo_alt": "Cover photo alt text",
-            "body": "Body"
-        },
-        "event": {
-            "type_of_event": "Type of event",
-            "type_of_event_aria" : "Select an event type",
-            "in_person": "In-person",
-            "hybrid": "Hybrid",
-            "online": "Online",
-            "name_of_organizer": "Name of organizer",
-            "name_of_event": "Name of event",
-            "event_language": "Language of event",
-            "event_language_aria": "Select a language for your event",
-            "english": "English",
-            "french": "French",
-            "bilingual": "Bilingual",
-            "body": "Body",
-            "body_hint": "Start writing.",
-            "location": "Location",
-            "platform": "Online streaming platform",
-            "duration": "Event duration",
-            "duration_aria": "Select a duration for your event",
-            "single_day": "One day event",
-            "multi_day": "Multi-day event",
-            "start_date": "Start date",
-            "end_date": "End date", 
-            "search": " "
-        },
-        "poll": {
-            "description": "Poll description / question",
-            "option": "Option",
-            "option_add": "Add an option",
-            "option_remove": "Remove option"
-        }
-    },
-    "file_select": {
-        "error": {
-            "size": "File is too large. Maximum size allowed is ",
-            "extension": "The file selected doesn't have an accepted extension.",
-            "characters": "Files have a maximum character count of ",
-            "img_small": "Images must be at minimum ",
-            "img_large": "Images have a maximum of ",
-            "read": "Error reading the file."
-        }
     }
 };

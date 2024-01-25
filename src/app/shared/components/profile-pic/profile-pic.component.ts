@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Person } from 'src/app/core/models/person.model';
+import { Person } from 'src/app/core/models/person';
 import { Translations } from 'src/app/core/services/translations.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';

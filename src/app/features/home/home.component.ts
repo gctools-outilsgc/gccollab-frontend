@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Translations } from 'src/app/core/services/translations.service';
 import { InputType } from 'src/app/shared/models/input-type';
 
-import { INewsItem } from '../news-feed/models/INewsItem';
+import { NewsItem } from '../news-feed/models/news-item';
 import { NewsService } from 'src/app/core/services/news.service';
+import { Observable, Subscription } from 'rxjs';
 import { Event } from '../events/models/event';
 import { EventService } from 'src/app/core/services/event.service';
 import { CoreRoutes } from 'src/app/core/constants/routes.constants';
-import { Person } from 'src/app/core/models/person.model';
+import { Person } from 'src/app/core/models/person';
 import { PeopleService } from 'src/app/core/services/people.service';
 import { Group } from '../groups/models/group';
 import { GroupService } from 'src/app/core/services/group.service';
 
 @Component({
-  selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
@@ -23,7 +24,7 @@ export class HomeComponent implements OnInit {
   routes = CoreRoutes;
 
   // News
-  newsItems: INewsItem[] = [];
+  newsItems: NewsItem[] = [];
   newsPage: number = 1;
   loadingNews: boolean = true;
 
@@ -43,30 +44,30 @@ export class HomeComponent implements OnInit {
   loadingGroups: boolean = true;
 
   constructor(public translations: Translations, 
-              public newsService: NewsService, 
-              public eventService: EventService, 
-              public peopleService: PeopleService,
-              public groupService: GroupService) {
+              private newsService: NewsService, 
+              private eventService: EventService, 
+              private peopleService: PeopleService,
+              private groupService: GroupService) {
 
   }
 
   ngOnInit(): void {
-    this.newsService.getMany(10, 5000).subscribe((newsItems: INewsItem[]) => {
+    this.newsService.mockGetNewsItems(10, 5000).subscribe((newsItems: NewsItem[]) => {
       this.newsItems = newsItems;
       this.loadingNews = false;
     });
 
-    this.eventService.getMany(3, 5000).subscribe((events: Event[]) => {
+    this.eventService.mockGetEvents(3, 5000).subscribe((events: Event[]) => {
       this.events = events;
       this.loadingEvents = false;
     });
 
-    this.peopleService.getMany(3, 5000).subscribe((people: Person[]) => {
+    this.peopleService.mockGetPeople(3, 5000).subscribe((people: Person[]) => {
       this.people = people;
       this.loadingPeople = false;
     });
 
-    this.groupService.getMany(3, 5000).subscribe((groups: Group[]) => {
+    this.groupService.mockGetGroups(3, 5000).subscribe((groups: Group[]) => {
       this.groups = groups;
       this.loadingGroups = false;
     });
@@ -75,7 +76,7 @@ export class HomeComponent implements OnInit {
   onNewsScroll(): void {
     this.loadingNews = true;
     
-    this.newsService.getMany(10, 3000).subscribe((newsItems: INewsItem[]) => {
+    this.newsService.mockGetNewsItems(10, 3000).subscribe((newsItems: NewsItem[]) => {
       this.newsItems.push(...newsItems);
       this.loadingNews = false;
     });

@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Event } from '../../models/event';
-import { CardSize } from 'src/app/shared/models/card-size';
 
 @Component({
   selector: 'app-event-list',
@@ -12,7 +11,7 @@ export class EventListComponent {
   @Input() model?: Event[];
   @Input() isLoading: boolean = false;
   @Input() loadingCount: number = 3;
-  @Input() cardSize: string | CardSize = CardSize.Small;
+
   @Output() confirm = new EventEmitter();
   @Output() decline = new EventEmitter();
 

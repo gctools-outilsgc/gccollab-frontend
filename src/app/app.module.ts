@@ -42,10 +42,9 @@ import { GroupsComponent } from './features/groups/groups.component';
     }),
     NgxTranslateRoutesModule.forRoot({
       enableRouteTranslate: true,
-      enableTitleTranslate: false,
-      
+      enableTitleTranslate: false
     }),
-    BrowserAnimationsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     { 

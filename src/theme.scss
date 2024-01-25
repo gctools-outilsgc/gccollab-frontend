@@ -32,7 +32,7 @@ $theme: mat.define-light-theme((
 // Custom Overrides
 body {
     background-color: $background;
-    color: #000;
+    color: $neutral-900;
 }
 
 //Component Overrides
@@ -55,53 +55,5 @@ body {
     font-family: 'Material Icons Outlined', 'Material Icons';
     .mat-badge-content {
         font-family: 'Inter';
-    }
-}
-mat-checkbox {
-    label {
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        a {
-            color: $primary-1-dark;
-        }
-    }
-}
-mat-tab-header {
-    margin-right: 65px;
-    padding-bottom: 30px;
-    .mat-mdc-tab-labels {
-        display: inline-flex;
-        background-color: $neutral-200;
-        border-radius: 10px;
-        .mdc-tab__text-label {
-            font-size: large;
-            font-weight: 600;
-            transition: color 0.25s ease;
-        }
-    }
-    .mdc-tab {
-        height: 40px;
-        border-radius: 10px;
-        transition: background-color 0.25s ease;
-        .mdc-tab__text-label {
-            color: $neutral-900 !important;
-            font-weight: 500;
-        }
-    }
-    .mat-mdc-tab:hover,
-    .mat-mdc-tab.cdk-keyboard-focused {
-        .mdc-tab__ripple::before {
-            border-radius: 10px;
-        }
-    }
-    .mdc-tab--active {
-        background-color: $primary-1;
-        .mdc-tab__text-label {
-            color: $primary-1-contrast !important;
-        }
-    }
-    .mdc-tab-indicator {
-        display: none;
     }
 }

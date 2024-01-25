@@ -1,5 +1,5 @@
 @import '../assets//scss/partials/layout';
-@import '../assets/scss/partials/header';
+@import "../assets/scss/partials/header";
 
 .gcc-main {
     flex: 1;
@@ -14,17 +14,4 @@
 
 .gcc-header-expanded {
     margin-top: $header-height-expanded-desktop;
-}
-
-::ng-deep { 
-    .page-container {
-        display: flex;
-        flex-direction: row;
-        min-height: 500px;
-
-        .side-content {
-            width: 33%;
-            min-width: 300px;
-        }
-    }
 }

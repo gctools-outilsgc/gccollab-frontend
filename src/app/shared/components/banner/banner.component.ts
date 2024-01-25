@@ -1,28 +1,32 @@
 import { Component, Input } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { Translations } from 'src/app/core/services/translations.service';
 
 @Component({
   selector: 'app-banner',
   templateUrl: './banner.component.html',
   styleUrls: ['./banner.component.scss']
+
 })
 
 export class BannerComponent {
 
-  @Input() model: Banner | null = null;
+  @Input() model: Banner | undefined;
   @Input() headerExpanded: boolean = false;
-  @Input() loading: boolean = false;
   
-  constructor() {
-    if (!this.model) {
-      this.model = new Banner();
-    }
-  }
+  constructor(public translations: Translations) {}
+
 }
 
 export class Banner {
-  backgroundImage: string;
 
-  constructor(backgroundImage: string = '../../../../assets/image/banner.svg') {
+  textTop: string;
+  textBottom: string;
+  backgroundImage: string = '../../../../assets/svg/banner.svg';
+
+  constructor(backgroundImage: string, textTop: string = '', textBottom: string = '') {
     this.backgroundImage = backgroundImage;
+    this.textTop = textTop;
+    this.textBottom = textBottom;
   }
 }

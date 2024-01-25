@@ -11,6 +11,8 @@ import { UnauthorizedComponent } from './shared/components/unauthorized/unauthor
 import { ForbiddenComponent } from './shared/components/forbidden/forbidden.component';
 import { Translations } from './core/services/translations.service';
 
+import { Banner } from './shared/components/banner/banner.component';
+
 let translations = Translations.getInstance();
 
 const routes: Routes = [
@@ -36,7 +38,8 @@ const routes: Routes = [
     canActivate: [InterceptorGuard],
     data: {
       title: translations.titles.home, 
-      breadcrumb: translations.titles.home
+      breadcrumb: translations.titles.home,
+      banner: new Banner('./assets/svg/banner.svg', translations.banner.welcome, translations.banner.gccollab)
     }
   },
   {
@@ -107,6 +110,7 @@ const routes: Routes = [
     path: CoreRoutes.Blog,
     title: translations.titles.blog,
     loadChildren: () => import('./features/blog/blog.module').then(m => m.BlogModule),
+    canActivate: [AuthGuard],
     data: {
       title: translations.titles.blog,
       breadcrumb: translations.titles.blog
@@ -116,7 +120,7 @@ const routes: Routes = [
     path: CoreRoutes.Bookmarks,
     title: translations.titles.bookmarks,
     loadChildren: () => import('./features/bookmarks/bookmarks.module').then(m => m.BookmarksModule),
-    canActivate: [AuthGuard, InterceptorGuard],
+    canActivate: [AuthGuard],
     data: {
       title: translations.titles.bookmarks,
       breadcrumb: translations.titles.bookmarks
@@ -126,7 +130,7 @@ const routes: Routes = [
     path: CoreRoutes.Dashboard,
     title: translations.titles.dashboards,
     loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule),
-    canActivate: [AuthGuard, InterceptorGuard],
+    canActivate: [AuthGuard],
     data: {
       title: translations.titles.dashboards,
       breadcrumb: translations.titles.dashboards
@@ -141,6 +145,7 @@ const routes: Routes = [
     path: CoreRoutes.Events,
     title: translations.titles.events,
     loadChildren: () => import('./features/events/events.module').then(m => m.EventsModule),
+    canActivate: [AuthGuard],
     data: {
       title: translations.titles.events,
       breadcrumb: translations.titles.events
@@ -150,7 +155,7 @@ const routes: Routes = [
     path: CoreRoutes.Friends,
     title: translations.titles.friends,
     loadChildren: () => import('./features/friends/friends.module').then(m => m.FriendsModule),
-    canActivate: [AuthGuard, InterceptorGuard],
+    canActivate: [AuthGuard],
     data: {
       title: translations.titles.friends,
       breadcrumb: translations.titles.friends
@@ -160,7 +165,7 @@ const routes: Routes = [
     path: CoreRoutes.Groups,
     title: translations.titles.groups,
     loadChildren: () => import('./features/groups/groups.module').then(m => m.GroupsModule),
-    canActivate: [AuthGuard, InterceptorGuard],
+    canActivate: [AuthGuard],
     data: {
       title: translations.titles.groups,
       breadcrumb: translations.titles.groups
@@ -170,7 +175,7 @@ const routes: Routes = [
     path: CoreRoutes.Invite,
     title: translations.titles.invite,
     loadChildren: () => import('./features/invite/invite.module').then(m => m.InviteModule),
-    canActivate: [AuthGuard, InterceptorGuard],
+    canActivate: [AuthGuard],
     data: {
       title: translations.titles.invite,
       breadcrumb: translations.titles.invite
@@ -180,7 +185,7 @@ const routes: Routes = [
     path: CoreRoutes.Members,
     title: translations.titles.members,
     loadChildren: () => import('./features/members/members.module').then(m => m.MembersModule),
-    canActivate: [AuthGuard, InterceptorGuard],
+    canActivate: [AuthGuard],
     data: {
       title: translations.titles.members,
       breadcrumb: translations.titles.members
@@ -190,7 +195,7 @@ const routes: Routes = [
     path: CoreRoutes.Messages,
     title: translations.titles.messages,
     loadChildren: () => import('./features/messages/messages.module').then(m => m.MessagesModule),
-    canActivate: [AuthGuard, InterceptorGuard],
+    canActivate: [AuthGuard],
     data: {
       title: translations.titles.messages,
       breadcrumb: translations.titles.messages
@@ -200,6 +205,7 @@ const routes: Routes = [
     path: CoreRoutes.Missions,
     title: translations.titles.missions,
     loadChildren: () => import('./features/missions/missions.module').then(m => m.MissionsModule),
+    canActivate: [AuthGuard],
     data: {
       title: translations.titles.missions,
       breadcrumb: translations.titles.missions
@@ -209,7 +215,7 @@ const routes: Routes = [
     path: CoreRoutes.NewsFeed,
     title: translations.titles.newsfeed,
     loadChildren: () => import('./features/news-feed/news-feed.module').then(m => m.NewsFeedModule),
-    canActivate: [AuthGuard, InterceptorGuard],
+    canActivate: [AuthGuard],
     data: {
       title: translations.titles.newsfeed,
       breadcrumb: translations.titles.newsfeed
@@ -219,7 +225,7 @@ const routes: Routes = [
     path: CoreRoutes.Profile,
     title: translations.titles.profile,
     loadChildren: () => import('./features/profile/profile.module').then(m => m.ProfileModule),
-    canActivate: [AuthGuard, InterceptorGuard],
+    canActivate: [AuthGuard],
     data: {
       title: translations.titles.profile,
       breadcrumb: translations.titles.profile
@@ -229,6 +235,7 @@ const routes: Routes = [
     path: CoreRoutes.Search,
     title: translations.titles.search,
     loadChildren: () => import('./features/search/search.module').then(m => m.SearchModule),
+    canActivate: [AuthGuard],
     data: {
       title: translations.titles.search,
       breadcrumb: translations.titles.search
@@ -238,7 +245,7 @@ const routes: Routes = [
     path: CoreRoutes.Settings,
     title: translations.titles.settings,
     loadChildren: () => import('./features/settings/settings.module').then(m => m.SettingsModule),
-    canActivate: [AuthGuard, InterceptorGuard],
+    canActivate: [AuthGuard],
     data: {
       title: translations.titles.settings,
       breadcrumb: translations.titles.settings
@@ -248,6 +255,7 @@ const routes: Routes = [
     path: CoreRoutes.TheWire,
     title: translations.titles.thewire,
     loadChildren: () => import('./features/the-wire/the-wire.module').then(m => m.TheWireModule),
+    canActivate: [AuthGuard],
     data: {
       title: translations.titles.thewire,
       breadcrumb: translations.titles.thewire

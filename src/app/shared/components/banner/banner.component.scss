@@ -3,44 +3,45 @@
 @import "../../../../assets/scss/partials/layout";
 @import "../../../../assets/scss/partials/font-weights";
 
-:host {
-  display: block;
-  width: 100vw;
-  margin-left: -$gutter-desktop;
-  margin-top: -$padding-vertical;
+.banner {
+  position: relative;
+  width: 100%;
+  height: 25vw;
+  min-height: 215px;
+  max-height: 420px;
 
-  .banner {
-    position: relative;
+  img {
     width: 100%;
-    height: 25vw;
-    min-height: 215px;
-    max-height: 420px;
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
-    margin-top: 0;
-  
-    img {
-      width: 100%;
+  }
+
+  .banner-text-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    color: $primary-1-contrast;
+    font-size: 68px;
+    font-weight: $bold;
+    cursor: default;
+    top: 0;
+
+    > div {
+      height: 50%;
     }
-  
-    .banner-content-container {
-      height: 100%;
-      margin: 0 $gutter-desktop;
-      font-size: 68px;
-      font-weight: $bold;
-      color: $primary-1-contrast;
-      cursor: default;
-    }
-  
-    ngx-skeleton-loader {
-      display: block;
-      height: 100%;
-  
-      ::ng-deep {
-        >div {
-          height: 100%;
-        }
+
+    .top, .bottom {
+      position: relative;
+      padding-left: $gutter-desktop;
+
+      div {
+        position: absolute;
       }
+    }
+
+    .top > div {
+      bottom: 0;
+    }
+    .bottom > div {
+      top: 0;
     }
   }
 }

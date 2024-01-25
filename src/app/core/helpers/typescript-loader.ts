@@ -16,11 +16,6 @@ export class TypescriptLoader implements TranslateLoader {
       map(response => {
         let obj = response.substring(response.indexOf('{'), response.lastIndexOf('}') + 1);
         const translations = eval(JSON.parse(obj));
-
-        for (const [key, value] of Object.entries(translations.routes)) {
-          translations.routes[key] = encodeURIComponent(`${value}`);
-        }
-
         return translations.default || translations;
       })
     );

@@ -1,47 +1,24 @@
 import { Injectable } from '@angular/core';
-import { Person } from '../models/person.model';
+import { Person } from '../models/person';
 import { Observable } from 'rxjs';
-import { Location } from '../models/location.model';
-import { IListService } from '../interfaces/list-service.interface';
-import { ProfileCardComponent } from 'src/app/features/profile/components/profile-card/profile-card.component';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PeopleService implements IListService {
+export class PeopleService {
 
   private id: number = 0;
-  private delay: number = 3000;
-
-  public people: Person[] = [
-    this.generateRandomPerson(),
-    this.generateRandomPerson(),
-    this.generateRandomPerson(),
-    this.generateRandomPerson(),
-    this.generateRandomPerson(),
-    this.generateRandomPerson(),
-    this.generateRandomPerson(),
-    this.generateRandomPerson(),
-    this.generateRandomPerson(),
-    this.generateRandomPerson()
-  ];
-
-  public dataType = Person;
-  public cardComponent = ProfileCardComponent;
 
   constructor() { }
 
-  get(id: string | null, delay: number = this.delay): Observable<Person> {
-    let response: Person;
+  mockGetPeople(count: number = 10, delay: number = 3000): Observable<Person[]> {
+    let response: Person[] = [];
 
-    for(let i = 0; i < this.people.length; i++) {
-      if (this.people[i].id == id) {
-        response = this.people[i];
-        break;
-      }
+    for (let i = 0; i < count; i++) {
+      response.push(this.generateRandomPerson());
     }
 
-    let observable: Observable<Person> = new Observable((subscriber) => {
+    let observable: Observable<Person[]> = new Observable((subscriber) => {
       setTimeout(() => {
         subscriber.next(response);
         subscriber.complete();
@@ -51,28 +28,17 @@ export class PeopleService implements IListService {
     return observable;
   }
 
-  getMany(count: number = 10, delay: number = this.delay): Observable<Person[]> {
-
-    let observable: Observable<Person[]> = new Observable((subscriber) => {
-      setTimeout(() => {
-        subscriber.next(this.people.slice(0, count > this.people.length ? this.people.length : count));
-        subscriber.complete();
-      }, delay);
-    });
-
-    return observable;
-  }
-
   private generateRandomPerson(): Person {
-    const person = new Person(
-      this.id.toString(), 
-      this.randomFirstName(), 
-      this.randomLastName(), 
-      this.randomJobTitle(), 
-      this.randomAddress(),
-      this.randomProfilePic()
-    );
+    const person = new Person();
+
+    person.id = this.id.toString();
+    person.firstName = this.randomFirstName();
+    person.lastName = this.randomLastName();
+    person.jobTitle = this.randomJobTitle();
+    person.profilePicture = this.randomProfilePic();
+
     this.id++;
+    
     return person;
   }
 
@@ -138,16 +104,5 @@ export class PeopleService implements IListService {
       'https://static.photocdn.pt/images/apple/71animalfaces/animalfaces25.webp'
     ];
     return urls[Math.floor(Math.random() * urls.length)];
-  }
-
-  private randomAddress(): Location {
-    const addresses: Location[] = [
-      new Location('2910 Woodroffe Ave', 'Ottawa', 'Ontario'),
-      new Location('4230 Innes Rd', 'Ottawa', 'Ontario'),
-      new Location('2440 Bank St', 'Ottawa', 'Ontario'),
-      new Location('464 Rideau St', 'Ottawa', 'Ontario'),
-      new Location('464 Bank St', 'Ottawa', 'Ontario')
-    ];
-    return addresses[Math.floor(Math.random() * addresses.length)];
   }
 }

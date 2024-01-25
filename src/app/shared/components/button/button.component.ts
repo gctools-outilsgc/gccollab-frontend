@@ -3,7 +3,6 @@ import { ButtonType } from '../../models/button-type';
 import { MaterialButtonType } from '../../models/material-button-type';
 import { MaterialColor } from '../../models/material-color';
 import { TooltipDirection } from '../../models/tooltip-direction';
-import { Theme } from '../../models/theme';
 
 @Component({
   selector: 'app-button',
@@ -13,25 +12,19 @@ import { Theme } from '../../models/theme';
 })
 export class ButtonComponent implements OnInit {
 
-  @Input() btnId!: string;
-  @Input() name!: string;
-  @Input() value!: string;
-  @Input() tooltip!: string;
+  @Input() id: string = '';
+  @Input() name: string = '';
+  @Input() value: string = '';
+  @Input() tooltip: string = '';
   @Input() tooltipDirection: TooltipDirection = TooltipDirection.Below;
-  @Input() ariaLabel!: string;
-  @Input() type: ButtonType | string = ButtonType.Button;
-  @Input() matButtonType: MaterialButtonType | string = MaterialButtonType.Raised;
-  @Input() matColor: MaterialColor | string = '';
+  @Input() ariaLabel: string = '';
+  @Input() type: ButtonType = ButtonType.Button;
+  @Input() matButtonType: MaterialButtonType = MaterialButtonType.Raised;
+  @Input() matColor: MaterialColor = MaterialColor.Primary; // TODO: Implement this so it defaults to primary contrast
   @Input() disabled: boolean = false;
   @Input() autofocus: boolean = false;
-  @Input() matIcon!: string;
+  @Input() matIcon: string = '';
   @Input() fontSize: string = 'inherit';
-  @Input() form!: string;
-  @Input() theme: Theme | string = Theme.Black;
-  @Input() clickFunc: Function = () => {};
-  @Input() blurFunc: Function = () => {};
-
-  public materialButtonType = MaterialButtonType;
 
   constructor() { }
 

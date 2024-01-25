@@ -1,7 +1,6 @@
 <div class="event-list-container">
     <div *ngFor="let event of model" class="event-card-wrapper">
         <app-event-card [model]="event" 
-                        [cardSize]="cardSize"
                         (confirm)="confirmEvent(event)" 
                         (decline)="declineEvent(event)">
         </app-event-card>
@@ -9,7 +8,7 @@
 
     <div *ngIf="isLoading">
         <div *ngFor="let num of loadingItems" class="event-card-wrapper">
-            <app-event-card [loading]="true" [cardSize]="cardSize"></app-event-card> 
+            <app-event-card [loading]="true"></app-event-card>
         </div>
     </div>
 

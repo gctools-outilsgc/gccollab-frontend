@@ -5,7 +5,7 @@ name: Destroy PR
 on:
   pull_request:
     types: [closed]
-    branches: main
+    branches: master
 
 env:
   AZURE_WEBAPP_NAME: gccollab-dev-pr-${{ github.event.number }}
@@ -16,7 +16,6 @@ jobs:
   azure:
     name: Delete Azure Resources
     runs-on: ubuntu-latest
-    if: ${{ !contains(github.event.pull_request.title, vars.IGNORE_DEPLOY) }}
     steps:
       - uses: azure/login@v1
         with:
@@ -31,20 +30,18 @@ jobs:
   secret:
     name: Delete GitHub Secret
     runs-on: ubuntu-latest
-    if: ${{ !contains(github.event.pull_request.title, vars.IGNORE_DEPLOY) }}
     steps:
       - name: GitHub Auth Login
         shell: bash
         run: gh auth login --with-token <<< ${{ env.ACCESS_TOKEN }}
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@master
       - name: Delete Secret
         run: gh secret delete "${{ env.SECRET_NAME }}"
 
   environment:
     name: Delete GitHub Environment 
     runs-on: ubuntu-latest
-    if: ${{ !contains(github.event.pull_request.title, vars.IGNORE_DEPLOY) }}
     steps:
       - name: Delete Environment
         shell: bash

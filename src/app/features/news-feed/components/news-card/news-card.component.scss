@@ -46,9 +46,7 @@ $title-padding: 90px;
             padding-right: 0;
 
             > div {
-                display: flex;
                 width: 50%;
-                align-items: center;
             }
 
             .right-actions {
@@ -59,10 +57,6 @@ $title-padding: 90px;
 
             i.fa-solid {
                 color: $primary-2;
-            }
-
-            .right-actions {
-                flex-direction: row-reverse;
             }
         }
 
