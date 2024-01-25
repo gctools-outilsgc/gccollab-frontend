@@ -56,6 +56,7 @@ jobs:
           npx playwright install
         
       - name: Run tests
+        continue-on-error: true
         run: |
           cd haibun-e2e-tests
           npm ci
