@@ -44,3 +44,6 @@ The following describes the testing procedure:
 3. Ensure `http://localhost:4200/` is running. 
 5. Run the tests:
    `npm run test`
+
+E2E test reviews are available [here](https://gctools-outilsgc.github.io/gccollab-frontend/haibun-e2e-tests/reviews/dashboard.html)
+
