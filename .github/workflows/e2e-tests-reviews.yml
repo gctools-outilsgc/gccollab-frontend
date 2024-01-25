@@ -68,7 +68,9 @@ jobs:
           npm run publish
 
       - name: Add reviews
-        run: git add ./reviews/
+        run: |
+          cd haibun-e2e-tests
+          git add ./reviews/
 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
