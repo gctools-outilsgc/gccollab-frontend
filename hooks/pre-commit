@@ -1,2 +1,3 @@
 #!/bin/sh
 npm run node-sync
+npx prettier . --write
