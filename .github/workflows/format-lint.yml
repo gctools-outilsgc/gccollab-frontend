@@ -32,7 +32,7 @@ jobs:
           git config --global user.email "shea.wow@hotmail.com"
           git config --global user.name Shea Dougherty-Gill
           git commit -a -m "Prettier formatting ${{ vars.IGNORE_DEPLOY }}"
-          git push origin HEAD:${{ github.ref }}
+          git push origin HEAD:${{ github.ref_name }}
 
       - name: Lint
         run: npm run ng lint
