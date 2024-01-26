@@ -1,41 +1,23 @@
 {
-    "type": "module",
-    "name": "haibun-e2e-tests",
+    "name": "gccollab-frontend/haibun-e2e-tests",
     "version": "1.10.0",
-    "description": "e2e tests for haibun",
+    "description": "e2e tests for gccollab-frontend",
     "engines": {
       "node": ">=14"
     },
     "scripts": {
-      "build-watch": "tsc --watch",
-      "build": "tsc",
-      "test": "HAIBUN_O_WEBPLAYWRIGHT_STORAGE=StorageFS HAIBUN_O_WEBPLAYWRIGHT_CAPTURE_VIDEO=true haibun-cli local",
-      "test-chromium": "HAIBUN_SPLIT_SHARED=a-browser=chromium haibun-cli local",
-      "test-some": "HAIBUN_LOOPS=2 HAIBUN_MEMBERS=5 haibun-cli local",
-      "test-many": "HAIBUN_LOOPS=5 HAIBUN_MEMBERS=50 haibun-cli local",
-      "test-firefox": "HAIBUN_SPLIT_SHARED=a-browser=firefox haibun-cli local",
-      "test-webkit": "HAIBUN_SPLIT_SHARED=a-browser=webkit haibun-cli local",
-      "test-local": "HAIBUN_SPLIT_SHARED='a-browser=chromium,webkit,firefox,chromium.iPhone 6,chromium.iPad (gen 7) landscape,chromium.iPad Mini,chromium.Pixel 5,chromium.iPhone X landscape,chromium.Kindle Fire HDX,chromium.Moto G4 landscape' haibun-cli local",
-      "test-envc": "HAIBUN_ENVC=what=what1,what=what2,also=also1,also=also2 haibun-cli envc",
-      "test-envc-10": "HAIBUN_LOOPS=2 HAIBUN_MEMBERS=5 HAIBUN_ENVC=what=what1,what=what2,also=also1,also=also2 haibun-cli envc"
+      "test": "HAIBUN_O_WEBPLAYWRIGHT_STORAGE=StorageFS HAIBUN_O_WEBPLAYWRIGHT_CAPTURE_VIDEO=true haibun-cli local"
     },
-    "keywords": [],
-    "author": "vid",
     "license": "ISC",
     "dependencies": {
-      "@haibun/cli": "^1.28.12",
-      "@haibun/core": "^1.28.12",
-      "@haibun/domain-storage": "^1.28.12",
-      "@haibun/domain-webpage": "^1.28.12",
-      "@haibun/out-xunit": "^1.28.12",
-      "@haibun/storage-fs": "^1.28.12",
-      "@haibun/web-playwright": "^1.28.12",
-      "@types/express-fileupload": "^1.4.1",
-      "express-fileupload": "^1.4.0",
-      "typescript": "^4.5.5"
-    },
-    "devDependencies": {
-      "@types/express": "^4.17.16",
-      "@types/jest": "^29.4.0"
+      "@haibun/cli": "^1.29.4",
+      "@haibun/core": "^1.29.4",
+      "@haibun/domain-storage": "^1.29.4",
+      "@haibun/domain-webpage": "^1.29.4",
+      "@haibun/out-xunit": "^1.29.4",
+      "@haibun/storage-fs": "^1.29.4",
+      "@haibun/web-playwright": "^1.29.4",
+      "@haibun/web-accessibility-axe": "^1.29.4"
     }
   }
+
