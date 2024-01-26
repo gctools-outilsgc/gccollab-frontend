@@ -41,7 +41,7 @@ export class PeopleService implements IListService {
       }
     }
 
-    let observable: Observable<Person> = new Observable((subscriber) => {
+    const observable: Observable<Person> = new Observable((subscriber) => {
       setTimeout(() => {
         subscriber.next(response);
         subscriber.complete();
@@ -53,7 +53,7 @@ export class PeopleService implements IListService {
 
   getMany(count: number = 10, delay: number = this.delay): Observable<Person[]> {
 
-    let observable: Observable<Person[]> = new Observable((subscriber) => {
+    const observable: Observable<Person[]> = new Observable((subscriber) => {
       setTimeout(() => {
         subscriber.next(this.people.slice(0, count > this.people.length ? this.people.length : count));
         subscriber.complete();

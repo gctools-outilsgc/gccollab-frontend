@@ -5,7 +5,7 @@ import { EventsComponent } from './events.component';
 import { Translations } from 'src/app/core/services/translations.service';
 import { EventComponent } from './components/event/event.component';
 
-let translations = Translations.getInstance();
+const translations = Translations.getInstance();
 
 const routes: Routes = [
   {

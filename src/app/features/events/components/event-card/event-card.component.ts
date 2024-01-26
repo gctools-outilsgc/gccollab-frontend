@@ -25,8 +25,8 @@ export class EventCardComponent implements ICardComponent {
   tooltipDirection = TooltipDirection;
   routes = CoreRoutes;
 
-  confirmEventCallback: Function = this.confirmEvent.bind(this);
-  declineEventCallback: Function = this.declineEvent.bind(this);
+  confirmEventCallback: () => unknown = this.confirmEvent.bind(this);
+  declineEventCallback: () => unknown = this.declineEvent.bind(this);
 
   constructor(public translations: Translations,
               private router: Router) 

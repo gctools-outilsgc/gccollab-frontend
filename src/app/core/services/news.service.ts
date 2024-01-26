@@ -59,7 +59,7 @@ export class NewsService implements IListService {
       }
     }
 
-    let observable: Observable<INewsItem> = new Observable((subscriber) => {
+    const observable: Observable<INewsItem> = new Observable((subscriber) => {
       setTimeout(() => {
         subscriber.next(response);
         subscriber.complete();
@@ -70,7 +70,7 @@ export class NewsService implements IListService {
   }
 
   getMany(count: number = 10, delay: number = 5000): Observable<INewsItem[]> {
-    let observable: Observable<INewsItem[]> = new Observable((subscriber) => {
+    const observable: Observable<INewsItem[]> = new Observable((subscriber) => {
       setTimeout(() => {
         subscriber.next(this.newsItems.slice(0, count > this.newsItems.length ? this.newsItems.length : count));
         subscriber.complete();
@@ -124,7 +124,7 @@ export class NewsService implements IListService {
 
   private randomContent(): string {
     let content: string = '';
-    let paragraphs = (Math.random() * 4) + 1;
+    const paragraphs = (Math.random() * 4) + 1;
 
     for (let i = 0; i < paragraphs; i++) {
       content += this.lorem.generateSentences(Math.floor(Math.random() * 10) + 4);

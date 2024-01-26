@@ -17,7 +17,7 @@ export class SessionStorageService implements AbstractSecurityStorage {
     return this._localStorage.getItem(key);
   }
 
-  write(key: string, value: any): void {
+  write(key: string, value: string): void {
     this._localStorage.setItem(key, value);
   }
 

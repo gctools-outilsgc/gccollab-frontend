@@ -1,6 +1,7 @@
 <mat-label *ngIf="label" [ngClass]="control && control.disabled ? 'disabled' : ''">
     {{ label }} 
     <div *ngIf="required" class="required-star">*</div>
+    <!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events -->
     <i *ngIf="hint" 
            tabindex="0"
            [ngClass]="{'fa-circle-xmark' : showHint, 'fa-circle-question' : !showHint}" class="fa-regular"
@@ -26,7 +27,7 @@
         [formControl]="control"
         [required]="required">
     </ngx-editor>
-    <div *ngIf="minCharacters > 0 || maxCharacters != Number.MAX_VALUE" 
+    <div *ngIf="minCharacters > 0 || maxCharacters !== Number.MAX_VALUE" 
          [ngClass]="(control && control.touched && !control.valid) && ((characterCount > maxCharacters) || (characterCount < minCharacters)) ? 'error' : ''" 
          class="character-count">
         {{ characterCount }} / {{ maxCharacters }}

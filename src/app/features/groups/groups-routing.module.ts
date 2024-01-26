@@ -4,7 +4,7 @@ import { GroupsComponent } from './groups.component';
 import { GroupComponent } from './components/group/group.component';
 
 import { Translations } from 'src/app/core/services/translations.service';
-let translations = Translations.getInstance();
+const translations = Translations.getInstance();
 
 const routes: Routes = [
   {

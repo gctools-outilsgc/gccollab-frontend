@@ -14,7 +14,7 @@ export class RedirectGuard  {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
 
-    let externalUrl = route.data['externalUrl'];
+    const externalUrl = route.data['externalUrl'];
     
     if (externalUrl) {
       window.open(externalUrl, '_blank')?.focus();

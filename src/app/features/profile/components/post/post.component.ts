@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Person } from 'src/app/core/models/person.model';
 import { Translations } from 'src/app/core/services/translations.service';
 import { FormGroup } from '@angular/forms';
@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss']
 })
-export class PostComponent {
+export class PostComponent implements OnInit, OnDestroy {
 
   @Input() profile!: Person;
   @Input() loading: boolean = false;
@@ -27,8 +27,8 @@ export class PostComponent {
   formChanges: boolean[] = [];
 
   selectedIndex = 0;
-  saveCallback: Function = this.save.bind(this);
-  submitCallback: Function = this.submit.bind(this);
+  saveCallback: () => void = this.save.bind(this);
+  submitCallback: () => void = this.submit.bind(this);
   selectedForm: FormGroup = this.formGroups[this.selectedIndex];
   creating: boolean = false;
 

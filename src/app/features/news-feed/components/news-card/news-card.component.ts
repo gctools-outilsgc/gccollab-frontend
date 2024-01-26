@@ -28,15 +28,15 @@ export class NewsCardComponent implements ICardComponent {
 
   constructor(public translations: Translations) {}
 
-  isPost(instance: any): boolean {
+  isPost(instance: INewsItem): boolean {
     return instance instanceof Post
   }
 
-  isBlog(instance: any): boolean {
+  isBlog(instance: INewsItem): boolean {
     return instance instanceof Blog
   }
 
-  isPoll(instance: any): boolean {
+  isPoll(instance: INewsItem): boolean {
     return instance instanceof Poll
   }
 }

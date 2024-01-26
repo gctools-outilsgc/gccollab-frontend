@@ -40,7 +40,7 @@ import { GroupCardComponent } from 'src/app/features/groups/components/group-car
         }
       }
   
-      let observable: Observable<Group> = new Observable((subscriber) => {
+      const observable: Observable<Group> = new Observable((subscriber) => {
         setTimeout(() => {
           subscriber.next(response);
           subscriber.complete();
@@ -51,7 +51,7 @@ import { GroupCardComponent } from 'src/app/features/groups/components/group-car
     }
 
     getMany(count: number = 10, delay: number = this.delay): Observable<Group[]> {
-      let observable: Observable<Group[]> = new Observable((subscriber) => {
+      const observable: Observable<Group[]> = new Observable((subscriber) => {
         setTimeout(() => {
           subscriber.next(this.groups.slice(0, count > this.groups.length ? this.groups.length : count));
           subscriber.complete();

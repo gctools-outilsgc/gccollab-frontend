@@ -11,7 +11,7 @@ import { UnauthorizedComponent } from './shared/components/unauthorized/unauthor
 import { ForbiddenComponent } from './shared/components/forbidden/forbidden.component';
 import { Translations } from './core/services/translations.service';
 
-let translations = Translations.getInstance();
+const translations = Translations.getInstance();
 
 const routes: Routes = [
   {

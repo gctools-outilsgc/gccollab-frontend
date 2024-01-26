@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Person } from 'src/app/core/models/person.model';
 import { Translations } from 'src/app/core/services/translations.service';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { CoreRoutes } from 'src/app/core/constants/routes.constants';

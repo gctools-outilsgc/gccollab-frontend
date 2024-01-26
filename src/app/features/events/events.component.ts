@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { CoreRoutes } from 'src/app/core/constants/routes.constants';
 import { Translations } from 'src/app/core/services/translations.service';
@@ -10,7 +10,7 @@ import { EventService } from 'src/app/core/services/event.service';
   templateUrl: './events.component.html',
   styleUrls: ['./events.component.scss']
 })
-export class EventsComponent {
+export class EventsComponent implements OnInit {
 
   routes = CoreRoutes;
   form: FormGroup = new FormGroup({});

@@ -1,4 +1,5 @@
-<ng-container *ngIf="matButtonType == materialButtonType.Basic">
+<!-- eslint-disable @angular-eslint/template/no-autofocus -->
+<ng-container *ngIf="matButtonType === materialButtonType.Basic">
     <button mat-button
             [attr.id]="btnId" 
             [attr.name]="name" 
@@ -27,7 +28,7 @@
     </button>
 </ng-container>
 
-<ng-container *ngIf="matButtonType == materialButtonType.Raised">
+<ng-container *ngIf="matButtonType === materialButtonType.Raised">
     <button mat-raised-button
             [attr.id]="btnId" 
             [attr.name]="name" 
@@ -56,7 +57,7 @@
     </button>
 </ng-container>
 
-<ng-container *ngIf="matButtonType == materialButtonType.Stroked">
+<ng-container *ngIf="matButtonType === materialButtonType.Stroked">
     <button mat-stroked-button
             [attr.id]="btnId" 
             [attr.name]="name" 
@@ -85,7 +86,7 @@
     </button>
 </ng-container>
 
-<ng-container *ngIf="matButtonType == materialButtonType.Flat">
+<ng-container *ngIf="matButtonType === materialButtonType.Flat">
     <button mat-flat-button
             [attr.id]="btnId" 
             [attr.name]="name" 
@@ -114,7 +115,7 @@
     </button>
 </ng-container>
 
-<ng-container *ngIf="matButtonType == materialButtonType.Icon">
+<ng-container *ngIf="matButtonType === materialButtonType.Icon">
     <button mat-icon-button
             [attr.id]="btnId" 
             [attr.name]="name" 
@@ -143,7 +144,7 @@
     </button>
 </ng-container>
 
-<ng-container *ngIf="matButtonType == materialButtonType.FAB">
+<ng-container *ngIf="matButtonType === materialButtonType.FAB">
     <button mat-fab
             [attr.id]="btnId" 
             [attr.name]="name" 
@@ -172,7 +173,7 @@
     </button>
 </ng-container>
 
-<ng-container *ngIf="matButtonType == materialButtonType.MiniFAB">
+<ng-container *ngIf="matButtonType === materialButtonType.MiniFAB">
     <button mat-mini-fab
             [attr.id]="btnId" 
             [attr.name]="name" 

@@ -251,6 +251,7 @@ export default {
             "tooltip_off": "Rescind declination",
             "aria_off": "Click to rescind your declination of the event"
         },
+        "alt": "Event image",
         "canceled": "Canceled",
         "organizer": "Organizer",
         "location": "Location"

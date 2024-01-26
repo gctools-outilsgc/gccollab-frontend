@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Theme } from '../../models/theme';
 import { TooltipDirection } from '../../models/tooltip-direction';
@@ -12,7 +12,7 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './file-select.component.html',
   styleUrls: ['./file-select.component.scss']
 })
-export class FileSelectComponent {
+export class FileSelectComponent implements OnInit, OnDestroy {
   @Input({required: true}) label: string = '';
   @Input({required: true}) control!: FormControl;
   @Input() fileType: FileType | string = FileType.Image;
@@ -71,8 +71,8 @@ export class FileSelectComponent {
     'apk', 'bat', 'bin', 'com', 'exe', 'gadget', 'jar', 'msi', 'wsf'
   ];
 
-  clickCallback: Function = this.openFilePicker.bind(this);
-  blurCallback: Function = this.onPhotoBlur.bind(this);
+  clickCallback: () => unknown = this.openFilePicker.bind(this);
+  blurCallback: () => unknown = this.onPhotoBlur.bind(this);
 
   private langChangeSub!: Subscription;
   private previousTranslation: string | undefined;
@@ -112,6 +112,7 @@ export class FileSelectComponent {
       this.control.markAsTouched();
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onFileSelected(event: any): void {
     const selectedFile: File = event.target.files[0];
 
@@ -200,8 +201,8 @@ export class FileSelectComponent {
         const width = img.width;
         const height = img.height;
 
-        let isLarge = width >= maxWidth || height >= maxHeight;
-        let isSmall = width <= minWidth || height <= minHeight;
+        const isLarge = width >= maxWidth || height >= maxHeight;
+        const isSmall = width <= minWidth || height <= minHeight;
 
         if (!isLarge && !isSmall) {
           resolve(true); 

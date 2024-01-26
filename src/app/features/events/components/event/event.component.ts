@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChild, inject } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { ViewportScroller } from "@angular/common";
 import { Translations } from 'src/app/core/services/translations.service';
 

@@ -14,7 +14,7 @@
             </div>
 
             <div class="event-content" 
-                [ngClass]="model?.canceled == true ? 'canceled' : isPast() ? 'past' : ''"
+                [ngClass]="model?.canceled === true ? 'canceled' : isPast() ? 'past' : ''"
                 routerLink="{{ '/' + routes.Events  + '/' + model?.id }}">
 
                 <div *ngIf="!loading">
@@ -35,7 +35,7 @@
                             [tooltip]="(model?.confirmed ? translations.eventCard.confirm.tooltip_off : translations.eventCard.confirm.tooltip_on) | translate"
                             [ariaLabel]="(model?.confirmed ? translations.eventCard.confirm.aria_off : translations.eventCard.confirm.aria_on) | translate"
                             [tooltipDirection]="tooltipDirection.Above"
-                            [disabled]="loading || model?.canceled == true || isPast()"
+                            [disabled]="loading || model?.canceled === true || isPast()"
                             [theme]="model?.declined ? 'disabled' : 'secondary-2'"
                             [clickFunc]="confirmEventCallback">
                     <i *ngIf="!loading" 
@@ -50,7 +50,7 @@
                             [matButtonType]="materialButtonType.Icon"
                             [tooltip]="(model?.declined ? translations.eventCard.decline.tooltip_off : translations.eventCard.decline.tooltip_on) | translate"
                             [ariaLabel]="(model?.declined ? translations.eventCard.decline.aria_off : translations.eventCard.decline.aria_on) | translate"
-                            [disabled]="loading || model?.canceled == true || isPast()"
+                            [disabled]="loading || model?.canceled === true || isPast()"
                             [theme]="model?.confirmed ? 'disabled' : 'error'"
                             [clickFunc]="declineEventCallback">
                     <i *ngIf="!loading" 
@@ -69,7 +69,7 @@
     <mat-card appearance="outlined" class="event-card-large">
         <mat-card-header>
             <div class="event-image-wrapper">
-               <img *ngIf="!loading" [src]="model?.displayPicture" [ngClass]="{'greyed-image-wrapper': model?.canceled || isPast()}">
+               <img *ngIf="!loading" [src]="model?.displayPicture" [ngClass]="{'greyed-image-wrapper': model?.canceled || isPast()}" alt="{{translations.eventCard.alt | translate}}">
                <ngx-skeleton-loader *ngIf="loading" count="1" appearance="line" animation="progress"></ngx-skeleton-loader>
            </div> 
        </mat-card-header>
@@ -84,7 +84,7 @@
                 </app-calendar-button>
             </div>
             <div class="event-content" 
-                [ngClass]="model?.canceled == true ? 'canceled' : isPast() ? 'past' : ''"
+                [ngClass]="model?.canceled === true ? 'canceled' : isPast() ? 'past' : ''"
                 routerLink="{{ '/' + routes.Events  + '/' + model?.id }}">
                 <div *ngIf="!loading" class="title-larger-text">
                     <div *ngIf="model?.canceled">
