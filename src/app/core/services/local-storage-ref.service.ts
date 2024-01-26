@@ -5,11 +5,10 @@ function getLocalStorage(): Storage {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LocalStorageRefService {
-
-  constructor() { }
+  constructor() {}
 
   get localStorage(): Storage {
     return getLocalStorage();

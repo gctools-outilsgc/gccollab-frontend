@@ -2,9 +2,9 @@
 export const environment = {
   production: true,
   authGuard: true,
-  clientId: "429862",
-  baseUrl: "https://dev.account.gccollab.ca/api",
-  authUrl: "https://dev.account.gccollab.ca/openid",
+  clientId: '429862',
+  baseUrl: 'https://dev.account.gccollab.ca/api',
+  authUrl: 'https://dev.account.gccollab.ca/openid',
   authLogLevel: 0,
-  i18nFolder: "./assets/i18n/"
+  i18nFolder: './assets/i18n/',
 };

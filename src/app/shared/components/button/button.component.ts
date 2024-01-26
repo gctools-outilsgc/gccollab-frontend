@@ -9,10 +9,9 @@ import { Theme } from '../../models/theme';
   selector: 'app-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
-
   @Input() btnId!: string;
   @Input() name!: string;
   @Input() value!: string;
@@ -20,7 +19,8 @@ export class ButtonComponent {
   @Input() tooltipDirection: TooltipDirection = TooltipDirection.Below;
   @Input() ariaLabel!: string;
   @Input() type: ButtonType | string = ButtonType.Button;
-  @Input() matButtonType: MaterialButtonType | string = MaterialButtonType.Raised;
+  @Input() matButtonType: MaterialButtonType | string =
+    MaterialButtonType.Raised;
   @Input() matColor: MaterialColor | string = '';
   @Input() disabled: boolean = false;
   @Input() autofocus: boolean = false;
@@ -33,6 +33,5 @@ export class ButtonComponent {
 
   public materialButtonType = MaterialButtonType;
 
-  constructor() { }
-
+  constructor() {}
 }

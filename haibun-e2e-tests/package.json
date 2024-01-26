@@ -1,23 +1,22 @@
 {
-    "name": "gccollab-frontend/haibun-e2e-tests",
-    "version": "1.10.0",
-    "description": "e2e tests for gccollab-frontend",
-    "engines": {
-      "node": ">=14"
-    },
-    "scripts": {
-      "test": "HAIBUN_O_WEBPLAYWRIGHT_STORAGE=StorageFS HAIBUN_O_WEBPLAYWRIGHT_CAPTURE_VIDEO=true haibun-cli local"
-    },
-    "license": "ISC",
-    "dependencies": {
-      "@haibun/cli": "^1.29.4",
-      "@haibun/core": "^1.29.4",
-      "@haibun/domain-storage": "^1.29.4",
-      "@haibun/domain-webpage": "^1.29.4",
-      "@haibun/out-xunit": "^1.29.4",
-      "@haibun/storage-fs": "^1.29.4",
-      "@haibun/web-playwright": "^1.29.4",
-      "@haibun/web-accessibility-axe": "^1.29.4"
-    }
+  "name": "gccollab-frontend/haibun-e2e-tests",
+  "version": "1.10.0",
+  "description": "e2e tests for gccollab-frontend",
+  "engines": {
+    "node": ">=14"
+  },
+  "scripts": {
+    "test": "HAIBUN_O_WEBPLAYWRIGHT_STORAGE=StorageFS HAIBUN_O_WEBPLAYWRIGHT_CAPTURE_VIDEO=true haibun-cli local"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@haibun/cli": "^1.29.4",
+    "@haibun/core": "^1.29.4",
+    "@haibun/domain-storage": "^1.29.4",
+    "@haibun/domain-webpage": "^1.29.4",
+    "@haibun/out-xunit": "^1.29.4",
+    "@haibun/storage-fs": "^1.29.4",
+    "@haibun/web-playwright": "^1.29.4",
+    "@haibun/web-accessibility-axe": "^1.29.4"
   }
-
+}

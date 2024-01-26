@@ -2,11 +2,11 @@ name: Lint
 
 on:
   pull_request:
-    types: [opened, reopened, synchronize] 
+    types: [opened, reopened, synchronize]
     branches: main
 
 env:
-  NODE_VERSION: '18.13.0'
+  NODE_VERSION: "18.13.0"
 
 jobs:
   lint:

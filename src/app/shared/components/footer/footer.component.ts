@@ -11,9 +11,7 @@ import { Translations } from 'src/app/core/services/translations.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterComponent {
-
   routes = CoreRoutes;
 
-  constructor(public translations: Translations) { }
-
+  constructor(public translations: Translations) {}
 }

@@ -7,9 +7,9 @@ on:
     types:
       - closed
     branches: ["main"]
-    
+
 env:
-  NODE_VERSION: '18.13.0'
+  NODE_VERSION: "18.13.0"
 
 jobs:
   if_merged:
@@ -17,27 +17,27 @@ jobs:
     name: Install packages and update dependency graph
     runs-on: ubuntu-latest
     continue-on-error: true
-      
+
     steps:
-    - uses: actions/checkout@v3
-      with:
-        token: ${{ secrets.ACCESS_TOKEN }}
-    - name: Use Node.js ${{ env.NODE_VERSION }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ env.NODE_VERSION }}
-        
-    - name: Install
-      run: |
-        npm install
-        npm run install-graphviz-linux
-        
-    - name: Generate
-      run: npm run depcruise
-      
-    - name: Commit
-      run: |
-        git config --global user.email "shea.wow@hotmail.com"
-        git config --global user.name Shea Dougherty-Gill
-        git commit -a -m "Dependency Graph ${{ vars.IGNORE_DEPLOY }}"
-        git push
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install
+        run: |
+          npm install
+          npm run install-graphviz-linux
+
+      - name: Generate
+        run: npm run depcruise
+
+      - name: Commit
+        run: |
+          git config --global user.email "shea.wow@hotmail.com"
+          git config --global user.name Shea Dougherty-Gill
+          git commit -a -m "Dependency Graph ${{ vars.IGNORE_DEPLOY }}"
+          git push

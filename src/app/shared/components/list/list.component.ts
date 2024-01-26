@@ -8,12 +8,11 @@ import { Orientation } from '../../models/orientation';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
-  
-  @Input({required:true}) service!: IListService;
-  @Input() items: typeof this.service.dataType[] = [];
+  @Input({ required: true }) service!: IListService;
+  @Input() items: (typeof this.service.dataType)[] = [];
   @Input() cardSize: CardSize | string = CardSize.Small; // TODO: Card size on all card components. Make a base component or interface that gets implemented.
   @Input() orientation: Orientation | string = Orientation.Vertical;
   @Input() columnGap: number = 10;
@@ -31,15 +30,12 @@ export class ListComponent implements OnInit {
   nextPageCallback: () => unknown = this.nextPage.bind(this);
   previousPageCallback: () => unknown = this.previousPage.bind(this);
 
-  constructor() {
-    
-  }
-  
-  ngOnInit(): void { 
+  constructor() {}
+
+  ngOnInit(): void {
     if (this.items.length === 0) {
       this.loadNext(this.pageSize * (this.paging ? this.pagesToLoad : 1));
-    }
-    else {
+    } else {
       this.lastPage = this.items.length / this.pageSize;
     }
   }
@@ -47,11 +43,13 @@ export class ListComponent implements OnInit {
   loadNext(count: number = this.pageSize): void {
     this.loading = true;
 
-    this.service?.getMany(count, this.loadTime).subscribe((items: typeof this.service.dataType[]) => {
-      this.items.push(...items);
-      this.lastPage = this.items.length / this.pageSize;
-      this.loading = false;
-    });
+    this.service
+      ?.getMany(count, this.loadTime)
+      .subscribe((items: (typeof this.service.dataType)[]) => {
+        this.items.push(...items);
+        this.lastPage = this.items.length / this.pageSize;
+        this.loading = false;
+      });
   }
 
   nextPage(): void {
@@ -62,8 +60,7 @@ export class ListComponent implements OnInit {
   }
 
   previousPage(): void {
-    if (this.currentPage > 1)
-      this.currentPage--;
+    if (this.currentPage > 1) this.currentPage--;
   }
 
   get startIndex(): number {
@@ -74,9 +71,9 @@ export class ListComponent implements OnInit {
     return this.startIndex + this.pageSize;
   }
 
-  get paginatedItems(): typeof this.service.dataType[] {
-    return this.loading && this.currentPage === this.lastPage 
-    ? this.items.slice(0, this.pageSize) 
-    : this.items.slice(this.startIndex, this.endIndex);
+  get paginatedItems(): (typeof this.service.dataType)[] {
+    return this.loading && this.currentPage === this.lastPage
+      ? this.items.slice(0, this.pageSize)
+      : this.items.slice(this.startIndex, this.endIndex);
   }
 }

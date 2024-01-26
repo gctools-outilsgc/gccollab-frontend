@@ -30,7 +30,7 @@
 //           HttpClientModule
 //         ],
 //         providers: [
-//           TranslateService, 
+//           TranslateService,
 //           HttpClient,
 //         ]
 //       }).compileComponents();

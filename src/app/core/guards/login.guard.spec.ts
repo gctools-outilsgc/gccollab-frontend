@@ -8,9 +8,7 @@ describe('LoginGuard', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        AuthConfigModule
-      ],
+      imports: [AuthConfigModule],
     });
     guard = TestBed.inject(LoginGuard);
   });

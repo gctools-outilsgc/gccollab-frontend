@@ -6,10 +6,9 @@ import { TooltipDirection } from 'src/app/shared/models/tooltip-direction';
   selector: 'app-calendar-button',
   templateUrl: './calendar-button.component.html',
   styleUrls: ['./calendar-button.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CalendarButtonComponent {
-
   @Input() model: Date | undefined;
   @Input() tooltip: string = '';
   @Input() aria: string = '';
@@ -17,17 +16,13 @@ export class CalendarButtonComponent {
   @Input() canceled: boolean = false;
   @Input() loading: boolean = false;
 
-  constructor(public translations: Translations) 
-  {  }
+  constructor(public translations: Translations) {}
 
-  click() {
-
-  }
+  click() {}
 
   isPast(): boolean {
-    if (this.model && this.model < new Date()) 
-      return true;
-    
+    if (this.model && this.model < new Date()) return true;
+
     return false;
   }
 }

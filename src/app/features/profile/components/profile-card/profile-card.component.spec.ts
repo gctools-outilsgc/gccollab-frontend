@@ -1,7 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProfileCardComponent } from './profile-card.component';
-import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import {
+  TranslateLoader,
+  TranslateModule,
+  TranslateService,
+} from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TypescriptLoader } from 'src/app/core/helpers/typescript-loader';
 
@@ -17,13 +21,14 @@ describe('ProfileCardComponent', () => {
         TranslateModule.forRoot({
           loader: {
             provide: TranslateLoader,
-            useFactory: (http: HttpClient) => new TypescriptLoader(http, 'translations'),
-            deps: [ HttpClient ]
-          }
+            useFactory: (http: HttpClient) =>
+              new TypescriptLoader(http, 'translations'),
+            deps: [HttpClient],
+          },
         }),
-        HttpClientModule
+        HttpClientModule,
       ],
-      providers: [ TranslateService, HttpClient ]
+      providers: [TranslateService, HttpClient],
     });
   });
 

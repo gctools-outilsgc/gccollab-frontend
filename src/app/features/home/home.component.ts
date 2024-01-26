@@ -15,10 +15,9 @@ import { GroupService } from 'src/app/core/services/group.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-
   inputType = InputType.Password;
   routes = CoreRoutes;
 
@@ -42,13 +41,13 @@ export class HomeComponent implements OnInit {
   groupsPage: number = 1;
   loadingGroups: boolean = true;
 
-  constructor(public translations: Translations, 
-              public newsService: NewsService, 
-              public eventService: EventService, 
-              public peopleService: PeopleService,
-              public groupService: GroupService) {
-
-  }
+  constructor(
+    public translations: Translations,
+    public newsService: NewsService,
+    public eventService: EventService,
+    public peopleService: PeopleService,
+    public groupService: GroupService,
+  ) {}
 
   ngOnInit(): void {
     this.newsService.getMany(10, 5000).subscribe((newsItems: INewsItem[]) => {
@@ -74,7 +73,7 @@ export class HomeComponent implements OnInit {
 
   onNewsScroll(): void {
     this.loadingNews = true;
-    
+
     this.newsService.getMany(10, 3000).subscribe((newsItems: INewsItem[]) => {
       this.newsItems.push(...newsItems);
       this.loadingNews = false;
@@ -100,5 +99,4 @@ export class HomeComponent implements OnInit {
     console.log('Connection Declined');
     console.log(person);
   }
-
 }

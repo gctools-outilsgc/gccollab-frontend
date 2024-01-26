@@ -9,19 +9,8 @@ import { EventListComponent } from './components/event-list/event-list.component
 import { EventComponent } from './components/event/event.component';
 
 @NgModule({
-  declarations: [
-    EventCardComponent,
-    EventListComponent,
-    EventComponent
-  ],
-  imports: [
-    CommonModule,
-    EventsRoutingModule,
-    SharedModule,
-    MatCardModule,
-  ],
-  exports: [
-    EventListComponent
-  ]
+  declarations: [EventCardComponent, EventListComponent, EventComponent],
+  imports: [CommonModule, EventsRoutingModule, SharedModule, MatCardModule],
+  exports: [EventListComponent],
 })
-export class EventsModule { }
+export class EventsModule {}

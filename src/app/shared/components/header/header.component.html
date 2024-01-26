@@ -1,88 +1,130 @@
 <mat-toolbar role="navigation" color="primary">
-
   <mat-toolbar-row>
     <div class="gcc-logo" [routerLink]="[routes.Home]">
       <div>GCC</div>
     </div>
-    
+
     <div class="header-links">
-      <a id="gcc-header-home-btn"
-         aria-hidden="false"
-         [routerLink]="[routes.Home]"
-         attr.aria-label="{{ translations.header.home.aria | translate }}"
-         [ngClass]="activeRoute === routes.Home ? 'selected' : ''">
-          {{ translations.header.home.title | translate }}
+      <a
+        id="gcc-header-home-btn"
+        aria-hidden="false"
+        [routerLink]="[routes.Home]"
+        attr.aria-label="{{ translations.header.home.aria | translate }}"
+        [ngClass]="activeRoute === routes.Home ? 'selected' : ''"
+      >
+        {{ translations.header.home.title | translate }}
       </a>
-      <a id="gcc-header-network-btn"
-         aria-hidden="false"
-         [routerLink]="[routes.TheWire]"
-         attr.aria-label="{{ translations.header.network.aria | translate }}"
-         [ngClass]="activeRoute === routes.TheWire ? 'selected' : ''">
-          {{ translations.header.network.title | translate }}
+      <a
+        id="gcc-header-network-btn"
+        aria-hidden="false"
+        [routerLink]="[routes.TheWire]"
+        attr.aria-label="{{ translations.header.network.aria | translate }}"
+        [ngClass]="activeRoute === routes.TheWire ? 'selected' : ''"
+      >
+        {{ translations.header.network.title | translate }}
       </a>
-      <a id="gcc-header-groups-btn"
-         aria-hidden="false"
-         [routerLink]="[routes.Groups]"
-         attr.aria-label="{{ translations.header.groups.aria | translate }}"
-         [ngClass]="activeRoute === routes.Groups ? 'selected' : ''">
-          {{ translations.header.groups.title | translate }}
+      <a
+        id="gcc-header-groups-btn"
+        aria-hidden="false"
+        [routerLink]="[routes.Groups]"
+        attr.aria-label="{{ translations.header.groups.aria | translate }}"
+        [ngClass]="activeRoute === routes.Groups ? 'selected' : ''"
+      >
+        {{ translations.header.groups.title | translate }}
       </a>
-      <a id="gcc-header-jobs-btn"
-         aria-hidden="false"
-         [routerLink]="[routes.Missions]"
-         attr.aria-label="{{ translations.header.jobs.aria | translate }}"
-         [ngClass]="activeRoute === routes.Missions ? 'selected' : ''">
-          {{ translations.header.jobs.title | translate }}
+      <a
+        id="gcc-header-jobs-btn"
+        aria-hidden="false"
+        [routerLink]="[routes.Missions]"
+        attr.aria-label="{{ translations.header.jobs.aria | translate }}"
+        [ngClass]="activeRoute === routes.Missions ? 'selected' : ''"
+      >
+        {{ translations.header.jobs.title | translate }}
       </a>
-      <a id="gcc-header-support-btn"
-         aria-hidden="false"
-         [routerLink]="[routes.Help]"
-         attr.aria-label="{{ translations.header.support.aria | translate }}"
-         [ngClass]="activeRoute === routes.Help ? 'selected' : ''">
-          {{ translations.header.support.title | translate }}
+      <a
+        id="gcc-header-support-btn"
+        aria-hidden="false"
+        [routerLink]="[routes.Help]"
+        attr.aria-label="{{ translations.header.support.aria | translate }}"
+        [ngClass]="activeRoute === routes.Help ? 'selected' : ''"
+      >
+        {{ translations.header.support.title | translate }}
       </a>
     </div>
-  
+
     <div class="header-actions">
-      <app-button btnId="gcc-header-search-btn"
-                  [matButtonType]="materialButtonType.Icon"
-                  [tooltip]="headerExpanded ? (translations.header.search.button.tooltip_off | translate) : translations.header.search.button.tooltip_on | translate"
-                  [ariaLabel]="headerExpanded ? (translations.header.search.button.aria_off | translate) : translations.header.search.button.aria_on | translate"
-                  (click)="toggleSearch()"
-                  [theme]="'white'">
-                  <i [ngClass]="headerExpanded ? 'fa-x' : 'fa-search'" class="fa-solid"></i>
+      <app-button
+        btnId="gcc-header-search-btn"
+        [matButtonType]="materialButtonType.Icon"
+        [tooltip]="
+          headerExpanded
+            ? (translations.header.search.button.tooltip_off | translate)
+            : (translations.header.search.button.tooltip_on | translate)
+        "
+        [ariaLabel]="
+          headerExpanded
+            ? (translations.header.search.button.aria_off | translate)
+            : (translations.header.search.button.aria_on | translate)
+        "
+        (click)="toggleSearch()"
+        [theme]="'white'"
+      >
+        <i
+          [ngClass]="headerExpanded ? 'fa-x' : 'fa-search'"
+          class="fa-solid"
+        ></i>
       </app-button>
-      <app-button btnId="gcc-header-messages-btn"
-                  [matButtonType]="materialButtonType.Icon"
-                  [tooltip]="translations.header.messages.tooltip | translate"
-                  [ariaLabel]="translations.header.messages.aria | translate"
-                  [routerLink]="[routes.Messages]"
-                  [theme]="'white'">
-                  <i class="fa-comment-dots" [ngClass]="activeRoute === routes.Messages ? 'fa-solid' : 'fa-regular'"></i>
+      <app-button
+        btnId="gcc-header-messages-btn"
+        [matButtonType]="materialButtonType.Icon"
+        [tooltip]="translations.header.messages.tooltip | translate"
+        [ariaLabel]="translations.header.messages.aria | translate"
+        [routerLink]="[routes.Messages]"
+        [theme]="'white'"
+      >
+        <i
+          class="fa-comment-dots"
+          [ngClass]="
+            activeRoute === routes.Messages ? 'fa-solid' : 'fa-regular'
+          "
+        ></i>
       </app-button>
-      <app-button btnId="gcc-header-notifications-btn"
-                  [matButtonType]="materialButtonType.Icon"
-                  [tooltip]="translations.header.notifications.tooltip | translate"
-                  [ariaLabel]="translations.header.notifications.aria | translate"
-                  [routerLink]="[routes.Messages]"
-                  [ngClass]="activeRoute === routes.Messages ? 'selected' : ''"
-                  [theme]="'white'">
-                  <i class="fa-bell" [ngClass]="activeRoute === routes.Messages ? 'fa-solid' : 'fa-regular'"></i>
+      <app-button
+        btnId="gcc-header-notifications-btn"
+        [matButtonType]="materialButtonType.Icon"
+        [tooltip]="translations.header.notifications.tooltip | translate"
+        [ariaLabel]="translations.header.notifications.aria | translate"
+        [routerLink]="[routes.Messages]"
+        [ngClass]="activeRoute === routes.Messages ? 'selected' : ''"
+        [theme]="'white'"
+      >
+        <i
+          class="fa-bell"
+          [ngClass]="
+            activeRoute === routes.Messages ? 'fa-solid' : 'fa-regular'
+          "
+        ></i>
       </app-button>
-      <app-button btnId="gcc-header-profile-btn"
-                  [matButtonType]="materialButtonType.Icon"
-                  [tooltip]="translations.header.profile.tooltip | translate"
-                  [ariaLabel]="translations.header.profile.aria | translate"
-                  [routerLink]="[routes.Profile]"
-                  [ngClass]="activeRoute === routes.Profile ? 'selected' : ''"
-                  [theme]="'white'"
-                  class="profile-btn">
-                  <app-profile-pic [model]="user" [loading]="loadingProfile"></app-profile-pic>
+      <app-button
+        btnId="gcc-header-profile-btn"
+        [matButtonType]="materialButtonType.Icon"
+        [tooltip]="translations.header.profile.tooltip | translate"
+        [ariaLabel]="translations.header.profile.aria | translate"
+        [routerLink]="[routes.Profile]"
+        [ngClass]="activeRoute === routes.Profile ? 'selected' : ''"
+        [theme]="'white'"
+        class="profile-btn"
+      >
+        <app-profile-pic
+          [model]="user"
+          [loading]="loadingProfile"
+        ></app-profile-pic>
       </app-button>
-      <app-language-selector 
-                  id="gcc-header-change-language"
-                  [isToggle]="true"
-                  [theme]="'white'">
+      <app-language-selector
+        id="gcc-header-change-language"
+        [isToggle]="true"
+        [theme]="'white'"
+      >
       </app-language-selector>
     </div>
   </mat-toolbar-row>
@@ -90,10 +132,16 @@
   <mat-toolbar-row *ngIf="headerExpanded">
     <div class="header-search">
       <form>
-        <input #gccSearch type="text" placeholder="{{ translations.header.search.title | translate }}" />
-        <app-button [matButtonType]="materialButtonType.Icon"
-                    [tooltip]="translations.header.search.button.tooltip_on | translate"
-                    [ariaLabel]="translations.header.search.button.aria_on | translate">
+        <input
+          #gccSearch
+          type="text"
+          placeholder="{{ translations.header.search.title | translate }}"
+        />
+        <app-button
+          [matButtonType]="materialButtonType.Icon"
+          [tooltip]="translations.header.search.button.tooltip_on | translate"
+          [ariaLabel]="translations.header.search.button.aria_on | translate"
+        >
           <i class="fa-solid fa-search"></i>
         </app-button>
       </form>

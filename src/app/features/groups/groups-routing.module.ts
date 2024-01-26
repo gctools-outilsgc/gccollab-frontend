@@ -10,25 +10,25 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: GroupsComponent
+    component: GroupsComponent,
   },
   {
     path: ':id',
     title: translations.titles.group,
     component: GroupComponent,
     data: {
-      title: translations.titles.group, 
-      breadcrumb: translations.titles.group
-    }
+      title: translations.titles.group,
+      breadcrumb: translations.titles.group,
+    },
   },
   {
     path: '**',
-    redirectTo: ''
-  }
+    redirectTo: '',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class GroupsRoutingModule { }
+export class GroupsRoutingModule {}

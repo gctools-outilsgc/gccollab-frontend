@@ -3,114 +3,119 @@
 @import "../../../../assets//scss/partials/layout";
 
 :host {
-    z-index: 3;
- 
-    mat-toolbar {
-        background: $primary-1-gradient;
-        position: fixed;
-        box-shadow: 0 3px 5px -1px #0003, 0 6px 10px #00000024, 0 1px 18px #0000001f;
-        transition: height 1s;
+  z-index: 3;
 
-        mat-toolbar-row {
-            padding: 0;
-        }
+  mat-toolbar {
+    background: $primary-1-gradient;
+    position: fixed;
+    box-shadow:
+      0 3px 5px -1px #0003,
+      0 6px 10px #00000024,
+      0 1px 18px #0000001f;
+    transition: height 1s;
 
-        mat-toolbar-row:first-child {
-            height: $header-height-desktop;
-            padding-left: $gutter-desktop;
-
-            div[class^="header-"] {
-                flex: 1;
-            }
-
-            .gcc-logo {
-                height: 85px;
-                width: 85px;
-                min-height: 85px;
-                min-width: 85px;
-                border-radius: 50%;
-                background-color: $primary-1-dark;
-
-                > div {
-                    line-height: 85px;
-                    text-align: center;
-                    font-size: xx-large;
-                    cursor: default;
-                }
-            }
-
-            .header-links {
-                display: flex;
-                flex-direction: row;
-                align-items: flex-start;
-                padding: 0px;
-                gap: 33px;
-                font-weight: 400;
-                padding-left: $gutter-desktop;
-
-                a, a:visited {
-                    color: $primary-1-contrast;
-                    transition: all 0.15s;
-                }
-
-                .selected {
-                    text-decoration: underline;
-                    font-weight: 700;
-                    text-underline-offset: 3px;
-                }
-            }
-
-            .header-actions {
-                justify-content: flex-end;
-                display: inline-flex;
-                padding-left: 40px;
-                padding-right: calc($gutter-desktop / 2);
-                align-items: center;
-                gap: 7px;
-
-                app-language-selector, .profile-btn {
-                    ::ng-deep button {
-                        padding: 0;
-                    }
-                }
-
-                app-profile-pic {
-                    width: 52px;
-                    height: 52px;
-                    line-height: 10px;
-                }
-            }
-        }
-     
-        .header-search { 
-            width: 100%;
-            min-width: 500px;
-
-            form {
-                align-items: center;
-                display: flex;
-            }
-
-            input {
-                width: 100%;
-                height: 30px;
-                border: 2px solid white;
-                border-radius: 12px;
-                padding-left: 6px;
-                outline-width: 0;
-            }
- 
-            app-button {
-                margin-left: -53px;
-                color: $primary-1;
-            }
-        }
-
-        mat-toolbar-row:not(mat-toolbar-row:first-child) {
-            height: 80px;
-            margin-top: -50px;
-            padding-right: 375px;
-            padding-left: 320px;
-        }
+    mat-toolbar-row {
+      padding: 0;
     }
+
+    mat-toolbar-row:first-child {
+      height: $header-height-desktop;
+      padding-left: $gutter-desktop;
+
+      div[class^="header-"] {
+        flex: 1;
+      }
+
+      .gcc-logo {
+        height: 85px;
+        width: 85px;
+        min-height: 85px;
+        min-width: 85px;
+        border-radius: 50%;
+        background-color: $primary-1-dark;
+
+        > div {
+          line-height: 85px;
+          text-align: center;
+          font-size: xx-large;
+          cursor: default;
+        }
+      }
+
+      .header-links {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 0px;
+        gap: 33px;
+        font-weight: 400;
+        padding-left: $gutter-desktop;
+
+        a,
+        a:visited {
+          color: $primary-1-contrast;
+          transition: all 0.15s;
+        }
+
+        .selected {
+          text-decoration: underline;
+          font-weight: 700;
+          text-underline-offset: 3px;
+        }
+      }
+
+      .header-actions {
+        justify-content: flex-end;
+        display: inline-flex;
+        padding-left: 40px;
+        padding-right: calc($gutter-desktop / 2);
+        align-items: center;
+        gap: 7px;
+
+        app-language-selector,
+        .profile-btn {
+          ::ng-deep button {
+            padding: 0;
+          }
+        }
+
+        app-profile-pic {
+          width: 52px;
+          height: 52px;
+          line-height: 10px;
+        }
+      }
+    }
+
+    .header-search {
+      width: 100%;
+      min-width: 500px;
+
+      form {
+        align-items: center;
+        display: flex;
+      }
+
+      input {
+        width: 100%;
+        height: 30px;
+        border: 2px solid white;
+        border-radius: 12px;
+        padding-left: 6px;
+        outline-width: 0;
+      }
+
+      app-button {
+        margin-left: -53px;
+        color: $primary-1;
+      }
+    }
+
+    mat-toolbar-row:not(mat-toolbar-row:first-child) {
+      height: 80px;
+      margin-top: -50px;
+      padding-right: 375px;
+      padding-left: 320px;
+    }
+  }
 }

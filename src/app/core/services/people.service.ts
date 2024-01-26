@@ -6,10 +6,9 @@ import { IListService } from '../interfaces/list-service.interface';
 import { ProfileCardComponent } from 'src/app/features/profile/components/profile-card/profile-card.component';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PeopleService implements IListService {
-
   private id: number = 0;
   private delay: number = 3000;
 
@@ -23,18 +22,18 @@ export class PeopleService implements IListService {
     this.generateRandomPerson(),
     this.generateRandomPerson(),
     this.generateRandomPerson(),
-    this.generateRandomPerson()
+    this.generateRandomPerson(),
   ];
 
   public dataType = Person;
   public cardComponent = ProfileCardComponent;
 
-  constructor() { }
+  constructor() {}
 
   get(id: string | null, delay: number = this.delay): Observable<Person> {
     let response: Person;
 
-    for(let i = 0; i < this.people.length; i++) {
+    for (let i = 0; i < this.people.length; i++) {
       if (this.people[i].id == id) {
         response = this.people[i];
         break;
@@ -51,11 +50,18 @@ export class PeopleService implements IListService {
     return observable;
   }
 
-  getMany(count: number = 10, delay: number = this.delay): Observable<Person[]> {
-
+  getMany(
+    count: number = 10,
+    delay: number = this.delay,
+  ): Observable<Person[]> {
     const observable: Observable<Person[]> = new Observable((subscriber) => {
       setTimeout(() => {
-        subscriber.next(this.people.slice(0, count > this.people.length ? this.people.length : count));
+        subscriber.next(
+          this.people.slice(
+            0,
+            count > this.people.length ? this.people.length : count,
+          ),
+        );
         subscriber.complete();
       }, delay);
     });
@@ -65,12 +71,12 @@ export class PeopleService implements IListService {
 
   private generateRandomPerson(): Person {
     const person = new Person(
-      this.id.toString(), 
-      this.randomFirstName(), 
-      this.randomLastName(), 
-      this.randomJobTitle(), 
+      this.id.toString(),
+      this.randomFirstName(),
+      this.randomLastName(),
+      this.randomJobTitle(),
       this.randomAddress(),
-      this.randomProfilePic()
+      this.randomProfilePic(),
     );
     this.id++;
     return person;
@@ -88,7 +94,7 @@ export class PeopleService implements IListService {
       'Charles',
       'Enzo',
       'Robert',
-      'Allisa'
+      'Allisa',
     ];
     return names[Math.floor(Math.random() * names.length)];
   }
@@ -104,7 +110,7 @@ export class PeopleService implements IListService {
       'Anderson',
       'Miller',
       'Taylor',
-      'Jones'
+      'Jones',
     ];
     return names[Math.floor(Math.random() * names.length)];
   }
@@ -119,7 +125,7 @@ export class PeopleService implements IListService {
       'VP of Office Gossip',
       'Water Cooler Technician',
       'Freelance Proctologist',
-      'Assistant to the Regional Manager'
+      'Assistant to the Regional Manager',
     ];
     return titles[Math.floor(Math.random() * titles.length)];
   }
@@ -135,7 +141,7 @@ export class PeopleService implements IListService {
       'https://www.asiamediajournal.com/wp-content/uploads/2022/11/Funny-Dog-PFP-profile-300x300.jpg',
       'https://images.unsplash.com/photo-1575425186775-b8de9a427e67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZnVubnklMjBhbmltYWx8ZW58MHx8MHx8fDA%3D&w=1000&q=80',
       'https://i.pinimg.com/originals/31/a0/d5/31a0d596f1e215b5825333f419645dcb.jpg',
-      'https://static.photocdn.pt/images/apple/71animalfaces/animalfaces25.webp'
+      'https://static.photocdn.pt/images/apple/71animalfaces/animalfaces25.webp',
     ];
     return urls[Math.floor(Math.random() * urls.length)];
   }
@@ -146,7 +152,7 @@ export class PeopleService implements IListService {
       new Location('4230 Innes Rd', 'Ottawa', 'Ontario'),
       new Location('2440 Bank St', 'Ottawa', 'Ontario'),
       new Location('464 Rideau St', 'Ottawa', 'Ontario'),
-      new Location('464 Bank St', 'Ottawa', 'Ontario')
+      new Location('464 Bank St', 'Ottawa', 'Ontario'),
     ];
     return addresses[Math.floor(Math.random() * addresses.length)];
   }

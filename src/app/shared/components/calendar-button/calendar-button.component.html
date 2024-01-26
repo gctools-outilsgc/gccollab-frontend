@@ -1,18 +1,26 @@
 <!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events -->
-<div class="event-calendar"
-     *ngIf="!loading"
-     [matTooltip]="tooltip | translate"
-     [attr.aria-label]="aria | translate"
-     [matTooltipPosition]="tooltipDirection"
-     [ngClass]="canceled === true ? 'canceled' : isPast() ? 'past' : ''"
-     (click)="click()"
-     tabindex="0">
-    <div>
-        {{ model | date:'LLL' | uppercase }}
-    </div>
-    <div>
-        {{ model | date:'dd' }}
-    </div>
+<div
+  class="event-calendar"
+  *ngIf="!loading"
+  [matTooltip]="tooltip | translate"
+  [attr.aria-label]="aria | translate"
+  [matTooltipPosition]="tooltipDirection"
+  [ngClass]="canceled === true ? 'canceled' : isPast() ? 'past' : ''"
+  (click)="click()"
+  tabindex="0"
+>
+  <div>
+    {{ model | date: "LLL" | uppercase }}
+  </div>
+  <div>
+    {{ model | date: "dd" }}
+  </div>
 </div>
 
-<ngx-skeleton-loader *ngIf="loading" count="1" appearance="circle" animation="progress" class="event-calendar-loading"></ngx-skeleton-loader>
+<ngx-skeleton-loader
+  *ngIf="loading"
+  count="1"
+  appearance="circle"
+  animation="progress"
+  class="event-calendar-loading"
+></ngx-skeleton-loader>

@@ -8,21 +8,9 @@ import { MatCardModule } from '@angular/material/card';
 import { GroupListComponent } from './components/group-list/group-list.component';
 import { GroupComponent } from './components/group/group.component';
 
-
 @NgModule({
-  declarations: [
-    GroupCardComponent,
-    GroupListComponent,
-    GroupComponent
-  ],
-  imports: [
-    CommonModule,
-    GroupsRoutingModule,
-    SharedModule, 
-    MatCardModule
-  ], 
-  exports: [
-    GroupListComponent
-  ]
+  declarations: [GroupCardComponent, GroupListComponent, GroupComponent],
+  imports: [CommonModule, GroupsRoutingModule, SharedModule, MatCardModule],
+  exports: [GroupListComponent],
 })
-export class GroupsModule { }
+export class GroupsModule {}

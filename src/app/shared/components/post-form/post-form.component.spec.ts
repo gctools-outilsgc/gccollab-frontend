@@ -1,7 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PostFormComponent } from './post-form.component';
-import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import {
+  TranslateLoader,
+  TranslateModule,
+  TranslateService,
+} from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TypescriptLoader } from 'src/app/core/helpers/typescript-loader';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -19,14 +23,15 @@ describe('PostFormComponent', () => {
         TranslateModule.forRoot({
           loader: {
             provide: TranslateLoader,
-            useFactory: (http: HttpClient) => new TypescriptLoader(http, 'translations'),
-            deps: [ HttpClient ]
-          }
+            useFactory: (http: HttpClient) =>
+              new TypescriptLoader(http, 'translations'),
+            deps: [HttpClient],
+          },
         }),
         HttpClientModule,
-        RouterTestingModule
+        RouterTestingModule,
       ],
-      providers: [ TranslateService, HttpClient ]
+      providers: [TranslateService, HttpClient],
     });
     fixture = TestBed.createComponent(PostFormComponent);
     component = fixture.componentInstance;

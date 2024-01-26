@@ -9,11 +9,8 @@ import { GroupsModule } from '../groups/groups.module';
 import { EventsModule } from '../events/events.module';
 import { ProfileModule } from '../profile/profile.module';
 
-
 @NgModule({
-  declarations: [
-    HomeComponent
-  ],
+  declarations: [HomeComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
@@ -21,7 +18,7 @@ import { ProfileModule } from '../profile/profile.module';
     NewsFeedModule,
     GroupsModule,
     EventsModule,
-    ProfileModule
-  ]
+    ProfileModule,
+  ],
 })
-export class HomeModule { }
+export class HomeModule {}

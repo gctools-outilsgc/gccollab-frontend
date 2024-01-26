@@ -18,11 +18,11 @@
     background-size: cover !important;
     background-repeat: no-repeat !important;
     margin-top: 0;
-  
+
     img {
       width: 100%;
     }
-  
+
     .banner-content-container {
       height: 100%;
       margin: 0 $gutter-desktop;
@@ -31,13 +31,13 @@
       color: $primary-1-contrast;
       cursor: default;
     }
-  
+
     ngx-skeleton-loader {
       display: block;
       height: 100%;
-  
+
       ::ng-deep {
-        >div {
+        > div {
           height: 100%;
         }
       }
