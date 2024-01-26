@@ -61,7 +61,7 @@ export class EventService implements IListService {
       }
     }
 
-    let observable: Observable<Event> = new Observable((subscriber) => {
+    const observable: Observable<Event> = new Observable((subscriber) => {
       setTimeout(() => {
         subscriber.next(response);
         subscriber.complete();
@@ -73,7 +73,7 @@ export class EventService implements IListService {
 
   getMany(count: number = 10, delay: number = this.delay): Observable<Event[]> {
 
-    let observable: Observable<Event[]> = new Observable((subscriber) => {
+    const observable: Observable<Event[]> = new Observable((subscriber) => {
       setTimeout(() => {
         subscriber.next(this.events.slice(0, count > this.events.length ? this.events.length : count));
         subscriber.complete();
@@ -120,7 +120,7 @@ export class EventService implements IListService {
 
   private randomEventDescription(): string {
     let description: string = '';
-    let paragraphs = (Math.random() * 4) + 1;
+    const paragraphs = (Math.random() * 4) + 1;
 
     for (let i = 0; i < paragraphs; i++) {
       description += this.lorem.generateSentences(Math.floor(Math.random() * 10) + 4);
@@ -144,8 +144,8 @@ export class EventService implements IListService {
   }
 
   private randomDate() {
-    let startDate = new Date();
-    let endDate = new Date('2023/12/31');
+    const startDate = new Date();
+    const endDate = new Date('2023/12/31');
     return new Date(startDate.getTime() + Math.random() * (endDate.getTime() - startDate.getTime()));
   }
 

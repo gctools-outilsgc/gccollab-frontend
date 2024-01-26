@@ -11,7 +11,7 @@ import { isNodeActive } from 'ngx-editor/helpers';
   templateUrl: './editor-menu.component.html',
   styleUrls: ['./editor-menu.component.scss']
 })
-export class EditorMenuComponent {
+export class EditorMenuComponent implements OnInit {
   constructor() {}
 
   @Input() editor!: Editor;

@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, EventEmitter, Input, Output, forwardRef } from '@angular/core';
 import { InputType } from '../../models/input-type';
-import { AbstractControl, ControlValueAccessor, FormControl, FormGroupDirective, NG_VALUE_ACCESSOR, NgForm } from '@angular/forms';
+import {  ControlValueAccessor, FormControl, FormGroupDirective, NG_VALUE_ACCESSOR, NgForm } from '@angular/forms';
 import { MaterialButtonType } from '../../models/material-button-type';
 import { Translations } from 'src/app/core/services/translations.service';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { TranslateService } from '@ngx-translate/core';
 import { TooltipDirection } from '../../models/tooltip-direction';
 import { ErrorStateMatcher } from '@angular/material/core';
@@ -49,6 +51,7 @@ export class InputComponent implements ControlValueAccessor {
   showPassword = false;
   showHint = false;
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   onChange = (_: any) => {};
   onTouched = () => {};
 

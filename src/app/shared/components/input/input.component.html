@@ -1,7 +1,9 @@
+<!-- eslint-disable @angular-eslint/template/no-autofocus -->
 <div class="gcc-input-wrapper" [class]="theme">
     <mat-label *ngIf="label" [ngClass]="{'disabled': control ? control.disabled : false}">
         {{ label }} 
         <div *ngIf="required" class="required-star">*</div>
+        <!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events -->
         <i *ngIf="hint" 
            tabindex="0"
            [ngClass]="{'fa-circle-xmark' : showHint, 'fa-circle-question' : !showHint}" class="fa-regular"
@@ -30,7 +32,7 @@
                [ngClass]="{icon: icon}"
         >
 
-        <app-button *ngIf="type == inputType.Password" 
+        <app-button *ngIf="type === inputType.Password" 
                     [matButtonType]="materialButtonType.Icon"
                     [tooltip]="showPassword ? (translations.input.password.hide.text | translate) : translations.input.password.show.text | translate"
                     [ariaLabel]="showPassword ? (translations.input.password.hide.aria | translate) : translations.input.password.show.aria | translate"

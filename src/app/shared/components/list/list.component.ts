@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { NgComponentOutlet } from '@angular/common';
 import { IListService } from 'src/app/core/interfaces/list-service.interface';
 import { CardSize } from '../../models/card-size';
@@ -27,8 +28,8 @@ export class ListComponent implements OnInit {
   loading: boolean = true;
   Orientations = Orientation;
 
-  nextPageCallback: Function = this.nextPage.bind(this);
-  previousPageCallback: Function = this.previousPage.bind(this);
+  nextPageCallback: () => unknown = this.nextPage.bind(this);
+  previousPageCallback: () => unknown = this.previousPage.bind(this);
 
   constructor() {
     
@@ -73,7 +74,7 @@ export class ListComponent implements OnInit {
     return this.startIndex + this.pageSize;
   }
 
-  get paginatedItems(): any[] {
+  get paginatedItems(): typeof this.service.dataType[] {
     return this.loading && this.currentPage === this.lastPage 
     ? this.items.slice(0, this.pageSize) 
     : this.items.slice(this.startIndex, this.endIndex);

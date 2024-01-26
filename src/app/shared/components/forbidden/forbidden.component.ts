@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-forbidden',
@@ -6,11 +6,8 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   styleUrls: ['./forbidden.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ForbiddenComponent implements OnInit {
+export class ForbiddenComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

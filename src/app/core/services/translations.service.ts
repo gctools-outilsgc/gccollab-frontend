@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { default as translations } from "src/assets/i18n/translations.en";
 
 export function GenericClass<Props>(): new () => Props {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return class {} as any;
 }
 

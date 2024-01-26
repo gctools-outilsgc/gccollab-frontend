@@ -1,5 +1,6 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { AfterContentInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { TranslateService } from '@ngx-translate/core';
 import { Translations } from 'src/app/core/services/translations.service';
 import { Validators as EditorValidators } from 'ngx-editor';
@@ -9,7 +10,7 @@ import { Validators as EditorValidators } from 'ngx-editor';
   templateUrl: './event-form.component.html',
   styleUrls: ['./event-form.component.scss']
 })
-export class EventFormComponent implements OnInit, OnDestroy {
+export class EventFormComponent implements OnInit, OnDestroy, AfterContentInit {
   @Input() form: FormGroup = new FormGroup({});
   @Input() model: IEventForm = {
     eventType: EventType.Hybrid,

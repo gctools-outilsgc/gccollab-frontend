@@ -2,7 +2,7 @@
     
     <mat-card-header>
          <div class="group-image-wrapper">
-            <img *ngIf="!loading" [src]="model?.displayPicture">
+            <img *ngIf="!loading" [src]="model?.displayPicture" alt="">
             <ngx-skeleton-loader *ngIf="loading" count="1" appearance="line" animation="progress"></ngx-skeleton-loader>
         </div> 
     </mat-card-header>

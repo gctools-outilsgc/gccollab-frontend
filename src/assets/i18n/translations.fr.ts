@@ -252,6 +252,7 @@ const fr: typeof import('./translations.en').default = {
             "tooltip_off": "Annuler la déclinaison",
             "aria_off": "Cliquez pour annuler votre déclinaison de l'événement"
         },
+        "alt": "Image de l'événement",
         "canceled": "Annulé",
         "organizer": "Organisateur",
         "location": "Emplacement"

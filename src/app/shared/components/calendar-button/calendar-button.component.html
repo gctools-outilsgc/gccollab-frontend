@@ -1,9 +1,10 @@
+<!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events -->
 <div class="event-calendar"
      *ngIf="!loading"
      [matTooltip]="tooltip | translate"
      [attr.aria-label]="aria | translate"
      [matTooltipPosition]="tooltipDirection"
-     [ngClass]="canceled == true ? 'canceled' : isPast() ? 'past' : ''"
+     [ngClass]="canceled === true ? 'canceled' : isPast() ? 'past' : ''"
      (click)="click()"
      tabindex="0">
     <div>

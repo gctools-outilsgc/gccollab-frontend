@@ -30,7 +30,7 @@ export class LanguageSelectorComponent implements OnInit {
   }
 
   findSelectedKey() {
-    let currLang = this.translateService.currentLang;
+    const currLang = this.translateService.currentLang;
     
     if (currLang === undefined)
       return;

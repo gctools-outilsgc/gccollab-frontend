@@ -53,7 +53,8 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterC
   focusChange!: MutationObserver;
   tooltipDirection = TooltipDirection;
 
-  onChange = (_: any) => {};
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  onChange = (_: unknown) => {};
   onTouched = () => {};
   
   private langChangeSub!: Subscription;
@@ -98,8 +99,8 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterC
     this.onLangChange();
 
     this.focusChange = new MutationObserver((mutations: MutationRecord[]) => {
-      mutations.forEach((mutation: MutationRecord) => {
-        let classList = this.editorViewChild.nativeElement?.children[1]?.children[0]?.children[0]?.classList;
+      mutations.forEach(() => {
+        const classList = this.editorViewChild.nativeElement?.children[1]?.children[0]?.children[0]?.classList;
         if (classList) {
           this.hasFocus = Array.from(classList).includes('ProseMirror-focused') ? true : false;
 
@@ -223,7 +224,7 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterC
   }
 
   addAccessibility(selector: string, ariaLabel: string): void {
-    let el: HTMLElement = this.elementRef.nativeElement.querySelectorAll(selector)[0];
+    const el: HTMLElement = this.elementRef.nativeElement.querySelectorAll(selector)[0];
 
     if (el) {
       el.removeEventListener('keydown', this.keydownRef);
@@ -292,7 +293,7 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterC
   }
 
   cleanAriaLable(el: HTMLElement): string {
-    let ariaLabel = el.getAttribute('ariaLabel');
+    const ariaLabel = el.getAttribute('ariaLabel');
     if (ariaLabel) {
       return ariaLabel.replaceAll(this.translateService.instant(this.translations.editor.enabled), '');
     }
@@ -324,10 +325,12 @@ export class EditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterC
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   registerOnChange(fn: any): void {
     this.onChange  = fn;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }
