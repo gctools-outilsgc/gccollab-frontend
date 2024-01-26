@@ -14,6 +14,7 @@
     "install-graphviz-win": "winget install -e --id Graphviz.Graphviz --accept-package-agreements --accept-source-agreements --disable-interactivity && set PATH=%PATH%;C:\\Program Files\\Graphviz\\bin;",
     "depcruise": "depcruise src --include-only \"^src\" --config --output-type dot | dot -T svg > dependency-graph.svg",
     "node-sync": "node ./src/scripts/nodeSyncWorkflows.js",
+    "pretty-code": "npx prettier . --write",
     "lint": "ng lint"
   },
   "private": true,
