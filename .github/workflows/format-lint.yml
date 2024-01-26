@@ -1,4 +1,4 @@
-name: Lint
+name: Prettier & Lint
 
 on:
   pull_request:
@@ -10,10 +10,12 @@ env:
 
 jobs:
   lint:
-    name: Run code linter
+    name: Run code formatter & linter
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
       - name: Use Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v1
         with:
@@ -21,6 +23,16 @@ jobs:
 
       - name: Install
         run: npm install
+
+      - name: Prettier
+        run: npx prettier . --write
+
+      - name: Commit
+        run: |
+          git config --global user.email "shea.wow@hotmail.com"
+          git config --global user.name Shea Dougherty-Gill
+          git commit -a -m "Prettier formatting ${{ vars.IGNORE_DEPLOY }}"
+          git push
 
       - name: Lint
         run: npm run ng lint

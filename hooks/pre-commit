@@ -1,2 +1,2 @@
 #!/bin/sh
-npm run node-sync && pretty-code
+npm run node-sync
