@@ -6,7 +6,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./banner.component.scss'],
 })
 export class BannerComponent {
-  @Input() model: Banner | null = null;@Input() headerExpanded: boolean = false;@Input() loading: boolean = false;
+  @Input() model: Banner | null = null;
+  @Input() headerExpanded: boolean = false;
+  @Input() loading: boolean = false;
 
   constructor() {
     if (!this.model) {
