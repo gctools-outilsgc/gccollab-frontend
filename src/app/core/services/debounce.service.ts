@@ -2,13 +2,12 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject, debounceTime } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DebounceService {
-
   private debounceSubject = new Subject<() => unknown>();
 
-  constructor() { }
+  constructor() {}
 
   debounce(fn: () => unknown, delay: number): void {
     this.debounceSubject.next(fn);

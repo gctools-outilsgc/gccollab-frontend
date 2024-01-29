@@ -1,70 +1,70 @@
 @import "../../../../../assets//scss/partials/colors";
 
 :host {
-    mat-card {
-        border: 1px solid $neutral-300;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 10px;
+  mat-card {
+    border: 1px solid $neutral-300;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
 
-        mat-card-header {
-            .profile-wrapper {
-                width: 100px;
-                height: 100px;
-                border-radius: 50%;
-                background-color: #fff;
-                padding: 5px;
-                box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
-                margin: auto;
-            }
-        }
-
-        mat-card-content {
-            padding: 20px 12px;
-
-            >div {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-            }
-
-            >div:first-child {
-                font-weight: 700;
-            }
-
-            ngx-skeleton-loader {
-                width: 50%;
-                display: block;
-                margin: auto;
-            }
-        }
-
-        mat-card-actions {
-            gap: 20px;
-
-            app-button:first-child {
-                margin-left: auto;
-            }
-
-            app-button:last-child {
-                margin-right: auto;
-            }
-
-            .confirm {
-                color: $secondary-2;
-            }
-
-            .decline {
-                color: $error-red;
-            }
-
-            .disabled {
-                color: $neutral-200 !important;
-            }
-
-            i {
-                font-size: xx-large;
-            }
-        }
+    mat-card-header {
+      .profile-wrapper {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: #fff;
+        padding: 5px;
+        box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
+        margin: auto;
+      }
     }
+
+    mat-card-content {
+      padding: 20px 12px;
+
+      > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      > div:first-child {
+        font-weight: 700;
+      }
+
+      ngx-skeleton-loader {
+        width: 50%;
+        display: block;
+        margin: auto;
+      }
+    }
+
+    mat-card-actions {
+      gap: 20px;
+
+      app-button:first-child {
+        margin-left: auto;
+      }
+
+      app-button:last-child {
+        margin-right: auto;
+      }
+
+      .confirm {
+        color: $secondary-2;
+      }
+
+      .decline {
+        color: $error-red;
+      }
+
+      .disabled {
+        color: $neutral-200 !important;
+      }
+
+      i {
+        font-size: xx-large;
+      }
+    }
+  }
 }

@@ -1,4 +1,4 @@
 export interface ILanguage {
-    key: string;
-    value: string;
+  key: string;
+  value: string;
 }

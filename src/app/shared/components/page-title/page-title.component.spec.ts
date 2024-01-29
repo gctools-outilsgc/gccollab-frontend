@@ -15,32 +15,32 @@ describe('PageTitleComponent', () => {
 
   // TODO: Mock meaningful data
   const fakeActivatedRoute = {
-    snapshot: { data: {  } }
+    snapshot: { data: {} },
   } as ActivatedRoute;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageTitleComponent ],
-      imports: [ 
+      declarations: [PageTitleComponent],
+      imports: [
         TranslateModule.forRoot({
           loader: {
             provide: TranslateLoader,
-            useFactory: (http: HttpClient) => new TypescriptLoader(http, 'translations'),
-            deps: [ HttpClient ]
-          }
+            useFactory: (http: HttpClient) =>
+              new TypescriptLoader(http, 'translations'),
+            deps: [HttpClient],
+          },
         }),
-        HttpClientModule
+        HttpClientModule,
       ],
-      providers: [ 
-        TranslateService, 
-        HttpClient, 
+      providers: [
+        TranslateService,
+        HttpClient,
         {
-          provide: ActivatedRoute, 
-          useValue: fakeActivatedRoute
-        } 
-      ]
-    })
-    .compileComponents();
+          provide: ActivatedRoute,
+          useValue: fakeActivatedRoute,
+        },
+      ],
+    }).compileComponents();
 
     translateService = TestBed.inject(TranslateService);
     fixture = TestBed.createComponent(PageTitleComponent);

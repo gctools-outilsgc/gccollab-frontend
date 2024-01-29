@@ -8,10 +8,9 @@ import { EventService } from 'src/app/core/services/event.service';
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
-  styleUrls: ['./events.component.scss']
+  styleUrls: ['./events.component.scss'],
 })
 export class EventsComponent implements OnInit {
-
   routes = CoreRoutes;
   form: FormGroup = new FormGroup({});
   searchIcon: string = 'fa-solid fa-magnifying-glass';
@@ -19,10 +18,12 @@ export class EventsComponent implements OnInit {
   loadingEvents: boolean = true;
   materialButtonType = MaterialButtonType;
 
-  constructor(public translations: Translations, 
-              public eventService: EventService) {}
+  constructor(
+    public translations: Translations,
+    public eventService: EventService,
+  ) {}
 
   ngOnInit(): void {
-          this.form.addControl("eventSearchBar", new FormControl("", []));
+    this.form.addControl('eventSearchBar', new FormControl('', []));
   }
 }

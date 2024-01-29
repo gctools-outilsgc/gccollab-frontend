@@ -1,4 +1,11 @@
-import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Theme } from '../../models/theme';
 import { TooltipDirection } from '../../models/tooltip-direction';
@@ -10,11 +17,11 @@ import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-file-select',
   templateUrl: './file-select.component.html',
-  styleUrls: ['./file-select.component.scss']
+  styleUrls: ['./file-select.component.scss'],
 })
 export class FileSelectComponent implements OnInit, OnDestroy {
-  @Input({required: true}) label: string = '';
-  @Input({required: true}) control!: FormControl;
+  @Input({ required: true }) label: string = '';
+  @Input({ required: true }) control!: FormControl;
   @Input() fileType: FileType | string = FileType.Image;
   @Input() view: FileSelectView | string = FileSelectView.Form; // TODO: Icon/Button
   @Input() tooltip!: string;
@@ -22,7 +29,7 @@ export class FileSelectComponent implements OnInit, OnDestroy {
   @Input() ariaLabel!: string; // Should only be used for FileSelectView.Icon
   @Input() theme: Theme | string = Theme.Primary1;
 
-  // All 
+  // All
   @Input() maxSize: number = 3145728; // Bytes
   @Input() ignoreExt: string[] = [];
 
@@ -30,7 +37,7 @@ export class FileSelectComponent implements OnInit, OnDestroy {
   @Input() maxLength: number = Number.MAX_SAFE_INTEGER;
   @Input() minLength: number = 0;
 
-  // Photo 
+  // Photo
   @Input() maxWidth: number = 1920;
   @Input() maxHeight: number = 1080;
   @Input() minWidth: number = 25;
@@ -48,27 +55,99 @@ export class FileSelectComponent implements OnInit, OnDestroy {
   private focusSub!: Subscription;
 
   private textExtensions = [
-    'txt', 'csv', 'json', 'xml', 'html', 'md', 'log', 
-    'pdf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 
-    'odt', 'ods', 'odp', 'rtf', 'tex', 'epub'
+    'txt',
+    'csv',
+    'json',
+    'xml',
+    'html',
+    'md',
+    'log',
+    'pdf',
+    'doc',
+    'docx',
+    'xls',
+    'xlsx',
+    'ppt',
+    'pptx',
+    'odt',
+    'ods',
+    'odp',
+    'rtf',
+    'tex',
+    'epub',
   ];
   private imageExtensions = [
-    'jpg', 'jpeg', 'png', 'gif', 'bmp', 
-    'tiff', 'webp', 'svg', 'ico'
+    'jpg',
+    'jpeg',
+    'png',
+    'gif',
+    'bmp',
+    'tiff',
+    'webp',
+    'svg',
+    'ico',
   ];
   private audioExtensions = [
-    'mp3', 'wav', 'ogg', 'aac', 'wma', 'flac',
-     'm4a', 'ac3', 'amr', 'aiff', 'au'
-    ];
+    'mp3',
+    'wav',
+    'ogg',
+    'aac',
+    'wma',
+    'flac',
+    'm4a',
+    'ac3',
+    'amr',
+    'aiff',
+    'au',
+  ];
   private videoExtensions = [
-    'mp4', 'avi', 'mkv', 'mov', 'wmv', 'flv', 
-    'webm', 'mpeg', 'm4v', '3gp', 'ogg'
+    'mp4',
+    'avi',
+    'mkv',
+    'mov',
+    'wmv',
+    'flv',
+    'webm',
+    'mpeg',
+    'm4v',
+    '3gp',
+    'ogg',
   ];
   private blacklist: string[] = [
-    'c', 'cgi', 'pl', 'class', 'cpp', 'cs', 'h', 'java', 'php', 
-    'py', 'sh', 'swift', 'vb', 'asp', 'aspx', 'cer', 'cfm', 
-    'css', 'htm', 'html', 'js', 'jsp', 'part', 'rss', 'xhtml', 
-    'apk', 'bat', 'bin', 'com', 'exe', 'gadget', 'jar', 'msi', 'wsf'
+    'c',
+    'cgi',
+    'pl',
+    'class',
+    'cpp',
+    'cs',
+    'h',
+    'java',
+    'php',
+    'py',
+    'sh',
+    'swift',
+    'vb',
+    'asp',
+    'aspx',
+    'cer',
+    'cfm',
+    'css',
+    'htm',
+    'html',
+    'js',
+    'jsp',
+    'part',
+    'rss',
+    'xhtml',
+    'apk',
+    'bat',
+    'bin',
+    'com',
+    'exe',
+    'gadget',
+    'jar',
+    'msi',
+    'wsf',
   ];
 
   clickCallback: () => unknown = this.openFilePicker.bind(this);
@@ -78,28 +157,31 @@ export class FileSelectComponent implements OnInit, OnDestroy {
   private previousTranslation: string | undefined;
   private previousError: string | undefined;
 
-  constructor(private focusTrackingService: FocusTrackingService,
-              public translations: Translations, private translateService: TranslateService) {
+  constructor(
+    private focusTrackingService: FocusTrackingService,
+    public translations: Translations,
+    private translateService: TranslateService,
+  ) {
     this.langChangeSub = this.translateService.onLangChange.subscribe(() => {
       this.onLangChange();
     });
   }
 
   ngOnInit(): void {
-    this.focusSub = this.focusTrackingService.getAppFocusObservable().subscribe((isInFocus) => {
-      this.appInFocus = isInFocus;
-      if (isInFocus && this.filePickerHasOpened) {
-        this.control.markAsTouched();
-      }
-    });
+    this.focusSub = this.focusTrackingService
+      .getAppFocusObservable()
+      .subscribe((isInFocus) => {
+        this.appInFocus = isInFocus;
+        if (isInFocus && this.filePickerHasOpened) {
+          this.control.markAsTouched();
+        }
+      });
   }
 
   ngOnDestroy(): void {
-    if (this.focusSub)
-      this.focusSub.unsubscribe();
+    if (this.focusSub) this.focusSub.unsubscribe();
 
-    if (this.langChangeSub)
-      this.langChangeSub.unsubscribe();
+    if (this.langChangeSub) this.langChangeSub.unsubscribe();
   }
 
   openFilePicker(): void {
@@ -119,37 +201,44 @@ export class FileSelectComponent implements OnInit, OnDestroy {
     if (selectedFile) {
       if (!this.isCorrectExtension(selectedFile.name)) {
         this.setError(this.translations.file_select.error.extension);
-      }  
-      else if (selectedFile.size > this.maxSize) {
-        this.setError(this.translations.file_select.error.size, this.maxSize / 1024 + " KB.");
+      } else if (selectedFile.size > this.maxSize) {
+        this.setError(
+          this.translations.file_select.error.size,
+          this.maxSize / 1024 + ' KB.',
+        );
+      } else {
+        this.loadFile(selectedFile)
+          .then((dataURL) => {
+            if (
+              this.fileType == FileType.Text &&
+              dataURL.length > this.maxLength
+            ) {
+              return this.setError(
+                this.translations.file_select.error.characters,
+                this.maxLength.toString(),
+              );
+            } else if (this.fileType == FileType.Image) {
+              this.isCorrectDimensions(selectedFile).then((result) => {
+                if (result !== true) return this.setError(result as string);
+              });
+            }
+
+            this.control.setValue(dataURL);
+            this.photoName = selectedFile.name;
+            this.clearError();
+          })
+          .catch((error) => {
+            this.setError(
+              this.translateService.instant(
+                this.translations.file_select.error.read,
+              ),
+            );
+            console.error(error);
+          });
       }
-      else {
-
-        this.loadFile(selectedFile).then((dataURL) => {
-
-          if (this.fileType == FileType.Text && dataURL.length > this.maxLength) {
-            return this.setError(this.translations.file_select.error.characters, this.maxLength.toString());
-          }
-          else if (this.fileType == FileType.Image) {
-            this.isCorrectDimensions(selectedFile).then((result) => {
-              if (result !== true) 
-                return this.setError(result as string);
-            });
-          }
-
-          this.control.setValue(dataURL);
-          this.photoName = selectedFile.name;
-          this.clearError();
-        }).catch((error) => {
-          this.setError(this.translateService.instant(this.translations.file_select.error.read));
-          console.error(error);
-        });
-      }
-    }
-    else
-      this.control.markAsTouched();
+    } else this.control.markAsTouched();
   }
-  
+
   private loadFile(file: File): Promise<string> {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
@@ -167,12 +256,11 @@ export class FileSelectComponent implements OnInit, OnDestroy {
   private isCorrectExtension(fileName: string): boolean {
     const fileExtension = fileName.split('.').pop();
 
-    if (!fileExtension) 
-      return false; 
+    if (!fileExtension) return false;
 
     let valid = true;
 
-    switch(this.fileType) {
+    switch (this.fileType) {
       case FileType.Text:
         valid = this.textExtensions.includes(fileExtension.toLowerCase());
         break;
@@ -193,7 +281,13 @@ export class FileSelectComponent implements OnInit, OnDestroy {
     return valid && !this.blacklist.includes(fileExtension.toLowerCase());
   }
 
-  private isCorrectDimensions(file: File, maxWidth: number = this.maxWidth, maxHeight: number = this.maxHeight, minWidth: number = this.minWidth, minHeight: number = this.minHeight): Promise<boolean | string> {
+  private isCorrectDimensions(
+    file: File,
+    maxWidth: number = this.maxWidth,
+    maxHeight: number = this.maxHeight,
+    minWidth: number = this.minWidth,
+    minHeight: number = this.minHeight,
+  ): Promise<boolean | string> {
     return new Promise((resolve) => {
       const img = new Image();
 
@@ -205,12 +299,23 @@ export class FileSelectComponent implements OnInit, OnDestroy {
         const isSmall = width <= minWidth || height <= minHeight;
 
         if (!isLarge && !isSmall) {
-          resolve(true); 
+          resolve(true);
         } else {
-
-          resolve(isLarge ? 
-            this.translateService.instant(this.translations.file_select.error.img_large) + this.maxWidth + "x" + this.maxHeight : 
-            this.translateService.instant(this.translations.file_select.error.img_small) + this.minWidth + "x" + this.minHeight);
+          resolve(
+            isLarge
+              ? this.translateService.instant(
+                  this.translations.file_select.error.img_large,
+                ) +
+                  this.maxWidth +
+                  'x' +
+                  this.maxHeight
+              : this.translateService.instant(
+                  this.translations.file_select.error.img_small,
+                ) +
+                  this.minWidth +
+                  'x' +
+                  this.minHeight,
+          );
         }
       };
 
@@ -236,21 +341,20 @@ export class FileSelectComponent implements OnInit, OnDestroy {
   }
 
   private onLangChange() {
-    if (this.error)
-      this.setError(this.previousTranslation, this.previousError);
+    if (this.error) this.setError(this.previousTranslation, this.previousError);
   }
 }
 
 enum FileType {
-  Text = "text/plain, application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-  Image = "image/*",
-  Audio = "audio/*",
-  Video = "video/*",
-  All = "*/*"
+  Text = 'text/plain, application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+  Image = 'image/*',
+  Audio = 'audio/*',
+  Video = 'video/*',
+  All = '*/*',
 }
 
 enum FileSelectView {
-  Button = "button",
-  Form = "form",
-  Icon = "icon"
+  Button = 'button',
+  Form = 'form',
+  Icon = 'icon',
 }

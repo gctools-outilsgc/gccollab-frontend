@@ -4,15 +4,8 @@ import { TermsComponent } from './terms.component';
 import { TermsRoutingModule } from './terms-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 
-
 @NgModule({
-  declarations: [
-    TermsComponent
-  ],
-  imports: [
-    CommonModule,
-    TermsRoutingModule,
-    SharedModule
-  ]
+  declarations: [TermsComponent],
+  imports: [CommonModule, TermsRoutingModule, SharedModule],
 })
-export class TermsModule { }
+export class TermsModule {}

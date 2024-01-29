@@ -10,10 +10,9 @@ import { PeopleService } from 'src/app/core/services/people.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-
   @Output() headerToggleEvent = new EventEmitter<boolean>();
   @Input() activeRoute: string = CoreRoutes.Home;
 
@@ -22,11 +21,12 @@ export class HeaderComponent {
   headerExpanded = false;
   loadingProfile = true;
 
-  user!: Person; 
+  user!: Person;
 
-  constructor(public translations: Translations,
-              peopleService: PeopleService) 
-  {
+  constructor(
+    public translations: Translations,
+    peopleService: PeopleService,
+  ) {
     // TODO: Get user from service
     peopleService.get('0', 0).subscribe((person: Person) => {
       this.user = person;
@@ -34,9 +34,8 @@ export class HeaderComponent {
     });
   }
 
-  toggleSearch () {
+  toggleSearch() {
     this.headerExpanded = !this.headerExpanded;
     this.headerToggleEvent.emit(this.headerExpanded);
   }
-
 }

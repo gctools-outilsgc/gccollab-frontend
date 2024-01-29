@@ -1,43 +1,44 @@
-@import '../../../assets/scss/partials/layout';
-@import '../../../assets/scss/partials/colors';
+@import "../../../assets/scss/partials/layout";
+@import "../../../assets/scss/partials/colors";
 
 :host {
-    .news-container {
-        width: 66%;
-        padding-right: $grid-step;
+  .news-container {
+    width: 66%;
+    padding-right: $grid-step;
 
-        app-post {
-            display: block;
-            padding-bottom: 40px;
-        }
-
-        > div {
-            padding: 0 22px 0 22px;
-        }
+    app-post {
+      display: block;
+      padding-bottom: 40px;
     }
 
-    section {
-        .click-for-more {
-            text-align: center;
-            font-weight: 700;
-            padding: 10px 0;
-
-            a {
-                color: $primary-2;
-            }
-
-            a:hover, a:focus {
-                text-decoration: underline;
-            }
-        }
+    > div {
+      padding: 0 22px 0 22px;
     }
+  }
 
-    section:not(:last-child) {
-        padding-bottom: 44px;
-    }
+  section {
+    .click-for-more {
+      text-align: center;
+      font-weight: 700;
+      padding: 10px 0;
 
-    app-news-list {
-        padding-top: 40px;
-        display: block;
+      a {
+        color: $primary-2;
+      }
+
+      a:hover,
+      a:focus {
+        text-decoration: underline;
+      }
     }
+  }
+
+  section:not(:last-child) {
+    padding-bottom: 44px;
+  }
+
+  app-news-list {
+    padding-top: 40px;
+    display: block;
+  }
 }

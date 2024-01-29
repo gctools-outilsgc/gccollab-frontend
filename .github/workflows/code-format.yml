@@ -1,6 +1,6 @@
-# This action will generate a new dependency graph for the project once a pull request is closed that targets main
+# This action will run the code formatter once a pull request is closed that targets main
 
-name: Update Dependency Graph
+name: Code Formatter
 
 on:
   pull_request:
@@ -14,7 +14,7 @@ env:
 jobs:
   if_merged:
     if: github.event.pull_request.merged == true
-    name: Install packages and update dependency graph
+    name: Install packages and format code
     runs-on: ubuntu-latest
     continue-on-error: true
 
@@ -28,16 +28,14 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Install
-        run: |
-          npm install
-          npm run install-graphviz-linux
+        run: npm install
 
-      - name: Generate
-        run: npm run depcruise
+      - name: Format Code
+        run: npx prettier . --write
 
       - name: Commit
         run: |
           git config --global user.email "shea.wow@hotmail.com"
           git config --global user.name Shea Dougherty-Gill
-          git commit -a -m "Dependency Graph ${{ vars.IGNORE_DEPLOY }}"
+          git commit -a -m "Code formatting ${{ vars.IGNORE_DEPLOY }}"
           git push

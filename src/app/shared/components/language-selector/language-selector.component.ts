@@ -11,19 +11,21 @@ import { Theme } from '../../models/theme';
   styleUrls: ['./language-selector.component.scss'],
 })
 export class LanguageSelectorComponent implements OnInit {
-
   @Input() isToggle: boolean = false;
   @Input() theme: Theme | string = Theme.Black;
-  
-  languages: ILanguage [] = [
-    {'key': 'en', 'value': this.translations.languages.english},
-    {'key': 'fr', 'value': this.translations.languages.french},
+
+  languages: ILanguage[] = [
+    { key: 'en', value: this.translations.languages.english },
+    { key: 'fr', value: this.translations.languages.french },
   ];
   selectedLanguageKey: string = this.languages[0].key;
   materialButtonType = MaterialButtonType;
   id: string = 'gcc-language-selector-btn-en';
 
-  constructor(private translateService: TranslateService, public translations: Translations) { }
+  constructor(
+    private translateService: TranslateService,
+    public translations: Translations,
+  ) {}
 
   ngOnInit(): void {
     this.findSelectedKey();
@@ -31,9 +33,8 @@ export class LanguageSelectorComponent implements OnInit {
 
   findSelectedKey() {
     const currLang = this.translateService.currentLang;
-    
-    if (currLang === undefined)
-      return;
+
+    if (currLang === undefined) return;
 
     for (let i = 0; i < this.languages.length; i++) {
       if (currLang === this.languages[i].key) {
@@ -41,12 +42,15 @@ export class LanguageSelectorComponent implements OnInit {
         break;
       }
     }
-    
+
     this.id = 'gcc-language-selector-btn-' + this.selectedLanguageKey;
   }
 
   toggle() {
-    this.selectedLanguageKey = this.selectedLanguageKey == this.languages[0].key ? this.languages[1].key : this.languages[0].key;
+    this.selectedLanguageKey =
+      this.selectedLanguageKey == this.languages[0].key
+        ? this.languages[1].key
+        : this.languages[0].key;
     this.update();
   }
 

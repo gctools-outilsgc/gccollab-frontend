@@ -40,12 +40,13 @@ $title-padding: 90px;
     mat-card-content {
       padding: 20px 12px;
 
-      .group-content:hover, .group-content:focus {
+      .group-content:hover,
+      .group-content:focus {
         text-decoration: underline;
         cursor: pointer;
       }
-      
-      >div {
+
+      > div {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -53,13 +54,13 @@ $title-padding: 90px;
       }
 
       .group-name:first-child {
-          font-weight: 700;
+        font-weight: 700;
       }
 
       ngx-skeleton-loader {
-          width: 100%;
-          display: block;
-          margin: auto;
+        width: 100%;
+        display: block;
+        margin: auto;
       }
     }
   }

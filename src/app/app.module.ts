@@ -20,11 +20,7 @@ import { EventsComponent } from './features/events/events.component';
 import { GroupsComponent } from './features/groups/groups.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    EventsComponent,
-    GroupsComponent
-  ],
+  declarations: [AppComponent, EventsComponent, GroupsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -35,29 +31,29 @@ import { GroupsComponent } from './features/groups/groups.component';
       useDefaultLang: true,
       loader: {
         provide: TranslateLoader,
-        useFactory: (http: HttpClient) => new TypescriptLoader(http, 'translations'),
-        deps: [HttpClient]
+        useFactory: (http: HttpClient) =>
+          new TypescriptLoader(http, 'translations'),
+        deps: [HttpClient],
       },
-      isolate: false
+      isolate: false,
     }),
     NgxTranslateRoutesModule.forRoot({
       enableRouteTranslate: true,
       enableTitleTranslate: false,
-      
     }),
     BrowserAnimationsModule,
   ],
   providers: [
-    { 
-      provide: HTTP_INTERCEPTORS, 
-      useClass: AuthInterceptor, 
-      multi: true 
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
     },
-    { 
-      provide: TitleStrategy, 
-      useClass: TitleService 
-    }
+    {
+      provide: TitleStrategy,
+      useClass: TitleService,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -10,16 +10,16 @@ import { CoreRoutes } from 'src/app/core/constants/routes.constants';
   selector: 'app-profile-pic',
   templateUrl: './profile-pic.component.html',
   styleUrls: ['./profile-pic.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProfilePicComponent {
-
   @Input() model: Person | undefined;
   @Input() loading: boolean = false;
 
-  constructor (public translations: Translations,
-               private router: Router)
-  {}
+  constructor(
+    public translations: Translations,
+    private router: Router,
+  ) {}
 
   onClick(): void {
     if (this.model) {

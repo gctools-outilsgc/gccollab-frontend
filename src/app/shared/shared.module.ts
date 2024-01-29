@@ -2,7 +2,11 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguageSelectorComponent } from './components/language-selector/language-selector.component';
-import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import {
+  TranslateLoader,
+  TranslateModule,
+  TranslateService,
+} from '@ngx-translate/core';
 import { AppModule } from '../app.module';
 import { HttpClient } from '@angular/common/http';
 
@@ -17,7 +21,7 @@ import { TypescriptLoader } from '../core/helpers/typescript-loader';
 import { Translations } from '../core/services/translations.service';
 import { ButtonComponent } from './components/button/button.component';
 
-import { MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { HeaderComponent } from './components/header/header.component';
@@ -27,14 +31,20 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { BannerComponent } from './components/banner/banner.component';
 import { InputComponent } from './components/input/input.component';
-import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from '@angular/material/form-field';
+import {
+  MAT_FORM_FIELD_DEFAULT_OPTIONS,
+  MatFormFieldModule,
+} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ProfilePicComponent } from './components/profile-pic/profile-pic.component';
 import { CalendarButtonComponent } from './components/calendar-button/calendar-button.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MAT_RADIO_DEFAULT_OPTIONS, MatRadioModule } from '@angular/material/radio';
+import {
+  MAT_RADIO_DEFAULT_OPTIONS,
+  MatRadioModule,
+} from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { EditorMenuComponent } from './components/editor/menu/editor-menu/editor-menu.component';
@@ -49,7 +59,6 @@ import { FormGroupPipe } from './pipes/form-group/form-group.pipe';
 import { FileSelectComponent } from './components/file-select/file-select.component';
 import { ListComponent } from './components/list/list.component';
 
-
 @NgModule({
   declarations: [
     LanguageSelectorComponent,
@@ -62,7 +71,7 @@ import { ListComponent } from './components/list/list.component';
     FooterComponent,
     PageTitleComponent,
     InputComponent,
-	  BannerComponent,
+    BannerComponent,
     ProfilePicComponent,
     CalendarButtonComponent,
     EditorMenuComponent,
@@ -74,7 +83,7 @@ import { ListComponent } from './components/list/list.component';
     FormControlPipe,
     FormGroupPipe,
     FileSelectComponent,
-    ListComponent
+    ListComponent,
   ],
   imports: [
     CommonModule,
@@ -84,15 +93,14 @@ import { ListComponent } from './components/list/list.component';
     TranslateModule.forChild({
       loader: {
         provide: TranslateLoader,
-        useFactory: (http: HttpClient) => new TypescriptLoader(http, 'translations'),
-        deps: [HttpClient]
+        useFactory: (http: HttpClient) =>
+          new TypescriptLoader(http, 'translations'),
+        deps: [HttpClient],
       },
       isolate: false,
-      extend: true
+      extend: true,
     }),
-    NgxEditorModule.forChild({
-      
-    }),
+    NgxEditorModule.forChild({}),
     MatButtonModule,
     MatIconModule,
     MatTooltipModule,
@@ -104,7 +112,7 @@ import { ListComponent } from './components/list/list.component';
     MatDatepickerModule,
     MatAutocompleteModule,
     NgxSkeletonLoaderModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
   ],
   exports: [
     TranslateModule,
@@ -116,7 +124,7 @@ import { ListComponent } from './components/list/list.component';
     EditorComponent,
     ButtonComponent,
     InputComponent,
-	  BannerComponent,
+    BannerComponent,
     NgxSkeletonLoaderModule,
     InfiniteScrollModule,
     ProfilePicComponent,
@@ -126,8 +134,8 @@ import { ListComponent } from './components/list/list.component';
     BlogFormComponent,
     EventFormComponent,
     PollFormComponent,
-    ListComponent, 
-    FormControlPipe
+    ListComponent,
+    FormControlPipe,
   ],
   providers: [
     {
@@ -135,22 +143,21 @@ import { ListComponent } from './components/list/list.component';
       provide: NGX_EDITOR_CONFIG_TOKEN,
       deps: [TranslateService, Translations],
     },
-    { 
-      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, 
-      useValue: { appearance: 'outline' }
+    {
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+      useValue: { appearance: 'outline' },
     },
     {
       provide: MAT_RADIO_DEFAULT_OPTIONS,
       useValue: { color: 'primary' },
-  }
-  ]
+    },
+  ],
 })
 export class SharedModule {
-
   static forRoot(): ModuleWithProviders<AppModule> {
     return {
       ngModule: SharedModule,
-      providers: [] // share state with providers (one instance)
-    }
+      providers: [], // share state with providers (one instance)
+    };
   }
- }
+}

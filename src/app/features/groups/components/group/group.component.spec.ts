@@ -8,7 +8,7 @@ describe('GroupComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [GroupComponent]
+      declarations: [GroupComponent],
     });
     fixture = TestBed.createComponent(GroupComponent);
     component = fixture.componentInstance;

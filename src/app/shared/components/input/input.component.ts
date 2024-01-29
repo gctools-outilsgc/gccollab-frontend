@@ -1,7 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Component, EventEmitter, Input, Output, forwardRef } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  forwardRef,
+} from '@angular/core';
 import { InputType } from '../../models/input-type';
-import {  ControlValueAccessor, FormControl, FormGroupDirective, NG_VALUE_ACCESSOR, NgForm } from '@angular/forms';
+import {
+  ControlValueAccessor,
+  FormControl,
+  FormGroupDirective,
+  NG_VALUE_ACCESSOR,
+  NgForm,
+} from '@angular/forms';
 import { MaterialButtonType } from '../../models/material-button-type';
 import { Translations } from 'src/app/core/services/translations.service';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -23,17 +35,15 @@ import { Theme } from '../../models/theme';
   ],
 })
 export class InputComponent implements ControlValueAccessor {
-
-
   @Input() inputId!: string;
-  @Input({required:true}) name!: string;
-  
+  @Input({ required: true }) name!: string;
+
   @Input() type: InputType | string = InputType.Text;
   @Input() control!: FormControl;
   @Input() errorMatcher: ErrorStateMatcher = new MyErrorStateMatcher();
 
   @Input() value!: string;
-  @Input({required:true}) label!: string;
+  @Input({ required: true }) label!: string;
   @Input() placeholder!: string;
   @Input() hint!: string;
   @Input() theme: Theme | string = Theme.Primary1;
@@ -55,9 +65,7 @@ export class InputComponent implements ControlValueAccessor {
   onChange = (_: any) => {};
   onTouched = () => {};
 
-  constructor(public translations: Translations) { 
-    
-  }
+  constructor(public translations: Translations) {}
 
   writeValue(value: any): void {
     if (value !== undefined) {
@@ -66,14 +74,14 @@ export class InputComponent implements ControlValueAccessor {
   }
 
   registerOnChange(fn: any): void {
-    this.onChange  = fn;
+    this.onChange = fn;
   }
 
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }
 
-  onInputChange(value:  string) {
+  onInputChange(value: string) {
     this.value = value;
     this.onChange(this.value);
     this.valueChange.emit(this.value);
@@ -89,8 +97,15 @@ export class InputComponent implements ControlValueAccessor {
 }
 
 class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+  isErrorState(
+    control: FormControl | null,
+    form: FormGroupDirective | NgForm | null,
+  ): boolean {
     const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+    return !!(
+      control &&
+      control.invalid &&
+      (control.dirty || control.touched || isSubmitted)
+    );
   }
 }

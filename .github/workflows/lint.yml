@@ -2,18 +2,20 @@ name: Lint
 
 on:
   pull_request:
-    types: [opened, reopened, synchronize] 
+    types: [opened, reopened, synchronize]
     branches: main
 
 env:
-  NODE_VERSION: '18.13.0'
+  NODE_VERSION: "18.13.0"
 
 jobs:
   lint:
-    name: Run code linter
+    name: Run linter
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
       - name: Use Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v1
         with:
