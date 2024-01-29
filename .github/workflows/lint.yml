@@ -1,4 +1,4 @@
-name: Prettier & Lint
+name: Lint
 
 on:
   pull_request:
@@ -10,7 +10,7 @@ env:
 
 jobs:
   lint:
-    name: Run code formatter & linter
+    name: Run linter
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
@@ -23,19 +23,6 @@ jobs:
 
       - name: Install
         run: npm install
-
-      - name: Format Code
-        run: npx prettier . --write
-
-      - name: Commit
-        run: |
-          git config --global user.email "shea.wow@hotmail.com"
-          git config --global user.name Shea Dougherty-Gill
-          git add .
-          git commit -m "Auto-format code with Prettier ${{ vars.IGNORE_DEPLOY }}"
-
-      - name: Push
-        run: git push origin ${{ github.event.pull_request.head.ref }}
 
       - name: Lint
         run: npm run ng lint
