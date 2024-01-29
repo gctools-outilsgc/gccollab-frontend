@@ -24,16 +24,28 @@ jobs:
       - name: Install
         run: npm install
 
-      - name: Prettier
+      - name: Run Prettier
         run: npx prettier . --write
 
-      - name: Commit
+      # - name: Commit
+      #   run: |
+      #     git config --global user.email "shea.wow@hotmail.com"
+      #     git config --global user.name Shea Dougherty-Gill
+      #     git commit -a -m "Prettier formatting ${{ vars.IGNORE_DEPLOY }}"
+      #     git pull ${{ github.server_url }}/${{ github.repository }} ${{ github.head_ref }}
+      #     git push origin HEAD:${{ github.head_ref }}
+
+      - name: Commit Changes
         run: |
           git config --global user.email "shea.wow@hotmail.com"
           git config --global user.name Shea Dougherty-Gill
-          git commit -a -m "Prettier formatting ${{ vars.IGNORE_DEPLOY }}"
-          git pull ${{ github.server_url }}/${{ github.repository }} ${{ github.head_ref }}
-          git push origin HEAD:${{ github.head_ref }}
+          git add .
+          git commit -m "Auto-format code with Prettier"
+
+      - name: Push Changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Lint
         run: npm run ng lint
