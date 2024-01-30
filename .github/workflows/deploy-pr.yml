@@ -1,6 +1,5 @@
 # This action will create the azure resources, github secret, github environment, and deploy the app when a PR once is opened.
 # https://github.com/Azure/webapps-deploy/issues/28
-# https://stackoverflow.com/questions/64376240/github-action-for-azure-webapp-failed-to-fetch-credentials-from-publish-profile/64376536#64376536
 
 name: Deploy PR
 
