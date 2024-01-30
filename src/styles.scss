@@ -1,6 +1,6 @@
-@import "/src/assets/scss/partials/font-weights";
-@import "/src/assets/scss/partials/layout";
-@import "/src/assets/scss/partials/colors";
+@import '/src/assets/scss/partials/font-weights';
+@import '/src/assets/scss/partials/layout';
+@import '/src/assets/scss/partials/colors';
 
 html,
 body {
@@ -9,7 +9,7 @@ body {
 
 body {
   margin: 0;
-  font-family: "Inter", "Helvetica Neue", sans-serif;
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
   display: flex;
   overflow-x: hidden;
 }

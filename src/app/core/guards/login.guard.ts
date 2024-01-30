@@ -15,21 +15,17 @@ import { map } from 'rxjs/operators';
 export class LoginGuard {
   constructor(
     private oidcSecurityService: OidcSecurityService,
-    private router: Router,
+    private router: Router
   ) {}
 
-  canActivate():
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
+  canActivate(): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.oidcSecurityService.isAuthenticated$.pipe(
       map(({ isAuthenticated }) => {
         if (!isAuthenticated) {
           return true;
         }
         return this.router.parseUrl('');
-      }),
+      })
     );
   }
 }

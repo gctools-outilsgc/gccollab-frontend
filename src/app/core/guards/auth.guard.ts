@@ -1,9 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot,
-  UrlTree,
-} from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -21,17 +17,10 @@ import { environment } from '../../../environments/environment';
 export class AuthGuard {
   constructor(
     private oidcSecurityService: OidcSecurityService,
-    private sessionStorageService: SessionStorageService,
+    private sessionStorageService: SessionStorageService
   ) {}
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot,
-  ):
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (!environment.authGuard) return true;
 
     return this.oidcSecurityService.isAuthenticated$.pipe(
@@ -42,7 +31,7 @@ export class AuthGuard {
         this.oidcSecurityService.authorize();
 
         return false;
-      }),
+      })
     );
   }
 }

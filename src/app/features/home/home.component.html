@@ -11,44 +11,24 @@
   </div>
 </app-banner>
 
-<app-page-title
-  [pageTitle]="translations.titles.newsfeed | translate"
-></app-page-title>
+<app-page-title [pageTitle]="translations.titles.newsfeed | translate"></app-page-title>
 
 <div class="page-container">
   <!-- News Feed -->
   <div class="news-container gcc-scroller">
-    <div
-      infinite-scroll
-      [infiniteScrollDistance]="2"
-      [infiniteScrollThrottle]="1000"
-      (scrolled)="onNewsScroll()"
-    >
+    <div infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="1000" (scrolled)="onNewsScroll()">
       <app-post [profile]="people[0]" [loading]="loadingPeople"></app-post>
 
-      <app-list
-        [service]="eventService"
-        [cardSize]="'large'"
-        orientation="horizontal"
-        [pageSize]="3"
-        [paging]="true"
-      ></app-list>
+      <app-list [service]="eventService" [cardSize]="'large'" orientation="horizontal" [pageSize]="3" [paging]="true"></app-list>
 
-      <app-news-list [model]="newsItems" [isLoading]="loadingNews">
-      </app-news-list>
+      <app-news-list [model]="newsItems" [isLoading]="loadingNews"> </app-news-list>
     </div>
   </div>
 
   <div class="side-content">
     <!-- Events -->
     <section>
-      <app-event-list
-        [model]="events"
-        [isLoading]="loadingEvents"
-        (confirm)="confirmEvent($event)"
-        (decline)="declineEvent($event)"
-      >
-      </app-event-list>
+      <app-event-list [model]="events" [isLoading]="loadingEvents" (confirm)="confirmEvent($event)" (decline)="declineEvent($event)"> </app-event-list>
       <div class="click-for-more">
         <a routerLink="{{ '/' + routes.Events }}">
           {{ translations.features.home.moreEvents | translate }}
@@ -58,13 +38,7 @@
 
     <!-- Connections -->
     <section>
-      <app-profile-list
-        [model]="people"
-        [isLoading]="loadingPeople"
-        (confirm)="confirmConnection($event)"
-        (decline)="declineConnection($event)"
-      >
-      </app-profile-list>
+      <app-profile-list [model]="people" [isLoading]="loadingPeople" (confirm)="confirmConnection($event)" (decline)="declineConnection($event)"> </app-profile-list>
 
       <div class="click-for-more">
         <a routerLink="{{ '/' + routes.Profile }}">
@@ -75,8 +49,7 @@
 
     <!-- Groups -->
     <section>
-      <app-group-list [model]="groups" [isLoading]="loadingGroups">
-      </app-group-list>
+      <app-group-list [model]="groups" [isLoading]="loadingGroups"> </app-group-list>
 
       <div class="click-for-more">
         <a routerLink="{{ '/' + routes.Groups }}">

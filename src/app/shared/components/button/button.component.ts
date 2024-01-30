@@ -19,8 +19,7 @@ export class ButtonComponent {
   @Input() tooltipDirection: TooltipDirection = TooltipDirection.Below;
   @Input() ariaLabel!: string;
   @Input() type: ButtonType | string = ButtonType.Button;
-  @Input() matButtonType: MaterialButtonType | string =
-    MaterialButtonType.Raised;
+  @Input() matButtonType: MaterialButtonType | string = MaterialButtonType.Raised;
   @Input() matColor: MaterialColor | string = '';
   @Input() disabled: boolean = false;
   @Input() autofocus: boolean = false;

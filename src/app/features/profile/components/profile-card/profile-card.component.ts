@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { CoreRoutes } from 'src/app/core/constants/routes.constants';
 import { ICardComponent } from 'src/app/core/interfaces/card-component.interface';
@@ -37,7 +31,7 @@ export class ProfileCardComponent implements ICardComponent {
 
   constructor(
     public translations: Translations,
-    private router: Router,
+    private router: Router
   ) {}
 
   clickConfirm() {

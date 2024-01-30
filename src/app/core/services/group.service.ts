@@ -39,7 +39,7 @@ export class GroupService implements IListService {
       }
     }
 
-    const observable: Observable<Group> = new Observable((subscriber) => {
+    const observable: Observable<Group> = new Observable(subscriber => {
       setTimeout(() => {
         subscriber.next(response);
         subscriber.complete();
@@ -50,14 +50,9 @@ export class GroupService implements IListService {
   }
 
   getMany(count: number = 10, delay: number = this.delay): Observable<Group[]> {
-    const observable: Observable<Group[]> = new Observable((subscriber) => {
+    const observable: Observable<Group[]> = new Observable(subscriber => {
       setTimeout(() => {
-        subscriber.next(
-          this.groups.slice(
-            0,
-            count > this.groups.length ? this.groups.length : count,
-          ),
-        );
+        subscriber.next(this.groups.slice(0, count > this.groups.length ? this.groups.length : count));
         subscriber.complete();
       }, delay);
     });
@@ -66,27 +61,13 @@ export class GroupService implements IListService {
   }
 
   private generateRandomGroupItem(): Group {
-    const group = new Group(
-      this.id.toString(),
-      this.randomName(),
-      this.randomDisplayPicture(),
-      this.randomGroupStatus(),
-    );
+    const group = new Group(this.id.toString(), this.randomName(), this.randomDisplayPicture(), this.randomGroupStatus());
     this.id++;
     return group;
   }
 
   private randomName(): string {
-    const names: string[] = [
-      'Web Accessibility',
-      'Haibun',
-      'OCIO Coffee Chat',
-      'ESDC Coffee Chat',
-      'GCcollab News',
-      'GCconnex News',
-      'Belly Flop Olympics',
-      'Sleeping Beauties',
-    ];
+    const names: string[] = ['Web Accessibility', 'Haibun', 'OCIO Coffee Chat', 'ESDC Coffee Chat', 'GCcollab News', 'GCconnex News', 'Belly Flop Olympics', 'Sleeping Beauties'];
     return names[Math.floor(Math.random() * names.length)];
   }
 

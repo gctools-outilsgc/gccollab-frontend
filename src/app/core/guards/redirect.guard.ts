@@ -11,18 +11,13 @@ import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 export class RedirectGuard {
   constructor() {}
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot,
-  ): boolean {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     const externalUrl = route.data['externalUrl'];
 
     if (externalUrl) {
       window.open(externalUrl, '_blank')?.focus();
     } else {
-      console.error(
-        `RedirectGuard: No externalUrl data provided for the '${state.url}' route.`,
-      );
+      console.error(`RedirectGuard: No externalUrl data provided for the '${state.url}' route.`);
     }
 
     return false;

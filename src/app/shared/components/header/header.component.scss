@@ -1,6 +1,6 @@
-@import "../../../../assets/scss/partials/colors";
-@import "../../../../assets//scss/partials/header";
-@import "../../../../assets//scss/partials/layout";
+@import '../../../../assets/scss/partials/colors';
+@import '../../../../assets//scss/partials/header';
+@import '../../../../assets//scss/partials/layout';
 
 :host {
   z-index: 3;
@@ -22,7 +22,7 @@
       height: $header-height-desktop;
       padding-left: $gutter-desktop;
 
-      div[class^="header-"] {
+      div[class^='header-'] {
         flex: 1;
       }
 

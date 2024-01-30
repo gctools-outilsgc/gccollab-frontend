@@ -20,7 +20,7 @@ export class EventsComponent implements OnInit {
 
   constructor(
     public translations: Translations,
-    public eventService: EventService,
+    public eventService: EventService
   ) {}
 
   ngOnInit(): void {

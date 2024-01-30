@@ -6,10 +6,10 @@ on:
   pull_request:
     types:
       - closed
-    branches: ["main"]
+    branches: ['main']
 
 env:
-  NODE_VERSION: "18.13.0"
+  NODE_VERSION: '18.13.0'
 
 jobs:
   if_merged:

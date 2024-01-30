@@ -40,7 +40,7 @@ export class PeopleService implements IListService {
       }
     }
 
-    const observable: Observable<Person> = new Observable((subscriber) => {
+    const observable: Observable<Person> = new Observable(subscriber => {
       setTimeout(() => {
         subscriber.next(response);
         subscriber.complete();
@@ -50,18 +50,10 @@ export class PeopleService implements IListService {
     return observable;
   }
 
-  getMany(
-    count: number = 10,
-    delay: number = this.delay,
-  ): Observable<Person[]> {
-    const observable: Observable<Person[]> = new Observable((subscriber) => {
+  getMany(count: number = 10, delay: number = this.delay): Observable<Person[]> {
+    const observable: Observable<Person[]> = new Observable(subscriber => {
       setTimeout(() => {
-        subscriber.next(
-          this.people.slice(
-            0,
-            count > this.people.length ? this.people.length : count,
-          ),
-        );
+        subscriber.next(this.people.slice(0, count > this.people.length ? this.people.length : count));
         subscriber.complete();
       }, delay);
     });
@@ -70,48 +62,18 @@ export class PeopleService implements IListService {
   }
 
   private generateRandomPerson(): Person {
-    const person = new Person(
-      this.id.toString(),
-      this.randomFirstName(),
-      this.randomLastName(),
-      this.randomJobTitle(),
-      this.randomAddress(),
-      this.randomProfilePic(),
-    );
+    const person = new Person(this.id.toString(), this.randomFirstName(), this.randomLastName(), this.randomJobTitle(), this.randomAddress(), this.randomProfilePic());
     this.id++;
     return person;
   }
 
   private randomFirstName(): string {
-    const names: string[] = [
-      'Jack',
-      'Jill',
-      'Bo',
-      'Henry',
-      'Samantha',
-      'Nick',
-      'Fabrizio',
-      'Charles',
-      'Enzo',
-      'Robert',
-      'Allisa',
-    ];
+    const names: string[] = ['Jack', 'Jill', 'Bo', 'Henry', 'Samantha', 'Nick', 'Fabrizio', 'Charles', 'Enzo', 'Robert', 'Allisa'];
     return names[Math.floor(Math.random() * names.length)];
   }
 
   private randomLastName(): string {
-    const names: string[] = [
-      'Rose',
-      'Baker',
-      'McDoogle',
-      'FancyPants',
-      'Campbell',
-      'Smith',
-      'Anderson',
-      'Miller',
-      'Taylor',
-      'Jones',
-    ];
+    const names: string[] = ['Rose', 'Baker', 'McDoogle', 'FancyPants', 'Campbell', 'Smith', 'Anderson', 'Miller', 'Taylor', 'Jones'];
     return names[Math.floor(Math.random() * names.length)];
   }
 

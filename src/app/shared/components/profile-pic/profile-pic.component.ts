@@ -18,7 +18,7 @@ export class ProfilePicComponent {
 
   constructor(
     public translations: Translations,
-    private router: Router,
+    private router: Router
   ) {}
 
   onClick(): void {

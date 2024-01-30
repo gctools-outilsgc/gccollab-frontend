@@ -16,8 +16,7 @@ import { TypescriptLoader } from './helpers/typescript-loader';
     TranslateModule.forChild({
       loader: {
         provide: TranslateLoader,
-        useFactory: (http: HttpClient) =>
-          new TypescriptLoader(http, 'translations'),
+        useFactory: (http: HttpClient) => new TypescriptLoader(http, 'translations'),
         deps: [HttpClient],
       },
       isolate: false,

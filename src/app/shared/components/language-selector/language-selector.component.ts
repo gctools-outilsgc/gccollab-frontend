@@ -24,7 +24,7 @@ export class LanguageSelectorComponent implements OnInit {
 
   constructor(
     private translateService: TranslateService,
-    public translations: Translations,
+    public translations: Translations
   ) {}
 
   ngOnInit(): void {
@@ -47,10 +47,7 @@ export class LanguageSelectorComponent implements OnInit {
   }
 
   toggle() {
-    this.selectedLanguageKey =
-      this.selectedLanguageKey == this.languages[0].key
-        ? this.languages[1].key
-        : this.languages[0].key;
+    this.selectedLanguageKey = this.selectedLanguageKey == this.languages[0].key ? this.languages[1].key : this.languages[0].key;
     this.update();
   }
 

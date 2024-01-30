@@ -10,24 +10,13 @@ function concatIfExistsPath(path: string, suffix: string): string {
   return path ? `${path}.${suffix}` : suffix;
 }
 
-function transformObjectToPath<T extends object | string>(
-  suffix: string,
-  objectToTransformOrEndOfPath: T,
-  path = '',
-): T {
+function transformObjectToPath<T extends object | string>(suffix: string, objectToTransformOrEndOfPath: T, path = ''): T {
   return typeof objectToTransformOrEndOfPath === 'object'
-    ? Object.entries(objectToTransformOrEndOfPath).reduce(
-        (objectToTransform, [key, value]) => {
-          objectToTransform[key as keyof T] = transformObjectToPath(
-            key,
-            value,
-            concatIfExistsPath(path, suffix),
-          );
+    ? Object.entries(objectToTransformOrEndOfPath).reduce((objectToTransform, [key, value]) => {
+        objectToTransform[key as keyof T] = transformObjectToPath(key, value, concatIfExistsPath(path, suffix));
 
-          return objectToTransform;
-        },
-        {} as T,
-      )
+        return objectToTransform;
+      }, {} as T)
     : (concatIfExistsPath(path, suffix) as T);
 }
 

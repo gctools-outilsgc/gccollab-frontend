@@ -1,15 +1,4 @@
 <!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
 <!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
-<img
-  *ngIf="!loading"
-  [src]="model?.profilePicture"
-  [alt]="translations.profile_pic.alt | translate"
-  (click)="onClick()"
-/>
-<ngx-skeleton-loader
-  *ngIf="loading"
-  count="1"
-  appearance="circle"
-  animation="progress"
->
-</ngx-skeleton-loader>
+<img *ngIf="!loading" [src]="model?.profilePicture" [alt]="translations.profile_pic.alt | translate" (click)="onClick()" />
+<ngx-skeleton-loader *ngIf="loading" count="1" appearance="circle" animation="progress"> </ngx-skeleton-loader>

@@ -13,28 +13,10 @@
 </div>
 
 <ng-template #buttonTemplate>
-  <app-button
-    [matButtonType]="'mat-stroked-button'"
-    [clickFunc]="clickCallback"
-    [blurFunc]="blurCallback"
-    [disabled]="control ? control.disabled : false"
-    [theme]="theme"
-  >
+  <app-button [matButtonType]="'mat-stroked-button'" [clickFunc]="clickCallback" [blurFunc]="blurCallback" [disabled]="control ? control.disabled : false" [theme]="theme">
     <i class="fa-solid fa-upload"></i>
-    {{
-      control && control.value
-        ? photoName
-          ? (photoName | truncateFileName: 18)
-          : (translations.forms.saved_image | translate)
-        : label
-    }}
-    <span
-      *ngIf="
-        control && control.hasValidator(requiredValidator) && !control.value
-      "
-      class="required-star"
-      >*</span
-    >
+    {{ control && control.value ? (photoName ? (photoName | truncateFileName: 18) : (translations.forms.saved_image | translate)) : label }}
+    <span *ngIf="control && control.hasValidator(requiredValidator) && !control.value" class="required-star">*</span>
   </app-button>
 </ng-template>
 
@@ -47,33 +29,15 @@
   [theme]="theme"
 >
   <i class="fa-solid fa-upload"></i>
-  <span
-    *ngIf="control && control.hasValidator(requiredValidator) && !control.value"
-    class="required-star icon"
-    >*</span
-  >
+  <span *ngIf="control && control.hasValidator(requiredValidator) && !control.value" class="required-star icon">*</span>
 </app-button>
 
 <mat-error *ngIf="view === FileSelectView.Form && error">
   {{ error }}
 </mat-error>
 
-<mat-error
-  *ngIf="
-    view === FileSelectView.Form &&
-    !error &&
-    control &&
-    control.touched &&
-    control.hasError('required')
-  "
->
-  {{ label + " " + (translations.input.error.required | translate) }}
+<mat-error *ngIf="view === FileSelectView.Form && !error && control && control.touched && control.hasError('required')">
+  {{ label + ' ' + (translations.input.error.required | translate) }}
 </mat-error>
 
-<input
-  #gccFileSelect
-  type="file"
-  [accept]="fileType"
-  (change)="onFileSelected($event)"
-  style="display: none"
-/>
+<input #gccFileSelect type="file" [accept]="fileType" (change)="onFileSelected($event)" style="display: none" />

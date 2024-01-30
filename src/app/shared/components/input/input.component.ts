@@ -1,19 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-  forwardRef,
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output, forwardRef } from '@angular/core';
 import { InputType } from '../../models/input-type';
-import {
-  ControlValueAccessor,
-  FormControl,
-  FormGroupDirective,
-  NG_VALUE_ACCESSOR,
-  NgForm,
-} from '@angular/forms';
+import { ControlValueAccessor, FormControl, FormGroupDirective, NG_VALUE_ACCESSOR, NgForm } from '@angular/forms';
 import { MaterialButtonType } from '../../models/material-button-type';
 import { Translations } from 'src/app/core/services/translations.service';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -97,15 +85,8 @@ export class InputComponent implements ControlValueAccessor {
 }
 
 class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(
-    control: FormControl | null,
-    form: FormGroupDirective | NgForm | null,
-  ): boolean {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
-    return !!(
-      control &&
-      control.invalid &&
-      (control.dirty || control.touched || isSubmitted)
-    );
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
 }

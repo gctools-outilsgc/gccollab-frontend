@@ -21,7 +21,7 @@ export class GroupCardComponent implements ICardComponent {
 
   constructor(
     public translations: Translations,
-    private router: Router,
+    private router: Router
   ) {}
 
   clickEvent() {

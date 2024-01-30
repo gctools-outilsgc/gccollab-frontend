@@ -1,10 +1,4 @@
-import {
-  AfterContentInit,
-  Component,
-  Input,
-  OnDestroy,
-  OnInit,
-} from '@angular/core';
+import { AfterContentInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { TranslateService } from '@ngx-translate/core';
@@ -46,23 +40,8 @@ export class EventFormComponent implements OnInit, OnDestroy, AfterContentInit {
   ngOnInit(): void {
     for (const [key, value] of Object.entries(this.model)) {
       if (!this.form.controls[key]) {
-        if (key == 'eventDescription')
-          this.form.addControl(
-            key,
-            new FormControl(value, [
-              EditorValidators.required(),
-              EditorValidators.maxLength(this.maxCharacters),
-            ]),
-          );
-        else
-          this.form.addControl(
-            key,
-            new FormControl(value, [
-              Validators.required,
-              this.minValidator,
-              this.maxValidator,
-            ]),
-          );
+        if (key == 'eventDescription') this.form.addControl(key, new FormControl(value, [EditorValidators.required(), EditorValidators.maxLength(this.maxCharacters)]));
+        else this.form.addControl(key, new FormControl(value, [Validators.required, this.minValidator, this.maxValidator]));
       } else {
         this.form.controls[key].setValue(value);
       }
@@ -112,21 +91,13 @@ export class EventFormComponent implements OnInit, OnDestroy, AfterContentInit {
   }
 
   private removeValidators(controlName: string): void {
-    this.form.controls[controlName]?.removeValidators([
-      Validators.required,
-      this.minValidator,
-      this.maxValidator,
-    ]);
+    this.form.controls[controlName]?.removeValidators([Validators.required, this.minValidator, this.maxValidator]);
     this.form.controls[controlName]?.clearValidators();
     this.form.controls[controlName]?.updateValueAndValidity();
   }
 
   private addValidators(controlName: string): void {
-    this.form.controls[controlName]?.addValidators([
-      Validators.required,
-      this.minValidator,
-      this.maxValidator,
-    ]);
+    this.form.controls[controlName]?.addValidators([Validators.required, this.minValidator, this.maxValidator]);
     this.form.controls[controlName]?.clearValidators();
     this.form.controls[controlName]?.updateValueAndValidity();
   }

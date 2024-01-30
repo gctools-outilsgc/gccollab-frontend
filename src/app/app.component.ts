@@ -1,10 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import {
-  ActivatedRoute,
-  NavigationEnd,
-  Router,
-  RouterEvent,
-} from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router, RouterEvent } from '@angular/router';
 import { filter, Subscription } from 'rxjs';
 import { CoreRoutes } from './core/constants/routes.constants';
 
@@ -34,7 +29,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private translateService: TranslateService,
     private languageStorageService: LanguageStorageService,
     private activatedRoute: ActivatedRoute,
-    private router: Router,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -52,22 +47,18 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   initAuthService(): void {
-    this.checkAuthSub = this.oidcSecurityService
-      .checkAuth()
-      .subscribe(({ isAuthenticated, userData, accessToken, idToken }) => {
-        console.log('Authenticated: ' + isAuthenticated);
-        console.log('User Data: ' + userData);
-        console.log('Access Token: ' + accessToken);
-        console.log('ID Token: ' + idToken);
-      });
+    this.checkAuthSub = this.oidcSecurityService.checkAuth().subscribe(({ isAuthenticated, userData, accessToken, idToken }) => {
+      console.log('Authenticated: ' + isAuthenticated);
+      console.log('User Data: ' + userData);
+      console.log('Access Token: ' + accessToken);
+      console.log('ID Token: ' + idToken);
+    });
   }
 
   initTranslationService(): void {
-    this.langChangeSub = this.translateService.onLangChange.subscribe(
-      ({ lang }) => {
-        this.languageStorageService.setLanguage(lang);
-      },
-    );
+    this.langChangeSub = this.translateService.onLangChange.subscribe(({ lang }) => {
+      this.languageStorageService.setLanguage(lang);
+    });
 
     const savedLang = this.languageStorageService.getLanguage();
 
@@ -85,21 +76,19 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   initRouteChangeSubscription(): void {
-    this.routeChangeSub = this.router.events
-      .pipe(filter((e) => e instanceof NavigationEnd))
-      .subscribe((e) => {
-        let url = (e as RouterEvent).url;
-        const queryIndex = url.indexOf('?');
-        url = url.substring(1, queryIndex > -1 ? queryIndex : undefined);
+    this.routeChangeSub = this.router.events.pipe(filter(e => e instanceof NavigationEnd)).subscribe(e => {
+      let url = (e as RouterEvent).url;
+      const queryIndex = url.indexOf('?');
+      url = url.substring(1, queryIndex > -1 ? queryIndex : undefined);
 
-        if (url === CoreRoutes.Splash) {
-          this.showHeaderFooter = false;
-        } else {
-          this.showHeaderFooter = true;
-        }
+      if (url === CoreRoutes.Splash) {
+        this.showHeaderFooter = false;
+      } else {
+        this.showHeaderFooter = true;
+      }
 
-        this.activeRoute = url;
-      });
+      this.activeRoute = url;
+    });
   }
 
   getRouteData(key: string) {

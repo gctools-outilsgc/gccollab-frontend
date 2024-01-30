@@ -31,8 +31,7 @@ import { GroupsComponent } from './features/groups/groups.component';
       useDefaultLang: true,
       loader: {
         provide: TranslateLoader,
-        useFactory: (http: HttpClient) =>
-          new TypescriptLoader(http, 'translations'),
+        useFactory: (http: HttpClient) => new TypescriptLoader(http, 'translations'),
         deps: [HttpClient],
       },
       isolate: false,
