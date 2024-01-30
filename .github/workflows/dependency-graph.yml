@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          token: ${{ secrets.ACCESS_TOKEN }}
+          token: ${{ secrets.BOT_ACCESS_TOKEN }}
       - name: Use Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v1
         with:
@@ -37,7 +37,7 @@ jobs:
 
       - name: Commit
         run: |
-          git config --global user.email "shea.wow@hotmail.com"
-          git config --global user.name Shea Dougherty-Gill
+          git config --global user.email "gccollab.git@gmail.com"
+          git config --global user.name GCCollab Bot
           git commit -a -m "Dependency Graph ${{ vars.IGNORE_DEPLOY }}"
           git push

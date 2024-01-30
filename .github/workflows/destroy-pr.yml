@@ -9,7 +9,7 @@ on:
 
 env:
   AZURE_WEBAPP_NAME: gccollab-dev-pr-${{ github.event.number }}
-  ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+  ACCESS_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
   SECRET_NAME: PR_${{ github.event.number }}
 
 jobs:
