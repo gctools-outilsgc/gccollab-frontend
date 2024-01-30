@@ -37,6 +37,10 @@ resource appService 'Microsoft.Web/sites@2022-03-01' = {
           name: 'WEBSITE_NODE_DEFAULT_VERSION'
           value: '16.14.2'
         }
+        {
+          name: 'WEBSITE_WEBDEPLOY_USE_SCM'
+          value: 'true'
+        }
       ]
     }
   }
