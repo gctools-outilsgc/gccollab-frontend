@@ -9,18 +9,15 @@ interface TranslationData {
 export class TypescriptLoader implements TranslateLoader {
   constructor(
     private http: HttpClient,
-    private translationFile: string,
+    private translationFile: string
   ) {}
 
   public getTranslation(lang: string): Observable<TranslationData> {
     const url = `./assets/i18n/${this.translationFile}.${lang}.ts`;
 
     return this.http.get(url, { responseType: 'text' }).pipe(
-      map((response) => {
-        const obj = response.substring(
-          response.indexOf('{'),
-          response.lastIndexOf('}') + 1,
-        );
+      map(response => {
+        const obj = response.substring(response.indexOf('{'), response.lastIndexOf('}') + 1);
         const translations = eval(JSON.parse(obj));
 
         for (const [key, value] of Object.entries(translations.routes)) {
@@ -28,7 +25,7 @@ export class TypescriptLoader implements TranslateLoader {
         }
 
         return translations.default || translations;
-      }),
+      })
     );
   }
 }

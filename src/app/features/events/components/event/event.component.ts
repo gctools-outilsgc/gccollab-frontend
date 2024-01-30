@@ -10,13 +10,7 @@ import { InputType } from 'src/app/shared/models/input-type';
 import { ActivatedRoute } from '@angular/router';
 import { EventService } from 'src/app/core/services/event.service';
 import { CoreRoutes } from 'src/app/core/constants/routes.constants';
-import {
-  FormControl,
-  FormGroup,
-  FormGroupDirective,
-  NgForm,
-  Validators,
-} from '@angular/forms';
+import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 
 @Component({
@@ -51,17 +45,9 @@ export class EventComponent implements OnInit {
   };
 
   nameFormControl = new FormControl(this.formModel.name, [Validators.required]);
-  emailFormControl = new FormControl(this.formModel.email, [
-    Validators.required,
-    Validators.email,
-  ]);
-  emailConfirmFormControl = new FormControl(this.formModel.emailConfirm, [
-    Validators.required,
-    Validators.email,
-  ]);
-  occupationFormControl = new FormControl(this.formModel.occupation, [
-    Validators.required,
-  ]);
+  emailFormControl = new FormControl(this.formModel.email, [Validators.required, Validators.email]);
+  emailConfirmFormControl = new FormControl(this.formModel.emailConfirm, [Validators.required, Validators.email]);
+  occupationFormControl = new FormControl(this.formModel.occupation, [Validators.required]);
 
   formGroup = new FormGroup({});
 
@@ -69,7 +55,7 @@ export class EventComponent implements OnInit {
 
   constructor(
     public translations: Translations,
-    private viewportScroller: ViewportScroller,
+    private viewportScroller: ViewportScroller
   ) {
     this.formGroup.addControl('name', this.nameFormControl);
     this.formGroup.addControl('email', this.emailFormControl);
@@ -79,13 +65,11 @@ export class EventComponent implements OnInit {
 
   ngOnInit(): void {
     if (!this.model) {
-      this.eventService
-        .get(this.route.snapshot.paramMap.get('id'), 3000)
-        .subscribe((event) => {
-          this.model = event;
-          this.banner = this.createBanner(this.model);
-          this.loading = false;
-        });
+      this.eventService.get(this.route.snapshot.paramMap.get('id'), 3000).subscribe(event => {
+        this.model = event;
+        this.banner = this.createBanner(this.model);
+        this.loading = false;
+      });
     } else {
       this.banner = this.createBanner(this.model);
       this.loading = false;
@@ -112,15 +96,8 @@ export class EventComponent implements OnInit {
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(
-    control: FormControl | null,
-    form: FormGroupDirective | NgForm | null,
-  ): boolean {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
-    return !!(
-      control &&
-      control.invalid &&
-      (control.dirty || control.touched || isSubmitted)
-    );
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
 }

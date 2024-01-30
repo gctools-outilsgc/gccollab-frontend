@@ -1,4 +1,4 @@
-@import "../../../../assets/scss/partials/colors";
+@import '../../../../assets/scss/partials/colors';
 
 :host {
   display: block;
@@ -151,21 +151,12 @@
   mat-error {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    font-family: var(
-      --mdc-typography-caption-font-family,
-      var(--mdc-typography-font-family, Inter)
-    );
+    font-family: var(--mdc-typography-caption-font-family, var(--mdc-typography-font-family, Inter));
     font-size: var(--mdc-typography-caption-font-size, 12px);
     line-height: var(--mdc-typography-caption-line-height, 20px);
     font-weight: var(--mdc-typography-caption-font-weight, 400);
-    letter-spacing: var(
-      --mdc-typography-caption-letter-spacing,
-      0.0333333333em
-    );
-    -webkit-text-decoration: var(
-      --mdc-typography-caption-text-decoration,
-      inherit
-    );
+    letter-spacing: var(--mdc-typography-caption-letter-spacing, 0.0333333333em);
+    -webkit-text-decoration: var(--mdc-typography-caption-text-decoration, inherit);
     text-decoration: var(--mdc-typography-caption-text-decoration, inherit);
     text-transform: var(--mdc-typography-caption-text-transform, none);
     padding: 0 16px;

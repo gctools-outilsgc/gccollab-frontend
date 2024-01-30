@@ -58,7 +58,7 @@ export class EventService implements IListService {
       }
     }
 
-    const observable: Observable<Event> = new Observable((subscriber) => {
+    const observable: Observable<Event> = new Observable(subscriber => {
       setTimeout(() => {
         subscriber.next(response);
         subscriber.complete();
@@ -69,14 +69,9 @@ export class EventService implements IListService {
   }
 
   getMany(count: number = 10, delay: number = this.delay): Observable<Event[]> {
-    const observable: Observable<Event[]> = new Observable((subscriber) => {
+    const observable: Observable<Event[]> = new Observable(subscriber => {
       setTimeout(() => {
-        subscriber.next(
-          this.events.slice(
-            0,
-            count > this.events.length ? this.events.length : count,
-          ),
-        );
+        subscriber.next(this.events.slice(0, count > this.events.length ? this.events.length : count));
         subscriber.complete();
       }, delay);
     });
@@ -124,9 +119,7 @@ export class EventService implements IListService {
     const paragraphs = Math.random() * 4 + 1;
 
     for (let i = 0; i < paragraphs; i++) {
-      description += this.lorem.generateSentences(
-        Math.floor(Math.random() * 10) + 4,
-      );
+      description += this.lorem.generateSentences(Math.floor(Math.random() * 10) + 4);
 
       if (i != paragraphs - 1) description += '<br/><br/>';
     }
@@ -135,13 +128,7 @@ export class EventService implements IListService {
   }
 
   private randomEventType(): string {
-    const eventTypes: string[] = [
-      'In Person',
-      'Workshop',
-      'Conference',
-      'Roundtable',
-      'Charity Event',
-    ];
+    const eventTypes: string[] = ['In Person', 'Workshop', 'Conference', 'Roundtable', 'Charity Event'];
     return eventTypes[Math.floor(Math.random() * eventTypes.length)];
   }
 
@@ -151,10 +138,7 @@ export class EventService implements IListService {
     const endDate = new Date();
     endDate.setFullYear(endDate.getFullYear() + 1);
 
-    return new Date(
-      startDate.getTime() +
-        Math.random() * (endDate.getTime() - startDate.getTime()),
-    );
+    return new Date(startDate.getTime() + Math.random() * (endDate.getTime() - startDate.getTime()));
   }
 
   private randomLocation(): Location {

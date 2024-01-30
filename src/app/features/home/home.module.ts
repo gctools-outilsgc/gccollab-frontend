@@ -11,14 +11,6 @@ import { ProfileModule } from '../profile/profile.module';
 
 @NgModule({
   declarations: [HomeComponent],
-  imports: [
-    CommonModule,
-    HomeRoutingModule,
-    SharedModule,
-    NewsFeedModule,
-    GroupsModule,
-    EventsModule,
-    ProfileModule,
-  ],
+  imports: [CommonModule, HomeRoutingModule, SharedModule, NewsFeedModule, GroupsModule, EventsModule, ProfileModule],
 })
 export class HomeModule {}

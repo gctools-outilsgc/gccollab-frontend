@@ -43,20 +43,17 @@ export class ListComponent implements OnInit {
   loadNext(count: number = this.pageSize): void {
     this.loading = true;
 
-    this.service
-      ?.getMany(count, this.loadTime)
-      .subscribe((items: (typeof this.service.dataType)[]) => {
-        this.items.push(...items);
-        this.lastPage = this.items.length / this.pageSize;
-        this.loading = false;
-      });
+    this.service?.getMany(count, this.loadTime).subscribe((items: (typeof this.service.dataType)[]) => {
+      this.items.push(...items);
+      this.lastPage = this.items.length / this.pageSize;
+      this.loading = false;
+    });
   }
 
   nextPage(): void {
     this.lastPage = ++this.currentPage;
 
-    if (this.pageSize * this.currentPage > this.items.length)
-      this.loadNext(this.pageSize * this.pagesToLoad);
+    if (this.pageSize * this.currentPage > this.items.length) this.loadNext(this.pageSize * this.pagesToLoad);
   }
 
   previousPage(): void {
@@ -72,8 +69,6 @@ export class ListComponent implements OnInit {
   }
 
   get paginatedItems(): (typeof this.service.dataType)[] {
-    return this.loading && this.currentPage === this.lastPage
-      ? this.items.slice(0, this.pageSize)
-      : this.items.slice(this.startIndex, this.endIndex);
+    return this.loading && this.currentPage === this.lastPage ? this.items.slice(0, this.pageSize) : this.items.slice(this.startIndex, this.endIndex);
   }
 }

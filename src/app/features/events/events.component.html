@@ -6,9 +6,7 @@
   </div>
 </app-banner>
 
-<app-page-title
-  [pageTitle]="translations.titles.upcoming_events | translate"
-></app-page-title>
+<app-page-title [pageTitle]="translations.titles.upcoming_events | translate"></app-page-title>
 
 <div class="search-input-form">
   <div class="search-container">
@@ -27,28 +25,10 @@
 <div class="upcoming-events-content">
   <section>
     <div class="upcoming-events-top">
-      <app-list
-        [loadTime]="0"
-        [service]="eventService"
-        [cardSize]="'large'"
-        orientation="horizontal"
-        [pageSize]="2"
-        [columnGap]="20"
-        [paging]="false"
-      >
-      </app-list>
+      <app-list [loadTime]="0" [service]="eventService" [cardSize]="'large'" orientation="horizontal" [pageSize]="2" [columnGap]="20" [paging]="false"> </app-list>
     </div>
     <div class="upcoming-events-bottom">
-      <app-list
-        [loadTime]="0"
-        [service]="eventService"
-        [cardSize]="'large'"
-        orientation="horizontal"
-        [pageSize]="2"
-        [columnGap]="20"
-        [paging]="false"
-      >
-      </app-list>
+      <app-list [loadTime]="0" [service]="eventService" [cardSize]="'large'" orientation="horizontal" [pageSize]="2" [columnGap]="20" [paging]="false"> </app-list>
     </div>
     <div class="click-for-more">
       <a routerLink="{{ '/' + routes.Events }}">
@@ -59,35 +39,16 @@
 </div>
 
 <div class="events-page-title">
-  <app-page-title [pageTitle]="translations.titles.previous_events | translate">
-  </app-page-title>
+  <app-page-title [pageTitle]="translations.titles.previous_events | translate"> </app-page-title>
 </div>
 
 <div class="previous-events-content">
   <section>
     <div class="previous-events-top">
-      <app-list
-        [loadTime]="0"
-        [service]="eventService"
-        [cardSize]="'large'"
-        orientation="horizontal"
-        [pageSize]="2"
-        [columnGap]="20"
-        [paging]="false"
-      >
-      </app-list>
+      <app-list [loadTime]="0" [service]="eventService" [cardSize]="'large'" orientation="horizontal" [pageSize]="2" [columnGap]="20" [paging]="false"> </app-list>
     </div>
     <div class="previous-events-bottom">
-      <app-list
-        [loadTime]="0"
-        [service]="eventService"
-        [cardSize]="'large'"
-        orientation="horizontal"
-        [pageSize]="2"
-        [columnGap]="20"
-        [paging]="false"
-      >
-      </app-list>
+      <app-list [loadTime]="0" [service]="eventService" [cardSize]="'large'" orientation="horizontal" [pageSize]="2" [columnGap]="20" [paging]="false"> </app-list>
     </div>
     <div class="click-for-more">
       <a routerLink="{{ '/' + routes.Events }}">

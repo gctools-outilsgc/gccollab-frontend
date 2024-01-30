@@ -25,7 +25,7 @@ export class HeaderComponent {
 
   constructor(
     public translations: Translations,
-    peopleService: PeopleService,
+    peopleService: PeopleService
   ) {
     // TODO: Get user from service
     peopleService.get('0', 0).subscribe((person: Person) => {

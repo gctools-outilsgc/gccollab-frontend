@@ -16,12 +16,7 @@ export class PostComponent implements OnInit, OnDestroy {
   @Input() loading: boolean = false;
   @Input() editing: boolean = false;
 
-  formGroups: FormGroup[] = [
-    new FormGroup({}),
-    new FormGroup({}),
-    new FormGroup({}),
-    new FormGroup({}),
-  ];
+  formGroups: FormGroup[] = [new FormGroup({}), new FormGroup({}), new FormGroup({}), new FormGroup({})];
   formWatchSubs: Subscription[] = [];
   formChanges: boolean[] = [];
 
@@ -33,24 +28,24 @@ export class PostComponent implements OnInit, OnDestroy {
 
   constructor(
     public translations: Translations,
-    private sessionStorageService: SessionStorageService,
+    private sessionStorageService: SessionStorageService
   ) {}
 
   ngOnInit(): void {
-    this.formGroups.forEach((formGroup) => {
+    this.formGroups.forEach(formGroup => {
       // Create a boolean to track when a FormGroup value has changed
       this.formChanges.push(false);
       // Create a subscription that watches each FormGroup for changes
       this.formWatchSubs.push(
         formGroup.valueChanges.subscribe(() => {
           this.formChanges[this.selectedIndex] = true;
-        }),
+        })
       );
     });
   }
 
   ngOnDestroy(): void {
-    this.formWatchSubs.forEach((formWatch) => {
+    this.formWatchSubs.forEach(formWatch => {
       if (formWatch) formWatch.unsubscribe();
     });
   }
@@ -61,12 +56,7 @@ export class PostComponent implements OnInit, OnDestroy {
   }
 
   toggleEditing(event: Event) {
-    if (
-      (!this.creating &&
-        event instanceof KeyboardEvent &&
-        (event.key == 'Enter' || event.key == 'Space')) ||
-      event instanceof KeyboardEvent == false
-    ) {
+    if ((!this.creating && event instanceof KeyboardEvent && (event.key == 'Enter' || event.key == 'Space')) || event instanceof KeyboardEvent == false) {
       this.editing = !this.editing;
       this.selectedIndex = 0;
       this.selectedForm = this.formGroups[this.selectedIndex];
@@ -74,7 +64,7 @@ export class PostComponent implements OnInit, OnDestroy {
   }
 
   formHasValues(formGroup: FormGroup): boolean {
-    return Object.keys(formGroup.value).some((k) => !!formGroup.value[k]);
+    return Object.keys(formGroup.value).some(k => !!formGroup.value[k]);
   }
 
   formReady(formGroup: FormGroup): boolean {
@@ -89,20 +79,13 @@ export class PostComponent implements OnInit, OnDestroy {
   }
 
   save(): void {
-    const formGroupJSON = JSON.stringify(
-      this.formGroups[this.selectedIndex].value,
-    );
-    this.sessionStorageService.write(
-      'gccollab-make-a-' + this.getTypeFromIndex(this.selectedIndex),
-      formGroupJSON,
-    );
+    const formGroupJSON = JSON.stringify(this.formGroups[this.selectedIndex].value);
+    this.sessionStorageService.write('gccollab-make-a-' + this.getTypeFromIndex(this.selectedIndex), formGroupJSON);
     this.formChanges[this.selectedIndex] = false;
   }
 
   load(): void {
-    const savedFormGroupJSON = this.sessionStorageService.read(
-      'gccollab-make-a-' + this.getTypeFromIndex(this.selectedIndex),
-    );
+    const savedFormGroupJSON = this.sessionStorageService.read('gccollab-make-a-' + this.getTypeFromIndex(this.selectedIndex));
     if (savedFormGroupJSON) {
       const savedFormData = JSON.parse(savedFormGroupJSON);
       for (const [key] of Object.entries(this.selectedForm.controls)) {
@@ -116,9 +99,7 @@ export class PostComponent implements OnInit, OnDestroy {
     if (this.selectedForm.status === 'VALID') {
       this.creating = true;
       this.selectedForm.disable();
-      this.sessionStorageService.remove(
-        'gccollab-make-a-' + this.getTypeFromIndex(this.selectedIndex),
-      );
+      this.sessionStorageService.remove('gccollab-make-a-' + this.getTypeFromIndex(this.selectedIndex));
 
       // TODO: Setup mock service for posting forms
       setTimeout(() => {

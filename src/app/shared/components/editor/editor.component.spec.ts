@@ -19,8 +19,7 @@ describe('EditorComponent', () => {
         TranslateModule.forRoot({
           loader: {
             provide: TranslateLoader,
-            useFactory: (http: HttpClient) =>
-              new TypescriptLoader(http, 'translations'),
+            useFactory: (http: HttpClient) => new TypescriptLoader(http, 'translations'),
             deps: [HttpClient],
           },
         }),

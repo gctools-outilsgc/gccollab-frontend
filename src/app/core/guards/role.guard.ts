@@ -6,11 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class RoleGuard {
-  canActivate():
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
+  canActivate(): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return true;
   }
 }

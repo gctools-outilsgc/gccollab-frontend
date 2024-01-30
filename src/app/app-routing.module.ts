@@ -22,8 +22,7 @@ const routes: Routes = [
   {
     path: CoreRoutes.Login,
     title: translations.titles.login,
-    loadChildren: () =>
-      import('./features/login/login.module').then((m) => m.LoginModule),
+    loadChildren: () => import('./features/login/login.module').then(m => m.LoginModule),
     canActivate: [LoginGuard],
     data: {
       title: translations.titles.login,
@@ -33,8 +32,7 @@ const routes: Routes = [
   {
     path: CoreRoutes.Home,
     title: translations.titles.home,
-    loadChildren: () =>
-      import('./features/home/home.module').then((m) => m.HomeModule),
+    loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule),
     canActivate: [InterceptorGuard],
     data: {
       title: translations.titles.home,
@@ -44,10 +42,7 @@ const routes: Routes = [
   {
     path: CoreRoutes.Register,
     title: translations.titles.register,
-    loadChildren: () =>
-      import('./features/register/register.module').then(
-        (m) => m.RegisterModule,
-      ),
+    loadChildren: () => import('./features/register/register.module').then(m => m.RegisterModule),
     canActivate: [LoginGuard],
     data: {
       title: translations.titles.register,
@@ -57,8 +52,7 @@ const routes: Routes = [
   {
     path: CoreRoutes.Terms,
     title: translations.titles.terms,
-    loadChildren: () =>
-      import('./features/terms/terms.module').then((m) => m.TermsModule),
+    loadChildren: () => import('./features/terms/terms.module').then(m => m.TermsModule),
     data: {
       title: translations.titles.terms,
       breadcrumb: translations.titles.terms,
@@ -67,8 +61,7 @@ const routes: Routes = [
   {
     path: CoreRoutes.Splash,
     title: translations.titles.splash,
-    loadChildren: () =>
-      import('./features/splash/splash.module').then((m) => m.SplashModule),
+    loadChildren: () => import('./features/splash/splash.module').then(m => m.SplashModule),
     data: {
       title: translations.titles.splash,
       breadcrumb: translations.titles.splash,
@@ -77,8 +70,7 @@ const routes: Routes = [
   {
     path: CoreRoutes.About,
     title: translations.titles.about,
-    loadChildren: () =>
-      import('./features/about/about.module').then((m) => m.AboutModule),
+    loadChildren: () => import('./features/about/about.module').then(m => m.AboutModule),
     data: {
       title: translations.titles.about,
       breadcrumb: translations.titles.about,
@@ -87,8 +79,7 @@ const routes: Routes = [
   {
     path: CoreRoutes.Privacy,
     title: translations.titles.privacy,
-    loadChildren: () =>
-      import('./features/privacy/privacy.module').then((m) => m.PrivacyModule),
+    loadChildren: () => import('./features/privacy/privacy.module').then(m => m.PrivacyModule),
     data: {
       title: translations.titles.privacy,
       breadcrumb: translations.titles.privacy,
@@ -97,8 +88,7 @@ const routes: Routes = [
   {
     path: CoreRoutes.Stats,
     title: translations.titles.stats,
-    loadChildren: () =>
-      import('./features/stats/stats.module').then((m) => m.StatsModule),
+    loadChildren: () => import('./features/stats/stats.module').then(m => m.StatsModule),
     data: {
       title: translations.titles.stats,
       breadcrumb: translations.titles.stats,
@@ -116,8 +106,7 @@ const routes: Routes = [
   {
     path: CoreRoutes.Blog,
     title: translations.titles.blog,
-    loadChildren: () =>
-      import('./features/blog/blog.module').then((m) => m.BlogModule),
+    loadChildren: () => import('./features/blog/blog.module').then(m => m.BlogModule),
     data: {
       title: translations.titles.blog,
       breadcrumb: translations.titles.blog,
@@ -126,10 +115,7 @@ const routes: Routes = [
   {
     path: CoreRoutes.Bookmarks,
     title: translations.titles.bookmarks,
-    loadChildren: () =>
-      import('./features/bookmarks/bookmarks.module').then(
-        (m) => m.BookmarksModule,
-      ),
+    loadChildren: () => import('./features/bookmarks/bookmarks.module').then(m => m.BookmarksModule),
     canActivate: [AuthGuard, InterceptorGuard],
     data: {
       title: translations.titles.bookmarks,
@@ -139,10 +125,7 @@ const routes: Routes = [
   {
     path: CoreRoutes.Dashboard,
     title: translations.titles.dashboards,
-    loadChildren: () =>
-      import('./features/dashboard/dashboard.module').then(
-        (m) => m.DashboardModule,
-      ),
+    loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule),
     canActivate: [AuthGuard, InterceptorGuard],
     data: {
       title: translations.titles.dashboards,
@@ -157,8 +140,7 @@ const routes: Routes = [
   {
     path: CoreRoutes.Events,
     title: translations.titles.events,
-    loadChildren: () =>
-      import('./features/events/events.module').then((m) => m.EventsModule),
+    loadChildren: () => import('./features/events/events.module').then(m => m.EventsModule),
     data: {
       title: translations.titles.events,
       breadcrumb: translations.titles.events,
@@ -167,8 +149,7 @@ const routes: Routes = [
   {
     path: CoreRoutes.Friends,
     title: translations.titles.friends,
-    loadChildren: () =>
-      import('./features/friends/friends.module').then((m) => m.FriendsModule),
+    loadChildren: () => import('./features/friends/friends.module').then(m => m.FriendsModule),
     canActivate: [AuthGuard, InterceptorGuard],
     data: {
       title: translations.titles.friends,
@@ -178,8 +159,7 @@ const routes: Routes = [
   {
     path: CoreRoutes.Groups,
     title: translations.titles.groups,
-    loadChildren: () =>
-      import('./features/groups/groups.module').then((m) => m.GroupsModule),
+    loadChildren: () => import('./features/groups/groups.module').then(m => m.GroupsModule),
     canActivate: [AuthGuard, InterceptorGuard],
     data: {
       title: translations.titles.groups,
@@ -189,8 +169,7 @@ const routes: Routes = [
   {
     path: CoreRoutes.Invite,
     title: translations.titles.invite,
-    loadChildren: () =>
-      import('./features/invite/invite.module').then((m) => m.InviteModule),
+    loadChildren: () => import('./features/invite/invite.module').then(m => m.InviteModule),
     canActivate: [AuthGuard, InterceptorGuard],
     data: {
       title: translations.titles.invite,
@@ -200,8 +179,7 @@ const routes: Routes = [
   {
     path: CoreRoutes.Members,
     title: translations.titles.members,
-    loadChildren: () =>
-      import('./features/members/members.module').then((m) => m.MembersModule),
+    loadChildren: () => import('./features/members/members.module').then(m => m.MembersModule),
     canActivate: [AuthGuard, InterceptorGuard],
     data: {
       title: translations.titles.members,
@@ -211,10 +189,7 @@ const routes: Routes = [
   {
     path: CoreRoutes.Messages,
     title: translations.titles.messages,
-    loadChildren: () =>
-      import('./features/messages/messages.module').then(
-        (m) => m.MessagesModule,
-      ),
+    loadChildren: () => import('./features/messages/messages.module').then(m => m.MessagesModule),
     canActivate: [AuthGuard, InterceptorGuard],
     data: {
       title: translations.titles.messages,
@@ -224,10 +199,7 @@ const routes: Routes = [
   {
     path: CoreRoutes.Missions,
     title: translations.titles.missions,
-    loadChildren: () =>
-      import('./features/missions/missions.module').then(
-        (m) => m.MissionsModule,
-      ),
+    loadChildren: () => import('./features/missions/missions.module').then(m => m.MissionsModule),
     data: {
       title: translations.titles.missions,
       breadcrumb: translations.titles.missions,
@@ -236,10 +208,7 @@ const routes: Routes = [
   {
     path: CoreRoutes.NewsFeed,
     title: translations.titles.newsfeed,
-    loadChildren: () =>
-      import('./features/news-feed/news-feed.module').then(
-        (m) => m.NewsFeedModule,
-      ),
+    loadChildren: () => import('./features/news-feed/news-feed.module').then(m => m.NewsFeedModule),
     canActivate: [AuthGuard, InterceptorGuard],
     data: {
       title: translations.titles.newsfeed,
@@ -249,8 +218,7 @@ const routes: Routes = [
   {
     path: CoreRoutes.Profile,
     title: translations.titles.profile,
-    loadChildren: () =>
-      import('./features/profile/profile.module').then((m) => m.ProfileModule),
+    loadChildren: () => import('./features/profile/profile.module').then(m => m.ProfileModule),
     canActivate: [AuthGuard, InterceptorGuard],
     data: {
       title: translations.titles.profile,
@@ -260,8 +228,7 @@ const routes: Routes = [
   {
     path: CoreRoutes.Search,
     title: translations.titles.search,
-    loadChildren: () =>
-      import('./features/search/search.module').then((m) => m.SearchModule),
+    loadChildren: () => import('./features/search/search.module').then(m => m.SearchModule),
     data: {
       title: translations.titles.search,
       breadcrumb: translations.titles.search,
@@ -270,10 +237,7 @@ const routes: Routes = [
   {
     path: CoreRoutes.Settings,
     title: translations.titles.settings,
-    loadChildren: () =>
-      import('./features/settings/settings.module').then(
-        (m) => m.SettingsModule,
-      ),
+    loadChildren: () => import('./features/settings/settings.module').then(m => m.SettingsModule),
     canActivate: [AuthGuard, InterceptorGuard],
     data: {
       title: translations.titles.settings,
@@ -283,10 +247,7 @@ const routes: Routes = [
   {
     path: CoreRoutes.TheWire,
     title: translations.titles.thewire,
-    loadChildren: () =>
-      import('./features/the-wire/the-wire.module').then(
-        (m) => m.TheWireModule,
-      ),
+    loadChildren: () => import('./features/the-wire/the-wire.module').then(m => m.TheWireModule),
     data: {
       title: translations.titles.thewire,
       breadcrumb: translations.titles.thewire,

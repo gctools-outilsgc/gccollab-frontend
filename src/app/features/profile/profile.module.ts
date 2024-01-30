@@ -11,13 +11,7 @@ import { PostComponent } from './components/post/post.component';
 
 @NgModule({
   declarations: [ProfileCardComponent, ProfileListComponent, PostComponent],
-  imports: [
-    CommonModule,
-    ProfileRoutingModule,
-    SharedModule,
-    MatCardModule,
-    MatTabsModule,
-  ],
+  imports: [CommonModule, ProfileRoutingModule, SharedModule, MatCardModule, MatTabsModule],
   exports: [ProfileCardComponent, ProfileListComponent, PostComponent],
 })
 export class ProfileModule {}

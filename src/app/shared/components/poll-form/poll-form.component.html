@@ -23,9 +23,7 @@
     <app-button
       [matButtonType]="'mat-icon-button'"
       [disabled]="model.options.length <= 2 || form.disabled"
-      [tooltip]="
-        (translations.forms.poll.option_remove | translate) + ' #' + (i + 1)
-      "
+      [tooltip]="(translations.forms.poll.option_remove | translate) + ' #' + (i + 1)"
       [tooltipDirection]="tooltipDirection.Above"
       (click)="removeOption(option)"
     >
@@ -34,12 +32,7 @@
   </div>
 
   <div class="form-actions">
-    <app-button
-      [matButtonType]="'mat-stroked-button'"
-      [disabled]="model.options.length >= maxOptions || form.disabled"
-      theme="primary-1"
-      (click)="addOption()"
-    >
+    <app-button [matButtonType]="'mat-stroked-button'" [disabled]="model.options.length >= maxOptions || form.disabled" theme="primary-1" (click)="addOption()">
       <i class="fa-solid fa-circle-plus"></i>
       {{ translations.forms.poll.option_add | translate }}
     </app-button>

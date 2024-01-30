@@ -56,23 +56,12 @@
       <app-button
         btnId="gcc-header-search-btn"
         [matButtonType]="materialButtonType.Icon"
-        [tooltip]="
-          headerExpanded
-            ? (translations.header.search.button.tooltip_off | translate)
-            : (translations.header.search.button.tooltip_on | translate)
-        "
-        [ariaLabel]="
-          headerExpanded
-            ? (translations.header.search.button.aria_off | translate)
-            : (translations.header.search.button.aria_on | translate)
-        "
+        [tooltip]="headerExpanded ? (translations.header.search.button.tooltip_off | translate) : (translations.header.search.button.tooltip_on | translate)"
+        [ariaLabel]="headerExpanded ? (translations.header.search.button.aria_off | translate) : (translations.header.search.button.aria_on | translate)"
         (click)="toggleSearch()"
         [theme]="'white'"
       >
-        <i
-          [ngClass]="headerExpanded ? 'fa-x' : 'fa-search'"
-          class="fa-solid"
-        ></i>
+        <i [ngClass]="headerExpanded ? 'fa-x' : 'fa-search'" class="fa-solid"></i>
       </app-button>
       <app-button
         btnId="gcc-header-messages-btn"
@@ -82,12 +71,7 @@
         [routerLink]="[routes.Messages]"
         [theme]="'white'"
       >
-        <i
-          class="fa-comment-dots"
-          [ngClass]="
-            activeRoute === routes.Messages ? 'fa-solid' : 'fa-regular'
-          "
-        ></i>
+        <i class="fa-comment-dots" [ngClass]="activeRoute === routes.Messages ? 'fa-solid' : 'fa-regular'"></i>
       </app-button>
       <app-button
         btnId="gcc-header-notifications-btn"
@@ -98,12 +82,7 @@
         [ngClass]="activeRoute === routes.Messages ? 'selected' : ''"
         [theme]="'white'"
       >
-        <i
-          class="fa-bell"
-          [ngClass]="
-            activeRoute === routes.Messages ? 'fa-solid' : 'fa-regular'
-          "
-        ></i>
+        <i class="fa-bell" [ngClass]="activeRoute === routes.Messages ? 'fa-solid' : 'fa-regular'"></i>
       </app-button>
       <app-button
         btnId="gcc-header-profile-btn"
@@ -115,28 +94,16 @@
         [theme]="'white'"
         class="profile-btn"
       >
-        <app-profile-pic
-          [model]="user"
-          [loading]="loadingProfile"
-        ></app-profile-pic>
+        <app-profile-pic [model]="user" [loading]="loadingProfile"></app-profile-pic>
       </app-button>
-      <app-language-selector
-        id="gcc-header-change-language"
-        [isToggle]="true"
-        [theme]="'white'"
-      >
-      </app-language-selector>
+      <app-language-selector id="gcc-header-change-language" [isToggle]="true" [theme]="'white'"> </app-language-selector>
     </div>
   </mat-toolbar-row>
 
   <mat-toolbar-row *ngIf="headerExpanded">
     <div class="header-search">
       <form>
-        <input
-          #gccSearch
-          type="text"
-          placeholder="{{ translations.header.search.title | translate }}"
-        />
+        <input #gccSearch type="text" placeholder="{{ translations.header.search.title | translate }}" />
         <app-button
           [matButtonType]="materialButtonType.Icon"
           [tooltip]="translations.header.search.button.tooltip_on | translate"

@@ -1,12 +1,6 @@
 <div class="event-list-container">
   <div *ngFor="let event of model" class="event-card-wrapper">
-    <app-event-card
-      [model]="event"
-      [cardSize]="cardSize"
-      (confirm)="confirmEvent(event)"
-      (decline)="declineEvent(event)"
-    >
-    </app-event-card>
+    <app-event-card [model]="event" [cardSize]="cardSize" (confirm)="confirmEvent(event)" (decline)="declineEvent(event)"> </app-event-card>
   </div>
 
   <div *ngIf="isLoading">
@@ -15,7 +9,5 @@
     </div>
   </div>
 
-  <div *ngIf="model && !isLoading && model.length === 0">
-    There is nothing to display.
-  </div>
+  <div *ngIf="model && !isLoading && model.length === 0">There is nothing to display.</div>
 </div>

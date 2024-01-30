@@ -9,8 +9,8 @@ on:
 
 env:
   AZURE_WEBAPP_NAME: gccollab-dev-pr-${{ github.event.number }}
-  AZURE_WEBAPP_PACKAGE_PATH: "./dist/gccollab-frontend"
-  NODE_VERSION: "18.13.0"
+  AZURE_WEBAPP_PACKAGE_PATH: './dist/gccollab-frontend'
+  NODE_VERSION: '18.13.0'
   ACCESS_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
   LOCATION: canadaeast
   SECRET_NAME: PR_${{ github.event.number }}
@@ -123,7 +123,7 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: "Deploy to Azure WebApp"
+      - name: 'Deploy to Azure WebApp'
         uses: azure/webapps-deploy@v1
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
