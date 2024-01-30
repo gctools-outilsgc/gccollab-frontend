@@ -1,11 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NewsCardComponent } from './news-card.component';
-import {
-  TranslateLoader,
-  TranslateModule,
-  TranslateService,
-} from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TypescriptLoader } from 'src/app/core/helpers/typescript-loader';
 
@@ -21,8 +17,7 @@ describe('NewsCardComponent', () => {
         TranslateModule.forRoot({
           loader: {
             provide: TranslateLoader,
-            useFactory: (http: HttpClient) =>
-              new TypescriptLoader(http, 'translations'),
+            useFactory: (http: HttpClient) => new TypescriptLoader(http, 'translations'),
             deps: [HttpClient],
           },
         }),

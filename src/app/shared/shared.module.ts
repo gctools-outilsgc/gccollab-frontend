@@ -2,11 +2,7 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguageSelectorComponent } from './components/language-selector/language-selector.component';
-import {
-  TranslateLoader,
-  TranslateModule,
-  TranslateService,
-} from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { AppModule } from '../app.module';
 import { HttpClient } from '@angular/common/http';
 
@@ -31,20 +27,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { BannerComponent } from './components/banner/banner.component';
 import { InputComponent } from './components/input/input.component';
-import {
-  MAT_FORM_FIELD_DEFAULT_OPTIONS,
-  MatFormFieldModule,
-} from '@angular/material/form-field';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ProfilePicComponent } from './components/profile-pic/profile-pic.component';
 import { CalendarButtonComponent } from './components/calendar-button/calendar-button.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import {
-  MAT_RADIO_DEFAULT_OPTIONS,
-  MatRadioModule,
-} from '@angular/material/radio';
+import { MAT_RADIO_DEFAULT_OPTIONS, MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { EditorMenuComponent } from './components/editor/menu/editor-menu/editor-menu.component';
@@ -93,8 +83,7 @@ import { ListComponent } from './components/list/list.component';
     TranslateModule.forChild({
       loader: {
         provide: TranslateLoader,
-        useFactory: (http: HttpClient) =>
-          new TypescriptLoader(http, 'translations'),
+        useFactory: (http: HttpClient) => new TypescriptLoader(http, 'translations'),
         deps: [HttpClient],
       },
       isolate: false,

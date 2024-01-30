@@ -11,7 +11,7 @@ export class DebounceService {
 
   debounce(fn: () => unknown, delay: number): void {
     this.debounceSubject.next(fn);
-    this.debounceSubject.pipe(debounceTime(delay)).subscribe((func) => {
+    this.debounceSubject.pipe(debounceTime(delay)).subscribe(func => {
       func();
     });
   }

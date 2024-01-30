@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Event } from '../../models/event';
 import { Translations } from 'src/app/core/services/translations.service';
 import { MaterialButtonType } from 'src/app/shared/models/material-button-type';
@@ -36,15 +30,14 @@ export class EventCardComponent implements ICardComponent {
 
   constructor(
     public translations: Translations,
-    private router: Router,
+    private router: Router
   ) {}
 
   confirmEvent() {
     if (this.model) {
       this.model.confirmed = !this.model.confirmed;
 
-      if (this.model.confirmed && this.model.declined)
-        this.model.declined = false;
+      if (this.model.confirmed && this.model.declined) this.model.declined = false;
 
       if (this.model.confirmed) this.confirm.emit(this.model);
     }
@@ -54,16 +47,14 @@ export class EventCardComponent implements ICardComponent {
     if (this.model) {
       this.model.declined = !this.model.declined;
 
-      if (this.model.declined && this.model.confirmed)
-        this.model.confirmed = false;
+      if (this.model.declined && this.model.confirmed) this.model.confirmed = false;
 
       if (this.model.declined) this.decline.emit(this.model);
     }
   }
 
   clickEvent() {
-    if (this.model)
-      this.router.navigateByUrl(CoreRoutes.Events + '/' + this.model.id);
+    if (this.model) this.router.navigateByUrl(CoreRoutes.Events + '/' + this.model.id);
   }
 
   isPast(): boolean {

@@ -30,23 +30,10 @@ export class PollFormComponent implements OnInit, OnDestroy {
   constructor(public translations: Translations) {}
 
   ngOnInit(): void {
-    this.form.addControl(
-      'description',
-      new FormControl(this.model.description, [
-        EditorValidators.required(),
-        EditorValidators.maxLength(this.maxLength),
-      ]),
-    );
+    this.form.addControl('description', new FormControl(this.model.description, [EditorValidators.required(), EditorValidators.maxLength(this.maxLength)]));
 
     for (let i = 0; i < this.model.options.length; i++) {
-      this.form.addControl(
-        'option' + i,
-        new FormControl(this.model.options[i].value, [
-          Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(30),
-        ]),
-      );
+      this.form.addControl('option' + i, new FormControl(this.model.options[i].value, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]));
     }
   }
 
@@ -60,14 +47,7 @@ export class PollFormComponent implements OnInit, OnDestroy {
         id: this.model.options[this.model.options.length - 1].id + 1,
         value: '',
       });
-      this.form.addControl(
-        'option' + this.model.options[this.model.options.length - 1].id,
-        new FormControl('', [
-          Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(30),
-        ]),
-      );
+      this.form.addControl('option' + this.model.options[this.model.options.length - 1].id, new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]));
     }
   }
 

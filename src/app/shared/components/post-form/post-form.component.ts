@@ -22,14 +22,7 @@ export class PostFormComponent implements OnInit, OnDestroy {
   constructor(public translations: Translations) {}
 
   ngOnInit(): void {
-    this.form.addControl(
-      'description',
-      new FormControl(this.model.description, [
-        Validators.required(),
-        Validators.minLength(this.minLength),
-        Validators.maxLength(this.maxLength),
-      ]),
-    );
+    this.form.addControl('description', new FormControl(this.model.description, [Validators.required(), Validators.minLength(this.minLength), Validators.maxLength(this.maxLength)]));
   }
 
   ngOnDestroy(): void {

@@ -1,11 +1,6 @@
 <div class="profile-list-container">
   <div *ngFor="let person of model" class="profile-card-wrapper">
-    <app-profile-card
-      [model]="person"
-      (confirm)="confirmConnection(person)"
-      (decline)="declineConnection(person)"
-    >
-    </app-profile-card>
+    <app-profile-card [model]="person" (confirm)="confirmConnection(person)" (decline)="declineConnection(person)"> </app-profile-card>
   </div>
 
   <div *ngIf="isLoading">
@@ -14,7 +9,5 @@
     </div>
   </div>
 
-  <div *ngIf="model && !isLoading && model.length === 0">
-    There is nothing to display.
-  </div>
+  <div *ngIf="model && !isLoading && model.length === 0">There is nothing to display.</div>
 </div>

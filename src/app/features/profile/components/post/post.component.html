@@ -4,15 +4,13 @@
   </div>
 
   <div *ngIf="loading" class="loading-header">
-    <ngx-skeleton-loader count="1" appearance="line" animation="progress">
-    </ngx-skeleton-loader>
-    <ngx-skeleton-loader count="1" appearance="line" animation="progress">
-    </ngx-skeleton-loader>
+    <ngx-skeleton-loader count="1" appearance="line" animation="progress"> </ngx-skeleton-loader>
+    <ngx-skeleton-loader count="1" appearance="line" animation="progress"> </ngx-skeleton-loader>
   </div>
 
   <mat-card-header *ngIf="!loading && profile">
     <mat-card-title>
-      {{ profile.firstName + " " + profile.lastName }}
+      {{ profile.firstName + ' ' + profile.lastName }}
     </mat-card-title>
     <mat-card-subtitle>
       {{ profile.jobTitle }}
@@ -20,13 +18,7 @@
   </mat-card-header>
 
   <mat-card-content>
-    <div
-      *ngIf="!loading && !editing"
-      class="gcc-post-placeholder"
-      (click)="toggleEditing($event)"
-      (keydown)="toggleEditing($event)"
-      tabindex="0"
-    >
+    <div *ngIf="!loading && !editing" class="gcc-post-placeholder" (click)="toggleEditing($event)" (keydown)="toggleEditing($event)" tabindex="0">
       <i class="fa-regular fa-pen-to-square"></i>
       <span>{{ translations.forms.placeholder | translate }}</span>
     </div>
@@ -42,64 +34,37 @@
       <i class="fa-regular fa-circle-xmark fa-2xl"></i>
     </app-button>
 
-    <mat-tab-group
-      *ngIf="!loading && editing"
-      [preserveContent]="true"
-      (selectedTabChange)="onTabChange($event); load()"
-      mat-stretch-tabs="false"
-    >
-      <mat-tab
-        [label]="translations.titles.post | translate"
-        [disabled]="creating"
-      >
+    <mat-tab-group *ngIf="!loading && editing" [preserveContent]="true" (selectedTabChange)="onTabChange($event); load()" mat-stretch-tabs="false">
+      <mat-tab [label]="translations.titles.post | translate" [disabled]="creating">
         <ng-template matTabContent>
           <app-post-form [form]="formGroups[0]"></app-post-form>
         </ng-template>
       </mat-tab>
-      <mat-tab
-        [label]="translations.titles.blog | translate"
-        [disabled]="creating"
-      >
+      <mat-tab [label]="translations.titles.blog | translate" [disabled]="creating">
         <ng-template matTabContent>
           <app-blog-form [form]="formGroups[1]"></app-blog-form>
         </ng-template>
       </mat-tab>
-      <mat-tab
-        [label]="translations.titles.event | translate"
-        [disabled]="creating"
-      >
+      <mat-tab [label]="translations.titles.event | translate" [disabled]="creating">
         <ng-template matTabContent>
           <app-event-form [form]="formGroups[2]"></app-event-form>
         </ng-template>
       </mat-tab>
-      <mat-tab
-        [label]="translations.titles.poll | translate"
-        [disabled]="creating"
-      >
+      <mat-tab [label]="translations.titles.poll | translate" [disabled]="creating">
         <ng-template matTabContent>
           <app-poll-form [form]="formGroups[3]"></app-poll-form>
         </ng-template>
       </mat-tab>
     </mat-tab-group>
 
-    <ngx-skeleton-loader
-      *ngIf="loading"
-      count="6"
-      appearance="line"
-      animation="progress"
-    >
-    </ngx-skeleton-loader>
+    <ngx-skeleton-loader *ngIf="loading" count="6" appearance="line" animation="progress"> </ngx-skeleton-loader>
   </mat-card-content>
 
   <mat-card-actions *ngIf="editing">
     <div class="left-actions">
       <app-button
         *ngIf="!loading && (selectedIndex === 1 || selectedIndex === 2)"
-        [disabled]="
-          !formHasValues(selectedForm) ||
-          !formChanges[selectedIndex] ||
-          creating
-        "
+        [disabled]="!formHasValues(selectedForm) || !formChanges[selectedIndex] || creating"
         theme="primary-2"
         [clickFunc]="saveCallback"
       >

@@ -1,4 +1,4 @@
-@import "../../../../assets/scss/partials/colors";
+@import '../../../../assets/scss/partials/colors';
 
 .gcc-input-wrapper {
   font-size: 16px;
@@ -98,8 +98,7 @@ mat-hint {
     padding-right: 0 !important;
   }
 
-  .mat-mdc-text-field-wrapper.mdc-text-field--outlined
-    .mat-mdc-form-field-infix {
+  .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
     padding-top: 0;
     padding-bottom: 0;
   }

@@ -1,9 +1,6 @@
 <!-- eslint-disable @angular-eslint/template/no-autofocus -->
 <div class="gcc-input-wrapper" [class]="theme">
-  <mat-label
-    *ngIf="label"
-    [ngClass]="{ disabled: control ? control.disabled : false }"
-  >
+  <mat-label *ngIf="label" [ngClass]="{ disabled: control ? control.disabled : false }">
     {{ label }}
     <div *ngIf="required" class="required-star">*</div>
     <!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events -->
@@ -15,16 +12,8 @@
         'fa-circle-question': !showHint
       }"
       class="fa-regular"
-      [matTooltip]="
-        showHint
-          ? (translations.input.hint.hide.text | translate)
-          : (translations.input.hint.show.text | translate)
-      "
-      [attr.aria-label]="
-        showHint
-          ? (translations.input.hint.hide.aria | translate)
-          : (translations.input.hint.show.aria | translate)
-      "
+      [matTooltip]="showHint ? (translations.input.hint.hide.text | translate) : (translations.input.hint.show.text | translate)"
+      [attr.aria-label]="showHint ? (translations.input.hint.hide.aria | translate) : (translations.input.hint.show.aria | translate)"
       [matTooltipPosition]="tooltipDirection.Right"
       (click)="toggleShowHint()"
     >
@@ -39,13 +28,7 @@
       [id]="inputId"
       [name]="name"
       [value]="value"
-      [type]="
-        type === inputType.Password
-          ? showPassword
-            ? inputType.Text
-            : type
-          : type
-      "
+      [type]="type === inputType.Password ? (showPassword ? inputType.Text : type) : type"
       [placeholder]="placeholder"
       [required]="required"
       [readonly]="readonly"
@@ -58,22 +41,11 @@
     <app-button
       *ngIf="type === inputType.Password"
       [matButtonType]="materialButtonType.Icon"
-      [tooltip]="
-        showPassword
-          ? (translations.input.password.hide.text | translate)
-          : (translations.input.password.show.text | translate)
-      "
-      [ariaLabel]="
-        showPassword
-          ? (translations.input.password.hide.aria | translate)
-          : (translations.input.password.show.aria | translate)
-      "
+      [tooltip]="showPassword ? (translations.input.password.hide.text | translate) : (translations.input.password.show.text | translate)"
+      [ariaLabel]="showPassword ? (translations.input.password.hide.aria | translate) : (translations.input.password.show.aria | translate)"
       (click)="toggleShowPassword()"
     >
-      <i
-        [ngClass]="showPassword ? 'fa-eye' : 'fa-eye-slash'"
-        class="fa-regular"
-      ></i>
+      <i [ngClass]="showPassword ? 'fa-eye' : 'fa-eye-slash'" class="fa-regular"></i>
     </app-button>
 
     <mat-hint *ngIf="hint && showHint">
@@ -86,16 +58,14 @@
 
     <mat-error *ngIf="control && control.hasError('minlength')">
       {{ translations.input.error.minLength | translate }}
-      {{ control.errors!["minlength"].requiredLength }}.
+      {{ control.errors!['minlength'].requiredLength }}.
     </mat-error>
 
     <mat-error *ngIf="control && control.hasError('maxlength')">
       {{ translations.input.error.maxLength | translate }}
-      {{ control.errors!["maxlength"].requiredLength }}.
+      {{ control.errors!['maxlength'].requiredLength }}.
     </mat-error>
 
-    <mat-error *ngIf="control && control.hasError('required')">
-      {{ label }} {{ translations.input.error.required | translate }}
-    </mat-error>
+    <mat-error *ngIf="control && control.hasError('required')"> {{ label }} {{ translations.input.error.required | translate }} </mat-error>
   </mat-form-field>
 </div>

@@ -16,14 +16,10 @@ export class InterceptorGuard {
 
   constructor(
     private sessionStorageService: SessionStorageService,
-    private router: Router,
+    private router: Router
   ) {}
 
-  canActivate():
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
+  canActivate(): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const retUrl = this.sessionStorageService.read(this.returnUrlKey);
 
     if (retUrl) {

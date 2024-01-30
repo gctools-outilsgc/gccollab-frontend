@@ -10,17 +10,11 @@
   tabindex="0"
 >
   <div>
-    {{ model | date: "LLL" | uppercase }}
+    {{ model | date: 'LLL' | uppercase }}
   </div>
   <div>
-    {{ model | date: "dd" }}
+    {{ model | date: 'dd' }}
   </div>
 </div>
 
-<ngx-skeleton-loader
-  *ngIf="loading"
-  count="1"
-  appearance="circle"
-  animation="progress"
-  class="event-calendar-loading"
-></ngx-skeleton-loader>
+<ngx-skeleton-loader *ngIf="loading" count="1" appearance="circle" animation="progress" class="event-calendar-loading"></ngx-skeleton-loader>

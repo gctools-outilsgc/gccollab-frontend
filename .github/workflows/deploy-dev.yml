@@ -10,8 +10,8 @@ on:
 
 env:
   AZURE_WEBAPP_NAME: gccollab-dev
-  AZURE_WEBAPP_PACKAGE_PATH: "./dist/gccollab-frontend"
-  NODE_VERSION: "18.13.0"
+  AZURE_WEBAPP_PACKAGE_PATH: './dist/gccollab-frontend'
+  NODE_VERSION: '18.13.0'
 
 jobs:
   build-test-and-deploy:
@@ -38,7 +38,7 @@ jobs:
       - name: Test
         run: npm run test --if-present -- --watch=false --browsers=ChromeHeadless
 
-      - name: "Deploy to Azure WebApp"
+      - name: 'Deploy to Azure WebApp'
         uses: azure/webapps-deploy@v1
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}

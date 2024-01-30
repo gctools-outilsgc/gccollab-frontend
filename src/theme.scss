@@ -1,19 +1,19 @@
 // Import Angular Material styles
-@use "@angular/material" as mat;
+@use '@angular/material' as mat;
 @include mat.core();
 
-@import "@angular/material/theming";
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import '@angular/material/theming';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-@import "/src/assets/scss/partials/colors";
-@import "/src/assets/scss/partials/palettes";
+@import '/src/assets/scss/partials/colors';
+@import '/src/assets/scss/partials/palettes';
 
 $theme-primary: mat.define-palette($primary-palette);
 $theme-accent: mat.define-palette($accent-palette);
 $theme-warn: mat.define-palette($warn-palette);
 
 $theme-typography: mat.define-typography-config(
-  $font-family: "Inter",
+  $font-family: 'Inter',
 );
 
 $theme: mat.define-light-theme(
@@ -54,9 +54,9 @@ body {
 }
 .material-icons {
   font-size: 24px;
-  font-family: "Material Icons Outlined", "Material Icons";
+  font-family: 'Material Icons Outlined', 'Material Icons';
   .mat-badge-content {
-    font-family: "Inter";
+    font-family: 'Inter';
   }
 }
 mat-checkbox {

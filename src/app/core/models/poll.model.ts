@@ -8,6 +8,6 @@ export class Poll implements INewsItem {
     public authoredDate: Date,
     public content: string,
     public comments: number,
-    public likes: number,
+    public likes: number
   ) {}
 }
