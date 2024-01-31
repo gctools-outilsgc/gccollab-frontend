@@ -11,15 +11,15 @@
     },
     "license": "ISC",
     "dependencies": {
-      "@haibun/cli": "^1.35.1",
-      "@haibun/core": "^1.35.1",
-      "@haibun/domain-storage": "^1.35.1",
-      "@haibun/domain-webpage": "^1.35.1",
-      "@haibun/out-review": "1.35.3",
-      "@haibun/out-xunit": "^1.35.1",
-      "@haibun/storage-fs": "^1.35.1",
-      "@haibun/web-playwright": "^1.35.1",
-      "@haibun/web-accessibility-axe": "^1.35.1"
+      "@haibun/cli": "^1.35.5",
+      "@haibun/core": "^1.35.5",
+      "@haibun/domain-storage": "^1.35.5",
+      "@haibun/domain-webpage": "^1.35.5",
+      "@haibun/out-review": "1.35.5",
+      "@haibun/out-xunit": "^1.35.5",
+      "@haibun/storage-fs": "^1.35.5",
+      "@haibun/web-playwright": "^1.35.5",
+      "@haibun/web-accessibility-axe": "^1.35.5"
     }
   }
 
