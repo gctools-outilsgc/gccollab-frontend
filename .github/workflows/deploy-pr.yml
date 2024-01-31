@@ -52,12 +52,8 @@ jobs:
       - name: Get Publishing Profile
         id: get-publishing-profile
         run: |
-          if [[ ${{ github.event.action }} != "synchronize" ]]; then
-            profile=$(az webapp deployment list-publishing-profiles --resource-group ${{ env.AZURE_WEBAPP_NAME }} --name ${{ env.AZURE_WEBAPP_NAME }} --xml | sed -e 's|\"<|<|g' | sed -e 's|>\"|>|g' | sed -e 's|\\"|"|g' | sed -e 's|\\\\|\\|g' | sed -E 's/:[0-9]+//g')
-            echo "::set-output name=profile::$profile"
-          else
-            echo "The publishing profile has already been retrieved."
-          fi
+          profile=$(az webapp deployment list-publishing-profiles --resource-group ${{ env.AZURE_WEBAPP_NAME }} --name ${{ env.AZURE_WEBAPP_NAME }} --xml | sed -e 's|\"<|<|g' | sed -e 's|>\"|>|g' | sed -e 's|\\"|"|g' | sed -e 's|\\\\|\\|g' | sed -E 's/:[0-9]+//g')
+          echo "::set-output name=profile::$profile"
 
       - name: GitHub Auth Login
         shell: bash
@@ -66,12 +62,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: Create Secret
         run: |
-          if [[ ${{ github.event.action }} != "synchronize" ]]; then
-            escaped_profile=$(printf "%q" "${{ env.PROFILE }}")
-            gh secret set "${{ env.SECRET_NAME }}" --body "$escaped_profile"
-          else
-            echo "The publishing profile secret has already been saved."
-          fi
+          escaped_profile=$(printf "%q" "${{ env.PROFILE }}")
+          gh secret set "${{ env.SECRET_NAME }}" --body "$escaped_profile"
         env:
           PROFILE: ${{ steps.get-publishing-profile.outputs.profile }}
 
