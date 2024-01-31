@@ -1,5 +1,5 @@
 # This action will create the azure resources, github secret, github environment, and deploy the app when a PR once is opened.
-# https://github.com/Azure/webapps-deploy/issues/28
+# https://github.com/Azure/webapps-deploy/issues/28 
 
 name: Deploy PR
 
