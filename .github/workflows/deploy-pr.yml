@@ -1,4 +1,4 @@
-# This action will create the azure resources, github secret, github environment, and deploy the app when a PR once is opened.
+# This action will create the azure resources, github secret, github environment, and deploy the app when a PR is opened, reopened, or synchronized.
 # https://github.com/Azure/webapps-deploy/issues/28 
 
 name: Deploy PR
@@ -53,7 +53,7 @@ jobs:
         id: get-publishing-profile
         run: |
           if [[ ${{ github.event.action }} != "synchronize" ]]; then
-            profile=$(az webapp deployment list-publishing-profiles --resource-group ${{ env.AZURE_WEBAPP_NAME }} --name ${{ env.AZURE_WEBAPP_NAME }} --xml | sed -e 's|\"<|<|g' | sed -e 's|>\"|>|g' | sed -e 's|\\"|"|g' | sed -e 's|\\\\|\\|g' | sed -e 's/:[0-9]+//g')
+            profile=$(az webapp deployment list-publishing-profiles --resource-group ${{ env.AZURE_WEBAPP_NAME }} --name ${{ env.AZURE_WEBAPP_NAME }} --xml | sed -e 's|\"<|<|g' | sed -e 's|>\"|>|g' | sed -e 's|\\"|"|g' | sed -e 's|\\\\|\\|g' | sed -E 's/:[0-9]+//g')
             echo "::set-output name=profile::$profile"
           else
             echo "The publishing profile has already been retrieved."
