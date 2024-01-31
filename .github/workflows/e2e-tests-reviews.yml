@@ -25,7 +25,7 @@ jobs:
       # - uses: fregante/setup-git-user@v2
         with:
           repository: gctools-outilsgc/gccollab-frontend
-          token: ${{ secrets.ACCESS_TOKEN }}
+          token: ${{ secrets.BOT_ACCESS_TOKEN }}
           node-version: 18
           ref: gh-pages
 
