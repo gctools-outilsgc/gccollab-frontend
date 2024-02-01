@@ -4,6 +4,7 @@ param appName string = resourceGroup().name
 param location string = 'canadaeast'
 param siteKind string = 'windows'
 param sku string = 'F1'
+param nodeVersion string = '18.13.0'
 
 resource appServicePlan 'Microsoft.Web/serverfarms@2021-01-01' = {
   name: appName
@@ -35,7 +36,11 @@ resource appService 'Microsoft.Web/sites@2022-03-01' = {
         }
         {
           name: 'WEBSITE_NODE_DEFAULT_VERSION'
-          value: '16.14.2'
+          value: nodeVersion
+        }
+        {
+          name: 'WEBSITE_WEBDEPLOY_USE_SCM'
+          value: 'true'
         }
       ]
     }

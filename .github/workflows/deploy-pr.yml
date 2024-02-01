@@ -1,10 +1,11 @@
-# This action will create the azure resources, github secret, github environment, and deploy the app when a PR once is opened.
+# This action will create the azure resources, github secret, github environment, and deploy the app when a PR is opened, reopened, or synchronized.
+# https://github.com/Azure/webapps-deploy/issues/28
 
 name: Deploy PR
 
 on:
   pull_request:
-    types: [opened, reopened] # TODO: synchronize
+    types: [opened, reopened, synchronize]
     branches: main
 
 env:
@@ -51,8 +52,8 @@ jobs:
       - name: Get Publishing Profile
         id: get-publishing-profile
         run: |
-          profile=$(az webapp deployment list-publishing-profiles --resource-group ${{ env.AZURE_WEBAPP_NAME }} --name ${{ env.AZURE_WEBAPP_NAME }} --xml | sed -e 's|\"<|<|g' | sed -e 's|>\"|>|g' | sed -e 's|\\"|"|g' | sed -e 's|\\\\|\\|g')
-          echo "::set-output name=profile::$profile"
+          profile=$(az webapp deployment list-publishing-profiles --resource-group ${{ env.AZURE_WEBAPP_NAME }} --name ${{ env.AZURE_WEBAPP_NAME }} --xml | sed -e 's|\"<|<|g' | sed -e 's|>\"|>|g' | sed -e 's|\\"|"|g' | sed -e 's|\\\\|\\|g') > /dev/null
+          echo "::set-output name=profile::$profile" > /dev/null
 
       - name: GitHub Auth Login
         shell: bash
@@ -60,9 +61,7 @@ jobs:
 
       - uses: actions/checkout@v3
       - name: Create Secret
-        run: |
-          escaped_profile=$(printf "%q" "${{ env.PROFILE }}")
-          gh secret set "${{ env.SECRET_NAME }}" --body "$escaped_profile"
+        run: gh secret set "${{ env.SECRET_NAME }}" --body "${{ env.PROFILE }}"
         env:
           PROFILE: ${{ steps.get-publishing-profile.outputs.profile }}
 
