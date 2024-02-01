@@ -52,8 +52,8 @@ jobs:
       - name: Get Publishing Profile
         id: get-publishing-profile
         run: |
-          profile=$(az webapp deployment list-publishing-profiles --resource-group ${{ env.AZURE_WEBAPP_NAME }} --name ${{ env.AZURE_WEBAPP_NAME }} --xml | sed -e 's|\"<|<|g' | sed -e 's|>\"|>|g' | sed -e 's|\\"|"|g' | sed -e 's|\\\\|\\|g' | sed -E 's/:[0-9]+//g')
-          echo "::set-output name=profile::$profile"
+          profile=$(az webapp deployment list-publishing-profiles --resource-group ${{ env.AZURE_WEBAPP_NAME }} --name ${{ env.AZURE_WEBAPP_NAME }} --xml | sed -e 's|\"<|<|g' | sed -e 's|>\"|>|g' | sed -e 's|\\"|"|g' | sed -e 's|\\\\|\\|g' | sed -E 's/:[0-9]+//g') > /dev/null
+          echo "::set-output name=profile::$profile" > /dev/null
 
       - name: GitHub Auth Login
         shell: bash
