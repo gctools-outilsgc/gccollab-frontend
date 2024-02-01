@@ -63,7 +63,7 @@ jobs:
       - name: Create Secret
         run: |
           escaped_profile=$(printf "%q" "${{ env.PROFILE }}")
-          gh secret set "${{ env.SECRET_NAME }}" --body "$escaped_profile"
+          gh secret set "${{ env.SECRET_NAME }}" --body "${{ env.PROFILE }}"
         env:
           PROFILE: ${{ steps.get-publishing-profile.outputs.profile }}
 
