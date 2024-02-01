@@ -11,9 +11,7 @@ const workflowFilePaths = [
 ];
 
 // The node.js version for the azure web apps being deployed
-const bicepFilePaths = [
-  '.bicep/pr-instance.bicep'
-];
+const bicepFilePaths = ['.bicep/pr-instance.bicep'];
 
 exec('npm run ng v', (error, stdout, stderr) => {
   if (error) {
