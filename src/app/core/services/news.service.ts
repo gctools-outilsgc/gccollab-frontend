@@ -11,21 +11,20 @@ import { IListService } from '../interfaces/list-service.interface';
 import { NewsCardComponent } from 'src/app/features/news-feed/components/news-card/news-card.component';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NewsService implements IListService {
-
   private id: number = 0;
   private delay: number = 3000;
   private lorem = new LoremIpsum({
     sentencesPerParagraph: {
       max: 8,
-      min: 4
+      min: 4,
     },
     wordsPerSentence: {
       max: 16,
-      min: 4
-    }
+      min: 4,
+    },
   });
 
   private peopleService: PeopleService = inject(PeopleService);
@@ -40,26 +39,25 @@ export class NewsService implements IListService {
     this.generateRandomNewsItem(),
     this.generateRandomNewsItem(),
     this.generateRandomNewsItem(),
-    this.generateRandomNewsItem()
+    this.generateRandomNewsItem(),
   ];
 
   public dataType = Post;
   public cardComponent = NewsCardComponent;
 
-  constructor() {
-  }
+  constructor() {}
 
   get(id: string | null, delay: number = this.delay): Observable<INewsItem> {
     let response: INewsItem;
 
-    for(let i = 0; i < this.newsItems.length; i++) {
+    for (let i = 0; i < this.newsItems.length; i++) {
       if (this.newsItems[i].id == id) {
         response = this.newsItems[i];
         break;
       }
     }
 
-    let observable: Observable<INewsItem> = new Observable((subscriber) => {
+    const observable: Observable<INewsItem> = new Observable(subscriber => {
       setTimeout(() => {
         subscriber.next(response);
         subscriber.complete();
@@ -70,7 +68,7 @@ export class NewsService implements IListService {
   }
 
   getMany(count: number = 10, delay: number = 5000): Observable<INewsItem[]> {
-    let observable: Observable<INewsItem[]> = new Observable((subscriber) => {
+    const observable: Observable<INewsItem[]> = new Observable(subscriber => {
       setTimeout(() => {
         subscriber.next(this.newsItems.slice(0, count > this.newsItems.length ? this.newsItems.length : count));
         subscriber.complete();
@@ -81,39 +79,17 @@ export class NewsService implements IListService {
   }
 
   private generateRandomNewsItem(): INewsItem {
+    let newsItem: INewsItem = <INewsItem>{};
 
-    let newsItem: INewsItem = <INewsItem> {};
-
-    switch(Math.floor(Math.random() * 3)) {
+    switch (Math.floor(Math.random() * 3)) {
       case 0:
-        newsItem  = new Post(
-          this.id.toString(),
-          this.peopleService.people[this.id],
-          new Date(),
-          this.randomContent(),
-          Math.floor(Math.random() * 199) + 1,
-          Math.floor(Math.random() * 99) + 1
-        );
+        newsItem = new Post(this.id.toString(), this.peopleService.people[this.id], new Date(), this.randomContent(), Math.floor(Math.random() * 199) + 1, Math.floor(Math.random() * 99) + 1);
         break;
       case 1:
-        newsItem  = new Blog(
-          this.id.toString(),
-          this.peopleService.people[this.id],
-          new Date(),
-          this.randomContent(),
-          Math.floor(Math.random() * 199) + 1,
-          Math.floor(Math.random() * 99) + 1
-        );
+        newsItem = new Blog(this.id.toString(), this.peopleService.people[this.id], new Date(), this.randomContent(), Math.floor(Math.random() * 199) + 1, Math.floor(Math.random() * 99) + 1);
         break;
       case 2:
-        newsItem  = new Poll(
-          this.id.toString(),
-          this.peopleService.people[this.id],
-          new Date(),
-          this.randomContent(),
-          Math.floor(Math.random() * 199) + 1,
-          Math.floor(Math.random() * 99) + 1
-        );
+        newsItem = new Poll(this.id.toString(), this.peopleService.people[this.id], new Date(), this.randomContent(), Math.floor(Math.random() * 199) + 1, Math.floor(Math.random() * 99) + 1);
         break;
     }
 
@@ -124,13 +100,12 @@ export class NewsService implements IListService {
 
   private randomContent(): string {
     let content: string = '';
-    let paragraphs = (Math.random() * 4) + 1;
+    const paragraphs = Math.random() * 4 + 1;
 
     for (let i = 0; i < paragraphs; i++) {
       content += this.lorem.generateSentences(Math.floor(Math.random() * 10) + 4);
 
-      if (i != paragraphs - 1)
-      content += '<br/><br/>';
+      if (i != paragraphs - 1) content += '<br/><br/>';
     }
 
     return content;

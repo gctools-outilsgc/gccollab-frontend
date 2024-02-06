@@ -1,55 +1,49 @@
 <mat-card appearance="outlined">
+  <mat-card-header>
+    <div class="profile-wrapper">
+      <app-profile-pic [model]="model" [loading]="loading"> </app-profile-pic>
+    </div>
+  </mat-card-header>
 
-    <mat-card-header>
-        <div class="profile-wrapper">
-            <app-profile-pic [model]="model" 
-                             [loading]="loading">
-            </app-profile-pic>
-        </div>
-    </mat-card-header>
+  <mat-card-content>
+    <div *ngIf="!loading">
+      {{ model?.firstName + ' ' + model?.lastName }}
+    </div>
+    <div *ngIf="!loading">
+      {{ model?.jobTitle }}
+    </div>
+    <ngx-skeleton-loader *ngIf="loading" count="2" appearance="line" animation="progress"></ngx-skeleton-loader>
+  </mat-card-content>
 
-    <mat-card-content>
-       <div *ngIf="!loading">
-            {{ model?.firstName + ' ' + model?.lastName }}
-        </div>
-        <div *ngIf="!loading">
-            {{ model?.jobTitle }}
-        </div>
-        <ngx-skeleton-loader *ngIf="loading" count="2" appearance="line" animation="progress"></ngx-skeleton-loader>
-    </mat-card-content>
+  <mat-card-actions>
+    <app-button
+      class="confirm"
+      [ngClass]="declined ? 'disabled' : ''"
+      [matButtonType]="materialButtonType.Icon"
+      [tooltip]="(confirmed ? translations.profileCard.confirm.tooltip_off : translations.profileCard.confirm.tooltip_on) | translate"
+      [ariaLabel]="(confirmed ? translations.profileCard.confirm.aria_off : translations.profileCard.confirm.aria_on) | translate"
+      [tooltipDirection]="tooltipDirection.Above"
+      [disabled]="loading"
+      [theme]="declined ? 'disabled' : 'secondary-2'"
+      (click)="clickConfirm()"
+    >
+      <i *ngIf="!loading" class="fa-circle-check" [ngClass]="confirmed || declined ? 'fa-solid' : 'fa-regular'"> </i>
+      <ngx-skeleton-loader *ngIf="loading" count="1" appearance="circle" animation="progress"></ngx-skeleton-loader>
+    </app-button>
 
-    <mat-card-actions>
-        <app-button class="confirm"
-                    [ngClass]="declined ? 'disabled' : ''"
-                    [matButtonType]="materialButtonType.Icon" 
-                    [tooltip]="(confirmed ? translations.profileCard.confirm.tooltip_off : translations.profileCard.confirm.tooltip_on) | translate"
-                    [ariaLabel]="(confirmed ? translations.profileCard.confirm.aria_off : translations.profileCard.confirm.aria_on) | translate"
-                    [tooltipDirection]="tooltipDirection.Above"
-                    [disabled]="loading"
-                    [theme]="declined ? 'disabled' : 'secondary-2'"
-                    (click)="clickConfirm()">
-            <i *ngIf="!loading" 
-               class="fa-circle-check"
-               [ngClass]="confirmed || declined ? 'fa-solid' : 'fa-regular'">
-            </i>
-            <ngx-skeleton-loader *ngIf="loading" count="1" appearance="circle" animation="progress"></ngx-skeleton-loader>
-        </app-button>
-
-        <app-button class="decline"
-                    [ngClass]="confirmed ? 'disabled' : ''"
-                    [matButtonType]="materialButtonType.Icon"
-                    [tooltip]="(declined ? translations.profileCard.decline.tooltip_off : translations.profileCard.decline.tooltip_on) | translate"
-                    [ariaLabel]="(declined ? translations.profileCard.decline.aria_off : translations.profileCard.decline.aria_on) | translate"
-                    [tooltipDirection]="tooltipDirection.Above"
-                    [disabled]="loading"
-                    [theme]="confirmed ? 'disabled' : 'error'"
-                    (click)="clickDecline()">
-            <i *ngIf="!loading" 
-               class="fa-circle-xmark"
-               [ngClass]="declined || confirmed ? 'fa-solid' : 'fa-regular'">
-            </i>
-            <ngx-skeleton-loader *ngIf="loading" count="1" appearance="circle" animation="progress"></ngx-skeleton-loader>
-        </app-button>
-    </mat-card-actions>
-
+    <app-button
+      class="decline"
+      [ngClass]="confirmed ? 'disabled' : ''"
+      [matButtonType]="materialButtonType.Icon"
+      [tooltip]="(declined ? translations.profileCard.decline.tooltip_off : translations.profileCard.decline.tooltip_on) | translate"
+      [ariaLabel]="(declined ? translations.profileCard.decline.aria_off : translations.profileCard.decline.aria_on) | translate"
+      [tooltipDirection]="tooltipDirection.Above"
+      [disabled]="loading"
+      [theme]="confirmed ? 'disabled' : 'error'"
+      (click)="clickDecline()"
+    >
+      <i *ngIf="!loading" class="fa-circle-xmark" [ngClass]="declined || confirmed ? 'fa-solid' : 'fa-regular'"> </i>
+      <ngx-skeleton-loader *ngIf="loading" count="1" appearance="circle" animation="progress"></ngx-skeleton-loader>
+    </app-button>
+  </mat-card-actions>
 </mat-card>

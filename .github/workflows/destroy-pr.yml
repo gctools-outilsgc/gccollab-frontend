@@ -9,7 +9,7 @@ on:
 
 env:
   AZURE_WEBAPP_NAME: gccollab-dev-pr-${{ github.event.number }}
-  ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+  ACCESS_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
   SECRET_NAME: PR_${{ github.event.number }}
 
 jobs:
@@ -42,7 +42,7 @@ jobs:
         run: gh secret delete "${{ env.SECRET_NAME }}"
 
   environment:
-    name: Delete GitHub Environment 
+    name: Delete GitHub Environment
     runs-on: ubuntu-latest
     if: ${{ !contains(github.event.pull_request.title, vars.IGNORE_DEPLOY) }}
     steps:
@@ -51,4 +51,4 @@ jobs:
         run: |
           curl -X DELETE "https://api.github.com/repos/gctools-outilsgc/gccollab-frontend/environments/PR%20${{ github.event.number }}" \
           -H "Authorization: token ${{ env.ACCESS_TOKEN }}" \
-          -H "Accept: application/vnd.github.v3+json" 
+          -H "Accept: application/vnd.github.v3+json"

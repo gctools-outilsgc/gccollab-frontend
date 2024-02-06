@@ -5,15 +5,10 @@ import { MissionsRoutingModule } from './missions-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MissionsComponent } from './missions.component';
 
-
 @NgModule({
   declarations: [
     MissionsComponent
   ],
-  imports: [
-    CommonModule,
-    MissionsRoutingModule,
-    SharedModule
-  ]
+  imports: [CommonModule, MissionsRoutingModule, SharedModule],
 })
-export class MissionsModule { }
+export class MissionsModule {}

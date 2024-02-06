@@ -5,31 +5,31 @@ import { EventsComponent } from './events.component';
 import { Translations } from 'src/app/core/services/translations.service';
 import { EventComponent } from './components/event/event.component';
 
-let translations = Translations.getInstance();
+const translations = Translations.getInstance();
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: EventsComponent
+    component: EventsComponent,
   },
   {
     path: ':id',
     title: translations.titles.event,
     component: EventComponent,
     data: {
-      title: translations.titles.event, 
-      breadcrumb: translations.titles.event
-    }
+      title: translations.titles.event,
+      breadcrumb: translations.titles.event,
+    },
   },
   {
     path: '**',
-    redirectTo: ''
-  }
+    redirectTo: '',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class EventsRoutingModule { }
+export class EventsRoutingModule {}

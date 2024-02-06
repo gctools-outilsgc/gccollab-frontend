@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { NgComponentOutlet } from '@angular/common';
 import { IListService } from 'src/app/core/interfaces/list-service.interface';
 import { CardSize } from '../../models/card-size';
@@ -7,12 +8,11 @@ import { Orientation } from '../../models/orientation';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
-  
-  @Input({required:true}) service!: IListService;
-  @Input() items: typeof this.service.dataType[] = [];
+  @Input({ required: true }) service!: IListService;
+  @Input() items: (typeof this.service.dataType)[] = [];
   @Input() cardSize: CardSize | string = CardSize.Small;
   @Input() orientation: Orientation | string = Orientation.Vertical;
   @Input() columnGap: number = 10;
@@ -27,18 +27,15 @@ export class ListComponent implements OnInit {
   loading: boolean = true;
   Orientations = Orientation;
 
-  nextPageCallback: Function = this.nextPage.bind(this);
-  previousPageCallback: Function = this.previousPage.bind(this);
+  nextPageCallback: () => unknown = this.nextPage.bind(this);
+  previousPageCallback: () => unknown = this.previousPage.bind(this);
 
-  constructor() {
-    
-  }
-  
-  ngOnInit(): void { 
+  constructor() {}
+
+  ngOnInit(): void {
     if (this.items.length === 0) {
       this.loadNext(this.pageSize * (this.paging ? this.pagesToLoad : 1));
-    }
-    else {
+    } else {
       this.lastPage = this.items.length / this.pageSize;
     }
   }
@@ -46,7 +43,7 @@ export class ListComponent implements OnInit {
   loadNext(count: number = this.pageSize): void {
     this.loading = true;
 
-    this.service?.getMany(count, this.loadTime).subscribe((items: typeof this.service.dataType[]) => {
+    this.service?.getMany(count, this.loadTime).subscribe((items: (typeof this.service.dataType)[]) => {
       this.items.push(...items);
       this.lastPage = this.items.length / this.pageSize;
       this.loading = false;
@@ -61,8 +58,7 @@ export class ListComponent implements OnInit {
   }
 
   previousPage(): void {
-    if (this.currentPage > 1)
-      this.currentPage--;
+    if (this.currentPage > 1) this.currentPage--;
   }
 
   get startIndex(): number {
@@ -73,9 +69,7 @@ export class ListComponent implements OnInit {
     return this.startIndex + this.pageSize;
   }
 
-  get paginatedItems(): any[] {
-    return this.loading && this.currentPage === this.lastPage 
-    ? this.items.slice(0, this.pageSize) 
-    : this.items.slice(this.startIndex, this.endIndex);
+  get paginatedItems(): (typeof this.service.dataType)[] {
+    return this.loading && this.currentPage === this.lastPage ? this.items.slice(0, this.pageSize) : this.items.slice(this.startIndex, this.endIndex);
   }
 }

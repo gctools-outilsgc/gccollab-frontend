@@ -17,21 +17,19 @@ import { TypescriptLoader } from './helpers/typescript-loader';
       loader: {
         provide: TranslateLoader,
         useFactory: (http: HttpClient) => new TypescriptLoader(http, 'translations'),
-        deps: [HttpClient]
+        deps: [HttpClient],
       },
       isolate: false,
-      extend: true
+      extend: true,
     }),
   ],
-  exports: [
-    TranslateModule,
-  ]
+  exports: [TranslateModule],
 })
 export class CoreModule {
   static forRoot(): ModuleWithProviders<AppModule> {
     return {
       ngModule: CoreModule,
-      providers: [] // share state with providers (one instance)
-    }
+      providers: [], // share state with providers (one instance)
+    };
   }
 }

@@ -7,7 +7,8 @@
     "~@haibun/storage-fs/build/storage-fs",
     "vars",
     "credentials",
-    "haibun"
+    "haibun",
+    "~@haibun/web-accessibility-axe/build/a11y-axe-stepper"
   ],
   "features": {}
 }

@@ -9,24 +9,9 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { ProfileListComponent } from './components/profile-list/profile-list.component';
 import { PostComponent } from './components/post/post.component';
 
-
 @NgModule({
-  declarations: [
-    ProfileCardComponent,
-    ProfileListComponent,
-    PostComponent
-  ],
-  imports: [
-    CommonModule,
-    ProfileRoutingModule,
-    SharedModule,
-    MatCardModule,
-    MatTabsModule,
-  ],
-  exports: [
-    ProfileCardComponent,
-    ProfileListComponent,
-    PostComponent
-  ]
+  declarations: [ProfileCardComponent, ProfileListComponent, PostComponent],
+  imports: [CommonModule, ProfileRoutingModule, SharedModule, MatCardModule, MatTabsModule],
+  exports: [ProfileCardComponent, ProfileListComponent, PostComponent],
 })
-export class ProfileModule { }
+export class ProfileModule {}

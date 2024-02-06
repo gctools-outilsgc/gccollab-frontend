@@ -13,10 +13,9 @@ import { CardSize } from 'src/app/shared/models/card-size';
   selector: 'app-news-card',
   templateUrl: './news-card.component.html',
   styleUrls: ['./news-card.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NewsCardComponent implements ICardComponent {
-
   @Input() model?: INewsItem;
   @Input() cardSize: CardSize = CardSize.Large;
   @Input() loading: boolean = false;
@@ -28,15 +27,15 @@ export class NewsCardComponent implements ICardComponent {
 
   constructor(public translations: Translations) {}
 
-  isPost(instance: any): boolean {
-    return instance instanceof Post
+  isPost(instance: INewsItem): boolean {
+    return instance instanceof Post;
   }
 
-  isBlog(instance: any): boolean {
-    return instance instanceof Blog
+  isBlog(instance: INewsItem): boolean {
+    return instance instanceof Blog;
   }
 
-  isPoll(instance: any): boolean {
-    return instance instanceof Poll
+  isPoll(instance: INewsItem): boolean {
+    return instance instanceof Poll;
   }
 }

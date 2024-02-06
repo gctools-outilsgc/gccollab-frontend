@@ -5,11 +5,11 @@
 export const environment = {
   production: false,
   authGuard: true,
-  clientId: "429862",
-  baseUrl: "https://dev.account.gccollab.ca/api", //Devskim: ignore DS137138 
-  authUrl: "https://dev.account.gccollab.ca/openid",
+  clientId: '429862',
+  baseUrl: 'https://dev.account.gccollab.ca/api', //Devskim: ignore DS137138
+  authUrl: 'https://dev.account.gccollab.ca/openid',
   authLogLevel: 1,
-  i18nFolder: "./assets/i18n/"
+  i18nFolder: './assets/i18n/',
 };
 
 /*

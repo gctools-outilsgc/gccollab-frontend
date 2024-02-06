@@ -1,168 +1,171 @@
-@import "../../../../assets/scss/partials/colors";
+@import '../../../../assets/scss/partials/colors';
 
 :host {
-    position: sticky;
+  position: sticky;
 
-    button {
-        margin: 0;
-        padding: 0;
-    }
+  button {
+    margin: 0;
+    padding: 0;
+  }
 
-    // RAISED
-    button.mat-raised-button[theme="primary-1"]:not([disabled="true"]) {
-        background: $primary-1;
-        color: $primary-1-contrast;
-    }
-    button.mat-raised-button[theme="primary-2"]:not([disabled="true"])  {
-        background: $primary-2;
-        color: $primary-2-contrast;
-    }
-    button.mat-raised-button[theme="secondary-1"]:not([disabled="true"]) {
-        background: $secondary-1;
-        color: $secondary-1-contrast;
-    }
-    button.mat-raised-button[theme="secondary-2"]:not([disabled="true"]) {
-        background: $secondary-2;
-        color: $secondary-2-contrast;
-    }
-    button.mat-raised-button[theme="error"]:not([disabled="true"]) {
-        background: $error-red;
-        color: $error-red-contrast;
-    }
-    button.mat-raised-button[theme="white"]:not([disabled="true"]) {
-        background: #fff;
-        color: $neutral-900;
-    }
-    button.mat-raised-button[theme="black"]:not([disabled="true"]) {
-        background: $neutral-900;
-        color: $secondary-2-contrast;
-    }
-    button.mat-raised-button[disabled="true"], 
-    button.mat-raised-button[theme="disabled"] {
-        background: #9e9e9e;
-        color: $secondary-2-contrast;
-    }
+  // RAISED
+  button.mat-raised-button[theme='primary-1']:not([disabled='true']) {
+    background: $primary-1;
+    color: $primary-1-contrast;
+  }
+  button.mat-raised-button[theme='primary-2']:not([disabled='true']) {
+    background: $primary-2;
+    color: $primary-2-contrast;
+  }
+  button.mat-raised-button[theme='secondary-1']:not([disabled='true']) {
+    background: $secondary-1;
+    color: $secondary-1-contrast;
+  }
+  button.mat-raised-button[theme='secondary-2']:not([disabled='true']) {
+    background: $secondary-2;
+    color: $secondary-2-contrast;
+  }
+  button.mat-raised-button[theme='error']:not([disabled='true']) {
+    background: $error-red;
+    color: $error-red-contrast;
+  }
+  button.mat-raised-button[theme='white']:not([disabled='true']) {
+    background: #fff;
+    color: $neutral-900;
+  }
+  button.mat-raised-button[theme='black']:not([disabled='true']) {
+    background: $neutral-900;
+    color: $secondary-2-contrast;
+  }
+  button.mat-raised-button[disabled='true'],
+  button.mat-raised-button[theme='disabled'] {
+    background: #9e9e9e;
+    color: $secondary-2-contrast;
+  }
 
-    // ICON
-    button.mat-icon-button[theme="primary-1"]:not([disabled="true"]) {
-        color: $primary-1;
-    }
-    button.mat-icon-button[theme="primary-2"]:not([disabled="true"])  {
-        color: $primary-2;
-    }
-    button.mat-icon-button[theme="secondary-1"]:not([disabled="true"]) {
-        color: $secondary-1;
-    }
-    button.mat-icon-button[theme="secondary-2"]:not([disabled="true"]) {
-        color: $secondary-2;
-    }
-    button.mat-icon-button[theme="error"]:not([disabled="true"]) {
-        color: $error-red;
-    }
-    button.mat-icon-button[theme="white"]:not([disabled="true"]) {
-        color: #fff;
-    }
-    button.mat-icon-button[theme="black"]:not([disabled="true"]) {
-        color: $neutral-900;
-    }
-    button.mat-icon-button[disabled="true"], 
-    button.mat-icon-button[theme="disabled"]  {
-        color: #9e9e9e;
-    }
+  // ICON
+  button.mat-icon-button[theme='primary-1']:not([disabled='true']) {
+    color: $primary-1;
+  }
+  button.mat-icon-button[theme='primary-2']:not([disabled='true']) {
+    color: $primary-2;
+  }
+  button.mat-icon-button[theme='secondary-1']:not([disabled='true']) {
+    color: $secondary-1;
+  }
+  button.mat-icon-button[theme='secondary-2']:not([disabled='true']) {
+    color: $secondary-2;
+  }
+  button.mat-icon-button[theme='error']:not([disabled='true']) {
+    color: $error-red;
+  }
+  button.mat-icon-button[theme='white']:not([disabled='true']) {
+    color: #fff;
+  }
+  button.mat-icon-button[theme='black']:not([disabled='true']) {
+    color: $neutral-900;
+  }
+  button.mat-icon-button[disabled='true'],
+  button.mat-icon-button[theme='disabled'] {
+    color: #9e9e9e;
+  }
 
-    // STROKED
-    button.mat-stroked-button {
-        border-radius: 10px;
-        border-width: 2px;
-        border-style: solid;
-
-        .gcc-button-inner {
-            color: #000;
-        }
-    }
-    button.mat-stroked-button[theme="primary-1"]:not([disabled="true"]) {
-        border-color: $primary-1;
-        ::ng-deep i {
-            color: $primary-1;
-        }
-    }
-    button.mat-stroked-button[theme="primary-2"]:not([disabled="true"])  {
-        border-color: $primary-2;
-        ::ng-deep i {
-            color: $primary-2;
-        }
-    }
-    button.mat-stroked-button[theme="secondary-1"]:not([disabled="true"]) {
-        border-color: $secondary-1;
-        ::ng-deep i {
-            color: $secondary-1;
-        }
-    }
-    button.mat-stroked-button[theme="secondary-2"]:not([disabled="true"]) {
-        border-color: $secondary-2;
-        ::ng-deep i {
-            color: $secondary-2;
-        }
-    }
-    button.mat-stroked-button[theme="error"]:not([disabled="true"]) {
-        border-color: $error-red;
-        ::ng-deep i {
-            color: $error-red;
-        }
-    }
-    button.mat-stroked-button[theme="white"]:not([disabled="true"]) {
-        border-color: #fff;
-        ::ng-deep i {
-            color: #fff;
-        }
-    }
-    button.mat-stroked-button[theme="black"]:not([disabled="true"]) {
-        border-color: $neutral-900;
-        ::ng-deep i {
-            color: $neutral-900;
-        }
-    }
-    button.mat-stroked-button[disabled="true"],
-    button.mat-stroked-button[theme="disabled"],
-    button.mat-outlined-button[disabled="true"],
-    button.mat-outlined-button[theme="disabled"] {
-        border-color: $neutral-300;
-        ::ng-deep .gcc-button-inner {
-            color: $neutral-300;
-
-            i {
-                color: $neutral-300;
-            }
-        }
-    }
+  // STROKED
+  button.mat-stroked-button {
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
 
     .gcc-button-inner {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 5px;
+      color: #000;
+    }
+  }
+  button.mat-stroked-button[theme='primary-1']:not([disabled='true']) {
+    border-color: $primary-1;
+    ::ng-deep i {
+      color: $primary-1;
+    }
+  }
+  button.mat-stroked-button[theme='primary-2']:not([disabled='true']) {
+    border-color: $primary-2;
+    ::ng-deep i {
+      color: $primary-2;
+    }
+  }
+  button.mat-stroked-button[theme='secondary-1']:not([disabled='true']) {
+    border-color: $secondary-1;
+    ::ng-deep i {
+      color: $secondary-1;
+    }
+  }
+  button.mat-stroked-button[theme='secondary-2']:not([disabled='true']) {
+    border-color: $secondary-2;
+    ::ng-deep i {
+      color: $secondary-2;
+    }
+  }
+  button.mat-stroked-button[theme='error']:not([disabled='true']) {
+    border-color: $error-red;
+    ::ng-deep i {
+      color: $error-red;
+    }
+  }
+  button.mat-stroked-button[theme='white']:not([disabled='true']) {
+    border-color: #fff;
+    ::ng-deep i {
+      color: #fff;
+    }
+  }
+  button.mat-stroked-button[theme='black']:not([disabled='true']) {
+    border-color: $neutral-900;
+    ::ng-deep i {
+      color: $neutral-900;
+    }
+  }
+  button.mat-stroked-button[disabled='true'],
+  button.mat-stroked-button[theme='disabled'],
+  button.mat-outlined-button[disabled='true'],
+  button.mat-outlined-button[theme='disabled'] {
+    border-color: $neutral-300;
+    ::ng-deep .gcc-button-inner {
+      color: $neutral-300;
 
-        .mat-icon {
-            display:flex;             
-            align-self:center;
-        }
+      i {
+        color: $neutral-300;
+      }
+    }
+  }
+
+  .gcc-button-inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    .mat-icon {
+      display: flex;
+      align-self: center;
+    }
+  }
+
+  ::ng-deep {
+    .mat-mdc-button:not(:disabled) {
+      color: inherit;
     }
 
-    ::ng-deep {
-        .mat-mdc-button:not(:disabled) {
-            color: inherit;
-        }
-
-        .mat-mdc-button .mdc-button__label, .mat-mdc-unelevated-button .mdc-button__label, .mat-mdc-raised-button .mdc-button__label, .mat-mdc-outlined-button .mdc-button__label {
-            padding: 0 16px 0 16px;
-        }
-
-        .mat-mdc-button .mat-mdc-button-touch-target, 
-        .mat-mdc-unelevated-button .mat-mdc-button-touch-target, 
-        .mat-mdc-raised-button .mat-mdc-button-touch-target, 
-        .mat-mdc-outlined-button .mat-mdc-button-touch-target {
-            height: 100%;
-        }
+    .mat-mdc-button .mdc-button__label,
+    .mat-mdc-unelevated-button .mdc-button__label,
+    .mat-mdc-raised-button .mdc-button__label,
+    .mat-mdc-outlined-button .mdc-button__label {
+      padding: 0 16px 0 16px;
     }
+
+    .mat-mdc-button .mat-mdc-button-touch-target,
+    .mat-mdc-unelevated-button .mat-mdc-button-touch-target,
+    .mat-mdc-raised-button .mat-mdc-button-touch-target,
+    .mat-mdc-outlined-button .mat-mdc-button-touch-target {
+      height: 100%;
+    }
+  }
 }

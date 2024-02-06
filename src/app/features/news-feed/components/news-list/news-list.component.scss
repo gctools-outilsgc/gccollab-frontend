@@ -1,14 +1,14 @@
 :host {
-    .news-list-container {
-        overflow: visible;
+  .news-list-container {
+    overflow: visible;
 
-        .news-card-wrapper {
-            padding-bottom: 40px;
-        }
-
-        > div:not(.news-card-wrapper) {
-            font-size: 18px;
-            font-weight: 600;
-        }
+    .news-card-wrapper {
+      padding-bottom: 40px;
     }
+
+    > div:not(.news-card-wrapper) {
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
 }

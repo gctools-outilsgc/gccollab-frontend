@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguageSelectorComponent } from './components/language-selector/language-selector.component';
@@ -16,7 +17,7 @@ import { TypescriptLoader } from '../core/helpers/typescript-loader';
 import { Translations } from '../core/services/translations.service';
 import { ButtonComponent } from './components/button/button.component';
 
-import { MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { HeaderComponent } from './components/header/header.component';
@@ -53,7 +54,6 @@ import { LocalizedDatePipe } from './pipes/localized-date/localized-date.pipe';
 import { DurationFormatPipe } from './pipes/duration-format/duration-format.pipe';
 import { CalendarHourComponent } from './components/calendar/components/calendar-hour/calendar-hour.component';
 
-
 @NgModule({
   declarations: [
     LanguageSelectorComponent,
@@ -66,7 +66,7 @@ import { CalendarHourComponent } from './components/calendar/components/calendar
     FooterComponent,
     PageTitleComponent,
     InputComponent,
-	  BannerComponent,
+    BannerComponent,
     ProfilePicComponent,
     CalendarButtonComponent,
     EditorMenuComponent,
@@ -94,14 +94,12 @@ import { CalendarHourComponent } from './components/calendar/components/calendar
       loader: {
         provide: TranslateLoader,
         useFactory: (http: HttpClient) => new TypescriptLoader(http, 'translations'),
-        deps: [HttpClient]
+        deps: [HttpClient],
       },
       isolate: false,
-      extend: true
+      extend: true,
     }),
-    NgxEditorModule.forChild({
-      
-    }),
+    NgxEditorModule.forChild({}),
     MatButtonModule,
     MatIconModule,
     MatTooltipModule,
@@ -113,7 +111,7 @@ import { CalendarHourComponent } from './components/calendar/components/calendar
     MatDatepickerModule,
     MatAutocompleteModule,
     NgxSkeletonLoaderModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
   ],
   exports: [
     TranslateModule,
@@ -125,7 +123,7 @@ import { CalendarHourComponent } from './components/calendar/components/calendar
     EditorComponent,
     ButtonComponent,
     InputComponent,
-	  BannerComponent,
+    BannerComponent,
     NgxSkeletonLoaderModule,
     InfiniteScrollModule,
     ProfilePicComponent,
@@ -138,7 +136,8 @@ import { CalendarHourComponent } from './components/calendar/components/calendar
     ListComponent,
     CalendarComponent,
     LocalizedDatePipe,
-    DurationFormatPipe
+    DurationFormatPipe,
+    FormControlPipe,
   ],
   providers: [
     {
@@ -146,22 +145,21 @@ import { CalendarHourComponent } from './components/calendar/components/calendar
       provide: NGX_EDITOR_CONFIG_TOKEN,
       deps: [TranslateService, Translations],
     },
-    { 
-      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, 
-      useValue: { appearance: 'outline' }
+    {
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+      useValue: { appearance: 'outline' },
     },
     {
       provide: MAT_RADIO_DEFAULT_OPTIONS,
       useValue: { color: 'primary' },
-  }
-  ]
+    },
+  ],
 })
 export class SharedModule {
-
   static forRoot(): ModuleWithProviders<AppModule> {
     return {
       ngModule: SharedModule,
-      providers: [] // share state with providers (one instance)
-    }
+      providers: [], // share state with providers (one instance)
+    };
   }
- }
+}

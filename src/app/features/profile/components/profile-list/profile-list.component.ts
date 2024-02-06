@@ -5,7 +5,7 @@ import { Person } from 'src/app/core/models/person.model';
   selector: 'app-profile-list',
   templateUrl: './profile-list.component.html',
   styleUrls: ['./profile-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProfileListComponent {
   @Input() model?: Person[];
@@ -19,7 +19,7 @@ export class ProfileListComponent {
 
   constructor() {
     this.loadingItems = [];
-    
+
     for (let i = 0; i < this.loadingCount; i++) {
       this.loadingItems.push(i);
     }

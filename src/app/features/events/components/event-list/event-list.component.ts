@@ -6,7 +6,7 @@ import { CardSize } from 'src/app/shared/models/card-size';
   selector: 'app-event-list',
   templateUrl: './event-list.component.html',
   styleUrls: ['./event-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EventListComponent {
   @Input() model?: Event[];
@@ -20,7 +20,7 @@ export class EventListComponent {
 
   constructor() {
     this.loadingItems = [];
-    
+
     for (let i = 0; i < this.loadingCount; i++) {
       this.loadingItems.push(i);
     }

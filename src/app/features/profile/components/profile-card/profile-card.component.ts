@@ -12,7 +12,7 @@ import { TooltipDirection } from 'src/app/shared/models/tooltip-direction';
   selector: 'app-profile-card',
   templateUrl: './profile-card.component.html',
   styleUrls: ['./profile-card.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProfileCardComponent implements ICardComponent {
   @Input() model?: Person;
@@ -29,33 +29,28 @@ export class ProfileCardComponent implements ICardComponent {
   confirmed: boolean = false;
   declined: boolean = false;
 
-  constructor(public translations: Translations, private router: Router) {
-
-  }
+  constructor(
+    public translations: Translations,
+    private router: Router
+  ) {}
 
   clickConfirm() {
     if (this.model) {
-      
       this.confirmed = !this.confirmed;
 
-      if (this.confirmed && this.declined)
-        this.declined = false;
+      if (this.confirmed && this.declined) this.declined = false;
 
-      if (this.confirmed)
-        this.confirm.emit(this.model);
+      if (this.confirmed) this.confirm.emit(this.model);
     }
   }
 
   clickDecline() {
     if (this.model) {
-
       this.declined = !this.declined;
-      
-      if (this.declined && this.confirmed)
-        this.confirmed = false;
 
-      if (this.declined)
-        this.decline.emit(this.model);
+      if (this.declined && this.confirmed) this.confirmed = false;
+
+      if (this.declined) this.decline.emit(this.model);
     }
   }
 

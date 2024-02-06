@@ -4,11 +4,10 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   selector: 'app-page-title',
   templateUrl: './page-title.component.html',
   styleUrls: ['./page-title.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PageTitleComponent {
-
   @Input() pageTitle!: string;
 
-  constructor() {  }
+  constructor() {}
 }

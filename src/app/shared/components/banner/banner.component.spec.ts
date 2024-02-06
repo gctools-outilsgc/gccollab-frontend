@@ -7,13 +7,10 @@ describe('PageTitleComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BannerComponent ],
-      imports: [
-      ],
-      providers: [ 
-      ]
-    })
-    .compileComponents();
+      declarations: [BannerComponent],
+      imports: [],
+      providers: [],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(BannerComponent);
     component = fixture.componentInstance;

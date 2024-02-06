@@ -20,13 +20,13 @@ describe('PostFormComponent', () => {
           loader: {
             provide: TranslateLoader,
             useFactory: (http: HttpClient) => new TypescriptLoader(http, 'translations'),
-            deps: [ HttpClient ]
-          }
+            deps: [HttpClient],
+          },
         }),
         HttpClientModule,
-        RouterTestingModule
+        RouterTestingModule,
       ],
-      providers: [ TranslateService, HttpClient ]
+      providers: [TranslateService, HttpClient],
     });
     fixture = TestBed.createComponent(PostFormComponent);
     component = fixture.componentInstance;

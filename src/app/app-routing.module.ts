@@ -11,13 +11,13 @@ import { UnauthorizedComponent } from './shared/components/unauthorized/unauthor
 import { ForbiddenComponent } from './shared/components/forbidden/forbidden.component';
 import { Translations } from './core/services/translations.service';
 
-let translations = Translations.getInstance();
+const translations = Translations.getInstance();
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: CoreRoutes.Home
+    redirectTo: CoreRoutes.Home,
   },
   {
     path: CoreRoutes.Login,
@@ -26,8 +26,8 @@ const routes: Routes = [
     canActivate: [LoginGuard],
     data: {
       title: translations.titles.login,
-      breadcrumb: translations.titles.login
-    }
+      breadcrumb: translations.titles.login,
+    },
   },
   {
     path: CoreRoutes.Home,
@@ -35,9 +35,9 @@ const routes: Routes = [
     loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule),
     canActivate: [InterceptorGuard],
     data: {
-      title: translations.titles.home, 
-      breadcrumb: translations.titles.home
-    }
+      title: translations.titles.home,
+      breadcrumb: translations.titles.home,
+    },
   },
   {
     path: CoreRoutes.Register,
@@ -46,8 +46,8 @@ const routes: Routes = [
     canActivate: [LoginGuard],
     data: {
       title: translations.titles.register,
-      breadcrumb: translations.titles.register
-    }
+      breadcrumb: translations.titles.register,
+    },
   },
   {
     path: CoreRoutes.Terms,
@@ -55,26 +55,26 @@ const routes: Routes = [
     loadChildren: () => import('./features/terms/terms.module').then(m => m.TermsModule),
     data: {
       title: translations.titles.terms,
-      breadcrumb: translations.titles.terms
-    }
+      breadcrumb: translations.titles.terms,
+    },
   },
   {
     path: CoreRoutes.Splash,
-    title: translations.titles.splash, 
+    title: translations.titles.splash,
     loadChildren: () => import('./features/splash/splash.module').then(m => m.SplashModule),
     data: {
       title: translations.titles.splash,
-      breadcrumb: translations.titles.splash
-    }
+      breadcrumb: translations.titles.splash,
+    },
   },
   {
     path: CoreRoutes.About,
-    title: translations.titles.about, 
+    title: translations.titles.about,
     loadChildren: () => import('./features/about/about.module').then(m => m.AboutModule),
     data: {
       title: translations.titles.about,
-      breadcrumb: translations.titles.about
-    }
+      breadcrumb: translations.titles.about,
+    },
   },
   {
     path: CoreRoutes.Privacy,
@@ -82,8 +82,8 @@ const routes: Routes = [
     loadChildren: () => import('./features/privacy/privacy.module').then(m => m.PrivacyModule),
     data: {
       title: translations.titles.privacy,
-      breadcrumb: translations.titles.privacy
-    }
+      breadcrumb: translations.titles.privacy,
+    },
   },
   {
     path: CoreRoutes.Stats,
@@ -91,8 +91,8 @@ const routes: Routes = [
     loadChildren: () => import('./features/stats/stats.module').then(m => m.StatsModule),
     data: {
       title: translations.titles.stats,
-      breadcrumb: translations.titles.stats
-    }
+      breadcrumb: translations.titles.stats,
+    },
   },
   {
     path: CoreRoutes.Help,
@@ -100,8 +100,8 @@ const routes: Routes = [
     component: RedirectGuard,
     canActivate: [RedirectGuard],
     data: {
-      externalUrl: 'https://support.gccollab.ca/en/support/home'
-    }
+      externalUrl: 'https://support.gccollab.ca/en/support/home',
+    },
   },
   {
     path: CoreRoutes.Blog,
@@ -109,8 +109,8 @@ const routes: Routes = [
     loadChildren: () => import('./features/blog/blog.module').then(m => m.BlogModule),
     data: {
       title: translations.titles.blog,
-      breadcrumb: translations.titles.blog
-    }
+      breadcrumb: translations.titles.blog,
+    },
   },
   {
     path: CoreRoutes.Bookmarks,
@@ -119,8 +119,8 @@ const routes: Routes = [
     canActivate: [AuthGuard, InterceptorGuard],
     data: {
       title: translations.titles.bookmarks,
-      breadcrumb: translations.titles.bookmarks
-    }
+      breadcrumb: translations.titles.bookmarks,
+    },
   },
   {
     path: CoreRoutes.Dashboard,
@@ -129,13 +129,13 @@ const routes: Routes = [
     canActivate: [AuthGuard, InterceptorGuard],
     data: {
       title: translations.titles.dashboards,
-      breadcrumb: translations.titles.dashboards
-    }
+      breadcrumb: translations.titles.dashboards,
+    },
   },
   {
     // Old route from GCCollab that we are replacing with "/events"
     path: 'event_calendar',
-    redirectTo: CoreRoutes.Events
+    redirectTo: CoreRoutes.Events,
   },
   {
     path: CoreRoutes.Events,
@@ -143,8 +143,8 @@ const routes: Routes = [
     loadChildren: () => import('./features/events/events.module').then(m => m.EventsModule),
     data: {
       title: translations.titles.events,
-      breadcrumb: translations.titles.events
-    }
+      breadcrumb: translations.titles.events,
+    },
   },
   {
     path: CoreRoutes.Friends,
@@ -153,8 +153,8 @@ const routes: Routes = [
     canActivate: [AuthGuard, InterceptorGuard],
     data: {
       title: translations.titles.friends,
-      breadcrumb: translations.titles.friends
-    }
+      breadcrumb: translations.titles.friends,
+    },
   },
   {
     path: CoreRoutes.Groups,
@@ -163,8 +163,8 @@ const routes: Routes = [
     canActivate: [AuthGuard, InterceptorGuard],
     data: {
       title: translations.titles.groups,
-      breadcrumb: translations.titles.groups
-    }
+      breadcrumb: translations.titles.groups,
+    },
   },
   {
     path: CoreRoutes.Invite,
@@ -173,8 +173,8 @@ const routes: Routes = [
     canActivate: [AuthGuard, InterceptorGuard],
     data: {
       title: translations.titles.invite,
-      breadcrumb: translations.titles.invite
-    }
+      breadcrumb: translations.titles.invite,
+    },
   },
   {
     path: CoreRoutes.Members,
@@ -183,8 +183,8 @@ const routes: Routes = [
     canActivate: [AuthGuard, InterceptorGuard],
     data: {
       title: translations.titles.members,
-      breadcrumb: translations.titles.members
-    }
+      breadcrumb: translations.titles.members,
+    },
   },
   {
     path: CoreRoutes.Messages,
@@ -193,8 +193,8 @@ const routes: Routes = [
     canActivate: [AuthGuard, InterceptorGuard],
     data: {
       title: translations.titles.messages,
-      breadcrumb: translations.titles.messages
-    }
+      breadcrumb: translations.titles.messages,
+    },
   },
   {
     path: CoreRoutes.Missions,
@@ -202,8 +202,8 @@ const routes: Routes = [
     loadChildren: () => import('./features/missions/missions.module').then(m => m.MissionsModule),
     data: {
       title: translations.titles.missions,
-      breadcrumb: translations.titles.missions
-    }
+      breadcrumb: translations.titles.missions,
+    },
   },
   {
     path: CoreRoutes.NewsFeed,
@@ -212,8 +212,8 @@ const routes: Routes = [
     canActivate: [AuthGuard, InterceptorGuard],
     data: {
       title: translations.titles.newsfeed,
-      breadcrumb: translations.titles.newsfeed
-    }
+      breadcrumb: translations.titles.newsfeed,
+    },
   },
   {
     path: CoreRoutes.Profile,
@@ -222,8 +222,8 @@ const routes: Routes = [
     canActivate: [AuthGuard, InterceptorGuard],
     data: {
       title: translations.titles.profile,
-      breadcrumb: translations.titles.profile
-    }
+      breadcrumb: translations.titles.profile,
+    },
   },
   {
     path: CoreRoutes.Search,
@@ -231,8 +231,8 @@ const routes: Routes = [
     loadChildren: () => import('./features/search/search.module').then(m => m.SearchModule),
     data: {
       title: translations.titles.search,
-      breadcrumb: translations.titles.search
-    }
+      breadcrumb: translations.titles.search,
+    },
   },
   {
     path: CoreRoutes.Settings,
@@ -241,8 +241,8 @@ const routes: Routes = [
     canActivate: [AuthGuard, InterceptorGuard],
     data: {
       title: translations.titles.settings,
-      breadcrumb: translations.titles.settings
-    }
+      breadcrumb: translations.titles.settings,
+    },
   },
   {
     path: CoreRoutes.TheWire,
@@ -250,8 +250,8 @@ const routes: Routes = [
     loadChildren: () => import('./features/the-wire/the-wire.module').then(m => m.TheWireModule),
     data: {
       title: translations.titles.thewire,
-      breadcrumb: translations.titles.thewire
-    }
+      breadcrumb: translations.titles.thewire,
+    },
   },
   {
     path: CoreRoutes.Unauthorized,
@@ -259,8 +259,8 @@ const routes: Routes = [
     component: UnauthorizedComponent,
     data: {
       title: translations.titles.unauthorized,
-      breadcrumb: translations.titles.unauthorized
-    }
+      breadcrumb: translations.titles.unauthorized,
+    },
   },
   {
     path: CoreRoutes.Forbidden,
@@ -268,21 +268,21 @@ const routes: Routes = [
     component: ForbiddenComponent,
     data: {
       title: translations.titles.forbidden,
-      breadcrumb: translations.titles.forbidden
-    }
+      breadcrumb: translations.titles.forbidden,
+    },
   },
   {
     path: '**',
     component: NotFoundComponent,
     data: {
       title: translations.titles.notfound,
-      breadcrumb: translations.titles.notfound
-    }
-  }
+      breadcrumb: translations.titles.notfound,
+    },
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

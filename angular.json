@@ -23,11 +23,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets",
-              "src/web.config"
-            ],
+            "assets": ["src/favicon.ico", "src/assets", "src/web.config"],
             "styles": [
               {
                 "input": "src/theme.scss"
@@ -101,13 +97,13 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "gccollab-frontend:build:production"
+              "buildTarget": "gccollab-frontend:build:production"
             },
             "development": {
-              "browserTarget": "gccollab-frontend:build:development"
+              "buildTarget": "gccollab-frontend:build:development"
             },
             "pullrequest": {
-              "browserTarget": "gccollab-frontend:build:pullrequest"
+              "buildTarget": "gccollab-frontend:build:pullrequest"
             }
           },
           "defaultConfiguration": "development"
@@ -115,7 +111,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "gccollab-frontend:build"
+            "buildTarget": "gccollab-frontend:build"
           }
         },
         "test": {
@@ -126,11 +122,7 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets",
-              "src/web.config"
-            ],
+            "assets": ["src/favicon.ico", "src/assets", "src/web.config"],
             "styles": [
               {
                 "input": "src/theme.scss"
@@ -139,11 +131,18 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": false
+    "analytics": false,
+    "schematicCollections": ["@angular-eslint/schematics"]
   }
 }

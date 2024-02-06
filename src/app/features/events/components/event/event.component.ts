@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChild, inject } from '@angular/core';
-import { ViewportScroller } from "@angular/common";
+import { Component, Input, OnInit, inject } from '@angular/core';
+import { ViewportScroller } from '@angular/common';
 import { Translations } from 'src/app/core/services/translations.service';
 
 import { Banner } from 'src/app/shared/components/banner/banner.component';
@@ -21,7 +21,6 @@ import { DurationFormatPipe } from 'src/app/shared/pipes/duration-format/duratio
   //changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EventComponent implements OnInit {
-
   @Input() model: Event | null = null;
 
   banner: Banner | null = null;
@@ -43,8 +42,8 @@ export class EventComponent implements OnInit {
     name: '',
     email: '',
     emailConfirm: '',
-    occupation: ''
-  }
+    occupation: '',
+  };
 
   nameFormControl = new FormControl(this.formModel.name, [Validators.required]);
   emailFormControl = new FormControl(this.formModel.email, [Validators.required, Validators.email]);
@@ -55,18 +54,19 @@ export class EventComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
 
-  constructor(public translations: Translations,
-              private viewportScroller: ViewportScroller ) {
+  constructor(
+    public translations: Translations,
+    private viewportScroller: ViewportScroller
+  ) {
     this.formGroup.addControl('name', this.nameFormControl);
     this.formGroup.addControl('email', this.emailFormControl);
     this.formGroup.addControl('emailConfirm', this.emailConfirmFormControl);
     this.formGroup.addControl('occupation', this.occupationFormControl);
-  }  
+  }
 
   ngOnInit(): void {
     if (!this.model) {
-      this.eventService.get(this.route.snapshot.paramMap.get('id'), 3000)
-      .subscribe(event => {
+      this.eventService.get(this.route.snapshot.paramMap.get('id'), 3000).subscribe(event => {
         this.model = event;
         this.banner = this.createBanner(this.model);
         this.loading = false;
@@ -77,7 +77,7 @@ export class EventComponent implements OnInit {
     }
   }
 
-  createBanner(event: Event | null) : Banner | null {
+  createBanner(event: Event | null): Banner | null {
     if (event?.image) {
       return new Banner(event.image);
     }
@@ -85,9 +85,8 @@ export class EventComponent implements OnInit {
   }
 
   isPast(): boolean {
-    if (this.model?.startDate && this.model.startDate < new Date()) 
-      return true;
-    
+    if (this.model?.startDate && this.model.startDate < new Date()) return true;
+
     return false;
   }
 

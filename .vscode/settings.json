@@ -1,8 +1,5 @@
 {
-    "appService.zipIgnorePattern": [
-        "node_modules{,/**}",
-        ".vscode{,/**}"
-    ],
-    "appService.defaultWebAppToDeploy": "/subscriptions/4655aaed-2bd9-49c6-a9a2-60b57c27cce2/AppServices/subscriptions/4655aaed-2bd9-49c6-a9a2-60b57c27cce2/resourceGroups/rg-dgcx-collab-frontend/providers/Microsoft.Web/sites/gccollab",
-    "appService.deploySubpath": "dist\\gccollab-frontend"
+  "appService.zipIgnorePattern": ["node_modules{,/**}", ".vscode{,/**}"],
+  "appService.defaultWebAppToDeploy": "/subscriptions/4655aaed-2bd9-49c6-a9a2-60b57c27cce2/AppServices/subscriptions/4655aaed-2bd9-49c6-a9a2-60b57c27cce2/resourceGroups/rg-dgcx-collab-frontend/providers/Microsoft.Web/sites/gccollab",
+  "appService.deploySubpath": "dist\\gccollab-frontend"
 }

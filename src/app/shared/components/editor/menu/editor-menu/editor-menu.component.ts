@@ -9,9 +9,9 @@ import { isNodeActive } from 'ngx-editor/helpers';
 @Component({
   selector: 'app-editor-menu',
   templateUrl: './editor-menu.component.html',
-  styleUrls: ['./editor-menu.component.scss']
+  styleUrls: ['./editor-menu.component.scss'],
 })
-export class EditorMenuComponent {
+export class EditorMenuComponent implements OnInit {
   constructor() {}
 
   @Input() editor!: Editor;
@@ -55,5 +55,4 @@ export class EditorMenuComponent {
 
     this.editor.registerPlugin(plugin);
   }
-
 }

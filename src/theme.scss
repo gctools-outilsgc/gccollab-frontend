@@ -13,26 +13,28 @@ $theme-accent: mat.define-palette($accent-palette);
 $theme-warn: mat.define-palette($warn-palette);
 
 $theme-typography: mat.define-typography-config(
-    $font-family: 'Inter'
+  $font-family: 'Inter',
 );
 
-$theme: mat.define-light-theme((
+$theme: mat.define-light-theme(
+  (
     color: (
-        primary: $theme-primary,
-        accent: $theme-accent,
-        warn: $theme-warn
+      primary: $theme-primary,
+      accent: $theme-accent,
+      warn: $theme-warn,
     ),
     typography: $theme-typography,
-    density: 0
-));
+    density: 0,
+  )
+);
 
 // Apply theme to all components
 @include mat.all-component-themes($theme);
 
 // Custom Overrides
 body {
-    background-color: $background;
-    color: #000;
+  background-color: $background;
+  color: #000;
 }
 
 //Component Overrides
@@ -41,67 +43,67 @@ body {
 .mat-raised-button,
 .mat-flat-button,
 .mat-stroked-button {
-    padding: 0 1.15em;
-    margin: 0 .65em;
-    min-width: 3em;
-    line-height: 36.4px;
+  padding: 0 1.15em;
+  margin: 0 0.65em;
+  min-width: 3em;
+  line-height: 36.4px;
 }
 .mat-chip {
-    padding: .5em .85em;
-    min-height: 2.5em;
+  padding: 0.5em 0.85em;
+  min-height: 2.5em;
 }
 .material-icons {
-    font-size: 24px;
-    font-family: 'Material Icons Outlined', 'Material Icons';
-    .mat-badge-content {
-        font-family: 'Inter';
-    }
+  font-size: 24px;
+  font-family: 'Material Icons Outlined', 'Material Icons';
+  .mat-badge-content {
+    font-family: 'Inter';
+  }
 }
 mat-checkbox {
-    label {
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        a {
-            color: $primary-1-dark;
-        }
+  label {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    a {
+      color: $primary-1-dark;
     }
+  }
 }
 mat-tab-header {
-    margin-right: 65px;
-    padding-bottom: 30px;
-    .mat-mdc-tab-labels {
-        display: inline-flex;
-        background-color: $neutral-200;
-        border-radius: 10px;
-        .mdc-tab__text-label {
-            font-size: large;
-            font-weight: 600;
-            transition: color 0.25s ease;
-        }
+  margin-right: 65px;
+  padding-bottom: 30px;
+  .mat-mdc-tab-labels {
+    display: inline-flex;
+    background-color: $neutral-200;
+    border-radius: 10px;
+    .mdc-tab__text-label {
+      font-size: large;
+      font-weight: 600;
+      transition: color 0.25s ease;
     }
-    .mdc-tab {
-        height: 40px;
-        border-radius: 10px;
-        transition: background-color 0.25s ease;
-        .mdc-tab__text-label {
-            color: $neutral-900 !important;
-            font-weight: 500;
-        }
+  }
+  .mdc-tab {
+    height: 40px;
+    border-radius: 10px;
+    transition: background-color 0.25s ease;
+    .mdc-tab__text-label {
+      color: $neutral-900 !important;
+      font-weight: 500;
     }
-    .mat-mdc-tab:hover,
-    .mat-mdc-tab.cdk-keyboard-focused {
-        .mdc-tab__ripple::before {
-            border-radius: 10px;
-        }
+  }
+  .mat-mdc-tab:hover,
+  .mat-mdc-tab.cdk-keyboard-focused {
+    .mdc-tab__ripple::before {
+      border-radius: 10px;
     }
-    .mdc-tab--active {
-        background-color: $primary-1;
-        .mdc-tab__text-label {
-            color: $primary-1-contrast !important;
-        }
+  }
+  .mdc-tab--active {
+    background-color: $primary-1;
+    .mdc-tab__text-label {
+      color: $primary-1-contrast !important;
     }
-    .mdc-tab-indicator {
-        display: none;
-    }
+  }
+  .mdc-tab-indicator {
+    display: none;
+  }
 }

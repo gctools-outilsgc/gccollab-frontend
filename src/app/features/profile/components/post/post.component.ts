@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Person } from 'src/app/core/models/person.model';
 import { Translations } from 'src/app/core/services/translations.service';
 import { FormGroup } from '@angular/forms';
@@ -9,33 +9,27 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
-  styleUrls: ['./post.component.scss']
+  styleUrls: ['./post.component.scss'],
 })
-export class PostComponent {
-
+export class PostComponent implements OnInit, OnDestroy {
   @Input() profile!: Person;
   @Input() loading: boolean = false;
   @Input() editing: boolean = false;
 
-  formGroups: FormGroup[] = [
-    new FormGroup({}),
-    new FormGroup({}),
-    new FormGroup({}),
-    new FormGroup({})
-  ];
+  formGroups: FormGroup[] = [new FormGroup({}), new FormGroup({}), new FormGroup({}), new FormGroup({})];
   formWatchSubs: Subscription[] = [];
   formChanges: boolean[] = [];
 
   selectedIndex = 0;
-  saveCallback: Function = this.save.bind(this);
-  submitCallback: Function = this.submit.bind(this);
+  saveCallback: () => void = this.save.bind(this);
+  submitCallback: () => void = this.submit.bind(this);
   selectedForm: FormGroup = this.formGroups[this.selectedIndex];
   creating: boolean = false;
 
-  constructor(public translations: Translations,
-              private sessionStorageService: SessionStorageService) {
-      
-  }
+  constructor(
+    public translations: Translations,
+    private sessionStorageService: SessionStorageService
+  ) {}
 
   ngOnInit(): void {
     this.formGroups.forEach(formGroup => {
@@ -43,7 +37,7 @@ export class PostComponent {
       this.formChanges.push(false);
       // Create a subscription that watches each FormGroup for changes
       this.formWatchSubs.push(
-        formGroup.valueChanges.subscribe(() =>{
+        formGroup.valueChanges.subscribe(() => {
           this.formChanges[this.selectedIndex] = true;
         })
       );
@@ -52,8 +46,7 @@ export class PostComponent {
 
   ngOnDestroy(): void {
     this.formWatchSubs.forEach(formWatch => {
-      if (formWatch)
-        formWatch.unsubscribe();
+      if (formWatch) formWatch.unsubscribe();
     });
   }
 
@@ -63,7 +56,7 @@ export class PostComponent {
   }
 
   toggleEditing(event: Event) {
-    if (!this.creating && (event instanceof KeyboardEvent && (event.key == 'Enter' || event.key == 'Space')) || event instanceof KeyboardEvent == false) {
+    if ((!this.creating && event instanceof KeyboardEvent && (event.key == 'Enter' || event.key == 'Space')) || event instanceof KeyboardEvent == false) {
       this.editing = !this.editing;
       this.selectedIndex = 0;
       this.selectedForm = this.formGroups[this.selectedIndex];
@@ -118,18 +111,17 @@ export class PostComponent {
   }
 
   private getTypeFromIndex(index: number): string {
-    switch(index) {
+    switch (index) {
       case 0:
-        return "post";
+        return 'post';
       case 1:
-        return "blog";
+        return 'blog';
       case 2:
-        return "event";
+        return 'event';
       case 3:
-        return "poll";
+        return 'poll';
       default:
-        return "error";
+        return 'error';
     }
   }
 }
-

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { ButtonType } from '../../models/button-type';
 import { MaterialButtonType } from '../../models/material-button-type';
 import { MaterialColor } from '../../models/material-color';
@@ -9,10 +9,9 @@ import { Theme } from '../../models/theme';
   selector: 'app-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ButtonComponent implements OnInit {
-
+export class ButtonComponent {
   @Input() btnId!: string;
   @Input() name!: string;
   @Input() value!: string;
@@ -28,14 +27,10 @@ export class ButtonComponent implements OnInit {
   @Input() fontSize: string = 'inherit';
   @Input() form!: string;
   @Input() theme: Theme | string = Theme.Black;
-  @Input() clickFunc: Function = () => {};
-  @Input() blurFunc: Function = () => {};
+  @Input() clickFunc: () => unknown = () => {};
+  @Input() blurFunc: () => unknown = () => {};
 
   public materialButtonType = MaterialButtonType;
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  constructor() {}
 }

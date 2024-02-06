@@ -5,15 +5,8 @@ import { StatsRoutingModule } from './stats-routing.module';
 import { StatsComponent } from './stats.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 
-
 @NgModule({
-  declarations: [
-    StatsComponent
-  ],
-  imports: [
-    CommonModule,
-    StatsRoutingModule,
-    SharedModule
-  ]
+  declarations: [StatsComponent],
+  imports: [CommonModule, StatsRoutingModule, SharedModule],
 })
-export class StatsModule { }
+export class StatsModule {}

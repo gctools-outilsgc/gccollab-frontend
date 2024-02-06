@@ -10,10 +10,8 @@ describe('AuthGuard', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        AuthConfigModule
-      ],
-      providers: [ OidcSecurityService, SessionStorageService ]
+      imports: [AuthConfigModule],
+      providers: [OidcSecurityService, SessionStorageService],
     });
     guard = TestBed.inject(AuthGuard);
   });

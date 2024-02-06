@@ -5,7 +5,7 @@ import { INewsItem } from '../../models/INewsItem';
   selector: 'app-news-list',
   templateUrl: './news-list.component.html',
   styleUrls: ['./news-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NewsListComponent {
   @Input() model: INewsItem[] = [];
@@ -16,7 +16,7 @@ export class NewsListComponent {
 
   constructor() {
     this.loadingItems = [];
-    
+
     for (let i = 0; i < this.loadingCount; i++) {
       this.loadingItems.push(i);
     }

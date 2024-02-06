@@ -5,13 +5,7 @@ import { RegisterRoutingModule } from './register-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
-  declarations: [
-    RegisterComponent
-  ],
-  imports: [
-    CommonModule,
-    RegisterRoutingModule,
-    SharedModule
-  ]
+  declarations: [RegisterComponent],
+  imports: [CommonModule, RegisterRoutingModule, SharedModule],
 })
-export class RegisterModule { }
+export class RegisterModule {}

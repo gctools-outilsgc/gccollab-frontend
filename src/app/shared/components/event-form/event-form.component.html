@@ -1,162 +1,186 @@
 <form id="gcc-form-event" [formGroup]="form">
-    <mat-label>
-        {{ translations.forms.event.type_of_event | translate }}
-        <div class="required-star">*</div>
-    </mat-label>
-    
-    <mat-radio-group [(ngModel)]="model.eventType" 
-                     (ngModelChange)="onEventTypeChange()"
-                     [ariaLabel]="translations.forms.event.type_of_event_aria | translate"
-                     formControlName="eventType"
-                     [formControl]="form.controls['eventType'] | formControl"
-                     required="true">
-        <mat-radio-button [value]="eventType.InPerson" [checked]="model.eventType == eventType.InPerson">
-            {{ translations.forms.event.in_person | translate }}
-        </mat-radio-button>
-        <mat-radio-button [value]="eventType.Hybrid" [checked]="model.eventType == eventType.Hybrid">
-            {{ translations.forms.event.hybrid | translate }}
-        </mat-radio-button>
-        <mat-radio-button [value]="eventType.Online" [checked]="model.eventType == eventType.Online">
-            {{ translations.forms.event.online | translate }}
-        </mat-radio-button>
-    </mat-radio-group>
+  <mat-label>
+    {{ translations.forms.event.type_of_event | translate }}
+    <div class="required-star">*</div>
+  </mat-label>
 
-    <app-input [value]="model.eventOrganizerName" 
-               [name]="'eventOrganizerName'"
-               formControlName="eventOrganizerName"
-               [control]="form.controls['eventOrganizerName'] | formControl"
-               [label]="translations.forms.event.name_of_organizer | translate" 
-               [placeholder]="translations.forms.placeholder | translate"
-               [required]="true">
-    </app-input>
+  <mat-radio-group
+    [(ngModel)]="model.eventType"
+    (ngModelChange)="onEventTypeChange()"
+    [ariaLabel]="translations.forms.event.type_of_event_aria | translate"
+    formControlName="eventType"
+    [formControl]="form.controls['eventType'] | formControl"
+    required="true"
+  >
+    <mat-radio-button [value]="eventType.InPerson" [checked]="model.eventType === eventType.InPerson">
+      {{ translations.forms.event.in_person | translate }}
+    </mat-radio-button>
+    <mat-radio-button [value]="eventType.Hybrid" [checked]="model.eventType === eventType.Hybrid">
+      {{ translations.forms.event.hybrid | translate }}
+    </mat-radio-button>
+    <mat-radio-button [value]="eventType.Online" [checked]="model.eventType === eventType.Online">
+      {{ translations.forms.event.online | translate }}
+    </mat-radio-button>
+  </mat-radio-group>
 
-    <app-input [value]="model.eventName" 
-               [name]="'eventName'"
-               formControlName="eventName"
-               [control]="form.controls['eventName'] | formControl"
-               [label]="translations.forms.event.name_of_event | translate" 
-               [placeholder]="translations.forms.placeholder | translate"
-               [required]="true">
-    </app-input>
+  <app-input
+    [value]="model.eventOrganizerName"
+    [name]="'eventOrganizerName'"
+    formControlName="eventOrganizerName"
+    [control]="form.controls['eventOrganizerName'] | formControl"
+    [label]="translations.forms.event.name_of_organizer | translate"
+    [placeholder]="translations.forms.placeholder | translate"
+    [required]="true"
+  >
+  </app-input>
 
-    <mat-label>
-        {{ translations.forms.event.event_language | translate }}
-        <div class="required-star">*</div>
-    </mat-label>
-    
-    <mat-radio-group [(ngModel)]="model.eventLanguage" 
-                     [ariaLabel]="translations.forms.event.event_language_aria | translate"
-                     formControlName="eventLanguage"
-                     [formControl]="form.controls['eventLanguage'] | formControl"
-                     required="true">
-        <mat-radio-button [value]="eventLanguage.English" [checked]="model.eventLanguage == eventLanguage.English">
-            {{ translations.forms.event.english | translate }}
-        </mat-radio-button>
-        <mat-radio-button [value]="eventLanguage.French" [checked]="model.eventLanguage == eventLanguage.French">
-            {{ translations.forms.event.french | translate }}
-        </mat-radio-button>
-        <mat-radio-button [value]="eventLanguage.Bilingual" [checked]="model.eventLanguage == eventLanguage.Bilingual">
-            {{ translations.forms.event.bilingual | translate }}
-        </mat-radio-button>
-    </mat-radio-group>
-    
-    <app-editor [label]="translations.forms.event.body | translate"
-                [hint]="translations.forms.event.body_hint | translate"
-                [(html)]="model.eventDescription"
-                [required]="true"
-                [maxCharacters]="maxCharacters"
-                [control]="form.controls['eventDescription'] | formControl">
-    </app-editor>
-    
-    <app-input *ngIf="model.eventType != eventType.Online"
-               [value]="model.eventLocation" 
-               [name]="'eventLocation'"
-               formControlName="eventLocation"
-               [control]="form.controls['eventLocation'] | formControl"
-               [label]="translations.forms.event.location | translate" 
-               [placeholder]="translations.forms.placeholder | translate"
-               [required]="true">
-    </app-input>
+  <app-input
+    [value]="model.eventName"
+    [name]="'eventName'"
+    formControlName="eventName"
+    [control]="form.controls['eventName'] | formControl"
+    [label]="translations.forms.event.name_of_event | translate"
+    [placeholder]="translations.forms.placeholder | translate"
+    [required]="true"
+  >
+  </app-input>
 
-    <app-input *ngIf="model.eventType != eventType.InPerson"
-               [value]="model.eventOnlinePlatform" 
-               [name]="'eventOnlinePlatform'"
-               formControlName="eventOnlinePlatform"
-               [control]="form.controls['eventOnlinePlatform'] | formControl"
-               [label]="translations.forms.event.platform | translate" 
-               [placeholder]="translations.forms.placeholder | translate"
-               [required]="true">
-    </app-input>
+  <mat-label>
+    {{ translations.forms.event.event_language | translate }}
+    <div class="required-star">*</div>
+  </mat-label>
 
-    <mat-label>
-        {{ translations.forms.event.duration | translate }}
-        <div class="required-star">*</div>
-    </mat-label>
-    
-    <mat-radio-group [(ngModel)]="model.eventDuration" 
-                     (ngModelChange)="onEventDurationChange()"
-                     [ariaLabel]="translations.forms.event.duration_aria | translate"
-                     formControlName="eventDuration"
-                     [formControl]="form.controls['eventDuration'] | formControl"
-                     required="true">
-        <mat-radio-button [value]="eventDuration.Single" [checked]="model.eventDuration == eventDuration.Single">
-            {{ translations.forms.event.single_day | translate }}
-        </mat-radio-button>
-        <mat-radio-button [value]="eventDuration.Multi" [checked]="model.eventDuration == eventDuration.Multi">
-            {{ translations.forms.event.multi_day | translate }}
-        </mat-radio-button>
-    </mat-radio-group>
+  <mat-radio-group
+    [(ngModel)]="model.eventLanguage"
+    [ariaLabel]="translations.forms.event.event_language_aria | translate"
+    formControlName="eventLanguage"
+    [formControl]="form.controls['eventLanguage'] | formControl"
+    required="true"
+  >
+    <mat-radio-button [value]="eventLanguage.English" [checked]="model.eventLanguage === eventLanguage.English">
+      {{ translations.forms.event.english | translate }}
+    </mat-radio-button>
+    <mat-radio-button [value]="eventLanguage.French" [checked]="model.eventLanguage === eventLanguage.French">
+      {{ translations.forms.event.french | translate }}
+    </mat-radio-button>
+    <mat-radio-button [value]="eventLanguage.Bilingual" [checked]="model.eventLanguage === eventLanguage.Bilingual">
+      {{ translations.forms.event.bilingual | translate }}
+    </mat-radio-button>
+  </mat-radio-group>
 
-    <div style="display: table-caption;">
-        <div class="gcc-date-time-picker">
-            <app-input *ngIf="model.eventDuration"
-                       [value]="model.eventStartDate" 
-                       [name]="'eventStartDate'"
-                       formControlName="eventStartDate"
-                       [control]="form.controls['eventStartDate'] | formControl"
-                       [label]="translations.forms.event.start_date | translate" 
-                       [placeholder]="'MM/DD/YYYY'"
-                       [type]="'date'"
-                       [icon]="'fa-solid fa-calendar-days'"
-                       [required]="true">
-                       <i class="fa-solid fa-calendar-days"></i>
-            </app-input>
-    
-            <app-input *ngIf="model.eventDuration"
-                       [value]="model.eventStartTime" 
-                       [name]="'eventStartTime'"
-                       formControlName="eventStartTime"
-                       [control]="form.controls['eventStartTime'] | formControl"
-                       [label]="''" 
-                       [type]="'time'"
-                       [icon]="'fa-regular fa-clock'"
-                       [placeholder]="'00:00 AM'"
-                       [required]="true">
-            </app-input>
-        </div>
-    
-        <div class="gcc-date-time-picker" *ngIf="model.eventDuration == eventDuration.Multi">
-            <app-input [value]="model.eventEndDate" 
-                       [name]="'eventEndDate'"
-                       formControlName="eventEndDate"
-                       [control]="form.controls['eventEndDate'] | formControl"
-                       [label]="translations.forms.event.end_date | translate" 
-                       [placeholder]="'MM/DD/YYYY'"
-                       [type]="'date'"
-                       [icon]="'fa-solid fa-calendar-days'"
-                       [required]="true">
-            </app-input>
-    
-            <app-input [value]="model.eventEndTime" 
-                       [name]="'eventEndTime'"
-                       formControlName="eventEndTime"
-                       [control]="form.controls['eventEndTime'] | formControl"
-                       [label]="''" 
-                       [type]="'time'"
-                       [icon]="'fa-regular fa-clock'"
-                       [placeholder]="'00:00 AM'"
-                       [required]="true">
-            </app-input>
-        </div>
+  <app-editor
+    [label]="translations.forms.event.body | translate"
+    [hint]="translations.forms.event.body_hint | translate"
+    [(html)]="model.eventDescription"
+    [required]="true"
+    [maxCharacters]="maxCharacters"
+    [control]="form.controls['eventDescription'] | formControl"
+  >
+  </app-editor>
+
+  <app-input
+    *ngIf="model.eventType !== eventType.Online"
+    [value]="model.eventLocation"
+    [name]="'eventLocation'"
+    formControlName="eventLocation"
+    [control]="form.controls['eventLocation'] | formControl"
+    [label]="translations.forms.event.location | translate"
+    [placeholder]="translations.forms.placeholder | translate"
+    [required]="true"
+  >
+  </app-input>
+
+  <app-input
+    *ngIf="model.eventType !== eventType.InPerson"
+    [value]="model.eventOnlinePlatform"
+    [name]="'eventOnlinePlatform'"
+    formControlName="eventOnlinePlatform"
+    [control]="form.controls['eventOnlinePlatform'] | formControl"
+    [label]="translations.forms.event.platform | translate"
+    [placeholder]="translations.forms.placeholder | translate"
+    [required]="true"
+  >
+  </app-input>
+
+  <mat-label>
+    {{ translations.forms.event.duration | translate }}
+    <div class="required-star">*</div>
+  </mat-label>
+
+  <mat-radio-group
+    [(ngModel)]="model.eventDuration"
+    (ngModelChange)="onEventDurationChange()"
+    [ariaLabel]="translations.forms.event.duration_aria | translate"
+    formControlName="eventDuration"
+    [formControl]="form.controls['eventDuration'] | formControl"
+    required="true"
+  >
+    <mat-radio-button [value]="eventDuration.Single" [checked]="model.eventDuration === eventDuration.Single">
+      {{ translations.forms.event.single_day | translate }}
+    </mat-radio-button>
+    <mat-radio-button [value]="eventDuration.Multi" [checked]="model.eventDuration === eventDuration.Multi">
+      {{ translations.forms.event.multi_day | translate }}
+    </mat-radio-button>
+  </mat-radio-group>
+
+  <div style="display: table-caption">
+    <div class="gcc-date-time-picker">
+      <app-input
+        *ngIf="model.eventDuration"
+        [value]="model.eventStartDate"
+        [name]="'eventStartDate'"
+        formControlName="eventStartDate"
+        [control]="form.controls['eventStartDate'] | formControl"
+        [label]="translations.forms.event.start_date | translate"
+        [placeholder]="'MM/DD/YYYY'"
+        [type]="'date'"
+        [icon]="'fa-solid fa-calendar-days'"
+        [required]="true"
+      >
+        <i class="fa-solid fa-calendar-days"></i>
+      </app-input>
+
+      <app-input
+        *ngIf="model.eventDuration"
+        [value]="model.eventStartTime"
+        [name]="'eventStartTime'"
+        formControlName="eventStartTime"
+        [control]="form.controls['eventStartTime'] | formControl"
+        [label]="''"
+        [type]="'time'"
+        [icon]="'fa-regular fa-clock'"
+        [placeholder]="'00:00 AM'"
+        [required]="true"
+      >
+      </app-input>
     </div>
+
+    <div class="gcc-date-time-picker" *ngIf="model.eventDuration === eventDuration.Multi">
+      <app-input
+        [value]="model.eventEndDate"
+        [name]="'eventEndDate'"
+        formControlName="eventEndDate"
+        [control]="form.controls['eventEndDate'] | formControl"
+        [label]="translations.forms.event.end_date | translate"
+        [placeholder]="'MM/DD/YYYY'"
+        [type]="'date'"
+        [icon]="'fa-solid fa-calendar-days'"
+        [required]="true"
+      >
+      </app-input>
+
+      <app-input
+        [value]="model.eventEndTime"
+        [name]="'eventEndTime'"
+        formControlName="eventEndTime"
+        [control]="form.controls['eventEndTime'] | formControl"
+        [label]="''"
+        [type]="'time'"
+        [icon]="'fa-regular fa-clock'"
+        [placeholder]="'00:00 AM'"
+        [required]="true"
+      >
+      </app-input>
+    </div>
+  </div>
 </form>

@@ -3,13 +3,12 @@ import { AbstractSecurityStorage } from 'angular-auth-oidc-client';
 import { LocalStorageRefService } from './local-storage-ref.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SessionStorageService implements AbstractSecurityStorage {
-
   private _localStorage: Storage;
 
-  constructor(private _localStorageRefService: LocalStorageRefService) { 
+  constructor(private _localStorageRefService: LocalStorageRefService) {
     this._localStorage = _localStorageRefService.localStorage;
   }
 
@@ -17,7 +16,7 @@ export class SessionStorageService implements AbstractSecurityStorage {
     return this._localStorage.getItem(key);
   }
 
-  write(key: string, value: any): void {
+  write(key: string, value: string): void {
     this._localStorage.setItem(key, value);
   }
 

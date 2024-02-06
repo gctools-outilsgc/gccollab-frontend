@@ -1,220 +1,223 @@
-@import "../../../../assets/scss/partials/colors";
+@import '../../../../assets/scss/partials/colors';
 
 .gcc-input-wrapper {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 mat-label {
-    font-size: 18px;
-    font-weight: 600;
+  font-size: 18px;
+  font-weight: 600;
+  display: inline-block;
+  padding-bottom: 10px;
+
+  .required-star {
     display: inline-block;
-    padding-bottom: 10px;
+    color: $error-red;
+  }
 
-    .required-star {
-        display: inline-block;
-        color: $error-red;
-    }
-
-    i {
-        margin-left: 5px;
-        cursor: pointer;
-    }
+  i {
+    margin-left: 5px;
+    cursor: pointer;
+  }
 }
 
 mat-label.disabled {
-    color: $neutral-300;
+  color: $neutral-300;
 
-    .required-star, i {
-        color: $neutral-300 !important;
-    }
+  .required-star,
+  i {
+    color: $neutral-300 !important;
+  }
 }
 
 mat-form-field {
-    width: 100%;
+  width: 100%;
 
-    .mat-mdc-form-field {
-        padding: 0 10px; 
-    }
-    
-    input {
-        width: calc(100% - 65px);
-    }
+  .mat-mdc-form-field {
+    padding: 0 10px;
+  }
 
-    input.icon {
-        padding-left: 25px !important;
-    }
+  input {
+    width: calc(100% - 65px);
+  }
 
-    .gcc-input-icon {
-        position: absolute;
-        left: 0;
-        margin-top: 12px;
-        color: #1E1E23;
-    }
+  input.icon {
+    padding-left: 10px !important;
+  }
 
-    app-button {
-        display: inline-flex;
-    }
+  .gcc-input-icon {
+    color: #1e1e23;
+  }
+
+  app-button {
+    display: inline-flex;
+  }
 }
 
 mat-form-field.mat-form-field-invalid {
-    .gcc-input-icon {
-        color: $error-red;
-    }
+  .gcc-input-icon {
+    color: $error-red;
+  }
 }
 
 .hint-button {
-    ::ng-deep button {
-        margin-top: -4px;
-    }
+  ::ng-deep button {
+    margin-top: -4px;
+  }
 }
 
 mat-hint {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 ::ng-deep {
-    .mat-mdc-form-field-input-control { 
-        padding: 12px 0px !important;
-    }
+  .mat-mdc-form-field-input-control {
+    padding: 12px 0px !important;
+  }
 
-    .mdc-notched-outline__leading, .mdc-notched-outline__trailing {
-        border-color: $neutral-300 !important;
-        border-right-width: 2px !important;
-        border-left-width: 2px !important;
-        border-bottom-width: 2px !important;
-        border-top-width: 2px !important;
-    }
+  .mdc-notched-outline__leading,
+  .mdc-notched-outline__trailing {
+    border-color: $neutral-300 !important;
+    border-right-width: 2px !important;
+    border-left-width: 2px !important;
+    border-bottom-width: 2px !important;
+    border-top-width: 2px !important;
+  }
 
-    .mdc-notched-outline__leading {
-        border-top-left-radius: var(--mdc-shape-small, 10px) !important;
-        border-bottom-left-radius: var(--mdc-shape-small, 10px) !important;
-    }
+  .mdc-notched-outline__leading {
+    border-top-left-radius: var(--mdc-shape-small, 10px) !important;
+    border-bottom-left-radius: var(--mdc-shape-small, 10px) !important;
+  }
 
+  .mdc-notched-outline__trailing {
+    border-top-right-radius: var(--mdc-shape-small, 10px) !important;
+    border-bottom-right-radius: var(--mdc-shape-small, 10px) !important;
+  }
+
+  .mdc-text-field--outlined {
+    padding-right: 0 !important;
+  }
+
+  .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .mat-mdc-form-field-infix {
+    min-height: unset;
+  }
+
+  .mdc-text-field--invalid {
+    .mdc-notched-outline__leading,
     .mdc-notched-outline__trailing {
-        border-top-right-radius: var(--mdc-shape-small, 10px) !important;
-        border-bottom-right-radius: var(--mdc-shape-small, 10px) !important;
+      border-color: $error-red !important;
     }
+  }
 
-    .mdc-text-field--outlined {
-        padding-right: 0 !important;
-    }
+  .mdc-notched-outline__leading {
+    margin-right: -1px;
+  }
 
-    .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
-        padding-top: 0;
-        padding-bottom: 0;
-    }
-
-
-    .mat-mdc-form-field-infix {
-        min-height: unset;
-    }
-
-    .mdc-text-field--invalid {
-        .mdc-notched-outline__leading, .mdc-notched-outline__trailing {
-            border-color: $error-red !important;
-        }
-    }
-    
-    .mdc-notched-outline__leading {
-        margin-right: -1px;
-    }
-
-    input:-webkit-autofill,
-    input:-webkit-autofill:hover, 
-    input:-webkit-autofill:focus, 
-    input:-webkit-autofill:active{
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: #000;
-        box-shadow: inset 0 0 20px 20px white;
-    }
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #000;
+    box-shadow: inset 0 0 20px 20px white;
+  }
 }
 
 // THEMES
 .gcc-input-wrapper.primary-1 {
-    mat-label i {
-        color: $primary-1;
+  mat-label i {
+    color: $primary-1;
+  }
+  mat-form-field {
+    app-button ::ng-deep button:focus {
+      color: $primary-1;
     }
-    mat-form-field {
-        app-button ::ng-deep button:focus {
-            color: $primary-1;
-        }
-    }
-    mat-form-field.mat-focused .gcc-input-icon {
-        color: $primary-1;
-    }
-    .hint-button ::ng-deep button:focus {
-        color: $primary-1;
-    }
+  }
+  mat-form-field.mat-focused .gcc-input-icon {
+    color: $primary-1;
+  }
+  .hint-button ::ng-deep button:focus {
+    color: $primary-1;
+  }
 
-    ::ng-deep .mat-focused {
-        .mdc-notched-outline__leading, .mdc-notched-outline__trailing {
-            border-color: $primary-1 !important;
-        }
+  ::ng-deep .mat-focused {
+    .mdc-notched-outline__leading,
+    .mdc-notched-outline__trailing {
+      border-color: $primary-1 !important;
     }
+  }
 }
 .gcc-input-wrapper.primary-2 {
-    mat-label i {
-        color: $primary-2;
+  mat-label i {
+    color: $primary-2;
+  }
+  mat-form-field {
+    app-button ::ng-deep button:focus {
+      color: $primary-2;
     }
-    mat-form-field {
-        app-button ::ng-deep button:focus {
-            color: $primary-2;
-        }
-    }
-    mat-form-field.mat-focused .gcc-input-icon {
-        color: $primary-2;
-    }
-    .hint-button ::ng-deep button:focus {
-        color: $primary-2;
-    }
+  }
+  mat-form-field.mat-focused .gcc-input-icon {
+    color: $primary-2;
+  }
+  .hint-button ::ng-deep button:focus {
+    color: $primary-2;
+  }
 
-    ::ng-deep .mat-focused {
-        .mdc-notched-outline__leading, .mdc-notched-outline__trailing {
-            border-color: $primary-2 !important;
-        }
+  ::ng-deep .mat-focused {
+    .mdc-notched-outline__leading,
+    .mdc-notched-outline__trailing {
+      border-color: $primary-2 !important;
     }
+  }
 }
 .gcc-input-wrapper.secondary-1 {
-    mat-label i {
-        color: $secondary-1;
+  mat-label i {
+    color: $secondary-1;
+  }
+  mat-form-field {
+    app-button ::ng-deep button:focus {
+      color: $secondary-1;
     }
-    mat-form-field {
-        app-button ::ng-deep button:focus {
-            color: $secondary-1;
-        }
-    }
-    mat-form-field.mat-focused .gcc-input-icon {
-        color: $secondary-1;
-    }
-    .hint-button ::ng-deep button:focus {
-        color: $secondary-1;
-    }
+  }
+  mat-form-field.mat-focused .gcc-input-icon {
+    color: $secondary-1;
+  }
+  .hint-button ::ng-deep button:focus {
+    color: $secondary-1;
+  }
 
-    ::ng-deep .mat-focused {
-        .mdc-notched-outline__leading, .mdc-notched-outline__trailing {
-            border-color: $secondary-1 !important;
-        }
+  ::ng-deep .mat-focused {
+    .mdc-notched-outline__leading,
+    .mdc-notched-outline__trailing {
+      border-color: $secondary-1 !important;
     }
+  }
 }
 .gcc-input-wrapper.secondary-2 {
-    mat-label i {
-        color: $secondary-2;
+  mat-label i {
+    color: $secondary-2;
+  }
+  mat-form-field {
+    app-button ::ng-deep button:focus {
+      color: $secondary-2;
     }
-    mat-form-field {
-        app-button ::ng-deep button:focus {
-            color: $secondary-2;
-        }
-    }
-    mat-form-field.mat-focused .gcc-input-icon {
-        color: $secondary-2;
-    }
-    .hint-button ::ng-deep button:focus {
-        color: $secondary-2;
-    }
+  }
+  mat-form-field.mat-focused .gcc-input-icon {
+    color: $secondary-2;
+  }
+  .hint-button ::ng-deep button:focus {
+    color: $secondary-2;
+  }
 
-    ::ng-deep .mat-focused {
-        .mdc-notched-outline__leading, .mdc-notched-outline__trailing {
-            border-color: $secondary-2 !important;
-        }
+  ::ng-deep .mat-focused {
+    .mdc-notched-outline__leading,
+    .mdc-notched-outline__trailing {
+      border-color: $secondary-2 !important;
     }
+  }
 }
