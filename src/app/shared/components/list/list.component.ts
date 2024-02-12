@@ -24,7 +24,7 @@ export class ListComponent implements OnInit {
 
   currentPage: number = 1;
   lastPage: number = this.currentPage;
-  loading: boolean = true;
+  loading: boolean = false;
   Orientations = Orientation;
 
   nextPageCallback: () => unknown = this.nextPage.bind(this);
@@ -33,21 +33,21 @@ export class ListComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    if (this.items.length === 0) {
-      this.loadNext(this.pageSize * (this.paging ? this.pagesToLoad : 1));
-    } else {
-      this.lastPage = this.items.length / this.pageSize;
-    }
+    //if (this.items.length === 0) {
+    //  this.loadNext(this.pageSize * (this.paging ? this.pagesToLoad : 1));
+    //} else {
+    //  this.lastPage = this.items.length / this.pageSize;
+    //}
   }
 
   loadNext(count: number = this.pageSize): void {
-    this.loading = true;
+    //this.loading = true;
 
-    this.service?.getMany(count, this.loadTime).subscribe((items: (typeof this.service.dataType)[]) => {
-      this.items.push(...items);
-      this.lastPage = this.items.length / this.pageSize;
-      this.loading = false;
-    });
+    //this.service?.getMany(count, this.loadTime).subscribe((items: (typeof this.service.dataType)[]) => {
+    //  this.items.push(...items);
+    //  this.lastPage = this.items.length / this.pageSize;
+    // this.loading = false;
+    //});
   }
 
   nextPage(): void {

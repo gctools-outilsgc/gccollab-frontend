@@ -21,4 +21,10 @@ export class Event {
 
   confirmed: boolean = false;
   declined: boolean = false;
+
+  constructor(id: string, title: string, startDate: Date) {
+    this.id = id;
+    this.title = title;
+    this.startDate = startDate;
+  }
 }
