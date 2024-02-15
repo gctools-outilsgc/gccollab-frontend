@@ -40,7 +40,7 @@ export class ListComponent implements OnInit {
     //}
   }
 
-  loadNext(count: number = this.pageSize): void {
+  loadNext(_count: number = this.pageSize): void {
     //this.loading = true;
 
     //this.service?.getMany(count, this.loadTime).subscribe((items: (typeof this.service.dataType)[]) => {
