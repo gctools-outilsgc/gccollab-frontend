@@ -80,7 +80,7 @@ export class EventService implements IListService {
   }
 
   private generateRandomEventItem(): Event {
-    const event = new Event('0', 'Event Title', new Date());
+    const event = new Event('Event Title', new Date());
 
     event.id = this.id.toString();
     event.title = this.randomTitle();

@@ -22,18 +22,13 @@ export class EventsComponent implements OnInit {
   currentDate = new Date();
 
   upcomingEvents: Event[] = [
-    new Event('1', 'Event 1', new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), this.currentDate.getDate() + 1)), // Tomorrow
-    new Event('2', 'Event 2', new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), this.currentDate.getDate() + 3)), // Three days from now
-    new Event('3', 'Event 3', new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), this.currentDate.getDate() + 7)), // One week from now
-    new Event('4', 'Event 4', new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), this.currentDate.getDate() + 10)), // Ten days from now
+    new Event('Drink Outside the Box', new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), this.currentDate.getDate() + 1)), // Tomorrow
+    new Event('Grillin n Chillin', new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), this.currentDate.getDate() + 3)), // Three days from now
   ];
   
-  // Define previous 
   previousEvents: Event[] = [
-    new Event('1', 'Event 1', new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), this.currentDate.getDate() - 1)), // Yesterday
-    new Event('2', 'Event 2', new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), this.currentDate.getDate() - 3)), // Three days behind now
-    new Event('3', 'Event 3', new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), this.currentDate.getDate() - 7)), // One week from now in the past
-    new Event('4', 'Event 4', new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), this.currentDate.getDate() - 10)), // Ten days from now in the past
+    new Event('Chili Cook Off', new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), this.currentDate.getDate() - 1)), // Yesterday
+    new Event('Hot Dog Eating Competition', new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), this.currentDate.getDate() - 3)), // Three days in the past
   ];
   constructor(
     public translations: Translations,
@@ -42,10 +37,5 @@ export class EventsComponent implements OnInit {
 
   ngOnInit(): void {
     this.form.addControl('eventSearchBar', new FormControl('', []));
-    const currentDate = new Date()
-    this.eventService.getMany().subscribe((events: Event[]) => {
-    this.upcomingEvents = events.filter(event => event.startDate && new Date(event.startDate) >= currentDate);
-    this.previousEvents = events.filter(event => event.startDate && new Date(event.startDate) < currentDate);
-  });
   }
 }
