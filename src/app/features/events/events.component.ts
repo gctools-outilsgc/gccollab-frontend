@@ -31,6 +31,7 @@ export class EventsComponent implements OnInit {
     new Event('1', 'Chili Cook Off', 'https://images.unsplash.com/photo-1551884831-bbf3cdc6469e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1274&q=80', new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), this.currentDate.getDate() - 1), 'CRA', new Location('2440 Bank St', 'Ottawa', 'Ontario')), // Yesterday
     new Event('2', 'Hot Dog Eating Competition', 'https://images.unsplash.com/photo-1556997685-309989c1aa82?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZnVubnklMjBhbmltYWxzfGVufDB8fDB8fHww&auto=format&fit=crop&w=900&q=60', new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), this.currentDate.getDate() - 3), 'SSC', new Location('464 Bank St', 'Ottawa', 'Ontario')), // Three days in the past
   ];
+
   constructor(
     public translations: Translations,
     public eventService: EventService
