@@ -22,8 +22,12 @@ export class Event {
   confirmed: boolean = false;
   declined: boolean = false;
 
-  constructor(title: string, startDate: Date) {
+  constructor(id: string, title: string, displayPicture: string, startDate: Date, organizer: string, location: Location) {
+    this.id = id;
     this.title = title;
+    this.displayPicture = displayPicture;
     this.startDate = startDate;
+    this.organizer = organizer;
+    this.location = location;
   }
 }
