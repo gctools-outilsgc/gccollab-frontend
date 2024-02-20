@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { NgComponentOutlet } from '@angular/common';
+// import { NgComponentOutlet } from '@angular/common';
 import { IListService } from 'src/app/core/interfaces/list-service.interface';
 import { CardSize } from '../../models/card-size';
 import { Orientation } from '../../models/orientation';
@@ -11,8 +11,8 @@ import { Orientation } from '../../models/orientation';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
-  @Input({ required: true }) service!: IListService;
-  @Input() items: (typeof this.service.dataType)[] = [];
+  @Input() service!: IListService;
+  @Input() items: (typeof this['service']['dataType'])[] = [];
   @Input() cardSize: CardSize | string = CardSize.Small; // TODO: Card size on all card components. Make a base component or interface that gets implemented.
   @Input() orientation: Orientation | string = Orientation.Vertical;
   @Input() columnGap: number = 10;
@@ -22,32 +22,32 @@ export class ListComponent implements OnInit {
   @Input() pagesToLoad: number = 3;
   @Input() loadTime: number = 5000;
 
-  currentPage: number = 1;
-  lastPage: number = this.currentPage;
-  loading: boolean = false;
+  currentPage = 1;
+  lastPage = this.currentPage;
+  loading = false;
   Orientations = Orientation;
 
-  nextPageCallback: () => unknown = this.nextPage.bind(this);
-  previousPageCallback: () => unknown = this.previousPage.bind(this);
+  nextPageCallback = this.nextPage.bind(this);
+  previousPageCallback = this.previousPage.bind(this);
 
   constructor() {}
 
   ngOnInit(): void {
-    //if (this.items.length === 0) {
-    //  this.loadNext(this.pageSize * (this.paging ? this.pagesToLoad : 1));
-    //} else {
-    //  this.lastPage = this.items.length / this.pageSize;
-    //}
+    if (this.items.length === 0) {
+      this.loadNext(this.pageSize * (this.paging ? this.pagesToLoad : 1));
+    } else {
+      this.lastPage = Math.ceil(this.items.length / this.pageSize);
+    }
   }
 
   loadNext(_count: number = this.pageSize): void {
-    //this.loading = true;
+    this.loading = true;
 
-    //this.service?.getMany(count, this.loadTime).subscribe((items: (typeof this.service.dataType)[]) => {
-    //  this.items.push(...items);
-    //  this.lastPage = this.items.length / this.pageSize;
-    // this.loading = false;
-    //});
+    this.service?.getMany(_count, this.loadTime).subscribe((items: (typeof this['service']['dataType'])[]) => {
+      this.items.push(...items);
+      this.lastPage = Math.ceil(this.items.length / this.pageSize);
+     this.loading = false;
+    });
   }
 
   nextPage(): void {
@@ -68,7 +68,7 @@ export class ListComponent implements OnInit {
     return this.startIndex + this.pageSize;
   }
 
-  get paginatedItems(): (typeof this.service.dataType)[] {
+  get paginatedItems(): (typeof this['service']['dataType'])[] {
     return this.loading && this.currentPage === this.lastPage ? this.items.slice(0, this.pageSize) : this.items.slice(this.startIndex, this.endIndex);
   }
 }
