@@ -12,7 +12,7 @@ import { Orientation } from '../../models/orientation';
 })
 export class ListComponent implements OnInit {
   @Input() service!: IListService;
-  @Input() items: (typeof this['service']['dataType'])[] = [];
+  @Input() items: (typeof this)['service']['dataType'][] = [];
   @Input() cardSize: CardSize | string = CardSize.Small; // TODO: Card size on all card components. Make a base component or interface that gets implemented.
   @Input() orientation: Orientation | string = Orientation.Vertical;
   @Input() columnGap: number = 10;
@@ -43,10 +43,10 @@ export class ListComponent implements OnInit {
   loadNext(_count: number = this.pageSize): void {
     this.loading = true;
 
-    this.service?.getMany(_count, this.loadTime).subscribe((items: (typeof this['service']['dataType'])[]) => {
+    this.service?.getMany(_count, this.loadTime).subscribe((items: (typeof this)['service']['dataType'][]) => {
       this.items.push(...items);
       this.lastPage = Math.ceil(this.items.length / this.pageSize);
-     this.loading = false;
+      this.loading = false;
     });
   }
 
@@ -68,7 +68,7 @@ export class ListComponent implements OnInit {
     return this.startIndex + this.pageSize;
   }
 
-  get paginatedItems(): (typeof this['service']['dataType'])[] {
+  get paginatedItems(): (typeof this)['service']['dataType'][] {
     return this.loading && this.currentPage === this.lastPage ? this.items.slice(0, this.pageSize) : this.items.slice(this.startIndex, this.endIndex);
   }
 }
