@@ -17,6 +17,7 @@ export class EventListComponent {
   @Output() decline = new EventEmitter();
 
   loadingItems: number[];
+  loadingEvent: Event = new Event();
 
   constructor() {
     this.loadingItems = [];

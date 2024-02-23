@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit {
               public newsService: NewsService, 
               public eventService: EventService, 
               public peopleService: PeopleService,
-              public groupService: GroupService) {
+              public groupService: GroupService) {}
 
   ngOnInit(): void {
     this.newsService.getMany(10, 5000).subscribe((newsItems: INewsItem[]) => {

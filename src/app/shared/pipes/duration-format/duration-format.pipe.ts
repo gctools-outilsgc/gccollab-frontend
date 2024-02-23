@@ -22,11 +22,11 @@ export class DurationFormatPipe implements PipeTransform {
         const millisecondsInWeek = 7 * millisecondsInDay;
         const millisecondsInMonth = 30 * millisecondsInDay;
 
-        let months = Math.floor(duration / millisecondsInMonth);
-        let weeks = Math.floor((duration % millisecondsInMonth) / millisecondsInWeek);
-        let days = Math.floor((duration % millisecondsInWeek) / millisecondsInDay);
-        let hours = Math.floor((duration % millisecondsInDay) / millisecondsInHour);
-        let minutes = Math.floor((duration % millisecondsInHour) / millisecondsInMinute);
+        const months = Math.floor(duration / millisecondsInMonth);
+        const weeks = Math.floor((duration % millisecondsInMonth) / millisecondsInWeek);
+        const days = Math.floor((duration % millisecondsInWeek) / millisecondsInDay);
+        const hours = Math.floor((duration % millisecondsInDay) / millisecondsInHour);
+        const minutes = Math.floor((duration % millisecondsInHour) / millisecondsInMinute);
 
         let result = '';
 

@@ -12,6 +12,7 @@ import { EventService } from 'src/app/core/services/event.service';
 import { CoreRoutes } from 'src/app/core/constants/routes.constants';
 import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { DurationFormatPipe } from 'src/app/shared/pipes/duration-format/duration-format.pipe';
 
 @Component({
@@ -21,7 +22,7 @@ import { DurationFormatPipe } from 'src/app/shared/pipes/duration-format/duratio
   //changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EventComponent implements OnInit {
-  @Input() model: Event | null = null;
+  @Input({required: true}) model!: Event;
 
   banner: Banner | null = null;
   loading: boolean = true;
