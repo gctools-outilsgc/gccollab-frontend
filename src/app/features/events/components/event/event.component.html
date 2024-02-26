@@ -1,0 +1,206 @@
+<app-banner *ngIf="banner || loading" [model]="banner" [loading]="loading"> </app-banner>
+
+<app-calendar-button
+  [model]="model?.startDate"
+  [tooltip]="translations.eventCard.calendar.tooltip | translate"
+  [aria]="translations.eventCard.calendar.aria | translate"
+  [tooltipDirection]="tooltipDirection.Below"
+  [loading]="loading"
+>
+</app-calendar-button>
+
+<div class="page-container" [ngClass]="loading ? 'loading' : ''">
+  <div class="title-row">
+    <h1 *ngIf="!loading">
+      {{ model?.title }}
+    </h1>
+    <ngx-skeleton-loader *ngIf="loading" count="1" appearance="line" animation="progress" class="loading-title"></ngx-skeleton-loader>
+
+    <!-- Actions -->
+    <div class="title-actions">
+      <div class="top">
+        <!-- Share -->
+        <app-button
+          btnId="gcc-event-share-btn"
+          [matButtonType]="materialButtonType.Icon"
+          [tooltip]="translations.event.share.tooltip | translate"
+          [ariaLabel]="translations.event.share.aria | translate"
+          [tooltipDirection]="tooltipDirection.Above"
+          [disabled]="loading || isPast()"
+        >
+          <i class="fa fa-share"></i>
+        </app-button>
+
+        <!-- Bookmark -->
+        <app-button
+          btnId="gcc-event-bookmark-btn"
+          [matButtonType]="materialButtonType.Icon"
+          [tooltip]="(bookmarked ? translations.event.bookmark.tooltip_off : translations.event.bookmark.tooltip_on) | translate"
+          [ariaLabel]="(bookmarked ? translations.event.bookmark.aria_off : translations.event.bookmark.aria_on) | translate"
+          [tooltipDirection]="tooltipDirection.Above"
+          [disabled]="loading || isPast()"
+          (click)="loading ? '' : (bookmarked = !bookmarked)"
+          [ngClass]="bookmarked ? 'bookmarked' : ''"
+        >
+          <i class="fa fa-bookmark" [ngClass]="bookmarked ? 'fa-solid' : 'fa-regular'"> </i>
+        </app-button>
+      </div>
+
+      <div class="bottom">
+        <!-- Register -->
+        <app-button
+          btnId="gcc-event-register-jump-btn"
+          class="registerBtn"
+          [disabled]="loading || isPast()"
+          [ngClass]="loading || isPast() ? 'disabled' : 'enabled'"
+          theme="secondary-2"
+          (click)="scrollToRegister()"
+        >
+          {{ translations.event.form.register | translate }}
+        </app-button>
+      </div>
+    </div>
+  </div>
+
+  <div class="event-info">
+    <!-- Date & Time-->
+    <i class="fa fa-calendar"></i>
+    <section>
+      <h3>
+        {{ translations.event.date_time | translate }}
+      </h3>
+      <p *ngIf="!loading">
+        {{ model?.startDate | date: 'mediumDate' }}
+      </p>
+      <p *ngIf="!loading">
+        {{ model?.startDate | date: 'h a' }} -
+        {{ model?.endDate | date: 'h a' }}
+      </p>
+      <ngx-skeleton-loader *ngIf="loading" count="2" appearance="line" animation="progress" class="loading-section"></ngx-skeleton-loader>
+    </section>
+
+    <div class="section-separator"></div>
+
+    <!-- Location -->
+    <i class="fa fa-map-marker"></i>
+    <section>
+      <h3>
+        {{ translations.event.location | translate }}
+      </h3>
+      <p *ngIf="!loading">
+        {{ model?.location?.address }}
+      </p>
+      <p *ngIf="!loading">{{ model?.location?.city }}, {{ model?.location?.province }}</p>
+      <ngx-skeleton-loader *ngIf="loading" count="2" appearance="line" animation="progress" class="loading-section"></ngx-skeleton-loader>
+    </section>
+
+    <div class="section-separator"></div>
+
+    <!-- Host -->
+    <i class="fa-user-circle fa-regular"></i>
+    <section>
+      <h3>
+        {{ translations.event.host | translate }}
+      </h3>
+      <p *ngIf="!loading">{{ this.model?.author?.firstName }} {{ this.model?.author?.lastName }}</p>
+      <a *ngIf="!loading" routerLink="{{ '/' + 'groups' + '/' + model?.group?.id }}">
+        {{ this.model?.group?.name }}
+      </a>
+      <ngx-skeleton-loader *ngIf="loading" count="2" appearance="line" animation="progress" class="loading-section"></ngx-skeleton-loader>
+    </section>
+  </div>
+
+  <!-- Description -->
+  <div class="event-description">
+    <h2>
+      {{ translations.event.event_description | translate }}
+    </h2>
+    <p *ngIf="!loading" [innerHTML]="model?.description"></p>
+    <ngx-skeleton-loader *ngIf="loading" count="5" appearance="line" animation="progress" class="loading-section"></ngx-skeleton-loader>
+  </div>
+
+  <!-- Registration Form -->
+  <form [id]="registerFormId" class="event-registration">
+    <h2>{{ translations.event.event_registration | translate }}</h2>
+
+    <!-- Full Name -->
+    <app-input
+      inputId="gcc-event-name-input"
+      [(value)]="formModel.name"
+      [name]="'fullName'"
+      [label]="translations.event.form.full_name | translate"
+      [placeholder]="translations.event.form.placeholder | translate"
+      [required]="true"
+      [control]="nameFormControl"
+      [errorMatcher]="matcher"
+    >
+    </app-input>
+
+    <!-- Confirm -->
+    <app-input
+      inputId="gcc-event-email-input"
+      [(value)]="formModel.email"
+      [name]="'emailAddress'"
+      [type]="'email'"
+      [label]="translations.event.form.email | translate"
+      [placeholder]="translations.event.form.placeholder | translate"
+      [required]="true"
+      [control]="emailFormControl"
+      [errorMatcher]="matcher"
+    >
+    </app-input>
+
+    <!-- Email Confirm -->
+    <app-input
+      inputId="gcc-event-email-confirm-input"
+      [(value)]="formModel.emailConfirm"
+      [name]="'emailAddressConfirm'"
+      [type]="'email'"
+      [label]="translations.event.form.email_confirm | translate"
+      [placeholder]="translations.event.form.placeholder | translate"
+      [required]="true"
+      [control]="emailConfirmFormControl"
+      [errorMatcher]="matcher"
+    >
+    </app-input>
+
+    <!-- Occupation -->
+    <app-input
+      inputId="gcc-event-occupation-input"
+      [(value)]="formModel.occupation"
+      [name]="'occupation'"
+      [label]="translations.event.form.occupation | translate"
+      [placeholder]="translations.event.form.placeholder | translate"
+      [hint]="translations.event.form.occupation_hint | translate"
+      [required]="true"
+      [control]="occupationFormControl"
+      [errorMatcher]="matcher"
+    >
+    </app-input>
+
+    <!-- Add to calendar -->
+    <mat-checkbox id="gcc-event-calendar-checkbox" name="addToCalendar" [color]="'primary'" [disabled]="loading || isPast()">
+      {{ translations.event.form.add_calendar | translate }}
+    </mat-checkbox>
+
+    <!-- Agree to terms -->
+    <mat-checkbox id="gcc-event-terms-checkbox" name="addToCalendar" [color]="'primary'" [disabled]="loading || isPast()">
+      {{ translations.event.form.agree_with | translate }}
+      <a routerLink="{{ '/' + routes.Terms }}" target="_blank">
+        {{ translations.event.form.terms_conditions | translate }}
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+    </mat-checkbox>
+
+    <!-- Register -->
+    <app-button
+      id="gcc-event-register-btn"
+      [name]="'registerBtn'"
+      [disabled]="loading || !formGroup.valid || isPast()"
+      [ngClass]="loading || !formGroup.valid || isPast() ? 'disabled' : 'enabled'"
+      class="registerBtn"
+    >
+      {{ translations.event.form.register | translate }}
+    </app-button>
+  </form>
+</div>

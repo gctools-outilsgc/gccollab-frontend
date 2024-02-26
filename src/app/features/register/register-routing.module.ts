@@ -6,16 +6,16 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: RegisterComponent
+    component: RegisterComponent,
   },
   {
     path: '**',
-    redirectTo: ''
-  }
+    redirectTo: '',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class RegisterRoutingModule { }
+export class RegisterRoutingModule {}

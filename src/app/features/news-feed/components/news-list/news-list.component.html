@@ -1,20 +1,13 @@
 <div class="news-list-container">
+  <div *ngFor="let newsItem of model" class="news-card-wrapper">
+    <app-news-card [model]="newsItem"></app-news-card>
+  </div>
 
-    <div *ngIf="!isLoading || (model && model.length > 0)" class="fade-list-top"></div>
+  <div *ngIf="model && !isLoading && model.length === 0">There is nothing to display.</div>
 
-    <div *ngFor="let newsItem of model" class="news-card-wrapper">
-        <app-news-card [model]="newsItem"></app-news-card>
+  <div *ngIf="isLoading" class="loading">
+    <div *ngFor="let num of loadingItems" class="news-card-wrapper">
+      <app-news-card [loading]="true"></app-news-card>
     </div>
-    
-    <div *ngIf="!isLoading || (model && model.length > 0)" class="fade-list-bottom"></div>
-
-    <div *ngIf="model && !isLoading && model.length == 0">
-        There is nothing to display.
-    </div>
-
-    <div *ngIf="isLoading">
-        <div *ngFor="let num of loadingItems" class="news-card-wrapper loading" style="padding: 22px 0;">
-            <app-news-card [loading]="true"></app-news-card>
-        </div>
-    </div>
+  </div>
 </div>

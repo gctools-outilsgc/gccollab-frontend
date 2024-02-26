@@ -1,17 +1,30 @@
 @import '../assets//scss/partials/layout';
-@import "../assets/scss/partials/header";
+@import '../assets/scss/partials/header';
 
 .gcc-main {
-    flex: 1;
-    width: calc(100% - ($gutter-desktop * 2));
-    margin: 0 auto;
-    padding: $padding-vertical 0;
+  flex: 1;
+  width: calc(100% - ($gutter-desktop * 2));
+  margin: 0 auto;
+  padding: $padding-vertical 0;
 }
 
 .gcc-header {
-    margin-top: $header-height-desktop;
+  margin-top: $header-height-desktop;
 }
 
 .gcc-header-expanded {
-    margin-top: $header-height-expanded-desktop;
+  margin-top: $header-height-expanded-desktop;
+}
+
+::ng-deep {
+  .page-container {
+    display: flex;
+    flex-direction: row;
+    min-height: 500px;
+
+    .side-content {
+      width: 33%;
+      min-width: 300px;
+    }
+  }
 }

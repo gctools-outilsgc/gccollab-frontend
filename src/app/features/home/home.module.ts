@@ -9,19 +9,8 @@ import { GroupsModule } from '../groups/groups.module';
 import { EventsModule } from '../events/events.module';
 import { ProfileModule } from '../profile/profile.module';
 
-
 @NgModule({
-  declarations: [
-    HomeComponent
-  ],
-  imports: [
-    CommonModule,
-    HomeRoutingModule,
-    SharedModule,
-    NewsFeedModule,
-    GroupsModule,
-    EventsModule,
-    ProfileModule
-  ]
+  declarations: [HomeComponent],
+  imports: [CommonModule, HomeRoutingModule, SharedModule, NewsFeedModule, GroupsModule, EventsModule, ProfileModule],
 })
-export class HomeModule { }
+export class HomeModule {}

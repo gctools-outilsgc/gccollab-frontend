@@ -1,68 +1,61 @@
 <footer>
-    <div class="footer-body">
-        <div class="footer-list">
-            <section class="footer-column">
-                <h3>{{ translations.footer.title.about | translate }}</h3>
-                <ul>
-                    <li>
-                        <a  id="gcc-footer-about-btn"
-                            routerLink="{{ routes.About }}">
-                            {{ translations.footer.item.about | translate }}
-                        </a>
-                    </li>
-                    <li>
-                        <a  id="gcc-footer-gctools-btn"
-                            href="https://github.com/gctools-outilsgc" target="_blank">
-                            {{ translations.footer.item.gctools | translate }}
-                        </a>
-                    </li>
-                    <li>
-                        <a  id="gcc-footer-statistics-btn"
-                            routerLink="{{ routes.Stats }}">
-                            {{ translations.footer.item.stats | translate }}
-                        </a>
-                    </li>
-                </ul>
-            </section>
-            <section class="footer-column">
-                <h3>{{ translations.footer.title.privacy | translate }}</h3>
-                <ul>
-                    <li>
-                        <a  id="gcc-footer-privacy-btn"
-                            routerLink="{{ routes.Privacy }}">
-                            {{ translations.footer.item.privacypolicy | translate }}
-                        </a>
-                    </li>
-                    <li>
-                        <a  id="gcc-footer-terms-btn"
-                            routerLink="{{ routes.Terms }}">
-                            {{ translations.footer.item.terms | translate }}
-                        </a>
-                    </li>
-                </ul>
-            </section>
-            <section class="footer-column">
-                <h3>{{ translations.footer.title.connect | translate }}</h3>
-                <ul>
-                    <li>
-                        <a  id="gcc-footer-faqs-btn"
-                            href="https://support.gccollab.ca" target="_blank">
-                            {{ translations.footer.item.faq | translate }}
-                        </a>
-                    </li>
-                    <li>
-                        <a  id="gcc-footer-support-btn"
-                            href="https://support.gccollab.ca" target="_blank">
-                            {{ translations.footer.item.help | translate }}
-                        </a>
-                    </li>
-                </ul>
-            </section>
-            <section class="footer-column">
-                <div class="canada-logo-container">
-                    <img src="https://gccollab.ca//mod/gccollab_theme/graphics/wmms-blk.svg" alt="Canada" aria-label="Symbol of the Government of Canada"/>
-                </div>
-            </section>
+  <div class="footer-body">
+    <div class="footer-list">
+      <section class="footer-column">
+        <h3>{{ translations.footer.title.about | translate }}</h3>
+        <ul>
+          <li>
+            <a id="gcc-footer-about-btn" routerLink="{{ routes.About }}">
+              {{ translations.footer.item.about | translate }}
+            </a>
+          </li>
+          <li>
+            <a id="gcc-footer-gctools-btn" href="https://github.com/gctools-outilsgc" target="_blank">
+              {{ translations.footer.item.gctools | translate }}
+            </a>
+          </li>
+          <li>
+            <a id="gcc-footer-statistics-btn" routerLink="{{ routes.Stats }}">
+              {{ translations.footer.item.stats | translate }}
+            </a>
+          </li>
+        </ul>
+      </section>
+      <section class="footer-column">
+        <h3>{{ translations.footer.title.privacy | translate }}</h3>
+        <ul>
+          <li>
+            <a id="gcc-footer-privacy-btn" routerLink="{{ routes.Privacy }}">
+              {{ translations.footer.item.privacypolicy | translate }}
+            </a>
+          </li>
+          <li>
+            <a id="gcc-footer-terms-btn" routerLink="{{ routes.Terms }}">
+              {{ translations.footer.item.terms | translate }}
+            </a>
+          </li>
+        </ul>
+      </section>
+      <section class="footer-column">
+        <h3>{{ translations.footer.title.connect | translate }}</h3>
+        <ul>
+          <li>
+            <a id="gcc-footer-faqs-btn" href="https://support.gccollab.ca" target="_blank">
+              {{ translations.footer.item.faq | translate }}
+            </a>
+          </li>
+          <li>
+            <a id="gcc-footer-support-btn" href="https://support.gccollab.ca" target="_blank">
+              {{ translations.footer.item.help | translate }}
+            </a>
+          </li>
+        </ul>
+      </section>
+      <section class="footer-column">
+        <div class="canada-logo-container">
+          <img src="https://gccollab.ca//mod/gccollab_theme/graphics/wmms-blk.svg" alt="Canada" aria-label="Symbol of the Government of Canada" />
         </div>
+      </section>
     </div>
+  </div>
 </footer>

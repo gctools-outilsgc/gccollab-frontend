@@ -1,10 +1,10 @@
 # Getting Started
 
-Install [Node](https://nodejs.org/en/blog/release/v16.14.2) at version 18.10.0.  
+Install [Node](https://nodejs.org/en/blog/release/v18.13.0) at version 18.13.0.
 
-Install the Angular CLI at version 16.0.0
+Install the Angular CLI at version 17.0.0
 
-    npm install -g @angular/cli@16.0.0
+    npm install -g @angular/cli@17.0.0
 
 Navigate to the project and Install the packages
 
@@ -16,10 +16,10 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## Contributing
 
-All development should be done in branches that branch off `master`.  Any new dev work should include unit tests that are in a passing state.
+All development should be done in branches that branch off `main`. Any new dev work should include unit tests that are in a passing state.
 
-- Create **a new branch** for your work that branches off of `master`.
-- Once your work is done, open a pull request to merge back into `master`.
+- Create **a new branch** for your work that branches off of `main`.
+- Once your work is done, open a pull request to merge back into `main`.
 - If the pull request has been approved you are free to merge and close your branch.
 
 ## Build
@@ -33,7 +33,7 @@ For more information see the official Angular [documentation](https://angular.io
 
 ## Running haibun end-to-end tests
 
-GCcollab frontend incorporates [Haibun's task-specific modules' integration](https://github.com/withhaibun) for functionality and [accessibility](https://github.com/withhaibun/haibun-web-accessibility-axe). 
+GCcollab frontend incorporates [Haibun's task-specific modules' integration](https://github.com/withhaibun) for functionality and [accessibility](https://github.com/withhaibun/haibun-web-accessibility-axe).
 
 The following describes the testing procedure:
 
@@ -41,8 +41,8 @@ The following describes the testing procedure:
    `cd haibun-e2e-tests`
 2. Install the packages:
    `npm install`
-3. Ensure `http://localhost:4200/` is running. 
-5. Run the tests:
+3. Ensure `http://localhost:4200/` is running.
+4. Run the tests:
    `npm run test`
 
 [![Haibun e2e tests](https://github.com/gctools-outilsgc/gccollab-frontend/actions/workflows/e2e-tests-reviews.yml/badge.svg)](https://github.com/gctools-outilsgc/gccollab-frontend/actions/workflows/e2e-tests-reviews.yml)

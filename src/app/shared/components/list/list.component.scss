@@ -1,0 +1,21 @@
+:host {
+  //display: flex;
+
+  .gcc-list-container {
+    display: flex;
+    overflow: visible;
+    flex-wrap: wrap;
+  }
+
+  .gcc-list-item {
+    flex: 1 1 0px;
+  }
+
+  .gcc-list-previous,
+  .gcc-list-next {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+  }
+}

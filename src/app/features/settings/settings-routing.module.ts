@@ -6,16 +6,16 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: SettingsComponent
+    component: SettingsComponent,
   },
   {
     path: '**',
-    redirectTo: ''
-  }
+    redirectTo: '',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class SettingsRoutingModule { }
+export class SettingsRoutingModule {}

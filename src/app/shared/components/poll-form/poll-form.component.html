@@ -1,0 +1,40 @@
+<form id="gcc-form-poll" [formGroup]="form">
+  <app-editor
+    [label]="translations.forms.poll.description | translate"
+    [hint]="translations.forms.placeholder | translate"
+    [(html)]="model.description"
+    [required]="true"
+    [autofocus]="true"
+    [maxCharacters]="maxLength"
+    [control]="form.controls['description'] | formControl"
+  >
+  </app-editor>
+
+  <div *ngFor="let option of model.options; index as i" class="option-wrapper">
+    <app-input
+      [name]="'option' + option.id"
+      [formControlName]="'option' + option.id"
+      [control]="form.controls['option' + option.id] | formControl"
+      [label]="(translations.forms.poll.option | translate) + ' #' + (i + 1)"
+      [placeholder]="translations.forms.placeholder | translate"
+      [required]="true"
+    >
+    </app-input>
+    <app-button
+      [matButtonType]="'mat-icon-button'"
+      [disabled]="model.options.length <= 2 || form.disabled"
+      [tooltip]="(translations.forms.poll.option_remove | translate) + ' #' + (i + 1)"
+      [tooltipDirection]="tooltipDirection.Above"
+      (click)="removeOption(option)"
+    >
+      <i class="fa-solid fa-trash"></i>
+    </app-button>
+  </div>
+
+  <div class="form-actions">
+    <app-button [matButtonType]="'mat-stroked-button'" [disabled]="model.options.length >= maxOptions || form.disabled" theme="primary-1" (click)="addOption()">
+      <i class="fa-solid fa-circle-plus"></i>
+      {{ translations.forms.poll.option_add | translate }}
+    </app-button>
+  </div>
+</form>

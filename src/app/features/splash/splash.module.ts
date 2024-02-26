@@ -5,13 +5,7 @@ import { SplashRoutingModule } from './splash-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
-  declarations: [
-    SplashComponent
-  ],
-  imports: [
-    CommonModule,
-    SplashRoutingModule,
-    SharedModule
-  ]
+  declarations: [SplashComponent],
+  imports: [CommonModule, SplashRoutingModule, SharedModule],
 })
-export class SplashModule { }
+export class SplashModule {}

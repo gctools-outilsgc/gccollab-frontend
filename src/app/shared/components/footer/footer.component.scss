@@ -1,94 +1,95 @@
-@import "../../../../assets/scss/partials/colors";
-@import "../../../../assets/scss/partials/layout";
+@import '../../../../assets/scss/partials/colors';
+@import '../../../../assets/scss/partials/layout';
 
 footer {
-    background: $primary-1-gradient;
+  width: 100vw;
+  background: $primary-1-gradient;
 
-    h3 {
-        font-size: x-large;
-    }
+  h3 {
+    font-size: x-large;
+  }
 
-    .footer-body {
-        padding: 12px $gutter-desktop;
+  .footer-body {
+    padding: 12px $gutter-desktop;
 
-        .footer-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: stretch;
-            padding: 8px;
+    .footer-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: stretch;
+      padding: 8px;
 
-            ul {
-                list-style: none;
-                padding-left: 0;
-                margin-top: 5px;
-            }
+      ul {
+        list-style: none;
+        padding-left: 0;
+        margin-top: 5px;
+      }
 
-            li {
-                margin-bottom: 14px;
+      li {
+        margin-bottom: 14px;
 
-                a {
-                    color: white;
-                }
-            }
-
-            .footer-column {
-                flex: 1;
-                flex-direction: column;
-                color: white;
-                align-items: flex-start;
-                display: flex;
-                padding-top: 12px;
-
-                section {
-                    flex-direction: column;
-
-                    h3 {
-                        font-weight: bold;  
-                        color: white;
-                    }
-
-                    li:not(:last-child) {
-                        margin-bottom: 20px;
-                    }
-
-                    a {
-                        display: flex;
-                        flex: 1;
-                        text-decoration: none;
-                        color: white;
-                    }
-
-                    a:visited {
-                        color: white;
-                    }
-                } 
-            }
-
-            section:nth-child(2) {
-                margin: 0 1px;
-            }
-
-            section:last-child {
-                max-width: 400px;
-            }
-
-            .canada-logo-container {
-                display: flex;
-                float: right;
-                margin-left: auto; 
-                margin-top: 13px; 
-                width: 100%;
-                height: 100%;
-
-                img {
-                    float: right;
-                    width: 100%;
-                    margin: 20px;
-                    margin-top: 125px;
-                    filter: brightness(0) invert(1);
-                }
-            }
+        a {
+          color: white;
         }
+      }
+
+      .footer-column {
+        flex: 1;
+        flex-direction: column;
+        color: white;
+        align-items: flex-start;
+        display: flex;
+        padding-top: 12px;
+
+        section {
+          flex-direction: column;
+
+          h3 {
+            font-weight: bold;
+            color: white;
+          }
+
+          li:not(:last-child) {
+            margin-bottom: 20px;
+          }
+
+          a {
+            display: flex;
+            flex: 1;
+            text-decoration: none;
+            color: white;
+          }
+
+          a:visited {
+            color: white;
+          }
+        }
+      }
+
+      section:nth-child(2) {
+        margin: 0 1px;
+      }
+
+      section:last-child {
+        max-width: 400px;
+      }
+
+      .canada-logo-container {
+        display: flex;
+        float: right;
+        margin-left: auto;
+        margin-top: 13px;
+        width: 100%;
+        height: 100%;
+
+        img {
+          float: right;
+          width: 100%;
+          margin: 20px;
+          margin-top: 125px;
+          filter: brightness(0) invert(1);
+        }
+      }
     }
+  }
 }

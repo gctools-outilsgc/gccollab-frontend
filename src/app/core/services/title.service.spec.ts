@@ -13,17 +13,17 @@ describe('TitleService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ 
+      imports: [
         TranslateModule.forRoot({
           loader: {
             provide: TranslateLoader,
             useFactory: (http: HttpClient) => new TypescriptLoader(http, 'translations'),
-            deps: [ HttpClient ]
-          }
+            deps: [HttpClient],
+          },
         }),
-        HttpClientModule
+        HttpClientModule,
       ],
-      providers: [ TranslateService, HttpClient ]
+      providers: [TranslateService, HttpClient],
     });
     translateService = TestBed.inject(TranslateService);
     service = TestBed.inject(TitleService);

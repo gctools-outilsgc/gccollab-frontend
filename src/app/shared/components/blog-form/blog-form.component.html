@@ -1,0 +1,47 @@
+<form id="gcc-form-poll" [formGroup]="form">
+  <app-input
+    [value]="model.name"
+    [name]="'name'"
+    formControlName="name"
+    [control]="form.controls['name'] | formControl"
+    [label]="translations.forms.blog.name_of_blog | translate"
+    [placeholder]="translations.forms.placeholder | translate"
+    [autofocus]="true"
+    [required]="true"
+  >
+  </app-input>
+
+  <app-input
+    [value]="model.publisher"
+    [name]="'publisher'"
+    formControlName="publisher"
+    [control]="form.controls['publisher'] | formControl"
+    [label]="translations.forms.blog.name_of_publisher | translate"
+    [placeholder]="translations.forms.placeholder | translate"
+    [required]="true"
+  >
+  </app-input>
+
+  <app-file-select [label]="translations.forms.blog.upload_cover_photo | translate" [control]="form.controls['coverPhoto'] | formControl"> </app-file-select>
+
+  <app-input
+    [value]="model.coverPhotoAlt"
+    [name]="'coverPhotoAlt'"
+    formControlName="coverPhotoAlt"
+    [control]="form.controls['coverPhotoAlt'] | formControl"
+    [label]="translations.forms.blog.cover_photo_alt | translate"
+    [placeholder]="translations.forms.placeholder | translate"
+    [required]="true"
+  >
+  </app-input>
+
+  <app-editor
+    [label]="translations.forms.blog.body | translate"
+    [hint]="translations.forms.placeholder | translate"
+    [(html)]="model.description"
+    [required]="true"
+    [maxCharacters]="maxBlogLength"
+    [control]="form.controls['description'] | formControl"
+  >
+  </app-editor>
+</form>

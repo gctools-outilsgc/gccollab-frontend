@@ -1,17 +1,18 @@
-# This action will create the azure resources, github secret, github environment, and deploy the app when a PR once is opened.
+# This action will create the azure resources, github secret, github environment, and deploy the app when a PR is opened, reopened, or synchronized.
+# https://github.com/Azure/webapps-deploy/issues/28
 
 name: Deploy PR
 
 on:
   pull_request:
-    types: [opened, reopened]
-    branches: master
+    types: [opened, reopened, synchronize]
+    branches: main
 
 env:
   AZURE_WEBAPP_NAME: gccollab-dev-pr-${{ github.event.number }}
   AZURE_WEBAPP_PACKAGE_PATH: './dist/gccollab-frontend'
-  NODE_VERSION: '16.14.2'
-  ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+  NODE_VERSION: '18.13.0'
+  ACCESS_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
   LOCATION: canadaeast
   SECRET_NAME: PR_${{ github.event.number }}
 
@@ -19,8 +20,9 @@ jobs:
   setup:
     name: Deploy Bicep
     runs-on: ubuntu-latest
+    if: ${{ !contains(github.event.pull_request.title, vars.IGNORE_DEPLOY) }}
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v3
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -30,54 +32,63 @@ jobs:
         with:
           azcliversion: 2.30.0
           inlineScript: |
-            az deployment sub create -l ${{ env.LOCATION }} -f ./.bicep/pr-instance-setup.bicep --parameters prNumber=${{ github.event.number }} location=${{ env.LOCATION }}
+            if [[ ${{ github.event.action }} != "synchronize" ]]; then
+              az deployment sub create -l ${{ env.LOCATION }} -f ./.bicep/pr-instance-setup.bicep --parameters prNumber=${{ github.event.number }} location=${{ env.LOCATION }}
+            else
+              echo "The Azure resources have already been created."
+            fi
 
   store:
     name: Store Publishing Profile
     runs-on: ubuntu-latest
     needs: setup
+    if: ${{ !contains(github.event.pull_request.title, vars.IGNORE_DEPLOY) }}
     steps:
       - name: Azure Login
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-    
+
       - name: Get Publishing Profile
         id: get-publishing-profile
         run: |
-          profile=$(az webapp deployment list-publishing-profiles --resource-group ${{ env.AZURE_WEBAPP_NAME }} --name ${{ env.AZURE_WEBAPP_NAME }} --xml | sed -e 's|\"<|<|g' | sed -e 's|>\"|>|g' | sed -e 's|\\"|"|g' | sed -e 's|\\\\|\\|g')
-          echo "::set-output name=profile::$profile"
+          profile=$(az webapp deployment list-publishing-profiles --resource-group ${{ env.AZURE_WEBAPP_NAME }} --name ${{ env.AZURE_WEBAPP_NAME }} --xml | sed -e 's|\"<|<|g' | sed -e 's|>\"|>|g' | sed -e 's|\\"|"|g' | sed -e 's|\\\\|\\|g') > /dev/null
+          echo "::set-output name=profile::$profile" > /dev/null
 
       - name: GitHub Auth Login
         shell: bash
         run: gh auth login --with-token <<< ${{ env.ACCESS_TOKEN }}
 
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v3
       - name: Create Secret
-        run: |
-          escaped_profile=$(printf "%q" "${{ env.PROFILE }}")
-          gh secret set "${{ env.SECRET_NAME }}" --body "$escaped_profile"
+        run: gh secret set "${{ env.SECRET_NAME }}" --body "${{ env.PROFILE }}"
         env:
           PROFILE: ${{ steps.get-publishing-profile.outputs.profile }}
 
   create-environment:
-    name: Create Environment 
+    name: Create Environment
     runs-on: ubuntu-latest
     needs: [setup, store]
+    if: ${{ !contains(github.event.pull_request.title, vars.IGNORE_DEPLOY) }}
     steps:
       - name: Create Environment
         shell: bash
         run: |
-          curl -X POST "https://api.github.com/repos/gctools-outilsgc/gccollab-frontend/environments" \
-          -H "Authorization: token ${{ env.ACCESS_TOKEN }}" \
-          -H "Accept: application/vnd.github.v3+json" \
-          -d "{\"name\":\"PR ${{ github.event.number }}\"}"
+          if [[ ${{ github.event.action }} != "synchronize" ]]; then
+            curl -X POST "https://api.github.com/repos/gctools-outilsgc/gccollab-frontend/environments" \
+            -H "Authorization: token ${{ env.ACCESS_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            -d "{\"name\":\"PR ${{ github.event.number }}\"}"
+          else
+            echo "Environment has already been created."
+          fi
 
   build-test-and-deploy:
     name: Build, Test and Deploy
     runs-on: windows-latest
     needs: [setup, store, create-environment]
-    environment: 
+    if: ${{ !contains(github.event.pull_request.title, vars.IGNORE_DEPLOY) }}
+    environment:
       name: PR ${{ github.event.number }}
       url: https://${{ env.AZURE_WEBAPP_NAME }}.azurewebsites.net/
     steps:
@@ -91,7 +102,7 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npm run build-dev --if-present
+        run: npm run build-pr --if-present
 
       - name: Test
         run: npm run test --if-present -- --watch=false --browsers=ChromeHeadless
@@ -103,7 +114,7 @@ jobs:
 
       - name: 'Deploy to Azure WebApp'
         uses: azure/webapps-deploy@v1
-        with: 
+        with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets[env.SECRET_NAME] }}
           package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
