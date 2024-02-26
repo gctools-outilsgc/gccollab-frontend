@@ -1,10 +1,12 @@
 <form id="gcc-form-post" [formGroup]="form">
-    <app-editor [label]="translations.forms.post.post | translate"
-                [hint]="translations.forms.placeholder | translate"
-                [html]="model.description"
-                [control]="form.controls['description'] | formControl"
-                [minCharacters]="minLength"
-                [maxCharacters]="maxLength"
-                [required]="true">
-    </app-editor>
+  <app-editor
+    [label]="translations.forms.post.post | translate"
+    [hint]="translations.forms.placeholder | translate"
+    [html]="model.description"
+    [control]="form.controls['description'] | formControl"
+    [minCharacters]="minLength"
+    [maxCharacters]="maxLength"
+    [required]="true"
+  >
+  </app-editor>
 </form>

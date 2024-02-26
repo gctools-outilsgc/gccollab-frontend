@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Person } from 'src/app/core/models/person';
+import { Person } from 'src/app/core/models/person.model';
 import { Translations } from 'src/app/core/services/translations.service';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { CoreRoutes } from 'src/app/core/constants/routes.constants';
@@ -9,16 +10,16 @@ import { CoreRoutes } from 'src/app/core/constants/routes.constants';
   selector: 'app-profile-pic',
   templateUrl: './profile-pic.component.html',
   styleUrls: ['./profile-pic.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProfilePicComponent {
-
   @Input() model: Person | undefined;
   @Input() loading: boolean = false;
 
-  constructor (public translations: Translations,
-               private router: Router)
-  {}
+  constructor(
+    public translations: Translations,
+    private router: Router
+  ) {}
 
   onClick(): void {
     if (this.model) {

@@ -1,37 +1,37 @@
 :host {
-    app-editor {
-        padding-bottom: 30px;
+  app-editor {
+    padding-bottom: 30px;
+  }
+
+  .option-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    app-button {
+      flex-basis: 0;
+      padding-left: 10px;
     }
 
-    .option-wrapper {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-
-        app-button {
-            flex-basis: 0;
-            padding-left: 10px
-        }
-
-        app-input {
-            flex-basis: 100%;
-        }
+    app-input {
+      flex-basis: 100%;
     }
+  }
 
-    .form-actions {
-        padding: 15px 0 30px 0;
+  .form-actions {
+    padding: 15px 0 30px 0;
 
-        app-button {
-            display: table;
-    
-            ::ng-deep {
-                .gcc-button-inner {
-                    letter-spacing: 1px;
-                }
-            }
+    app-button {
+      display: table;
+
+      ::ng-deep {
+        .gcc-button-inner {
+          letter-spacing: 1px;
         }
-        app-button:not(:first-child) {
-            padding-top: 30px
-        }
+      }
     }
+    app-button:not(:first-child) {
+      padding-top: 30px;
+    }
+  }
 }

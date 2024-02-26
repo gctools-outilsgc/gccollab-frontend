@@ -1,30 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
 import { Translations } from 'src/app/core/services/translations.service';
 import { InputType } from 'src/app/shared/models/input-type';
 
-import { NewsItem } from '../news-feed/models/news-item';
+import { INewsItem } from '../news-feed/models/INewsItem';
 import { NewsService } from 'src/app/core/services/news.service';
-import { Observable, Subscription } from 'rxjs';
 import { Event } from '../events/models/event';
 import { EventService } from 'src/app/core/services/event.service';
 import { CoreRoutes } from 'src/app/core/constants/routes.constants';
-import { Person } from 'src/app/core/models/person';
+import { Person } from 'src/app/core/models/person.model';
 import { PeopleService } from 'src/app/core/services/people.service';
 import { Group } from '../groups/models/group';
 import { GroupService } from 'src/app/core/services/group.service';
 
 @Component({
+  selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-
   inputType = InputType.Password;
   routes = CoreRoutes;
 
   // News
-  newsItems: NewsItem[] = [];
+  newsItems: INewsItem[] = [];
   newsPage: number = 1;
   loadingNews: boolean = true;
 
@@ -43,31 +41,31 @@ export class HomeComponent implements OnInit {
   groupsPage: number = 1;
   loadingGroups: boolean = true;
 
-  constructor(public translations: Translations, 
-              private newsService: NewsService, 
-              private eventService: EventService, 
-              private peopleService: PeopleService,
-              private groupService: GroupService) {
-
-  }
+  constructor(
+    public translations: Translations,
+    public newsService: NewsService,
+    public eventService: EventService,
+    public peopleService: PeopleService,
+    public groupService: GroupService
+  ) {}
 
   ngOnInit(): void {
-    this.newsService.mockGetNewsItems(10, 5000).subscribe((newsItems: NewsItem[]) => {
+    this.newsService.getMany(10, 5000).subscribe((newsItems: INewsItem[]) => {
       this.newsItems = newsItems;
       this.loadingNews = false;
     });
 
-    this.eventService.mockGetEvents(3, 5000).subscribe((events: Event[]) => {
+    this.eventService.getMany(3, 5000).subscribe((events: Event[]) => {
       this.events = events;
       this.loadingEvents = false;
     });
 
-    this.peopleService.mockGetPeople(3, 5000).subscribe((people: Person[]) => {
+    this.peopleService.getMany(3, 5000).subscribe((people: Person[]) => {
       this.people = people;
       this.loadingPeople = false;
     });
 
-    this.groupService.mockGetGroups(3, 5000).subscribe((groups: Group[]) => {
+    this.groupService.getMany(3, 5000).subscribe((groups: Group[]) => {
       this.groups = groups;
       this.loadingGroups = false;
     });
@@ -75,8 +73,8 @@ export class HomeComponent implements OnInit {
 
   onNewsScroll(): void {
     this.loadingNews = true;
-    
-    this.newsService.mockGetNewsItems(10, 3000).subscribe((newsItems: NewsItem[]) => {
+
+    this.newsService.getMany(10, 3000).subscribe((newsItems: INewsItem[]) => {
       this.newsItems.push(...newsItems);
       this.loadingNews = false;
     });
@@ -101,5 +99,4 @@ export class HomeComponent implements OnInit {
     console.log('Connection Declined');
     console.log(person);
   }
-
 }

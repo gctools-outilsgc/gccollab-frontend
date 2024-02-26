@@ -1,12 +1,12 @@
-import { TranslateService } from "@ngx-translate/core/lib/translate.service";
-import { NgxEditorConfig } from "ngx-editor";
-import { Translations } from "src/app/core/services/translations.service";
+import { TranslateService } from '@ngx-translate/core/lib/translate.service';
+import { NgxEditorConfig } from 'ngx-editor';
+import { Translations } from 'src/app/core/services/translations.service';
 
 export function ngxEditorConfigFactory(translateService: TranslateService, translations: Translations): NgxEditorConfig {
-    return {
-      locals: ngxEditorLocals(translateService, translations)
-    };
-  }
+  return {
+    locals: ngxEditorLocals(translateService, translations),
+  };
+}
 
 export function ngxEditorLocals(translateService: TranslateService, translations: Translations) {
   return {
@@ -43,5 +43,5 @@ export function ngxEditorLocals(translateService: TranslateService, translations
     remove: translateService.instant(translations.editor.remove),
     horizontal_rule: translateService.instant(translations.editor.horizontalrule),
     format_clear: translateService.instant(translations.editor.formatclear),
-  }
+  };
 }

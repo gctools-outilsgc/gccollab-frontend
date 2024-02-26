@@ -13,20 +13,19 @@ describe('LoginComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoginComponent ],
-      imports: [ 
+      declarations: [LoginComponent],
+      imports: [
         TranslateModule.forRoot({
           loader: {
             provide: TranslateLoader,
             useFactory: (http: HttpClient) => new TypescriptLoader(http, 'translations'),
-            deps: [ HttpClient ]
-          }
+            deps: [HttpClient],
+          },
         }),
-        HttpClientModule
+        HttpClientModule,
       ],
-      providers: [ TranslateService, HttpClient ]
-    })
-    .compileComponents();
+      providers: [TranslateService, HttpClient],
+    }).compileComponents();
 
     translateService = TestBed.inject(TranslateService);
     fixture = TestBed.createComponent(LoginComponent);

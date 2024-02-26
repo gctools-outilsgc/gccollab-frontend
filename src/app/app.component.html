@@ -1,19 +1,11 @@
-<app-header *ngIf="showHeaderFooter" 
-            (headerToggleEvent)="headerToggleEvent($event)" 
-            [activeRoute]="activeRoute">
-</app-header>
-<app-banner *ngIf="showBanner" 
-            [model]="banner"
-            [headerExpanded]="showSearchBar">
-</app-banner>
+<app-header *ngIf="showHeaderFooter" (headerToggleEvent)="headerToggleEvent($event)" [activeRoute]="activeRoute"> </app-header>
 
 <!-- <app-page-title *ngIf="showHeaderFooter" 
                 [headerExpanded]="showSearchBar">
 </app-page-title> -->
 
-<div [ngClass]="showHeaderFooter ? 'gcc-main' + (banner ? '' : (showSearchBar ? ' gcc-header-expanded' : ' gcc-header'))  : ''">
-    <router-outlet></router-outlet>
+<div class="gcc-main" [ngClass]="showSearchBar ? 'gcc-header-expanded' : 'gcc-header'">
+  <router-outlet></router-outlet>
 </div>
 
-<app-footer *ngIf="showHeaderFooter">
-</app-footer>
+<app-footer *ngIf="showHeaderFooter"> </app-footer>

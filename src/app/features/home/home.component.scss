@@ -2,63 +2,43 @@
 @import '../../../assets/scss/partials/colors';
 
 :host {
-    .page-title {
-        h1 {
-            margin-top: 0;
-            margin-bottom: 48px;
-        }
+  .news-container {
+    width: 66%;
+    padding-right: $grid-step;
+
+    app-post {
+      display: block;
+      padding-bottom: 40px;
     }
 
-    .page-container {
-        display: flex;
-        flex-direction: row;
-        min-height: 500px;
-        
-        .news-container {
-            width: 66%;
-            padding-right: $grid-step;
-
-            > div {
-                max-height: 100vh;
-                min-height: 100%;
-                overflow: auto;
-                padding: 0 22px 0 22px;
-            }
-        }
-
-        .side-content {
-            width: 33%;
-            min-width: 300px;
-
-            section {
-                .click-for-more {
-                    text-align: center;
-                    font-weight: 700;
-                    padding: 10px 0;
-
-                    a {
-                        color: $primary-2;
-                    }
-
-                    a:hover, a:focus {
-                        text-decoration: underline;
-                    }
-                }
-            }
-
-            section:not(:last-child) {
-                padding-bottom: 44px;
-            }
-        }
+    > div {
+      padding: 0 22px 0 22px;
     }
+  }
 
-    .loading {
-        align-items: center;
-        display: flex;
+  section {
+    .click-for-more {
+      text-align: center;
+      font-weight: 700;
+      padding: 10px 0;
 
-        i {
-            margin: auto;
-            color: $primary-2;
-        }
+      a {
+        color: $primary-2;
+      }
+
+      a:hover,
+      a:focus {
+        text-decoration: underline;
+      }
     }
+  }
+
+  section:not(:last-child) {
+    padding-bottom: 44px;
+  }
+
+  app-news-list {
+    padding-top: 40px;
+    display: block;
+  }
 }

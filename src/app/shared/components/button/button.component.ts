@@ -1,34 +1,36 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { ButtonType } from '../../models/button-type';
 import { MaterialButtonType } from '../../models/material-button-type';
 import { MaterialColor } from '../../models/material-color';
 import { TooltipDirection } from '../../models/tooltip-direction';
+import { Theme } from '../../models/theme';
 
 @Component({
   selector: 'app-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ButtonComponent implements OnInit {
-
-  @Input() id: string = '';
-  @Input() name: string = '';
-  @Input() value: string = '';
-  @Input() tooltip: string = '';
+export class ButtonComponent {
+  @Input() btnId!: string;
+  @Input() name!: string;
+  @Input() value!: string;
+  @Input() tooltip!: string;
   @Input() tooltipDirection: TooltipDirection = TooltipDirection.Below;
-  @Input() ariaLabel: string = '';
-  @Input() type: ButtonType = ButtonType.Button;
-  @Input() matButtonType: MaterialButtonType = MaterialButtonType.Raised;
-  @Input() matColor: MaterialColor = MaterialColor.Primary; // TODO: Implement this so it defaults to primary contrast
+  @Input() ariaLabel!: string;
+  @Input() type: ButtonType | string = ButtonType.Button;
+  @Input() matButtonType: MaterialButtonType | string = MaterialButtonType.Raised;
+  @Input() matColor: MaterialColor | string = '';
   @Input() disabled: boolean = false;
   @Input() autofocus: boolean = false;
-  @Input() matIcon: string = '';
+  @Input() matIcon!: string;
   @Input() fontSize: string = 'inherit';
+  @Input() form!: string;
+  @Input() theme: Theme | string = Theme.Black;
+  @Input() clickFunc: () => unknown = () => {};
+  @Input() blurFunc: () => unknown = () => {};
 
-  constructor() { }
+  public materialButtonType = MaterialButtonType;
 
-  ngOnInit(): void {
-  }
-
+  constructor() {}
 }

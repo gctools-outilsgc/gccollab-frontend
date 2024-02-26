@@ -14,23 +14,19 @@ describe('HomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeComponent ],
-      imports: [ 
+      declarations: [HomeComponent],
+      imports: [
         TranslateModule.forRoot({
           loader: {
             provide: TranslateLoader,
             useFactory: (http: HttpClient) => new TypescriptLoader(http, 'translations'),
-            deps: [ HttpClient ]
-          }
+            deps: [HttpClient],
+          },
         }),
-        HttpClientModule
+        HttpClientModule,
       ],
-      providers: [
-        TranslateService, 
-        HttpClient,
-      ]
-    })
-    .compileComponents();
+      providers: [TranslateService, HttpClient],
+    }).compileComponents();
 
     translateService = TestBed.inject(TranslateService);
     fixture = TestBed.createComponent(HomeComponent);

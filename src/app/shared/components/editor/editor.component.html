@@ -1,12 +1,73 @@
-<div class="NgxEditor__Wrapper">
-    <ngx-editor-menu 
-        [editor]="editor" 
-        [toolbar]="toolbar">
-    </ngx-editor-menu>
-    <ngx-editor 
-        [editor]="editor" 
-        [ngModel]="html" 
-        [disabled]="false" 
-        [placeholder]="placeholderText()">
-    </ngx-editor>
+<mat-label *ngIf="label" [ngClass]="control && control.disabled ? 'disabled' : ''">
+  {{ label }}
+  <div *ngIf="required" class="required-star">*</div>
+  <!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events -->
+  <i
+    *ngIf="hint"
+    tabindex="0"
+    [ngClass]="{ 'fa-circle-xmark': showHint, 'fa-circle-question': !showHint }"
+    class="fa-regular"
+    [matTooltip]="showHint ? (translations.input.hint.hide.text | translate) : (translations.input.hint.show.text | translate)"
+    [attr.aria-label]="showHint ? (translations.input.hint.hide.aria | translate) : (translations.input.hint.show.aria | translate)"
+    [matTooltipPosition]="tooltipDirection.Right"
+    (click)="showHint = !showHint"
+  >
+  </i>
+</mat-label>
+
+<div
+  #gccEditor
+  class="NgxEditor__Wrapper"
+  [ngClass]="{
+    focus: hasFocus,
+    disabled: control && control.disabled,
+    error: !hasFocus && control && control.touched && !control.valid
+  }"
+>
+  <ngx-editor-menu [editor]="editor" [toolbar]="toolbar" [disabled]="control && control.disabled"> </ngx-editor-menu>
+  <ngx-editor
+    [editor]="editor"
+    [(ngModel)]="html"
+    (ngModelChange)="onInputChange($event); updateCharacterCount($event, false)"
+    [placeholder]="this.translations.editor.placeholder | translate"
+    [formControl]="control"
+    [required]="required"
+  >
+  </ngx-editor>
+  <div
+    *ngIf="minCharacters > 0 || maxCharacters !== Number.MAX_VALUE"
+    [ngClass]="control && control.touched && !control.valid && (characterCount > maxCharacters || characterCount < minCharacters) ? 'error' : ''"
+    class="character-count"
+  >
+    {{ characterCount }} / {{ maxCharacters }}
+  </div>
 </div>
+
+<mat-hint *ngIf="hint && showHint">
+  {{ hint }}
+</mat-hint>
+
+<mat-error *ngIf="control && control.hasError('minlength') && !control.hasError('required')">
+  {{ translations.input.error.minLength | translate }}
+  {{ control.errors!['minlength'].requiredLength }}.
+</mat-error>
+
+<mat-error *ngIf="control && control.hasError('maxlength') && !control.hasError('required')">
+  {{ translations.input.error.maxLength | translate }}
+  {{ control.errors!['maxlength'].requiredLength }}.
+</mat-error>
+
+<mat-error *ngIf="control && control.touched && control.hasError('required')"> {{ label }} {{ translations.input.error.required | translate }} </mat-error>
+
+<!-- In ngx-editor-menu -->
+<!-- [customMenuRef]="customMenu"  -->
+
+<ng-template #customMenu>
+  <app-editor-menu [editor]="editor"></app-editor-menu>
+</ng-template>
+
+<!-- https://github.com/KillerCodeMonkey/ng-quill/issues/80 -->
+<!-- https://github.com/KillerCodeMonkey/ngx-quill-example/blob/master/src/app/custom-toolbar/custom-toolbar.component.html#L50 -->
+<!-- https://dsebastien.medium.com/dynamically-customizing-quill-ngx-quill-editors-in-an-angular-application-b81c75bc4a6 -->
+
+<!-- https://stackoverflow.com/questions/59602182/quill-add-image-url-instead-of-uploading-it -->

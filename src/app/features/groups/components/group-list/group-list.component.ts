@@ -5,7 +5,7 @@ import { Group } from '../../models/group';
   selector: 'app-group-list',
   templateUrl: './group-list.component.html',
   styleUrls: ['./group-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GroupListComponent {
   @Input() model?: Group[];
@@ -16,7 +16,7 @@ export class GroupListComponent {
 
   constructor() {
     this.loadingItems = [];
-    
+
     for (let i = 0; i < this.loadingCount; i++) {
       this.loadingItems.push(i);
     }

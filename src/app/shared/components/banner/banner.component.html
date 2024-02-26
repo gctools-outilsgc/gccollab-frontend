@@ -1,16 +1,6 @@
-<div class="banner" 
-     [ngClass]="headerExpanded ? 'gcc-header-expanded' : 'gcc-header'"
-     [ngStyle]="{'background': 'url(' + model?.backgroundImage + ')'}">
-  <div *ngIf="model" class="banner-text-container">
-    <div class="top">
-      <div>
-        {{ model.textTop | translate }}
-      </div>
-    </div>
-    <div class="bottom">
-      <div>
-        {{ model.textBottom | translate }}
-      </div>
-    </div>
+<div class="banner" [ngClass]="headerExpanded ? 'gcc-header-expanded' : 'gcc-header'" [ngStyle]="{ background: 'url(' + model?.backgroundImage + ')' }">
+  <div *ngIf="model" class="banner-content-container">
+    <ng-content></ng-content>
   </div>
-</div> 
+  <ngx-skeleton-loader *ngIf="loading" count="1" appearance="line" animation="progress"></ngx-skeleton-loader>
+</div>
