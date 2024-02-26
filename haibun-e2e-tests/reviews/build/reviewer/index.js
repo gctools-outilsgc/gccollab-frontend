@@ -1,7 +1,7 @@
 /**
  * Bundle of haibun-reviews-dashboard
- * Generated: 2024-01-24
- * Version: 1.34.5
+ * Generated: 2024-02-01
+ * Version: 1.35.5
  * Dependencies:
  *
  * tslib -- 2.6.2
@@ -289,6 +289,9 @@ const actionName = (logHistory) => {
     return logHistory.messageContext?.topic?.step?.actions[0].actionName;
 };
 
+const VIEW_RESULTS = 'results';
+const VIEW_EVERYTHING = 'everything';
+const VIEW_DOCUMENTATION = 'documentation';
 const router = () => globalThis._router;
 let ReviewsGroups = class ReviewsGroups extends s$5 {
     foundHistories;
@@ -319,11 +322,11 @@ __decorate([
 ReviewsGroups = __decorate([
     t$5('reviews-groups')
 ], ReviewsGroups);
-const views = ['results', 'everything', 'documentation'];
+const views = [VIEW_RESULTS, VIEW_EVERYTHING, VIEW_DOCUMENTATION];
 let AReview = class AReview extends s$5 {
     reviewLD;
     detail;
-    view = 'results';
+    view = VIEW_RESULTS;
     static styles = [controls, i$7 `.review-body {
       display: flex;
     }
@@ -344,25 +347,26 @@ let AReview = class AReview extends s$5 {
         await super.connectedCallback();
     }
     currentFilter = (h) => {
-        if (this.view === 'everything') {
+        if (this.view === VIEW_EVERYTHING) {
             return true;
         }
-        if (this.view === 'results') {
-            return (asActionResult(h) || (asArtifact(h) && asArtifact(h)?.messageContext?.topic?.event !== 'debug'));
-        }
         const action = asActionResult(h);
+        if (this.view === VIEW_RESULTS) {
+            return (!!action || (asArtifact(h) && asArtifact(h)?.messageContext?.topic?.event !== 'debug'));
+        }
+        // VIEW_DOCUMENTATION
         if (action) {
             const { actionName, stepperName } = action.messageContext.topic.step.actions[0];
-            // FIXME this should be mapped to something like log level
-            if (!['set', 'setAll'].includes(actionName) && !['WebServerStepper'].includes(stepperName)) {
-                return true;
+            console.log('xx', actionName, stepperName);
+            if (['set', 'setAll'].includes(actionName)) {
+                return false;
             }
-            return false;
+            return true;
         }
-        return (asArtifact(h) && asArtifact(h)?.messageContext?.topic?.event !== 'debug');
+        return ((asArtifact(h) || {})?.messageContext?.topic?.event !== 'debug');
     };
     render() {
-        const viewStyle = this.view === 'documentation' ? x$1 `<style>${documentation}</style>` : T$1;
+        const viewStyle = this.view === VIEW_DOCUMENTATION ? x$1 `<style>${documentation}</style>` : T$1;
         if (!this.reviewLD) {
             return x$1 `<h1>No data</h1>`;
         }
@@ -383,7 +387,7 @@ let AReview = class AReview extends s$5 {
         <div class="review-body">
           <div>
           ${(this.reviewLD.logHistory).filter(this.currentFilter).map(h => {
-            return x$1 `<review-step class="left-container" ?showLogLevel=${this.view !== 'documentation'} .logHistory=${h} @show-detail=${this.handleShowDetail}> .view=${this.view}></review-step>`;
+            return x$1 `<review-step class="left-container" ?showLogLevel=${this.view !== VIEW_DOCUMENTATION} .logHistory=${h} @show-detail=${this.handleShowDetail}> .view=${this.view}></review-step>`;
         })}
           </div>
           <div class="detail-container">
@@ -499,8 +503,12 @@ function getDetailContent(artifact) {
         return x$1 `${o$5(artifact.content)}`;
     }
     else if (artifact.type.startsWith('json')) {
-        // return html`<div class="code">${JSON.stringify(artifact.content, null, 2)}</div>`;
-        return x$1 `<json-view-clipboard .json=${JSON.parse(artifact.content)}></json-view-clipboard>`;
+        try {
+            return x$1 `<json-view-clipboard .json=${JSON.parse(artifact.content)}></json-view-clipboard>`;
+        }
+        catch (e) {
+            return x$1 `<div class="code">Not JSON: ${artifact.content}</div>`;
+        }
     }
     else if (artifact.type === 'video') {
         const videoPath = artifact?.path;

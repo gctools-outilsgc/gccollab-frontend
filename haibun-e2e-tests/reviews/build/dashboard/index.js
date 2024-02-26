@@ -1,7 +1,7 @@
 /**
  * Bundle of haibun-reviews-dashboard
- * Generated: 2024-01-24
- * Version: 1.34.5
+ * Generated: 2024-02-01
+ * Version: 1.35.5
  * Dependencies:
  */
 
