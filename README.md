@@ -48,4 +48,3 @@ The following describes the testing procedure:
 [![Haibun e2e tests](https://github.com/gctools-outilsgc/gccollab-frontend/actions/workflows/e2e-tests-reviews.yml/badge.svg)](https://github.com/gctools-outilsgc/gccollab-frontend/actions/workflows/e2e-tests-reviews.yml)
 
 E2E test reviews are available [here](https://gctools-outilsgc.github.io/gccollab-frontend/haibun-e2e-tests/reviews/dashboard.html)
-

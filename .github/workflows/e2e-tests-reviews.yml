@@ -1,4 +1,4 @@
-name: "Haibun e2e tests"
+name: 'Haibun e2e tests'
 
 on:
   workflow_dispatch:
@@ -13,7 +13,7 @@ permissions:
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
-  group: "${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}"
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
   cancel-in-progress: true
 
 jobs:
@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3.5.1
       - uses: actions/checkout@v4
-      # - uses: fregante/setup-git-user@v2
+        # - uses: fregante/setup-git-user@v2
         with:
           repository: gctools-outilsgc/gccollab-frontend
           token: ${{ secrets.BOT_ACCESS_TOKEN }}
@@ -54,7 +54,7 @@ jobs:
         run: |
           npx playwright install-deps
           npx playwright install
-        
+
       - name: Run tests
         continue-on-error: true
         run: |
@@ -74,5 +74,4 @@ jobs:
 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "update e2e test reviews"
-
+          commit_message: 'update e2e test reviews'
