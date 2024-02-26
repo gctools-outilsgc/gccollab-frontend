@@ -36,8 +36,8 @@ jobs:
 
       - name: Merge base branch
         run: |
-          git fetch origin e2e-tests-reviews
-          git merge --allow-unrelated-histories -X theirs origin/e2e-tests-reviews
+          git fetch origin main
+          git merge --allow-unrelated-histories -X theirs origin/main
 
       - name: Install frontend dependencies
         run: npm ci
