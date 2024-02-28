@@ -1,103 +1,113 @@
 <div class="gcc-calendar-wrapper" [ngClass]="{'loading': loading}">
+
     <div class="header">
-        <app-button theme="primary-1"
-                    matButtonType="mat-icon-button"
-                    [tooltip]="previousButtonTitle | translate"
-                    [tooltipDirection]="TooltipDirection.Left"
-                    [ariaLabel]="previousButtonAria | translate"
-                    [disabled]="loading"
-                    (click)="navigateCalendar(-1)">
-            <i class="fa-solid fa-caret-left"></i>
-        </app-button>
-    
-        <span>{{ date | localizedDate : dateFormat | titlecase }}</span>
+
+        <!-- Left Actions-->
+        <div class="left-actions">
+
+            <!-- Add Event -->
+            <app-button theme="black"
+                        matButtonType="mat-icon-button"
+                        [tooltip]="'TODO' | translate"
+                        [tooltipDirection]="TooltipDirection.Above"
+                        [ariaLabel]="'TODO'"
+                        [disabled]="loading"
+                        (click)="navigateCalendar(-1)">
+                <i class="fa-solid fa-calendar-plus fa-lg"></i>
+            </app-button>
+
+            <!-- Search -->
+            <form id="gcc-form-calendar-search">
+                <app-input *ngIf="searchActive" 
+                           [name]="'calendarSearch'" 
+                           [label]="'calendarSearch'"
+                           [placeholder]="'Search calendar'"
+                           [icon]="'fa-solid fa-magnifying-glass fa-lg'">
+                </app-input>
+                <app-button *ngIf="!searchActive"
+                            theme="black"
+                            matButtonType="mat-icon-button"
+                            [tooltip]="'TODO' | translate"
+                            [tooltipDirection]="TooltipDirection.Above"
+                            [ariaLabel]="'TODO' | translate"
+                            [disabled]="loading"
+                            [clickFunc]="toggleSearch">
+                    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+                </app-button>
+            </form>
+            
+        </div>
+
+        <!-- Middle Actions-->
+        <div class="middle-actions">
+
+            <!-- Nav Previous-->
+            <app-button theme="black"
+                        matButtonType="mat-icon-button"
+                        [tooltip]="previousButtonTitle | translate"
+                        [tooltipDirection]="TooltipDirection.Left"
+                        [ariaLabel]="previousButtonAria | translate"
+                        [disabled]="loading"
+                        (click)="navigateCalendar(-1)">
+                <i class="fa-solid fa-angle-left fa-lg"></i>
+            </app-button>
         
-        <app-button theme="primary-1"
-                    matButtonType="mat-icon-button"
-                    [tooltip]="nextButtonTitle | translate"
-                    [tooltipDirection]="TooltipDirection.Right"
-                    [ariaLabel]="nextButtonAria | translate"
-                    [disabled]="loading"
-                    (click)="navigateCalendar(1)">
-            <i class="fa-solid fa-caret-right"></i>
-        </app-button>
+            <!-- Date -->
+            <span>{{ date | localizedDate : dateFormat | titlecase }}</span>
+
+            <!-- Nav Next -->
+            <app-button theme="black"
+                        matButtonType="mat-icon-button"
+                        [tooltip]="nextButtonTitle | translate"
+                        [tooltipDirection]="TooltipDirection.Right"
+                        [ariaLabel]="nextButtonAria | translate"
+                        [disabled]="loading"
+                        (click)="navigateCalendar(1)">
+                <i class="fa-solid fa-angle-right fa-lg"></i>
+            </app-button>
+        </div>
+
+        <!-- Right Actions -->
+        <div class="right-actions">
+            
+        </div>
     </div>
 
-    <!-- Month / Week View -->
-    <div *ngIf="view === CalendarView.Month || view === CalendarView.Week">
+    <div>
+        <!-- Days of the Week -->
         <div class="weekdays">
-            <div class="day">{{ translations.calendar.days.short.sun | translate }}</div>
-            <div class="day">{{ translations.calendar.days.short.mon | translate }}</div>
-            <div class="day">{{ translations.calendar.days.short.tue | translate }}</div>
-            <div class="day">{{ translations.calendar.days.short.wed | translate }}</div>
-            <div class="day">{{ translations.calendar.days.short.thu | translate }}</div>
-            <div class="day">{{ translations.calendar.days.short.fri | translate }}</div>
-            <div class="day">{{ translations.calendar.days.short.sat | translate }}</div>
+            @for (weekday of weekdays; track $index) {
+                <div class="day" [class.today]="weekday.isToday">
+                    {{ weekday.title | translate }}
+                </div>
+            }
         </div>
 
         <div class="calendar" [ngStyle]="calendarStyle">
-        
-            <app-calendar-day *ngFor="let day of datesPaddingPre"
-                              [calendarDate]="day"
-                              [view]="view"
-                              [outsideOfMonth]="true"
-                              [eventRows]="eventRows"
-                              [outline]="daysOutlined"
-                              [loading]="loading"
-                              (dayClick)="dayClick(day)">
-            </app-calendar-day>
-        
-            <app-calendar-day *ngFor="let day of dates; index as i"
-                              [calendarDate]="day"
-                              [view]="view"
-                              [active]="i === activeDayIndex"
-                              [eventRows]="eventRows"
-                              [outline]="daysOutlined"
-                              [loading]="loading"
-                              (dayClick)="dayClick(day)">
-            </app-calendar-day>
-        
-            <app-calendar-day *ngFor="let day of datesPaddingPost"
-                              [calendarDate]="day"
-                              [view]="view"
-                              [outsideOfMonth]="true"
-                              [eventRows]="eventRows"
-                              [outline]="daysOutlined"
-                              [loading]="loading"
-                              (dayClick)="dayClick(day)">
-            </app-calendar-day>
-        
+            <!-- Previous Month's Days -->
+            @for (day of datesPaddingPre; track $index) {
+                <app-calendar-day [calendarDate]="day"
+                                  [outsideOfMonth]="true"
+                                  [loading]="loading"
+                                  (dayClick)="dayClick(day)">
+                </app-calendar-day>
+            }
+            <!-- Current Month's Days -->
+            @for (day of dates; track $index) {
+                <app-calendar-day [calendarDate]="day"
+                                  [active]="$index === activeDayIndex"
+                                  [loading]="loading"
+                                  (dayClick)="dayClick(day)">
+                </app-calendar-day>
+            }
+            <!-- Next Month's Days -->
+            @for (day of datesPaddingPost; track $index) {
+                <app-calendar-day [calendarDate]="day"
+                                  [outsideOfMonth]="true"
+                                  [loading]="loading"
+                                  (dayClick)="dayClick(day)">
+                </app-calendar-day>
+            }
         </div>
     </div>
-    
-    <!-- Day View -->
-    <div *ngIf="view === CalendarView.Day" class="schedule">
-        <div class="hours-header">
-            <div *ngFor="let day of dates">
-                {{ day.date | date : 'HH:mm'}}
-            </div>
-        </div>
-        <div class="hours-dates">
-            <app-calendar-hour *ngFor="let day of dates; index as i"
-                               [calendarHour]="day"
-                               [prevCalendarHour]="i > 0 ? dates[i - 1] : day"
-                               [nextCalendarHour]="i < dates.length ? dates[i + 1] : day"
-                               [eventRows]="eventRows"
-                               [outline]="daysOutlined"
-                               [loading]="loading">
-            </app-calendar-hour>
-        </div>
-    </div>
-    
-    <app-button theme="primary-1"
-                matButtonType="mat-icon-button"
-                [clickFunc]="toggleViewCallback"
-                [tooltip]="translations.calendar.controls.viewBtn.title | translate"
-                [ariaLabel]="translations.calendar.controls.viewBtn.aria | translate"
-                [disabled]="loading"
-                style="float: right;">
-        <i *ngIf="view === CalendarView.Day" class="fa-solid fa-calendar-day"></i>
-        <i *ngIf="view === CalendarView.Week" class="fa-solid fa-calendar-week"></i>
-        <i *ngIf="view === CalendarView.Month" class="fa-solid fa-calendar"></i>
-    </app-button>
 </div>

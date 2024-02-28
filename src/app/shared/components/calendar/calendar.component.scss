@@ -1,23 +1,56 @@
 @import "../../../../assets/scss/partials/colors";
 
+$cal-gap: 15px;
+
 .gcc-calendar-wrapper {
     min-width: 350px;
 }
 
 .header {
-    grid-column: span 7;
+    display: flex;
     text-align: center;
-    font-size: 1.2em;
-    font-weight: bold;
+    padding: $cal-gap 0;
+    margin: $cal-gap 0;
+    border-radius: 16px;
+    background-color: $neutral-100;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-    span {
-        pointer-events: none;
+    div[class*="-actions"] {
+        display: flex;
+        flex: 1;
+        align-items: center;
     }
 
+    .left-actions {
+        justify-content : flex-start;
+    }
+
+    .middle-actions {
+        justify-content : center;
+        white-space: nowrap;
+
+        span {
+            padding: 0 20px;
+            pointer-events: none;
+            font-weight: 700;
+            font-size: 36px;
+        }
+    }
+
+    .right-actions {
+        justify-content: flex-end;
+    }
+    
     ::ng-deep {
+        app-input mat-label,
+        app-input .mat-mdc-form-field-subscript-wrapper,
         .mat-mdc-button-persistent-ripple,
         .mat-mdc-button-ripple {
             display: none;
+        }
+
+        .cdk-focused {
+            color: $primary-1 !important;
         }
     }
 }
@@ -27,29 +60,34 @@
     grid-template-columns: repeat(7, 1fr);
     font-weight: bold;
     pointer-events: none;
-    border-top: 3px solid #f9f9f9;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
+    border-top: 3px solid $neutral-200;
+    margin-bottom: $cal-gap;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 14px;
 
     .day {
+        font-weight: 500;
         border: none;
+    }
+
+    .day.today {
+        font-weight: 700;
+    }
+
+    .day:first-child {
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+
+    .day:last-child {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
     }
 }
 
 .calendar {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    border: 3px solid #f9f9f9;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-
-    .day:not(.inactive):focus,
-    .day:not(.inactive):focus-visible {
-        border-color: $primary-1;
-    }
-    .day:not(.inactive):hover {
-        background-color: $primary-1-light;
-    }
     .day.inactive {
         color: #bfbfbf;
     }
@@ -58,51 +96,12 @@
 .day {
     text-align: center;
     padding: 10px;
-    background-color: #f9f9f9;
+    background-color: $neutral-200;
     border: 1px solid #ccc;
     box-sizing: border-box;
 
     span {
         pointer-events: none;
-    }
-}
-
-.schedule {
-    display: grid;
-    grid-template-columns: 80px auto;
-
-    .hours-header {
-        text-align: center;
-        background-color: #f9f9f9;
-        border: none;
-        box-sizing: border-box;
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
-
-        >div {
-            padding: 10px 0;
-            font-weight: bold;
-        }
-    }
-
-    .hours-dates {
-        display: grid;
-
-        app-calendar-day:first-child {
-            ::ng-deep {
-                .day-wrapper {
-                    border-top-right-radius: 10px;
-                }
-            }
-        }
-        
-        app-calendar-day:last-child {
-            ::ng-deep {
-                .day-wrapper {
-                    border-bottom-right-radius: 10px;
-                }
-            }
-        }
     }
 }
 
