@@ -1,4 +1,5 @@
 @import "../../../../../../assets/scss/partials/colors";
+$transition-speed: .15s;
 
 .day-wrapper {
     width: 100%;
@@ -10,9 +11,15 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 39px;
+        height: 39px;
+        margin: auto;
+        border: 3px solid white;
+        border-radius: 12px;
         color: black;
         flex: 2;
         cursor: default;
+        transition: border-color $transition-speed;
     }
 
     .event {
@@ -21,6 +28,7 @@
         width: 38px;
         height: 5px;
         margin: auto;
+        transition: background-color $transition-speed;
     }
 }
 
@@ -28,33 +36,32 @@
 .currentDay.active {
     .day-number {
         font-weight: 600;
-        border-radius: 12px;
         background: $secondary-2-gradient;
-        width: 39px;
-        height: 39px;
         color: white;
-        margin: auto;
     }
 }
 
-.active:not(.currentDay) {
-    .day-number {
-        border-radius: 12px;
-        background: white;
-        width: 36px;
-        height: 36px;
-        border: 3px solid $secondary-2-dark;
-        margin: auto;
-    }
-
+.active {
     .event {
         background-color: $primary-2 !important;
     }
 }
 
-.outsideOfMonth .day-number {
-    color: $neutral-300;
+.active:not(.currentDay) {
+    .day-number {
+        background: white;
+        border: 3px solid $secondary-2-dark;
+    }
 }
+
+.outsideOfMonth {
+    .day-number {
+        color: $neutral-300;
+    }
+    .event {
+        background-color: $neutral-300 !important;
+    }
+} 
 
 .day-wrapper.loading {
     ngx-skeleton-loader {
