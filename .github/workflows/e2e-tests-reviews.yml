@@ -52,8 +52,8 @@ jobs:
 
       - name: playwright install
         run: |
-          npx playwright install-deps
-          npx playwright install
+          npx playwright@1.40.1 install-deps
+          npx playwright@1.40.1 install
 
       - name: Run tests
         continue-on-error: true
