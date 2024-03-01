@@ -96,7 +96,6 @@ export class EventService implements IListService {
     event.image = this.randomImage();
     event.displayPicture = this.randomDisplayPicture();
     event.organizer = this.randomOrganizer();
-    event.color = this.randomColor();
 
     this.id++;
 
@@ -179,13 +178,6 @@ export class EventService implements IListService {
   private randomOrganizer(): string {
     const organizers: string[] = ['TBS', 'ESDC', 'CRA', 'SSC', 'NRCC'];
     return organizers[Math.floor(Math.random() * organizers.length)];
-  }
-
-  private randomColor(): string {
-    const colors: string[] = [
-      '#6C0DBA', '#04A19E', '#3B18BA', '#AC0DBA', '#4A0980', '#291180', '#760980', '#03807D'
-    ];
-    return colors[Math.floor(Math.random() * colors.length)];
   }
 
   private randomRange(min: number, max: number) {

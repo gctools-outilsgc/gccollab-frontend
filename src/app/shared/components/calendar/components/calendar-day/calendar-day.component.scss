@@ -6,6 +6,7 @@ $transition-speed: .15s;
     height: 100%;
     display: flex;
     flex-direction: column;
+    outline: none !important;
 
     .day-number {
         display: flex;
@@ -38,6 +39,7 @@ $transition-speed: .15s;
         font-weight: 600;
         background: $secondary-2-gradient;
         color: white;
+        border: none;
     }
 }
 
@@ -62,6 +64,19 @@ $transition-speed: .15s;
         background-color: $neutral-300 !important;
     }
 } 
+
+.outsideOfMonth.currentDay {
+    .day-number {
+        background: $neutral-200 !important;
+    }
+}
+
+.day-wrapper:hover:not(.active),
+.day-wrapper:focus-visible:not(.active) {
+    .day-number {
+        border-color: $neutral-300;
+    }
+}
 
 .day-wrapper.loading {
     ngx-skeleton-loader {

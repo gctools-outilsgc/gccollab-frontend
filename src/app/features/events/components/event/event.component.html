@@ -89,10 +89,10 @@
                 {{ translations.event.location | translate }}
             </h3>
             <p *ngIf="!loading">
-                {{ model.location?.address }}
+                {{ model.location.address }}
             </p>
             <p *ngIf="!loading">
-                {{ model.location?.city }}, {{ model.location?.province }}
+                {{ model.location.city }}, {{ model.location.province }}
             </p>
             <ngx-skeleton-loader *ngIf="loading" count="2" appearance="line" animation="progress" class="loading-section"></ngx-skeleton-loader>
         </section>

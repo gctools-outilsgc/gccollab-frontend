@@ -1,0 +1,35 @@
+<mat-card>
+    <mat-card-header>
+        Events on {{ day.date | localizedDate }}
+    </mat-card-header>
+
+    <mat-card-content>
+        @for (event of day.events; track $index) {
+            <div class="event">
+                <div class="time">
+                    <div class="start">
+                        {{ event.startDate | localizedDate }} - {{ event.startDate | date: 'h a' }}
+                    </div>
+                    <div class="until">
+                        until
+                    </div>
+                    <div class="end">
+                        {{ event.endDate| localizedDate }} - {{ event.endDate | date: 'h a' }}
+                    </div>
+                </div>
+
+                <div class="seperator">&nbsp;</div>
+
+                <div class="info">
+                    <div>{{ event.title }}</div>
+                    <div>{{ event.eventType }}</div>
+                    <div>{{ event.location.address }} {{event.location.city}}, {{event.location.province}}</div>
+                </div>
+            </div>
+        } @empty {
+            <div class="empty">
+                There are no events
+            </div>
+        }
+    </mat-card-content>
+</mat-card>

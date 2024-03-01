@@ -30,10 +30,10 @@ export class CalendarComponent implements OnInit, OnChanges {
   activeDayIndex = -1;                              // The active day (user selected)
   searchActive: boolean = false;
 
-  // REMOVE
   calendarStyle = {
     'grid-template-rows': 'repeat(5, 75px)',
-    'grid-template-columns': 'revert-layer'
+    'grid-template-columns': 'revert-layer',
+    'grid-row-gap': '15px'
   }
   dateFormat = 'MMMM YYYY';
 
@@ -82,6 +82,20 @@ export class CalendarComponent implements OnInit, OnChanges {
     this.setDayActive(day);
   }
 
+  private buildWeekDays() {
+    const today = new Date();
+    const titleLength = 'full'; // TODO: full or short depending on mobile layout
+    this.weekdays = [
+      { title: this.translations.calendar.days[titleLength].sun, isToday: isSunday(today) },
+      { title: this.translations.calendar.days[titleLength].mon, isToday: isMonday(today) },
+      { title: this.translations.calendar.days[titleLength].tue, isToday: isTuesday(today) },
+      { title: this.translations.calendar.days[titleLength].wed, isToday: isWednesday(today) },
+      { title: this.translations.calendar.days[titleLength].thu, isToday: isThursday(today) },
+      { title: this.translations.calendar.days[titleLength].fri, isToday: isFriday(today) },
+      { title: this.translations.calendar.days[titleLength].sat, isToday: isSaturday(today) },
+    ];
+  }
+
   private buildView(clickedDay: ICalendarDate | undefined = undefined): void {
     this.datesPaddingPre = []; 
     this.datesPaddingPost = []
@@ -109,16 +123,15 @@ export class CalendarComponent implements OnInit, OnChanges {
 
     // Edge case when a month has 28 days and begins on Sunday, we don't need any post padding days.
     if (daysBeforeMonth == 0 && endOfMonth(this.date).getDay() == 28) {
-      this.datesPaddingPost = []
+      this.datesPaddingPost = [];
     }
 
     // Update the calendar style to account for the number of week rows
     this.calendarStyle = {
       'grid-template-rows': 'repeat(' + (daysMonth + daysBeforeMonth + daysAfterMonth) / 7 + ', 75px)',
       'grid-template-columns': 'revert-layer',
-    }
-
-    this.dateFormat = 'MMMM YYYY'; // remove?
+      'grid-row-gap': '15px'
+    };
 
     this.injectEvents();
 
@@ -133,20 +146,14 @@ export class CalendarComponent implements OnInit, OnChanges {
     let i = this.events.length;
     while (i--) {
       allDays.forEach(day => {
-
         try {
-          let addEvent = false;
-
           const eventStartsEndsToday = isWithinInterval(this.events[i].startDate, {start: startOfDay(day.date), end: endOfDay(day.date)}) && 
                                      isWithinInterval(this.events[i].endDate, {start: startOfDay(day.date), end: endOfDay(day.date)});
 
           const eventSpansDay = isWithinInterval(endOfDay(day.date), {start: this.events[i].startDate, end: this.events[i].endDate}) || 
                                 isWithinInterval(startOfDay(day.date), {start: this.events[i].startDate, end: this.events[i].endDate});
 
-          if (eventStartsEndsToday || eventSpansDay) 
-            addEvent = true;
-
-          if (addEvent) {
+          if (eventStartsEndsToday || eventSpansDay) {
             day.events.push(this.events[i]);
           }
         } catch(e) { /* empty */ } // Start/End Date incompatible so don't add it.
@@ -154,24 +161,11 @@ export class CalendarComponent implements OnInit, OnChanges {
     }
   }
 
-  private buildWeekDays() {
-    const today = new Date();
-    const titleLength = 'full'; // TODO: full or short depending on mobile layout
-    this.weekdays = [
-      { title: this.translations.calendar.days[titleLength].sun, isToday: isSunday(today) },
-      { title: this.translations.calendar.days[titleLength].mon, isToday: isMonday(today) },
-      { title: this.translations.calendar.days[titleLength].tue, isToday: isTuesday(today) },
-      { title: this.translations.calendar.days[titleLength].wed, isToday: isWednesday(today) },
-      { title: this.translations.calendar.days[titleLength].thu, isToday: isThursday(today) },
-      { title: this.translations.calendar.days[titleLength].fri, isToday: isFriday(today) },
-      { title: this.translations.calendar.days[titleLength].sat, isToday: isSaturday(today) },
-    ];
-  }
-
   private setDayActive(day: ICalendarDate) {
     for (let i = 0; i < this.dates.length; i++) {
       if (day.date === this.dates[i].date) {
         this.activeDayIndex = this.activeDayIndex === i ? -1 : i;
+        //this.changeDetectorRef.markForCheck();
         break;
       }
     }

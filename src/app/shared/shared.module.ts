@@ -24,6 +24,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PageTitleComponent } from './components/page-title/page-title.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
 import { BannerComponent } from './components/banner/banner.component';
 import { InputComponent } from './components/input/input.component';
@@ -52,6 +53,8 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { CalendarDayComponent } from './components/calendar/components/calendar-day/calendar-day.component';
 import { LocalizedDatePipe } from './pipes/localized-date/localized-date.pipe';
 import { DurationFormatPipe } from './pipes/duration-format/duration-format.pipe';
+import { CalendarEventsComponent } from './components/calendar/components/calendar-events/calendar-events.component';
+
 
 @NgModule({
   declarations: [
@@ -80,6 +83,7 @@ import { DurationFormatPipe } from './pipes/duration-format/duration-format.pipe
     ListComponent,
     CalendarComponent,
     CalendarDayComponent,
+    CalendarEventsComponent,
     LocalizedDatePipe,
     DurationFormatPipe
   ],
@@ -108,6 +112,7 @@ import { DurationFormatPipe } from './pipes/duration-format/duration-format.pipe
     MatRadioModule,
     MatDatepickerModule,
     MatAutocompleteModule,
+    MatCardModule,
     NgxSkeletonLoaderModule,
     InfiniteScrollModule,
   ],

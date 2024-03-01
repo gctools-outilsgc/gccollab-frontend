@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter, IterableDiffers, IterableDiffer, DoCheck, ChangeDetectionStrategy, SimpleChanges, OnChanges } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, IterableDiffers, IterableDiffer, DoCheck, ChangeDetectionStrategy, SimpleChanges, OnChanges, ChangeDetectorRef } from '@angular/core';
 import { isSameDay, isWithinInterval, startOfDay, endOfDay } from 'date-fns';
 import { ICalendarDate } from '../../interfaces/calendar-date.interface';
 import { ICalendarEvent } from '../../interfaces/calendar-event.interface';
@@ -24,6 +24,7 @@ export class CalendarDayComponent implements OnInit, DoCheck, OnChanges {
   private iterableDifferEvents: IterableDiffer<ICalendarEvent>;
 
   constructor(private iterableDiffers: IterableDiffers, 
+              private changeDetectorRef: ChangeDetectorRef,
               private router: Router) {
     this.iterableDifferEvents = iterableDiffers.find(this.calendarDate.events).create();
   }
@@ -55,6 +56,7 @@ export class CalendarDayComponent implements OnInit, DoCheck, OnChanges {
       this.router.navigateByUrl(CoreRoutes.Events + '/' + eventId);
   }
 
+  // TODO: Do we need this anymore?
   private sortEvents(): void {
     // Sort events by the start date
     this.calendarDate.events.sort((a, b) => a.startDate.getTime() - b.startDate.getTime());
@@ -69,6 +71,8 @@ export class CalendarDayComponent implements OnInit, DoCheck, OnChanges {
   }
 
   private setCurrentDate(): void {
-    this.currentDay = isSameDay(this.calendarDate.date, new Date());
+    const today = new Date();
+    this.currentDay = isSameDay(this.calendarDate.date, today);
+    this.changeDetectorRef.markForCheck();
   }
 }
