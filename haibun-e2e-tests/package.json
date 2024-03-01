@@ -18,7 +18,7 @@
     "@haibun/out-review": "1.36.0",
     "@haibun/out-xunit": "^1.36.0",
     "@haibun/storage-fs": "^1.36.0",
-    "@haibun/web-playwright": "^1.36.0",
+    "@haibun/web-playwright": "^1.36.1",
     "@haibun/web-accessibility-axe": "^1.36.0"
   }
 }
