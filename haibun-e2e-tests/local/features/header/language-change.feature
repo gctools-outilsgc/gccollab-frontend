@@ -12,3 +12,5 @@ Feature: Change language
     Scenario: Change to English Language 
     click the button Language
     see "WELCOME"
+
+    page is accessible accepting serious 0 and moderate 0

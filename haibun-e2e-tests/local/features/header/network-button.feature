@@ -5,4 +5,4 @@ Feature: Network button feature
 
     go to the home webpage
     click the button Network
-    #Add a network link 
+    page is accessible accepting serious 0 and moderate 0
