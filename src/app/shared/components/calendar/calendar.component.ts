@@ -1,5 +1,5 @@
 /* eslint-disable no-case-declarations */
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { endOfDay, subDays, addDays, addMonths, endOfMonth, getDaysInMonth, startOfMonth, differenceInCalendarMonths, isWithinInterval, startOfDay, isMonday, isTuesday, isWednesday, isThursday, isFriday, isSaturday, isSunday, isSameDay } from 'date-fns';
 import { ICalendarEvent } from './interfaces/calendar-event.interface';
 import { ICalendarDate } from './interfaces/calendar-date.interface';
@@ -9,6 +9,9 @@ import { Translations } from 'src/app/core/services/translations.service';
 import { TranslateService } from '@ngx-translate/core';
 import { TooltipDirection } from '../../models/tooltip-direction';
 import { IEventForm } from '../event-form/event-form.component';
+import { ResizeService } from 'src/app/core/services/resize.service';
+import { Subscription } from 'rxjs';
+import { DebounceService } from 'src/app/core/services/debounce.service';
 
 @Component({
   selector: 'app-calendar',
@@ -16,7 +19,7 @@ import { IEventForm } from '../event-form/event-form.component';
   styleUrls: ['./calendar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CalendarComponent implements OnInit, OnChanges {
+export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
 
   @Input() date: Date = new Date();                 // The current date for our view.
   @Input() events: ICalendarEvent[] = [];           // All events for the calendar.
@@ -59,18 +62,40 @@ export class CalendarComponent implements OnInit, OnChanges {
     eventStartTime: '12:00',
     eventEndDate: '',
     eventEndTime: '13:00',
-  };;
+  };
+
+  private resizeSub!: Subscription;
+  private prevWeekdayFormat: WeekdayFormat = WeekdayFormat.Full;
 
   constructor(public translations: Translations,
-              private changeDetectorRef: ChangeDetectorRef) {
+              private changeDetectorRef: ChangeDetectorRef,
+              private resizeService: ResizeService,
+              private debounceService: DebounceService,
+              private elementRef: ElementRef) {
     
   }
 
   ngOnInit(): void {
-    this.buildWeekDays();
+
+    // Setup resize subscription to track the width of the component
+    this.resizeSub = this.resizeService.resizeEvent.subscribe(() => {
+      this.debounceService.debounce(() => {
+
+        // Update the weekday format (short/long) depending on the width
+        const newWeekdayFormat = this.buildWeekDays();
+        if (this.prevWeekdayFormat !== newWeekdayFormat) {
+          this.prevWeekdayFormat = newWeekdayFormat;
+          this.changeDetectorRef.markForCheck();
+        }
+      }, 50);
+    });
+
+    // Build out the calendar
+    this.prevWeekdayFormat = this.buildWeekDays();
     this.buildView();
     this.updateAria();
 
+    // Set today as the active day in the calendar
     const today = new Date();
     for (let i = 0; i < this.dates.length; i++) {
       if (isSameDay(this.dates[i].date, today)) {
@@ -84,6 +109,11 @@ export class CalendarComponent implements OnInit, OnChanges {
     if (changes['events'] && !changes['events'].firstChange) {
       this.injectEvents();
     }
+  }
+
+  ngOnDestroy(): void {
+    if (this.resizeSub)
+    this.resizeSub.unsubscribe();
   }
 
   navigateCalendar(interval: number = 1, clickedDay: ICalendarDate | undefined = undefined): void {
@@ -141,18 +171,19 @@ export class CalendarComponent implements OnInit, OnChanges {
     this.changeDetectorRef.markForCheck();
   }
 
-  private buildWeekDays() {
+  private buildWeekDays(): WeekdayFormat {
     const today = new Date();
-    const titleLength = 'full'; // TODO: full or short depending on mobile layout
+    const format = this.elementRef.nativeElement.offsetWidth < 600 ? WeekdayFormat.Short : WeekdayFormat.Full;
     this.weekdays = [
-      { title: this.translations.calendar.days[titleLength].sun, isToday: isSunday(today) },
-      { title: this.translations.calendar.days[titleLength].mon, isToday: isMonday(today) },
-      { title: this.translations.calendar.days[titleLength].tue, isToday: isTuesday(today) },
-      { title: this.translations.calendar.days[titleLength].wed, isToday: isWednesday(today) },
-      { title: this.translations.calendar.days[titleLength].thu, isToday: isThursday(today) },
-      { title: this.translations.calendar.days[titleLength].fri, isToday: isFriday(today) },
-      { title: this.translations.calendar.days[titleLength].sat, isToday: isSaturday(today) },
+      { title: this.translations.calendar.days[format].sun, isToday: isSunday(today) },
+      { title: this.translations.calendar.days[format].mon, isToday: isMonday(today) },
+      { title: this.translations.calendar.days[format].tue, isToday: isTuesday(today) },
+      { title: this.translations.calendar.days[format].wed, isToday: isWednesday(today) },
+      { title: this.translations.calendar.days[format].thu, isToday: isThursday(today) },
+      { title: this.translations.calendar.days[format].fri, isToday: isFriday(today) },
+      { title: this.translations.calendar.days[format].sat, isToday: isSaturday(today) },
     ];
+    return format;
   }
 
   private buildView(clickedDay: ICalendarDate | undefined = undefined): void {
@@ -248,4 +279,9 @@ export class CalendarComponent implements OnInit, OnChanges {
   private getEventFormDateString(date: Date): string {
     return date.getFullYear() + '-' + ('0' + (date.getMonth()+1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
   }
+}
+
+enum WeekdayFormat {
+  Full = 'full',
+  Short = 'short'
 }
