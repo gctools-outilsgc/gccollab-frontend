@@ -16,6 +16,7 @@ mat-card-content {
 
     .event {
         display: flex;
+        align-items: center;
         flex-direction: row;
         border-radius: 10px;
         padding: 12px;
@@ -36,6 +37,7 @@ mat-card-content {
             border-radius: 10px;
             background: $secondary-2-gradient;
             margin: 0 16px;
+            align-self: stretch;
         }
 
         .info {
@@ -46,6 +48,31 @@ mat-card-content {
                 padding-bottom: 5px; 
             }
         }
+
+        .actions {
+            display: flex;
+            flex: .1;
+            align-items: center;
+
+            ::ng-deep {
+                app-input mat-label,
+                app-input .mat-mdc-form-field-subscript-wrapper,
+                .mat-mdc-button-persistent-ripple,
+                .mat-mdc-button-ripple {
+                    display: none;
+                }
+        
+                .cdk-focused {
+                    color: $error-red !important;
+                }
+            }
+        }
+    }
+
+    .event:hover,
+    .event:focus-visible {
+        outline: none;
+        box-shadow: 0px 4px 4px $secondary-2;
     }
 
     .event:not(:last-child) {

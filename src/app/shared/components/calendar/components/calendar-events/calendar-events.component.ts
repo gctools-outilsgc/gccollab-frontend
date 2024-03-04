@@ -1,5 +1,6 @@
-import { Component, ChangeDetectionStrategy, OnInit, Input} from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { ICalendarDate } from '../../interfaces/calendar-date.interface';
+import { ICalendarEvent } from '../../interfaces/calendar-event.interface';
 
 @Component({
   selector: 'app-calendar-events',
@@ -9,6 +10,8 @@ import { ICalendarDate } from '../../interfaces/calendar-date.interface';
 })
 export class CalendarEventsComponent implements OnInit {
   @Input({required: true}) day!: ICalendarDate;
+
+  @Output() eventDelete: EventEmitter<ICalendarEvent> = new EventEmitter<ICalendarEvent>();
   
   constructor() {
     
@@ -16,5 +19,9 @@ export class CalendarEventsComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.day)
+  }
+
+  deleteEvent(event: ICalendarEvent) {
+    this.eventDelete.emit(event);
   }
 }

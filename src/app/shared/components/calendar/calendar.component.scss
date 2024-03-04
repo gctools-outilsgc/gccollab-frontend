@@ -9,7 +9,7 @@ $cal-gap: 15px;
 .header {
     display: flex;
     text-align: center;
-    padding: $cal-gap 0;
+    padding: $cal-gap $cal-gap;
     margin: $cal-gap 0;
     border-radius: 16px;
     background-color: $neutral-100;

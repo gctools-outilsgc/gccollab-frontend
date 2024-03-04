@@ -36,11 +36,12 @@ export class CalendarDayComponent implements OnInit, DoCheck, OnChanges {
   ngDoCheck() {
     if (this.iterableDifferEvents.diff(this.calendarDate.events)) {
       this.sortEvents();
+      this.changeDetectorRef.markForCheck();
     }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['view']) {
+    if (changes['calendarDate']) {
       this.setCurrentDate();
     }
   }
@@ -56,12 +57,11 @@ export class CalendarDayComponent implements OnInit, DoCheck, OnChanges {
       this.router.navigateByUrl(CoreRoutes.Events + '/' + eventId);
   }
 
-  // TODO: Do we need this anymore?
   private sortEvents(): void {
     // Sort events by the start date
     this.calendarDate.events.sort((a, b) => a.startDate.getTime() - b.startDate.getTime());
 
-    // Move any events that start and end today to the back of the list (so events spanning days line up)
+    // Move any events that start and end today to the back of the list 
     for (let i = this.calendarDate.events.length - 1; i >= 0; i--) {
       if (isWithinInterval(this.calendarDate.events[i].startDate, {start: startOfDay(this.calendarDate.date), end: endOfDay(this.calendarDate.date)}) && 
           isWithinInterval(this.calendarDate.events[i].endDate, {start: startOfDay(this.calendarDate.date), end: endOfDay(this.calendarDate.date)})) {

@@ -69,6 +69,15 @@
 
         <!-- Right Actions -->
         <div class="right-actions">
+            <!-- Filter -->
+            <app-button theme="black"
+                        matButtonType="mat-icon-button"
+                        [tooltip]="'TODO' | translate"
+                        [tooltipDirection]="TooltipDirection.Above"
+                        [ariaLabel]="'TODO' | translate"
+                        [disabled]="loading">
+                <i class="fa-solid fa-ellipsis-vertical fa-lg"></i>
+            </app-button>
         </div>
     </div>
 
@@ -111,4 +120,6 @@
     </div>
 </div>
 
-<app-calendar-events [day]="dates[activeDayIndex]"></app-calendar-events>
+<app-calendar-events [day]="dates[activeDayIndex]"
+                     (eventDelete)="deleteEvent($event)">
+</app-calendar-events>

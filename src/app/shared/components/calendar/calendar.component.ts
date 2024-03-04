@@ -82,6 +82,14 @@ export class CalendarComponent implements OnInit, OnChanges {
     this.setDayActive(day);
   }
 
+  deleteEvent(event: ICalendarEvent) {
+    const index = this.events.indexOf(event);
+    if (index > -1) {
+      this.events.splice(index, 1);
+      this.injectEvents();
+    }
+  }
+
   private buildWeekDays() {
     const today = new Date();
     const titleLength = 'full'; // TODO: full or short depending on mobile layout

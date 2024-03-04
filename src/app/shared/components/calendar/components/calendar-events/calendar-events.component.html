@@ -5,7 +5,7 @@
 
     <mat-card-content>
         @for (event of day.events; track $index) {
-            <div class="event">
+            <div class="event" tabindex="0">
                 <div class="time">
                     <div class="start">
                         {{ event.startDate | localizedDate }} - {{ event.startDate | date: 'h a' }}
@@ -24,6 +24,16 @@
                     <div>{{ event.title }}</div>
                     <div>{{ event.eventType }}</div>
                     <div>{{ event.location.address }} {{event.location.city}}, {{event.location.province}}</div>
+                </div>
+
+                <div class="actions">
+                    <app-button theme="black"
+                                matButtonType="mat-icon-button"
+                                [tooltip]="'TODO' | translate"
+                                [ariaLabel]="'TODO' | translate"
+                                (click)="deleteEvent(event)">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </app-button>
                 </div>
             </div>
         } @empty {
