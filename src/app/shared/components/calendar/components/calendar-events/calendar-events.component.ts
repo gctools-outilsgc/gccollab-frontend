@@ -9,7 +9,7 @@ import { ICalendarEvent } from '../../interfaces/calendar-event.interface';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CalendarEventsComponent implements OnInit {
-  @Input({required: true}) day!: ICalendarDate;
+  @Input({required: true}) day: ICalendarDate = { date: new Date(), events: [] };
 
   @Output() eventDelete: EventEmitter<ICalendarEvent> = new EventEmitter<ICalendarEvent>();
   

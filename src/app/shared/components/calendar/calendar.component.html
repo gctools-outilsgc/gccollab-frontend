@@ -8,11 +8,11 @@
             <!-- Add Event -->
             <app-button theme="black"
                         matButtonType="mat-icon-button"
-                        [tooltip]="'TODO' | translate"
+                        [tooltip]="'Add Event' | translate"
                         [tooltipDirection]="TooltipDirection.Above"
-                        [ariaLabel]="'TODO'"
+                        [ariaLabel]="'Add Event'"
                         [disabled]="loading"
-                        (click)="navigateCalendar(-1)">
+                        [clickFunc]="toggleEventForm">
                 <i class="fa-solid fa-calendar-plus fa-lg"></i>
             </app-button>
 
@@ -27,9 +27,9 @@
                 <app-button *ngIf="!searchActive"
                             theme="black"
                             matButtonType="mat-icon-button"
-                            [tooltip]="'TODO' | translate"
+                            [tooltip]="'Search' | translate"
                             [tooltipDirection]="TooltipDirection.Above"
-                            [ariaLabel]="'TODO' | translate"
+                            [ariaLabel]="'Search' | translate"
                             [disabled]="loading"
                             [clickFunc]="toggleSearch">
                     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
@@ -120,6 +120,11 @@
     </div>
 </div>
 
-<app-calendar-events [day]="dates[activeDayIndex]"
+<app-calendar-events *ngIf="activeDayIndex > -1 && !loading"
+                     [day]="dates[activeDayIndex]"
                      (eventDelete)="deleteEvent($event)">
 </app-calendar-events>
+
+<mat-card *ngIf="eventFormActive && !loading" class="event-form">
+    <app-event-form [model]="eventFormData"></app-event-form>
+</mat-card>

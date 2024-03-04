@@ -1,6 +1,6 @@
 /* eslint-disable no-case-declarations */
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { endOfDay, subDays, addDays, addMonths, endOfMonth, getDaysInMonth, startOfMonth, differenceInCalendarMonths, isWithinInterval, startOfDay, isMonday, isTuesday, isWednesday, isThursday, isFriday, isSaturday, isSunday } from 'date-fns';
+import { endOfDay, subDays, addDays, addMonths, endOfMonth, getDaysInMonth, startOfMonth, differenceInCalendarMonths, isWithinInterval, startOfDay, isMonday, isTuesday, isWednesday, isThursday, isFriday, isSaturday, isSunday, isSameDay } from 'date-fns';
 import { ICalendarEvent } from './interfaces/calendar-event.interface';
 import { ICalendarDate } from './interfaces/calendar-date.interface';
 import { ICalendarWeekDay } from './interfaces/calendar-weekday.interface';
@@ -8,6 +8,7 @@ import { Translations } from 'src/app/core/services/translations.service';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { TranslateService } from '@ngx-translate/core';
 import { TooltipDirection } from '../../models/tooltip-direction';
+import { IEventForm } from '../event-form/event-form.component';
 
 @Component({
   selector: 'app-calendar',
@@ -29,6 +30,7 @@ export class CalendarComponent implements OnInit, OnChanges {
 
   activeDayIndex = -1;                              // The active day (user selected)
   searchActive: boolean = false;
+  eventFormActive: boolean = false;
 
   calendarStyle = {
     'grid-template-rows': 'repeat(5, 75px)',
@@ -44,6 +46,21 @@ export class CalendarComponent implements OnInit, OnChanges {
   previousButtonTitle = this.translations.calendar.controls.previous.title_month;
   previousButtonAria = this.translations.calendar.controls.previous.aria_month;
 
+  eventFormData: IEventForm = {
+    eventType: 'Hybrid',
+    eventOrganizerName: '',
+    eventName: '',
+    eventLanguage: 'Bilingual',
+    eventDescription: '',
+    eventLocation: '',
+    eventOnlinePlatform: '',
+    eventDuration: 'Single',
+    eventStartDate: '',
+    eventStartTime: '12:00',
+    eventEndDate: '',
+    eventEndTime: '13:00',
+  };;
+
   constructor(public translations: Translations,
               private changeDetectorRef: ChangeDetectorRef) {
     
@@ -53,17 +70,20 @@ export class CalendarComponent implements OnInit, OnChanges {
     this.buildWeekDays();
     this.buildView();
     this.updateAria();
+
+    const today = new Date();
+    for (let i = 0; i < this.dates.length; i++) {
+      if (isSameDay(this.dates[i].date, today)) {
+        this.setDayActive(this.dates[i]);
+        break;
+      }
+    }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['events'] && !changes['events'].firstChange) {
       this.injectEvents();
     }
-  }
-
-  toggleSearch = () => {
-    this.searchActive = !this.searchActive;
-    this.changeDetectorRef.markForCheck();
   }
 
   navigateCalendar(interval: number = 1, clickedDay: ICalendarDate | undefined = undefined): void {
@@ -88,6 +108,37 @@ export class CalendarComponent implements OnInit, OnChanges {
       this.events.splice(index, 1);
       this.injectEvents();
     }
+  }
+
+  toggleEventForm = () => {
+    this.eventFormActive = !this.eventFormActive;
+
+    if (this.eventFormActive) {
+      this.eventFormData = {
+        eventType: 'Hybrid',
+        eventOrganizerName: '',
+        eventName: '',
+        eventLanguage: 'Bilingual',
+        eventDescription: '',
+        eventLocation: '',
+        eventOnlinePlatform: '',
+        eventDuration: 'Single',
+        eventStartDate: '',
+        eventStartTime: '12:00',
+        eventEndDate: '',
+        eventEndTime: '13:00',
+      };
+
+      if (this.activeDayIndex > -1) {
+        this.eventFormData.eventStartDate = this.getEventFormDateString(this.dates[this.activeDayIndex].date);
+        this.eventFormData.eventEndDate = this.eventFormData.eventStartDate;
+      }
+    }
+  }
+
+  toggleSearch = () => {
+    this.searchActive = !this.searchActive;
+    this.changeDetectorRef.markForCheck();
   }
 
   private buildWeekDays() {
@@ -173,9 +224,16 @@ export class CalendarComponent implements OnInit, OnChanges {
     for (let i = 0; i < this.dates.length; i++) {
       if (day.date === this.dates[i].date) {
         this.activeDayIndex = this.activeDayIndex === i ? -1 : i;
-        //this.changeDetectorRef.markForCheck();
         break;
       }
+    }
+
+    if (this.activeDayIndex === -1) 
+      this.eventFormActive = false;
+
+    if (this.eventFormActive) {
+      this.eventFormData.eventStartDate = this.getEventFormDateString(this.dates[this.activeDayIndex].date);
+      this.eventFormData.eventEndDate = this.eventFormData.eventStartDate;
     }
   }
 
@@ -185,5 +243,9 @@ export class CalendarComponent implements OnInit, OnChanges {
     this.previousButtonTitle = this.translations.calendar.controls.previous.title_month;
     this.nextButtonAria = this.translations.calendar.controls.next.aria_month;
     this.previousButtonAria = this.translations.calendar.controls.previous.aria_month;
+  }
+
+  private getEventFormDateString(date: Date): string {
+    return date.getFullYear() + '-' + ('0' + (date.getMonth()+1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
   }
 }

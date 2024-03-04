@@ -21,16 +21,22 @@
                 <div class="seperator">&nbsp;</div>
 
                 <div class="info">
-                    <div>{{ event.title }}</div>
-                    <div>{{ event.eventType }}</div>
-                    <div>{{ event.location.address }} {{event.location.city}}, {{event.location.province}}</div>
+                    <div>
+                        {{ event.title }}
+                    </div>
+                    <div>
+                        {{ event.eventType }}
+                    </div>
+                    <div>
+                        {{ event.location.address }} {{event.location.city}}, {{event.location.province}}
+                    </div>
                 </div>
 
                 <div class="actions">
                     <app-button theme="black"
                                 matButtonType="mat-icon-button"
-                                [tooltip]="'TODO' | translate"
-                                [ariaLabel]="'TODO' | translate"
+                                [tooltip]="'Delete Event' | translate"
+                                [ariaLabel]="'Delete Event' | translate"
                                 (click)="deleteEvent(event)">
                         <i class="fa-solid fa-trash-can"></i>
                     </app-button>
