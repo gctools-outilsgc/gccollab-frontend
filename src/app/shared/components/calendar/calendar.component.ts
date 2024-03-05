@@ -22,7 +22,7 @@ import { Event } from 'src/app/features/events/models/event';
 export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
 
   @Input() date: Date = new Date();                 // The current date for our view.
-  @Input() events: Event[] = [];           // All events for the calendar.
+  @Input() events: Event[] = [];                    // All events for the calendar.
   @Input() daysOutlined: boolean = false;           // Displays an outline for each calendar day
   @Input() loading: boolean = false;                //
 
@@ -34,20 +34,15 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
   activeDayIndex = -1;                              // The active day (user selected)
   searchActive: boolean = false;
   eventFormActive: boolean = false;
+  editing: boolean = false;
 
   calendarStyle = {
     'grid-template-rows': 'repeat(5, 75px)',
     'grid-template-columns': 'revert-layer',
     'grid-row-gap': '15px'
   }
-  dateFormat = 'MMMM YYYY';
 
   TooltipDirection = TooltipDirection;
-
-  nextButtonTitle = this.translations.calendar.controls.next.title_month;
-  nextButtonAria = this.translations.calendar.controls.next.aria_month;
-  previousButtonTitle = this.translations.calendar.controls.previous.title_month;
-  previousButtonAria = this.translations.calendar.controls.previous.aria_month;
 
   eventFormData: IEventForm = {
     eventType: 'Hybrid',
@@ -76,7 +71,6 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnInit(): void {
-
     // Setup resize subscription to track the width of the component
     this.resizeSub = this.resizeService.resizeEvent.subscribe(() => {
       this.debounceService.debounce(() => {
@@ -93,7 +87,6 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
     // Build out the calendar
     this.prevWeekdayFormat = this.buildWeekDays();
     this.buildView();
-    this.updateAria();
 
     // Set today as the active day in the calendar
     const today = new Date();
@@ -113,7 +106,7 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnDestroy(): void {
     if (this.resizeSub)
-    this.resizeSub.unsubscribe();
+      this.resizeSub.unsubscribe();
   }
 
   navigateCalendar(interval: number = 1, clickedDay: ICalendarDate | undefined = undefined): void {
@@ -131,6 +124,8 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
 
     this.setDayActive(day);
     this.eventFormActive = false;
+    this.editing = false;
+    this.resetEventForm();
   }
 
   editEvent(event: Event): void {
@@ -138,6 +133,7 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
     if (index > -1) {
       this.eventFormActive = true;
       this.eventFormData = event.toEventForm();
+      this.editing = true;
     }
   }
 
@@ -155,7 +151,6 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
 
   toggleSearch = () => {
     this.searchActive = !this.searchActive;
-    this.changeDetectorRef.markForCheck();
   }
 
   private buildWeekDays(): WeekdayFormat {
@@ -245,24 +240,33 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
         break;
       }
     }
-
-    if (this.activeDayIndex > -1) {
-      this.eventFormData.eventStartDate = this.getEventFormDateString(this.dates[this.activeDayIndex].date);
-      this.eventFormData.eventEndDate = this.eventFormData.eventStartDate;
-    }
-  }
-
-  // Do we need this since there's only the month view?
-  private updateAria() {
-    this.nextButtonTitle = this.translations.calendar.controls.next.title_month;
-    this.previousButtonTitle = this.translations.calendar.controls.previous.title_month;
-    this.nextButtonAria = this.translations.calendar.controls.next.aria_month;
-    this.previousButtonAria = this.translations.calendar.controls.previous.aria_month;
   }
 
   // TODO: Move this to an event helper class
   private getEventFormDateString(date: Date): string {
     return date.getFullYear() + '-' + ('0' + (date.getMonth()+1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
+  }
+
+  private resetEventForm(): void {
+    this.eventFormData = {
+      eventType: 'Hybrid',
+      eventOrganizerName: '',
+      eventName: '',
+      eventLanguage: 'Bilingual',
+      eventDescription: '',
+      eventLocation: '',
+      eventOnlinePlatform: '',
+      eventDuration: 'Single',
+      eventStartDate: '',
+      eventStartTime: '12:00',
+      eventEndDate: '',
+      eventEndTime: '13:00',
+    };
+
+    if (this.activeDayIndex > -1) {
+      this.eventFormData.eventStartDate = this.getEventFormDateString(this.dates[this.activeDayIndex].date);
+      this.eventFormData.eventEndDate = this.eventFormData.eventStartDate;
+    }
   }
 }
 

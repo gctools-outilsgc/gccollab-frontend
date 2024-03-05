@@ -44,23 +44,23 @@
             <!-- Nav Previous-->
             <app-button theme="black"
                         matButtonType="mat-icon-button"
-                        [tooltip]="previousButtonTitle | translate"
+                        [tooltip]="translations.calendar.controls.previous.title_month | translate"
                         [tooltipDirection]="TooltipDirection.Left"
-                        [ariaLabel]="previousButtonAria | translate"
+                        [ariaLabel]="translations.calendar.controls.previous.aria_month | translate"
                         [disabled]="loading"
                         (click)="navigateCalendar(-1)">
                 <i class="fa-solid fa-angle-left fa-lg"></i>
             </app-button>
         
             <!-- Date -->
-            <span>{{ date | localizedDate : dateFormat | titlecase }}</span>
+            <span>{{ date | localizedDate : 'MMMM YYYY' | titlecase }}</span>
 
             <!-- Nav Next -->
             <app-button theme="black"
                         matButtonType="mat-icon-button"
-                        [tooltip]="nextButtonTitle | translate"
+                        [tooltip]="translations.calendar.controls.next.title_month | translate"
                         [tooltipDirection]="TooltipDirection.Right"
-                        [ariaLabel]="nextButtonAria | translate"
+                        [ariaLabel]="translations.calendar.controls.next.aria_month | translate"
                         [disabled]="loading"
                         (click)="navigateCalendar(1)">
                 <i class="fa-solid fa-angle-right fa-lg"></i>
@@ -120,12 +120,25 @@
     </div>
 </div>
 
+<!-- Events -->
 <app-calendar-events *ngIf="activeDayIndex > -1 && !loading"
                      [day]="dates[activeDayIndex]"
                      (eventEdit)="editEvent($event)"
                      (eventDelete)="deleteEvent($event)">
 </app-calendar-events>
 
+<!-- Event Form -->
 <mat-card *ngIf="eventFormActive && !loading" class="event-form">
+
     <app-event-form [model]="eventFormData"></app-event-form>
+
+    <div class="actions">
+        <!-- Save -->
+        <app-button theme="secondary-2"
+                    style="float: right;"
+                    [disabled]="loading"
+                    [clickFunc]="toggleEventForm">
+        {{ editing ? 'Save' : 'Create' }}
+    </app-button>
+    </div>
 </mat-card>

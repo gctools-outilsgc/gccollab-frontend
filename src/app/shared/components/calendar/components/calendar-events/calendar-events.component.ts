@@ -1,6 +1,7 @@
-import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter} from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 import { ICalendarDate } from '../../interfaces/calendar-date.interface';
 import { Event } from 'src/app/features/events/models/event';
+import { isToday } from 'date-fns';
 
 @Component({
   selector: 'app-calendar-events',
@@ -13,6 +14,8 @@ export class CalendarEventsComponent {
 
   @Output() eventEdit: EventEmitter<Event> = new EventEmitter<Event>();
   @Output() eventDelete: EventEmitter<Event> = new EventEmitter<Event>();
+
+  isToday = isToday;
   
   constructor() {
     

@@ -1,6 +1,6 @@
 <mat-card>
     <mat-card-header>
-        Events on {{ day.date | localizedDate }}
+        {{ isToday(day.date) ? 'Today\'s Events' : 'Events on ' + day.date | localizedDate }}
     </mat-card-header>
 
     <mat-card-content>
@@ -35,7 +35,6 @@
                 <div class="actions">
                     <!-- Edit -->
                     <app-button theme="black"
-                                class="edit-btn"
                                 matButtonType="mat-icon-button"
                                 [tooltip]="'Edit Event' | translate"
                                 [ariaLabel]="'Edit Event' | translate"
@@ -56,7 +55,7 @@
             </div>
         } @empty {
             <div class="empty">
-                There are no events
+                There are no events.
             </div>
         }
     </mat-card-content>

@@ -112,7 +112,16 @@ $cal-gap: 15px;
     }
 }
 
+app-calendar-events {
+    ::ng-deep {
+        > mat-card {
+            margin: $cal-gap 0;
+        }
+    }
+}
+
 .event-form {
     background-color: #fbf9fc;
     padding: 16px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
