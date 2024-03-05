@@ -25,13 +25,39 @@ mat-card-content {
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border: 1px solid $neutral-100;
 
-        .time {
-            flex: 1;
-            font-weight: 800;
+        .date-time-wrapper {
+            display: flex;
+            flex-direction: column;
+
+            .date-time {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+
+                .date {
+                    display: flex;
+                    font-weight: 600;
+                }
+
+                .time {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    font-weight: 800;
+    
+                    .hr {
+                        font-size: 30px;
+                    }
+
+                    .hr, .min {
+                        display: flex;
+                        flex-direction: row;
+                    }
+                }
+            }
 
             .until {
-                text-align: center;
-                font-weight: 500;
+                align-self: center;
             }
         }
 
