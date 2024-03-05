@@ -2,6 +2,8 @@ import { Person } from "src/app/core/models/person.model";
 import { Location } from "src/app/core/models/location.model";
 import { Group } from "../../groups/models/group";
 import { IEventForm } from "src/app/shared/components/event-form/event-form.component";
+import { format, isSameDay } from 'date-fns';
+
 
 export class Event {
     id: string = '-1';
@@ -20,13 +22,14 @@ export class Event {
     group: Group | undefined;
     displayPicture: string | undefined;
     organizer: string = '';
-    onlinePlatform: string = '';
+    onlinePlatform: string = 'Teams';
     duration: string = 'Single';
     
     confirmed: boolean = false;
     declined: boolean = false;
 
     toEventForm(): IEventForm {
+        const sameDay = isSameDay(this.startDate, this.endDate);
         const eventForm: IEventForm = {
             eventType: this.eventType,
             eventOrganizerName: this.organizer,
@@ -35,20 +38,12 @@ export class Event {
             eventDescription: this.description,
             eventLocation: this.location.toString(),
             eventOnlinePlatform: this.onlinePlatform,
-            eventDuration: this.duration,
-            eventStartDate: this.eventFormDateString(this.startDate),
-            eventStartTime: this.eventFormTimeString(this.startDate),
-            eventEndDate: this.eventFormDateString(this.endDate),
-            eventEndTime: this.eventFormTimeString(this.endDate),
+            eventDuration: sameDay ? 'Single' : 'Multi',
+            eventStartDate: format(this.startDate, 'y-MM-dd'),
+            eventStartTime: format(this.startDate, 'HH:mm'),
+            eventEndDate: format(this.endDate, 'y-MM-dd'),
+            eventEndTime: format(this.endDate, 'HH:mm'),
         };
         return eventForm;
-    }
-
-    private eventFormDateString(date: Date): string {
-        return date.getFullYear() + '-' + ('0' + (date.getMonth()+1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
-    }
-
-    private eventFormTimeString(date: Date): string {
-        return date.getHours().toString() + ':' + date.getMinutes().toString();
     }
 }

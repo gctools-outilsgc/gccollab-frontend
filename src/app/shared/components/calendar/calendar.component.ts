@@ -130,12 +130,14 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
     }
 
     this.setDayActive(day);
+    this.eventFormActive = false;
   }
 
   editEvent(event: Event): void {
     const index = this.events.indexOf(event);
     if (index > -1) {
-      this.toggleEventForm(event);
+      this.eventFormActive = true;
+      this.eventFormData = event.toEventForm();
     }
   }
 
@@ -147,38 +149,8 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
-  toggleEventForm = (event: Event | undefined = undefined) => {
-
-    // If an event was passed in we are toggling to edit
-    if (event !== undefined) {
-      this.eventFormActive = true;
-      this.eventFormData = event.toEventForm();
-      return;
-    }
-
+  toggleEventForm = () => {
     this.eventFormActive = !this.eventFormActive;
-    if (this.eventFormActive) {
-      this.eventFormData = {
-        eventType: 'Hybrid',
-        eventOrganizerName: '',
-        eventName: '',
-        eventLanguage: 'Bilingual',
-        eventDescription: '',
-        eventLocation: '',
-        eventOnlinePlatform: '',
-        eventDuration: 'Single',
-        eventStartDate: '',
-        eventStartTime: '12:00',
-        eventEndDate: '',
-        eventEndTime: '13:00',
-      };
-
-      // If they have selected a day on the calendar we prepopulate start and end date for them.
-      if (this.activeDayIndex > -1) {
-        this.eventFormData.eventStartDate = this.getEventFormDateString(this.dates[this.activeDayIndex].date);
-        this.eventFormData.eventEndDate = this.eventFormData.eventStartDate;
-      }
-    }
   }
 
   toggleSearch = () => {
@@ -274,10 +246,7 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
       }
     }
 
-    if (this.activeDayIndex === -1) 
-      this.eventFormActive = false;
-
-    if (this.eventFormActive) {
+    if (this.activeDayIndex > -1) {
       this.eventFormData.eventStartDate = this.getEventFormDateString(this.dates[this.activeDayIndex].date);
       this.eventFormData.eventEndDate = this.eventFormData.eventStartDate;
     }

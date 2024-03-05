@@ -130,7 +130,7 @@ export class EventService implements IListService {
   }
 
   private randomEventType(): string {
-    const eventTypes: string[] = ['In Person', 'Workshop', 'Conference', 'Roundtable', 'Charity Event'];
+    const eventTypes: string[] = ['In Person', 'Hybrid', 'Online'];
     return eventTypes[Math.floor(Math.random() * eventTypes.length)];
   }
 
