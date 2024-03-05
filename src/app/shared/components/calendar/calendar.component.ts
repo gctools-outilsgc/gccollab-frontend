@@ -1,7 +1,6 @@
 /* eslint-disable no-case-declarations */
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { endOfDay, subDays, addDays, addMonths, endOfMonth, getDaysInMonth, startOfMonth, differenceInCalendarMonths, isWithinInterval, startOfDay, isMonday, isTuesday, isWednesday, isThursday, isFriday, isSaturday, isSunday, isSameDay } from 'date-fns';
-import { ICalendarEvent } from './interfaces/calendar-event.interface';
 import { ICalendarDate } from './interfaces/calendar-date.interface';
 import { ICalendarWeekDay } from './interfaces/calendar-weekday.interface';
 import { Translations } from 'src/app/core/services/translations.service';
@@ -12,6 +11,7 @@ import { IEventForm } from '../event-form/event-form.component';
 import { ResizeService } from 'src/app/core/services/resize.service';
 import { Subscription } from 'rxjs';
 import { DebounceService } from 'src/app/core/services/debounce.service';
+import { Event } from 'src/app/features/events/models/event';
 
 @Component({
   selector: 'app-calendar',
@@ -22,7 +22,7 @@ import { DebounceService } from 'src/app/core/services/debounce.service';
 export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
 
   @Input() date: Date = new Date();                 // The current date for our view.
-  @Input() events: ICalendarEvent[] = [];           // All events for the calendar.
+  @Input() events: Event[] = [];           // All events for the calendar.
   @Input() daysOutlined: boolean = false;           // Displays an outline for each calendar day
   @Input() loading: boolean = false;                //
 
@@ -132,7 +132,14 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
     this.setDayActive(day);
   }
 
-  deleteEvent(event: ICalendarEvent) {
+  editEvent(event: Event): void {
+    const index = this.events.indexOf(event);
+    if (index > -1) {
+      this.toggleEventForm(event);
+    }
+  }
+
+  deleteEvent(event: Event): void {
     const index = this.events.indexOf(event);
     if (index > -1) {
       this.events.splice(index, 1);
@@ -140,9 +147,16 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
-  toggleEventForm = () => {
-    this.eventFormActive = !this.eventFormActive;
+  toggleEventForm = (event: Event | undefined = undefined) => {
 
+    // If an event was passed in we are toggling to edit
+    if (event !== undefined) {
+      this.eventFormActive = true;
+      this.eventFormData = event.toEventForm();
+      return;
+    }
+
+    this.eventFormActive = !this.eventFormActive;
     if (this.eventFormActive) {
       this.eventFormData = {
         eventType: 'Hybrid',
@@ -159,6 +173,7 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
         eventEndTime: '13:00',
       };
 
+      // If they have selected a day on the calendar we prepopulate start and end date for them.
       if (this.activeDayIndex > -1) {
         this.eventFormData.eventStartDate = this.getEventFormDateString(this.dates[this.activeDayIndex].date);
         this.eventFormData.eventEndDate = this.eventFormData.eventStartDate;
@@ -276,6 +291,7 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
     this.previousButtonAria = this.translations.calendar.controls.previous.aria_month;
   }
 
+  // TODO: Move this to an event helper class
   private getEventFormDateString(date: Date): string {
     return date.getFullYear() + '-' + ('0' + (date.getMonth()+1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
   }

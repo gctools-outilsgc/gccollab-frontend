@@ -33,7 +33,19 @@
                 </div>
 
                 <div class="actions">
+                    <!-- Edit -->
                     <app-button theme="black"
+                                class="edit-btn"
+                                matButtonType="mat-icon-button"
+                                [tooltip]="'Edit Event' | translate"
+                                [ariaLabel]="'Edit Event' | translate"
+                                (click)="editEvent(event)">
+                        <i class="fa-solid fa-pencil"></i>
+                    </app-button>
+
+                    <!-- Delete -->
+                    <app-button theme="black"
+                                class="delete-btn"
                                 matButtonType="mat-icon-button"
                                 [tooltip]="'Delete Event' | translate"
                                 [ariaLabel]="'Delete Event' | translate"

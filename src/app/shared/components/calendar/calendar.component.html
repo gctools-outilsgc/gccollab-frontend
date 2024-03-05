@@ -122,6 +122,7 @@
 
 <app-calendar-events *ngIf="activeDayIndex > -1 && !loading"
                      [day]="dates[activeDayIndex]"
+                     (eventEdit)="editEvent($event)"
                      (eventDelete)="deleteEvent($event)">
 </app-calendar-events>
 

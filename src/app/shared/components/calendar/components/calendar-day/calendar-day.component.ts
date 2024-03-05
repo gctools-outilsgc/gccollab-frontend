@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter, IterableDiffers, IterableDiffer, DoCheck, ChangeDetectionStrategy, SimpleChanges, OnChanges, ChangeDetectorRef } from '@angular/core';
 import { isSameDay, isWithinInterval, startOfDay, endOfDay } from 'date-fns';
 import { ICalendarDate } from '../../interfaces/calendar-date.interface';
-import { ICalendarEvent } from '../../interfaces/calendar-event.interface';
+import { Event } from 'src/app/features/events/models/event';
 import { Router } from '@angular/router';
 import { CoreRoutes } from 'src/app/core/constants/routes.constants';
 
@@ -21,7 +21,7 @@ export class CalendarDayComponent implements OnInit, DoCheck, OnChanges {
 
   currentDay: boolean = false;
 
-  private iterableDifferEvents: IterableDiffer<ICalendarEvent>;
+  private iterableDifferEvents: IterableDiffer<Event>;
 
   constructor(private iterableDiffers: IterableDiffers, 
               private changeDetectorRef: ChangeDetectorRef,

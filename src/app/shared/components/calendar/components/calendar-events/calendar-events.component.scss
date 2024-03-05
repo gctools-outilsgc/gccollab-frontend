@@ -62,8 +62,14 @@ mat-card-content {
                     display: none;
                 }
         
-                .cdk-focused {
+                .delete-btn:hover i,
+                .delete-btn .cdk-focused {
                     color: $error-red !important;
+                }
+
+                .delete-btn:hover i,
+                .delete-btn .cdk-focused {
+                    color: $primary-1 !important;
                 }
             }
         }
