@@ -133,7 +133,7 @@
     <div class="actions">
         <!-- Save -->
         <app-button theme="secondary-2"
-                    [disabled]="loading"
+                    [disabled]="loading || !eventFormValid()"
                     [clickFunc]="saveEventForm">
             {{ editEventId ? (translations.forms.save | translate) : (translations.forms.create | translate) }}
         </app-button>

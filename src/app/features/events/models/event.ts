@@ -78,4 +78,34 @@ export class Event {
         return event;
     }
 
+    static fromEventForm(id:string, eventForm: IEventForm) {
+        const event = new Event();
+
+        event.id = id;
+        event.title = eventForm.eventName;
+        event.eventType = eventForm.eventType;
+        event.description = eventForm.eventDescription;
+
+        // TODO: Setup location form for use in the event form instead of a string.
+        event.location = new Location(eventForm.eventLocation, eventForm.eventLocation, eventForm.eventLocation);
+
+        event.language = eventForm.eventLanguage;
+        event.tags = [''];
+        event.startDate = new Date([eventForm.eventStartDate, eventForm.eventStartTime].join(' '));
+        event.endDate = new Date([eventForm.eventEndDate, eventForm.eventEndTime].join(' '));
+        event.author = undefined;
+        event.authoredDate = new Date();
+        event.canceled = false;
+        event.image = "";
+        event.group = undefined;
+        event.displayPicture = "";
+        event.organizer = eventForm.eventOrganizerName;
+        event.onlinePlatform = eventForm.eventOnlinePlatform;
+        event.duration = eventForm.eventDuration;
+        event.confirmed = false;
+        event.declined = false;
+        
+        return event;
+    }
+
 }

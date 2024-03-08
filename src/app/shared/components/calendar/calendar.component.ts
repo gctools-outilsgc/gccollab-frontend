@@ -147,21 +147,39 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
+  // TODO: Use the EventService to create a new Event and then pull that into the calendar.
   saveEventForm = () => {
     if (this.editEventId) {
       for (let i = 0; i < this.events.length; i++) {
-
         if (this.events[i].id === this.editEventId) {
-
           this.events[i] = this.events[i].fromEventForm(JSON.parse(JSON.stringify(this.eventFormGroup.value)) as IEventForm);
           this.injectEvents();
-
           break;
         }
       }
     }
+    else {
+      const newId = this.events.reduce((highestId, event) => {
+        const currentId = parseInt(event.id);
+        return currentId > parseInt(highestId) ? event.id : highestId;
+      }, "-1");
+
+      this.events.push(Event.fromEventForm(newId, JSON.parse(JSON.stringify(this.eventFormGroup.value)) as IEventForm));
+      this.injectEvents();
+    }
 
     this.eventFormActive = false;
+  }
+
+  eventFormValid(): boolean {
+    let allControlsValid = true;
+    for (const name in this.eventFormGroup.controls) {
+      if (this.eventFormGroup.controls[name].invalid) {
+        allControlsValid = false;
+        break;
+      }
+    }
+    return allControlsValid;
   }
 
   toggleEventForm = () => {
