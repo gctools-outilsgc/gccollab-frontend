@@ -54,6 +54,7 @@ import { CalendarDayComponent } from './components/calendar/components/calendar-
 import { LocalizedDatePipe } from './pipes/localized-date/localized-date.pipe';
 import { DurationFormatPipe } from './pipes/duration-format/duration-format.pipe';
 import { CalendarEventsComponent } from './components/calendar/components/calendar-events/calendar-events.component';
+import { CalendarSearchComponent } from './components/calendar/components/calendar-search/calendar-search.component';
 
 
 @NgModule({
@@ -84,6 +85,7 @@ import { CalendarEventsComponent } from './components/calendar/components/calend
     CalendarComponent,
     CalendarDayComponent,
     CalendarEventsComponent,
+    CalendarSearchComponent,
     LocalizedDatePipe,
     DurationFormatPipe
   ],

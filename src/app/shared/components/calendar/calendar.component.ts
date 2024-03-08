@@ -1,6 +1,6 @@
 /* eslint-disable no-case-declarations */
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
-import { endOfDay, subDays, addDays, addMonths, endOfMonth, getDaysInMonth, startOfMonth, differenceInCalendarMonths, isWithinInterval, startOfDay, isMonday, isTuesday, isWednesday, isThursday, isFriday, isSaturday, isSunday, isSameDay } from 'date-fns';
+import { endOfDay, subDays, addDays, addMonths, endOfMonth, getDaysInMonth, startOfMonth, differenceInCalendarMonths, isWithinInterval, startOfDay, isMonday, isTuesday, isWednesday, isThursday, isFriday, isSaturday, isSunday, isSameDay, format } from 'date-fns';
 import { ICalendarDate } from './interfaces/calendar-date.interface';
 import { ICalendarWeekDay } from './interfaces/calendar-weekday.interface';
 import { Translations } from 'src/app/core/services/translations.service';
@@ -12,6 +12,7 @@ import { ResizeService } from 'src/app/core/services/resize.service';
 import { Subscription } from 'rxjs';
 import { DebounceService } from 'src/app/core/services/debounce.service';
 import { Event } from 'src/app/features/events/models/event';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-calendar',
@@ -23,7 +24,6 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
 
   @Input() date: Date = new Date();                 // The current date for our view.
   @Input() events: Event[] = [];                    // All events for the calendar.
-  @Input() daysOutlined: boolean = false;           // Displays an outline for each calendar day
   @Input() loading: boolean = false;                //
 
   dates: ICalendarDate[] = [];                        // The days for the current view.
@@ -31,19 +31,13 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
   datesPaddingPost: ICalendarDate[] = [];             // Any days after the month that should be rendered.
   weekdays: ICalendarWeekDay[] = [];
 
-  activeDayIndex = -1;                              // The active day (user selected)
   searchActive: boolean = false;
   eventFormActive: boolean = false;
-  editing: boolean = false;
 
-  calendarStyle = {
-    'grid-template-rows': 'repeat(5, 75px)',
-    'grid-template-columns': 'revert-layer',
-    'grid-row-gap': '15px'
-  }
+  activeDayIndex = -1;                              // The active day (user selected)
+  editEventId: string | null = null;
 
-  TooltipDirection = TooltipDirection;
-
+  eventFormGroup: FormGroup = new FormGroup({});
   eventFormData: IEventForm = {
     eventType: 'Hybrid',
     eventOrganizerName: '',
@@ -58,6 +52,14 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
     eventEndDate: '',
     eventEndTime: '13:00',
   };
+
+  calendarStyle = {
+    'grid-template-rows': 'repeat(5, 75px)',
+    'grid-template-columns': 'revert-layer',
+    'grid-row-gap': '15px'
+  }
+
+  TooltipDirection = TooltipDirection;
 
   private resizeSub!: Subscription;
   private prevWeekdayFormat: WeekdayFormat = WeekdayFormat.Full;
@@ -124,7 +126,7 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
 
     this.setDayActive(day);
     this.eventFormActive = false;
-    this.editing = false;
+    this.editEventId = null;
     this.resetEventForm();
   }
 
@@ -133,7 +135,7 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
     if (index > -1) {
       this.eventFormActive = true;
       this.eventFormData = event.toEventForm();
-      this.editing = true;
+      this.editEventId = event.id;
     }
   }
 
@@ -143,6 +145,23 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
       this.events.splice(index, 1);
       this.injectEvents();
     }
+  }
+
+  saveEventForm = () => {
+    if (this.editEventId) {
+      for (let i = 0; i < this.events.length; i++) {
+
+        if (this.events[i].id === this.editEventId) {
+
+          this.events[i] = this.events[i].fromEventForm(JSON.parse(JSON.stringify(this.eventFormGroup.value)) as IEventForm);
+          this.injectEvents();
+
+          break;
+        }
+      }
+    }
+
+    this.eventFormActive = false;
   }
 
   toggleEventForm = () => {
@@ -228,9 +247,13 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
           if (eventStartsEndsToday || eventSpansDay) {
             day.events.push(this.events[i]);
           }
-        } catch(e) { /* empty */ } // Start/End Date incompatible so don't add it.
+        } catch(e) {
+          // Start/End Date incompatible so don't add it.
+        } 
       });
     }
+
+    this.changeDetectorRef.markForCheck();
   }
 
   private setDayActive(day: ICalendarDate) {
@@ -240,11 +263,6 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
         break;
       }
     }
-  }
-
-  // TODO: Move this to an event helper class
-  private getEventFormDateString(date: Date): string {
-    return date.getFullYear() + '-' + ('0' + (date.getMonth()+1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
   }
 
   private resetEventForm(): void {
@@ -264,7 +282,7 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
     };
 
     if (this.activeDayIndex > -1) {
-      this.eventFormData.eventStartDate = this.getEventFormDateString(this.dates[this.activeDayIndex].date);
+      this.eventFormData.eventStartDate = format(this.dates[this.activeDayIndex].date, 'y-MM-dd');
       this.eventFormData.eventEndDate = this.eventFormData.eventStartDate;
     }
   }

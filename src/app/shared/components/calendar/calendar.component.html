@@ -17,25 +17,15 @@
             </app-button>
 
             <!-- Search -->
-            <form id="gcc-form-calendar-search">
-                <app-input *ngIf="searchActive" 
-                           [name]="'calendarSearch'" 
-                           [label]="'calendarSearch'"
-                           [placeholder]="'Search calendar'"
-                           [icon]="'fa-solid fa-magnifying-glass fa-lg'">
-                </app-input>
-                <app-button *ngIf="!searchActive"
-                            theme="black"
-                            matButtonType="mat-icon-button"
-                            [tooltip]="'Search' | translate"
-                            [tooltipDirection]="TooltipDirection.Above"
-                            [ariaLabel]="'Search' | translate"
-                            [disabled]="loading"
-                            [clickFunc]="toggleSearch">
-                    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-                </app-button>
-            </form>
-            
+            <app-button theme="black"
+                        matButtonType="mat-icon-button"
+                        [tooltip]="'Search' | translate"
+                        [tooltipDirection]="TooltipDirection.Above"
+                        [ariaLabel]="'Search' | translate"
+                        [disabled]="loading"
+                        [clickFunc]="toggleSearch">
+                <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+            </app-button>
         </div>
 
         <!-- Middle Actions-->
@@ -69,6 +59,7 @@
 
         <!-- Right Actions -->
         <div class="right-actions">
+
             <!-- Filter -->
             <app-button theme="black"
                         matButtonType="mat-icon-button"
@@ -80,6 +71,11 @@
             </app-button>
         </div>
     </div>
+
+    <!-- Search -->
+    <app-calendar-search *ngIf="searchActive" 
+                         [events]="events">
+    </app-calendar-search>
 
     <div>
         <!-- Days of the Week -->
@@ -122,7 +118,7 @@
 
 <!-- Events -->
 <app-calendar-events *ngIf="activeDayIndex > -1 && !loading"
-                     [day]="dates[activeDayIndex]"
+                     [calendarDate]="dates[activeDayIndex]"
                      (eventEdit)="editEvent($event)"
                      (eventDelete)="deleteEvent($event)">
 </app-calendar-events>
@@ -130,15 +126,23 @@
 <!-- Event Form -->
 <mat-card *ngIf="eventFormActive && !loading" class="event-form">
 
-    <app-event-form [model]="eventFormData"></app-event-form>
+    <app-event-form [form]="eventFormGroup" 
+                    [model]="eventFormData">
+    </app-event-form>
 
     <div class="actions">
         <!-- Save -->
         <app-button theme="secondary-2"
-                    style="float: right;"
+                    [disabled]="loading"
+                    [clickFunc]="saveEventForm">
+            {{ editEventId ? (translations.forms.save | translate) : (translations.forms.create | translate) }}
+        </app-button>
+
+        <!-- Cancel -->
+        <app-button theme="secondary-2"
                     [disabled]="loading"
                     [clickFunc]="toggleEventForm">
-        {{ editing ? 'Save' : 'Create' }}
-    </app-button>
+            Cancel
+        </app-button>
     </div>
 </mat-card>

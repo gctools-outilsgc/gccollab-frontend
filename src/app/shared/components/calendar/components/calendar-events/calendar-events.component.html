@@ -1,10 +1,10 @@
 <mat-card>
     <mat-card-header>
-        {{ isToday(day.date) ? 'Today\'s Events' : 'Events on ' + (day.date | localizedDate) }}
+        {{ isToday(calendarDate.date) ? 'Today\'s Events' : 'Events on ' + (calendarDate.date | localizedDate) }}
     </mat-card-header>
 
     <mat-card-content>
-        @for (event of day.events; track $index) {
+        @for (event of calendarDate.events; track $index) {
             <div class="event" tabindex="0">
                 <div class="date-time-wrapper">
                     <div class="date-time">
@@ -59,7 +59,7 @@
                                 [tooltip]="'Edit Event' | translate"
                                 [ariaLabel]="'Edit Event' | translate"
                                 (click)="editEvent(event)">
-                        <i class="fa-solid fa-pencil"></i>
+                        <i class="fa-solid fa-pen-to-square"></i>
                     </app-button>
 
                     <!-- Delete -->

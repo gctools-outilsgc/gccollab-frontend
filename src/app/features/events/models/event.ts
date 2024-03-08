@@ -28,6 +28,7 @@ export class Event {
     confirmed: boolean = false;
     declined: boolean = false;
 
+    // TODO: Make these the same properties? Implement the interface?
     toEventForm(): IEventForm {
         const sameDay = isSameDay(this.startDate, this.endDate);
         const eventForm: IEventForm = {
@@ -46,4 +47,35 @@ export class Event {
         };
         return eventForm;
     }
+
+    fromEventForm(eventForm: IEventForm): Event {
+        const event = new Event();
+
+        event.id = this.id;
+        event.title = eventForm.eventName;
+        event.eventType = eventForm.eventType;
+        event.description = eventForm.eventDescription;
+
+        const addCityProv = eventForm.eventLocation.split(',');
+        event.location = new Location(addCityProv[0].trim(), addCityProv[1].trim(), addCityProv[2].trim());
+
+        event.language = eventForm.eventLanguage;
+        event.tags = this.tags;
+        event.startDate = new Date([eventForm.eventStartDate, eventForm.eventStartTime].join(' '));
+        event.endDate = new Date([eventForm.eventEndDate, eventForm.eventEndTime].join(' '));
+        event.author = this.author;
+        event.authoredDate = this.authoredDate;
+        event.canceled = this.canceled;
+        event.image = this.image;
+        event.group = this.group;
+        event.displayPicture = this.displayPicture;
+        event.organizer = eventForm.eventOrganizerName;
+        event.onlinePlatform = eventForm.eventOnlinePlatform;
+        event.duration = eventForm.eventDuration;
+        event.confirmed = this.confirmed;
+        event.declined = this.declined;
+        
+        return event;
+    }
+
 }

@@ -15,7 +15,7 @@ $transition-speed: .15s;
         width: 39px;
         height: 39px;
         margin: auto;
-        border: 3px solid white;
+        border: 3px solid transparent;
         border-radius: 12px;
         color: black;
         flex: 2;
@@ -83,7 +83,7 @@ $transition-speed: .15s;
         ::ng-deep {
             >div {
                 height: 100%;
-                border-radius: 0;
+                border-radius: 15px;
                 border: 2px solid white;
             }
         }
