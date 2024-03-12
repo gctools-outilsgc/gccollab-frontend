@@ -39,6 +39,7 @@ import { MAT_RADIO_DEFAULT_OPTIONS, MatRadioModule } from '@angular/material/rad
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { EditorMenuComponent } from './components/editor/menu/editor-menu/editor-menu.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { PostFormComponent } from './components/post-form/post-form.component';
 import { BlogFormComponent } from './components/blog-form/blog-form.component';
 import { EventFormComponent } from './components/event-form/event-form.component';
@@ -114,9 +115,10 @@ import { CalendarSearchComponent } from './components/calendar/components/calend
     MatRadioModule,
     MatDatepickerModule,
     MatAutocompleteModule,
+    MatExpansionModule,
     MatCardModule,
     NgxSkeletonLoaderModule,
-    InfiniteScrollModule,
+    InfiniteScrollModule
   ],
   exports: [
     TranslateModule,

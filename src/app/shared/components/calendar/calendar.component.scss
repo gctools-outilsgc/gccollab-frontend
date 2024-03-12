@@ -116,6 +116,10 @@ $cal-gap: 15px;
     }
 }
 
+app-calendar-search {
+    margin-bottom: $cal-gap;
+}
+
 app-calendar-events {
     ::ng-deep {
         > mat-card {

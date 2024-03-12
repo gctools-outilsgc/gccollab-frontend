@@ -1,1 +1,40 @@
-Search Component
+<mat-card>
+    <form id="gcc-form-calendar-search" [formGroup]="form">
+        <app-input
+            [value]="model.calendarSearch"
+            [name]="'calendarSearch'"
+            formControlName="calendarSearch"
+            [control]="form.controls['calendarSearch'] | formControl"
+            [label]="''"
+            [placeholder]="'Search My Calendar'"
+            [required]="false"
+        >
+        </app-input>
+    </form>
+    <mat-accordion>
+        @for (event of filteredEvents; track $index) {
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <app-calendar-button [date]="event.startDate"></app-calendar-button>
+                        <div class="event-title">
+                            <div>
+                                {{ event.title }}
+                            </div>
+                            <div>
+                                {{ event.eventType }}
+                            </div>
+                        </div>
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        {{ event.startDate | localizedDate: 'MMM d' | titlecase }}, {{ event.startDate | date: 'h:mm a' }} - {{ event.endDate | localizedDate: 'MMM d' | titlecase }}, {{ event.endDate | date: 'h:mm a' }}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="event-body">
+                    
+                </div>
+            </mat-expansion-panel>
+        }
+    </mat-accordion>
+    
+</mat-card>
