@@ -39,7 +39,6 @@ import { MAT_RADIO_DEFAULT_OPTIONS, MatRadioModule } from '@angular/material/rad
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { EditorMenuComponent } from './components/editor/menu/editor-menu/editor-menu.component';
-import { MatExpansionModule } from '@angular/material/expansion';
 import { PostFormComponent } from './components/post-form/post-form.component';
 import { BlogFormComponent } from './components/blog-form/blog-form.component';
 import { EventFormComponent } from './components/event-form/event-form.component';
@@ -50,12 +49,8 @@ import { FormControlPipe } from './pipes/form-control/form-control.pipe';
 import { FormGroupPipe } from './pipes/form-group/form-group.pipe';
 import { FileSelectComponent } from './components/file-select/file-select.component';
 import { ListComponent } from './components/list/list.component';
-import { CalendarComponent } from './components/calendar/calendar.component';
-import { CalendarDayComponent } from './components/calendar/components/calendar-day/calendar-day.component';
 import { LocalizedDatePipe } from './pipes/localized-date/localized-date.pipe';
 import { DurationFormatPipe } from './pipes/duration-format/duration-format.pipe';
-import { CalendarEventsComponent } from './components/calendar/components/calendar-events/calendar-events.component';
-import { CalendarSearchComponent } from './components/calendar/components/calendar-search/calendar-search.component';
 
 
 @NgModule({
@@ -83,10 +78,6 @@ import { CalendarSearchComponent } from './components/calendar/components/calend
     FormGroupPipe,
     FileSelectComponent,
     ListComponent,
-    CalendarComponent,
-    CalendarDayComponent,
-    CalendarEventsComponent,
-    CalendarSearchComponent,
     LocalizedDatePipe,
     DurationFormatPipe
   ],
@@ -115,7 +106,6 @@ import { CalendarSearchComponent } from './components/calendar/components/calend
     MatRadioModule,
     MatDatepickerModule,
     MatAutocompleteModule,
-    MatExpansionModule,
     MatCardModule,
     NgxSkeletonLoaderModule,
     InfiniteScrollModule
@@ -141,7 +131,6 @@ import { CalendarSearchComponent } from './components/calendar/components/calend
     EventFormComponent,
     PollFormComponent,
     ListComponent,
-    CalendarComponent,
     LocalizedDatePipe,
     DurationFormatPipe,
     FormControlPipe,

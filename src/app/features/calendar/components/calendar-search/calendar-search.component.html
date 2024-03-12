@@ -31,7 +31,8 @@
                     </mat-panel-description>
                 </mat-expansion-panel-header>
                 <div class="event-body">
-                    {{event.description}}
+                    <!-- <app-event-card [model]="event" cardSize="large"></app-event-card> -->
+                    <app-event [model]="event"></app-event>
                 </div>
             </mat-expansion-panel>
         }
