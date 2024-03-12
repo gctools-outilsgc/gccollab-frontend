@@ -3,7 +3,7 @@
             [loading]="loading">
 </app-banner>
 
-<app-calendar-button [date]="model.startDate" 
+<app-calendar-button [date]="model ? model.startDate : loadingEvent.startDate" 
                      [tooltip]="translations.eventCard.calendar.tooltip | translate"
                      [aria]="translations.eventCard.calendar.aria | translate"
                      [tooltipDirection]="tooltipDirection.Below"

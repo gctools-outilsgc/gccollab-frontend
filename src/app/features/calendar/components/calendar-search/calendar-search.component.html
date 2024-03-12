@@ -1,7 +1,7 @@
 <mat-card>
     <form id="gcc-form-calendar-search" [formGroup]="form">
         <app-input
-            [value]="model.calendarSearch"
+            [(value)]="model.calendarSearch"
             [name]="'calendarSearch'"
             formControlName="calendarSearch"
             [control]="form.controls['calendarSearch'] | formControl"
@@ -10,6 +10,11 @@
             [required]="false"
         >
         </app-input>
+        <mat-slide-toggle [checked]="showAll"
+                          (change)="setShowAll($event)"
+                          color="secondary">
+            Show All
+        </mat-slide-toggle>
     </form>
     <mat-accordion>
         @for (event of filteredEvents; track $index) {
@@ -30,11 +35,18 @@
                         {{ event.startDate | localizedDate: 'MMM d' | titlecase }}, {{ event.startDate | date: 'h:mm a' }} - {{ event.endDate | localizedDate: 'MMM d' | titlecase }}, {{ event.endDate | date: 'h:mm a' }}
                     </mat-panel-description>
                 </mat-expansion-panel-header>
-                <div class="event-body">
-                    <!-- <app-event-card [model]="event" cardSize="large"></app-event-card> -->
-                    <app-event [model]="event"></app-event>
-                </div>
+
+                <app-event [model]="event"></app-event>
+
             </mat-expansion-panel>
+        } @empty {
+            <div class="empty">
+                @if (search !== "") {
+                    There are no events in your calendar that match your search.
+                } @else {
+                    Begin typing to search for events.
+                }
+            </div>
         }
     </mat-accordion>
     

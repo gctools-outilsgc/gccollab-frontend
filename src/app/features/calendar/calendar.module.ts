@@ -9,6 +9,7 @@ import { EventsModule } from '../events/events.module';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -27,6 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     EventsModule,
     MatCardModule,
     MatExpansionModule,
+    MatSlideToggleModule
   ],
   exports: [
     CalendarComponent,

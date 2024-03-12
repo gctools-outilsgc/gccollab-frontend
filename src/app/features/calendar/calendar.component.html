@@ -19,12 +19,14 @@
             <!-- Search -->
             <app-button theme="black"
                         matButtonType="mat-icon-button"
-                        [tooltip]="'Search' | translate"
+                        [tooltip]="searchActive ? ('Close Search' | translate) : ('Search' | translate)"
                         [tooltipDirection]="TooltipDirection.Above"
-                        [ariaLabel]="'Search' | translate"
+                        [ariaLabel]="searchActive ? ('Close Search' | translate) : ('Search' | translate)"
                         [disabled]="loading"
                         [clickFunc]="toggleSearch">
-                <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+                <i [ngClass]="searchActive ? 'fa-xmark' : 'fa-magnifying-glass'"
+                   class="fa-solid fa-lg">
+                </i>
             </app-button>
         </div>
 

@@ -54,6 +54,7 @@ export class EventComponent implements OnInit {
   formGroup = new FormGroup({});
 
   matcher = new MyErrorStateMatcher();
+  loadingEvent: Event = new Event();
 
   constructor(
     public translations: Translations,

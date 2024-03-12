@@ -277,7 +277,7 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
   private setDayActive(day: ICalendarDate) {
     for (let i = 0; i < this.dates.length; i++) {
       if (day.date === this.dates[i].date) {
-        this.activeDayIndex = this.activeDayIndex === i ? -1 : i;
+        this.activeDayIndex = i;
         break;
       }
     }
