@@ -1,9 +1,10 @@
-import { Component, ChangeDetectionStrategy, Input, OnInit, OnDestroy, IterableDiffer, DoCheck, ChangeDetectorRef, IterableDiffers } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, OnInit, OnDestroy, IterableDiffer, DoCheck, ChangeDetectorRef, IterableDiffers, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { Event } from 'src/app/features/events/models/event';
 import { DebounceService } from 'src/app/core/services/debounce.service';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { MatAccordion } from '@angular/material/expansion';
 
 @Component({
   selector: 'app-calendar-search',
@@ -16,6 +17,7 @@ export class CalendarSearchComponent implements OnInit, OnDestroy, DoCheck {
   @Input() model: ICalendarSearchForm = {
     calendarSearch: ''
   };
+  @ViewChild(MatAccordion) accordion!: MatAccordion;
 
   search: string = this.model.calendarSearch;
   form: FormGroup = new FormGroup({});
@@ -70,8 +72,11 @@ export class CalendarSearchComponent implements OnInit, OnDestroy, DoCheck {
       this.filteredEvents = this.events;
       this.filteredEvents.sort(this.sortFn);
     }
-    else 
+    else {
       this.searchEvents(this.search);
+    }
+    
+    this.accordion.closeAll();
   }
 
   private searchEvents(value: string): void {

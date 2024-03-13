@@ -1,7 +1,7 @@
 <mat-card>
     <form id="gcc-form-calendar-search" [formGroup]="form">
         <app-input
-            [(value)]="model.calendarSearch"
+            [value]="model.calendarSearch"
             [name]="'calendarSearch'"
             formControlName="calendarSearch"
             [control]="form.controls['calendarSearch'] | formControl"
@@ -16,7 +16,7 @@
             Show All
         </mat-slide-toggle>
     </form>
-    <mat-accordion>
+    <mat-accordion #accordian="matAccordion">
         @for (event of filteredEvents; track $index) {
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
