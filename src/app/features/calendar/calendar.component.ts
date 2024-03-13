@@ -95,9 +95,11 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
     for (let i = 0; i < this.dates.length; i++) {
       if (isSameDay(this.dates[i].date, today)) {
         this.setDayActive(this.dates[i]);
+        this.resetEventForm();
         break;
       }
     }
+
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -159,10 +161,12 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
       }
     }
     else {
-      const newId = this.events.reduce((highestId, event) => {
+      const highestId = this.events.reduce((highestId, event) => {
         const currentId = parseInt(event.id);
         return currentId > parseInt(highestId) ? event.id : highestId;
       }, "-1");
+
+      const newId = (parseInt(highestId) + 1).toString();
 
       this.events.push(Event.fromEventForm(newId, JSON.parse(JSON.stringify(this.eventFormGroup.value)) as IEventForm));
       this.injectEvents();

@@ -18,7 +18,7 @@ export class Event {
     author: Person | undefined;
     authoredDate: Date | undefined;
     canceled: boolean = false;
-    image: string | undefined;
+    image: string | undefined = '../assets/image/group-banner.png';
     group: Group | undefined;
     displayPicture: string | undefined;
     organizer: string = '';
@@ -96,9 +96,9 @@ export class Event {
         event.author = undefined;
         event.authoredDate = new Date();
         event.canceled = false;
-        event.image = "";
+        event.image = '../assets/image/group-banner.png';
         event.group = undefined;
-        event.displayPicture = "";
+        event.displayPicture = '';
         event.organizer = eventForm.eventOrganizerName;
         event.onlinePlatform = eventForm.eventOnlinePlatform;
         event.duration = eventForm.eventDuration;

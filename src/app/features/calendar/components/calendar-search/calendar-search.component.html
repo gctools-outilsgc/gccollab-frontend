@@ -36,7 +36,9 @@
                     </mat-panel-description>
                 </mat-expansion-panel-header>
 
-                <app-event [model]="event"></app-event>
+                <ng-template matExpansionPanelContent>
+                    <app-event [model]="event"></app-event>
+                </ng-template>
 
             </mat-expansion-panel>
         } @empty {
