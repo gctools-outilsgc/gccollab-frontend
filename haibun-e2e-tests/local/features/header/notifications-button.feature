@@ -5,4 +5,4 @@ Feature: Notifications button feature
 
     go to the home webpage
     click the button Notifications
-    #Add a notifications link 
+    page is accessible accepting serious 0 and moderate 0

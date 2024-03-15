@@ -25,10 +25,10 @@
 <div class="upcoming-events-content">
   <section>
     <div class="upcoming-events-top">
-      <app-list [loadTime]="0" [service]="eventService" [cardSize]="'large'" orientation="horizontal" [pageSize]="2" [columnGap]="20" [paging]="false"> </app-list>
+      <app-list [items]="upcomingEvents" [loadTime]="0" [service]="eventService" [cardSize]="'large'" orientation="horizontal" [pageSize]="2" [columnGap]="20" [paging]="false"> </app-list>
     </div>
     <div class="upcoming-events-bottom">
-      <app-list [loadTime]="0" [service]="eventService" [cardSize]="'large'" orientation="horizontal" [pageSize]="2" [columnGap]="20" [paging]="false"> </app-list>
+      <app-list [items]="upcomingEvents" [loadTime]="0" [service]="eventService" [cardSize]="'large'" orientation="horizontal" [pageSize]="2" [columnGap]="20" [paging]="false"> </app-list>
     </div>
     <div class="click-for-more">
       <a routerLink="{{ '/' + routes.Events }}">
@@ -45,10 +45,10 @@
 <div class="previous-events-content">
   <section>
     <div class="previous-events-top">
-      <app-list [loadTime]="0" [service]="eventService" [cardSize]="'large'" orientation="horizontal" [pageSize]="2" [columnGap]="20" [paging]="false"> </app-list>
+      <app-list [items]="previousEvents" [loadTime]="0" [service]="eventService" [cardSize]="'large'" orientation="horizontal" [pageSize]="2" [columnGap]="20" [paging]="false"> </app-list>
     </div>
     <div class="previous-events-bottom">
-      <app-list [loadTime]="0" [service]="eventService" [cardSize]="'large'" orientation="horizontal" [pageSize]="2" [columnGap]="20" [paging]="false"> </app-list>
+      <app-list [items]="previousEvents" [loadTime]="0" [service]="eventService" [cardSize]="'large'" orientation="horizontal" [pageSize]="2" [columnGap]="20" [paging]="false"> </app-list>
     </div>
     <div class="click-for-more">
       <a routerLink="{{ '/' + routes.Events }}">
