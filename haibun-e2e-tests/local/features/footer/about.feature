@@ -6,3 +6,4 @@ Feature: About button feature
     go to the home webpage
     click the button About 
     be on the about webpage
+    page is accessible accepting serious 0 and moderate 0
