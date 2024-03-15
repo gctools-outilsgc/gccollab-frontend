@@ -1,0 +1,114 @@
+@import '../../../../../assets/scss/partials/colors';
+
+mat-card {
+  background-color: $neutral-100;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+mat-card-header {
+  font-size: 28px;
+  font-weight: 600;
+  padding: 16px;
+}
+
+mat-card-content {
+  display: flex;
+  flex-direction: column;
+
+  .event {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: 1px solid $neutral-100;
+
+    .date-time-wrapper {
+      display: flex;
+      flex-direction: column;
+      padding: 0 10px;
+
+      .date-time {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        .date {
+          display: flex;
+          font-weight: 600;
+        }
+
+        .time {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          font-weight: 800;
+          gap: 2px;
+
+          .hr {
+            font-size: 26px;
+          }
+
+          .hr,
+          .min {
+            display: flex;
+            flex-direction: row;
+          }
+        }
+      }
+
+      .until {
+        align-self: center;
+      }
+    }
+
+    .seperator {
+      border-radius: 10px;
+      background: $secondary-2-gradient;
+      margin: 0 16px;
+      align-self: stretch;
+    }
+
+    .info {
+      flex: 4;
+      flex-direction: column;
+
+      div:not(:last-child) {
+        padding-bottom: 5px;
+      }
+    }
+
+    .actions {
+      display: flex;
+      flex: 0.1;
+      align-items: center;
+
+      ::ng-deep {
+        app-input mat-label,
+        app-input .mat-mdc-form-field-subscript-wrapper,
+        .mat-mdc-button-persistent-ripple,
+        .mat-mdc-button-ripple {
+          display: none;
+        }
+
+        .delete-btn:hover i,
+        .delete-btn .cdk-focused {
+          color: $error-red !important;
+        }
+      }
+    }
+  }
+
+  .event:hover,
+  .event:focus-visible {
+    outline: none;
+    box-shadow: 0px 4px 4px $secondary-2;
+    border: 1px solid $secondary-2;
+  }
+
+  .event:not(:last-child) {
+    margin-bottom: 16px;
+  }
+}

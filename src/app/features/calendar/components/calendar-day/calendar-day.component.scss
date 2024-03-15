@@ -1,0 +1,97 @@
+@import '../../../../../assets/scss/partials/colors';
+$transition-speed: 0.15s;
+
+.day-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  outline: none !important;
+
+  .day-number {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 39px;
+    height: 39px;
+    margin: auto;
+    border: 3px solid transparent;
+    border-radius: 12px;
+    color: black;
+    flex: 2;
+    cursor: default;
+  }
+
+  .event {
+    background-color: $neutral-600;
+    border-radius: 20px;
+    width: 38px;
+    height: 5px;
+    margin: auto;
+    transition: background-color $transition-speed;
+  }
+}
+
+.currentDay,
+.currentDay.active {
+  .day-number {
+    font-weight: 600;
+    background: $secondary-2-gradient;
+    color: white;
+    border: none;
+  }
+}
+
+.active {
+  .event {
+    background-color: $primary-2 !important;
+  }
+}
+
+.active:not(.currentDay) {
+  .day-number {
+    background: white;
+    border: 3px solid $secondary-2-dark;
+  }
+}
+
+.outsideOfMonth {
+  .day-number {
+    color: $neutral-300;
+  }
+  .event {
+    background-color: $neutral-300 !important;
+  }
+}
+
+.outsideOfMonth.currentDay {
+  .day-number {
+    background: $neutral-200 !important;
+  }
+}
+
+.day-wrapper:hover:not(.active),
+.day-wrapper:focus-visible:not(.active) {
+  .day-number {
+    border-color: $neutral-300;
+  }
+}
+
+.day-wrapper.loading {
+  ngx-skeleton-loader {
+    height: 100%;
+    ::ng-deep {
+      > div {
+        height: 100%;
+        border-radius: 15px;
+        border: 2px solid white;
+      }
+    }
+  }
+}
+
+.flex-align {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}

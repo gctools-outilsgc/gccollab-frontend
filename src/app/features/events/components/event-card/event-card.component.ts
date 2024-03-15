@@ -15,7 +15,7 @@ import { CardSize } from 'src/app/shared/models/card-size';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EventCardComponent implements ICardComponent {
-  @Input() model?: Event;
+  @Input({ required: true }) model!: Event;
   @Input() loading: boolean = false;
   @Input() cardSize: CardSize | string = CardSize.Small;
   @Output() confirm = new EventEmitter();

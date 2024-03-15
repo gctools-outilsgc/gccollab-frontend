@@ -8,6 +8,7 @@ import { LoremIpsum } from 'lorem-ipsum';
 import { GroupService } from './group.service';
 import { IListService } from '../interfaces/list-service.interface';
 import { EventCardComponent } from 'src/app/features/events/components/event-card/event-card.component';
+import { addDays, addHours } from 'date-fns';
 
 @Injectable({
   providedIn: 'root',
@@ -80,7 +81,7 @@ export class EventService implements IListService {
   }
 
   private generateRandomEventItem(): Event {
-    const event = new Event('0', 'Event Title', 'Display Picture', new Date(), 'Organizer', new Location('Address', 'City', 'Province'));
+    const event = new Event();
 
     event.id = this.id.toString();
     event.title = this.randomTitle();
@@ -90,7 +91,8 @@ export class EventService implements IListService {
     event.author = this.peopleService.people[this.id];
     event.group = this.groupService.groups[this.id];
     event.startDate = this.randomDate();
-    event.endDate = this.randomDate();
+    event.endDate = addDays(event.startDate, this.randomRange(0, 7));
+    event.endDate = addHours(event.endDate, this.randomRange(2, 6));
     event.image = this.randomImage();
     event.displayPicture = this.randomDisplayPicture();
     event.organizer = this.randomOrganizer();
@@ -128,7 +130,7 @@ export class EventService implements IListService {
   }
 
   private randomEventType(): string {
-    const eventTypes: string[] = ['In Person', 'Workshop', 'Conference', 'Roundtable', 'Charity Event'];
+    const eventTypes: string[] = ['In Person', 'Hybrid', 'Online'];
     return eventTypes[Math.floor(Math.random() * eventTypes.length)];
   }
 
@@ -176,5 +178,9 @@ export class EventService implements IListService {
   private randomOrganizer(): string {
     const organizers: string[] = ['TBS', 'ESDC', 'CRA', 'SSC', 'NRCC'];
     return organizers[Math.floor(Math.random() * organizers.length)];
+  }
+
+  private randomRange(min: number, max: number) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
   }
 }

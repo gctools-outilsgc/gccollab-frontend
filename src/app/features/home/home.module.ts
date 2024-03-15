@@ -8,9 +8,10 @@ import { NewsFeedModule } from '../news-feed/news-feed.module';
 import { GroupsModule } from '../groups/groups.module';
 import { EventsModule } from '../events/events.module';
 import { ProfileModule } from '../profile/profile.module';
+import { CalendarModule } from '../calendar/calendar.module';
 
 @NgModule({
   declarations: [HomeComponent],
-  imports: [CommonModule, HomeRoutingModule, SharedModule, NewsFeedModule, GroupsModule, EventsModule, ProfileModule],
+  imports: [CommonModule, HomeRoutingModule, SharedModule, NewsFeedModule, GroupsModule, EventsModule, ProfileModule, CalendarModule],
 })
 export class HomeModule {}

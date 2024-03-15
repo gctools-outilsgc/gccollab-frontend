@@ -1,0 +1,50 @@
+<mat-card>
+  <form id="gcc-form-calendar-search" [formGroup]="form">
+    <app-input
+      [value]="model.calendarSearch"
+      [name]="'calendarSearch'"
+      formControlName="calendarSearch"
+      [control]="form.controls['calendarSearch'] | formControl"
+      [label]="''"
+      [placeholder]="'Search My Calendar'"
+      [required]="false"
+    >
+    </app-input>
+    <mat-slide-toggle [checked]="showAll" (change)="setShowAll($event)" color="secondary"> Show All </mat-slide-toggle>
+  </form>
+  <mat-accordion #accordian="matAccordion">
+    @for (event of filteredEvents; track $index) {
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <app-calendar-button [date]="event.startDate"></app-calendar-button>
+            <div class="event-title">
+              <div>
+                {{ event.title }}
+              </div>
+              <div>
+                {{ event.eventType }}
+              </div>
+            </div>
+          </mat-panel-title>
+          <mat-panel-description>
+            {{ event.startDate | localizedDate: 'MMM d' | titlecase }}, {{ event.startDate | date: 'h:mm a' }} - {{ event.endDate | localizedDate: 'MMM d' | titlecase }},
+            {{ event.endDate | date: 'h:mm a' }}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <ng-template matExpansionPanelContent>
+          <app-event [model]="event"></app-event>
+        </ng-template>
+      </mat-expansion-panel>
+    } @empty {
+      <div class="empty">
+        @if (search !== '') {
+          There are {{ showAll ? 'no events' : 'no events in ' + (this.date | localizedDate: 'MMMM YYYY' | titlecase) }} that match your search.
+        } @else {
+          Begin typing to search for events.
+        }
+      </div>
+    }
+  </mat-accordion>
+</mat-card>

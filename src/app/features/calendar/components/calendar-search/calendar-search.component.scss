@@ -1,0 +1,141 @@
+@import '../../../../../assets/scss/partials/colors';
+
+:host {
+  display: block;
+
+  mat-card {
+    border-radius: 12px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: $neutral-100;
+
+    form {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding-bottom: 3px;
+
+      app-input {
+        flex: 1;
+
+        ::ng-deep {
+          .mat-mdc-form-field-subscript-wrapper {
+            display: none;
+          }
+        }
+      }
+
+      mat-slide-toggle {
+        padding: 0 15px;
+      }
+    }
+  }
+
+  mat-expansion-panel {
+    background-color: inherit;
+
+    mat-expansion-panel-header {
+      height: 100%;
+
+      mat-panel-title {
+        app-calendar-button {
+          min-width: 50px;
+          height: 50px;
+          padding-right: 24px;
+        }
+
+        .event-title {
+          padding: 15px 0;
+        }
+      }
+    }
+
+    app-event {
+      ::ng-deep {
+        #gcc-event-register-jump-btn {
+          display: none;
+        }
+
+        app-banner {
+          width: 100%;
+          margin-left: 0;
+          margin-top: 0;
+
+          .banner {
+            border-radius: 20px;
+            height: fit-content;
+          }
+        }
+
+        app-calendar-button {
+          margin-left: 35px;
+
+          .event-calendar {
+            div:last-child {
+              margin-top: 20px;
+            }
+          }
+        }
+
+        form {
+          display: none;
+        }
+
+        .page-container {
+          .event-info {
+            i {
+              margin-top: unset !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  mat-expansion-panel:not(:hover),
+  mat-expansion-panel:not([class*='mat-elevation-z']) {
+    box-shadow: 0 4px 2px -2px $neutral-200;
+  }
+
+  mat-expansion-panel.mat-expanded {
+    padding-top: 15px;
+    box-shadow: 0 4px 2px -2px $neutral-200;
+
+    mat-expansion-panel-header {
+      padding-bottom: 15px;
+    }
+  }
+
+  mat-expansion-panel:not(.mat-expanded) {
+    height: fit-content;
+
+    mat-expansion-panel-header:hover {
+      box-shadow: inset 0px 0px 0px 2px $secondary-2;
+      cursor: pointer;
+    }
+  }
+
+  mat-expansion-panel:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  mat-expansion-panel:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  ::ng-deep {
+    .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:hover:not([aria-disabled='true']) {
+      background: transparent !important;
+    }
+    .mat-expansion-panel-header.mat-expanded:focus,
+    .mat-expansion-panel-header.mat-expanded:hover {
+      background: transparent;
+    }
+  }
+
+  .empty {
+    padding: 15px;
+    font-size: 14px;
+  }
+}
