@@ -10,4 +10,8 @@ export class Location {
     this.province = province;
     this.country = country;
   }
+
+  toString(): string {
+    return `${this.address}, ${this.city}, ${this.province}`
+  }
 }

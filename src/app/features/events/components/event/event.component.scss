@@ -95,9 +95,14 @@ $calendar-size: 120px;
         width: 28px;
         margin-top: 2px;
       }
-
       section {
         flex-grow: 1;
+            .section-separator {
+                height: 60px;
+                margin-top: 45px;
+                flex-grow: 0.5;
+                border-left: 2px solid $neutral-300;
+            }
 
         h3 {
           color: $primary-2;

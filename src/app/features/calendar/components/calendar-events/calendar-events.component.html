@@ -1,0 +1,82 @@
+<mat-card>
+    <mat-card-header>
+        {{ isToday(calendarDate.date) ? 'Today\'s Events' : 'Events on ' + (calendarDate.date | localizedDate) }}
+    </mat-card-header>
+
+    <mat-card-content>
+        @for (event of calendarDate.events; track $index) {
+            <div class="event" tabindex="0">
+                <div class="date-time-wrapper">
+                    <div class="date-time">
+                        <div class="date">
+                            {{ event.startDate | localizedDate: 'MMM d' | titlecase }}
+                        </div>
+                        <div class="time">
+                            <div class="hr">
+                                {{ event.startDate | date: 'h:mm' }}
+                            </div>
+                            <div class="min">
+                                {{ event.startDate | date: 'a' }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="until">
+                        <i class="fa-solid fa-angle-down fa-xs"></i>
+                    </div>
+                    <div class="date-time">
+                        <div class="time">
+                            <div class="hr">
+                                {{ event.endDate | date: 'h:mm' }}
+                            </div>
+                            <div class="min">
+                                {{ event.endDate | date: 'a' }}
+                            </div>
+                        </div>
+                        <div class="date">
+                            {{ event.endDate | localizedDate: 'MMM d' | titlecase }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="seperator">&nbsp;</div>
+
+                <div class="info">
+                    <div>
+                        {{ event.title }}
+                    </div>
+                    <div>
+                        {{ event.eventType }}
+                    </div>
+                    <div>
+                        {{ event.location.address }}, {{event.location.city}}, {{event.location.province}}
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <!-- Edit -->
+                    <app-button theme="black"
+                                matButtonType="mat-icon-button"
+                                [tooltip]="'Edit Event' | translate"
+                                [ariaLabel]="'Edit Event' | translate"
+                                (click)="editEvent(event)">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </app-button>
+
+                    <!-- Delete -->
+                    <app-button theme="black"
+                                class="delete-btn"
+                                matButtonType="mat-icon-button"
+                                [tooltip]="'Delete Event' | translate"
+                                [ariaLabel]="'Delete Event' | translate"
+                                (click)="deleteEvent(event)">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </app-button>
+                </div>
+            </div>
+        } @empty {
+            <div class="empty">
+                There are no events.
+            </div>
+        }
+    </mat-card-content>
+</mat-card>

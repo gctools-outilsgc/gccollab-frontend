@@ -1,0 +1,151 @@
+<div class="gcc-calendar-wrapper" [ngClass]="{'loading': loading}">
+
+    <div class="header">
+
+        <!-- Left Actions-->
+        <div class="left-actions">
+
+            <!-- Add Event -->
+            <app-button theme="black"
+                        matButtonType="mat-icon-button"
+                        [tooltip]="'Add Event' | translate"
+                        [tooltipDirection]="TooltipDirection.Above"
+                        [ariaLabel]="'Add Event'"
+                        [disabled]="loading"
+                        [clickFunc]="toggleEventForm">
+                <i class="fa-solid fa-calendar-plus fa-lg"></i>
+            </app-button>
+
+            <!-- Search -->
+            <app-button theme="black"
+                        matButtonType="mat-icon-button"
+                        [tooltip]="searchActive ? ('Close Search' | translate) : ('Search' | translate)"
+                        [tooltipDirection]="TooltipDirection.Above"
+                        [ariaLabel]="searchActive ? ('Close Search' | translate) : ('Search' | translate)"
+                        [disabled]="loading"
+                        [clickFunc]="toggleSearch">
+                <i [ngClass]="searchActive ? 'fa-xmark' : 'fa-magnifying-glass'"
+                   class="fa-solid fa-lg">
+                </i>
+            </app-button>
+        </div>
+
+        <!-- Middle Actions-->
+        <div class="middle-actions">
+
+            <!-- Nav Previous-->
+            <app-button theme="black"
+                        matButtonType="mat-icon-button"
+                        [tooltip]="translations.calendar.controls.previous.title_month | translate"
+                        [tooltipDirection]="TooltipDirection.Left"
+                        [ariaLabel]="translations.calendar.controls.previous.aria_month | translate"
+                        [disabled]="loading"
+                        (click)="navigateCalendar(-1)">
+                <i class="fa-solid fa-angle-left fa-lg"></i>
+            </app-button>
+        
+            <!-- Date -->
+            <span>{{ date | localizedDate : 'MMMM YYYY' | titlecase }}</span>
+
+            <!-- Nav Next -->
+            <app-button theme="black"
+                        matButtonType="mat-icon-button"
+                        [tooltip]="translations.calendar.controls.next.title_month | translate"
+                        [tooltipDirection]="TooltipDirection.Right"
+                        [ariaLabel]="translations.calendar.controls.next.aria_month | translate"
+                        [disabled]="loading"
+                        (click)="navigateCalendar(1)">
+                <i class="fa-solid fa-angle-right fa-lg"></i>
+            </app-button>
+        </div>
+
+        <!-- Right Actions -->
+        <div class="right-actions">
+
+            <!-- Filter -->
+            <!-- <app-button theme="black"
+                        matButtonType="mat-icon-button"
+                        [tooltip]="'TODO' | translate"
+                        [tooltipDirection]="TooltipDirection.Above"
+                        [ariaLabel]="'TODO' | translate"
+                        [disabled]="loading">
+                <i class="fa-solid fa-ellipsis-vertical fa-lg"></i>
+            </app-button> -->
+        </div>
+    </div>
+
+    <!-- Search -->
+    <app-calendar-search *ngIf="searchActive" 
+                         [date]="date"
+                         [events]="events">
+    </app-calendar-search>
+
+    <div>
+        <!-- Days of the Week -->
+        <div class="weekdays">
+            @for (weekday of weekdays; track $index) {
+                <div class="day" [class.today]="weekday.isToday">
+                    {{ weekday.title | translate }}
+                </div>
+            }
+        </div>
+
+        <div class="calendar" [ngStyle]="calendarStyle">
+            <!-- Previous Month's Days -->
+            @for (day of datesPaddingPre; track $index) {
+                <app-calendar-day [calendarDate]="day"
+                                  [outsideOfMonth]="true"
+                                  [loading]="loading"
+                                  (dayClick)="dayClick(day)">
+                </app-calendar-day>
+            }
+            <!-- Current Month's Days -->
+            @for (day of dates; track $index) {
+                <app-calendar-day [calendarDate]="day"
+                                  [active]="$index === activeDayIndex"
+                                  [loading]="loading"
+                                  (dayClick)="dayClick(day)">
+                </app-calendar-day>
+            }
+            <!-- Next Month's Days -->
+            @for (day of datesPaddingPost; track $index) {
+                <app-calendar-day [calendarDate]="day"
+                                  [outsideOfMonth]="true"
+                                  [loading]="loading"
+                                  (dayClick)="dayClick(day)">
+                </app-calendar-day>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- Events -->
+<app-calendar-events *ngIf="activeDayIndex > -1 && !loading"
+                     [calendarDate]="dates[activeDayIndex]"
+                     (eventEdit)="editEvent($event)"
+                     (eventDelete)="deleteEvent($event)">
+</app-calendar-events>
+
+<!-- Event Form -->
+<mat-card *ngIf="eventFormActive && !loading" class="event-form">
+
+    <app-event-form [form]="eventFormGroup" 
+                    [model]="eventFormData">
+    </app-event-form>
+
+    <div class="actions">
+        <!-- Save -->
+        <app-button theme="secondary-2"
+                    [disabled]="loading || !eventFormValid()"
+                    [clickFunc]="saveEventForm">
+            {{ editEventId ? (translations.forms.save | translate) : (translations.forms.create | translate) }}
+        </app-button>
+
+        <!-- Cancel -->
+        <app-button theme="secondary-2"
+                    [disabled]="loading"
+                    [clickFunc]="toggleEventForm">
+            Cancel
+        </app-button>
+    </div>
+</mat-card>

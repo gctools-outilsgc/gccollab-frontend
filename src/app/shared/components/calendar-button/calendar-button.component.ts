@@ -9,7 +9,7 @@ import { TooltipDirection } from 'src/app/shared/models/tooltip-direction';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CalendarButtonComponent {
-  @Input() model: Date | undefined;
+  @Input({required: true}) date!: Date;
   @Input() tooltip: string = '';
   @Input() aria: string = '';
   @Input() tooltipDirection: TooltipDirection = TooltipDirection.Above;
@@ -21,7 +21,7 @@ export class CalendarButtonComponent {
   click() {}
 
   isPast(): boolean {
-    if (this.model && this.model < new Date()) return true;
+    if (this.date && this.date < new Date()) return true;
 
     return false;
   }

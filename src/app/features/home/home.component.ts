@@ -41,13 +41,14 @@ export class HomeComponent implements OnInit {
   groupsPage: number = 1;
   loadingGroups: boolean = true;
 
-  constructor(
-    public translations: Translations,
-    public newsService: NewsService,
-    public eventService: EventService,
-    public peopleService: PeopleService,
-    public groupService: GroupService
-  ) {}
+  calEvents: Event[] = [];
+  loadingCalendar: boolean = true;
+
+  constructor(public translations: Translations, 
+              public newsService: NewsService, 
+              public eventService: EventService, 
+              public peopleService: PeopleService,
+              public groupService: GroupService) {}
 
   ngOnInit(): void {
     this.newsService.getMany(10, 5000).subscribe((newsItems: INewsItem[]) => {
@@ -68,6 +69,11 @@ export class HomeComponent implements OnInit {
     this.groupService.getMany(3, 5000).subscribe((groups: Group[]) => {
       this.groups = groups;
       this.loadingGroups = false;
+    });
+
+    this.eventService.getMany(10, 5000).subscribe((events: Event[]) => {
+      this.calEvents = events;
+      this.loadingCalendar = false;
     });
   }
 

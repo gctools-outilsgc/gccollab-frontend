@@ -24,6 +24,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PageTitleComponent } from './components/page-title/page-title.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
 import { BannerComponent } from './components/banner/banner.component';
 import { InputComponent } from './components/input/input.component';
@@ -48,6 +49,9 @@ import { FormControlPipe } from './pipes/form-control/form-control.pipe';
 import { FormGroupPipe } from './pipes/form-group/form-group.pipe';
 import { FileSelectComponent } from './components/file-select/file-select.component';
 import { ListComponent } from './components/list/list.component';
+import { LocalizedDatePipe } from './pipes/localized-date/localized-date.pipe';
+import { DurationFormatPipe } from './pipes/duration-format/duration-format.pipe';
+
 
 @NgModule({
   declarations: [
@@ -74,6 +78,8 @@ import { ListComponent } from './components/list/list.component';
     FormGroupPipe,
     FileSelectComponent,
     ListComponent,
+    LocalizedDatePipe,
+    DurationFormatPipe
   ],
   imports: [
     CommonModule,
@@ -100,8 +106,9 @@ import { ListComponent } from './components/list/list.component';
     MatRadioModule,
     MatDatepickerModule,
     MatAutocompleteModule,
+    MatCardModule,
     NgxSkeletonLoaderModule,
-    InfiniteScrollModule,
+    InfiniteScrollModule
   ],
   exports: [
     TranslateModule,
@@ -124,6 +131,8 @@ import { ListComponent } from './components/list/list.component';
     EventFormComponent,
     PollFormComponent,
     ListComponent,
+    LocalizedDatePipe,
+    DurationFormatPipe,
     FormControlPipe,
   ],
   providers: [

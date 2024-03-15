@@ -1,0 +1,141 @@
+@import "../../../assets/scss/partials/colors";
+
+$cal-gap: 15px;
+
+.gcc-calendar-wrapper {
+    min-width: 350px;
+}
+
+.header {
+    display: flex;
+    text-align: center;
+    padding: $cal-gap $cal-gap;
+    margin: $cal-gap 0;
+    border-radius: 16px;
+    background-color: $neutral-100;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    div[class*="-actions"] {
+        display: flex;
+        flex: 1;
+        align-items: center;
+    }
+
+    .left-actions {
+        justify-content : flex-start;
+    }
+
+    .middle-actions {
+        justify-content : center;
+        white-space: nowrap;
+
+        span {
+            padding: 0 20px;
+            pointer-events: none;
+            font-weight: 700;
+            font-size: 32px;
+        }
+    }
+
+    .right-actions {
+        justify-content: flex-end;
+    }
+    
+    ::ng-deep {
+        app-input mat-label,
+        app-input .mat-mdc-form-field-subscript-wrapper,
+        .mat-mdc-button-persistent-ripple,
+        .mat-mdc-button-ripple {
+            display: none;
+        }
+
+        .cdk-focused {
+            color: $primary-1 !important;
+        }
+    }
+}
+
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: bold;
+    pointer-events: none;
+    border-top: 3px solid $neutral-200;
+    margin-bottom: $cal-gap;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 14px;
+
+    .day {
+        font-weight: 500;
+        border: none;
+    }
+
+    .day.today {
+        font-weight: 700;
+    }
+
+    .day:first-child {
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+
+    .day:last-child {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border-radius: 20px;
+    background-color: $neutral-100;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    .day.inactive {
+        color: #bfbfbf;
+    }
+}
+
+.day {
+    text-align: center;
+    padding: 10px;
+    background-color: $neutral-200;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+
+    span {
+        pointer-events: none;
+    }
+}
+
+.gcc-calendar-wrapper.loading {
+    .header,
+    .weekdays {
+        color: $neutral-500;
+    }
+}
+
+app-calendar-search {
+    margin-bottom: $cal-gap;
+}
+
+app-calendar-events {
+    ::ng-deep {
+        > mat-card {
+            margin: $cal-gap 0;
+        }
+    }
+}
+
+.event-form {
+    background-color: $neutral-100;
+    padding: 16px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    .actions {
+        display: flex;
+        align-self: flex-end;
+        gap: 16px;
+    }
+}

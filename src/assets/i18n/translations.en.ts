@@ -282,6 +282,7 @@ export default {
         "host": "Host:",
         "event_description": "Event Description",
         "event_registration": "Event Registration",
+        "duration": "Duration",
         "form": {
             "full_name": "Full Name",
             "full_name_error": "Your full name is required.",
@@ -365,6 +366,77 @@ export default {
             "img_small": "Images must be at minimum ",
             "img_large": "Images have a maximum of ",
             "read": "Error reading the file."
+        }
+    },
+    "calendar": {
+        "days": {
+            "full": {
+                "mon": "Monday",
+                "tue": "Tuesday",
+                "wed": "Wednesday",
+                "thu": "Thursday",
+                "fri": "Friday",
+                "sat": "Saturday",
+                "sun": "Sunday"
+            },
+            "short": {
+                "mon": "Mon",
+                "tue": "Tue",
+                "wed": "Wed",
+                "thu": "Thu",
+                "fri": "Fri",
+                "sat": "Sat",
+                "sun": "Sun"
+            }
+        },
+        "views": {
+            "day": "Day",
+            "week": "Week",
+            "month": "Month"
+        },
+        "controls": {
+            "next": {
+                "title_day": "Next day",
+                "title_week": "Next week",
+                "title_month": "Next month",
+                "aria_day": "Click to navigate to the next day.",
+                "aria_week": "Click to navigate to the next week.",
+                "aria_month": "Click to navigate to the next month."
+            },
+            "previous": {
+                "title_day": "Previous day",
+                "title_week": "Previous week",
+                "title_month": "Previous month",
+                "aria_day": "Click to navigate to the previous day.",
+                "aria_week": "Click to navigate to the previous week.",
+                "aria_month": "Click to navigate to the previous month."
+            },
+            "viewBtn": {
+                "title": "Switch View",
+                "aria": "Current view: "
+            }
+        }
+    },
+    "duration": {
+        "month": {
+            "singular": "month",
+            "plural": "months"
+        },
+        "week": {
+            "singular": "week",
+            "plural": "weeks"
+        },
+        "day": {
+            "singular": "day",
+            "plural": "days"
+        },
+        "hour": {
+            "singular": "hour",
+            "plural": "hours"
+        },
+        "minute": {
+            "singular": "minute",
+            "plural": "minutes"
         }
     }
 };
