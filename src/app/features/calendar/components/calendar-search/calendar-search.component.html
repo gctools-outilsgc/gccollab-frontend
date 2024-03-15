@@ -39,12 +39,11 @@
                 <ng-template matExpansionPanelContent>
                     <app-event [model]="event"></app-event>
                 </ng-template>
-
             </mat-expansion-panel>
         } @empty {
             <div class="empty">
                 @if (search !== "") {
-                    There are no events in your calendar that match your search.
+                    There are {{ showAll ? 'no events' : ('no events in ' + (this.date | localizedDate : 'MMMM YYYY' | titlecase)) }} that match your search.
                 } @else {
                     Begin typing to search for events.
                 }

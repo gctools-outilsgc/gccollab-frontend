@@ -63,19 +63,20 @@
         <div class="right-actions">
 
             <!-- Filter -->
-            <app-button theme="black"
+            <!-- <app-button theme="black"
                         matButtonType="mat-icon-button"
                         [tooltip]="'TODO' | translate"
                         [tooltipDirection]="TooltipDirection.Above"
                         [ariaLabel]="'TODO' | translate"
                         [disabled]="loading">
                 <i class="fa-solid fa-ellipsis-vertical fa-lg"></i>
-            </app-button>
+            </app-button> -->
         </div>
     </div>
 
     <!-- Search -->
     <app-calendar-search *ngIf="searchActive" 
+                         [date]="date"
                          [events]="events">
     </app-calendar-search>
 

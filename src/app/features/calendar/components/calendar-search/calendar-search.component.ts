@@ -5,6 +5,7 @@ import { Event } from 'src/app/features/events/models/event';
 import { DebounceService } from 'src/app/core/services/debounce.service';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { MatAccordion } from '@angular/material/expansion';
+//import { isWithinInterval, startOfMonth, endOfMonth } from 'date-fns';
 
 @Component({
   selector: 'app-calendar-search',
@@ -13,6 +14,7 @@ import { MatAccordion } from '@angular/material/expansion';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CalendarSearchComponent implements OnInit, OnDestroy, DoCheck {
+  @Input({ required: true }) date: Date = new Date();
   @Input({ required: true }) events: Event[] = [];
   @Input() model: ICalendarSearchForm = {
     calendarSearch: ''
@@ -28,7 +30,7 @@ export class CalendarSearchComponent implements OnInit, OnDestroy, DoCheck {
 
   private iterableDifferEvents: IterableDiffer<Event>;
   
-  
+  // TODO: Paginate the accordion items. mat-paginator?
   constructor(private iterableDiffers: IterableDiffers,
               private changeDetectorRef: ChangeDetectorRef,
               private debouncerService: DebounceService) {
@@ -75,17 +77,22 @@ export class CalendarSearchComponent implements OnInit, OnDestroy, DoCheck {
     else {
       this.searchEvents(this.search);
     }
-    
+
     this.accordion.closeAll();
   }
 
+  // TODO: If show all off, only search for the selected month's events
   private searchEvents(value: string): void {
-    this.showAll = false;
+    this.showAll = false
     this.filteredEvents = [];
     value = value.toLowerCase().trim();
 
     if (value !== "") {
-      for ( let i = 0; i < this.events.length; i++) {
+      for (let i = 0; i < this.events.length; i++) {
+
+        // if (this.showAll === false && !isWithinInterval(startOfMonth(this.date), {start: startOfMonth(this.events[i].startDate), end: endOfMonth(this.events[i].endDate)})) 
+        //   continue;
+
         if (this.events[i].title.toLowerCase().includes(value) ||
             this.events[i].organizer.toLowerCase().includes(value) ||
             this.events[i].eventType.toLowerCase().includes(value) ||
@@ -96,6 +103,7 @@ export class CalendarSearchComponent implements OnInit, OnDestroy, DoCheck {
       }
       this.filteredEvents.sort(this.sortFn);
     }
+
     this.changeDetectorRef.markForCheck();
   }
 
