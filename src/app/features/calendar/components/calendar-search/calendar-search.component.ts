@@ -11,13 +11,13 @@ import { MatAccordion } from '@angular/material/expansion';
   selector: 'app-calendar-search',
   templateUrl: './calendar-search.component.html',
   styleUrls: ['./calendar-search.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CalendarSearchComponent implements OnInit, OnDestroy, DoCheck {
   @Input({ required: true }) date: Date = new Date();
   @Input({ required: true }) events: Event[] = [];
   @Input() model: ICalendarSearchForm = {
-    calendarSearch: ''
+    calendarSearch: '',
   };
   @ViewChild(MatAccordion) accordion!: MatAccordion;
 
@@ -29,24 +29,26 @@ export class CalendarSearchComponent implements OnInit, OnDestroy, DoCheck {
   showAll: boolean = false;
 
   private iterableDifferEvents: IterableDiffer<Event>;
-  
+
   // TODO: Paginate the accordion items. mat-paginator?
-  constructor(private iterableDiffers: IterableDiffers,
-              private changeDetectorRef: ChangeDetectorRef,
-              private debouncerService: DebounceService) {
+  constructor(
+    private iterableDiffers: IterableDiffers,
+    private changeDetectorRef: ChangeDetectorRef,
+    private debouncerService: DebounceService
+  ) {
     this.iterableDifferEvents = iterableDiffers.find(this.events).create();
   }
 
   ngOnInit(): void {
     for (const [key, value] of Object.entries(this.model)) {
       if (!this.form.controls[key]) {
-        this.form.addControl(key, new FormControl(value, /*[Validators.required]*/));
+        this.form.addControl(key, new FormControl(value /*[Validators.required]*/));
       } else {
         this.form.controls[key].setValue(value);
       }
     }
 
-    this.formWatchSub = this.form.valueChanges.subscribe((value) => {
+    this.formWatchSub = this.form.valueChanges.subscribe(value => {
       this.debouncerService.debounce(() => {
         this.search = value['calendarSearch'];
         this.searchEvents(this.search);
@@ -63,8 +65,7 @@ export class CalendarSearchComponent implements OnInit, OnDestroy, DoCheck {
   }
 
   ngOnDestroy(): void {
-    if (this.formWatchSub) 
-      this.formWatchSub.unsubscribe();
+    if (this.formWatchSub) this.formWatchSub.unsubscribe();
   }
 
   setShowAll(change: MatSlideToggleChange): void {
@@ -73,8 +74,7 @@ export class CalendarSearchComponent implements OnInit, OnDestroy, DoCheck {
     if (this.showAll) {
       this.filteredEvents = this.events;
       this.filteredEvents.sort(this.sortFn);
-    }
-    else {
+    } else {
       this.searchEvents(this.search);
     }
 
@@ -83,21 +83,21 @@ export class CalendarSearchComponent implements OnInit, OnDestroy, DoCheck {
 
   // TODO: If show all off, only search for the selected month's events
   private searchEvents(value: string): void {
-    this.showAll = false
+    this.showAll = false;
     this.filteredEvents = [];
     value = value.toLowerCase().trim();
 
-    if (value !== "") {
+    if (value !== '') {
       for (let i = 0; i < this.events.length; i++) {
-
-        // if (this.showAll === false && !isWithinInterval(startOfMonth(this.date), {start: startOfMonth(this.events[i].startDate), end: endOfMonth(this.events[i].endDate)})) 
+        // if (this.showAll === false && !isWithinInterval(startOfMonth(this.date), {start: startOfMonth(this.events[i].startDate), end: endOfMonth(this.events[i].endDate)}))
         //   continue;
 
-        if (this.events[i].title.toLowerCase().includes(value) ||
-            this.events[i].organizer.toLowerCase().includes(value) ||
-            this.events[i].eventType.toLowerCase().includes(value) ||
-            this.events[i].description.toLowerCase().includes(value)
-           ) {
+        if (
+          this.events[i].title.toLowerCase().includes(value) ||
+          this.events[i].organizer.toLowerCase().includes(value) ||
+          this.events[i].eventType.toLowerCase().includes(value) ||
+          this.events[i].description.toLowerCase().includes(value)
+        ) {
           this.filteredEvents.push(this.events[i]);
         }
       }
@@ -115,5 +115,5 @@ export class CalendarSearchComponent implements OnInit, OnDestroy, DoCheck {
 }
 
 interface ICalendarSearchForm {
-  calendarSearch: string
+  calendarSearch: string;
 }

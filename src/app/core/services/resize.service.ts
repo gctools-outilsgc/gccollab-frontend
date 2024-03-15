@@ -1,10 +1,9 @@
-import { Injectable, EventEmitter  } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ResizeService {
-
   resizeEvent: EventEmitter<Event> = new EventEmitter();
 
   constructor() {
@@ -12,7 +11,7 @@ export class ResizeService {
   }
 
   private setupResizeListener(): void {
-    window.addEventListener('resize', (event) => {
+    window.addEventListener('resize', event => {
       this.resizeEvent.emit(event);
     });
   }

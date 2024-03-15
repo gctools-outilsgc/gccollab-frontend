@@ -22,7 +22,7 @@ import { DurationFormatPipe } from 'src/app/shared/pipes/duration-format/duratio
   //changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EventComponent implements OnInit {
-  @Input({required: true}) model!: Event;
+  @Input({ required: true }) model!: Event;
 
   banner: Banner | null = null;
   loading: boolean = true;

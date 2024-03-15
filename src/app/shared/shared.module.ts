@@ -52,7 +52,6 @@ import { ListComponent } from './components/list/list.component';
 import { LocalizedDatePipe } from './pipes/localized-date/localized-date.pipe';
 import { DurationFormatPipe } from './pipes/duration-format/duration-format.pipe';
 
-
 @NgModule({
   declarations: [
     LanguageSelectorComponent,
@@ -79,7 +78,7 @@ import { DurationFormatPipe } from './pipes/duration-format/duration-format.pipe
     FileSelectComponent,
     ListComponent,
     LocalizedDatePipe,
-    DurationFormatPipe
+    DurationFormatPipe,
   ],
   imports: [
     CommonModule,
@@ -108,7 +107,7 @@ import { DurationFormatPipe } from './pipes/duration-format/duration-format.pipe
     MatAutocompleteModule,
     MatCardModule,
     NgxSkeletonLoaderModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
   ],
   exports: [
     TranslateModule,

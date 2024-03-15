@@ -44,11 +44,13 @@ export class HomeComponent implements OnInit {
   calEvents: Event[] = [];
   loadingCalendar: boolean = true;
 
-  constructor(public translations: Translations, 
-              public newsService: NewsService, 
-              public eventService: EventService, 
-              public peopleService: PeopleService,
-              public groupService: GroupService) {}
+  constructor(
+    public translations: Translations,
+    public newsService: NewsService,
+    public eventService: EventService,
+    public peopleService: PeopleService,
+    public groupService: GroupService
+  ) {}
 
   ngOnInit(): void {
     this.newsService.getMany(10, 5000).subscribe((newsItems: INewsItem[]) => {

@@ -9,7 +9,7 @@ import { TooltipDirection } from 'src/app/shared/models/tooltip-direction';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CalendarButtonComponent {
-  @Input({required: true}) date!: Date;
+  @Input({ required: true }) date!: Date;
   @Input() tooltip: string = '';
   @Input() aria: string = '';
   @Input() tooltipDirection: TooltipDirection = TooltipDirection.Above;

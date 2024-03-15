@@ -12,15 +12,6 @@ import { CalendarModule } from '../calendar/calendar.module';
 
 @NgModule({
   declarations: [HomeComponent],
-  imports: [
-    CommonModule, 
-    HomeRoutingModule, 
-    SharedModule, 
-    NewsFeedModule, 
-    GroupsModule, 
-    EventsModule, 
-    ProfileModule,
-    CalendarModule
-  ],
+  imports: [CommonModule, HomeRoutingModule, SharedModule, NewsFeedModule, GroupsModule, EventsModule, ProfileModule, CalendarModule],
 })
 export class HomeModule {}

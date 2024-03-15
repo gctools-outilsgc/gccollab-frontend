@@ -9,10 +9,10 @@ import { CoreRoutes } from 'src/app/core/constants/routes.constants';
   selector: 'app-calendar-day',
   templateUrl: './calendar-day.component.html',
   styleUrls: ['./calendar-day.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CalendarDayComponent implements OnInit, DoCheck, OnChanges {
-  @Input({required: true}) calendarDate: ICalendarDate = { date: new Date(), events: [] };
+  @Input({ required: true }) calendarDate: ICalendarDate = { date: new Date(), events: [] };
   @Input() outsideOfMonth: boolean = false;
   @Input() active: boolean = false;
   @Input() loading: boolean = false;
@@ -23,9 +23,11 @@ export class CalendarDayComponent implements OnInit, DoCheck, OnChanges {
 
   private iterableDifferEvents: IterableDiffer<Event>;
 
-  constructor(private iterableDiffers: IterableDiffers, 
-              private changeDetectorRef: ChangeDetectorRef,
-              private router: Router) {
+  constructor(
+    private iterableDiffers: IterableDiffers,
+    private changeDetectorRef: ChangeDetectorRef,
+    private router: Router
+  ) {
     this.iterableDifferEvents = iterableDiffers.find(this.calendarDate.events).create();
   }
 
@@ -53,7 +55,7 @@ export class CalendarDayComponent implements OnInit, DoCheck, OnChanges {
   }
 
   routeToEvent(eventId: string, event: MouseEvent | KeyboardEvent) {
-    if (eventId && (event.type === 'click' || (event instanceof KeyboardEvent && (event.code === 'Enter' || event.code === 'NumpadEnter' || event.code === 'Space')))) 
+    if (eventId && (event.type === 'click' || (event instanceof KeyboardEvent && (event.code === 'Enter' || event.code === 'NumpadEnter' || event.code === 'Space'))))
       this.router.navigateByUrl(CoreRoutes.Events + '/' + eventId);
   }
 
@@ -61,11 +63,13 @@ export class CalendarDayComponent implements OnInit, DoCheck, OnChanges {
     // Sort events by the start date
     this.calendarDate.events.sort((a, b) => a.startDate.getTime() - b.startDate.getTime());
 
-    // Move any events that start and end today to the back of the list 
+    // Move any events that start and end today to the back of the list
     for (let i = this.calendarDate.events.length - 1; i >= 0; i--) {
-      if (isWithinInterval(this.calendarDate.events[i].startDate, {start: startOfDay(this.calendarDate.date), end: endOfDay(this.calendarDate.date)}) && 
-          isWithinInterval(this.calendarDate.events[i].endDate, {start: startOfDay(this.calendarDate.date), end: endOfDay(this.calendarDate.date)})) {
-          this.calendarDate.events.push(this.calendarDate.events.splice(i, 1)[0]);
+      if (
+        isWithinInterval(this.calendarDate.events[i].startDate, { start: startOfDay(this.calendarDate.date), end: endOfDay(this.calendarDate.date) }) &&
+        isWithinInterval(this.calendarDate.events[i].endDate, { start: startOfDay(this.calendarDate.date), end: endOfDay(this.calendarDate.date) })
+      ) {
+        this.calendarDate.events.push(this.calendarDate.events.splice(i, 1)[0]);
       }
     }
   }

@@ -12,6 +12,6 @@ export class Location {
   }
 
   toString(): string {
-    return `${this.address}, ${this.city}, ${this.province}`
+    return `${this.address}, ${this.city}, ${this.province}`;
   }
 }

@@ -7,10 +7,10 @@ import { isToday } from 'date-fns';
   selector: 'app-calendar-events',
   templateUrl: './calendar-events.component.html',
   styleUrls: ['./calendar-events.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CalendarEventsComponent implements DoCheck {
-  @Input({required: true}) calendarDate: ICalendarDate = { date: new Date(), events: [] };
+  @Input({ required: true }) calendarDate: ICalendarDate = { date: new Date(), events: [] };
 
   @Output() eventEdit: EventEmitter<Event> = new EventEmitter<Event>();
   @Output() eventDelete: EventEmitter<Event> = new EventEmitter<Event>();
@@ -18,9 +18,11 @@ export class CalendarEventsComponent implements DoCheck {
   isToday = isToday;
 
   private iterableDifferEvents: IterableDiffer<Event>;
-  
-  constructor(private iterableDiffers: IterableDiffers, 
-              private changeDetectorRef: ChangeDetectorRef) {
+
+  constructor(
+    private iterableDiffers: IterableDiffers,
+    private changeDetectorRef: ChangeDetectorRef
+  ) {
     this.iterableDifferEvents = iterableDiffers.find(this.calendarDate.events).create();
   }
 

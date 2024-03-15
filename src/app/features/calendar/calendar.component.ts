@@ -1,6 +1,26 @@
 /* eslint-disable no-case-declarations */
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
-import { endOfDay, subDays, addDays, addMonths, endOfMonth, getDaysInMonth, startOfMonth, differenceInCalendarMonths, isWithinInterval, startOfDay, isMonday, isTuesday, isWednesday, isThursday, isFriday, isSaturday, isSunday, isSameDay, format } from 'date-fns';
+import {
+  endOfDay,
+  subDays,
+  addDays,
+  addMonths,
+  endOfMonth,
+  getDaysInMonth,
+  startOfMonth,
+  differenceInCalendarMonths,
+  isWithinInterval,
+  startOfDay,
+  isMonday,
+  isTuesday,
+  isWednesday,
+  isThursday,
+  isFriday,
+  isSaturday,
+  isSunday,
+  isSameDay,
+  format,
+} from 'date-fns';
 import { ICalendarDate } from './interfaces/calendar-date.interface';
 import { ICalendarWeekDay } from './interfaces/calendar-weekday.interface';
 import { Translations } from 'src/app/core/services/translations.service';
@@ -18,23 +38,22 @@ import { FormGroup } from '@angular/forms';
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
+  @Input() date: Date = new Date(); // The current date for our view.
+  @Input() events: Event[] = []; // All events for the calendar.
+  @Input() loading: boolean = false; //
 
-  @Input() date: Date = new Date();                 // The current date for our view.
-  @Input() events: Event[] = [];                    // All events for the calendar.
-  @Input() loading: boolean = false;                //
-
-  dates: ICalendarDate[] = [];                        // The days for the current view.
-  datesPaddingPre: ICalendarDate[] = [];              // Any days before the month that should be rendered.
-  datesPaddingPost: ICalendarDate[] = [];             // Any days after the month that should be rendered.
+  dates: ICalendarDate[] = []; // The days for the current view.
+  datesPaddingPre: ICalendarDate[] = []; // Any days before the month that should be rendered.
+  datesPaddingPost: ICalendarDate[] = []; // Any days after the month that should be rendered.
   weekdays: ICalendarWeekDay[] = [];
 
   searchActive: boolean = false;
   eventFormActive: boolean = false;
 
-  activeDayIndex = -1;                              // The active day (user selected)
+  activeDayIndex = -1; // The active day (user selected)
   editEventId: string | null = null;
 
   eventFormGroup: FormGroup = new FormGroup({});
@@ -56,27 +75,26 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
   calendarStyle = {
     'grid-template-rows': 'repeat(5, 75px)',
     'grid-template-columns': 'revert-layer',
-    'grid-row-gap': '15px'
-  }
+    'grid-row-gap': '15px',
+  };
 
   TooltipDirection = TooltipDirection;
 
   private resizeSub!: Subscription;
   private prevWeekdayFormat: WeekdayFormat = WeekdayFormat.Full;
 
-  constructor(public translations: Translations,
-              private changeDetectorRef: ChangeDetectorRef,
-              private resizeService: ResizeService,
-              private debounceService: DebounceService,
-              private elementRef: ElementRef) {
-    
-  }
+  constructor(
+    public translations: Translations,
+    private changeDetectorRef: ChangeDetectorRef,
+    private resizeService: ResizeService,
+    private debounceService: DebounceService,
+    private elementRef: ElementRef
+  ) {}
 
   ngOnInit(): void {
     // Setup resize subscription to track the width of the component
     this.resizeSub = this.resizeService.resizeEvent.subscribe(() => {
       this.debounceService.debounce(() => {
-
         // Update the weekday format (short/long) depending on the width
         const newWeekdayFormat = this.buildWeekDays();
         if (this.prevWeekdayFormat !== newWeekdayFormat) {
@@ -99,7 +117,6 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
         break;
       }
     }
-
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -109,8 +126,7 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.resizeSub)
-      this.resizeSub.unsubscribe();
+    if (this.resizeSub) this.resizeSub.unsubscribe();
   }
 
   navigateCalendar(interval: number = 1, clickedDay: ICalendarDate | undefined = undefined): void {
@@ -159,12 +175,11 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
           break;
         }
       }
-    }
-    else {
+    } else {
       const highestId = this.events.reduce((highestId, event) => {
         const currentId = parseInt(event.id);
         return currentId > parseInt(highestId) ? event.id : highestId;
-      }, "-1");
+      }, '-1');
 
       const newId = (parseInt(highestId) + 1).toString();
 
@@ -173,7 +188,7 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
     }
 
     this.eventFormActive = false;
-  }
+  };
 
   eventFormValid(): boolean {
     let allControlsValid = true;
@@ -188,11 +203,11 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
 
   toggleEventForm = () => {
     this.eventFormActive = !this.eventFormActive;
-  }
+  };
 
   toggleSearch = () => {
     this.searchActive = !this.searchActive;
-  }
+  };
 
   private buildWeekDays(): WeekdayFormat {
     const today = new Date();
@@ -210,27 +225,27 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   private buildView(clickedDay: ICalendarDate | undefined = undefined): void {
-    this.datesPaddingPre = []; 
-    this.datesPaddingPost = []
+    this.datesPaddingPre = [];
+    this.datesPaddingPost = [];
     this.dates = [];
     this.activeDayIndex = -1;
 
     // Create days for each day of the month
     const daysMonth = getDaysInMonth(this.date);
-    for (let i = 0 ; i < daysMonth; i++) {
-      this.dates.push({ date: new Date(this.date.getFullYear() , this.date.getMonth(), i + 1), events: [] });
+    for (let i = 0; i < daysMonth; i++) {
+      this.dates.push({ date: new Date(this.date.getFullYear(), this.date.getMonth(), i + 1), events: [] });
     }
-  
+
     // Create any days for the previous month that are in the first week row
     const daysBeforeMonth = startOfMonth(this.date).getDay();
-    for (let i = 0 ; i < daysBeforeMonth; i++) {
+    for (let i = 0; i < daysBeforeMonth; i++) {
       this.datesPaddingPre.push({ date: subDays(startOfMonth(this.date), i + 1), events: [] });
     }
     this.datesPaddingPre.reverse();
-  
+
     // Create any days for the next month that are in the final week row
     const daysAfterMonth = (daysMonth + daysBeforeMonth > 35 ? 42 : 35) - daysMonth - daysBeforeMonth;
-    for (let i = 0 ; i < daysAfterMonth; i++) {
+    for (let i = 0; i < daysAfterMonth; i++) {
       this.datesPaddingPost.push({ date: addDays(addMonths(startOfMonth(this.date), 1), i), events: [] });
     }
 
@@ -243,35 +258,38 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
     this.calendarStyle = {
       'grid-template-rows': 'repeat(' + (daysMonth + daysBeforeMonth + daysAfterMonth) / 7 + ', 75px)',
       'grid-template-columns': 'revert-layer',
-      'grid-row-gap': '15px'
+      'grid-row-gap': '15px',
     };
 
     this.injectEvents();
 
-    if (clickedDay)
-      this.setDayActive(clickedDay);
+    if (clickedDay) this.setDayActive(clickedDay);
   }
 
   private injectEvents(): void {
     const allDays = this.datesPaddingPre.concat(this.dates, this.datesPaddingPost);
-    allDays.forEach(day => {day.events = [];});
+    allDays.forEach(day => {
+      day.events = [];
+    });
 
     let i = this.events.length;
     while (i--) {
       allDays.forEach(day => {
         try {
-          const eventStartsEndsToday = isWithinInterval(this.events[i].startDate, {start: startOfDay(day.date), end: endOfDay(day.date)}) && 
-                                     isWithinInterval(this.events[i].endDate, {start: startOfDay(day.date), end: endOfDay(day.date)});
+          const eventStartsEndsToday =
+            isWithinInterval(this.events[i].startDate, { start: startOfDay(day.date), end: endOfDay(day.date) }) &&
+            isWithinInterval(this.events[i].endDate, { start: startOfDay(day.date), end: endOfDay(day.date) });
 
-          const eventSpansDay = isWithinInterval(endOfDay(day.date), {start: this.events[i].startDate, end: this.events[i].endDate}) || 
-                                isWithinInterval(startOfDay(day.date), {start: this.events[i].startDate, end: this.events[i].endDate});
+          const eventSpansDay =
+            isWithinInterval(endOfDay(day.date), { start: this.events[i].startDate, end: this.events[i].endDate }) ||
+            isWithinInterval(startOfDay(day.date), { start: this.events[i].startDate, end: this.events[i].endDate });
 
           if (eventStartsEndsToday || eventSpansDay) {
             day.events.push(this.events[i]);
           }
-        } catch(e) {
+        } catch (e) {
           // Start/End Date incompatible so don't add it.
-        } 
+        }
       });
     }
 
@@ -312,5 +330,5 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
 
 enum WeekdayFormat {
   Full = 'full',
-  Short = 'short'
+  Short = 'short',
 }

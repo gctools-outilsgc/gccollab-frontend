@@ -6,9 +6,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { MissionsComponent } from './missions.component';
 
 @NgModule({
-  declarations: [
-    MissionsComponent
-  ],
+  declarations: [MissionsComponent],
   imports: [CommonModule, MissionsRoutingModule, SharedModule],
 })
 export class MissionsModule {}

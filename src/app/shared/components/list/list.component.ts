@@ -53,8 +53,7 @@ export class ListComponent implements OnInit {
   nextPage(): void {
     this.lastPage = ++this.currentPage;
 
-    if (!this.loading && this.pageSize * this.currentPage > this.items.length)
-      this.loadNext(this.pageSize * this.pagesToLoad);
+    if (!this.loading && this.pageSize * this.currentPage > this.items.length) this.loadNext(this.pageSize * this.pagesToLoad);
   }
 
   previousPage(): void {

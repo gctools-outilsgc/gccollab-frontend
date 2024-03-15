@@ -10,7 +10,7 @@ describe('CalendarDayComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [CalendarDayComponent],
-      imports: [DatePipe]
+      imports: [DatePipe],
     });
     fixture = TestBed.createComponent(CalendarDayComponent);
     component = fixture.componentInstance;

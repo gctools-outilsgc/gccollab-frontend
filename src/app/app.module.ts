@@ -39,7 +39,7 @@ registerLocaleData(localeFr);
         deps: [HttpClient],
       },
       isolate: false,
-      extend: true
+      extend: true,
     }),
     NgxTranslateRoutesModule.forRoot({
       enableRouteTranslate: true,
