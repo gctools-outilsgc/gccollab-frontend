@@ -4,6 +4,10 @@ import { EventCardComponent } from './event-card.component';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TypescriptLoader } from 'src/app/core/helpers/typescript-loader';
+import { Location } from 'src/app/core/models/location.model';
+import { Person } from 'src/app/core/models/person.model';
+import { Group } from 'src/app/features/groups/models/group';
+import { Event } from '../../models/event';
 
 describe('EventCardComponent', () => {
   let component: EventCardComponent;
@@ -31,6 +35,32 @@ describe('EventCardComponent', () => {
     translateService = TestBed.inject(TranslateService);
     fixture = TestBed.createComponent(EventCardComponent);
     component = fixture.componentInstance;
+    const event = new Event();
+    component.model = {
+      id: '0',
+      title: 'Test Event',
+      eventType: 'Hybrid',
+      description: 'Test Event Description',
+      location: new Location('123 Main St.', 'Ottawa', 'Ontario'),
+      language: 'English',
+      tags: [''],
+      startDate: new Date(),
+      endDate: new Date(),
+      author: new Person('0', 'Shea', 'Dougherty-Gill', 'Web Developer', new Location('123 Main St.', 'Ottawa', 'Ontario')),
+      authoredDate: new Date(),
+      canceled: false,
+      image: '../assets/image/group-banner.png',
+      group: new Group('0', 'Test Group', '../assets/image/group-banner.png'),
+      displayPicture: '../assets/image/group-banner.png',
+      organizer: 'Test Organizer',
+      onlinePlatform: 'Teams',
+      duration: 'Single',
+      confirmed: false,
+      declined: false,
+      toEventForm: event.toEventForm,
+      fromEventForm: event.fromEventForm
+    };
+
     fixture.detectChanges();
   });
 
