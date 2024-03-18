@@ -20,6 +20,8 @@ import {
   isSunday,
   isSameDay,
   format,
+  getMonth,
+  getYear,
 } from 'date-fns';
 import { ICalendarDate } from './interfaces/calendar-date.interface';
 import { ICalendarWeekDay } from './interfaces/calendar-weekday.interface';
@@ -44,11 +46,17 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
   @Input() date: Date = new Date(); // The current date for our view.
   @Input() events: Event[] = []; // All events for the calendar.
   @Input() loading: boolean = false; //
+  @Input() minYear: number = 1900; // The earliest year in the year select drop down
+  @Input() maxYear: number = getYear(new Date()) + 1; // The latest year in the year select drop down
 
   dates: ICalendarDate[] = []; // The days for the current view.
   datesPaddingPre: ICalendarDate[] = []; // Any days before the month that should be rendered.
   datesPaddingPost: ICalendarDate[] = []; // Any days after the month that should be rendered.
   weekdays: ICalendarWeekDay[] = [];
+
+  selectedMonth: number = getMonth(this.date);
+  selectedYear: number = getYear(this.date);
+  years: number[] = [];
 
   searchActive: boolean = false;
   eventFormActive: boolean = false;
@@ -106,6 +114,7 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
 
     // Build out the calendar
     this.prevWeekdayFormat = this.buildWeekDays();
+    this.buildYearSelectOptions();
     this.buildView();
 
     // Set today as the active day in the calendar
@@ -126,7 +135,8 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.resizeSub) this.resizeSub.unsubscribe();
+    if (this.resizeSub) 
+      this.resizeSub.unsubscribe();
   }
 
   navigateCalendar(interval: number = 1, clickedDay: ICalendarDate | undefined = undefined): void {
@@ -209,6 +219,15 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
     this.searchActive = !this.searchActive;
   };
 
+  dateSelectChange(): void {
+    this.date = new Date(this.selectedYear, this.selectedMonth);
+    this.buildView();
+  }
+
+  monthIndexToDate(month: number): Date {
+    return new Date(0, month);
+  }
+
   private buildWeekDays(): WeekdayFormat {
     const today = new Date();
     const format = this.elementRef.nativeElement.offsetWidth < 600 ? WeekdayFormat.Short : WeekdayFormat.Full;
@@ -229,6 +248,9 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
     this.datesPaddingPost = [];
     this.dates = [];
     this.activeDayIndex = -1;
+
+    this.selectedMonth = getMonth(this.date);
+    this.selectedYear = getYear(this.date);
 
     // Create days for each day of the month
     const daysMonth = getDaysInMonth(this.date);
@@ -324,6 +346,13 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
     if (this.activeDayIndex > -1) {
       this.eventFormData.eventStartDate = format(this.dates[this.activeDayIndex].date, 'y-MM-dd');
       this.eventFormData.eventEndDate = this.eventFormData.eventStartDate;
+    }
+  }
+
+  private buildYearSelectOptions(): void {
+    this.years = [];
+    for (let i = this.minYear; i <= this.maxYear; i++) {
+      this.years.push(i);
     }
   }
 }
