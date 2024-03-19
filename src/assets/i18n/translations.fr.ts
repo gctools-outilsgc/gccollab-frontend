@@ -416,6 +416,14 @@ const fr: typeof import('./translations.en').default = {
                 "title": "Changer de vue",
                 "aria": "Vue actuelle: "
             }
+        },
+        "paginator": {
+            "items_per_page": "Objets par page:",
+            "next_page": "Page suivante",
+            "prev_page": "Page précédente",
+            "first_page": "Première page",
+            "last_page": "Dernière page",
+            "range_label": "{{ start }} - {{ end }} à {{ total }}"
         }
     },
     "duration": {

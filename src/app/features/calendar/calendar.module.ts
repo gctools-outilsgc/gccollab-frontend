@@ -10,11 +10,12 @@ import { EventsModule } from '../events/events.module';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [CalendarComponent, CalendarDayComponent, CalendarEventsComponent, CalendarSearchComponent],
-  imports: [CommonModule, SharedModule, FormsModule, ReactiveFormsModule, EventsModule, MatCardModule, MatExpansionModule, MatSlideToggleModule],
+  imports: [CommonModule, SharedModule, FormsModule, ReactiveFormsModule, EventsModule, MatCardModule, MatExpansionModule, MatSlideToggleModule, MatPaginatorModule],
   exports: [CalendarComponent],
 })
 export class CalendarModule {}
