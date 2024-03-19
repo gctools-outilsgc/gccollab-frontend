@@ -390,31 +390,51 @@ const fr: typeof import('./translations.en').default = {
                 "sun": "Dim"
             }
         },
-        "views": {
-            "day": "Jour",
-            "week": "Semaine",
-            "month": "Mois"
-        },
         "controls": {
+            "add_event": {
+                "title": "Ajouter un évènement",
+                "aria_on": "Cliquez pour ouvrir le formulaire d'événement pour ajouter un événement.",
+                "aria_off": "Cliquez pour fermer le formulaire d'événement."
+            },
+            "search": {
+                "title": "Recherche",
+                "close": "Fermer la recherche",
+                "aria_open": "Cliquez pour ouvrir le volet de recherche.",
+                "aria_close": "Cliquez pour fermer le volet de recherche."
+            },
             "next": {
-                "title_day": "Suivant jour",
-                "title_week": "Suivant semaine",
                 "title_month": "Suivant mois",
-                "aria_day": "Cliquez pour accéder au suivant jour.",
-                "aria_week": "Cliquez pour accéder au suivant semaine.",
                 "aria_month": "Cliquez pour accéder au suivant mois."
             },
             "previous": {
-                "title_day": "Précédent jour",
-                "title_week": "Précédent semaine",
                 "title_month": "Précédent mois",
-                "aria_day": "Cliquez pour accéder au précédent jour.",
-                "aria_week": "Cliquez pour accéder au précédent semaine.",
                 "aria_month": "Cliquez pour accéder au précédent mois."
             },
-            "viewBtn": {
-                "title": "Changer de vue",
-                "aria": "Vue actuelle: "
+            "date_picker": {
+                "month": {
+                    "title": "Sélectionnez un mois",
+                    "aria": "Ouvrez le menu déroulant de sélection du mois"
+                },
+                "year": {
+                    "title": "Sélectionnez une année",
+                    "aria": "Ouvrez le menu déroulant de sélection de l'année"
+                }
+            },
+            "cancel": "Annuler"
+        },
+        "search": {
+            "search_input": {
+                "label": "Rechercher des événements",
+                "placeholder": "Rechercher dans mon calendrier"
+            },
+            "show_all": {
+                "title": "Afficher tout",
+                "aria_on": "Basculer pour fermer afficher tous les événements",
+                "aria_off": "Basculer pour afficher tous les événements"
+            },
+            "results": {
+                "none": "Aucun événement ne correspond à votre recherche.",
+                "placeholder": "Commencez à taper pour rechercher des événements."
             }
         },
         "paginator": {
@@ -424,6 +444,23 @@ const fr: typeof import('./translations.en').default = {
             "first_page": "Première page",
             "last_page": "Dernière page",
             "range_label": "{{ start }} - {{ end }} à {{ total }}"
+        },
+        "events": {
+            "title": {
+                "today": "Les événements d'aujourd'hui",
+                "not_today": "Événements sur "
+            },
+            "actions": {
+                "edit": {
+                    "title": "Modifier l'événement",
+                    "aria": "Cliquez pour modifier l'événement."
+                },
+                "delete": {
+                    "title": "Supprimer l'événement",
+                    "aria": "Cliquez pour supprimer l'événement."
+                }
+            },
+            "none": "Il n'y a aucun événement."
         }
     },
     "duration": {

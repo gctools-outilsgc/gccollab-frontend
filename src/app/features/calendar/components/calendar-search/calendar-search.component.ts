@@ -70,6 +70,7 @@ export class CalendarSearchComponent implements OnInit, OnDestroy, DoCheck {
       this.translatePaginator();
     });
 
+    this.translatePaginator();
     this.onEventsChange();
   }
 
@@ -109,6 +110,7 @@ export class CalendarSearchComponent implements OnInit, OnDestroy, DoCheck {
     const startIndex = pageEvent.pageIndex * pageEvent.pageSize;
     const endIndex = startIndex + pageEvent.pageSize;
     this.pagedEvents = this.filteredEvents.slice(startIndex, endIndex);
+    this.accordion.closeAll();
   }
 
   // TODO: If show all off, only search for the selected month's events
