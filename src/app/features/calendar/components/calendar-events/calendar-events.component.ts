@@ -14,6 +14,7 @@ export class CalendarEventsComponent implements DoCheck {
 
   @Output() eventEdit: EventEmitter<Event> = new EventEmitter<Event>();
   @Output() eventDelete: EventEmitter<Event> = new EventEmitter<Event>();
+  @Output() eventCreate: EventEmitter<void> = new EventEmitter<void>();
 
   isToday = isToday;
 
@@ -38,5 +39,9 @@ export class CalendarEventsComponent implements DoCheck {
 
   deleteEvent(event: Event) {
     this.eventDelete.emit(event);
+  }
+
+  createEvent() {
+    this.eventCreate.emit();
   }
 }

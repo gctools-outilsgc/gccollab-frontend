@@ -101,3 +101,7 @@ app-banner {
     background: $primary-1;
   }
 }
+
+.cdk-overlay-pane {
+  width: fit-content !important;
+}
