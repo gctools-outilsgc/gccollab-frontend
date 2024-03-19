@@ -19,13 +19,13 @@
     <div infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="1000" (scrolled)="onNewsScroll()">
       <app-post [profile]="people[0]" [loading]="loadingPeople"></app-post>
 
-      <app-list [service]="eventService" [cardSize]="'large'" orientation="horizontal" [pageSize]="3" [paging]="true"></app-list>
+      <!-- <app-list [service]="eventService" [cardSize]="'large'" orientation="horizontal" [pageSize]="3" [paging]="true"></app-list> -->
 
       <app-calendar [events]="calEvents" [loading]="loadingCalendar"></app-calendar>
     </div>
   </div>
 
-  <div class="side-content">
+  <aside class="side-content">
     <!-- Events -->
     <section>
       <app-event-list [model]="events" [isLoading]="loadingEvents" (confirm)="confirmEvent($event)" (decline)="declineEvent($event)"> </app-event-list>
@@ -57,5 +57,5 @@
         </a>
       </div>
     </section>
-  </div>
+  </aside>
 </div>

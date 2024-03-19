@@ -58,7 +58,7 @@ describe('EventCardComponent', () => {
       confirmed: false,
       declined: false,
       toEventForm: event.toEventForm,
-      fromEventForm: event.fromEventForm
+      fromEventForm: event.fromEventForm,
     };
 
     fixture.detectChanges();

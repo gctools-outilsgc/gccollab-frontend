@@ -44,8 +44,44 @@
         <i class="fa-solid fa-angle-left fa-lg"></i>
       </app-button>
 
-      <!-- Date -->
-      <span>{{ date | localizedDate: 'MMMM YYYY' | titlecase }}</span>
+      <!-- Month/Year Select -->
+      <div class="date-picker">
+        <mat-form-field>
+          <mat-label>{{ 'Select a Month' | translate }}</mat-label>
+          <mat-select
+            [(ngModel)]="selectedMonth"
+            (selectionChange)="dateSelectChange()"
+            [disabled]="loading"
+            [matTooltip]="'Select a Month' | translate"
+            [matTooltipPosition]="TooltipDirection.Above"
+            disableRipple
+          >
+            @for (month of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]; track $index) {
+              <mat-option [value]="month">
+                {{ monthIndexToDate(month) | localizedDate: 'MMMM' | titlecase }}
+              </mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>{{ 'Select a Year' | translate }}</mat-label>
+          <mat-select
+            [(ngModel)]="selectedYear"
+            (selectionChange)="dateSelectChange()"
+            [disabled]="loading"
+            [matTooltip]="'Select a Year' | translate"
+            [matTooltipPosition]="TooltipDirection.Above"
+            disableRipple
+          >
+            @for (year of years; track $index) {
+              <mat-option [value]="year">
+                {{ year }}
+              </mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </div>
 
       <!-- Nav Next -->
       <app-button
@@ -106,11 +142,18 @@
 </div>
 
 <!-- Events -->
-<app-calendar-events *ngIf="activeDayIndex > -1 && !loading" [calendarDate]="dates[activeDayIndex]" (eventEdit)="editEvent($event)" (eventDelete)="deleteEvent($event)"> </app-calendar-events>
+<app-calendar-events
+  *ngIf="activeDayIndex > -1 && !loading"
+  [calendarDate]="dates[activeDayIndex]"
+  (eventEdit)="editEvent($event)"
+  (eventDelete)="deleteEvent($event)"
+  (eventCreate)="toggleEventForm()"
+>
+</app-calendar-events>
 
 <!-- Event Form -->
 <mat-card *ngIf="eventFormActive && !loading" class="event-form">
-  <app-event-form [form]="eventFormGroup" [model]="eventFormData"> </app-event-form>
+  <app-event-form [form]="eventFormGroup" [model]="eventFormData"></app-event-form>
 
   <div class="actions">
     <!-- Save -->
