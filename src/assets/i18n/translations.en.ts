@@ -415,6 +415,14 @@ export default {
                 "title": "Switch View",
                 "aria": "Current view: "
             }
+        },
+        "paginator": {
+            "items_per_page": "Items per page:",
+            "next_page": "Next page",
+            "prev_page": "Previous page",
+            "first_page": "First page",
+            "last_page": "Last page",
+            "range_label": "{{ start }} - {{ end }} of {{ total }}"
         }
     },
     "duration": {

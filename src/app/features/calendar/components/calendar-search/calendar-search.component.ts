@@ -7,6 +7,12 @@ import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { MatAccordion } from '@angular/material/expansion';
 //import { isWithinInterval, startOfMonth, endOfMonth } from 'date-fns';
 
+import { MatPaginator, MatPaginatorIntl, PageEvent } from '@angular/material/paginator';
+import { Translations } from 'src/app/core/services/translations.service';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { TranslateService } from '@ngx-translate/core';
+
+
 @Component({
   selector: 'app-calendar-search',
   templateUrl: './calendar-search.component.html',
@@ -20,21 +26,27 @@ export class CalendarSearchComponent implements OnInit, OnDestroy, DoCheck {
     calendarSearch: '',
   };
   @ViewChild(MatAccordion) accordion!: MatAccordion;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   search: string = this.model.calendarSearch;
   form: FormGroup = new FormGroup({});
   formWatchSub!: Subscription;
 
   filteredEvents: Event[] = [];
+  pagedEvents: Event[] = [];
   showAll: boolean = false;
 
   private iterableDifferEvents: IterableDiffer<Event>;
+  langChangeSub!: Subscription;
 
   // TODO: Paginate the accordion items. mat-paginator?
   constructor(
+    public translations: Translations,
     private iterableDiffers: IterableDiffers,
     private changeDetectorRef: ChangeDetectorRef,
-    private debouncerService: DebounceService
+    private debouncerService: DebounceService,
+    private paginatorIntl: MatPaginatorIntl,
+    private translateService: TranslateService
   ) {
     this.iterableDifferEvents = iterableDiffers.find(this.events).create();
   }
@@ -55,6 +67,10 @@ export class CalendarSearchComponent implements OnInit, OnDestroy, DoCheck {
       }, 300);
     });
 
+    this.langChangeSub = this.translateService.onLangChange.subscribe(() => {
+      this.translatePaginator();
+    });
+
     this.onEventsChange();
   }
 
@@ -65,7 +81,11 @@ export class CalendarSearchComponent implements OnInit, OnDestroy, DoCheck {
   }
 
   ngOnDestroy(): void {
-    if (this.formWatchSub) this.formWatchSub.unsubscribe();
+    if (this.formWatchSub) 
+      this.formWatchSub.unsubscribe();
+
+    if (this.langChangeSub) 
+      this.langChangeSub.unsubscribe();
   }
 
   setShowAll(change: MatSlideToggleChange): void {
@@ -74,11 +94,24 @@ export class CalendarSearchComponent implements OnInit, OnDestroy, DoCheck {
     if (this.showAll) {
       this.filteredEvents = this.events;
       this.filteredEvents.sort(this.sortFn);
+
+      this.pageEvent({
+        pageIndex: this.paginator.pageIndex,
+        previousPageIndex: undefined,
+        pageSize: this.paginator.pageSize,
+        length: this.paginator.length
+      });
     } else {
       this.searchEvents(this.search);
     }
 
     this.accordion.closeAll();
+  }
+
+  pageEvent(pageEvent: PageEvent): void {
+    const startIndex = pageEvent.pageIndex * pageEvent.pageSize;
+    const endIndex = startIndex + pageEvent.pageSize;
+    this.pagedEvents = this.filteredEvents.slice(startIndex, endIndex);
   }
 
   // TODO: If show all off, only search for the selected month's events
@@ -104,11 +137,38 @@ export class CalendarSearchComponent implements OnInit, OnDestroy, DoCheck {
       this.filteredEvents.sort(this.sortFn);
     }
 
+    this.pageEvent({
+      pageIndex: this.paginator.pageIndex,
+      previousPageIndex: undefined,
+      pageSize: this.paginator.pageSize,
+      length: this.paginator.length
+    });
+
     this.changeDetectorRef.markForCheck();
   }
 
   private onEventsChange() {
     // What do we need to do here?
+  }
+
+  private translatePaginator(): void {
+    this.paginatorIntl.itemsPerPageLabel = this.translateService.instant(this.translations.calendar.paginator.items_per_page);
+    this.paginatorIntl.nextPageLabel = this.translateService.instant(this.translations.calendar.paginator.next_page);
+    this.paginatorIntl.previousPageLabel = this.translateService.instant(this.translations.calendar.paginator.prev_page);
+    this.paginatorIntl.firstPageLabel = this.translateService.instant(this.translations.calendar.paginator.first_page);
+    this.paginatorIntl.lastPageLabel = this.translateService.instant(this.translations.calendar.paginator.last_page);
+    this.paginatorIntl.getRangeLabel = this.getRangeLabel.bind(this, this.translateService.instant(this.translations.calendar.paginator.range_label));
+    this.paginatorIntl.changes.next();
+  }
+
+  private getRangeLabel(translation: string, page: number, pageSize: number, length: number): string {
+    if (length === 0 || pageSize === 0) {
+      return `0 ${translation.replace('{{ start }}', '1').replace('{{ end }}', '0').replace('{{ total }}', '' + length)}`;
+    }
+    length = Math.max(length, 0);
+    const startIndex = page * pageSize;
+    const endIndex = startIndex < length ? Math.min(startIndex + pageSize, length) : startIndex + pageSize;
+    return translation.replace('{{ start }}', '' + (startIndex + 1)).replace('{{ end }}', '' + endIndex).replace('{{ total }}', '' + length);
   }
 
   private sortFn = (a: Event, b: Event) => a.startDate.getTime() - b.startDate.getTime();
