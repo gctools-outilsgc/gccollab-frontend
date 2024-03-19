@@ -13,7 +13,7 @@
     <mat-slide-toggle [checked]="showAll" (change)="setShowAll($event)" color="secondary"> Show All </mat-slide-toggle>
   </form>
   <mat-accordion #accordian="matAccordion">
-    @for (event of filteredEvents; track $index) {
+    @for (event of pagedEvents; track $index) {
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -47,4 +47,5 @@
       </div>
     }
   </mat-accordion>
+  <mat-paginator #paginator="matPaginator" [length]="filteredEvents.length" [pageSize]="5" [pageSizeOptions]="[5, 10]" (page)="pageEvent($event)" aria-label="Select page"> </mat-paginator>
 </mat-card>
