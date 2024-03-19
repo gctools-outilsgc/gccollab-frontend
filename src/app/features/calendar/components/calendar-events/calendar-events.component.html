@@ -2,16 +2,10 @@
   <mat-card-header>
     <span>{{ isToday(calendarDate.date) ? "Today's Events" : 'Events on ' + (calendarDate.date | localizedDate) }}</span>
 
-      <!-- Add Event -->
-      <app-button
-      theme="black"
-      matButtonType="mat-icon-button"
-      [tooltip]="'Add Event' | translate"
-      [ariaLabel]="'Add Event'"
-      (click)="createEvent()"
-      >
-        <i class="fa-solid fa-calendar-plus fa-lg"></i>
-      </app-button>
+    <!-- Add Event -->
+    <app-button theme="black" matButtonType="mat-icon-button" [tooltip]="'Add Event' | translate" [ariaLabel]="'Add Event'" (click)="createEvent()">
+      <i class="fa-solid fa-calendar-plus fa-lg"></i>
+    </app-button>
   </mat-card-header>
 
   <mat-card-content>
@@ -58,9 +52,7 @@
           <div>
             {{ event.eventType }}
           </div>
-          <div>
-            {{ event.location.address }}, {{ event.location.city }}, {{ event.location.province }}
-          </div>
+          <div>{{ event.location.address }}, {{ event.location.city }}, {{ event.location.province }}</div>
         </div>
 
         <div class="actions">

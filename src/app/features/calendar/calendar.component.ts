@@ -135,8 +135,7 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.resizeSub) 
-      this.resizeSub.unsubscribe();
+    if (this.resizeSub) this.resizeSub.unsubscribe();
   }
 
   navigateCalendar(interval: number = 1, clickedDay: ICalendarDate | undefined = undefined): void {
