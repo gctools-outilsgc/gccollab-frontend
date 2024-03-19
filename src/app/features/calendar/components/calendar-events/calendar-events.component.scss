@@ -6,9 +6,14 @@ mat-card {
 }
 
 mat-card-header {
-  font-size: 28px;
-  font-weight: 600;
   padding: 16px;
+  align-items: center;
+
+  > span {
+    flex: 1;
+    font-size: 28px;
+    font-weight: 600;
+  }
 }
 
 mat-card-content {
