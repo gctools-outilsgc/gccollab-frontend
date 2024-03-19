@@ -12,7 +12,6 @@ import { Translations } from 'src/app/core/services/translations.service';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { TranslateService } from '@ngx-translate/core';
 
-
 @Component({
   selector: 'app-calendar-search',
   templateUrl: './calendar-search.component.html',
@@ -81,11 +80,9 @@ export class CalendarSearchComponent implements OnInit, OnDestroy, DoCheck {
   }
 
   ngOnDestroy(): void {
-    if (this.formWatchSub) 
-      this.formWatchSub.unsubscribe();
+    if (this.formWatchSub) this.formWatchSub.unsubscribe();
 
-    if (this.langChangeSub) 
-      this.langChangeSub.unsubscribe();
+    if (this.langChangeSub) this.langChangeSub.unsubscribe();
   }
 
   setShowAll(change: MatSlideToggleChange): void {
@@ -99,7 +96,7 @@ export class CalendarSearchComponent implements OnInit, OnDestroy, DoCheck {
         pageIndex: this.paginator.pageIndex,
         previousPageIndex: undefined,
         pageSize: this.paginator.pageSize,
-        length: this.paginator.length
+        length: this.paginator.length,
       });
     } else {
       this.searchEvents(this.search);
@@ -141,7 +138,7 @@ export class CalendarSearchComponent implements OnInit, OnDestroy, DoCheck {
       pageIndex: this.paginator.pageIndex,
       previousPageIndex: undefined,
       pageSize: this.paginator.pageSize,
-      length: this.paginator.length
+      length: this.paginator.length,
     });
 
     this.changeDetectorRef.markForCheck();
@@ -163,12 +160,18 @@ export class CalendarSearchComponent implements OnInit, OnDestroy, DoCheck {
 
   private getRangeLabel(translation: string, page: number, pageSize: number, length: number): string {
     if (length === 0 || pageSize === 0) {
-      return `0 ${translation.replace('{{ start }}', '1').replace('{{ end }}', '0').replace('{{ total }}', '' + length)}`;
+      return `0 ${translation
+        .replace('{{ start }}', '1')
+        .replace('{{ end }}', '0')
+        .replace('{{ total }}', '' + length)}`;
     }
     length = Math.max(length, 0);
     const startIndex = page * pageSize;
     const endIndex = startIndex < length ? Math.min(startIndex + pageSize, length) : startIndex + pageSize;
-    return translation.replace('{{ start }}', '' + (startIndex + 1)).replace('{{ end }}', '' + endIndex).replace('{{ total }}', '' + length);
+    return translation
+      .replace('{{ start }}', '' + (startIndex + 1))
+      .replace('{{ end }}', '' + endIndex)
+      .replace('{{ total }}', '' + length);
   }
 
   private sortFn = (a: Event, b: Event) => a.startDate.getTime() - b.startDate.getTime();
