@@ -443,7 +443,8 @@ const fr: typeof import('./translations.en').default = {
             "prev_page": "Page précédente",
             "first_page": "Première page",
             "last_page": "Dernière page",
-            "range_label": "{{ start }} - {{ end }} à {{ total }}"
+            "range_label": "{{ start }} - {{ end }} à {{ total }}",
+            "aria": "Sélectionner une page"
         },
         "events": {
             "title": {

@@ -442,7 +442,8 @@ export default {
             "prev_page": "Previous page",
             "first_page": "First page",
             "last_page": "Last page",
-            "range_label": "{{ start }} - {{ end }} of {{ total }}"
+            "range_label": "{{ start }} - {{ end }} of {{ total }}",
+            "aria": "Select a page"
         },
         "events": {
             "title": {
