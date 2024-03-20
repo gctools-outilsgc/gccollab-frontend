@@ -5,12 +5,17 @@
       [name]="'calendarSearch'"
       formControlName="calendarSearch"
       [control]="form.controls['calendarSearch'] | formControl"
-      [label]="''"
-      [placeholder]="'Search My Calendar'"
+      [label]="translations.calendar.search.search_input.label | translate"
+      [placeholder]="translations.calendar.search.search_input.placeholder | translate"
       [required]="false"
     >
     </app-input>
-    <mat-slide-toggle [checked]="showAll" (change)="setShowAll($event)" color="secondary"> Show All </mat-slide-toggle>
+    <mat-slide-toggle [checked]="showAll" 
+                      (change)="setShowAll($event)" 
+                      [ariaLabel]="showAll ? (translations.calendar.search.show_all.aria_off| translate) : (translations.calendar.search.show_all.aria_on| translate)"
+                      color="secondary">
+      {{ translations.calendar.search.show_all.title | translate }}
+    </mat-slide-toggle>
   </form>
   <mat-accordion #accordian="matAccordion">
     @for (event of pagedEvents; track $index) {
@@ -40,12 +45,12 @@
     } @empty {
       <div class="empty">
         @if (search !== '') {
-          There are {{ showAll ? 'no events' : 'no events in ' + (this.date | localizedDate: 'MMMM YYYY' | titlecase) }} that match your search.
+          {{ translations.calendar.search.results.none | translate }}
         } @else {
-          Begin typing to search for events.
+          {{ translations.calendar.search.results.placeholder | translate }}
         }
       </div>
     }
   </mat-accordion>
-  <mat-paginator #paginator="matPaginator" [length]="filteredEvents.length" [pageSize]="5" [pageSizeOptions]="[5, 10]" (page)="pageEvent($event)" aria-label="Select page"> </mat-paginator>
+  <mat-paginator #paginator="matPaginator" [length]="filteredEvents.length" [pageSize]="5" [pageSizeOptions]="[5, 10]" (page)="pageEvent($event)" [ariaLabel]="translations.calendar.paginator.aria | translate"> </mat-paginator>
 </mat-card>

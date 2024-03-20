@@ -389,31 +389,51 @@ export default {
                 "sun": "Sun"
             }
         },
-        "views": {
-            "day": "Day",
-            "week": "Week",
-            "month": "Month"
-        },
         "controls": {
+            "add_event": {
+                "title": "Add Event",
+                "aria_on": "Click to open the event form to add an event.",
+                "aria_off": "Click to close the event form."
+            },
+            "search": {
+                "title": "Search",
+                "close": "Close Search",
+                "aria_open": "Click to open the search pane.",
+                "aria_close": "Click to close the search pane."
+            },
             "next": {
-                "title_day": "Next day",
-                "title_week": "Next week",
                 "title_month": "Next month",
-                "aria_day": "Click to navigate to the next day.",
-                "aria_week": "Click to navigate to the next week.",
                 "aria_month": "Click to navigate to the next month."
             },
             "previous": {
-                "title_day": "Previous day",
-                "title_week": "Previous week",
                 "title_month": "Previous month",
-                "aria_day": "Click to navigate to the previous day.",
-                "aria_week": "Click to navigate to the previous week.",
                 "aria_month": "Click to navigate to the previous month."
             },
-            "viewBtn": {
-                "title": "Switch View",
-                "aria": "Current view: "
+            "date_picker": {
+                "month": {
+                    "title": "Select a month",
+                    "aria": "Open the month select drop down menu"
+                },
+                "year": {
+                    "title": "Select a year",
+                    "aria": "Open the year select drop down menu"
+                }
+            },
+            "cancel": "Cancel"
+        },
+        "search": {
+            "search_input": {
+                "label": "Search Events",
+                "placeholder": "Search My Calendar"
+            },
+            "show_all": {
+                "title": "Show All",
+                "aria_on": "Toggle to close show all events",
+                "aria_off": "Toggle to show all events"
+            },
+            "results": {
+                "none": "There are no events that match your search.",
+                "placeholder": "Begin typing to search for events."
             }
         },
         "paginator": {
@@ -422,7 +442,25 @@ export default {
             "prev_page": "Previous page",
             "first_page": "First page",
             "last_page": "Last page",
-            "range_label": "{{ start }} - {{ end }} of {{ total }}"
+            "range_label": "{{ start }} - {{ end }} of {{ total }}",
+            "aria": "Select a page"
+        },
+        "events": {
+            "title": {
+                "today": "Today's Events",
+                "not_today": "Events on "
+            },
+            "actions": {
+                "edit": {
+                    "title": "Edit Event",
+                    "aria": "Click to edit the event."
+                },
+                "delete": {
+                    "title": "Delete Event",
+                    "aria": "Click to delete the event."
+                }
+            },
+            "none": "There are no events."
         }
     },
     "duration": {

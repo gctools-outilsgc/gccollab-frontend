@@ -1,9 +1,15 @@
 <mat-card>
   <mat-card-header>
-    <span>{{ isToday(calendarDate.date) ? "Today's Events" : 'Events on ' + (calendarDate.date | localizedDate) }}</span>
+    <span>{{ isToday(calendarDate.date) ? (translations.calendar.events.title.today | translate) : (translations.calendar.events.title.not_today | translate) + (calendarDate.date | localizedDate) }}</span>
 
     <!-- Add Event -->
-    <app-button theme="black" matButtonType="mat-icon-button" [tooltip]="'Add Event' | translate" [ariaLabel]="'Add Event'" (click)="createEvent()">
+    <app-button 
+      theme="black" 
+      matButtonType="mat-icon-button" 
+      [tooltip]="translations.calendar.controls.add_event.title | translate" 
+      [ariaLabel]="translations.calendar.controls.add_event.title | translate" 
+      (click)="createEvent()"
+    >
       <i class="fa-solid fa-calendar-plus fa-lg"></i>
     </app-button>
   </mat-card-header>
@@ -57,7 +63,13 @@
 
         <div class="actions">
           <!-- Edit -->
-          <app-button theme="black" matButtonType="mat-icon-button" [tooltip]="'Edit Event' | translate" [ariaLabel]="'Edit Event' | translate" (click)="editEvent(event)">
+          <app-button 
+            theme="black" 
+            matButtonType="mat-icon-button" 
+            [tooltip]="translations.calendar.events.actions.edit.title | translate" 
+            [ariaLabel]="translations.calendar.events.actions.edit.aria | translate" 
+            (click)="editEvent(event)"
+          >
             <i class="fa-solid fa-pen-to-square"></i>
           </app-button>
 
@@ -66,8 +78,8 @@
             theme="black"
             class="delete-btn"
             matButtonType="mat-icon-button"
-            [tooltip]="'Delete Event' | translate"
-            [ariaLabel]="'Delete Event' | translate"
+            [tooltip]="translations.calendar.events.actions.delete.title | translate"
+            [ariaLabel]="translations.calendar.events.actions.delete.aria | translate"
             (click)="deleteEvent(event)"
           >
             <i class="fa-solid fa-trash-can"></i>
@@ -75,7 +87,9 @@
         </div>
       </div>
     } @empty {
-      <div class="empty">There are no events.</div>
+      <div class="empty">
+        {{ translations.calendar.events.none | translate }}
+      </div>
     }
   </mat-card-content>
 </mat-card>
