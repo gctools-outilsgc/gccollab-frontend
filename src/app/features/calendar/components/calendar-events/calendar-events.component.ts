@@ -2,6 +2,9 @@ import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, Iterab
 import { ICalendarDate } from '../../interfaces/calendar-date.interface';
 import { Event } from 'src/app/features/events/models/event';
 import { isToday } from 'date-fns';
+import { Translations } from 'src/app/core/services/translations.service';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-calendar-events',
@@ -21,6 +24,7 @@ export class CalendarEventsComponent implements DoCheck {
   private iterableDifferEvents: IterableDiffer<Event>;
 
   constructor(
+    public translations: Translations,
     private iterableDiffers: IterableDiffers,
     private changeDetectorRef: ChangeDetectorRef
   ) {

@@ -6,9 +6,9 @@
       <app-button
         theme="black"
         matButtonType="mat-icon-button"
-        [tooltip]="'Add Event' | translate"
+        [tooltip]="translations.calendar.controls.add_event.title | translate"
         [tooltipDirection]="TooltipDirection.Above"
-        [ariaLabel]="'Add Event'"
+        [ariaLabel]="eventFormActive ? (translations.calendar.controls.add_event.aria_off | translate) : (translations.calendar.controls.add_event.aria_on | translate)"
         [disabled]="loading"
         [clickFunc]="toggleEventForm"
       >
@@ -19,9 +19,9 @@
       <app-button
         theme="black"
         matButtonType="mat-icon-button"
-        [tooltip]="searchActive ? ('Close Search' | translate) : ('Search' | translate)"
+        [tooltip]="searchActive ? (translations.calendar.controls.search.close | translate) : (translations.calendar.controls.search.title | translate)"
         [tooltipDirection]="TooltipDirection.Above"
-        [ariaLabel]="searchActive ? ('Close Search' | translate) : ('Search' | translate)"
+        [ariaLabel]="searchActive ? (translations.calendar.controls.search.aria_close | translate) : (translations.calendar.controls.search.aria_open | translate)"
         [disabled]="loading"
         [clickFunc]="toggleSearch"
       >
@@ -47,12 +47,13 @@
       <!-- Month/Year Select -->
       <div class="date-picker">
         <mat-form-field>
-          <mat-label>{{ 'Select a Month' | translate }}</mat-label>
+          <mat-label>{{ translations.calendar.controls.date_picker.month.title | translate }}</mat-label>
           <mat-select
             [(ngModel)]="selectedMonth"
             (selectionChange)="dateSelectChange()"
             [disabled]="loading"
-            [matTooltip]="'Select a Month' | translate"
+            [matTooltip]="translations.calendar.controls.date_picker.month.title | translate"
+            [ariaLabel]="translations.calendar.controls.date_picker.month.aria | translate"
             [matTooltipPosition]="TooltipDirection.Above"
             disableRipple
           >
@@ -65,12 +66,13 @@
         </mat-form-field>
 
         <mat-form-field>
-          <mat-label>{{ 'Select a Year' | translate }}</mat-label>
+          <mat-label>{{ translations.calendar.controls.date_picker.year.title | translate }}</mat-label>
           <mat-select
             [(ngModel)]="selectedYear"
             (selectionChange)="dateSelectChange()"
             [disabled]="loading"
-            [matTooltip]="'Select a Year' | translate"
+            [matTooltip]="translations.calendar.controls.date_picker.year.title | translate"
+            [ariaLabel]="translations.calendar.controls.date_picker.year.aria | translate"
             [matTooltipPosition]="TooltipDirection.Above"
             disableRipple
           >
@@ -162,6 +164,8 @@
     </app-button>
 
     <!-- Cancel -->
-    <app-button theme="secondary-2" [disabled]="loading" [clickFunc]="toggleEventForm"> Cancel </app-button>
+    <app-button theme="secondary-2" [disabled]="loading" [clickFunc]="toggleEventForm">
+      {{ translations.calendar.controls.cancel | translate }}
+    </app-button>
   </div>
 </mat-card>
