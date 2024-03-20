@@ -10,10 +10,12 @@
       [required]="false"
     >
     </app-input>
-    <mat-slide-toggle [checked]="showAll" 
-                      (change)="setShowAll($event)" 
-                      [ariaLabel]="showAll ? (translations.calendar.search.show_all.aria_off| translate) : (translations.calendar.search.show_all.aria_on| translate)"
-                      color="secondary">
+    <mat-slide-toggle
+      [checked]="showAll"
+      (change)="setShowAll($event)"
+      [ariaLabel]="showAll ? (translations.calendar.search.show_all.aria_off | translate) : (translations.calendar.search.show_all.aria_on | translate)"
+      color="secondary"
+    >
       {{ translations.calendar.search.show_all.title | translate }}
     </mat-slide-toggle>
   </form>
@@ -52,5 +54,13 @@
       </div>
     }
   </mat-accordion>
-  <mat-paginator #paginator="matPaginator" [length]="filteredEvents.length" [pageSize]="5" [pageSizeOptions]="[5, 10]" (page)="pageEvent($event)" [ariaLabel]="translations.calendar.paginator.aria | translate"> </mat-paginator>
+  <mat-paginator
+    #paginator="matPaginator"
+    [length]="filteredEvents.length"
+    [pageSize]="5"
+    [pageSizeOptions]="[5, 10]"
+    (page)="pageEvent($event)"
+    [ariaLabel]="translations.calendar.paginator.aria | translate"
+  >
+  </mat-paginator>
 </mat-card>
