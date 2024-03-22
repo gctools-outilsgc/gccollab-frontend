@@ -93,6 +93,7 @@ export const Provinces: IProvince[] = [
     abbreviation: 'YT'
   }
 ];
+Object.freeze(Provinces);
 
 export class Province {
   static AB: IProvince = Provinces[0];
@@ -109,3 +110,4 @@ export class Province {
   static SK: IProvince = Provinces[11];
   static YT: IProvince = Provinces[12];
 }
+Object.freeze(Province);
