@@ -207,7 +207,8 @@ const fr: typeof import('./translations.en').default = {
             "required": "est requis.",
             "email": "Veuillez saisir une adresse e-mail valide.",
             "minLength": "La longueur minimale des caractères est ",
-            "maxLength": "La longueur maximale des caractères est "
+            "maxLength": "La longueur maximale des caractères est ",
+            "postalCode": "Veuillez entrer un code postal valide."
         }
     },
 	"banner": {
@@ -357,6 +358,13 @@ const fr: typeof import('./translations.en').default = {
             "option": "Option",
             "option_add": "Ajouter une option",
             "option_remove": "Supprimer l'option"
+        },
+        "location": {
+            "address": "Adresse",
+            "postalCode": "Code Postal",
+            "city": "Ville",
+            "province": "Province",
+            "country": "Pays"
         }
     },
     "file_select": {

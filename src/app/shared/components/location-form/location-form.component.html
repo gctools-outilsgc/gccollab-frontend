@@ -4,8 +4,8 @@
     [name]="'address'"
     formControlName="address"
     [control]="form.controls['address'] | formControl"
-    [label]="'Address' | translate"
-    [placeholder]="'Enter the address' | translate"
+    [label]="translations.forms.location.address | translate"
+    [placeholder]="translations.forms.placeholder | translate"
     [autofocus]="true"
     [required]="true"
   >
@@ -16,8 +16,8 @@
     [name]="'postalCode'"
     formControlName="postalCode"
     [control]="form.controls['postalCode'] | formControl"
-    [label]="'Postal Code' | translate"
-    [placeholder]="'Enter the postal code' | translate"
+    [label]="translations.forms.location.postalCode| translate"
+    [placeholder]="translations.forms.placeholder | translate"
     [required]="true"
   >
   </app-input>
@@ -27,8 +27,8 @@
     [name]="'city'"
     formControlName="city"
     [control]="form.controls['city'] | formControl"
-    [label]="'City' | translate"
-    [placeholder]="'Enter the city' | translate"
+    [label]="translations.forms.location.city | translate"
+    [placeholder]="translations.forms.placeholder | translate"
     [required]="true"
   >
   </app-input>
@@ -38,8 +38,8 @@
     [name]="'province'"
     formControlName="province"
     [control]="form.controls['province'] | formControl"
-    [label]="'Province' | translate"
-    [placeholder]="'Enter the province' | translate"
+    [label]="translations.forms.location.province | translate"
+    [placeholder]="translations.forms.placeholder | translate"
     [required]="true"
   >
   </app-input>
@@ -49,8 +49,8 @@
     [name]="'country'"
     formControlName="country"
     [control]="form.controls['country'] | formControl"
-    [label]="'Country' | translate"
-    [placeholder]="'Enter the country' | translate"
+    [label]="translations.forms.location.country | translate"
+    [placeholder]="translations.forms.placeholder | translate"
     [required]="true"
   >
   </app-input>
