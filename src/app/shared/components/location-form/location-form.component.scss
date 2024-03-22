@@ -1,21 +1,6 @@
 @import '../../../../assets/scss/partials/colors';
 
 :host {
-  .cover-photo-upload {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 200px;
-    border: 2px solid $neutral-300;
-    border-radius: 10px;
-    margin-bottom: 16px;
-    margin-top: 5px;
-  }
-
-  .cover-photo-upload.error {
-    border-color: $error-red;
-  }
-
   .required-star {
     color: $error-red;
   }
@@ -46,4 +31,38 @@
   app-editor {
     padding-bottom: 16px;
   }
+
+  // TODO: Move to global style when we reuse 
+  ::ng-deep {
+    .gcc-form-select {
+      mat-label {
+        font-size: 18px;
+        font-weight: 600;
+        display: inline-block;
+        padding-bottom: 10px;
+      }
+
+      mat-form-field {
+        display: flex;
+        height: 70px;
+
+        .mat-mdc-text-field-wrapper {
+          align-content: center;
+          flex-wrap: wrap;
+        }
+  
+        .mat-mdc-form-field-infix {
+          padding-right: 10px;
+        }
+
+        .mdc-text-field--focused {
+          .mdc-notched-outline__leading,
+          .mdc-notched-outline__trailing {
+            border-color: $primary-1 !important;
+          }
+        }
+      }
+    }
+  }
+  
 }

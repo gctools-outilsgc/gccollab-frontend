@@ -1,5 +1,5 @@
 import { Person } from 'src/app/core/models/person.model';
-import { Location } from 'src/app/core/models/location.model';
+import { Location, Province } from 'src/app/core/models/location.model';
 import { Group } from '../../groups/models/group';
 import { IEventForm } from 'src/app/shared/components/event-form/event-form.component';
 import { format, isSameDay } from 'date-fns';
@@ -9,7 +9,7 @@ export class Event {
   title: string = '';
   eventType: string = 'Hybrid';
   description: string = '';
-  location: Location = new Location('', '', '', '');
+  location: Location = new Location('', '', '', Province.ON);
   language: string = 'English';
   tags: [string] = [''];
   startDate: Date = new Date();
@@ -36,7 +36,7 @@ export class Event {
       eventName: this.title,
       eventLanguage: this.language,
       eventDescription: this.description,
-      eventLocation: this.location.toLocationForm(),
+      eventLocation: this.location,
       eventOnlinePlatform: this.onlinePlatform,
       eventDuration: sameDay ? 'Single' : 'Multi',
       eventStartDate: format(this.startDate, 'y-MM-dd'),

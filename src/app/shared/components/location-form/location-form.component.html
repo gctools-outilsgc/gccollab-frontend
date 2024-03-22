@@ -33,16 +33,24 @@
   >
   </app-input>
 
-  <app-input
-    [value]="model.province"
-    [name]="'province'"
-    formControlName="province"
-    [control]="form.controls['province'] | formControl"
-    [label]="translations.forms.location.province | translate"
-    [placeholder]="translations.forms.placeholder | translate"
-    [required]="true"
-  >
-  </app-input>
+  <div class="gcc-form-select">
+    <mat-label>
+      {{ translations.forms.location.province | translate }}
+      <span class="required-star">*</span>
+    </mat-label>
+    <mat-form-field>
+      <mat-select [placeholder]="translations.forms.location.province | translate"
+                  [formControl]="form.controls['province'] | formControl" 
+                  [value]="model.province.abbreviation"
+      >
+        @for (prov of provinces; track $index) {
+          <mat-option [value]="prov.abbreviation">
+            {{ translateService.currentLang === 'en' ? prov.titleEn : prov.titleFr }}
+          </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
 
   <app-input
     [value]="model.country"

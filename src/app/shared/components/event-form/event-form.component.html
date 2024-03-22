@@ -78,19 +78,7 @@
   >
   </app-editor>
 
-  <app-location-form [form]="form" [model]="model.eventLocation"></app-location-form>
-
-  <!-- <app-input
-    *ngIf="model.eventType !== eventType.Online"
-    [value]="model.eventLocation"
-    [name]="'eventLocation'"
-    formControlName="eventLocation"
-    [control]="form.controls['eventLocation'] | formControl"
-    [label]="translations.forms.event.location | translate"
-    [placeholder]="translations.forms.placeholder | translate"
-    [required]="true"
-  >
-  </app-input> -->
+  <app-location-form [(form)]="form" [model]="model.eventLocation"></app-location-form>
 
   <app-input
     *ngIf="model.eventType !== eventType.InPerson"

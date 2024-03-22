@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Translations } from 'src/app/core/services/translations.service';
 import { Validators as EditorValidators } from 'ngx-editor';
 import { ILocationForm } from '../location-form/location-form.component';
+import { Province } from 'src/app/core/models/location.model';
 
 @Component({
   selector: 'app-event-form',
@@ -23,7 +24,7 @@ export class EventFormComponent implements OnInit, OnDestroy, AfterContentInit {
       address: '',
       postalCode: '',
       city: '',
-      province: 'Ontario',
+      province: Province.ON,
       country: 'Canada'
     },
     eventOnlinePlatform: '',
@@ -50,6 +51,9 @@ export class EventFormComponent implements OnInit, OnDestroy, AfterContentInit {
         if (key == 'eventDescription'){
           this.form.addControl(key, new FormControl(value, [EditorValidators.required(), EditorValidators.maxLength(this.maxCharacters)]));
         } 
+        else if (key == 'eventLocation') {
+          continue;
+        }
         else {
           this.form.addControl(key, new FormControl(value, [Validators.required, this.minValidator, this.maxValidator]));
         } 

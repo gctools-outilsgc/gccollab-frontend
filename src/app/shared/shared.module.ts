@@ -52,6 +52,7 @@ import { FileSelectComponent } from './components/file-select/file-select.compon
 import { ListComponent } from './components/list/list.component';
 import { LocalizedDatePipe } from './pipes/localized-date/localized-date.pipe';
 import { DurationFormatPipe } from './pipes/duration-format/duration-format.pipe';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -108,6 +109,7 @@ import { DurationFormatPipe } from './pipes/duration-format/duration-format.pipe
     MatDatepickerModule,
     MatAutocompleteModule,
     MatCardModule,
+    MatSelectModule,
     NgxSkeletonLoaderModule,
     InfiniteScrollModule,
   ],
