@@ -1,0 +1,57 @@
+<form id="gcc-form-location" [formGroup]="form">
+  <app-input
+    [value]="model.address"
+    [name]="'address'"
+    formControlName="address"
+    [control]="form.controls['address'] | formControl"
+    [label]="'Address' | translate"
+    [placeholder]="'Enter the address' | translate"
+    [autofocus]="true"
+    [required]="true"
+  >
+  </app-input>
+
+  <app-input
+    [value]="model.postalCode"
+    [name]="'postalCode'"
+    formControlName="postalCode"
+    [control]="form.controls['postalCode'] | formControl"
+    [label]="'Postal Code' | translate"
+    [placeholder]="'Enter the postal code' | translate"
+    [required]="true"
+  >
+  </app-input>
+
+  <app-input
+    [value]="model.city"
+    [name]="'city'"
+    formControlName="city"
+    [control]="form.controls['city'] | formControl"
+    [label]="'City' | translate"
+    [placeholder]="'Enter the city' | translate"
+    [required]="true"
+  >
+  </app-input>
+
+  <app-input
+    [value]="model.province"
+    [name]="'province'"
+    formControlName="province"
+    [control]="form.controls['province'] | formControl"
+    [label]="'Province' | translate"
+    [placeholder]="'Enter the province' | translate"
+    [required]="true"
+  >
+  </app-input>
+
+  <app-input
+    [value]="model.country"
+    [name]="'country'"
+    formControlName="country"
+    [control]="form.controls['country'] | formControl"
+    [label]="'Country' | translate"
+    [placeholder]="'Enter the country' | translate"
+    [required]="true"
+  >
+  </app-input>
+</form>

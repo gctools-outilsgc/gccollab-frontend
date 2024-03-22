@@ -71,7 +71,13 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
     eventName: '',
     eventLanguage: 'Bilingual',
     eventDescription: '',
-    eventLocation: '',
+    eventLocation: {
+      address: '',
+      postalCode: '',
+      city: '',
+      province: 'Ontario',
+      country: 'Canada'
+    },
     eventOnlinePlatform: '',
     eventDuration: 'Single',
     eventStartDate: '',
@@ -333,7 +339,13 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
       eventName: '',
       eventLanguage: 'Bilingual',
       eventDescription: '',
-      eventLocation: '',
+      eventLocation: {
+        address: '',
+        postalCode: '',
+        city: '',
+        province: 'Ontario',
+        country: 'Canada'
+      },
       eventOnlinePlatform: '',
       eventDuration: 'Single',
       eventStartDate: '',

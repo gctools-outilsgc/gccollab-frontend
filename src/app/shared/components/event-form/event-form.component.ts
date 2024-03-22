@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { Translations } from 'src/app/core/services/translations.service';
 import { Validators as EditorValidators } from 'ngx-editor';
+import { ILocationForm } from '../location-form/location-form.component';
 
 @Component({
   selector: 'app-event-form',
@@ -18,7 +19,13 @@ export class EventFormComponent implements OnInit, OnDestroy, AfterContentInit {
     eventName: '',
     eventLanguage: EventLanguage.Bilingual,
     eventDescription: '',
-    eventLocation: '',
+    eventLocation: {
+      address: '',
+      postalCode: '',
+      city: '',
+      province: 'Ontario',
+      country: 'Canada'
+    },
     eventOnlinePlatform: '',
     eventDuration: EventDuration.Single,
     eventStartDate: '',
@@ -40,8 +47,12 @@ export class EventFormComponent implements OnInit, OnDestroy, AfterContentInit {
   ngOnInit(): void {
     for (const [key, value] of Object.entries(this.model)) {
       if (!this.form.controls[key]) {
-        if (key == 'eventDescription') this.form.addControl(key, new FormControl(value, [EditorValidators.required(), EditorValidators.maxLength(this.maxCharacters)]));
-        else this.form.addControl(key, new FormControl(value, [Validators.required, this.minValidator, this.maxValidator]));
+        if (key == 'eventDescription'){
+          this.form.addControl(key, new FormControl(value, [EditorValidators.required(), EditorValidators.maxLength(this.maxCharacters)]));
+        } 
+        else {
+          this.form.addControl(key, new FormControl(value, [Validators.required, this.minValidator, this.maxValidator]));
+        } 
       } else {
         this.form.controls[key].setValue(value);
       }
@@ -109,7 +120,7 @@ export interface IEventForm {
   eventName: string;
   eventLanguage: EventLanguage | string;
   eventDescription: string;
-  eventLocation: string;
+  eventLocation: ILocationForm;
   eventOnlinePlatform: string;
   eventDuration: EventDuration | string;
   eventStartDate: string;

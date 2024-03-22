@@ -145,11 +145,11 @@ export class EventService implements IListService {
 
   private randomLocation(): Location {
     const addresses: Location[] = [
-      new Location('2910 Woodroffe Ave', 'Ottawa', 'Ontario'),
-      new Location('4230 Innes Rd', 'Ottawa', 'Ontario'),
-      new Location('2440 Bank St', 'Ottawa', 'Ontario'),
-      new Location('464 Rideau St', 'Ottawa', 'Ontario'),
-      new Location('464 Bank St', 'Ottawa', 'Ontario'),
+      new Location('2910 Woodroffe Ave', 'K2C2C7', 'Ottawa', 'Ontario'),
+      new Location('4230 Innes Rd', 'K2C2C7', 'Ottawa', 'Ontario'),
+      new Location('2440 Bank St', 'K2C2C7', 'Ottawa', 'Ontario'),
+      new Location('464 Rideau St', 'K2C2C7', 'Ottawa', 'Ontario'),
+      new Location('464 Bank St', 'K2C2C7', 'Ottawa', 'Ontario'),
     ];
     return addresses[Math.floor(Math.random() * addresses.length)];
   }
