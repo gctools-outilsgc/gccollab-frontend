@@ -85,7 +85,7 @@
       <p *ngIf="!loading">
         {{ model.location.address }}
       </p>
-      <p *ngIf="!loading">{{ model.location.city }}, {{ model.location.province }}</p>
+      <p *ngIf="!loading">{{ model.location.city }}, {{ model.location.province.abbreviation }}</p>
       <ngx-skeleton-loader *ngIf="loading" count="2" appearance="line" animation="progress" class="loading-section"></ngx-skeleton-loader>
     </section>
 
