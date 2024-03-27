@@ -6,6 +6,7 @@ import { Translations } from 'src/app/core/services/translations.service';
 import { Validators as EditorValidators } from 'ngx-editor';
 import { ILocationForm } from '../location-form/location-form.component';
 import { Province } from 'src/app/core/models/location.model';
+import { format } from 'date-fns';
 
 @Component({
   selector: 'app-event-form',
@@ -29,9 +30,9 @@ export class EventFormComponent implements OnInit, OnDestroy, AfterContentInit {
     },
     eventOnlinePlatform: '',
     eventDuration: EventDuration.Single,
-    eventStartDate: '',
+    eventStartDate: format(new Date(), 'y-MM-dd'),
     eventStartTime: '12:00',
-    eventEndDate: '',
+    eventEndDate: format(new Date(), 'y-MM-dd'),
     eventEndTime: '13:00',
   };
 

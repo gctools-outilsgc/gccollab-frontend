@@ -16,7 +16,7 @@ export class Location implements ILocationForm {
   }
 
   toString(): string {
-    return `${this.address} ${this.postalCode}, ${this.city}, ${this.province}`;
+    return `${this.address} ${this.postalCode}, ${this.city}, ${this.province.abbreviation}`;
   }
 }
 
