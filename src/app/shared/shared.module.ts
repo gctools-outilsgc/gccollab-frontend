@@ -43,6 +43,7 @@ import { PostFormComponent } from './components/post-form/post-form.component';
 import { BlogFormComponent } from './components/blog-form/blog-form.component';
 import { EventFormComponent } from './components/event-form/event-form.component';
 import { PollFormComponent } from './components/poll-form/poll-form.component';
+import { LocationFormComponent } from './components/location-form/location-form.component';
 
 import { TruncateFileNamePipe } from './pipes/truncate-file-name/truncate-file-name.pipe';
 import { FormControlPipe } from './pipes/form-control/form-control.pipe';
@@ -51,6 +52,7 @@ import { FileSelectComponent } from './components/file-select/file-select.compon
 import { ListComponent } from './components/list/list.component';
 import { LocalizedDatePipe } from './pipes/localized-date/localized-date.pipe';
 import { DurationFormatPipe } from './pipes/duration-format/duration-format.pipe';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -72,6 +74,7 @@ import { DurationFormatPipe } from './pipes/duration-format/duration-format.pipe
     BlogFormComponent,
     EventFormComponent,
     PollFormComponent,
+    LocationFormComponent,
     TruncateFileNamePipe,
     FormControlPipe,
     FormGroupPipe,
@@ -106,6 +109,7 @@ import { DurationFormatPipe } from './pipes/duration-format/duration-format.pipe
     MatDatepickerModule,
     MatAutocompleteModule,
     MatCardModule,
+    MatSelectModule,
     NgxSkeletonLoaderModule,
     InfiniteScrollModule,
   ],
@@ -129,6 +133,7 @@ import { DurationFormatPipe } from './pipes/duration-format/duration-format.pipe
     BlogFormComponent,
     EventFormComponent,
     PollFormComponent,
+    LocationFormComponent,
     ListComponent,
     LocalizedDatePipe,
     DurationFormatPipe,

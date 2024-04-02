@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Person } from '../models/person.model';
 import { Observable } from 'rxjs';
-import { Location } from '../models/location.model';
+import { Location, Province } from '../models/location.model';
 import { IListService } from '../interfaces/list-service.interface';
 import { ProfileCardComponent } from 'src/app/features/profile/components/profile-card/profile-card.component';
 
@@ -110,11 +110,11 @@ export class PeopleService implements IListService {
 
   private randomAddress(): Location {
     const addresses: Location[] = [
-      new Location('2910 Woodroffe Ave', 'Ottawa', 'Ontario'),
-      new Location('4230 Innes Rd', 'Ottawa', 'Ontario'),
-      new Location('2440 Bank St', 'Ottawa', 'Ontario'),
-      new Location('464 Rideau St', 'Ottawa', 'Ontario'),
-      new Location('464 Bank St', 'Ottawa', 'Ontario'),
+      new Location('2910 Woodroffe Ave', 'K2C2C7', 'Ottawa', Province.ON),
+      new Location('4230 Innes Rd', 'K2C2C7', 'Ottawa', Province.ON),
+      new Location('2440 Bank St', 'K2C2C7', 'Ottawa', Province.ON),
+      new Location('464 Rideau St', 'K2C2C7', 'Ottawa', Province.ON),
+      new Location('464 Bank St', 'K2C2C7', 'Ottawa', Province.ON),
     ];
     return addresses[Math.floor(Math.random() * addresses.length)];
   }
