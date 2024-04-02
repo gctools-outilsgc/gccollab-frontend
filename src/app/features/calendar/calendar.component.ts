@@ -35,6 +35,7 @@ import { Subscription } from 'rxjs';
 import { DebounceService } from 'src/app/core/services/debounce.service';
 import { Event } from 'src/app/features/events/models/event';
 import { FormGroup } from '@angular/forms';
+import { Province } from 'src/app/core/models/location.model';
 
 @Component({
   selector: 'app-calendar',
@@ -71,7 +72,13 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
     eventName: '',
     eventLanguage: 'Bilingual',
     eventDescription: '',
-    eventLocation: '',
+    eventLocation: {
+      address: '',
+      postalCode: '',
+      city: '',
+      province: Province.ON,
+      country: 'Canada',
+    },
     eventOnlinePlatform: '',
     eventDuration: 'Single',
     eventStartDate: '',
@@ -333,7 +340,13 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
       eventName: '',
       eventLanguage: 'Bilingual',
       eventDescription: '',
-      eventLocation: '',
+      eventLocation: {
+        address: '',
+        postalCode: '',
+        city: '',
+        province: Province.ON,
+        country: 'Canada',
+      },
       eventOnlinePlatform: '',
       eventDuration: 'Single',
       eventStartDate: '',

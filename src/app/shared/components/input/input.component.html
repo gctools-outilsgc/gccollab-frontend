@@ -66,6 +66,10 @@
       {{ control.errors!['maxlength'].requiredLength }}.
     </mat-error>
 
+    <mat-error *ngIf="control && control.hasError('invalidPostalCode') && !control.hasError('minlength') && !control.hasError('maxlength')">
+      {{ translations.input.error.postalCode | translate }}
+    </mat-error>
+
     <mat-error *ngIf="control && control.hasError('required')"> {{ label }} {{ translations.input.error.required | translate }} </mat-error>
   </mat-form-field>
 </div>
