@@ -1,4 +1,4 @@
-import { ILocationForm } from "src/app/shared/components/location-form/location-form.component";
+import { ILocationForm } from 'src/app/shared/components/location-form/location-form.component';
 
 export class Location implements ILocationForm {
   address: string;
@@ -21,77 +21,77 @@ export class Location implements ILocationForm {
 }
 
 export interface IProvince {
-  titleEn: string,
-  titleFr: string,
-  abbreviation: string
+  titleEn: string;
+  titleFr: string;
+  abbreviation: string;
 }
 
 export const Provinces: IProvince[] = [
   {
     titleEn: 'Alberta',
     titleFr: 'Alberta',
-    abbreviation: 'AB'
+    abbreviation: 'AB',
   },
   {
     titleEn: 'British Columbia',
     titleFr: 'Colombie-Britannique',
-    abbreviation: 'BC'
+    abbreviation: 'BC',
   },
   {
     titleEn: 'Manitoba',
     titleFr: 'Manitoba',
-    abbreviation: 'MB'
+    abbreviation: 'MB',
   },
   {
     titleEn: 'New Brunswick',
     titleFr: 'Nouveau-Brunswick',
-    abbreviation: 'NB'
+    abbreviation: 'NB',
   },
   {
     titleEn: 'Newfoundland and Labrador',
     titleFr: 'Terre-Neuve-et-Labrador',
-    abbreviation: 'NL'
+    abbreviation: 'NL',
   },
   {
     titleEn: 'Northwest Territories',
     titleFr: 'Territoires du Nord-Ouest',
-    abbreviation: 'NT'
+    abbreviation: 'NT',
   },
   {
     titleEn: 'Nova Scotia',
     titleFr: 'Nouvelle-Écosse',
-    abbreviation: 'NS'
+    abbreviation: 'NS',
   },
   {
     titleEn: 'Nunavut',
     titleFr: 'Nunavut',
-    abbreviation: 'NU'
+    abbreviation: 'NU',
   },
   {
     titleEn: 'Ontario',
     titleFr: 'Ontario',
-    abbreviation: 'ON'
+    abbreviation: 'ON',
   },
   {
     titleEn: 'Prince Edward Island',
     titleFr: 'Île-du-Prince-Édouard',
-    abbreviation: 'PE'
+    abbreviation: 'PE',
   },
   {
     titleEn: 'Quebec',
     titleFr: 'Québec',
-    abbreviation: 'QC'
+    abbreviation: 'QC',
   },
   {
     titleEn: 'Saskatchewan',
     titleFr: 'Saskatchewan',
-    abbreviation: 'SK'
+    abbreviation: 'SK',
   },
   {
     titleEn: 'Yukon Territory',
     titleFr: 'Territoire du Yukon',
-    abbreviation: 'YT'
-  }
+    abbreviation: 'YT',
+  },
 ];
 Object.freeze(Provinces);
 

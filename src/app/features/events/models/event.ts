@@ -54,7 +54,13 @@ export class Event {
     event.title = eventForm.eventName;
     event.eventType = eventForm.eventType;
     event.description = eventForm.eventDescription;
-    event.location = new Location(eventForm.eventLocation.address, eventForm.eventLocation.postalCode, eventForm.eventLocation.city, eventForm.eventLocation.province, eventForm.eventLocation.country);
+    event.location = new Location(
+      eventForm.eventLocation.address,
+      eventForm.eventLocation.postalCode,
+      eventForm.eventLocation.city,
+      eventForm.eventLocation.province,
+      eventForm.eventLocation.country
+    );
     event.language = eventForm.eventLanguage;
     event.tags = this.tags;
     event.startDate = new Date([eventForm.eventStartDate, eventForm.eventStartTime].join(' '));
@@ -81,7 +87,13 @@ export class Event {
     event.title = eventForm.eventName;
     event.eventType = eventForm.eventType;
     event.description = eventForm.eventDescription;
-    event.location = new Location(eventForm.eventLocation.address, eventForm.eventLocation.postalCode, eventForm.eventLocation.city, eventForm.eventLocation.province, eventForm.eventLocation.country);
+    event.location = new Location(
+      eventForm.eventLocation.address,
+      eventForm.eventLocation.postalCode,
+      eventForm.eventLocation.city,
+      eventForm.eventLocation.province,
+      eventForm.eventLocation.country
+    );
     event.language = eventForm.eventLanguage;
     event.tags = [''];
     event.startDate = new Date([eventForm.eventStartDate, eventForm.eventStartTime].join(' '));

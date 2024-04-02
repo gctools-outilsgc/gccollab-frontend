@@ -77,7 +77,7 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
       postalCode: '',
       city: '',
       province: Province.ON,
-      country: 'Canada'
+      country: 'Canada',
     },
     eventOnlinePlatform: '',
     eventDuration: 'Single',
@@ -345,7 +345,7 @@ export class CalendarComponent implements OnInit, OnChanges, OnDestroy {
         postalCode: '',
         city: '',
         province: Province.ON,
-        country: 'Canada'
+        country: 'Canada',
       },
       eventOnlinePlatform: '',
       eventDuration: 'Single',
