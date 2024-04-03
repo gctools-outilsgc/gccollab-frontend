@@ -29,7 +29,7 @@
     <!-- Events -->
     <section>
       <app-event-list [model]="events" [isLoading]="loadingEvents" (confirm)="confirmEvent($event)" (decline)="declineEvent($event)"> </app-event-list>
-      <div class="click-for-more">
+      <div class="click-for-more" id="gcc-events-more-events">
         <a routerLink="{{ '/' + routes.Events }}">
           {{ translations.features.home.moreEvents | translate }}
         </a>
