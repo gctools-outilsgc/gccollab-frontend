@@ -1,0 +1,62 @@
+<form id="gcc-form-location" [formGroup]="form">
+  <app-input
+    [value]="model.address"
+    [name]="'address'"
+    formControlName="address"
+    [control]="form.controls['address'] | formControl"
+    [label]="translations.forms.location.address | translate"
+    [placeholder]="translations.forms.placeholder | translate"
+    [autofocus]="true"
+    [required]="true"
+  >
+  </app-input>
+
+  <app-input
+    [value]="model.postalCode"
+    [name]="'postalCode'"
+    formControlName="postalCode"
+    [control]="form.controls['postalCode'] | formControl"
+    [label]="translations.forms.location.postalCode | translate"
+    [placeholder]="translations.forms.placeholder | translate"
+    [required]="true"
+  >
+  </app-input>
+
+  <app-input
+    [value]="model.city"
+    [name]="'city'"
+    formControlName="city"
+    [control]="form.controls['city'] | formControl"
+    [label]="translations.forms.location.city | translate"
+    [placeholder]="translations.forms.placeholder | translate"
+    [required]="true"
+  >
+  </app-input>
+
+  <div class="gcc-form-select">
+    <mat-label>
+      {{ translations.forms.location.province | translate }}
+      <span class="required-star">*</span>
+    </mat-label>
+    <mat-form-field>
+      <mat-select [placeholder]="translations.forms.location.province | translate" [formControl]="form.controls['province'] | formControl" [value]="model.province.abbreviation">
+        @for (prov of provinces; track $index) {
+          <mat-option [value]="prov.abbreviation">
+            {{ translateService.currentLang === 'en' ? prov.titleEn : prov.titleFr }}
+          </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <app-input
+    [value]="model.country"
+    [name]="'country'"
+    formControlName="country"
+    [control]="form.controls['country'] | formControl"
+    [label]="translations.forms.location.country | translate"
+    [placeholder]="translations.forms.placeholder | translate"
+    [required]="true"
+  >
+  </app-input>
+</form>

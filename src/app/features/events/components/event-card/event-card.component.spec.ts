@@ -8,6 +8,7 @@ import { Location } from 'src/app/core/models/location.model';
 import { Person } from 'src/app/core/models/person.model';
 import { Group } from 'src/app/features/groups/models/group';
 import { Event } from '../../models/event';
+import { Province } from 'src/app/core/models/location.model';
 
 describe('EventCardComponent', () => {
   let component: EventCardComponent;
@@ -41,12 +42,12 @@ describe('EventCardComponent', () => {
       title: 'Test Event',
       eventType: 'Hybrid',
       description: 'Test Event Description',
-      location: new Location('123 Main St.', 'Ottawa', 'Ontario'),
+      location: new Location('123 Main St.', 'k2c2c7', 'Ottawa', Province.ON),
       language: 'English',
       tags: [''],
       startDate: new Date(),
       endDate: new Date(),
-      author: new Person('0', 'Shea', 'Dougherty-Gill', 'Web Developer', new Location('123 Main St.', 'Ottawa', 'Ontario')),
+      author: new Person('0', 'Shea', 'Dougherty-Gill', 'Web Developer', new Location('123 Main St.', 'k2c2c7', 'Ottawa', Province.ON)),
       authoredDate: new Date(),
       canceled: false,
       image: '../assets/image/group-banner.png',

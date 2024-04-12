@@ -206,7 +206,8 @@ export default {
             "required": "is required.",
             "email": "Please enter a valid email.",
             "minLength": "Minimum character length is ",
-            "maxLength": "Maximum character length is "
+            "maxLength": "Maximum character length is ",
+            "postalCode": "Please enter a valid postal code."
         }
     },
 	"banner": {
@@ -356,6 +357,13 @@ export default {
             "option": "Option",
             "option_add": "Add an option",
             "option_remove": "Remove option"
+        },
+        "location": {
+            "address": "Address",
+            "postalCode": "Postal Code",
+            "city": "City",
+            "province": "Province",
+            "country": "Country"
         }
     },
     "file_select": {
