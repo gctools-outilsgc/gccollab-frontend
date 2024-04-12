@@ -5,3 +5,4 @@ Feature: Confirmed events button feature
 
     go to the home webpage 
     click the button ConfirmEvent
+    wait for RemoveConfirmationEvent

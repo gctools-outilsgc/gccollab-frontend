@@ -6,4 +6,4 @@ Feature: Rescind declined events button feature
     go to the home webpage 
     click the button DeclineEvent
     click the button RescindDeclinationEvent
-
+    wait for DeclineEvent

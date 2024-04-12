@@ -5,3 +5,4 @@ Feature: Declined events button feature
 
     go to the home webpage 
     click the button DeclineEvent
+    wait for RescindDeclinationEvent
