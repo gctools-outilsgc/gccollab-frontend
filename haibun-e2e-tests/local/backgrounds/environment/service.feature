@@ -7,3 +7,4 @@ Set statistics to http://localhost:4200/stats
 Set terms to http://localhost:4200/terms
 Set events to http://localhost:4200/events
 Set eventsdescription to http://localhost:4200/events/0
+Set connections to http://localhost:4200/connections
