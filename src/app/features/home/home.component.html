@@ -40,7 +40,7 @@
     <section>
       <app-profile-list [model]="people" [isLoading]="loadingPeople" (confirm)="confirmConnection($event)" (decline)="declineConnection($event)"> </app-profile-list>
 
-      <div class="click-for-more">
+      <div class="click-for-more" id="gcc-connections-more-connections">
         <a routerLink="{{ '/' + routes.Profile }}">
           {{ translations.features.home.moreConnections | translate }}
         </a>
