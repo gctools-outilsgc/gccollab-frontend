@@ -50,16 +50,14 @@ jobs:
         run: |
           npx -y wait-on --log --timeout 30000 http-get://localhost:4200
 
-      - name: playwright install
-        run: |
-          npx playwright install-deps
-          npx playwright install
-
       - name: Run tests
         continue-on-error: true
         run: |
           cd haibun-e2e-tests
           npm ci
+          npx playwright install-deps
+          npx playwright install
+
           HAIBUN_O_WEBPLAYWRIGHT_HEADLESS=true npm run test
 
       - name: Publish
